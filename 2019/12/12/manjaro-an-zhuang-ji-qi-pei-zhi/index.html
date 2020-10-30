@@ -466,14 +466,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-20
+                    2020-10-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.3k
+                    7.4k
                 </div>
                 
 
@@ -544,7 +544,6 @@
 <p>evtest：Input device event monitor and query tool</p>
 <p>fzf：Command-line fuzzy finder</p>
 <p>feh：Fast and light imlib2-based image viewer</p>
-<p>goldendict：Feature-rich dictionary lookup program</p>
 <p>telegram-desktop：Official Telegram Desktop client </p>
 <p>highlight：Fast and flexible source code highlighter (CLI version)</p>
 <p>iease-music：Elegant neteaseMusic desktop app, Rock with NeteaseMusic.</p>
@@ -577,6 +576,21 @@
 <p>atool</p>
 <p>xdman：下载软件</p>
 <p>lolcat：终端文本渐变色</p>
+<p>strace:追踪进程进行时的系统调用和接收的信号</p>
+<h5 id="Goldendict"><a href="#Goldendict" class="headerlink" title="Goldendict"></a>Goldendict</h5><p>Feature-rich dictionary lookup program</p>
+<p>可以添加自己的词库</p>
+<p>设置程序翻译：</p>
+<ol>
+<li><p>sudo pacman -S translate-shell</p>
+</li>
+<li><p>编辑-&gt;词典-&gt;词典来源-&gt;程序-&gt;添加</p>
+<pre class="line-numbers language-xml"><code class="language-xml">#  Trans-2-Chinese
+trans -e google -s auto -t zh-CN -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n “%GDWORD%”
+
+# Trans-2-English
+trans -e google -s auto -t en-US -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n “%GDWORD%”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
 <h5 id="Alacritty"><a href="#Alacritty" class="headerlink" title="Alacritty"></a>Alacritty</h5><p>一款GPU实时渲染的终端</p>
 <p>配置文件在<code>.config/alacritty/alacritty.yml</code>。</p>
 <p>可以使用<code>fc-list</code>查看已安装的字体。</p>
@@ -2440,12 +2454,14 @@ sudo pacman -S texlive-most<span aria-hidden="true" class="line-numbers-rows"><s
 <p><code>archlinux-java status</code>查看当前使用的JDK版本</p>
 <p>easyconnect: yay easyconnect</p>
 <p>burpsuite: yay burpsuite</p>
-<p>gotop：</p>
+<p>gotop：一款命令行查看系统使用状况</p>
+<p>bashtop:同上</p>
 <p>termius：多平台终端软件</p>
 <p>yay -S picgo-appimage:picgo图片上传工具</p>
 <p><a target="_blank" rel="noopener" href="https://www.archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/"> zathura-pdf-mupdf</a>：zathura的pdf支持插件</p>
 <p>the_silver_searcher：</p>
-<h4 id="Appimage形式存在的软件"><a href="#Appimage形式存在的软件" class="headerlink" title="Appimage形式存在的软件"></a>Appimage形式存在的软件</h4><p>pdman</p>
+<p>touchegg：触控板程序，创建开机自启可以使用”/usr/bin/touchegg –daemon &amp; /usr/bin/touchegg –client”</p>
+<h4 id="Appimage形式存在的软件"><a href="#Appimage形式存在的软件" class="headerlink" title="Appimage形式存在的软件"></a>Appimage形式存在的软件</h4><p>pdman：数据库设计软件</p>
 <hr>
 <h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><h4 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h4><p><strong>Http代理</strong></p>
 <pre class="line-numbers language-shell"><code class="language-shell">export http_proxy="http://localhost:port"
@@ -2952,7 +2968,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">76.9k</span>&nbsp;字
+                class="white-color">78.5k</span>&nbsp;字
             
             
             
