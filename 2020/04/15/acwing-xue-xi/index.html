@@ -467,7 +467,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-02
+                    2020-11-01
                 </div>
                 
 
@@ -514,7 +514,7 @@
 <li>Scanner输入的一个问题：在Scanner类中如果我们在任何7个nextXXX()方法之后调用nextLine()方法，这nextLine()方法不能够从控制台读取任何内容，并且，这游标不会进入控制台，它将跳过这一步。nextXXX()方法包括nextInt()，nextFloat()， nextByte()，nextShort()，nextDouble()，nextLong()，next()。在BufferReader类中就没有那种问题。这种问题仅仅出现在Scanner类中，由于nextXXX()方法忽略换行符，但是nextLine()并不忽略它。如果我们在nextXXX()方法和nextLine()方法之间使用超过一个以上的nextLine()方法，这个问题将不会出现了；因为nextLine()把换行符消耗了。</li>
 </ul>
 <h3 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h3><p>通俗地讲就是能保证排序前两个相等的数据其在序列中的先后位置顺序与排序后它们两个先后位置顺序相同。即：如，如果$A_i==A_j$，$A_i$原来在$A_j$位置前，排序后$A_i$仍然是在$A_j$位置前。</p>
-<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>基本流程：</p>
+<h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>基本流程：</p>
 <ol>
 <li>确定分界点：通常随机选取q[l],q[(l+r)/2],q[r]</li>
 <li><strong>调整区间，左边区间$\leq x$，右边区间$\geq x$。</strong></li>
@@ -535,7 +535,7 @@ void quick_sort(int n[], int l, int r) {
     while (i < j) {
         do i++; while (n[i] < x);
         do j--; while (n[j] > x);
-        if (i < j) std::swap(q[i], q[j]);
+        if (i < j) std::swap(n[i], n[j]);
     }
     quick_sort(n, l, j);
     quick_sort(n, j + 1, r);
@@ -555,7 +555,7 @@ void quick_sort(int n[], int l, int r) {
     quick_sort(n, i, r);
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><del>要是觉得快排是不稳定的算法，可以将所有元素都变成二元组。这样每个元素都是不一样的了，就不涉及稳不稳定的问题了。</del>归并排序是稳定的。</p>
-<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>基本流程：</p>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>基本流程：</p>
 <ol>
 <li>确定分界点：mid=(l+r)/2</li>
 <li>递归排序左右区间</li>
@@ -584,7 +584,7 @@ void merge_sort(int p[], int l, int r) {
         p[i] = temp[j];
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="逆序对的数量"><a href="#逆序对的数量" class="headerlink" title="逆序对的数量"></a>逆序对的数量</h3><p>最直接的方法的时间复杂度是$O(n^2)$，可以使用归并排序计算逆序对数量。</p>
+<h4 id="逆序对的数量"><a href="#逆序对的数量" class="headerlink" title="逆序对的数量"></a>逆序对的数量</h4><p>最直接的方法的时间复杂度是$O(n^2)$，可以使用归并排序计算逆序对数量。</p>
 <p>$逆序对数量=左区间的逆序对数量+右区间的逆序对数量+合并部分的逆序对数量$</p>
 <p>若i是左区间的遍历索引，j为右区间的遍历索引。当数组[i]大于[j]时，此时逆序对数量为$mid-i+1$。进行累加即可。</p>
 <p>对于测试数量级较大时，逆序对数量用long long 比较好。</p>
@@ -620,8 +620,8 @@ int main(){
     //for(int i=0;i < n;i++) printf("%d ",q[i]);
     printf("%ld",x);
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h2><p><strong>二分的本质不是单调性，有单调性一定可以二分，但是没单调性也不一定不能使用二分。</strong></p>
-<h3 id="整数二分"><a href="#整数二分" class="headerlink" title="整数二分"></a>整数二分</h3><p>将一个域划分为两个相反区间。</p>
+<h3 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h3><p><strong>二分的本质不是单调性，有单调性一定可以二分，但是没单调性也不一定不能使用二分。</strong></p>
+<h4 id="整数二分"><a href="#整数二分" class="headerlink" title="整数二分"></a>整数二分</h4><p>将一个域划分为两个相反区间。</p>
 <p>整数二分中没有交点。</p>
 <ul>
 <li><p>区间[l,r]被划分为[l,mid]和[mid+1,r]</p>
@@ -678,7 +678,7 @@ int main() {
     }
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="浮点数二分"><a href="#浮点数二分" class="headerlink" title="浮点数二分"></a>浮点数二分</h3><p>浮点数二分不需要处理边界，所以相对简单。</p>
+<h4 id="浮点数二分"><a href="#浮点数二分" class="headerlink" title="浮点数二分"></a>浮点数二分</h4><p>浮点数二分不需要处理边界，所以相对简单。</p>
 <p>下面是一个开方的函数,就是利用了浮点数的二分.如果精度要求是四位小数le-6,五位精度le-7类推.</p>
 <pre class="line-numbers language-c++"><code class="language-c++">int kaifang(double x) {
     double l = 0, r = x;
@@ -706,7 +706,7 @@ int main(){
     printf("%.6lf",l);
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="大整数计算"><a href="#大整数计算" class="headerlink" title="大整数计算"></a>大整数计算</h2><h3 id="两数相加"><a href="#两数相加" class="headerlink" title="两数相加"></a>两数相加</h3><pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
+<h3 id="大整数计算"><a href="#大整数计算" class="headerlink" title="大整数计算"></a>大整数计算</h3><h4 id="两数相加"><a href="#两数相加" class="headerlink" title="两数相加"></a>两数相加</h4><pre class="line-numbers language-c++"><code class="language-c++">#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -735,7 +735,8 @@ int main(){
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这个算法的第零位存放的是数字的个位。</p>
-<h3 id="两数相减"><a href="#两数相减" class="headerlink" title="两数相减"></a>两数相减</h3><pre class="line-numbers language-c++"><code class="language-c++">void trimZero(vector<int> &A){
+<h4 id="两数相减"><a href="#两数相减" class="headerlink" title="两数相减"></a>两数相减</h4><pre class="line-numbers language-c++"><code class="language-c++">//当结果的位数>1时，去掉结果高位的无用0
+void trimZero(vector<int> &A){
     while (A.back()==0&&A.size()>1) A.pop_back();
 }
 //C=A-B
@@ -752,8 +753,6 @@ vector<int> sub(vector<int> &A,vector<int> &B){
     trimZero(C);
     return C;
 }
-
-
 
 //是否A>=b
 bool cmp(vector<int> &A,vector<int> &B){
@@ -781,7 +780,7 @@ int main(){
     }
     for(int i=C.size()-1;i>=0;i--) printf("%d",C[i]);
     return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这个算法需要注意要去除多余的0。</p>
 
             </div>
@@ -1212,7 +1211,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">78.5k</span>&nbsp;字
+                class="white-color">78.6k</span>&nbsp;字
             
             
             
