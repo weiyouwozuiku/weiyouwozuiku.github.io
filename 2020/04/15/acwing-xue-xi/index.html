@@ -467,7 +467,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-01
+                    2020-11-05
                 </div>
                 
 
@@ -782,6 +782,74 @@ int main(){
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这个算法需要注意要去除多余的0。</p>
+<h4 id="两数相乘"><a href="#两数相乘" class="headerlink" title="两数相乘"></a>两数相乘</h4><pre class="line-numbers language-c++"><code class="language-c++">//A是大正整数，B是相对小的正整数(直接定义为int型)
+vector<int> mul(vector<int> &A,int B){
+        vector<int> C;
+        int t=0;
+        for (int i = 0; i < A.size()||t; ++i) {
+            t+=A[i]*B;
+            C.push_back(t%10);
+            t/=10;
+        }
+        while(C.back()==0&&C.size()>1) C.pop_back();
+        return C;
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="两数相除"><a href="#两数相除" class="headerlink" title="两数相除"></a>两数相除</h4><pre class="line-numbers language-c++"><code class="language-c++">#include <algorithm>
+//A是被除数，B是除数，C是商，r是余数。注意这里的r需要被调用，记得加引用
+vector<int> div(vector<int> &A, int B, int &r) {
+    vector<int> C;
+    r = 0;
+    for (int i = A.size() - 1; i >= 0; --i) {
+        r = r * 10 + A[i];
+        C.push_back(r / B);
+        r = r % B;
+    }
+    reverse(C.begin(), C.end());
+    while (C.back() == 0 && C.size() > 1)C.pop_back();
+    return C;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="前缀与差分"><a href="#前缀与差分" class="headerlink" title="前缀与差分"></a>前缀与差分</h3><h5 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h5><p><strong>a[]和s[]数组的第0位都放0，之后进行存储运算从第1位开始。这样在进行计算s[]的时候可以直接用-1</strong></p>
+<p>前缀和与差分是逆运算。</p>
+<p>差分与前缀和可以使得一个数组区间加减一个数的时间复杂度从$O(n)$降低至$O(1)$。</p>
+<h6 id="一维前缀和"><a href="#一维前缀和" class="headerlink" title="一维前缀和"></a>一维前缀和</h6><p>int a[N],s[N]，其中a[i]表示真实数组中第i个元素的值，s[N]表示前i个元素的和。前缀和公式为$s=s[r]-s[l-1]$。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int main(){
+    ios::sync_with_stdio(false);
+    scanf("%d%d",&n,&m);
+    for (int i = 1; i <=n ; ++i) {
+        scanf("%d",&a[i]);
+    }
+    for (int i = 0; i <= n; ++i) {
+        s[i]=s[i-1]+a[i];
+    }
+    while (m--){
+        int l,r;
+        scanf("%d%d",&l,&r);
+        printf("%d\n",s[r]-s[l-1]);
+    }
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h6 id="二维前缀和"><a href="#二维前缀和" class="headerlink" title="二维前缀和"></a>二维前缀和</h6><p>结构原理同上，公式为$s=s[x_2][y_2]-s[x_1-1][y_2]-s[x_2][y_1-1]+s[x_1-1][y_1-1]$和$s[i][j]=s[i-1][j]+s[i][j-1]-s[i-1][j-1]+a[i][j]$。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">int main() {
+    ios::sync_with_stdio(false);
+
+    scanf("%d%d%d", &n, &m, &q);
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m; ++j) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m; ++j) {
+            s[i][j]=s[i-1][j]+s[i][j-1]-s[i-1][j-1]+a[i][j];
+        }
+    }
+    while (q--){
+        int x1,y1,x2,y2;
+        scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
+        printf("%d\n",s[x2][y2]-s[x1-1][y2]-s[x2][y1-1]+s[x1-1][y1-1]);
+    }
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
