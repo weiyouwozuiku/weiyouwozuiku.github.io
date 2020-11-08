@@ -467,7 +467,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-07
+                    2020-11-08
                 </div>
                 
 
@@ -924,6 +924,49 @@ int main() {
     }
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="双指针算法"><a href="#双指针算法" class="headerlink" title="双指针算法"></a>双指针算法</h3><p>双指针算法的核心是将朴素算法中的两层及其以上的嵌套循环优化到O(n)。</p>
+<p>双指针的模板的大都类似这样：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">for(int i=0,j=0;i<n;i++){
+    while(j<i&&check(i,j))j++;
+    //每道题目的具体逻辑
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在<code>最长连续不重复子序列</code>中朴素的算法如下：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">for (int i=0;i<n;i++){
+    for(int j=0;j<=i;j++){
+        if(check(j,i)){
+            res=max(res,j-i+1);
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这种算法的时间复杂度在$O(n^2)$。</p>
+<p>采用双指针算法时间复杂度能降低至$O(n+n)=O(2n)=O(n)$。</p>
+<pre class="line-numbers language-c++"><code class="language-c++">for(int i=0,j=0;i<=n;i++){
+    while(j<=i&&check(j,i)) j++;
+    res=max(res,j-i+1);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里i是终点，j是往右最远的距离就是答案。本题中j的移动是单调的。</p>
+<p>下面是双指针实现的最长连续不重复子序列：</p>
+<pre class="line-numbers language-c++"><code class="language-c++">const int N=100010;
+int a[N],b[N];
+
+int main(){
+    int n;
+    int ans=0;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    for(int i=0,j=0;i<n;i++){
+        b[a[i]]++;
+        while(b[a[i]]>1){
+            b[a[j]]--;
+            j++;
+        }
+        ans=max(ans,i-j+1);
+    }
+    printf("%d",ans);
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
