@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title>C++复习笔记</title>
+      <link href="2020/11/10/cpp-fu-xi-bi-ji/"/>
+      <url>2020/11/10/cpp-fu-xi-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<p>本文为自己复习C++时知识的补充与记录。</p><hr><p>字符常量：括在<code>单引号</code>中。如果常量以L（仅当大写）开头，则表示它是一个宽字符常量(例如L’x’)，此时必须被存储在<code>wchar_t</code>类型的变量中。否则就是一个窄字符变量。</p><p>sizeof运算符返回变量的大小。</p><p>逗号运算符会顺序执行一系列运算。整个逗号表达式的值是以逗号分隔的列表中的最后一个表达式的值。</p><p>补码范围：</p><table><thead><tr><th>数</th><th>8</th><th>16</th><th>32</th></tr></thead><tbody><tr><td>$UMax_w$</td><td>0xFF<br>255</td><td>0xFFFF<br>65535</td><td>0xFFFFFFFF<br>4294967295</td></tr><tr><td>$TMin_w$</td><td>0x80<br>-128</td><td>0x8000<br>-32768</td><td>0x80000000<br>-2147483648</td></tr><tr><td>$TMax_w$</td><td>0x7F<br>127</td><td>0x7FFF<br>32767</td><td>0x7FFFFFFF<br>2147483647</td></tr><tr><td>-1<br>0</td><td>0xFF<br>0x00</td><td>0xFFFF<br>0x0000</td><td>0xFFFFFFFF<br>0x00000000</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode刷题记录</title>
+      <link href="2020/11/10/leetcode-shua-ti-ji-lu/"/>
+      <url>2020/11/10/leetcode-shua-ti-ji-lu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录本人刷Leetcode过程的收获和代码。语言选择C++。</p><h2 id="1～100"><a href="#1～100" class="headerlink" title="1～100"></a>1～100</h2><h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1 两数之和"></a>1 两数之和</h3><pre class="line-numbers language-c++"><code class="language-c++">class Solution {public:    vector<int> twoSum(vector<int>& nums, int target) {        unordered_map<int,int> heap;        int r;        for(int i=0;i<nums.size();i++){            r=target-nums[i];            //heap.count(key)返回的是key的下标            if(heap.count(r)) return {heap[r],i};            else{heap[nums[i]]=i;}        }        //防止报错        return {};    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java基础</title>
       <link href="2020/10/28/java-ji-chu/"/>
       <url>2020/10/28/java-ji-chu/</url>
