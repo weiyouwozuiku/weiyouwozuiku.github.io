@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-10
+                    2020-11-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    163
+                    594
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -532,6 +532,49 @@
 <td>0xFFFFFFFF<br>0x00000000</td>
 </tr>
 </tbody></table>
+<p><strong>对有符号数，仅不要使用右移运算，因为到底是逻辑右移还是算术右移取决于编译器。</strong></p>
+<p>对于二维数组的循环，尽管可以按照列进行遍历，但是不推荐。<strong>循环时尽可能满足“空间局部性”</strong>:</p>
+<ol>
+<li>在一个小的时间窗口内，访问的变量地址越接近越好，这样执行速度快。</li>
+<li>一般来说，需要将最长的循环放在最内层，最短的循环放在最外层，以减少CPU跨切循环层的次数。</li>
+</ol>
+<p><code>vector</code>是面向对象方式的动态数组。可以使用<code>capacity</code>和<code>size</code>方法来查看vector当前的容量和已经存储的元素个数。<code>insert</code>方法两个参数，第一个是位置的指针，第二个是插入的值。<code>pop_back()</code>从尾部删除，<code>push_back()</code>从尾部插入元素，<code>erase()</code>一个参数，删除元素的指针位置。**<code>end()</code>返回的是vector最后一个元素之后的位置，操作时注意是否-1。**</p>
+<p>字符串是以空字符<code>\0</code>结束的字符数组。</p>
+<table>
+<thead>
+<tr>
+<th align="center">二进制</th>
+<th align="center">十进制</th>
+<th align="center">对应字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0x41</td>
+<td align="center">65</td>
+<td align="center">A</td>
+</tr>
+<tr>
+<td align="center">0x61</td>
+<td align="center">97</td>
+<td align="center">a</td>
+</tr>
+<tr>
+<td align="center">0x30</td>
+<td align="center">48</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">0x7F</td>
+<td align="center">127</td>
+<td align="center">DEL</td>
+</tr>
+</tbody></table>
+<p>为了表示Unicode字符集，有三种Unicode的编码方式：</p>
+<ul>
+<li>UTF-8：1byte来表示字符，兼容ASCII码。特点存储效率高，变长(不方便内部随机访问)，无字节序问题(可作为外部编码)</li>
+<li>UTF-16：分为UTF-16BE(big endian),UTF-16LE(little endian)。特点定长(方便内部随机访问)，有字节序问题(不可作为外部编码)</li>
+<li>UTF-32：分为UTF-32BE(big endian),UTF-32LE(little endian)。特点定长(方便内部随机访问)，有字节序问题(不可作为外部编码)</li>
+</ul>
 
             </div>
             <hr/>
@@ -967,7 +1010,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">78.8k</span>&nbsp;字
+                class="white-color">79.2k</span>&nbsp;字
             
             
             
