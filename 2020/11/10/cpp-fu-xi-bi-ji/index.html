@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-11
+                    2020-11-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    594
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -494,7 +494,6 @@
             <div id="articleContent">
                 <p>本文为自己复习C++时知识的补充与记录。</p>
 <hr>
-<p>字符常量：括在<code>单引号</code>中。如果常量以L（仅当大写）开头，则表示它是一个宽字符常量(例如L’x’)，此时必须被存储在<code>wchar_t</code>类型的变量中。否则就是一个窄字符变量。</p>
 <p>sizeof运算符返回变量的大小。</p>
 <p>逗号运算符会顺序执行一系列运算。整个逗号表达式的值是以逗号分隔的列表中的最后一个表达式的值。</p>
 <p>补码范围：</p>
@@ -539,6 +538,8 @@
 <li>一般来说，需要将最长的循环放在最内层，最短的循环放在最外层，以减少CPU跨切循环层的次数。</li>
 </ol>
 <p><code>vector</code>是面向对象方式的动态数组。可以使用<code>capacity</code>和<code>size</code>方法来查看vector当前的容量和已经存储的元素个数。<code>insert</code>方法两个参数，第一个是位置的指针，第二个是插入的值。<code>pop_back()</code>从尾部删除，<code>push_back()</code>从尾部插入元素，<code>erase()</code>一个参数，删除元素的指针位置。**<code>end()</code>返回的是vector最后一个元素之后的位置，操作时注意是否-1。**</p>
+<hr>
+<h3 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h3><p>字符常量：括在<code>单引号</code>中。如果常量以L（仅当大写）开头，则表示它是一个宽字符常量(例如L’x’)，此时必须被存储在<code>wchar_t</code>类型的变量中。否则就是一个窄字符变量。</p>
 <p>字符串是以空字符<code>\0</code>结束的字符数组。</p>
 <table>
 <thead>
@@ -575,6 +576,100 @@
 <li>UTF-16：分为UTF-16BE(big endian),UTF-16LE(little endian)。特点定长(方便内部随机访问)，有字节序问题(不可作为外部编码)</li>
 <li>UTF-32：分为UTF-32BE(big endian),UTF-32LE(little endian)。特点定长(方便内部随机访问)，有字节序问题(不可作为外部编码)</li>
 </ul>
+<h4 id="stdio"><a href="#stdio" class="headerlink" title="stdio"></a>stdio</h4><p>字符串常见操作：</p>
+<ul>
+<li>字符串长度:strlen(s)，不包括<code>\0</code>。</li>
+<li>字符串比较:strcmp(s1,s2),相同返回0，s1&lt;s2返回值小于0，s1&gt;s2返回值大于0。按照ASCII码进行比较。</li>
+<li>字符串拷贝:strcpy(s1,s2)，字符串s2复制到s1中。</li>
+<li>复制指定长度字符串:strncpy(s1,s2,n)。将字符串s2中前n个字符拷贝到s1中。</li>
+<li>字符串拼接:strcat(s1,s2)。将字符串s2接到s1后面。</li>
+<li>查找字符串:strchr(s1,ch)。指向字符串s1中字符ch的第一次出现的位置。</li>
+<li>查找字符串strstr(s1,s2)。指向字符串s2的第一次出现的位置。</li>
+</ul>
+<p>推荐使用strnlen_s,strcpy_s,strncpy_s,strcat_s等API函数，更安全。</p>
+<p>在进行底层代码安全性测试的时候需要加上<code>CRT_SECURE_NO_WARNINGS</code>让编译器忽略错误。</p>
+<h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><p>获得字符串长度：<code>s.length</code>或<code>s.size()</code>二者等价。<code>s.capacity()</code>查看字符串总空间。</p>
+<p>转换为C风格的字符串使用如下代码：</p>
+<pre class="line-numbers language-C++"><code class="language-C++">const char *c_str = s1.c_str();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p><code>const</code>和<code>*</code>修饰的部分：1.先看左侧最近的部分;2.如果左侧没有，则看右侧。</p>
+<p><code>*</code>操作符具有从右往左的结合性。<code>**</code>这个表达式相当于<code>*(*c)</code>，必须从里向外逐层求值。 </p>
+<h4 id="野指针"><a href="#野指针" class="headerlink" title="野指针"></a>野指针</h4><p>直接使用未初始化或非法指针，可能发生两种情况：<strong>1.定位到非法地址，程序出错，从而终止。2.定位到一个可以访问的地址，无意修改了它，这样的错误难以捕捉，引发的错误可能与原先用于操作的代码完全不相干！</strong></p>
+<p>用指针进行间接访问之前，一定要非常小心，<strong>确保它已经初始化，并被恰当的赋值。</strong></p>
+<p>对于一个指针，如果已经知道将被初始化为什么地址，那么请赋值给它，否则请将它<strong>设置为NULL</strong>。</p>
+<p>在对一个指针进行间接引用前，请先判断这个指针的值是否为NULL。</p>
+<p>野指针是指向”垃圾”内存的指针。if判断对它们不起作用，因为没有置NULL。一般有三种情况：</p>
+<ol>
+<li>指针变量没有初始化;</li>
+<li>已经释放不用的指针没有置NULL,如delete和free之后的指针；</li>
+<li>指针操作超越了变量的作用范围;</li>
+</ol>
+<p>没有初始化的，不用的或者超出范围的指针请置为NULL。</p>
+<p>编译器程序分解成符号的方法是：一个字符一个字符的读入，一直到读入的字符不再能组成一个有意义的符号。这个处理过程称为”贪心法”。</p>
+<p>栈内分配内存从高地址向低地址分配，堆区分配内存是从低地址到高地址。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_Cpp%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png"></p>
+<p>主流的编程语言中，C++是唯一一个依赖RAII(Resource Acquisition Is Initialization)来做资源管理的。</p>
+<p>RAII依托栈和析构函数，来对所有资源——包括堆内存在内进行管理。对RAII的使用，使得C++不需要类似于Java那样的垃圾收集方法，也能有效的对内存进行管理。RAII的存在，也是垃圾收集虽然理论上可以在C++使用，但从来没有真正流行的原因。</p>
+<p>RAII有些比较成熟的智能指针代表：如<code>std:auto_ptr</code>和<code>boost:shared_ptr</code>。</p>
+<p>栈和堆中变量对比：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>stack</th>
+<th>heap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作用域</td>
+<td>函数体内，语句块{}作用域</td>
+<td>整个程序范围内，由new,malloc开始，delete,free结束</td>
+</tr>
+<tr>
+<td>编译期大小确定</td>
+<td>变量大小范围确定</td>
+<td>变量大小范围不确定，需要在运行期确定</td>
+</tr>
+<tr>
+<td>大小范围</td>
+<td>Windows系统默认栈大小是1M,linux常见的默认的栈大小是8M或10M(通过ulimit -s查看，不同的linux发行版本不保证相同)Manjaro就是8M</td>
+<td>所有系统的堆空间上限是接近内存(虚拟内存)的总大小的(一部分被OS占用)</td>
+</tr>
+<tr>
+<td>内存分配方式</td>
+<td>地址由高到低减少</td>
+<td>地址由低到高增加</td>
+</tr>
+<tr>
+<td>内容是否可变</td>
+<td>可变</td>
+<td>可变</td>
+</tr>
+</tbody></table>
+<p>全局静态存储区和常量存储区的变量对比：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>全局静态存储区</th>
+<th>常量存储区</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>存储内容</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 
             </div>
             <hr/>
@@ -1010,7 +1105,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">79.2k</span>&nbsp;字
+                class="white-color">80.3k</span>&nbsp;字
             
             
             
