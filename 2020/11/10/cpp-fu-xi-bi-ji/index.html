@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    8 分
                 </div>
                 
 
@@ -656,20 +656,50 @@
 </thead>
 <tbody><tr>
 <td>存储内容</td>
-<td></td>
-<td></td>
+<td>全局变量</td>
+<td>常量</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td>编译期间大小是否确定</td>
+<td>确定</td>
+<td>确定</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<td>内容是否可变</td>
+<td>可变</td>
+<td>不可变</td>
 </tr>
 </tbody></table>
+<h4 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>内存泄漏指程序中已动态分配的堆内存由于某种原因程序未释放或无法释放造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。</p>
+<h5 id="发生原因和排查方式"><a href="#发生原因和排查方式" class="headerlink" title="发生原因和排查方式"></a>发生原因和排查方式</h5><ol>
+<li>内存泄漏主要发生在堆内存分配方式中，即“配置了内存后，所有指向该内存的指针都遗失了”。若缺乏语言这样的gc机制，这样的内存片就无法归还系统。</li>
+<li>因为内存泄漏属于程序运行中的问题，无法通过编译识别，所以只能在程序运行过程中来识别和诊断。</li>
+</ol>
+<h3 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h3><p> <strong>C++11之后对空指针的判断推荐使用nullter，避免NULL的二义性。</strong></p>
+<p><code>unique_ptr</code>、<code>shared_ptr</code>、<code>weak_ptr</code>和C++11中已经废弃的<code>auto_ptr</code>，在C++17中被正式删除。需要导入头文件<code>&lt;memory&gt;</code></p>
+<h4 id="auto-ptr-不推荐使用"><a href="#auto-ptr-不推荐使用" class="headerlink" title="auto_ptr(不推荐使用)"></a>auto_ptr(不推荐使用)</h4><p>由new expression获得对象，在auto_ptr对象销毁时，他所管理的对象也会自动被delete掉。</p>
+<p>所有权转移：不小心把它传递给另外的智能指针，原本的指针就不再拥有这个对象了。在拷贝/赋值过程中，会直接剥夺指针对原对象对内存的控制权，转交给新对象，然后再将原对象指针置为nullptr。</p>
+<p><strong>当拷贝/赋值时发生所有权转移，再次访问原对象时程序就会报错。</strong></p>
+<h4 id="unique-ptr"><a href="#unique-ptr" class="headerlink" title="unique_ptr"></a>unique_ptr</h4><p>unique_ptr是专属所有权，所以uniqure_ptr管理的内存，只能被一个对象持有，不支持复制和赋值。</p>
+<p>移动语义：unique_ptr禁止了拷贝语义，但有时我们也需要能够转移所有权，于是提供了移动语义，即可以使用std::move()进行控制所有权的转移。</p>
+<p>语法: std::make_unique<int>(10)或unique_ptr<int>(new int(10))</int></int></p>
+<h4 id="shared-ptr"><a href="#shared-ptr" class="headerlink" title="shared_ptr"></a>shared_ptr</h4><p>shared_ptr通过一个引用计数共享一个对象，代表的是共享所有权，即多个shared_ptr可以共享同一块内存。</p>
+<p>shared_ptr是为了解决auto_ptr在对象所有权上的局限性，在使用引用计数的机制上提供了可以共享所有权的智能指针，当然这需要额外的开销。当引用计数为0时，该对象没有被使用，可以进行析构。</p>
+<p>但是可能存在一些问题：</p>
+<ul>
+<li><p>循环引用:引用计数会带来循环引用的问题</p>
+<p>循环引用会导致堆里的内存无法被正常回收，造成内存泄漏。</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98.png"></p>
+<h4 id="weak-ptr"><a href="#weak-ptr" class="headerlink" title="weak_ptr"></a>weak_ptr</h4><p>weak_ptr被设计为与shared_ptr共同工作，用一种观察者模式工作。</p>
+<p>作用是协助shared_ptr工作，可获得资源的观测权，像旁观者那样观测资源的使用情况。观察者意味着weak_ptr只对shared_ptr进行引用，而不改变其引用计数，当被观察的shared_ptr失效后，相应的weak_ptr也相应失效。</p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>使用引用的优点：</p>
+<ol>
+<li>不存在空引用，避免了空指针的出现。</li>
+<li>必须初始化，避免了野指针的出现。</li>
+<li>一个引用必须永远指向它初始化的那个对象</li>
+</ol>
 
             </div>
             <hr/>
@@ -1105,7 +1135,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.3k</span>&nbsp;字
+                class="white-color">81.1k</span>&nbsp;字
             
             
             
