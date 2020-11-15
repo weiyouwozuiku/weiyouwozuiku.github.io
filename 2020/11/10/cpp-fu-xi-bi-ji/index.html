@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    10 分
                 </div>
                 
 
@@ -590,7 +590,7 @@
 <p>在进行底层代码安全性测试的时候需要加上<code>CRT_SECURE_NO_WARNINGS</code>让编译器忽略错误。</p>
 <h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><p>获得字符串长度：<code>s.length</code>或<code>s.size()</code>二者等价。<code>s.capacity()</code>查看字符串总空间。</p>
 <p>转换为C风格的字符串使用如下代码：</p>
-<pre class="line-numbers language-C++"><code class="language-C++">const char *c_str = s1.c_str();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-Cpp"><code class="language-Cpp">const char *c_str = s1.c_str();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p><code>const</code>和<code>*</code>修饰的部分：1.先看左侧最近的部分;2.如果左侧没有，则看右侧。</p>
 <p><code>*</code>操作符具有从右往左的结合性。<code>**</code>这个表达式相当于<code>*(*c)</code>，必须从里向外逐层求值。 </p>
 <h4 id="野指针"><a href="#野指针" class="headerlink" title="野指针"></a>野指针</h4><p>直接使用未初始化或非法指针，可能发生两种情况：<strong>1.定位到非法地址，程序出错，从而终止。2.定位到一个可以访问的地址，无意修改了它，这样的错误难以捕捉，引发的错误可能与原先用于操作的代码完全不相干！</strong></p>
@@ -702,6 +702,55 @@
 </ol>
 <p><strong>有了指针为什么还需要引用？</strong>为了支持函数运算符重载。</p>
 <p>**有了引用为什么还需要指针?**为了兼容C语言。</p>
+<h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><p>switch分支与if分支比较：</p>
+<p>使用场景：</p>
+<ol>
+<li>switch只支持尺量值固定相等的分支判断;</li>
+<li>if还可以判断区间范围;</li>
+<li>用switch能做的，用if都能做，但反过来则不行;</li>
+</ol>
+<p>性能比较：</p>
+<ol>
+<li>分支少时，差别不是很大;分支多时，switch性能较高;</li>
+<li>if开始几个分支效果高，之后效率递减;</li>
+<li>switch所有case的速度几乎一样;</li>
+</ol>
+<h3 id="自定义结构"><a href="#自定义结构" class="headerlink" title="自定义结构"></a>自定义结构</h3><h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><p>使用<code>#define</code>和<code>const</code>创建符号变量，使用<code>enum</code>不仅能够创建符号常量，还能定义新的数据类型。</p>
+<p>枚举类型enum(enumeration)的声明和定义：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">enum</span> wT<span class="token punctuation">{</span>Monday<span class="token punctuation">,</span>Tuesday<span class="token punctuation">,</span>Wednesday<span class="token punctuation">,</span>Thursday<span class="token punctuation">,</span>Friday<span class="token punctuation">,</span>Saturday<span class="token punctuation">,</span>Sunday<span class="token punctuation">}</span><span class="token punctuation">;</span>
+wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h4><p>使用<code>struct</code>定义</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp">strcut Student<span class="token punctuation">{</span>
+    <span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>结构体的内存布局需要综合考虑CPU的位数和当前结构体中最大的类型所占空间。不同的结构体中数据的排序也会导致结构体占用空间的不同。结构体所占的空间必然是最大元素所占空间的整数倍。</strong></p>
+<p>结构体中数据——缺省对齐原则</p>
+<p>针对32位CPU：</p>
+<ul>
+<li>char：任何地址</li>
+<li>short：偶数地址</li>
+<li>int：4的整数倍地址</li>
+<li>double ：8的整数倍地址</li>
+</ul>
+<p>修改默认编译选项：</p>
+<ul>
+<li><p>Visual C++:</p>
+<p>#pragma pack(n)</p>
+</li>
+<li><p>g++:</p>
+<p>_attribute_(aligned(n))</p>
+<p>_attribute_(_packed_)</p>
+</li>
+</ul>
+<p><strong>此处的n表示是n的倍数进行分配。</strong></p>
+<p><strong>推荐把小的元素分配在一起！！！！</strong></p>
+<h4 id="联合体"><a href="#联合体" class="headerlink" title="联合体"></a>联合体</h4><p>使用<code>union</code>定义</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">union</span> Score<span class="token punctuation">{</span>
+    <span class="token keyword">double</span> sc<span class="token punctuation">;</span>
+    <span class="token keyword">char</span> level<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>联合体的空间按照最大元素所占空间决定。</strong></p>
 
             </div>
             <hr/>
@@ -1137,7 +1186,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">83.7k</span>&nbsp;字
+                class="white-color">84.1k</span>&nbsp;字
             
             
             
