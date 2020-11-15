@@ -467,7 +467,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-10
+                    2020-11-15
                 </div>
                 
 
@@ -502,7 +502,7 @@ public:
     vector<int> twoSum(vector<int>& nums, int target) {
         unordered_map<int,int> heap;
         int r;
-        for(int i=0;i<nums.size();i++){
+        for(int i=0;i <nums.size();i++){
             r=target-nums[i];
             //heap.count(key)返回的是key的下标
             if(heap.count(r)) return {heap[r],i};
