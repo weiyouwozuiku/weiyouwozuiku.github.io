@@ -462,21 +462,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-17
+                    2020-11-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    22
+                    494
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -491,7 +491,58 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>列出所有的录音设备：</p>
+                <hr>
+<hr>
+<hr>
+<p>因为最近在寝室远程连接电脑进行开发或者文档的编写，需要多台设备连网。但是由于学校”神奇”的网络状况，每个人只能有一个在线设备，且没有有线宽带。</p>
+<p>与其找一台<code>pc</code>连接<code>wifi</code>再用软件开热点，效果并不好，且稳定性较差。于是想到的解决方案是将树莓派连接wifi,即树莓派的wifi作为wlan口，再将网络数据转发给树莓派的lan口，最后通过路由器做AP将rj45传来的数据做共享wifi。</p>
+<p>步骤：</p>
+<ol>
+<li><p>配置网桥</p>
+<pre class="line-numbers language-shell"><code class="language-shell">sudo apt install bridge-utils #安装网桥管理工具
+brctl addbr br-lan
+brctl addif br-lan eth0
+ifconfig br-lan 192.168.3.1 up #192.168.3.1就是树莓派在整个扩展网络中的地址
+ifconfig eth0 0.0.0.0 up<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>配置IP转发</p>
+<p>一般的Linux发行版默认都不会开启ip_forward，因为正常的计算机都是作为终端，没有转发数据报的需求，因此需要手动打开。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">vim /etc/sysctl.conf
++ net.ipv4.ip_forward = 1
+#或
+sysctl net.ipv4.ip_forward = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>配置iptables</p>
+<p>想让内网的所有设备共享一个IP，需要在wlan0网口启用nat。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>安装DHCP/DNS服务器</p>
+<pre class="line-numbers language-shell"><code class="language-shell">apt install dnsmasq -y
+vim /etc/dnsmasq.conf
++'dhcp-range=192.168.3.50,192.168.3.150,255.255.255.0,12h' >> /etc/dnsmasq.conf #这里IP的网段跟之前配置的需要一致<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>设置开机自启</p>
+<p>新建如下脚本:</p>
+<pre class="line-numbers language-shell"><code class="language-shell">#!/bin/bash
+brctl addbr br-lan
+brctl addif br-lan eth0
+ifconfig br-lan 192.168.3.1 up #这里的地址随便，和Wan侧不在一个网段就行
+ifconfig eth0 0.0.0.0 up
+sysctl net.ipv4.ip_forward=1
+iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用<code>vim /usr/lib/systemd/system/&lt;自定义&gt;.service</code>命令创建执行计划</p>
+<pre class="line-numbers language-shell"><code class="language-shell">[Unit]
+Description=autostart
+[Service]
+Type=oneshot
+ExecStart=/home/pi/<上一步骤中脚本的名字>.sh
+[Install]
+WantedBy=multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>执行<code>systemctl enable autostart.service</code></p>
+</li>
+</ol>
+<hr>
+<p>列出所有的录音设备：</p>
 <pre class="line-numbers language-shell"><code class="language-shell">arecord -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>列出所有的播放设备：</p>
 <pre class="line-numbers language-shell"><code class="language-shell">aplay -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -510,7 +561,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">ZHENG Wang</a>
+                    <a href="/about" rel="external nofollow noreferrer">不二</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -533,7 +584,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">ZHENG Wang</a>
+                    <a href="/about" target="_blank">不二</a>
                     !
                 </span>
             </div>
@@ -877,6 +928,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -945,7 +1003,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">84.1k</span>&nbsp;字
+                class="white-color">84.8k</span>&nbsp;字
             
             
             
