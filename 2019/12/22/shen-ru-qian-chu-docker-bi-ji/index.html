@@ -458,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-12
+                    2020-11-20
                 </div>
                 
 
@@ -472,7 +472,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    17 分
                 </div>
                 
 
@@ -600,13 +600,13 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 <p>拉取(pulling)：在Docker主机上获取镜像的操作。</p>
 <p>Docker的每个镜像都有自己唯一的ID。用户可以通过引用镜像的ID或名称来使用镜像。如果用户选择使用镜像ID，通常只需要输入ID开头的几个字符即可。</p>
 <p><code>docker container run -it + 镜像名 运行的进程</code>：从镜像中来启动容器。例如：<code>docker container run -it ubuntu:latest /bin/bash</code>或<code>docker container run -it microsoft/powershell:nanoserver pwsh.exe</code>。<code>it</code>参数：开启容器的交互模式并将Shell链接到容器终端。</p>
-<p>按Ctrl-PQ组合键，可以在退出容器的同时还保持容器运行。</p>
+<p>按<code>Ctrl-PQ</code>组合键，<strong>可以在退出容器的同时还保持容器运行</strong>。</p>
 <p><code>docker container ls</code>：查看系统内部处于运行状态的容器。-a参数可以列出所有容器，包括处于停止状态的。</p>
 <p><code>docker container stop + 容器对应名称或ID</code>：停止容器运行</p>
 <p><code>docker container rm + 容器对应名称或ID</code>：杀死容器</p>
 <p><code>docker container exec</code>：将shell链接到一个运行中的容器终端。例如：<code>docker container exec -it 容器名称或者id bash</code>。</p>
 <h4 id="开发视角"><a href="#开发视角" class="headerlink" title="开发视角"></a>开发视角</h4><p>每个仓库都包含一个名为Dockerfile文件，这是一个纯文本文件，描述了如何将应用构建到Docker镜像中。 每一行代表一个用于构建镜像的指令。</p>
-<p><code>docker image build -t 镜像名</code>：使用当前目录中的Dockerfile文件和应用代码创建新的镜像。构建时间长短是由构建过程中要拉取的镜像大小和复杂度决定的。</p>
+<p><code>docker image build -t 镜像名 .</code> ：使用当前目录中的Dockerfile文件和应用代码创建新的镜像。构建时间长短是由构建过程中要拉取的镜像大小和复杂度决定的。</p>
 <h2 id="第五章-Docker引擎"><a href="#第五章-Docker引擎" class="headerlink" title="第五章 Docker引擎"></a>第五章 Docker引擎</h2><p>Docker引擎是用来运行和管理容器的核心软件，通常将其代指为Docker或Docker平台。</p>
 <p>Docker引擎是模块化的。</p>
 <p>$Docker引擎组件\begin{cases}Docker\quad Client\Docker\quad daemon\containerd\runc\end{cases}$</p>
@@ -630,15 +630,14 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 <p>通常Docker镜像中只有一个精简的shell，甚至没有shell。镜像不包含内核，容器共享所在Docker主机的内核。</p>
 <p>容器只包含必要的操作系统(通常只有操作系统文件和文件系统对象)。</p>
 <p>Hyper-V容器运行在专业用的轻量级VM上，同时利用VM内部的操作系统内核。</p>
-<p>Linux Docker主机本地镜像仓库通常位于/var/lib/docker/&lt;stroage-drivewr&gt;，Windows Docker主机是C:\ProgramData\docker\windowsfilter。</p>
+<p>Linux Docker主机本地镜像仓库通常位于<code>/var/lib/docker/\&lt;stroage-drivewr&gt;</code>，Windows Docker主机是<code>C:\ProgramData\docker\windowsfilter</code>。</p>
 <p><code>docker image pull &lt;repository&gt;:&lt;tag&gt;</code>：拉取镜像。如果用户没有指定具体的镜像标签，默认拉取标签为latest的镜像。Docker镜像存储在镜像仓库服务中。客户端中的镜像仓库服务默认是使用Docker Hub。</p>
+<p><strong>标签为latest的镜像并不一定是最新的，但是使用的时候依然要谨慎。</strong></p>
 <p><code>docker image pull &lt;所有者&gt;/&lt;repository&gt;:&lt;tag&gt;</code>：拉取非官方的Docker hub仓库的镜像。</p>
-<p><code>docker image pull &lt;第三方镜像仓库服务的DNS名称&gt;/&lt;所有者&gt;/&lt;repository&gt;:&lt;tag&gt;</code>：从第三方仓库拉取镜像</p>
+<p><code>docker pull &lt;第三方镜像仓库服务的DNS名称&gt;/&lt;所有者&gt;/&lt;repository&gt;:&lt;tag&gt;</code>：从第三方仓库拉取镜像</p>
 <p>以上拉取镜像的命令可以加-a参数，下载仓库中的全部镜像。如果镜像仓库中同时包含用于多个平台或者架构的镜像，那么命令可能会失败。</p>
 <p>镜像仓库服务包含多个镜像仓库。一个镜像仓库包含多个镜像。</p>
-<p>标有latest标签的镜像不保证是这个仓库最新的镜像。</p>
-<p>标签是存放在镜像元数据中的任意数字或字符串。</p>
-<p>一个镜像可以根据用户需要设置多个标签。</p>
+<p>标签是存放在镜像元数据中的任意数字或字符串。一个镜像可以根据用户需要设置多个标签。</p>
 <p>悬虚镜像：没有标签的镜像，在列表时显示为&lt;none&gt;:&lt;none&gt;。通常出现这种情况，是因为构建了一个新的镜像，然后为这个镜像打了一个已经存在的标签。Docker创建新的镜像，并赋予这个镜像标签。之前拥有这个标签的镜像会被移除这个标签。</p>
 <p><code>docker image ls --filter dangling=true</code>：显示悬虚镜像。可以使用–format参数通过Go模板。–digest参数在本地查看镜像摘要。</p>
 <p><code>docker image prune</code>：移除全部悬虚镜像。-a参数删除所有没有被任何容器使用的镜像。</p>
@@ -650,14 +649,15 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 <li>label：根据标注(label)的名称或者值，对镜像进行过滤。</li>
 <li>其他过滤方式可以使用reference。例如：–filter=reference=”*:latest*”。</li>
 </ul>
+<p>使用<code>docker image ls --format "{{.Size}}"</code>或<code>docker image ls --format "{{.Repository}: {{.Tag}: {{.Size}}"</code>这个的format参数是Go模板对输出内容进行格式化。</p>
 <p><code>docker search &lt;特定字符串&gt;</code>：搜索所有”NAME”字段中包含特定字符串的仓库。“NAME”字段是仓库名称，包含了Docker ID，或者非官方仓库的组织名称。–filter “is-official=true”参数使命令只显示官方镜像。–filter “is-automated=true”参数使命令只显示自动创建的仓库。–limit参数设置返回内容行数，默认25行，最多100行。</p>
 <p><code>docker image inspect &lt;镜像名&gt;</code>：查看镜像分层。</p>
 <p><code>docker histoy</code>：显示镜像的构建历史记录，但其不是严格意义上的镜像分层。有些Dockerfile中的指令并不会创建新的镜像层。但是会在镜像中添加元数据。</p>
 <p>所有的Docker镜像都起始于一个基础镜像层，当进行修改或增加新的内容时，就会在当前镜像之上，创建新的镜像层。</p>
 <p>在添加额外的镜像层的同时，镜像始终保持是当前所有镜像的组合。</p>
 <p>Docker采用快照机制实现镜像层堆栈，并保证多镜像层对外显示为统一的文件系统。</p>
-<p>多个镜像之间可以共享镜像层。</p>
-<p>每个镜像都有一个基于其内容的密码散列值，也被称为摘要(digest)。</p>
+<p><strong>多个镜像之间可以共享镜像层。</strong></p>
+<p><strong>每个镜像都有一个基于其内容的密码散列值，也被称为摘要(digest)。</strong></p>
 <p><code>docker image pull &lt;镜像名&gt;@&lt;sha256码&gt;</code>：通过镜像摘要拉取镜像。</p>
 <p>镜像的唯一标识是一个加密ID，即配置对象本身的散列值。每个镜像层也由一个加密ID区分，其值为镜像层本身内容的散列值。也就是内容散列。</p>
 <p>每个镜像层在拉取或推送时，包含一个分发散列值，这是一个压缩版镜像的散列值。该散列值用于校验拉取的镜像是否被篡改过。</p>
@@ -1124,7 +1124,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">85.4k</span>&nbsp;字
+                class="white-color">85.7k</span>&nbsp;字
             
             
             

@@ -463,14 +463,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-19
+                    2020-11-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.3k
                 </div>
                 
 
@@ -753,6 +753,7 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
 <p><strong>联合体的空间按照最大元素所占空间决定。</strong></p>
 <h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p>从汇编的角度来看，<code>do while</code>效率高于<code>while</code>更高于<code>for</code>。</p>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数名与参数列表一起构成了函数签名。</p>
+<p>函数的参数默认值必须是最右的有值才行，这取决于代码编译成汇编语言时先操作的是最右的参数进行压栈，之后从右向左进行赋值。</p>
 <h4 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h4><p>指向函数入口地址的指针就是函数指针。</p>
 <p>一般形式：<code>数据类型 (*指针变量名)(参数表)</code></p>
 <p>区分：</p>
@@ -768,6 +769,20 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
 <span class="token keyword">namespace</span> <span class="token operator">&lt;</span>自定义空间名<span class="token operator">></span><span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//实现函数 </span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>内联函数在编译时，编译器会把该函数的代码副本放置在每个调用该函数的地方。</p>
+<p>引入内联函数的目的是解决程序中函数调用的效率问题。<strong>内联函数内部不能有太复杂的逻辑，编译器有时会有自己的优化策略，所以内联不一定起作用。</strong></p>
+<p>用法：<code>inline &lt;函数定义&gt;</code></p>
+<h4 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h4><p>缺陷：</p>
+<ul>
+<li>空间上需要开辟大量的栈空间</li>
+<li>时间上可能需要有大量重复运算</li>
+</ul>
+<p>优化：</p>
+<ul>
+<li>尾递归：所有递归形式的调用都出现在函数的末尾</li>
+<li>使用循环代替</li>
+<li>使用动态规划，空间换时间</li>
+</ul>
 
             </div>
             <hr/>
@@ -1209,7 +1224,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">85.4k</span>&nbsp;字
+                class="white-color">85.7k</span>&nbsp;字
             
             
             
