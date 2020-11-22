@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-20
+                    2020-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    3.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -783,6 +783,56 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
 <li>使用循环代替</li>
 <li>使用动态规划，空间换时间</li>
 </ul>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>C++使用<code>struct</code>、<code>class</code>来定义一个类。struct默认成员权限是public，class默认成员权限是private。</p>
+<p>**析构函数前面需要加上<code>virtual</code>**。</p>
+<p>类定义和实现的简单展示：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//Complex.h</span>
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> ACWING_COMPLEX_H</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> ACWING_COMPLEX_H</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Complex</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+
+    <span class="token function">Complex</span><span class="token punctuation">(</span><span class="token keyword">double</span> real<span class="token punctuation">,</span> <span class="token keyword">double</span> image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">virtual</span> <span class="token operator">~</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> <span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> <span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">setReal</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">setImage</span><span class="token punctuation">(</span><span class="token keyword">double</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token keyword">double</span> _real<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> _image<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span> </span><span class="token comment" spellcheck="true">//ACWING_COMPLEX_H</span>
+
+<span class="token comment" spellcheck="true">//Complex.cpp</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"Complex.h"</span></span>
+Complex<span class="token operator">::</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token keyword">double</span> real<span class="token punctuation">,</span> <span class="token keyword">double</span> image<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">_real</span><span class="token punctuation">(</span>real<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">_image</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+Complex<span class="token operator">::</span><span class="token operator">~</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">double</span> Complex<span class="token operator">::</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> _real<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">double</span> Complex<span class="token operator">::</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> _image<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Complex<span class="token operator">::</span><span class="token function">setReal</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    _real<span class="token operator">=</span>r<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Complex<span class="token operator">::</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token keyword">double</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    _image<span class="token operator">=</span>i<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>成员函数的最后加上const表示该函数的权限为只读</strong>。</p>
+<p>当自定义了有参的构造函数时，默认的构造函数会消失，需要自己手动添加。</p>
 
             </div>
             <hr/>
@@ -1224,7 +1274,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">86k</span>&nbsp;字
+                class="white-color">86.3k</span>&nbsp;字
             
             
             

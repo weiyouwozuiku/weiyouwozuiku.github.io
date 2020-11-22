@@ -458,14 +458,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-20
+                    2020-11-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.6k
+                    4.7k
                 </div>
                 
 
@@ -605,6 +605,7 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 <p><code>docker container stop + 容器对应名称或ID</code>：停止容器运行</p>
 <p><code>docker container rm + 容器对应名称或ID</code>：杀死容器</p>
 <p><code>docker container exec</code>：将shell链接到一个运行中的容器终端。例如：<code>docker container exec -it 容器名称或者id bash</code>。</p>
+<p><code>docker container start &lt;镜像ID&gt;</code>：启动镜像</p>
 <h4 id="开发视角"><a href="#开发视角" class="headerlink" title="开发视角"></a>开发视角</h4><p>每个仓库都包含一个名为Dockerfile文件，这是一个纯文本文件，描述了如何将应用构建到Docker镜像中。 每一行代表一个用于构建镜像的指令。</p>
 <p><code>docker image build -t 镜像名 .</code> ：使用当前目录中的Dockerfile文件和应用代码创建新的镜像。构建时间长短是由构建过程中要拉取的镜像大小和复杂度决定的。</p>
 <h2 id="第五章-Docker引擎"><a href="#第五章-Docker引擎" class="headerlink" title="第五章 Docker引擎"></a>第五章 Docker引擎</h2><p>Docker引擎是用来运行和管理容器的核心软件，通常将其代指为Docker或Docker平台。</p>
@@ -651,7 +652,7 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 </ul>
 <p>使用<code>docker image ls --format "{{.Size}}"</code>或<code>docker image ls --format "{{.Repository}: {{.Tag}: {{.Size}}"</code>这个的format参数是Go模板对输出内容进行格式化。</p>
 <p><code>docker search &lt;特定字符串&gt;</code>：搜索所有”NAME”字段中包含特定字符串的仓库。“NAME”字段是仓库名称，包含了Docker ID，或者非官方仓库的组织名称。–filter “is-official=true”参数使命令只显示官方镜像。–filter “is-automated=true”参数使命令只显示自动创建的仓库。–limit参数设置返回内容行数，默认25行，最多100行。</p>
-<p><code>docker image inspect &lt;镜像名&gt;</code>：查看镜像分层。</p>
+<p><code>docker image inspect &lt;镜像名&gt;</code>：查看镜像层数据和元数据。</p>
 <p><code>docker histoy</code>：显示镜像的构建历史记录，但其不是严格意义上的镜像分层。有些Dockerfile中的指令并不会创建新的镜像层。但是会在镜像中添加元数据。</p>
 <p>所有的Docker镜像都起始于一个基础镜像层，当进行修改或增加新的内容时，就会在当前镜像之上，创建新的镜像层。</p>
 <p>在添加额外的镜像层的同时，镜像始终保持是当前所有镜像的组合。</p>
@@ -660,10 +661,14 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 <p><strong>每个镜像都有一个基于其内容的密码散列值，也被称为摘要(digest)。</strong></p>
 <p><code>docker image pull &lt;镜像名&gt;@&lt;sha256码&gt;</code>：通过镜像摘要拉取镜像。</p>
 <p>镜像的唯一标识是一个加密ID，即配置对象本身的散列值。每个镜像层也由一个加密ID区分，其值为镜像层本身内容的散列值。也就是内容散列。</p>
-<p>每个镜像层在拉取或推送时，包含一个分发散列值，这是一个压缩版镜像的散列值。该散列值用于校验拉取的镜像是否被篡改过。</p>
-<p>为了实现多架构的方便使用，Docker的镜像仓库服务API支持两种重要的结构：Manifest列表和Mainfest。Manifest列表是指某个镜像标签支持的架构列表。其支持的每种架构，都有自己的Manifest定义。</p>
+<p><strong>每个镜像层在拉取或推送时，包含一个分发散列值，这是一个压缩版镜像的散列值。该散列值用于校验拉取的镜像是否被篡改过。</strong></p>
+<p>为了实现多架构的方便使用，Docker的镜像仓库服务API支持两种重要的结构：Manifest列表(新)和Manifest。Manifest列表是指某个镜像标签支持的架构列表。其支持的每种架构，都有自己的Manifest定义。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0-%E4%B8%80_Manifest%E5%88%97%E8%A1%A8.png"></p>
 <p>Manifest列表是可选的。在没有Manifest列表的情况下，镜像仓库服务会返回普通的Manifest。</p>
-<p><code>docker image rm</code>：删除镜像。</p>
+<p><code>docker image rm &lt;镜像名或镜像ID&gt;</code>：删除镜像。</p>
+<p>某个镜像层被多个镜像共享，那只有当全部依赖该镜像层的镜像都被删除，该镜像层才会被删除。</p>
+<p><code>docker image ls -q </code>：返回当前docker主机中所有容器的ID。</p>
+<p><code>docker image rm $ (docker image ls -q) -f</code></p>
 <h2 id="第七章-Docker容器"><a href="#第七章-Docker容器" class="headerlink" title="第七章 Docker容器"></a>第七章 Docker容器</h2><h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>镜像是一堆只读层的统一视角。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0-%E4%B8%80_image-container.png"></p>
 <p>统一文件系统：将多个只读层重叠在一起，并整合成一个文件系统，对用户隐藏。</p>
@@ -1124,7 +1129,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">86k</span>&nbsp;字
+                class="white-color">86.3k</span>&nbsp;字
             
             
             
