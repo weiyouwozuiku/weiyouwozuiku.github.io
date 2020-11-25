@@ -467,14 +467,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-24
+                    2020-11-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    874
+                    946
                 </div>
                 
 
@@ -497,15 +497,16 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>因为Linux系统每次开机或者执行一些需要权限的命令时要输入密码，但是本身输入密码这件事就不太安全。综合现有情况，windows可以很方便的使用人脸识别，但是linux上指纹都不方便，也怕破坏启动配置。于是决定使用外部硬件的方式实现指纹识别后自动输入密码的功能。相对安全了点。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/weiyouwozuiku/ESP32_BluetoothKeyboard"><strong>项目地址</strong></a></p>
 <h3 id="功能逻辑"><a href="#功能逻辑" class="headerlink" title="功能逻辑"></a>功能逻辑</h3><ol>
-<li>通过蓝牙连接Esp32</li>
+<li>通过蓝牙连接ESP32</li>
 <li>通过AS608校验指纹</li>
 <li>指纹校验通过则模拟成蓝牙键盘发送密码</li>
 </ol>
 <h3 id="硬件方面"><a href="#硬件方面" class="headerlink" title="硬件方面"></a>硬件方面</h3><ul>
-<li>采用的Esp32作为主控，其本身自带wifi和蓝牙，非常便于之后的功能改善。</li>
+<li>采用的ESP32作为主控，其本身自带WIFI和蓝牙，非常便于之后的功能改善。</li>
 <li>AS608作为指纹传感器，负责指纹的录入和校验。</li>
-<li>oled ssd1306作为屏幕进行必要的显示，方便了解处理进度。</li>
+<li>OLED SSD1306作为屏幕进行必要的显示，方便了解处理进度。</li>
 </ul>
 <p>ESP32的管脚图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/ESP32%E6%8C%87%E7%BA%B9%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E5%BC%80%E5%8F%91_IO.png"></p>
@@ -546,11 +547,19 @@ Adafruit_Fingerprint finger <span class="token operator">=</span> <span class="t
       <span class="token string">"Weclome to use King's fingerprint bluetooth keyboard!"</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
   display<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token function">displayMeg</span><span class="token punctuation">(</span>String word<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token function">displayMeg</span><span class="token punctuation">(</span>String meg<span class="token punctuation">,</span><span class="token keyword">int</span> showTime<span class="token operator">=</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     display<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    display<span class="token punctuation">.</span><span class="token function">drawStringMaxWidth</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">,</span>word<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    display<span class="token punctuation">.</span><span class="token function">drawStringMaxWidth</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">,</span>meg<span class="token punctuation">)</span><span class="token punctuation">;</span>
     display<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span>showTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">displayMeg3line</span><span class="token punctuation">(</span>String meg1<span class="token punctuation">,</span>String meg2<span class="token punctuation">,</span>String meg3<span class="token punctuation">,</span><span class="token keyword">int</span> showTime<span class="token operator">=</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    display<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    display<span class="token punctuation">.</span><span class="token function">drawString</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>meg1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    display<span class="token punctuation">.</span><span class="token function">drawString</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">,</span>meg2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    display<span class="token punctuation">.</span><span class="token function">drawString</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span>meg3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    display<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span>showTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">void</span> <span class="token function">connectFinger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>finger<span class="token punctuation">.</span><span class="token function">verifyPassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -565,19 +574,19 @@ Adafruit_Fingerprint finger <span class="token operator">=</span> <span class="t
       <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       display<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment" spellcheck="true">//Serial.println("waiting for fingerprint sensor...");</span>
-      display<span class="token punctuation">.</span><span class="token function">drawStringMaxWidth</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">,</span><span class="token string">"waiting for fingerprint sensor..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+      display<span class="token punctuation">.</span><span class="token function">drawStringMaxWidth</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">128</span><span class="token punctuation">,</span><span class="token string">"Waiting for fingerprint sensor..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
       display<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">void</span> <span class="token function">getValid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token function">displayMeg</span><span class="token punctuation">(</span><span class="token string">"Waiting for valid finger..."</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   finger<span class="token punctuation">.</span><span class="token function">getTemplateCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>finger<span class="token punctuation">.</span>templateCount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">displayMeg</span><span class="token punctuation">(</span><span class="token string">"Sensor doesn't contain any fingerprint data. Please run the 'enroll'."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
   <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    <span class="token function">displayMeg</span><span class="token punctuation">(</span><span class="token string">"Waiting for valid finger..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">displayMeg</span><span class="token punctuation">(</span><span class="token string">"Sensor contains templates"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">displayMeg</span><span class="token punctuation">(</span><span class="token string">"Sensor contains templates!   ._."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
@@ -589,7 +598,7 @@ Adafruit_Fingerprint finger <span class="token operator">=</span> <span class="t
     display<span class="token punctuation">.</span><span class="token function">drawString</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">,</span>stringId<span class="token punctuation">)</span><span class="token punctuation">;</span>
     display<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>bleKeyboard<span class="token punctuation">.</span><span class="token function">isConnected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      bleKeyboard<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"helloworld"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//自定义密码</span>
+      bleKeyboard<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//自定义密码</span>
       bleKeyboard<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>KEY_RETURN<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     display<span class="token punctuation">.</span><span class="token function">drawString</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token string">"Key sended by BT!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -661,6 +670,16 @@ uint8_t <span class="token function">getFingerprintID</span><span class="token p
   <span class="token function">sendPassword</span><span class="token punctuation">(</span>finger<span class="token punctuation">.</span>fingerID<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> finger<span class="token punctuation">.</span>fingerID<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">checkBlueTooth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  String bluetoothStatue<span class="token punctuation">;</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>bleKeyboard<span class="token punctuation">.</span><span class="token function">isConnected</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    bluetoothStatue<span class="token operator">=</span><span class="token string">"BT connected!"</span><span class="token punctuation">;</span>
+    <span class="token function">displayMeg3line</span><span class="token punctuation">(</span>bluetoothStatue<span class="token punctuation">,</span><span class="token string">"Waiting your fing-"</span><span class="token punctuation">,</span><span class="token string">"er,king!"</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    bluetoothStatue<span class="token operator">=</span><span class="token string">"BT unconnected!"</span><span class="token punctuation">;</span>
+    <span class="token function">displayMeg3line</span><span class="token punctuation">(</span>bluetoothStatue<span class="token punctuation">,</span><span class="token string">"Please restart or "</span><span class="token punctuation">,</span><span class="token string">"connect!"</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 <span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">//Serial.begin(115200);</span>
   <span class="token comment" spellcheck="true">//Serial.println("Weclome to use King's fingerprint bluetooth keyboard!");</span>
@@ -674,10 +693,10 @@ uint8_t <span class="token function">getFingerprintID</span><span class="token p
 <span class="token punctuation">}</span>
 
 <span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token function">displayMeg</span><span class="token punctuation">(</span><span class="token string">"Waiting your finger,king!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//  displayMeg("Waiting your finger,king!");</span>
+  <span class="token function">checkBlueTooth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">getFingerprintID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>想要修改默认的蓝牙名称需要在默认<code>C:\Users\11048\Documents\Arduino\libraries\ESP32-BLE-Keyboard</code></p>
 <p>的<code>BleKeyboard.h</code>的第101行进行修改。</p>
 <h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>在开发过程中，当oled显示屏没有在和esp32同时上电，可能导致oled屏幕无法显示。但是在电脑端未出现此问题。同时采用esp32的电源进行供电就没有此问题。</p>
@@ -1118,7 +1137,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">87.5k</span>&nbsp;字
+                class="white-color">87.6k</span>&nbsp;字
             
             
             
