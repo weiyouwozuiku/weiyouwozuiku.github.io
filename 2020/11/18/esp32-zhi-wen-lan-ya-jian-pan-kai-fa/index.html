@@ -467,21 +467,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-29
+                    2020-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
 
@@ -924,6 +924,31 @@ sudo /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0<span aria-hidden="true
 //每天7点30供电，21点40停止供电
 30 7 * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0
 40 21 * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="添加触摸传感器"><a href="#添加触摸传感器" class="headerlink" title="添加触摸传感器"></a>添加触摸传感器</h4><p>为了避免长时间供电损坏引脚以及避免烧屏，采用传感器触发开启指纹。</p>
+<p>添加触摸传感器，其只有三个引脚VCC、GND、Sig。</p>
+<p>通过Respeaker上的Grove接口预留的GPIO12采集其信号。当检测到触摸传感器被触摸后返回的高电平信号，树莓派给USB口供电，启动指纹蓝牙键盘。</p>
+<p>代码如下：</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python</span>
+<span class="token keyword">import</span> RPi<span class="token punctuation">.</span>GPIO <span class="token keyword">as</span> GPIO
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> os
+<span class="token keyword">def</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    GPIO<span class="token punctuation">.</span>setmode<span class="token punctuation">(</span>GPIO<span class="token punctuation">.</span>BCM<span class="token punctuation">)</span>
+    GPIO<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span>GPIO<span class="token punctuation">.</span>IN<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    info<span class="token operator">=</span>GPIO<span class="token punctuation">.</span>input<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#print(info)</span>
+    <span class="token keyword">if</span> info<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"FingerPrint Start!"</span><span class="token punctuation">)</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"sudo /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 1"</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"FingerPrint Stop!\n"</span><span class="token punctuation">)</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"sudo /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0"</span><span class="token punctuation">)</span>
+setup<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">while</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1361,7 +1386,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">89.1k</span>&nbsp;字
+                class="white-color">89.3k</span>&nbsp;字
             
             
             
