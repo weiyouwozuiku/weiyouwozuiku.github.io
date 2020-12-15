@@ -1054,9 +1054,13 @@ font <span class="token operator">=</span> ImageFont<span class="token punctuati
     disp<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
     time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
 
-<span class="token keyword">def</span> <span class="token function">logToFile</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> word<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">logToFile</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> <span class="token operator">*</span>words<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
     <span class="token keyword">with</span> open<span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> <span class="token string">'a+'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf8"</span><span class="token punctuation">)</span><span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>word<span class="token punctuation">,</span> file<span class="token operator">=</span>f<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> word <span class="token keyword">in</span> words<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>word<span class="token punctuation">,</span> file<span class="token operator">=</span>f<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>file<span class="token operator">=</span>f<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
+    <span class="token keyword">return</span> <span class="token boolean">False</span>
 
 <span class="token keyword">def</span> <span class="token function">checkTouch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     info <span class="token operator">=</span> GPIO<span class="token punctuation">.</span>input<span class="token punctuation">(</span>Touch<span class="token punctuation">)</span>
@@ -1079,7 +1083,7 @@ pwd <span class="token operator">=</span> os<span class="token punctuation">.</s
 filePath <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>pwd<span class="token punctuation">,</span> <span class="token string">"FingerLog.txt"</span><span class="token punctuation">)</span>
 <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
     displayInfo<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    checkTouch<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    checkTouch<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>最终的crontab：</p>
 <pre class="line-numbers language-shell"><code class="language-shell"># sudo crontab -e 定时任务
 40 21 * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0
@@ -1524,7 +1528,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">90.6k</span>&nbsp;字
+                class="white-color">91.1k</span>&nbsp;字
             
             
             

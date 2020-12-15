@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-06
+                    2020-12-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    4.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    18 分
                 </div>
                 
 
@@ -591,6 +591,7 @@
 <h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><p>获得字符串长度：<code>s.length</code>或<code>s.size()</code>二者等价。<code>s.capacity()</code>查看字符串总空间。</p>
 <p>转换为C风格的字符串使用如下代码：</p>
 <pre class="line-numbers language-Cpp"><code class="language-Cpp">const char *c_str = s1.c_str();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>c_str()</code>生成一个const char*指针，指向以空字符终止的数组。</p>
 <hr>
 <h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p><code>const</code>和<code>*</code>修饰的部分：1.先看左侧最近的部分;2.如果左侧没有，则看右侧。</p>
 <p><code>*</code>操作符具有从右往左的结合性。<code>**</code>这个表达式相当于<code>*(*c)</code>，必须从里向外逐层求值。 </p>
@@ -742,6 +743,7 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
     <span class="token keyword">char</span> level<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>联合体的空间按照最大元素所占空间决定。</strong></p>
+<h4 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h4><p>宏定义版min函数：<code>#define MIN(a,b) (((a)&gt;=(b))?(b):(a))</code>，这里的a或b可能是式子，所以加上括号。</p>
 <hr>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数名与参数列表一起构成了函数签名。</p>
 <p>函数的参数默认值必须是最右的有值才行，这取决于代码编译成汇编语言时先操作的是最右的参数进行压栈，之后从右向左进行赋值。</p>
@@ -793,8 +795,8 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
 <p>**析构函数前面需要加上<code>virtual</code>**。</p>
 <p>类定义和实现的简单展示：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//Complex.h</span>
-<span class="token macro property">#<span class="token directive keyword">ifndef</span> COMPLEX_H</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> COMPLEX_H</span>
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> ACWING_COMPLEX_H</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> ACWING_COMPLEX_H</span>
 
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 
@@ -802,28 +804,45 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
 
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">Complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
     <span class="token function">Complex</span><span class="token punctuation">(</span><span class="token keyword">double</span> real<span class="token punctuation">,</span> <span class="token keyword">double</span> image<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 构造函数</span>
     <span class="token keyword">virtual</span> <span class="token operator">~</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//析构函数</span>
     <span class="token keyword">double</span> <span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">;</span>
+
     <span class="token keyword">double</span> <span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">;</span>
+
     <span class="token keyword">void</span> <span class="token function">setReal</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
     <span class="token keyword">void</span> <span class="token function">setImage</span><span class="token punctuation">(</span><span class="token keyword">double</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
     Complex <span class="token keyword">operator</span><span class="token operator">+</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//+运算符重载</span>
+    Complex <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">+</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
     Complex <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//=运算符重载</span>
     <span class="token function">Complex</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//拷贝构造</span>
     <span class="token comment" spellcheck="true">//前置和后置++</span>
     <span class="token comment" spellcheck="true">//前置++</span>
     Complex <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">++</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
     <span class="token comment" spellcheck="true">//后置++</span>
     Complex <span class="token keyword">operator</span><span class="token operator">++</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
     <span class="token comment" spellcheck="true">//前置--</span>
     Complex <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">--</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
     <span class="token comment" spellcheck="true">//后置--</span>
     Complex <span class="token keyword">operator</span><span class="token operator">--</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//等于</span>
+    <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token operator">==</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//不等于</span>
+    <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token operator">!=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">protected</span><span class="token operator">:</span>
     <span class="token comment" spellcheck="true">//输入输出运算符</span>
     <span class="token keyword">friend</span> std<span class="token operator">::</span>ostream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span>std<span class="token operator">::</span>ostream <span class="token operator">&amp;</span>os<span class="token punctuation">,</span> <span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
     <span class="token keyword">friend</span> std<span class="token operator">::</span>istream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">>></span><span class="token punctuation">(</span>std<span class="token operator">::</span>istream <span class="token operator">&amp;</span>is<span class="token punctuation">,</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">private</span><span class="token operator">:</span>
@@ -831,7 +850,7 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
     <span class="token keyword">double</span> _image<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token macro property">#<span class="token directive keyword">endif</span> </span><span class="token comment" spellcheck="true">//COMPLEX_H</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span> </span><span class="token comment" spellcheck="true">//ACWING_COMPLEX_H</span>
 
 <span class="token comment" spellcheck="true">//Complex.cpp</span>
 
@@ -839,25 +858,47 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 
 Complex<span class="token operator">::</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">_real</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">_image</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
 Complex<span class="token operator">::</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token keyword">double</span> real<span class="token punctuation">,</span> <span class="token keyword">double</span> image<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">_real</span><span class="token punctuation">(</span>real<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">_image</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
 Complex<span class="token operator">::</span><span class="token operator">~</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
 <span class="token punctuation">}</span>
+
 <span class="token keyword">double</span> Complex<span class="token operator">::</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> _real<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 <span class="token keyword">double</span> Complex<span class="token operator">::</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> _image<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 <span class="token keyword">void</span> Complex<span class="token operator">::</span><span class="token function">setReal</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _real <span class="token operator">=</span> r<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 <span class="token keyword">void</span> Complex<span class="token operator">::</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token keyword">double</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _image <span class="token operator">=</span> i<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 Complex Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">+</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//避免临时对象的产生，因为定义一个新的临时对象在返回的时候会触发拷贝构造函数</span>
     <span class="token keyword">return</span> <span class="token function">Complex</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> _real<span class="token punctuation">,</span> x<span class="token punctuation">.</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> _image<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
+Complex <span class="token operator">&amp;</span>Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">+</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    _real <span class="token operator">+</span><span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    _image <span class="token operator">+</span><span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/**
+     * 上面两行也可以使用如下代码执行
+     * _real+=x._real;
+     * _image+=x._image;
+     * 在编译器遇到_real和_image变量时，将会在其所属对象x所属的类域中查找该符号。
+     * 既然查找的是类域，由于+=函数属于Complex类，+=函数可以访问Complex类中所有变量，所以可以直接访问私有变量。
+     */</span>
+    <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
 Complex <span class="token operator">&amp;</span>Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">!=</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         _real <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -865,38 +906,71 @@ Complex <span class="token operator">&amp;</span>Complex<span class="token opera
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 Complex<span class="token operator">::</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _real <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     _image <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 Complex <span class="token operator">&amp;</span>Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">++</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _real<span class="token operator">++</span><span class="token punctuation">;</span>
     _image<span class="token operator">++</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 Complex Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">++</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token function">Complex</span><span class="token punctuation">(</span>_real<span class="token operator">++</span><span class="token punctuation">,</span> _image<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 Complex <span class="token operator">&amp;</span>Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">--</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _real<span class="token operator">--</span><span class="token punctuation">;</span>
     _image<span class="token operator">--</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 Complex Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">--</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token function">Complex</span><span class="token punctuation">(</span>_real<span class="token operator">--</span><span class="token punctuation">,</span> _image<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
+<span class="token keyword">bool</span> Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">==</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> _real<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> _image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">bool</span> Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">!=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">!</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> _real<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> _image<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
 std<span class="token operator">::</span>ostream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span>std<span class="token operator">::</span>ostream <span class="token operator">&amp;</span>os<span class="token punctuation">,</span> <span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     os <span class="token operator">&lt;&lt;</span> <span class="token string">"real value is "</span> <span class="token operator">&lt;&lt;</span> x<span class="token punctuation">.</span>_real <span class="token operator">&lt;&lt;</span> <span class="token string">",image value is "</span> <span class="token operator">&lt;&lt;</span> x<span class="token punctuation">.</span>_image<span class="token punctuation">;</span>
     <span class="token keyword">return</span> os<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 std<span class="token operator">::</span>istream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">>></span><span class="token punctuation">(</span>std<span class="token operator">::</span>istream <span class="token operator">&amp;</span>is<span class="token punctuation">,</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     is <span class="token operator">>></span> x<span class="token punctuation">.</span>_real <span class="token operator">>></span> x<span class="token punctuation">.</span>_image<span class="token punctuation">;</span>
     <span class="token keyword">return</span> is<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>成员函数的最后加上<code>const</code>表示该函数的权限为只读</strong>。</p>
 <p>当自定义了有参的构造函数时，默认的构造函数会消失，需要自己手动添加。</p>
 <p><strong>尽量减少函数中临时对象的使用。如果可以在函数返回时利用新的数据直接返回对象，这样可以有效的避免系统调用拷贝构造函数。</strong></p>
 <p>**前置++的运算符重载的声明为<code>&lt;类型名&gt;&amp; operaotr++ ()</code>，后置++的运算符重载的声明为<code>&lt;类型名&gt; operator++ (int)</code>**，前置–和后置–类似。</p>
+<p><strong>封装是编译期的概念，是针对类型而非对象，在类的成员函数中可以访问同类型实例对象的私有成员变量。</strong></p>
+<h4 id="头文件的重复包含问题"><a href="#头文件的重复包含问题" class="headerlink" title="头文件的重复包含问题"></a>头文件的重复包含问题</h4><p>为了避免同一个文件被include多次，有两种方式：</p>
+<ol>
+<li><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">ifndef</span> _SOMEFILE_H_</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> _SOMEFILE_H_</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用宏来防止同一文件被多次包含；</p>
+<p>优点：可移植性好。</p>
+<p>缺点：无法防止宏名重复，难以派错。</p>
+</li>
+<li><p><code>#pragma once</code></p>
+<p>使用编译器来防止同一文件被多次包含；</p>
+<p>优点：可以防止宏名重复，易排错。</p>
+<p>缺点：可移植性不好。</p>
+</li>
+</ol>
 <hr>
 <h3 id="I-O流"><a href="#I-O流" class="headerlink" title="I/O流"></a>I/O流</h3><p>传统的C中I/O有printf,scanf,getch,gets等函数，它们的问题是：</p>
 <ul>
@@ -977,7 +1051,31 @@ streambuf--&gt;strstreambuf &amp; filebuf</pre>
 <td>以二进制方式打开</td>
 </tr>
 </tbody></table>
-
+<p>二进制文件复制函数：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;fstream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">static</span> <span class="token keyword">const</span> <span class="token keyword">int</span> BUFFERLEN<span class="token operator">=</span><span class="token number">2048</span><span class="token punctuation">;</span>
+<span class="token keyword">bool</span> <span class="token function">copyFile</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token operator">::</span>string <span class="token operator">&amp;</span>src<span class="token punctuation">,</span> <span class="token keyword">const</span> std<span class="token operator">::</span>string <span class="token operator">&amp;</span>dst<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//打开源文件和目标文件</span>
+    std<span class="token operator">::</span>ifstream <span class="token function">in</span><span class="token punctuation">(</span>src<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> std<span class="token operator">::</span>ios<span class="token operator">::</span>in <span class="token operator">|</span> std<span class="token operator">::</span>ios<span class="token operator">::</span>binary<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>ofstream <span class="token function">out</span><span class="token punctuation">(</span>dst<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> std<span class="token operator">::</span>ios<span class="token operator">::</span>out <span class="token operator">|</span> std<span class="token operator">::</span>ios<span class="token operator">::</span>trunc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//判断文件打开是否成功</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>in<span class="token operator">||</span><span class="token operator">!</span>out<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//从源文件读取数据写入到目标文件中</span>
+    <span class="token comment" spellcheck="true">//通过读取源文件的EOF判断读写是否结束</span>
+    <span class="token keyword">char</span> temp<span class="token punctuation">[</span>BUFFERLEN<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>in<span class="token punctuation">.</span><span class="token function">eof</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        in<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>temp<span class="token punctuation">,</span>BUFFERLEN<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        std<span class="token operator">::</span>streamsize count<span class="token operator">=</span>in<span class="token punctuation">.</span><span class="token function">gcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        out<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>temp<span class="token punctuation">,</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//关闭源文件与目标文件</span>
+    in<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h3>
             </div>
             <hr/>
 
@@ -1418,7 +1516,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">90.6k</span>&nbsp;字
+                class="white-color">91.1k</span>&nbsp;字
             
             
             
