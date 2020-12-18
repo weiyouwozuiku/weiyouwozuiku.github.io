@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java基础, 博客">
+    <meta name="keywords" content="Go语言网关开发, 博客">
     <meta name="description" content="路漫漫其修远兮，吾将上下而求索">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java基础 | 不二的博客</title>
+    <title>Go语言网关开发 | 不二的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java基础</h1>
+                    <h1 class="description center-align post-title">Go语言网关开发</h1>
                 </div>
             </div>
         </div>
@@ -440,15 +440,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Java/" class="post-category">
-                                Java
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -456,21 +447,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-28
+                    2020-12-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-28
+                    2020-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    469
+                    298
                 </div>
                 
 
@@ -492,26 +483,22 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="常识"><a href="#常识" class="headerlink" title="常识"></a>常识</h2><h3 id="static、final、static-final的区别"><a href="#static、final、static-final的区别" class="headerlink" title="static、final、static final的区别"></a>static、final、static final的区别</h3><h4 id="final"><a href="#final" class="headerlink" title="final"></a>final</h4><p>可以修饰属性、方法、类、局部变量。</p>
-<p>初始化可以在编译期或者运行期，<strong>初始化后不能改变。</strong></p>
-<p>与具体对象有关，在运行期初始化的final属性，不同对象可以有不同值。</p>
-<p>final类无法被继承，没有子类，final类中的方法默认是final的。</p>
-<p>final方法不能被子类的方法覆盖，但是可以被继承。</p>
-<p><strong>final成员变量表示常量，只能被赋值一次。其后不能改变。</strong></p>
-<p>不能用于修饰构造方法。</p>
-<p>private类型的方法默认是final类型的。</p>
-<ul>
-<li>对于基本数据类型：是常量，创建后不能修改。</li>
-<li>对于对象句柄：final将句柄变成常数（在声明时，必须将句柄初始化到一个具体的对象，而且不能再将句柄指向另一个对象。<strong>但是对象本身是可以修改的</strong>）</li>
-<li>对于数组：数组属于对象，数组本身也可以改。同对象。</li>
-<li>对于方法参数中的final句柄：在该方法内部不能改变参数句柄指向的实际东西，不能给形参句柄再赋值。</li>
-</ul>
-<h4 id="static"><a href="#static" class="headerlink" title="static"></a>static</h4><p>可以修饰属性、方法、代码段、内部类（静态或嵌套内部类）</p>
-<p>初始化在编译期，初始化后能改变。</p>
-<p>static与具体对象无关。</p>
-<p>不可以修饰局部变量。</p>
-<p><strong>被static修饰的成员变量和成员方法独立于该类的任何对象。</strong>被所有类的实例共享。只要这个类被加载，Java虚拟机就能根据类名在运行时数据区的方法区内找到它们。可以在任意对象创建之前访问，无需引用任何对象。</p>
-<h4 id="final-static"><a href="#final-static" class="headerlink" title="final static"></a>final static</h4><p><strong>static修饰的属性强调它们只有一个，final修饰的属性强调是一个常数</strong>。</p>
+                <h2 id="网络基础"><a href="#网络基础" class="headerlink" title="网络基础"></a>网络基础</h2><h3 id="协议模型"><a href="#协议模型" class="headerlink" title="协议模型"></a>协议模型</h3><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/%E7%BB%8F%E5%85%B8%E5%8D%8F%E8%AE%AE%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%8C%85.png"></p>
+<h3 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h3><p>TCP的三次握手最主要目的是保证连接是双工的，可靠更多的是通过重传机制来保证。因为连接是全双工的，双方必须都收到对方的FIN包及确认才可关闭。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E8%BF%9E%E6%8E%A5.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/%E5%9B%9B%E6%AC%A1%E5%9B%9E%E6%94%B6%E5%85%B3%E9%97%AD.png"></p>
+<p>MSL：Maximum Segment Lifetime,30秒到1分钟。</p>
+<p>TIME-WAIT等待2MSL是保证TCP协议的全双工连接能够可靠关闭。保证这次连接的重复数据段从网络中消失。</p>
+<p>大量出现close_wait的原因：</p>
+<ol>
+<li>一般出现在被动关闭方</li>
+<li>并发请求太多导致</li>
+<li>被动关闭方未及时释放端口资源导致</li>
+</ol>
+<h3 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h3><p>由于通讯双方，网速不同。通讯方任一方发送过快都会导致对方消息处理不过来，所以就需要把数据放在缓冲区中。如果缓冲区满了，发送方还在发送，那接收方只能把数据包丢弃。因此需要控制发送速率。</p>
+<p>缓冲区大小称之为接收端口，用变量win表示。如果win=0，则发送方停止发送。</p>
+<h3 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h3><p>拥塞控制是调节网络的负载。</p>
 
             </div>
             <hr/>
@@ -537,7 +524,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://buerlog.top/2020/10/28/java-ji-chu/">http://buerlog.top/2020/10/28/java-ji-chu/</a>
+                    <a href="http://buerlog.top/2020/12/18/go-yu-yan-wang-guan-kai-fa/">http://buerlog.top/2020/12/18/go-yu-yan-wang-guan-kai-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -614,66 +601,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/10/leetcode-shua-ti-ji-lu/">
+                <a href="/2020/12/18/go-yu-yan-wang-guan-kai-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Leetcode刷题记录">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Go语言网关开发">
                         
-                        <span class="card-title">Leetcode刷题记录</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-10
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/09/29/java-jia-gou-zhi-lu-dan-ti/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Java架构之旅--单体">
-                        
-                        <span class="card-title">Java架构之旅--单体</span>
+                        <span class="card-title">Go语言网关开发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -684,7 +623,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-18
                             </span>
                         <span class="publish-author">
                             
@@ -693,6 +632,56 @@
                             
                         </span>
                     </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/21/windows10-chang-yong-ruan-jian-ji-lu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Windows10常用软件记录">
+                        
+                        <span class="card-title">Windows10常用软件记录</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6/" class="post-category">
+                                    软件
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Windows/">
+                        <span class="chip bg-color">Windows</span>
+                    </a>
+                    
                 </div>
                 
             </div>
