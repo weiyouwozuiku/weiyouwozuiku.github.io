@@ -463,21 +463,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-21
+                    2020-12-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.1k
+                    5.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    22 分
                 </div>
                 
 
@@ -706,6 +706,8 @@
 </ol>
 <p><strong>有了指针为什么还需要引用？</strong>为了支持函数运算符重载。</p>
 <p>**有了引用为什么还需要指针?**为了兼容C语言。</p>
+<p>左值引用：&lt;类型&gt;&amp; &lt;变量名&gt;，定义的时候就需要进行初始化。</p>
+<p>右值引用：&lt;类型&gt;&amp;&amp; &lt;变量名&gt;</p>
 <hr>
 <h3 id="自定义结构"><a href="#自定义结构" class="headerlink" title="自定义结构"></a>自定义结构</h3><h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><p>使用<code>#define</code>和<code>const</code>创建符号变量，使用<code>enum</code>不仅能够创建符号常量，还能定义新的数据类型。</p>
 <p>枚举类型enum(enumeration)的声明和定义：</p>
@@ -793,6 +795,8 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
 <hr>
 <h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>C++使用<code>struct</code>、<code>class</code>来定义一个类。struct默认成员权限是public，class默认成员权限是private。</p>
 <p>**析构函数前面需要加上<code>virtual</code>**。</p>
+<p>子类方法实现不一致时，父类的该方法前面需要加上<code>virtual</code>。<strong>这里也是多态的体现</strong>。</p>
+<p>子类继承父类形式：<code>class &lt;子类&gt; :&lt;权限修饰符&gt; &lt;类名&gt;</code>。</p>
 <p>类定义和实现的简单展示：</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//Complex.h</span>
 <span class="token macro property">#<span class="token directive keyword">ifndef</span> ACWING_COMPLEX_H</span>
@@ -972,6 +976,10 @@ std<span class="token operator">::</span>istream <span class="token operator">&a
 <p>缺点：可移植性不好。</p>
 </li>
 </ol>
+<h4 id="抽象类与接口"><a href="#抽象类与接口" class="headerlink" title="抽象类与接口"></a>抽象类与接口</h4><p>接口描述了类的行为和功能能，而不需要完成类的特定实现。</p>
+<p>C++接口是通过使用抽象类来实现的，抽象类与数据抽象互不混淆，数据抽象是一个把实现细节与相关数据分离开的概念。</p>
+<p>如果类中至少有一个函数被声明为纯虚函数，则这个类就是抽象类。纯虚函数是通过在声明中使用<code>virtual &lt;函数定义&gt;=0</code>来指定。</p>
+<p>抽象类不能被用于实例化对象，它只能作为接口使用，如果试图实例化一个抽象类的对象，会导致编译错误。</p>
 <hr>
 <h3 id="I-O流"><a href="#I-O流" class="headerlink" title="I/O流"></a>I/O流</h3><p>传统的C中I/O有printf,scanf,getch,gets等函数，它们的问题是：</p>
 <ul>
@@ -1089,7 +1097,41 @@ streambuf--&gt;strstreambuf &amp; filebuf</pre>
 <h3 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h3><p><code>sizeof(char str[])</code>为字面值+1。</p>
 <h4 id="浅拷贝与深拷贝"><a href="#浅拷贝与深拷贝" class="headerlink" title="浅拷贝与深拷贝"></a>浅拷贝与深拷贝</h4><p>浅拷贝：只拷贝指针地址，C++默认拷贝构造函数与赋值运算符重载都是浅拷贝；节省空间，但是容易引发多次释放。</p>
 <p>深拷贝：重新分配堆内存，拷贝指针指向内容。浪费空间，但不会导致多次释放。</p>
-<h4 id="noexcept"><a href="#noexcept" class="headerlink" title="noexcept"></a>noexcept</h4>
+<p>为了兼顾着浅拷贝和深拷贝的优点，解决方案有两种：</p>
+<ul>
+<li>引用计数</li>
+<li>C++11的移动语义</li>
+</ul>
+<h4 id="noexcept"><a href="#noexcept" class="headerlink" title="noexcept"></a>noexcept</h4><p>该关键字告诉编译器，函数中不会发生异常,这有利于编译器对程序做更多的优化。</p>
+<p>如果在运行时，noexecpt函数向外抛出了异常（如果函数内部捕捉了异常并完成处理，这种情况不算抛出异常），程序会直接终止，调用std::terminate()函数，该函数内部会调用std::abort()终止程序。</p>
+<h5 id="C-的异常处理"><a href="#C-的异常处理" class="headerlink" title="C++的异常处理"></a>C++的异常处理</h5><p>C++的异常处理是在运行时而不是编译期检测的。为了实现运行时检测，编译器创建额外的代码，然而这会妨碍程序优化。在实践中，一般两种异常抛出方式是最常用的：</p>
+<ul>
+<li>一个操作或函数可能抛出一个异常；</li>
+<li>一个操作或函数不可能抛出一个异常；</li>
+</ul>
+<p>后面这种情况在以往的C++中常用throw()表示，在C++11中已经被noexcept替代。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//C++11之前</span>
+<span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span>Type<span class="token operator">&amp;</span> x<span class="token punctuation">,</span>Type<span class="token operator">&amp;</span> y<span class="token punctuation">)</span> <span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    x<span class="token punctuation">.</span><span class="token function">swap</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//C++11</span>
+<span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span>Type<span class="token operator">&amp;</span> x<span class="token punctuation">,</span>Type<span class="token operator">&amp;</span> y<span class="token punctuation">)</span> <span class="token keyword">noexcept</span><span class="token punctuation">{</span>
+    x<span class="token punctuation">.</span><span class="token function">swap</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>更加灵活的使用noexcept：</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span>Type<span class="token operator">&amp;</span> x<span class="token punctuation">,</span> Type<span class="token operator">&amp;</span> y<span class="token punctuation">)</span> <span class="token keyword">noexcept</span><span class="token punctuation">(</span><span class="token keyword">noexcept</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">swap</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        x<span class="token punctuation">.</span><span class="token function">swap</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>它表示，如果操作x.swap(y)不发生异常，那么函数swap(Type&amp; x, Type&amp; y)一定不发生异常。</p>
+<p>并不是加上noexcept就能提高效率，以下场景鼓励使用noexcept：</p>
+<ul>
+<li>移动构造函数</li>
+<li>移动分配函数</li>
+<li>析构函数(新版本的编译器中，析构函数是默认添加关键字noexcept)</li>
+<li>叶子函数(叶子函数：指在寒回溯内部不分配栈空间，也不调用其他函数，也不存储非易失性寄存器，也不处理异常)</li>
+</ul>
+<p>除此以外，不推荐使用<code>noexcept</code>。</p>
+
             </div>
             <hr/>
 
@@ -1530,7 +1572,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">91.7k</span>&nbsp;字
+                class="white-color">92.4k</span>&nbsp;字
             
             
             
