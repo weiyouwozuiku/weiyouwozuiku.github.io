@@ -470,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    6.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    22 分
+                    23 分
                 </div>
                 
 
@@ -538,6 +538,12 @@
 <li>一般来说，需要将最长的循环放在最内层，最短的循环放在最外层，以减少CPU跨切循环层的次数。</li>
 </ol>
 <p><code>vector</code>是面向对象方式的动态数组。可以使用<code>capacity</code>和<code>size</code>方法来查看vector当前的容量和已经存储的元素个数。<code>insert</code>方法两个参数，第一个是位置的指针，第二个是插入的值。<code>pop_back()</code>从尾部删除，<code>push_back()</code>从尾部插入元素，<code>erase()</code>一个参数，删除元素的指针位置。**<code>end()</code>返回的是vector最后一个元素之后的位置，操作时注意是否-1。**</p>
+<hr>
+<h3 id="OOP"><a href="#OOP" class="headerlink" title="OOP"></a>OOP</h3><ul>
+<li>封装：数据和代码捆绑在一起，避免外界干扰和不确定性访问，封装可以使得代码模块化。</li>
+<li>继承：让某种类型对象获得另一个类型对象的属性和方法，继承可以扩展已存在的代码。</li>
+<li>多态：同一事物表现出不同事物的能力，即向不同对象会产生不同的行为，多态的目的是为了接口重用。</li>
+</ul>
 <hr>
 <h3 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h3><p>字符常量：括在<code>单引号</code>中。如果常量以L（仅当大写）开头，则表示它是一个宽字符常量(例如L’x’)，此时必须被存储在<code>wchar_t</code>类型的变量中。否则就是一个窄字符变量。</p>
 <p>字符串是以空字符<code>\0</code>结束的字符数组。</p>
@@ -980,6 +986,7 @@ std<span class="token operator">::</span>istream <span class="token operator">&a
 <p>C++接口是通过使用抽象类来实现的，抽象类与数据抽象互不混淆，数据抽象是一个把实现细节与相关数据分离开的概念。</p>
 <p>如果类中至少有一个函数被声明为纯虚函数，则这个类就是抽象类。纯虚函数是通过在声明中使用<code>virtual &lt;函数定义&gt;=0</code>来指定。</p>
 <p>抽象类不能被用于实例化对象，它只能作为接口使用，如果试图实例化一个抽象类的对象，会导致编译错误。</p>
+<h5 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h5><p>类的虚函数通过虚表的方式和类的成员变量组合在一起，寄存在类的对象中，但是类的成员函数并不在其中。而是通过this指针与对象相结合。this指针一般存储在ecx寄存器中。</p>
 <hr>
 <h3 id="I-O流"><a href="#I-O流" class="headerlink" title="I/O流"></a>I/O流</h3><p>传统的C中I/O有printf,scanf,getch,gets等函数，它们的问题是：</p>
 <ul>
@@ -1094,6 +1101,50 @@ streambuf--&gt;strstreambuf &amp; filebuf</pre>
     in<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><h4 id="单例模式-Singleton"><a href="#单例模式-Singleton" class="headerlink" title="单例模式(Singleton)"></a>单例模式(Singleton)</h4><p>实现思路：</p>
+<ol>
+<li>Singleton拥有一个私有构造函数，确保用户无法通过new直接实例化。</li>
+<li>包含一个静态私有成员变量instance与静态公有方法Instance()。</li>
+</ol>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//Singleton.h</span>
+<span class="token macro property">#<span class="token directive keyword">ifndef</span> ACWING_SINGLETON_H</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> ACWING_SINGLETON_H</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">static</span> <span class="token keyword">const</span> Singleton <span class="token operator">*</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//构造函数与析构函数私有化，防止外部访问</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token operator">~</span><span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//使用静态变量帮助解决资源的分配和释放</span>
+    <span class="token keyword">static</span> Singleton <span class="token operator">*</span>This<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token macro property">#<span class="token directive keyword">endif</span> </span><span class="token comment" spellcheck="true">//ACWING_SINGLETON_H</span>
+<span class="token comment" spellcheck="true">//Singleton.cpp</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"Singleton.h"</span></span>
+Singleton<span class="token operator">*</span> Singleton<span class="token operator">::</span>This<span class="token operator">=</span><span class="token keyword">new</span> <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> Singleton <span class="token operator">*</span>Singleton<span class="token operator">::</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+Singleton<span class="token operator">::</span><span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+
+Singleton<span class="token operator">::</span><span class="token operator">~</span><span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="观察者模式-Observer"><a href="#观察者模式-Observer" class="headerlink" title="观察者模式(Observer)"></a>观察者模式(Observer)</h4><hr>
 <h3 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h3><p><code>sizeof(char str[])</code>为字面值+1。</p>
 <h4 id="浅拷贝与深拷贝"><a href="#浅拷贝与深拷贝" class="headerlink" title="浅拷贝与深拷贝"></a>浅拷贝与深拷贝</h4><p>浅拷贝：只拷贝指针地址，C++默认拷贝构造函数与赋值运算符重载都是浅拷贝；节省空间，但是容易引发多次释放。</p>
 <p>深拷贝：重新分配堆内存，拷贝指针指向内容。浪费空间，但不会导致多次释放。</p>
@@ -1572,7 +1623,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">92.4k</span>&nbsp;字
+                class="white-color">92.8k</span>&nbsp;字
             
             
             
