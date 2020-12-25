@@ -468,14 +468,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.2k
+                    6.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    25 分
                 </div>
                 
 
@@ -1220,6 +1220,140 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 <li>叶子函数(叶子函数：指在寒回溯内部不分配栈空间，也不调用其他函数，也不存储非易失性寄存器，也不处理异常)</li>
 </ul>
 <p>除此以外，不推荐使用<code>noexcept</code>。</p>
+<h4 id="default和-delete"><a href="#default和-delete" class="headerlink" title="=default和=delete"></a>=default和=delete</h4><p><code>=delete</code>和<code>=default</code>是c++11的新特性，分别是显式删除（告知编译器<strong>不生成</strong>函数默认的缺省版本）和显式缺省（告诉编译器<strong>生成</strong>函数默认的缺省版本），这样可以增强对“类默认函数的控制”。</p>
+<h5 id="类与默认函数"><a href="#类与默认函数" class="headerlink" title="类与默认函数"></a>类与默认函数</h5><p>当我们编写一个类的时候，若不显著写明，则类会默认为我们提供几个函数与全局默认操作符：</p>
+<ul>
+<li>构造函数</li>
+<li>析构函数</li>
+<li>拷贝构造函数</li>
+<li>拷贝赋值函数（operator=）</li>
+<li>移动构造函数</li>
+<li>operator,</li>
+<li>operator&amp;</li>
+<li>operator*</li>
+<li>operator-&gt;</li>
+<li>operator-&gt;*</li>
+<li>operator new</li>
+<li>operator delete</li>
+</ul>
+<p>使用&lt;类&gt;(){}这样的方式来声明无参构造函数会带来一个问题，使得其不再是POD类型。</p>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p>List将元素按顺序存储在链表中，与向量（vectors）相比，它允许快速的插入和删除，但随机访问比较慢。</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>assign()</td>
+<td>给list赋值</td>
+</tr>
+<tr>
+<td>back()</td>
+<td>返回最后一个元素</td>
+</tr>
+<tr>
+<td>begin()</td>
+<td>返回指向第一个元素的迭代器</td>
+</tr>
+<tr>
+<td>clear()</td>
+<td>删除所有元素</td>
+</tr>
+<tr>
+<td>empty()</td>
+<td>如果list是空的返回true</td>
+</tr>
+<tr>
+<td>end()</td>
+<td>返回末尾的迭代器</td>
+</tr>
+<tr>
+<td>erase()</td>
+<td>删除一个元素</td>
+</tr>
+<tr>
+<td>front()</td>
+<td>返回第一个元素</td>
+</tr>
+<tr>
+<td>get_allocator()</td>
+<td>返回list的配置器</td>
+</tr>
+<tr>
+<td>insert()</td>
+<td>插入一个元素到list中</td>
+</tr>
+<tr>
+<td>max_size()</td>
+<td>返回list能容纳的最大元素数量</td>
+</tr>
+<tr>
+<td>merge()</td>
+<td>合并两个list</td>
+</tr>
+<tr>
+<td>pop_back()</td>
+<td>删除最后一个元素</td>
+</tr>
+<tr>
+<td>pop_front()</td>
+<td>删除第一个元素</td>
+</tr>
+<tr>
+<td>push_back()</td>
+<td>在list的末尾添加一个元素</td>
+</tr>
+<tr>
+<td>push_front()</td>
+<td>在list的头部添加一个元素</td>
+</tr>
+<tr>
+<td>rbegin()</td>
+<td>返回指向第一个元素的逆向迭代器</td>
+</tr>
+<tr>
+<td>remove()</td>
+<td>从list中删除元素</td>
+</tr>
+<tr>
+<td>remove_if()</td>
+<td>按指定条件删除元素</td>
+</tr>
+<tr>
+<td>rend()</td>
+<td>指向list末尾的逆向迭代器</td>
+</tr>
+<tr>
+<td>resize()</td>
+<td>改变list的大小</td>
+</tr>
+<tr>
+<td>reverse()</td>
+<td>把list中的元素倒转</td>
+</tr>
+<tr>
+<td>size()</td>
+<td>返回list中的元素个数</td>
+</tr>
+<tr>
+<td>sort()</td>
+<td>给list排序</td>
+</tr>
+<tr>
+<td>splice()</td>
+<td>合并两个list</td>
+</tr>
+<tr>
+<td>swap()</td>
+<td>交换两个list</td>
+</tr>
+<tr>
+<td>unique()</td>
+<td>删除list中的重复元素</td>
+</tr>
+</tbody></table>
 
                 
             </div>
@@ -1786,7 +1920,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">92.9k</span>&nbsp;字
+                class="white-color">93.4k</span>&nbsp;字
             
             
             
