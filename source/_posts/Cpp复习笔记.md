@@ -821,3 +821,59 @@ void swap(Type& x, Type& y) noexcept(noexcept(x.swap(y))){
 
 除此以外，不推荐使用`noexcept`。
 
+#### =default和=delete
+
+`=delete`和`=default`是c++11的新特性，分别是显式删除（告知编译器**不生成**函数默认的缺省版本）和显式缺省（告诉编译器**生成**函数默认的缺省版本），这样可以增强对“类默认函数的控制”。
+
+##### 类与默认函数
+
+当我们编写一个类的时候，若不显著写明，则类会默认为我们提供几个函数与全局默认操作符：
+
+- 构造函数
+- 析构函数
+- 拷贝构造函数
+- 拷贝赋值函数（operator=）
+- 移动构造函数
+- operator,
+- operator&
+- operator*
+- operator->
+- operator->*
+- operator new
+- operator delete
+
+使用<类>(){}这样的方式来声明无参构造函数会带来一个问题，使得其不再是POD类型。
+
+#### List
+
+List将元素按顺序存储在链表中，与向量（vectors）相比，它允许快速的插入和删除，但随机访问比较慢。
+
+| 函数            | 作用                           |
+| --------------- | ------------------------------ |
+| assign()        | 给list赋值                     |
+| back()          | 返回最后一个元素               |
+| begin()         | 返回指向第一个元素的迭代器     |
+| clear()         | 删除所有元素                   |
+| empty()         | 如果list是空的返回true         |
+| end()           | 返回末尾的迭代器               |
+| erase()         | 删除一个元素                   |
+| front()         | 返回第一个元素                 |
+| get_allocator() | 返回list的配置器               |
+| insert()        | 插入一个元素到list中           |
+| max_size()      | 返回list能容纳的最大元素数量   |
+| merge()         | 合并两个list                   |
+| pop_back()      | 删除最后一个元素               |
+| pop_front()     | 删除第一个元素                 |
+| push_back()     | 在list的末尾添加一个元素       |
+| push_front()    | 在list的头部添加一个元素       |
+| rbegin()        | 返回指向第一个元素的逆向迭代器 |
+| remove()        | 从list中删除元素               |
+| remove_if()     | 按指定条件删除元素             |
+| rend()          | 指向list末尾的逆向迭代器       |
+| resize()        | 改变list的大小                 |
+| reverse()       | 把list中的元素倒转             |
+| size()          | 返回list中的元素个数           |
+| sort()          | 给list排序                     |
+| splice()        | 合并两个list                   |
+| swap()          | 交换两个list                   |
+| unique()        | 删除list中的重复元素           |
