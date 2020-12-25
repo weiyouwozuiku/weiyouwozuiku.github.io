@@ -753,6 +753,10 @@ Singleton::~Singleton() {
 
 #### 观察者模式 (Observer)
 
+实现思路：
+
+1. 将问题的指责解耦合，将Observable和Observer抽象开，分清抽象和实体。
+
 
 
 ---
