@@ -431,9 +431,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/Spring/">
+                                <span class="chip bg-color">Spring</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -441,12 +449,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Spring/" class="post-category">
-                                Spring
-                            </a>
-                        
-                            <a href="/categories/Spring/Java/" class="post-category">
-                                Java
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                程序设计
                             </a>
                         
                     </div>
@@ -465,7 +469,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-09-27
+                    2020-12-26
                 </div>
                 
 
@@ -537,27 +541,27 @@
 <p>SpringRunner是SpringJUit4ClassRunner的别名，于Spring4.3引入，移除了对特定JUit版本的关联。</p>
 <p>Spring自带一个强大的Web框架，Spring MVC。其核心是控制器的理念(处理请求并以某种方式进行信息响应的类)。</p>
 <p>在Spring Boot2.2之后，默认的测试工具变成了Junit5。有两种方法进行测试:1.直接写<code>@SpringBootTest</code>，如果测试MVC加上注释<code>@AutoConfigureMockMvc</code>，注入一个<code>Autowired</code>的<code>MockMvc</code>对象。2.声明<code>@ExtendWith(SpringExtension.class)</code>替换<code>@RunWith(SpringRunner.class)</code>。设置<code>@WebMvcTest(所需测试的Controller.class)</code>。</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">import</span> <span class="token keyword">static</span> org<span class="token punctuation">.</span>hamcrest<span class="token punctuation">.</span>Matchers<span class="token punctuation">.</span>containsString<span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token keyword">static</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>request<span class="token punctuation">.</span>MockMvcRequestBuilders<span class="token punctuation">.</span>get<span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token keyword">static</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>result<span class="token punctuation">.</span>MockMvcResultMatchers<span class="token punctuation">.</span>content<span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token keyword">static</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>result<span class="token punctuation">.</span>MockMvcResultMatchers<span class="token punctuation">.</span>status<span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token keyword">static</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>result<span class="token punctuation">.</span>MockMvcResultMatchers<span class="token punctuation">.</span>view<span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//@SpringBootTest</span>
-<span class="token comment" spellcheck="true">//@AutoConfigureMockMvc</span>
-<span class="token annotation punctuation">@ExtendWith</span><span class="token punctuation">(</span>SpringExtension<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
-<span class="token annotation punctuation">@WebMvcTest</span><span class="token punctuation">(</span>HomeController<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">org<span class="token punctuation">.</span>hamcrest<span class="token punctuation">.</span></span><span class="token class-name">Matchers</span><span class="token punctuation">.</span>containsString<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>request<span class="token punctuation">.</span></span><span class="token class-name">MockMvcRequestBuilders</span><span class="token punctuation">.</span>get<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>result<span class="token punctuation">.</span></span><span class="token class-name">MockMvcResultMatchers</span><span class="token punctuation">.</span>content<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>result<span class="token punctuation">.</span></span><span class="token class-name">MockMvcResultMatchers</span><span class="token punctuation">.</span>status<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token keyword">static</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>test<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>result<span class="token punctuation">.</span></span><span class="token class-name">MockMvcResultMatchers</span><span class="token punctuation">.</span>view<span class="token punctuation">;</span>
+<span class="token comment">//@SpringBootTest</span>
+<span class="token comment">//@AutoConfigureMockMvc</span>
+<span class="token annotation punctuation">@ExtendWith</span><span class="token punctuation">(</span><span class="token class-name">SpringExtension</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@WebMvcTest</span><span class="token punctuation">(</span><span class="token class-name">HomeController</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HomeControllerTest</span><span class="token punctuation">{</span>
     <span class="token annotation punctuation">@Autowired</span>
-    <span class="token keyword">private</span> MockMvc mockMvc<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">MockMvc</span> mockMvc<span class="token punctuation">;</span>
     <span class="token annotation punctuation">@Test</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testHomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
-        mockMvc<span class="token punctuation">.</span><span class="token function">perform</span><span class="token punctuation">(</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">// &lt;3></span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testHomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        mockMvc<span class="token punctuation">.</span><span class="token function">perform</span><span class="token punctuation">(</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    <span class="token comment">// &lt;3&gt;</span>
 
-                <span class="token punctuation">.</span><span class="token function">andExpect</span><span class="token punctuation">(</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isOk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// &lt;4></span>
+                <span class="token punctuation">.</span><span class="token function">andExpect</span><span class="token punctuation">(</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isOk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">// &lt;4&gt;</span>
 
-                <span class="token punctuation">.</span><span class="token function">andExpect</span><span class="token punctuation">(</span><span class="token function">view</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token string">"home"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// &lt;5></span>
+                <span class="token punctuation">.</span><span class="token function">andExpect</span><span class="token punctuation">(</span><span class="token function">view</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token string">"home"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">// &lt;5&gt;</span>
 
-                <span class="token punctuation">.</span><span class="token function">andExpect</span><span class="token punctuation">(</span><span class="token function">content</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span>           <span class="token comment" spellcheck="true">// &lt;6></span>
+                <span class="token punctuation">.</span><span class="token function">andExpect</span><span class="token punctuation">(</span><span class="token function">content</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span>           <span class="token comment">// &lt;6&gt;</span>
                         <span class="token function">containsString</span><span class="token punctuation">(</span><span class="token string">"Welcome to..."</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -621,8 +625,7 @@
 <li><p>@Log4j：注释在类上；为类提供一个属性名为log的log4j日志对象</p>
 </li>
 <li><p>@Slf4j：同上。其作用同如下代码</p>
-<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span>Logger log<span class="token operator">=</span>org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span>LoggerFactory<span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span>DesignTacoController<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span><span class="token class-name">Logger</span> log<span class="token operator">=</span>org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span><span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">DesignTacoController</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>@NoArgsConstructor：注释在类上；为类提供一个无参的构造方法</p>
 </li>
 <li><p>@AllArgsConstructor：注释在类上；为类提供一个全参的构造方法</p>
@@ -691,7 +694,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/Spring/">
+                                    <span class="chip bg-color">Spring</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
