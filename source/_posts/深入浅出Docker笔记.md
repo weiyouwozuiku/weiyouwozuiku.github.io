@@ -1,9 +1,12 @@
 ---
 title: 深入浅出Docker笔记
+author: 不二
 date: 2019-12-22 08:56:53
 mathjax: true
 tags:
 - Docker
+categories: 
+- 云计算
 ---
 
 ## 第一章 容器发展之路
@@ -14,7 +17,7 @@ tags:
 
 容器模型与虚拟机的区别：容器的运行不会独占操作系统。运行在相同宿主主机上的容器是共享一个操作系统，节省大量的系统资源，节省在许可证上的花销，以及为OS打补丁等运维成本。启动快，便于迁移。
 
-$$对容器影响较大的技术\begin{cases}\text{内核命名空间(Kernel \quad Namespace)}\\\text{控制组(Control \quad Group)}\\\text{联合文件系统(Union \quad File \quad System)}\\\text{ Docker}\end{cases}$$
+$$对容器影响较大的技术\begin{cases} 内核命名空间(Kernel \quad Namespace) \\\ 控制组(Control \quad Group) \\\ 联合文件系统(Union \quad File \quad System) \\\ Docker  \end{cases}$$
 
 运行中的容器共享主机的内核。
 

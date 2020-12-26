@@ -1,5 +1,6 @@
 ---
 title: V2ray
+author: 不二
 date: 2020-02-15 21:10:31
 mathjax: true
 tags:
@@ -7,6 +8,7 @@ tags:
 - V2ray
 - ios
 - Windows
+categories: 经验总结
 ---
 
 ## V2ray

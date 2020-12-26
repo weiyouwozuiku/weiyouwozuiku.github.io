@@ -1,10 +1,13 @@
 ---
 title: 树莓派安装OpenCV
+author: 不二
 date: 2019-07-10 17:54:52
 mathjax: true
 tags: 
 - 树莓派
 - Opencv
+categories:
+- 嵌入式
 ---
 
 ## 树莓派安装OpenCV

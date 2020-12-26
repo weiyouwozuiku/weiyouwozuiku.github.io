@@ -1,10 +1,11 @@
 ---
 title: Hadoop了解
+author: 不二
 date: 2019-07-09 12:33:48
 mathjax: true
 tags: 
 - Hadoop
-- 云计算
+categories: 云计算
 ---
 
 ## 大数据

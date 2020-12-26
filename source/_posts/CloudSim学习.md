@@ -1,10 +1,11 @@
 ---
 title: CloudSim学习
+author: 不二
 date: 2019-07-08 23:36:11
 mathjax: true
 tags: 
 - CloudSim
-- 云计算
+categories: 云计算
 ---
 
 # CloudSim

@@ -6,7 +6,7 @@ date: 2020-11-21 10:55:31
 tags: Windows
 img:
 categories: 
-- 软件
+- 经验总结
 ---
 
 记录Windows10上常用的软件

@@ -1,9 +1,11 @@
 ---
-title: go语言学习（基础篇）
+title: Go语言学习（基础篇）
+author: 不二
 date: 2019-12-01 23:20:34
 mathjax: true
 tags:
 - Go
+categories: 程序设计
 ---
 
 #### Tip

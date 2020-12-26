@@ -1,9 +1,11 @@
 ---
 title: Python高级特性
+author: 不二
 date: 2019-07-15 12:32:34
 mathjax: true
 tags: 
 - Python
+categories: 程序设计
 ---
 
 ## Python语法糖

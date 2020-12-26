@@ -1,8 +1,10 @@
 ---
 title: powerlevel10k设置及客制化
+author: 不二
 date: 2020-02-15 20:32:48
 tags:
 - Linux
+categories: 经验总结
 ---
 
 ## Powerlevel10k

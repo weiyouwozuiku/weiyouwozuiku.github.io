@@ -1,11 +1,13 @@
 ---
 title: Manjaro系统配置
+author: 不二
 date: 2019-12-12 09:47:30
 mathjax: true
 tags:
 - 装机
 - ranger
 - Manjaro
+categories: 经验总结
 ---
 
 ## Manjaro安装及其配置

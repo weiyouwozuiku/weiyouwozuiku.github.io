@@ -1,10 +1,11 @@
 ---
 title: CloudSim能耗计算模型
+author: 不二
 date: 2019-07-12 09:25:00
 mathjax: true
 tags: 
 - CloudSim
-- 云计算
+categories: 云计算
 ---
 
 ## CloudSim能耗计算模型的不同

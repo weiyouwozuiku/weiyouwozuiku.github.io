@@ -1,8 +1,10 @@
 ---
 title: Python基础
+author: 不二
 date: 2019-07-10 16:46:28
 mathjax: true
 tags: Python
+categories: 程序设计
 ---
 
 ## Python基础

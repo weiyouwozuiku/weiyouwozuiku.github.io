@@ -1,10 +1,12 @@
 ---
 title: Python OOP
+author: 不二
 date: 2019-07-17 10:59:38
 mathjax: true
 tags: 
 - Python
 - OOP
+categories: 程序设计
 ---
 
 ## Python面向对象编程

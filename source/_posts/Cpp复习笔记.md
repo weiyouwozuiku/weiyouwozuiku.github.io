@@ -1,11 +1,11 @@
 ---
 title: C++复习笔记
 author: 不二
-mathjax: true
+mathjax: false
 date: 2020-11-10 12:14:19
-tags:
+tags: C++
 img:
-categories: C++
+categories: 程序设计
 ---
 
 本文为自己复习C++时知识的补充与记录。
@@ -166,7 +166,7 @@ RAII有些比较成熟的智能指针代表：如`std:auto_ptr`和`boost:shared_
 
 `unique_ptr`、`shared_ptr`、`weak_ptr`和C++11中已经废弃的`auto_ptr`，在C++17中被正式删除。需要导入头文件`<memory>`
 
-#### auto_ptr (不推荐使用)
+#### auto_ptr \(不推荐使用\)
 
 由`new expression`获得对象，在`auto_ptr`对象销毁时，他所管理的对象也会自动被delete掉。
 
@@ -267,7 +267,7 @@ strcut Student{
 
   \_attribute\_(aligned(n))
 
-  \_attribute\_(\_packed\_)
+  \_attribute\_\(\_packed\_\)
 
 **此处的n表示是n的倍数进行分配。**
 
@@ -548,7 +548,7 @@ std::istream &operator>>(std::istream &is, Complex &x) {
 
 **尽量减少函数中临时对象的使用。如果可以在函数返回时利用新的数据直接返回对象，这样可以有效的避免系统调用拷贝构造函数。**
 
-**前置++的运算符重载的声明为`<类型名>& operaotr++ ()`，后置++的运算符重载的声明为`<类型名> operator++ (int)`**，前置--和后置--类似。
+**前置++的运算符重载的声明为`<类型名>& operaotr++ ()`，后置++的运算符重载的声明为`<类型名> operator++ (int)`，**前置--和后置--类似。
 
 **封装是编译期的概念，是针对类型而非对象，在类的成员函数中可以访问同类型实例对象的私有成员变量。**
 
@@ -556,26 +556,26 @@ std::istream &operator>>(std::istream &is, Complex &x) {
 
 为了避免同一个文件被include多次，有两种方式：
 
-1. ```cpp
-   #ifndef _SOMEFILE_H_
-   #define _SOMEFILE_H_
-   ...
-   #endif
-   ```
+1. 使用宏来防止同一文件被多次包含；
    
-   使用宏来防止同一文件被多次包含；
-
    优点：可移植性好。
    
    缺点：无法防止宏名重复，难以派错。
    
-2. `#pragma once`
-
-   使用编译器来防止同一文件被多次包含；
+   ```cpp
+   #ifndef _SOMEFILE_H_
+#define _SOMEFILE_H_
+   ...
+   #endif
+   ```
+   
+2. 使用编译器来防止同一文件被多次包含；
 
    优点：可以防止宏名重复，易排错。
 
    缺点：可移植性不好。
+
+   `#pragma once`
 
 #### 抽象类与接口
 
@@ -704,7 +704,7 @@ bool copyFile(const std::string &src, const std::string &dst) {
 
 ### 设计模式
 
-#### 单例模式 (Singleton)
+#### 单例模式\(Singleton\)
 
 实现思路：
 
@@ -751,7 +751,7 @@ Singleton::~Singleton() {
 
 ```
 
-#### 观察者模式 (Observer)
+#### 观察者模式\(Observer\)
 
 实现思路：
 
@@ -877,3 +877,6 @@ List将元素按顺序存储在链表中，与向量（vectors）相比，它允
 | splice()        | 合并两个list                   |
 | swap()          | 交换两个list                   |
 | unique()        | 删除list中的重复元素           |
+
+#### POD
+

@@ -1,10 +1,11 @@
 ---
 title: QoS知识
+author: 不二
 date: 2019-07-13 19:54:46
 mathjax: true
 tags: 
-- 云计算
 - QoS
+categories: 云计算
 ---
 
 ## QoS

@@ -1,9 +1,11 @@
 ---
 title: Tmux
+author: 不二
 date: 2019-08-02 09:43:09
 mathjax: true
 tags: 
 - Linux
+categories: 经验总结
 ---
 
 ## Tmux

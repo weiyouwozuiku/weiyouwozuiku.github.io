@@ -1,10 +1,12 @@
 ---
 title: Python函数式编程
+author: 不二
 date: 2019-07-16 10:02:18
 mathjax: true
 tags:
 - Python
 - 函数式编程
+categories: 程序设计
 ---
 
 ## Python函数式编程
@@ -92,6 +94,7 @@ tags:
   def hello(name):
       return 'hello' + name
   print(hello('wang'))
+  ```
 ```
   
   此时被装饰的函数的属性会被修改，改成装饰器的包装的具体函数的名字。可以使用`@functools.wraps(func)`，放在第二层嵌套后面。
@@ -100,6 +103,6 @@ tags:
 
   ```python
   int2=functools.partial(int,base=2)
-  ```
+```
 
   

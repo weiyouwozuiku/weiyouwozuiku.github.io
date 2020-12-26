@@ -1,5 +1,6 @@
 ---
 title: centos7.6初始化安装步骤
+author: 不二
 date: 2019-12-08 09:46:56
 mathjax: true
 categories: Linux
@@ -7,6 +8,7 @@ tags:
 - centos
 - Python
 - Linux
+categories: 经验总结
 ---
 
 ## 安装python3.7和pip
