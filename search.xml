@@ -357,9 +357,9 @@
             
             <tag> V2ray </tag>
             
-            <tag> ios </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> Ios </tag>
             
         </tags>
       
@@ -440,7 +440,7 @@
             
             <tag> 树莓派 </tag>
             
-            <tag> arduino </tag>
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -519,9 +519,9 @@
             
             <tag> 装机 </tag>
             
-            <tag> ranger </tag>
-            
             <tag> Manjaro </tag>
+            
+            <tag> Ranger </tag>
             
         </tags>
       
@@ -550,7 +550,7 @@
             
             <tag> Linux </tag>
             
-            <tag> centos </tag>
+            <tag> Centos </tag>
             
         </tags>
       
@@ -602,7 +602,7 @@
             
             <tag> 树莓派 </tag>
             
-            <tag> arduino </tag>
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -702,9 +702,9 @@
       
         <tags>
             
-            <tag> anaconda </tag>
-            
             <tag> 数据分析 </tag>
+            
+            <tag> Anaconda </tag>
             
         </tags>
       
@@ -756,7 +756,7 @@
             
             <tag> Docker </tag>
             
-            <tag> k8s </tag>
+            <tag> K8s </tag>
             
         </tags>
       
