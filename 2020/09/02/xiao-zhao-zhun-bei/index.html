@@ -437,6 +437,14 @@
                                 <span class="chip bg-color">操作系统</span>
                             </a>
                         
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                                <span class="chip bg-color">计算机组成原理</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -445,8 +453,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%B0%B1%E4%B8%9A/" class="post-category">
-                                就业
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                计算机基础
                             </a>
                         
                     </div>
@@ -465,7 +473,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-05
+                    2020-12-26
                 </div>
                 
 
@@ -479,7 +487,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    16 分
                 </div>
                 
 
@@ -727,7 +735,7 @@
 <p>插入空行会导致执行错误。</p>
 <p>使用<code>AS</code>为列设置别名，格式如下：<code>SELECT &lt;列名&gt; AS &lt;别名&gt;...</code>。<strong>别名可以使用中文，但是要用双引号包裹。</strong></p>
 <p>可以在<code>SELECT</code>语句中书写常量，如下所示。这些常量会显示在每条查询出的结果的前面。</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token string">'商品'</span> <span class="token keyword">AS</span> string<span class="token punctuation">,</span> <span class="token number">38</span> <span class="token keyword">AS</span> number<span class="token punctuation">,</span> <span class="token string">'2009-02-24'</span> <span class="token keyword">AS</span> <span class="token keyword">date</span><span class="token punctuation">,</span>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token string">'商品'</span> <span class="token keyword">AS</span> string<span class="token punctuation">,</span> <span class="token number">38</span> <span class="token keyword">AS</span> number<span class="token punctuation">,</span> <span class="token string">'2009-02-24'</span> <span class="token keyword">AS</span> <span class="token keyword">date</span><span class="token punctuation">,</span>
 product_id<span class="token punctuation">,</span> product_name
 <span class="token keyword">FROM</span> Product<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>在<code>SELECT</code>语句中删除重复行时，使用关键词<code>DISTINCT</code>。DISTINCT 关键字只能用在第一个列名之前。<code>SELECT DISTINCT &lt;列名&gt; FROM &lt;表名&gt;</code>。<code>NULL</code>也会被合并。</p>
@@ -780,7 +788,7 @@ product_id<span class="token punctuation">,</span> product_name
 <p>去掉重复值的聚合函数，格式形如<code>SELECT COUNT (DISTINCT product_type) FROM Product</code>。</p>
 <p>DISTINCT关键字必须写在括号中。写在外面会优先执行聚合函数，然后才是DISTINCT。</p>
 <p>使用GROUP BY子句进行汇总：</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">></span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">></span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">></span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">></span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">></span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">></span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">></span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>；<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">&gt;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>；<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在GROUP BY子句中指定的列称为聚合键或分组列。</p>
 <p>GROUP BY子句必须写在FROM子句之后。如果有WHERE子句，需要卸载WHERE子句之后。</p>
 <p>聚合键中包含NULL时，在结果中会以“不确定”行（空行）的形式表现出来。</p>
@@ -797,17 +805,17 @@ product_id<span class="token punctuation">,</span> product_name
 <p>使用COUNT函数等对表中数据进行汇总操作时，为其指定条件的不是WHERE子句，而是HAVING子句。</p>
 <p> HAVING子句要写在GROUP BY子句之后。</p>
 <p><strong>WHERE子句用来指定数据行的条件， HAVING子句用来指定分组的条件。</strong></p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">></span><span class="token punctuation">,</span> ……
-<span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">></span>
-<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">></span><span class="token punctuation">,</span> ……
-<span class="token keyword">HAVING</span> <span class="token operator">&lt;</span>分组结果对应的条件<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……
+<span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">&gt;</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……
+<span class="token keyword">HAVING</span> <span class="token operator">&lt;</span>分组结果对应的条件<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>HAVING 子句中能够使用的 3 种要素:<strong>常数、聚合函数、GROUP BY子句中指定的列名</strong>。</p>
 <p>在 WHERE 子句和 HAVING 子句中都可以使用的条件，最好写在 WHERE 子句中。WHERE在排序之前就删去了部分数据，且便于建立索引，执行速度也会更快。</p>
 <p>若查询没有指定顺序，则返回的结果往往是随机的。</p>
 <p>OREDER BY：</p>
-<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">></span><span class="token punctuation">,</span> ……
-<span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">></span>
-<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>排序基准列<span class="token number">1</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>排序基准列<span class="token number">2</span><span class="token operator">></span><span class="token punctuation">,</span> ……<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……
+<span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">&gt;</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>排序基准列<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>排序基准列<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>不论何种情况， ORDER BY 子句都需要写在 SELECT 语句的末尾。这是因为对数据行进行排序的操作必须在结果即将返回时执行。</p>
 <p>OREDER BY默认是升序，也可以显式声明<code>ASC</code>，使用关键词<code>DESC</code>降序。</p>
 <p><code>OREDER BY</code>指定多个排序键时，优先使用左侧的键，相同情况下在参考右侧的键。</p>
@@ -881,6 +889,14 @@ product_id<span class="token punctuation">,</span> product_name
                             
                                 <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
                                     <span class="chip bg-color">操作系统</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                                    <span class="chip bg-color">计算机组成原理</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
                                 </a>
                             
                         </div>
@@ -1075,11 +1091,23 @@ product_id<span class="token punctuation">,</span> product_name
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            不二
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    程序设计
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1114,17 +1142,21 @@ product_id<span class="token punctuation">,</span> product_name
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/" class="post-category">
-                                    测试开发
-                                </a>
-                            
-                            <a href="/categories/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/%E6%B5%8B%E8%AF%95/" class="post-category">
+                            <a href="/categories/%E6%B5%8B%E8%AF%95/" class="post-category">
                                     测试
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">测试开发</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1369,7 +1401,7 @@ product_id<span class="token punctuation">,</span> product_name
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.4k</span>&nbsp;字
+                class="white-color">97.5k</span>&nbsp;字
             
             
             
