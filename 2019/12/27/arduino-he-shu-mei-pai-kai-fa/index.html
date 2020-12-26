@@ -477,14 +477,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-10-02
+                    2020-12-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    910
+                    913
                 </div>
                 
 
@@ -514,34 +514,34 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="实验室机器人控制代码"><a href="#实验室机器人控制代码" class="headerlink" title="实验室机器人控制代码"></a>实验室机器人控制代码</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> RPi<span class="token punctuation">.</span>GPIO <span class="token keyword">as</span> GPIO
+                <h2 id="实验室机器人控制代码"><a href="#实验室机器人控制代码" class="headerlink" title="实验室机器人控制代码"></a>实验室机器人控制代码</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> RPi<span class="token punctuation">.</span>GPIO <span class="token keyword">as</span> GPIO
 <span class="token keyword">import</span> serial
 <span class="token keyword">import</span> time
 ser<span class="token operator">=</span>serial<span class="token punctuation">.</span>Serial<span class="token punctuation">(</span><span class="token string">"/dev/ttyACM0"</span><span class="token punctuation">,</span><span class="token number">115200</span><span class="token punctuation">,</span>timeout<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
 <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
     ser<span class="token punctuation">.</span>flushInput<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"please input the number of steering engine:(1:left;2:right)"</span><span class="token punctuation">)</span>
-    engine<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    engine<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"please input the channel of steering engine:"</span><span class="token punctuation">)</span>
-    channel<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    channel<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"please input the angle of the steering engine:"</span><span class="token punctuation">)</span>
-    angle<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    angle<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"please input the second of the steering engine:"</span><span class="token punctuation">)</span>
-    second<span class="token operator">=</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    second<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     data<span class="token operator">=</span>engine<span class="token operator">+</span><span class="token string">"#"</span><span class="token operator">+</span>channel<span class="token operator">+</span><span class="token string">"P"</span><span class="token operator">+</span>angle<span class="token operator">+</span><span class="token string">"T"</span><span class="token operator">+</span>second
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"send data:"</span><span class="token operator">+</span>data<span class="token punctuation">)</span>
     ser<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true">#time.sleep(1)</span>
+    <span class="token comment">#time.sleep(1)</span>
     response<span class="token operator">=</span>ser<span class="token punctuation">.</span>readall<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> response<span class="token operator">!=</span>None<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> response<span class="token operator">!=</span><span class="token boolean">None</span><span class="token punctuation">:</span>
         result<span class="token operator">=</span>response<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"receiced data:"</span><span class="token operator">+</span>result<span class="token punctuation">)</span>
         time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true">#print(response)</span>
+        <span class="token comment">#print(response)</span>
     <span class="token keyword">else</span><span class="token punctuation">:</span>
         ser<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;SoftwareSerial.h></span></span>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;SoftwareSerial.h&gt;</span></span>
 SoftwareSerial <span class="token function">serial_1</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 SoftwareSerial <span class="token function">serial_2</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 String data <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
@@ -553,11 +553,11 @@ String data <span class="token operator">=</span> <span class="token string">""<
 <span class="token punctuation">}</span>
 
 <span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token keyword">while</span> <span class="token punctuation">(</span>Serial<span class="token punctuation">.</span><span class="token function">available</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    data <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">char</span><span class="token punctuation">(</span>Serial<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>Serial<span class="token punctuation">.</span><span class="token function">available</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    data <span class="token operator">+=</span> <span class="token keyword">char</span><span class="token punctuation">(</span>Serial<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token function">judge</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
     data<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
@@ -573,7 +573,7 @@ String data <span class="token operator">=</span> <span class="token string">""<
       Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"right:"</span><span class="token operator">+</span>command<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token function">moveSteeringEngine</span><span class="token punctuation">(</span>serial_2<span class="token punctuation">,</span>command<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-
+    
 <span class="token punctuation">}</span>
 
 <span class="token keyword">void</span> <span class="token function">moveSteeringEngine</span><span class="token punctuation">(</span>SoftwareSerial serial<span class="token punctuation">,</span>String command<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -635,7 +635,7 @@ String data <span class="token operator">=</span> <span class="token string">""<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">ZHENG Wang</a>
+                    <a href="/about" rel="external nofollow noreferrer">不二</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -658,7 +658,7 @@ String data <span class="token operator">=</span> <span class="token string">""<
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">ZHENG Wang</a>
+                    <a href="/about" target="_blank">不二</a>
                     !
                 </span>
             </div>
@@ -892,7 +892,7 @@ String data <span class="token operator">=</span> <span class="token string">""<
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            ZHENG Wang
+                            不二
                             
                         </span>
                     </div>
@@ -1197,7 +1197,7 @@ String data <span class="token operator">=</span> <span class="token string">""<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">93.4k</span>&nbsp;字
+                class="white-color">97.4k</span>&nbsp;字
             
             
             

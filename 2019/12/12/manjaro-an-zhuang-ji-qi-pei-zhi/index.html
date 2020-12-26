@@ -464,21 +464,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-01
+                    2020-12-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.5k
+                    11.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    44 分
+                    67 分
                 </div>
                 
 
@@ -590,18 +590,18 @@
 <li><p>sudo pacman -S translate-shell</p>
 </li>
 <li><p>编辑-&gt;词典-&gt;词典来源-&gt;程序-&gt;添加</p>
-<pre class="line-numbers language-xml"><code class="language-xml">#  Trans-2-Chinese
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">#  Trans-2-Chinese
 trans -e google -s auto -t zh-CN -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n “%GDWORD%”
 
 # Trans-2-English
 trans -e google -s auto -t en-US -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n “%GDWORD%”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<h5 id="Alacritty"><a href="#Alacritty" class="headerlink" title="Alacritty"></a>Alacritty</h5></li>
 </ol>
-<h5 id="Alacritty"><a href="#Alacritty" class="headerlink" title="Alacritty"></a>Alacritty</h5><p>一款GPU实时渲染的终端</p>
+<p>一款GPU实时渲染的终端</p>
 <p>配置文件在<code>.config/alacritty/alacritty.yml</code>。</p>
 <p>可以使用<code>fc-list</code>查看已安装的字体。</p>
 <p>修改如下字段：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">background_opacity: 0.7
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">background_opacity: 0.7
 # Font configuration
 font:
   size: 11  
@@ -617,28 +617,30 @@ font:
     #family: JetBrains Mono Regular Nerd Font Complete Mono
     # The `style` can be specified to pick a specific face.
     style: Regular<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <h5 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h5><p>安装<code>sudo pacman -S tmux</code></p>
 <p>配置基于<a target="_blank" rel="noopener" href="https://github.com/gpakosz/.tmux">github</a></p>
 <h5 id="Barrier"><a href="#Barrier" class="headerlink" title="Barrier"></a>Barrier</h5><p>多台主机之间共享键鼠，使用<code>sudo pacman -S barrier</code>或<code>sudo apt install barrier</code>。</p>
 <p>配置时在服务端的屏幕和联结中创建新的屏幕并设置名称，此名称需要和连接的设备的barrier中的名称一致。</p>
 <h5 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h5><p>推荐使用<code>fcitx5</code>。搜狗输入法每次启动都会花费大量时间。</p>
-<pre class="line-numbers language-shell"><code class="language-shell">sudo pacman -S fcitx5-im<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-im<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>修改<code>~/.pam_environment</code></p>
-<pre class="line-numbers language-shell"><code class="language-shell">INPUT_METHOD  DEFAULT=fcitx5
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">INPUT_METHOD  DEFAULT=fcitx5
 GTK_IM_MODULE DEFAULT=fcitx5
 QT_IM_MODULE  DEFAULT=fcitx5
 XMODIFIERS    DEFAULT=\@im=fcitx5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>将<code>/usr/share/applications/fcitx5.desktop</code>复制到<code>~/.config/autostart  </code>，实现开机自启。</p>
 <p>添加对中文支持</p>
-<pre class="line-numbers language-shell"><code class="language-shell">sudo pacman -S fcitx5-chinese-addons<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-chinese-addons<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>添加输入法模块</p>
-<pre class="line-numbers language-shell"><code class="language-shell">sudo pacman -S fcitx5-qt fcitx5-gtk <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-qt fcitx5-gtk <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>添加词库</p>
-<pre class="line-numbers language-shell"><code class="language-shell">sudo pacman -S fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>安装输入法皮肤</p>
-<pre class="line-numbers language-shell"><code class="language-shell">sudo pacman -S fcitx5-material-color<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-material-color<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>​    然后修改配置文件 <code>~/.config/fcitx5/conf/classicui.conf</code></p>
-<pre class="line-numbers language-shell"><code class="language-shell"># 垂直候选列表
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 垂直候选列表
 Vertical Candidate List=False
 
 # 按屏幕 DPI 使用
@@ -660,18 +662,18 @@ Theme=Material-Color-Pink<span aria-hidden="true" class="line-numbers-rows"><spa
 <li>Material-Color-Teal(不错)</li>
 </ul>
 <p>​    更新皮肤  </p>
-<pre class="line-numbers language-shell"><code class="language-shell">cd ~/.local/share/fcitx5/themes/Material-Color
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd ~/.local/share/fcitx5/themes/Material-Color
 git pull<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>​    单行模式</p>
 <ul>
 <li>对于 fcitx5 自带的 pinyin，请修改 <code>~/.config/fcitx5/conf/pinyin.conf</code></li>
 <li>对于 fcitx5-rime，请新建/修改 <code>~/.config/fcitx5/conf/rime.conf</code></li>
 </ul>
-<pre class="line-numbers language-shell"><code class="language-shell"># 可用时在应用程序中显示预编辑文本
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 可用时在应用程序中显示预编辑文本
 PreeditInApplication=True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h5 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h5><p>终端显示，能智能的显示一些信息，高定制性。</p>
 <h6 id="Oh-My-Zsh"><a href="#Oh-My-Zsh" class="headerlink" title="Oh-My-Zsh"></a>Oh-My-Zsh</h6><p><code>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></p>
-<h6 id="相应插件"><a href="#相应插件" class="headerlink" title="相应插件"></a>相应插件</h6><pre class="line-numbers language-shell"><code class="language-shell">plugins=( 
+<h6 id="相应插件"><a href="#相应插件" class="headerlink" title="相应插件"></a>相应插件</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">plugins=( 
    git 
    z 
    extract 
@@ -689,20 +691,20 @@ PreeditInApplication=True<span aria-hidden="true" class="line-numbers-rows"><spa
    )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>如果相关插件提示无法使用，需要去寻找相应github仓库。将所需项目克隆至本地。</p>
 <p>添加fzf设置：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" -E ".idea" . /home'
-#export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500" --preview-windows=down'
-#export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border  --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500" --preview-window=down'
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" -E ".idea" . /home'
+#export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "[[ $(file --mime {}) =~ binary ]] &amp;&amp; echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2&gt; /dev/null | head -500" --preview-windows=down'
+#export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border  --preview "[[ $(file --mime {}) =~ binary ]] &amp;&amp; echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2&gt; /dev/null | head -500" --preview-window=down'
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "echo {} | ~/.config/file_preview.py" --preview-window=down'
 export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>file_preview.py</code></p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/env python</span>
-<span class="token comment" spellcheck="true"># coding=utf-8</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/env python</span>
+<span class="token comment"># coding=utf-8</span>
 
-<span class="token comment" spellcheck="true"># 在使用这个插件之前你需要先安装以下程序</span>
-<span class="token comment" spellcheck="true"># 压缩文件：atool unrar unzip p7zip-full</span>
-<span class="token comment" spellcheck="true"># 网页文件：w3m</span>
-<span class="token comment" spellcheck="true"># 种子文件：transmission</span>
-<span class="token comment" spellcheck="true"># 文本文件：bat</span>
+<span class="token comment"># 在使用这个插件之前你需要先安装以下程序</span>
+<span class="token comment"># 压缩文件：atool unrar unzip p7zip-full</span>
+<span class="token comment"># 网页文件：w3m</span>
+<span class="token comment"># 种子文件：transmission</span>
+<span class="token comment"># 文本文件：bat</span>
 
 <span class="token keyword">import</span> os
 <span class="token keyword">import</span> sys
@@ -710,15 +712,15 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
 
 <span class="token keyword">def</span> <span class="token function">path_transfer</span><span class="token punctuation">(</span>path_input<span class="token punctuation">)</span><span class="token punctuation">:</span>
     rg_list <span class="token operator">=</span> path_input<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> len<span class="token punctuation">(</span>rg_list<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>rg_list<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
         bat_range <span class="token operator">=</span> <span class="token number">0</span>
     <span class="token keyword">else</span><span class="token punctuation">:</span>
         bat_range <span class="token operator">=</span> rg_list<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
     file_path_list <span class="token operator">=</span> rg_list<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> i<span class="token punctuation">,</span> filep <span class="token keyword">in</span> zip<span class="token punctuation">(</span>range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>file_path_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> file_path_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i<span class="token punctuation">,</span> filep <span class="token keyword">in</span> <span class="token builtin">zip</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>file_path_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> file_path_list<span class="token punctuation">)</span><span class="token punctuation">:</span>
         path_space <span class="token operator">=</span> filep<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> path_space <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
-            file_path_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"'{}'"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>filep<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> path_space <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+            file_path_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"'{}'"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>filep<span class="token punctuation">)</span>
         file_path <span class="token operator">=</span> <span class="token string">'/'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>file_path_list<span class="token punctuation">)</span>
     preview_nameandline <span class="token operator">=</span> <span class="token punctuation">[</span>file_path<span class="token punctuation">,</span> bat_range<span class="token punctuation">]</span>
     <span class="token keyword">return</span> preview_nameandline
@@ -726,28 +728,28 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
 
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
     path_input <span class="token operator">=</span> sys<span class="token punctuation">.</span>stdin<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    <span class="token keyword">if</span> path_input <span class="token operator">==</span> None<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> path_input <span class="token operator">==</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
         path_input <span class="token operator">=</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
     preview_nameandline <span class="token operator">=</span> path_transfer<span class="token punctuation">(</span>path_input<span class="token punctuation">)</span>
     <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>isdir<span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'ls -la {}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'ls -la {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token keyword">elif</span> preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"'"</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'.zip'</span><span class="token punctuation">,</span> <span class="token string">'.ZIP'</span><span class="token punctuation">,</span> <span class="token string">'.tar'</span><span class="token punctuation">,</span> <span class="token string">'.tar.gz'</span><span class="token punctuation">,</span> <span class="token string">'rar'</span><span class="token punctuation">,</span> <span class="token string">'7z'</span><span class="token punctuation">,</span> <span class="token string">'RAR'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'als {}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'als {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token keyword">elif</span> preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"'"</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">'.torrent'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'transmission-show {}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'transmission-show {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token keyword">elif</span> preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">"'"</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'.html'</span><span class="token punctuation">,</span> <span class="token string">'.htm'</span><span class="token punctuation">,</span> <span class="token string">'.xhtml'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'w3m -dump {}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># elif preview_nameandline[0].replace("'", '').endswith(('.png')):</span>
-        <span class="token comment" spellcheck="true"># os.system('img2txt {}'.format(preview_nameandline[0]))</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'w3m -dump {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment"># elif preview_nameandline[0].replace("'", '').endswith(('.png')):</span>
+        <span class="token comment"># os.system('img2txt {}'.format(preview_nameandline[0]))</span>
     <span class="token keyword">elif</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'bat --style=numbers --color=always -r {}: {}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'bat --style=numbers --color=always -r {}: {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>
             preview_nameandline<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token keyword">else</span><span class="token punctuation">:</span>
-        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'echo {}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'echo {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>添加执行权限。</p>
 <p>设置power10k:</p>
-<pre class="line-numbers language-shell"><code class="language-shell"># Generated by Powerlevel10k configuration wizard on 2020-02-16 at 19:30 CST.
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Generated by Powerlevel10k configuration wizard on 2020-02-16 at 19:30 CST.
 # Based on romkatv/powerlevel10k/config/p10k-classic.zsh, checksum 02588.
 # Wizard options: nerdfont-complete + powerline, large icons, classic, dark, time,
 # angled separators, blurred heads, sharp tails, 2 lines, dotted, right frame, compact,
@@ -776,7 +778,7 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
   # restarting zsh. Edit ~/.p10k.zsh and type `source ~/.p10k.zsh`.
   unset -m 'POWERLEVEL9K_*'
 
-  autoload -Uz is-at-least && is-at-least 5.1 || return
+  autoload -Uz is-at-least &amp;&amp; is-at-least 5.1 || return
 
   zmodload zsh/langinfo
   if [[ ${langinfo[CODESET]:-} != (utf|UTF)(-|)8 ]]; then
@@ -979,7 +981,7 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
   #typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='%B${P9K_CONTENT}'
   # 修改显示的系统图标为Arch
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=%B$'\uF303 '
-
+  
   ################################[ prompt_char: prompt symbol ]################################
   # Transparent background.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_BACKGROUND=
@@ -1169,12 +1171,12 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
 
     # If local branch name or tag is at most 32 characters long, show it in full.
     # Otherwise show the first 12 … the last 12.
-    (( $#where > 32 )) && where[13,-13]="…"
+    (( $#where &gt; 32 )) &amp;&amp; where[13,-13]="…"
     res+="${clean}${where//\%/%%}"  # escape %
 
     # Display the current Git commit if there is no branch or tag.
-    # Tip: To always display the current Git commit, remove `[[ -z $where ]] &&` from the next line.
-    [[ -z $where ]] && res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
+    # Tip: To always display the current Git commit, remove `[[ -z $where ]] &amp;&amp;` from the next line.
+    [[ -z $where ]] &amp;&amp; res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
 
     # Show tracking branch name if it differs from local branch.
     if [[ -n ${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH} ]]; then
@@ -1182,39 +1184,39 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
     fi
 
     # ⇣42 if behind the remote.
-    (( VCS_STATUS_COMMITS_BEHIND )) && res+=" ${clean}⇣${VCS_STATUS_COMMITS_BEHIND}"
+    (( VCS_STATUS_COMMITS_BEHIND )) &amp;&amp; res+=" ${clean}⇣${VCS_STATUS_COMMITS_BEHIND}"
     # ⇡42 if ahead of the remote; no leading space if also behind the remote: ⇣42⇡42.
-    (( VCS_STATUS_COMMITS_AHEAD && !VCS_STATUS_COMMITS_BEHIND )) && res+=" "
-    (( VCS_STATUS_COMMITS_AHEAD  )) && res+="${clean}⇡${VCS_STATUS_COMMITS_AHEAD}"
+    (( VCS_STATUS_COMMITS_AHEAD &amp;&amp; !VCS_STATUS_COMMITS_BEHIND )) &amp;&amp; res+=" "
+    (( VCS_STATUS_COMMITS_AHEAD  )) &amp;&amp; res+="${clean}⇡${VCS_STATUS_COMMITS_AHEAD}"
     # ⇠42 if behind the push remote.
-    (( VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" ${clean}⇠${VCS_STATUS_PUSH_COMMITS_BEHIND}"
-    (( VCS_STATUS_PUSH_COMMITS_AHEAD && !VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" "
+    (( VCS_STATUS_PUSH_COMMITS_BEHIND )) &amp;&amp; res+=" ${clean}⇠${VCS_STATUS_PUSH_COMMITS_BEHIND}"
+    (( VCS_STATUS_PUSH_COMMITS_AHEAD &amp;&amp; !VCS_STATUS_PUSH_COMMITS_BEHIND )) &amp;&amp; res+=" "
     # ⇢42 if ahead of the push remote; no leading space if also behind: ⇠42⇢42.
-    (( VCS_STATUS_PUSH_COMMITS_AHEAD  )) && res+="${clean}⇢${VCS_STATUS_PUSH_COMMITS_AHEAD}"
+    (( VCS_STATUS_PUSH_COMMITS_AHEAD  )) &amp;&amp; res+="${clean}⇢${VCS_STATUS_PUSH_COMMITS_AHEAD}"
     # *42 if have stashes.
-    (( VCS_STATUS_STASHES        )) && res+=" ${clean}*${VCS_STATUS_STASHES}"
+    (( VCS_STATUS_STASHES        )) &amp;&amp; res+=" ${clean}*${VCS_STATUS_STASHES}"
     # 'merge' if the repo is in an unusual state.
-    [[ -n $VCS_STATUS_ACTION     ]] && res+=" ${conflicted}${VCS_STATUS_ACTION}"
+    [[ -n $VCS_STATUS_ACTION     ]] &amp;&amp; res+=" ${conflicted}${VCS_STATUS_ACTION}"
     # ~42 if have merge conflicts.
-    (( VCS_STATUS_NUM_CONFLICTED )) && res+=" ${conflicted}~${VCS_STATUS_NUM_CONFLICTED}"
+    (( VCS_STATUS_NUM_CONFLICTED )) &amp;&amp; res+=" ${conflicted}~${VCS_STATUS_NUM_CONFLICTED}"
     # +42 if have staged changes.
-    (( VCS_STATUS_NUM_STAGED     )) && res+=" ${modified}+${VCS_STATUS_NUM_STAGED}"
+    (( VCS_STATUS_NUM_STAGED     )) &amp;&amp; res+=" ${modified}+${VCS_STATUS_NUM_STAGED}"
     # !42 if have unstaged changes.
-    (( VCS_STATUS_NUM_UNSTAGED   )) && res+=" ${modified}!${VCS_STATUS_NUM_UNSTAGED}"
+    (( VCS_STATUS_NUM_UNSTAGED   )) &amp;&amp; res+=" ${modified}!${VCS_STATUS_NUM_UNSTAGED}"
     # ?42 if have untracked files. It's really a question mark, your font isn't broken.
     # See POWERLEVEL9K_VCS_UNTRACKED_ICON above if you want to use a different icon.
     # Remove the next line if you don't want to see untracked files at all.
-    (( VCS_STATUS_NUM_UNTRACKED  )) && res+=" ${untracked}${POWERLEVEL9K_VCS_UNTRACKED_ICON}${VCS_STATUS_NUM_UNTRACKED}"
+    (( VCS_STATUS_NUM_UNTRACKED  )) &amp;&amp; res+=" ${untracked}${POWERLEVEL9K_VCS_UNTRACKED_ICON}${VCS_STATUS_NUM_UNTRACKED}"
     # "─" if the number of unstaged files is unknown. This can happen due to
     # POWERLEVEL9K_VCS_MAX_INDEX_SIZE_DIRTY (see below) being set to a non-negative number lower
     # than the number of files in the Git index, or due to bash.showDirtyState being set to false
     # in the repository config. The number of staged and untracked files may also be unknown
     # in this case.
-    (( VCS_STATUS_HAS_UNSTAGED == -1 )) && res+=" ${modified}─"
+    (( VCS_STATUS_HAS_UNSTAGED == -1 )) &amp;&amp; res+=" ${modified}─"
 
     typeset -g my_git_format=$res
   }
-  functions -M my_git_formatter 2>/dev/null
+  functions -M my_git_formatter 2&gt;/dev/null
 
   # Don't count the number of unstaged, untracked and conflicted files in Git repositories with
   # more than this many files in the index. Negative value means infinity.
@@ -1813,7 +1815,7 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
   #
   #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_FOREGROUND=28
   #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
+  #   typeset -g POWERLEVEL9K_TERRAFORM_TEST_CONTENT_EXPANSION='&gt; ${P9K_CONTENT} &lt;'
   typeset -g POWERLEVEL9K_TERRAFORM_CLASSES=(
       # '*prod*'  PROD    # These values are examples that are unlikely
       # '*test*'  TEST    # to match your needs. Customize them as needed.
@@ -1851,7 +1853,7 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
   #
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_FOREGROUND=28
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
+  #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_CONTENT_EXPANSION='&gt; ${P9K_CONTENT} &lt;'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
       # '*prod*'  PROD    # These values are examples that are unlikely
       # '*test*'  TEST    # to match your needs. Customize them as needed.
@@ -1935,7 +1937,7 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
   #
   #   typeset -g POWERLEVEL9K_AWS_TEST_FOREGROUND=28
   #   typeset -g POWERLEVEL9K_AWS_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  #   typeset -g POWERLEVEL9K_AWS_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
+  #   typeset -g POWERLEVEL9K_AWS_TEST_CONTENT_EXPANSION='&gt; ${P9K_CONTENT} &lt;'
   typeset -g POWERLEVEL9K_AWS_CLASSES=(
       # '*prod*'  PROD    # These values are examples that are unlikely
       # '*test*'  TEST    # to match your needs. Customize them as needed.
@@ -2097,8 +2099,8 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
   # Use different colors and icons depending on signal strength ($P9K_WIFI_BARS).
   #
   #   # Wifi colors and icons for different signal strength levels (low to high).
-  #   typeset -g my_wifi_fg=(68 68 68 68 68)                           # <-- change these values
-  #   typeset -g my_wifi_icon=('WiFi' 'WiFi' 'WiFi' 'WiFi' 'WiFi')     # <-- change these values
+  #   typeset -g my_wifi_fg=(68 68 68 68 68)                           # &lt;-- change these values
+  #   typeset -g my_wifi_icon=('WiFi' 'WiFi' 'WiFi' 'WiFi' 'WiFi')     # &lt;-- change these values
   #
   #   typeset -g POWERLEVEL9K_WIFI_CONTENT_EXPANSION='%F{${my_wifi_fg[P9K_WIFI_BARS+1]}}$P9K_WIFI_LAST_TX_RATE Mbps'
   #   typeset -g POWERLEVEL9K_WIFI_VISUAL_IDENTIFIER_EXPANSION='%F{${my_wifi_fg[P9K_WIFI_BARS+1]}}${my_wifi_icon[P9K_WIFI_BARS+1]}'
@@ -2161,7 +2163,7 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
   }
 
   function prompt_my_weather() {
-    ping -c1 114.114.114.114 &> /dev/null
+    ping -c1 114.114.114.114 &amp;&gt; /dev/null
     if [ $? -eq 0 ]
     then
         local weatherDay=`date "+%j"`
@@ -2174,7 +2176,7 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
         then
             touch "$weatherFile"
             local weather=`curl -s "wttr.in/?format=3 "`
-            echo $weather > $weatherFile
+            echo $weather &gt; $weatherFile
         else
             local weather=$(cat $weatherFile)
         fi
@@ -2241,18 +2243,22 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
   (( ! $+functions[p10k] )) || p10k reload
 }
 
-(( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
+(( ${#p10k_config_opts} )) &amp;&amp; setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <h5 id="终端音乐"><a href="#终端音乐" class="headerlink" title="终端音乐"></a>终端音乐</h5><p>推荐使用<code>ncmpcpp</code>作为前端，<code>mpd</code>作为后端，<code>mpc</code>作为控制端。</p>
 <h6 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a><del>全局配置</del></h6><p>打开mpd的配置文件<code>/etc/mpd.conf</code></p>
 <p>添加音乐目录</p>
 <p>​    将<code>/etc/mpd.conf</code>中添加字段<code>music_directory "/path/to/music"</code>。这里的路径就是音乐存放的绝对路径。</p>
-<pre class="line-numbers language-shell"><code class="language-shell"># gpasswd -a mpd <your login group>
-$ chmod 710 /home/<your home dir>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># gpasswd -a mpd &lt;your login group&gt;
+$ chmod 710 /home/&lt;your home dir&gt;
 gpasswd -a mpd audio<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h6 id="单用户配置"><a href="#单用户配置" class="headerlink" title="单用户配置"></a>单用户配置</h6><pre class="line-numbers language-shell"><code class="language-shell">$ cp /usr/share/doc/mpd/mpdconf.example ~/.config/mpd/mpd.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h6 id="单用户配置"><a href="#单用户配置" class="headerlink" title="单用户配置"></a>单用户配置</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ cp /usr/share/doc/mpd/mpdconf.example ~/.config/mpd/mpd.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>编辑 <code>~/.config/mpd/mpd.conf</code> 并且指定所需文件：</p>
-<pre class="line-numbers language-shell"><code class="language-shell"># Required files
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Required files
 db_file            "~/.config/mpd/database"
 log_file           "~/.config/mpd/log"
 
@@ -2263,10 +2269,10 @@ pid_file           "~/.config/mpd/pid"
 state_file         "~/.config/mpd/state"
 sticker_file       "~/.config/mpd/sticker.sql"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>创建所有上述配置中提及的文件和目录：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">$ mkdir ~/.config/mpd/playlists
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ mkdir ~/.config/mpd/playlists
 $ touch ~/.config/mpd/{database,log,pid,state,sticker.sql}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>添加如下</p>
-<pre class="line-numbers language-shell"><code class="language-shell">audio_output {
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">audio_output {
     type        "alsa"
     name        "My ALSA Device"
     device      "hw:0,0"    # optional
@@ -2277,7 +2283,7 @@ $ touch ~/.config/mpd/{database,log,pid,state,sticker.sql}<span aria-hidden="tru
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这里的mixer控制mpd的音量调节。如果不知使用哪一个mixer,可以用<code>amixer</code>进行查看。</p>
 <p>ncmpcpp实现可视化需要如下字段：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">audio_output {
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">audio_output {
     type                    "fifo"
     name                    "my_fifo"
     path                    "/tmp/mpd.fifo"
@@ -2286,34 +2292,34 @@ $ touch ~/.config/mpd/{database,log,pid,state,sticker.sql}<span aria-hidden="tru
 <p>创建ncmpcpp的配置文件<code>~/.ncmpcpp/config</code>。从<code>/usr/share/doc/ncmpcpp/config</code>复制过来。</p>
 <p>创建ncmpcpp的自定义按键的配置文件<code>~/.ncmpcpp/bindings</code>。从<code>/usr/share/doc/ncmpcpp/bindings </code>复制过来。</p>
 <hr>
-<h5 id="Ranger"><a href="#Ranger" class="headerlink" title="Ranger"></a>Ranger</h5><h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6><pre class="line-numbers language-shell"><code class="language-shell">sudo pacman -S ranger  #或者
+<h5 id="Ranger"><a href="#Ranger" class="headerlink" title="Ranger"></a>Ranger</h5><h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S ranger  #或者
 pip install ranger-fm --user<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h6 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h6><h6 id="开启自定义选项"><a href="#开启自定义选项" class="headerlink" title="开启自定义选项"></a>开启自定义选项</h6><pre class="line-numbers language-shell"><code class="language-shell">ranger --copy-config=all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h6 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h6><h6 id="开启自定义选项"><a href="#开启自定义选项" class="headerlink" title="开启自定义选项"></a>开启自定义选项</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ranger --copy-config=all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在环境变量中添加<code>export RANGER_LOAD_DEFAULT_RC=FALSE </code></p>
 <h6 id="设置文件图标"><a href="#设置文件图标" class="headerlink" title="设置文件图标"></a>设置文件图标</h6><p>首先安装nerd-font,详见下面的字体配置。</p>
-<pre class="line-numbers language-shell"><code class="language-shell">git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>添加<code>default_linemode devicons</code> 到 <code>rc.conf</code>。即执行<code>echo "default_linemode devicons" &gt;&gt; $HOME/.config/ranger/rc.conf</code></p>
 <p><del>若是不行，就在这个插件的文件夹下面<code>make install</code>。</del></p>
-<h6 id="开启图片预览"><a href="#开启图片预览" class="headerlink" title="开启图片预览"></a>开启图片预览</h6><pre class="line-numbers language-shell"><code class="language-shell">sudo pacman -S w3m #提供显示图像的组件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h6 id="开启图片预览"><a href="#开启图片预览" class="headerlink" title="开启图片预览"></a>开启图片预览</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S w3m #提供显示图像的组件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在<code>rc.conf</code>中添加：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">set preview_images true 
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set preview_images true 
 # Be aware of version control systems and display information.将这里改成true,可以显示github目录的状态
 set vcs_aware true  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>查看图片：</p>
 <p><code>sudo pacman -S w3m</code></p>
 <p>编辑配置文件<code>~/.config/ranger/rc.conf</code></p>
-<pre class="line-numbers language-shell"><code class="language-shell"># Use one of the supported image preview protocols
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Use one of the supported image preview protocols
 set preview_images true 
 set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>在<code>～/.config/ranger/scope.sh</code>中，将相关格式代码的注释取消。</p>
 <p>视频预览需要安装ffmpegthumbnailer。</p>
 <p>docx预览需要安装pandoc。</p>
 <h6 id="设置自定义的命令（压缩，mkcd，解压，fzf）"><a href="#设置自定义的命令（压缩，mkcd，解压，fzf）" class="headerlink" title="设置自定义的命令（压缩，mkcd，解压，fzf）"></a>设置自定义的命令（压缩，mkcd，解压，fzf）</h6><p>在<code>commands.py</code>文件中添加如下代码：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> ranger<span class="token punctuation">.</span>core<span class="token punctuation">.</span>loader <span class="token keyword">import</span> CommandLoader
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> ranger<span class="token punctuation">.</span>core<span class="token punctuation">.</span>loader <span class="token keyword">import</span> CommandLoader
 <span class="token keyword">class</span> <span class="token class-name">mkcd</span><span class="token punctuation">(</span>Command<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token triple-quoted-string string">"""
-    :mkcd &lt;dirname>
-    Creates a directory with the name &lt;dirname> and enters it.
+    :mkcd &lt;dirname&gt;
+    Creates a directory with the name &lt;dirname&gt; and enters it.
     """</span>
 
     <span class="token keyword">def</span> <span class="token function">execute</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -2322,7 +2328,7 @@ set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows">
         <span class="token keyword">import</span> re
 
         dirname <span class="token operator">=</span> join<span class="token punctuation">(</span>self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>thisdir<span class="token punctuation">.</span>path<span class="token punctuation">,</span> expanduser<span class="token punctuation">(</span>self<span class="token punctuation">.</span>rest<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> lexists<span class="token punctuation">(</span>dirname<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> lexists<span class="token punctuation">(</span>dirname<span class="token punctuation">)</span><span class="token punctuation">:</span>
             makedirs<span class="token punctuation">(</span>dirname<span class="token punctuation">)</span>
 
             match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">'^/|^~[^/]*/'</span><span class="token punctuation">,</span> dirname<span class="token punctuation">)</span>
@@ -2332,12 +2338,12 @@ set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows">
 
             <span class="token keyword">for</span> m <span class="token keyword">in</span> re<span class="token punctuation">.</span>finditer<span class="token punctuation">(</span><span class="token string">'[^/]+'</span><span class="token punctuation">,</span> dirname<span class="token punctuation">)</span><span class="token punctuation">:</span>
                 s <span class="token operator">=</span> m<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-                <span class="token keyword">if</span> s <span class="token operator">==</span> <span class="token string">'..'</span> <span class="token operator">or</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token operator">not</span> self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>settings<span class="token punctuation">[</span><span class="token string">'show_hidden'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> s <span class="token operator">==</span> <span class="token string">'..'</span> <span class="token keyword">or</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token keyword">not</span> self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>settings<span class="token punctuation">[</span><span class="token string">'show_hidden'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
                     self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>cd<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
                 <span class="token keyword">else</span><span class="token punctuation">:</span>
-                    <span class="token comment" spellcheck="true">## We force ranger to load content before calling `scout`.</span>
+                    <span class="token comment">## We force ranger to load content before calling `scout`.</span>
                     self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>thisdir<span class="token punctuation">.</span>load_content<span class="token punctuation">(</span>schedule<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
-                    self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>execute_console<span class="token punctuation">(</span><span class="token string">'scout -ae ^{}$'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>execute_console<span class="token punctuation">(</span><span class="token string">'scout -ae ^{}$'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>notify<span class="token punctuation">(</span><span class="token string">"file/directory exists!"</span><span class="token punctuation">,</span> bad<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 
@@ -2353,13 +2359,13 @@ set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows">
         <span class="token keyword">import</span> subprocess
         <span class="token keyword">import</span> os<span class="token punctuation">.</span>path
         <span class="token keyword">if</span> self<span class="token punctuation">.</span>quantifier<span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># match only directories</span>
+            <span class="token comment"># match only directories</span>
             command<span class="token operator">=</span>"find <span class="token operator">-</span>L <span class="token punctuation">.</span> \<span class="token punctuation">(</span> <span class="token operator">-</span>path <span class="token string">'*/\.*'</span> <span class="token operator">-</span>o <span class="token operator">-</span>fstype <span class="token string">'dev'</span> <span class="token operator">-</span>o <span class="token operator">-</span>fstype <span class="token string">'proc'</span> \<span class="token punctuation">)</span> <span class="token operator">-</span>prune \
-            <span class="token operator">-</span>o <span class="token operator">-</span>type d <span class="token operator">-</span><span class="token keyword">print</span> <span class="token number">2</span><span class="token operator">></span> <span class="token operator">/</span>dev<span class="token operator">/</span>null <span class="token operator">|</span> sed <span class="token number">1d</span> <span class="token operator">|</span> cut <span class="token operator">-</span>b3<span class="token operator">-</span> <span class="token operator">|</span> fzf <span class="token operator">+</span>m"
+            <span class="token operator">-</span>o <span class="token operator">-</span><span class="token builtin">type</span> d <span class="token operator">-</span><span class="token keyword">print</span> <span class="token number">2</span><span class="token operator">&gt;</span> <span class="token operator">/</span>dev<span class="token operator">/</span>null <span class="token operator">|</span> sed <span class="token number">1d</span> <span class="token operator">|</span> cut <span class="token operator">-</span>b3<span class="token operator">-</span> <span class="token operator">|</span> fzf <span class="token operator">+</span>m"
         <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># match files and directories</span>
+            <span class="token comment"># match files and directories</span>
             command<span class="token operator">=</span>"find <span class="token operator">-</span>L <span class="token punctuation">.</span> \<span class="token punctuation">(</span> <span class="token operator">-</span>path <span class="token string">'*/\.*'</span> <span class="token operator">-</span>o <span class="token operator">-</span>fstype <span class="token string">'dev'</span> <span class="token operator">-</span>o <span class="token operator">-</span>fstype <span class="token string">'proc'</span> \<span class="token punctuation">)</span> <span class="token operator">-</span>prune \
-            <span class="token operator">-</span>o <span class="token operator">-</span><span class="token keyword">print</span> <span class="token number">2</span><span class="token operator">></span> <span class="token operator">/</span>dev<span class="token operator">/</span>null <span class="token operator">|</span> sed <span class="token number">1d</span> <span class="token operator">|</span> cut <span class="token operator">-</span>b3<span class="token operator">-</span> <span class="token operator">|</span> fzf <span class="token operator">+</span>m"
+            <span class="token operator">-</span>o <span class="token operator">-</span><span class="token keyword">print</span> <span class="token number">2</span><span class="token operator">&gt;</span> <span class="token operator">/</span>dev<span class="token operator">/</span>null <span class="token operator">|</span> sed <span class="token number">1d</span> <span class="token operator">|</span> cut <span class="token operator">-</span>b3<span class="token operator">-</span> <span class="token operator">|</span> fzf <span class="token operator">+</span>m"
         fzf <span class="token operator">=</span> self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>execute_command<span class="token punctuation">(</span>command<span class="token punctuation">,</span> universal_newlines<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> stdout<span class="token operator">=</span>subprocess<span class="token punctuation">.</span>PIPE<span class="token punctuation">)</span>
         stdout<span class="token punctuation">,</span> stderr <span class="token operator">=</span> fzf<span class="token punctuation">.</span>communicate<span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token keyword">if</span> fzf<span class="token punctuation">.</span>returncode <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
@@ -2378,7 +2384,7 @@ set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows">
         cwd <span class="token operator">=</span> self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>thisdir
         marked_files <span class="token operator">=</span> cwd<span class="token punctuation">.</span>get_selection<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-        <span class="token keyword">if</span> <span class="token operator">not</span> marked_files<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> marked_files<span class="token punctuation">:</span>
             <span class="token keyword">return</span>
 
         <span class="token keyword">def</span> <span class="token function">refresh</span><span class="token punctuation">(</span>_<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -2405,9 +2411,9 @@ set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows">
 <span class="token keyword">class</span> <span class="token class-name">extracthere</span><span class="token punctuation">(</span>Command<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">execute</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token triple-quoted-string string">""" Extract copied files to current directory """</span>
-        copied_files <span class="token operator">=</span> tuple<span class="token punctuation">(</span>self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>copy_buffer<span class="token punctuation">)</span>
+        copied_files <span class="token operator">=</span> <span class="token builtin">tuple</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>copy_buffer<span class="token punctuation">)</span>
 
-        <span class="token keyword">if</span> <span class="token operator">not</span> copied_files<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> copied_files<span class="token punctuation">:</span>
             <span class="token keyword">return</span>
 
         <span class="token keyword">def</span> <span class="token function">refresh</span><span class="token punctuation">(</span>_<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -2423,7 +2429,7 @@ set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows">
 
         self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>copy_buffer<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
         self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>cut_buffer <span class="token operator">=</span> <span class="token boolean">False</span>
-        <span class="token keyword">if</span> len<span class="token punctuation">(</span>copied_files<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>copied_files<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
             descr <span class="token operator">=</span> <span class="token string">"extracting: "</span> <span class="token operator">+</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>basename<span class="token punctuation">(</span>one_file<span class="token punctuation">.</span>path<span class="token punctuation">)</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             descr <span class="token operator">=</span> <span class="token string">"extracting files from: "</span> <span class="token operator">+</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>basename<span class="token punctuation">(</span>one_file<span class="token punctuation">.</span>dirname<span class="token punctuation">)</span>
@@ -2432,11 +2438,11 @@ set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows">
 
         obj<span class="token punctuation">.</span>signal_bind<span class="token punctuation">(</span><span class="token string">'after'</span><span class="token punctuation">,</span> refresh<span class="token punctuation">)</span>
         self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>loader<span class="token punctuation">.</span>add<span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="Latex"><a href="#Latex" class="headerlink" title="Latex"></a>Latex</h5><pre class="line-numbers language-shell"><code class="language-shell">sudo pacman -S texstudio
+<h5 id="Latex"><a href="#Latex" class="headerlink" title="Latex"></a>Latex</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S texstudio
 sudo pacman -S texlive-core  texlive-bin texlive-langcjk texlive-latex3 texlive-latexextra texlive-langchinese
 sudo pacman -S texlive-most<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>中文latex最简化模板</p>
-<pre class="line-numbers language-latex"><code class="language-latex"><span class="token comment" spellcheck="true">%!TEX program = xelatex</span>
+<pre class="line-numbers language-latex" data-language="latex"><code class="language-latex"><span class="token comment">%!TEX program = xelatex</span>
 <span class="token function selector">\documentclass</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>article<span class="token punctuation">}</span>
 <span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">ctex</span><span class="token punctuation">}</span>
 <span class="token function selector">\title</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
@@ -2447,15 +2453,17 @@ sudo pacman -S texlive-most<span aria-hidden="true" class="line-numbers-rows"><s
 <span class="token function selector">\maketitle</span>
 
 <span class="token function selector">\begin</span><span class="token punctuation">{</span><span class="token keyword">abstract</span><span class="token punctuation">}</span>
-    Hello World <span class="token function selector">\\</span>
-    你好，世界 <span class="token function selector">\\</span>
+	Hello World <span class="token function selector">\\</span>
+	你好，世界 <span class="token function selector">\\</span>
 
 <span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">abstract</span><span class="token punctuation">}</span>
-
+ 
 <span class="token function selector">\section</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 
 <span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">document</span><span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <hr>
 <h4 id="yay安装"><a href="#yay安装" class="headerlink" title="yay安装"></a>yay安装</h4><h5 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h5><p>yay jdk15 和yay jdk8</p>
 <p>若是需要安装jdk8，则先下载相应版本的jdk包到默认的下载文件夹。然后执行<code>yay jdk8</code>即可。</p>
@@ -2472,21 +2480,23 @@ sudo pacman -S texlive-most<span aria-hidden="true" class="line-numbers-rows"><s
 <h4 id="Appimage形式存在的软件"><a href="#Appimage形式存在的软件" class="headerlink" title="Appimage形式存在的软件"></a>Appimage形式存在的软件</h4><p>pdman：数据库设计软件</p>
 <hr>
 <h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><h4 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h4><p><strong>Http代理</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">export http_proxy="http://localhost:port"
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export http_proxy="http://localhost:port"
 export https_proxy="http://localhost:port"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>Socket5</strong></p>
-<pre class="line-numbers language-shell"><code class="language-shell">export http_proxy="socks5://127.0.0.1:1080"
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export http_proxy="socks5://127.0.0.1:1080"
 export https_proxy="socks5://127.0.0.1:1080"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="ArchLinuxCN源"><a href="#ArchLinuxCN源" class="headerlink" title="ArchLinuxCN源"></a>ArchLinuxCN源</h4><p>在/etc/pacman.conf文件中添加以下两行</p>
-<pre class="line-numbers language-shell"><code class="language-shell">[archlinuxcn]
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[archlinuxcn]
 Server = https://repo.archlinuxcn.org/$arch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>或者去<a target="_blank" rel="noopener" href="https://github.com/archlinuxcn/mirrorlist-repo">官方</a>获取镜像站点。</p>
-<h4 id="BlackArch源"><a href="#BlackArch源" class="headerlink" title="BlackArch源"></a>BlackArch源</h4><pre class="line-numbers language-shell"><code class="language-shell">[blackarch]
+<h4 id="BlackArch源"><a href="#BlackArch源" class="headerlink" title="BlackArch源"></a>BlackArch源</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[blackarch]
 SigLevel = Optional TrustAll
 Server = https://mirrors.ustc.edu.cn/blackarch/$repo/os/$arch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
 <h4 id="桌面毛玻璃"><a href="#桌面毛玻璃" class="headerlink" title="桌面毛玻璃"></a>桌面毛玻璃</h4><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=86ro5Q0Fi34">主题配置</a></p>
 <h6 id="终端模糊"><a href="#终端模糊" class="headerlink" title="终端模糊"></a>终端模糊</h6><p>修改<code>.config/yakuakerc</code>，修改成:</p>
-<pre class="line-numbers language-shell"><code class="language-shell">[Appearance]
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[Appearance]
 Blur=true
 Translucency=true                                                                                                                                                            
 
@@ -2501,7 +2511,7 @@ Width=100<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 <h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>nerd-fonts-hack ttf-meslo-nerd-font-powerlevel10k nerd-fonts-jetbrains-mono ttf-nerd-fonts-hack-complete-git</p>
 <p>重点推荐<code>nerd-fonts-jetbrains-mono</code>。挺好的。</p>
 <p>中文字体：<strong>yay</strong> -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei adobe-source-han-mono-cn-fonts adobe-source<br>-han-sans-cn-fonts adobe-source-han-serif-cn-fonts</p>
-<h4 id="安全软件"><a href="#安全软件" class="headerlink" title="安全软件"></a>安全软件</h4><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S john
+<h4 id="安全软件"><a href="#安全软件" class="headerlink" title="安全软件"></a>安全软件</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S john
 <span class="token function">sudo</span> pacman -S hydra
 <span class="token function">sudo</span> pacman -S nmap
 <span class="token function">sudo</span> pacman -S bettercap
@@ -2517,7 +2527,7 @@ yay -S charles
 yay -S maltego<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="开机蓝牙自启"><a href="#开机蓝牙自启" class="headerlink" title="开机蓝牙自启"></a>开机蓝牙自启</h4><p>实现登陆前可以使用蓝牙键盘。</p>
 <p>修改<code>/etc/bluetooth/main.conf</code>，修改如下字段：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">[Policy]
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>Policy<span class="token punctuation">]</span>
 AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
                 
@@ -2535,7 +2545,7 @@ AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">ZHENG Wang</a>
+                    <a href="/about" rel="external nofollow noreferrer">不二</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -2558,7 +2568,7 @@ AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">ZHENG Wang</a>
+                    <a href="/about" target="_blank">不二</a>
                     !
                 </span>
             </div>
@@ -2788,7 +2798,7 @@ AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            ZHENG Wang
+                            不二
                             
                         </span>
                     </div>
@@ -3101,7 +3111,7 @@ AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">93.4k</span>&nbsp;字
+                class="white-color">97.4k</span>&nbsp;字
             
             
             

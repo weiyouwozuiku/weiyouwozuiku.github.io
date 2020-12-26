@@ -460,14 +460,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-21
+                    2020-12-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    988
+                    992
                 </div>
                 
 
@@ -506,71 +506,72 @@
 <a id="more"></a>
 </li>
 <li><p><code>reduce()</code>函数接收两个参数，将结果继续和序列的下一个元素做累计运算。</p>
-<pre class="line-numbers language-python"><code class="language-python">reduce<span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token punctuation">[</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> x3<span class="token punctuation">,</span> x4<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> f<span class="token punctuation">(</span>f<span class="token punctuation">(</span>f<span class="token punctuation">(</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">)</span><span class="token punctuation">,</span> x3<span class="token punctuation">)</span><span class="token punctuation">,</span> x4<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> functools <span class="token keyword">import</span> reduce
-DIGITS <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'0'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'3'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'4'</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'5'</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">'6'</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token string">'7'</span><span class="token punctuation">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token string">'8'</span><span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">'9'</span><span class="token punctuation">:</span> <span class="token number">9</span><span class="token punctuation">}</span>
-<span class="token keyword">def</span> <span class="token function">char2num</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> DIGITS<span class="token punctuation">[</span>s<span class="token punctuation">]</span>
-<span class="token keyword">def</span> <span class="token function">str2int</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> reduce<span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">,</span> y<span class="token punctuation">:</span> x <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> y<span class="token punctuation">,</span> map<span class="token punctuation">(</span>char2num<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p><code>filter()</code>函数用于过滤序列，接收一个函数和一个序列。<code>filter()</code>把传入的函数依次作用于每个元素，然后根据返回值是<code>True</code>还是<code>False</code>决定保留还是丢弃该元素，返回的是一个惰性序列。需要用<code>list()</code>强制取出。</p>
-</li>
-<li><p>埃式筛法实现获取素数，思想是通过了除去所有数字的倍数，获得素数。实现代码如下：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">_odd_iter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    n <span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-        n <span class="token operator">=</span> n <span class="token operator">+</span> <span class="token number">2</span>
-        <span class="token keyword">yield</span> n
-<span class="token keyword">def</span> <span class="token function">_not_divisible</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x <span class="token operator">%</span> n <span class="token operator">></span> <span class="token number">0</span>
-<span class="token keyword">def</span> <span class="token function">primes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">yield</span> <span class="token number">2</span>
-    it <span class="token operator">=</span> _odd_iter<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 初始序列</span>
-    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-        n <span class="token operator">=</span> next<span class="token punctuation">(</span>it<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 返回序列的第一个数</span>
-        <span class="token keyword">yield</span> n
-        it <span class="token operator">=</span> filter<span class="token punctuation">(</span>_not_divisible<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">,</span> it<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 构造新序列</span>
-<span class="token keyword">for</span> x <span class="token keyword">in</span> primes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">reduce</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> <span class="token punctuation">[</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">,</span> x3<span class="token punctuation">,</span> x4<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=</span> f<span class="token punctuation">(</span>f<span class="token punctuation">(</span>f<span class="token punctuation">(</span>x1<span class="token punctuation">,</span> x2<span class="token punctuation">)</span><span class="token punctuation">,</span> x3<span class="token punctuation">)</span><span class="token punctuation">,</span> x4<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>```python<br>from functools import reduce<br>DIGITS = {‘0’: 0, ‘1’: 1, ‘2’: 2, ‘3’: 3, ‘4’: 4, ‘5’: 5, ‘6’: 6, ‘7’: 7, ‘8’: 8, ‘9’: 9}<br>def char2num(s):</p>
+<pre><code>return DIGITS[s]</code></pre>
+<p>def str2int(s):</p>
+<pre><code>return reduce(lambda x, y: x * 10 + y, map(char2num, s))</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">
+- `filter()`函数用于过滤序列，接收一个函数和一个序列。`filter()`把传入的函数依次作用于每个元素，然后根据返回值是`True`还是`False`决定保留还是丢弃该元素，返回的是一个惰性序列。需要用`list()`强制取出。
+
+- 埃式筛法实现获取素数，思想是通过了除去所有数字的倍数，获得素数。实现代码如下：
+
+  ```python
+  def _odd_iter():
+      n = 1
+      while True:
+          n = n + 2
+          yield n
+  def _not_divisible(n):
+      return lambda x: x % n &gt; 0
+  def primes():
+      yield 2
+      it = _odd_iter() # 初始序列
+      while True:
+          n = next(it) # 返回序列的第一个数
+          yield n
+          it = filter(_not_divisible(n), it) # 构造新序列
+  for x in primes():
+      print(x)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><code>sorted()</code>函数可以对list进行排序，接收一个list和一个key来定义自定义的序列，如<code>key=abs</code>，还有一个参数<code>reverse=True</code>。</p>
 </li>
 <li><p>当返回值为一个函数时，调用时需要加上参数后再加上()才能调用。参数会传入函数内部的函数，返回一个装有数据的函数闭包，调用外函数时，每次调用都会返回一个新的函数。返回的函数并不会立即执行，而是知道调用了f()才执行。<strong>返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。</strong></p>
 </li>
 <li><p>如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">def</span> <span class="token function">g</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
             <span class="token keyword">return</span> j<span class="token operator">*</span>j
         <span class="token keyword">return</span> g
     fs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        fs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>f<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># f(i)立刻被执行，因此i的当前值被传入f()</span>
-    <span class="token keyword">return</span> fs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        fs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>f<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># f(i)立刻被执行，因此i的当前值被传入f()</span>
+    <span class="token keyword">return</span> fs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>关键字<code>lambda</code>表示匿名函数，冒号前面的<code>x</code>表示函数参数。匿名函数有个限制，就是只能有一个表达式，不用写<code>return</code>，返回值就是该表达式的结果。</p>
 </li>
 <li><p>函数对象有一个<code>_name_</code>属性，可以获取到函数的名字。</p>
 </li>
 <li><p>在代码运行期间动态增加功能的方式，称之为装饰器。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">setTag</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token comment" spellcheck="true">#由于此装饰器需要参数，所以要再套一层</span>
-    <span class="token keyword">def</span> <span class="token function">myDecorator</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">#装饰器的核心，接受函数对象做参数，返回包装后的函数对象</span>
-        @functools<span class="token punctuation">.</span>wraps<span class="token punctuation">(</span>func<span class="token punctuation">)</span>
-        <span class="token keyword">def</span> <span class="token function">myWrapper</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment" spellcheck="true">#包装的具体过程</span>
-            sign <span class="token operator">=</span> <span class="token string">"&lt;"</span> <span class="token operator">+</span> tag <span class="token operator">+</span> <span class="token string">">"</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">setTag</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token comment">#由于此装饰器需要参数，所以要再套一层</span>
+    <span class="token keyword">def</span> <span class="token function">myDecorator</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment">#装饰器的核心，接受函数对象做参数，返回包装后的函数对象</span>
+        <span class="token decorator annotation punctuation">@functools<span class="token punctuation">.</span>wraps</span><span class="token punctuation">(</span>func<span class="token punctuation">)</span>
+        <span class="token keyword">def</span> <span class="token function">myWrapper</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token comment">#包装的具体过程</span>
+            sign <span class="token operator">=</span> <span class="token string">"&lt;"</span> <span class="token operator">+</span> tag <span class="token operator">+</span> <span class="token string">"&gt;"</span>
             <span class="token keyword">return</span> sign <span class="token operator">+</span> func<span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">+</span> sign
         <span class="token keyword">return</span> myWrapper
     <span class="token keyword">return</span> myDecorator
-@setTag<span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#用@标签在定义函数时套上装饰器</span>
+<span class="token decorator annotation punctuation">@setTag</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span>    <span class="token comment">#用@标签在定义函数时套上装饰器</span>
 <span class="token keyword">def</span> <span class="token function">hello</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> <span class="token string">'hello'</span> <span class="token operator">+</span> name
 <span class="token keyword">print</span><span class="token punctuation">(</span>hello<span class="token punctuation">(</span><span class="token string">'wang'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>此时被装饰的函数的属性会被修改，改成装饰器的包装的具体函数的名字。可以使用<code>@functools.wraps(func)</code>，放在第二层嵌套后面。</p>
-</li>
-<li><p>偏函数可以降低函数的使用难度，由<code>functools</code>提供。作用是把一个函数的某些参数固定住（设置默认值），返回一个新的函数。可以接收函数对象、<code>*args</code>、<code>**kw</code>。如下所示：</p>
-<pre class="line-numbers language-python"><code class="language-python">int2<span class="token operator">=</span>functools<span class="token punctuation">.</span>partial<span class="token punctuation">(</span>int<span class="token punctuation">,</span>base<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">  
+  此时被装饰的函数的属性会被修改，改成装饰器的包装的具体函数的名字。可以使用`@functools.wraps(func)`，放在第二层嵌套后面。
+  
+- 偏函数可以降低函数的使用难度，由`functools`提供。作用是把一个函数的某些参数固定住（设置默认值），返回一个新的函数。可以接收函数对象、`*args`、`**kw`。如下所示：
+
+  ```python
+  int2=functools.partial(int,base=2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </li>
 </ul>
 
@@ -589,7 +590,7 @@ DIGITS <span class="token operator">=</span> <span class="token punctuation">{</
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">ZHENG Wang</a>
+                    <a href="/about" rel="external nofollow noreferrer">不二</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -612,7 +613,7 @@ DIGITS <span class="token operator">=</span> <span class="token punctuation">{</
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">ZHENG Wang</a>
+                    <a href="/about" target="_blank">不二</a>
                     !
                 </span>
             </div>
@@ -838,7 +839,7 @@ DIGITS <span class="token operator">=</span> <span class="token punctuation">{</
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            ZHENG Wang
+                            不二
                             
                         </span>
                     </div>
@@ -885,7 +886,7 @@ DIGITS <span class="token operator">=</span> <span class="token punctuation">{</
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            ZHENG Wang
+                            不二
                             
                         </span>
                     </div>
@@ -1141,7 +1142,7 @@ DIGITS <span class="token operator">=</span> <span class="token punctuation">{</
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">93.4k</span>&nbsp;字
+                class="white-color">97.4k</span>&nbsp;字
             
             
             
