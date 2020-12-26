@@ -4,7 +4,7 @@ author: 不二
 date: 2019-12-08 09:46:56
 mathjax: true
 tags: 
-- centos
+- Centos
 - Python
 - Linux
 categories: 经验总结

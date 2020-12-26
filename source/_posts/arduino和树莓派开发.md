@@ -6,7 +6,7 @@ tags:
 - Python
 - C
 - 树莓派
-- arduino
+- Arduino
 mathjax: true
 categories: 嵌入式
 ---

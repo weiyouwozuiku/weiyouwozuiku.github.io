@@ -6,7 +6,7 @@ mathjax: true
 tags:
 - Linux
 - V2ray
-- ios
+- Ios
 - Windows
 categories: 经验总结
 ---
