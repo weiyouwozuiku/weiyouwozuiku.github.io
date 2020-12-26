@@ -978,106 +978,80 @@ std<span class="token operator">::</span>istream <span class="token operator">&a
 <p><strong>封装是编译期的概念，是针对类型而非对象，在类的成员函数中可以访问同类型实例对象的私有成员变量。</strong></p>
 <h4 id="头文件的重复包含问题"><a href="#头文件的重复包含问题" class="headerlink" title="头文件的重复包含问题"></a>头文件的重复包含问题</h4><p>为了避免同一个文件被include多次，有两种方式：</p>
 <ol>
-<li><pre><code class="cpp">#ifndef _SOMEFILE_H_
-#define _SOMEFILE_H_
-...
-#endif
-<pre class="line-numbers language-none"><code class="language-none">   
-   使用宏来防止同一文件被多次包含；
-
-   优点：可移植性好。
-   
-   缺点：无法防止宏名重复，难以派错。
-   
-2. `#pragma once`
-
-   使用编译器来防止同一文件被多次包含；
-
-   优点：可以防止宏名重复，易排错。
-
-   缺点：可移植性不好。
-
-#### 抽象类与接口
-
-接口描述了类的行为和功能能，而不需要完成类的特定实现。
-
-C++接口是通过使用抽象类来实现的，抽象类与数据抽象互不混淆，数据抽象是一个把实现细节与相关数据分离开的概念。
-
-如果类中至少有一个函数被声明为纯虚函数，则这个类就是抽象类。纯虚函数是通过在声明中使用`virtual &lt;函数定义&gt;=0`来指定。
-
-抽象类不能被用于实例化对象，它只能作为接口使用，如果试图实例化一个抽象类的对象，会导致编译错误。
-
-##### 虚函数
-
-类的虚函数通过虚表的方式和类的成员变量组合在一起，寄存在类的对象中，但是类的成员函数并不在其中。而是通过this指针与对象相结合。this指针一般存储在`ecx`寄存器中。
-
----
-
-### I/O流
-
-传统的C中I/O有`printf,scanf,getch,gets`等函数，它们的问题是：
-
-- 不可编程，仅仅能识别固有的数据类型;
-- 代码的可移植性差;
-
-C++中的I/O流`istream,ostream`等：
-
-- 可编程，对于类库的设计者来说很有用;
-- 简化编程，能使得I/O的风格一致;
-
-&lt;pre class="mermaid"&gt;graph LR
+<li><p>使用宏来防止同一文件被多次包含；</p>
+<p>优点：可移植性好。</p>
+<p>缺点：无法防止宏名重复，难以派错。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">   <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">_SOMEFILE_H_</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">_SOMEFILE_H_</span></span>
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+   <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用编译器来防止同一文件被多次包含；</p>
+<p>优点：可以防止宏名重复，易排错。</p>
+<p>缺点：可移植性不好。</p>
+<p><code>#pragma once</code></p>
+</li>
+</ol>
+<h4 id="抽象类与接口"><a href="#抽象类与接口" class="headerlink" title="抽象类与接口"></a>抽象类与接口</h4><p>接口描述了类的行为和功能能，而不需要完成类的特定实现。</p>
+<p>C++接口是通过使用抽象类来实现的，抽象类与数据抽象互不混淆，数据抽象是一个把实现细节与相关数据分离开的概念。</p>
+<p>如果类中至少有一个函数被声明为纯虚函数，则这个类就是抽象类。纯虚函数是通过在声明中使用<code>virtual &lt;函数定义&gt;=0</code>来指定。</p>
+<p>抽象类不能被用于实例化对象，它只能作为接口使用，如果试图实例化一个抽象类的对象，会导致编译错误。</p>
+<h5 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h5><p>类的虚函数通过虚表的方式和类的成员变量组合在一起，寄存在类的对象中，但是类的成员函数并不在其中。而是通过this指针与对象相结合。this指针一般存储在<code>ecx</code>寄存器中。</p>
+<hr>
+<h3 id="I-O流"><a href="#I-O流" class="headerlink" title="I/O流"></a>I/O流</h3><p>传统的C中I/O有<code>printf,scanf,getch,gets</code>等函数，它们的问题是：</p>
+<ul>
+<li>不可编程，仅仅能识别固有的数据类型;</li>
+<li>代码的可移植性差;</li>
+</ul>
+<p>C++中的I/O流<code>istream,ostream</code>等：</p>
+<ul>
+<li>可编程，对于类库的设计者来说很有用;</li>
+<li>简化编程，能使得I/O的风格一致;</li>
+</ul>
+<pre class="mermaid">graph LR
 ios--&gt;istream;
 ios--&gt;ostream;
 istream--&gt;ifstream &amp; istrstream &amp; iostream
 ostream--&gt;iostream &amp; ostrstream &amp; ofstream
 iostream--&gt;fstream
-streambuf--&gt;strstreambuf &amp; filebuf&lt;/pre&gt;
+streambuf--&gt;strstreambuf &amp; filebuf</pre>
 
-![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_IO%E6%B5%81%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE.png)
-
-#### 缓存区
-
-标准IO提供的三种类型的缓存模式：
-
-- 按块缓存：如文件系统
-- 按行缓存：\n
-- 不缓存
-
-**使用`cin.ignore(&lt;长度&gt;,&lt;作为结束的标识符&gt;)`清空输入的脏数据。这里的长度可以设置为`std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(),'\n');`，可能需要添加头文件`#include &lt;limits&gt;`。**
-
-#### 文件操作
-
-C++把每个文件都看成是一个有序的字节序列，每个文件都以文件结束标志结束。
-
-按照文件中数据的组织形式可把文件分成为：
-
-- 文本文件：文件中信息形式为ASCII码文件，每个字符占一个字节。
-
-- 二进制文件：文件中信息的形式与其在内存中的形式相同。
-
-文件操作步骤：
-
-1. 打开文件用于读和写open;
-2. 检查打开是否成功fail;
-3. 读或者写read,write;
-4. 检查是否读完`EOF(end of file)`;
-5. 使用完文件后关闭文件close;
-
-```cpp
-#include &lt;fstream&gt;
-#include &lt;iostream&gt;
-void test(){
-    std::fstream fout;
-    fout.open("&lt;文件路径&gt;",&lt;操作模式&gt;);
-    if(fout.fail()){
-        std::cout&lt;&lt;"failed!"&lt;&lt;std::endl;
-    }
-    fout&lt;&lt;"&lt;文字&gt;"&lt;&lt;std::endl;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_IO%E6%B5%81%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE.png"></p>
+<h4 id="缓存区"><a href="#缓存区" class="headerlink" title="缓存区"></a>缓存区</h4><p>标准IO提供的三种类型的缓存模式：</p>
+<ul>
+<li>按块缓存：如文件系统</li>
+<li>按行缓存：\n</li>
+<li>不缓存</li>
+</ul>
+<p><strong>使用<code>cin.ignore(&lt;长度&gt;,&lt;作为结束的标识符&gt;)</code>清空输入的脏数据。这里的长度可以设置为<code>std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(),'\n');</code>，可能需要添加头文件<code>#include &lt;limits&gt;</code>。</strong></p>
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><p>C++把每个文件都看成是一个有序的字节序列，每个文件都以文件结束标志结束。</p>
+<p>按照文件中数据的组织形式可把文件分成为：</p>
+<ul>
+<li><p>文本文件：文件中信息形式为ASCII码文件，每个字符占一个字节。</p>
 </li>
+<li><p>二进制文件：文件中信息的形式与其在内存中的形式相同。</p>
+</li>
+</ul>
+<p>文件操作步骤：</p>
+<ol>
+<li>打开文件用于读和写open;</li>
+<li>检查打开是否成功fail;</li>
+<li>读或者写read,write;</li>
+<li>检查是否读完<code>EOF(end of file)</code>;</li>
+<li>使用完文件后关闭文件close;</li>
 </ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;fstream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    std<span class="token operator">::</span>fstream fout<span class="token punctuation">;</span>
+    fout<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"&lt;文件路径&gt;"</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>操作模式<span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>fout<span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"failed!"</span><span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    fout<span class="token operator">&lt;&lt;</span><span class="token string">"&lt;文字&gt;"</span><span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <p>文件的方法方式：</p>
 <table>
 <thead>
