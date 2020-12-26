@@ -472,14 +472,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.7k
+                    6.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    25 分
+                    26 分
                 </div>
                 
 
@@ -1332,7 +1332,12 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 <td>删除list中的重复元素</td>
 </tr>
 </tbody></table>
-<h4 id="POD"><a href="#POD" class="headerlink" title="POD"></a>POD</h4>
+<h4 id="POD"><a href="#POD" class="headerlink" title="POD"></a>POD</h4><p><code>POD</code>是Plain Old Data的缩写，是C++定义的一类数据结构。Plain表示它是一个普通类型，Old表示它是旧的与几十年前的C语言兼容，可以使用memcpy()这种最原始的函数进行操作。两个系统进行交换数据，如果没有办法对数据进行语义检查和解释，那就只能以非常底层的数据形式进行交互，而拥有 POD 特征的类或者结构体通过二进制拷贝后依然能保持数据结构不变。也就是说，<strong>能用 C 的 memcpy() 等函数进行操作的类、结构体就是 POD 类型的数据。</strong></p>
+<h5 id="POD特征"><a href="#POD特征" class="headerlink" title="POD特征"></a>POD特征</h5><p>是不是 POD 类型的，可以用 <code>is_pod&lt;T&gt;::value </code>来判断。那什么样的类、结构体是拥有 POD 特性的呢？要求有两个：<strong>一个是它必须很平凡、很普通；另一个是布局有序</strong>。</p>
+<ul>
+<li><strong>能平凡就平凡</strong>，不能写</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -1730,7 +1735,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 
 
     </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div id="toc-aside" class="expanded col l3 ">
         <div class="toc-widget card" style="background-color: white;">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
@@ -1740,7 +1745,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 
 <!-- TOC 悬浮按钮. -->
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
+<div id="floating-toc-btn" class="">
     <a class="btn-floating btn-large bg-color">
         <i class="fas fa-list-ul"></i>
     </a>
@@ -1899,7 +1904,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.5k</span>&nbsp;字
+                class="white-color">97.8k</span>&nbsp;字
             
             
             
