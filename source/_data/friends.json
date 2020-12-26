@@ -1,13 +1,19 @@
 [{
-    "avatar": "",
+    "avatar": "https://cdn.jsdelivr.net/gh/trickylearner/trickylearner.github.io/images/avatar.png",
     "name": "GDX",
     "introduction": "",
     "url": "https://trickylearner.github.io/",
     "title": "过去看看"
 },{
-    "avatar": "",
+    "avatar": "https://cdn.jsdelivr.net/gh/feiyangbumian/feiyangbumian.github.io/images/logo.png",
     "name": "肥羊不绵",
     "introduction":"",
     "url": "http://feiyangbumian.github.io/",
+    "title": "过去看看"
+},{
+    "avatar": "http://www.cveryao.com/medias/logo.png",
+    "name": "姚嘉杰",
+    "introduction": "",
+    "url": "http://www.cveryao.com/",
     "title": "过去看看"
 }]
