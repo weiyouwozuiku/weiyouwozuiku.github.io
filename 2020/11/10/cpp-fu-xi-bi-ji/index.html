@@ -472,14 +472,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.9k
+                    7.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    26 分
+                    27 分
                 </div>
                 
 
@@ -1332,10 +1332,37 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 <td>删除list中的重复元素</td>
 </tr>
 </tbody></table>
-<h4 id="POD"><a href="#POD" class="headerlink" title="POD"></a>POD</h4><p><code>POD</code>是Plain Old Data的缩写，是C++定义的一类数据结构。Plain表示它是一个普通类型，Old表示它是旧的与几十年前的C语言兼容，可以使用memcpy()这种最原始的函数进行操作。两个系统进行交换数据，如果没有办法对数据进行语义检查和解释，那就只能以非常底层的数据形式进行交互，而拥有 POD 特征的类或者结构体通过二进制拷贝后依然能保持数据结构不变。也就是说，<strong>能用 C 的 memcpy() 等函数进行操作的类、结构体就是 POD 类型的数据。</strong></p>
+<h4 id="POD"><a href="#POD" class="headerlink" title="POD"></a>POD</h4><p><code>POD</code>是Plain Old Data的缩写，是C++定义的一类数据结构。Plain表示它是一个普通类型，Old表示它是旧的与几十年前的C语言兼容，可以使用memcpy()这种最原始的函数进行操作。两个系统进行交换数据，如果没有办法对数据进行语义检查和解释，那就只能以非常底层的数据形式进行交互，而拥有 POD 特征的类或者结构体通过二进制拷贝后依然能保持数据结构不变。也就是说，<strong>能用 C 的 <code>memcpy() </code>等函数进行操作的类、结构体就是 POD 类型的数据。</strong></p>
 <h5 id="POD特征"><a href="#POD特征" class="headerlink" title="POD特征"></a>POD特征</h5><p>是不是 POD 类型的，可以用 <code>is_pod&lt;T&gt;::value </code>来判断。那什么样的类、结构体是拥有 POD 特性的呢？要求有两个：<strong>一个是它必须很平凡、很普通；另一个是布局有序</strong>。</p>
 <ul>
-<li><strong>能平凡就平凡</strong>，不能写</li>
+<li><p><strong>能平凡就平凡</strong>，<strong>不能写析构函数/构造函数、拷贝/移动构造函数、拷贝/移动运算符，不能有虚函数与虚基类</strong>，而是用编译期自动生成的。那“这个数据就是平凡的”，非要写的话，使用C++11的default关键字。如下所示：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+    <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">B</span><span class="token punctuation">{</span>
+    
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">C</span><span class="token punctuation">{</span>
+    <span class="token function">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token keyword">default</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>is_trivial<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span><span class="token operator">::</span>value<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>is_trivial<span class="token operator">&lt;</span>B<span class="token operator">&gt;</span><span class="token operator">::</span>value<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>is_trivial<span class="token operator">&lt;</span>C<span class="token operator">&gt;</span><span class="token operator">::</span>value<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 输出</span>
+<span class="token number">0</span>
+<span class="token number">1</span>
+<span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><strong>布局有序，普通成员有相同的访问级别。注意是普通成员。静态成员之类的不在此考虑范围。</strong></p>
+</li>
+<li><p><strong>第一个成员必须是自己的。</strong></p>
+</li>
+<li><p><strong>只要有父类，普通成员只能在其中一个类中，不可分散。</strong></p>
+</li>
 </ul>
 
                 
@@ -1904,7 +1931,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.8k</span>&nbsp;字
+                class="white-color">98k</span>&nbsp;字
             
             
             
