@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python函数, 博客">
+    <meta name="keywords" content="Hexo博客搭建记录, 博客">
     <meta name="description" content="路漫漫其修远兮，吾将上下而求索">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python函数 | 不二博客</title>
+    <title>Hexo博客搭建记录 | 不二博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python函数</h1>
+                    <h1 class="description center-align post-title">Hexo博客搭建记录</h1>
                 </div>
             </div>
         </div>
@@ -433,8 +433,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
+                            <a href="/tags/Hexo/">
+                                <span class="chip bg-color">Hexo</span>
                             </a>
                         
                     </div>
@@ -445,8 +445,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
-                                程序设计
+                            <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">
+                                经验总结
                             </a>
                         
                     </div>
@@ -458,28 +458,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-13
+                    2020-12-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-26
+                    2020-12-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    589
+                    44
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -502,53 +502,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Python函数"><a href="#Python函数" class="headerlink" title="Python函数"></a>Python函数</h2><ul>
-<li><p>调用函数时，如果传入的参数或者类型不对，Python会报TypeError的错误。</p>
-</li>
-<li><p><code>int(参数)</code>将参数转换成整数，其他类型也用类似的函数进行转换。</p>
-</li>
-<li><p>函数名是指向一个函数对象的引用。可以将函数赋值给另一个对象，效果是给这个函数起了别名。</p>
-</li>
-<li><p>函数定义</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> 函数名（参数列表）：
-	函数逻辑
-	<span class="token keyword">return</span> 返回值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li><p>没有返回值的函数，其实也会返回结果，是None。返回return None可以简写为return。</p>
-</li>
-</ul>
-<a id="more"></a>
-
-<ul>
-<li><p>未实现的函数可以将函数体先写成<code>pass</code>。<code>pass</code>表示什么都不做，只有起占位符的作用。</p>
-</li>
-<li><p>定义函数时可以进行数据类型检查，使用<code>isinstance()</code>实现。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>需校验参数<span class="token punctuation">,</span><span class="token punctuation">(</span>数据类型集合或单一数据类型<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">raise</span> TypeError<span class="token punctuation">(</span><span class="token string">'bad operand type'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p>函数return多个值，本质上是返回了一个tuple</p>
-</li>
-<li><p>默认参数同java。必选参数在前，默认参数在后。</p>
-</li>
-<li><p>当不按照顺序进行传参时，需要把参数名写上。</p>
-</li>
-<li><p><strong>默认参数必须指向不变对象！</strong></p>
-</li>
-<li><p>在参数名前面加上*，参数就变成了可变参数。如果传递的参数原本就是一个tuple或者list，那么需要在参数名前加上*，使其编程可变参数。</p>
-</li>
-<li><p>关键字参数就是在参数名前面加上<code>**</code>。如果传入一个dict集合，在参数前加上<code>**</code>。</p>
-</li>
-<li><p>命名关键字参数，可以限制关键字参数中只接收需要的关键字参数。</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">def 函数名(参数1,参数2,*,参数三,参数四)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>上面那个例子的参数三、参数四就是命名关键字，传入时必须要传入参数名。可以有缺省值。</p>
-</li>
-<li><p>通过尾递归来优化递归造成的栈溢出。尾递归是指，在函数返回的时候，调用自身本身，并且，<code>return</code>语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。重点是把每一步计算的值传递到函数中去。如下所示：</p>
-  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">fact</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-      <span class="token keyword">return</span> fact_iter<span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
-  <span class="token keyword">def</span> <span class="token function">fact_iter</span><span class="token punctuation">(</span>num<span class="token punctuation">,</span> product<span class="token punctuation">)</span><span class="token punctuation">:</span>
-      <span class="token keyword">if</span> num <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-          <span class="token keyword">return</span> product
-      <span class="token keyword">return</span> fact_iter<span class="token punctuation">(</span>num <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> num <span class="token operator">*</span> product<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
-
+                <p>本文记录博客搭建的过程，以便以后进行查阅和分享经验。</p>
+<h2 id="Hexo搭建"><a href="#Hexo搭建" class="headerlink" title="Hexo搭建"></a>Hexo搭建</h2><h2 id="主题选择与优化"><a href="#主题选择与优化" class="headerlink" title="主题选择与优化"></a>主题选择与优化</h2><h2 id="访问加速"><a href="#访问加速" class="headerlink" title="访问加速"></a>访问加速</h2><h2 id="分支存储源码"><a href="#分支存储源码" class="headerlink" title="分支存储源码"></a>分支存储源码</h2>
                 
             </div>
             <hr/>
@@ -574,7 +529,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://buerlog.top/2019/07/13/python-han-shu/">http://buerlog.top/2019/07/13/python-han-shu/</a>
+                    <a href="http://buerlog.top/2020/12/27/hexo-bo-ke-da-jian-ji-lu/">http://buerlog.top/2020/12/27/hexo-bo-ke-da-jian-ji-lu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -612,8 +567,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
+                                <a href="/tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
                                 </a>
                             
                         </div>
@@ -783,17 +738,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/07/13/qos-zhi-shi/">
+                <a href="/2020/12/27/hexo-bo-ke-da-jian-ji-lu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="QoS知识">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Hexo博客搭建记录">
                         
-                        <span class="card-title">QoS知识</span>
+                        <span class="card-title">Hexo博客搭建记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -803,26 +759,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-07-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">
-                                    云计算
+                            <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">
+                                    经验总结
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/QoS/">
-                        <span class="chip bg-color">QoS</span>
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>
@@ -836,13 +793,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/07/12/yun-ren-wu-diao-du-suan-fa/">
+                <a href="/2020/12/18/go-yu-yan-wang-guan-kai-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="云任务调度算法">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Go语言网关开发">
                         
-                        <span class="card-title">云任务调度算法</span>
+                        <span class="card-title">Go语言网关开发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -853,14 +810,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-07-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    程序设计
                                 </a>
                             
                             
@@ -870,8 +827,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">
-                        <span class="chip bg-color">云计算</span>
+                    <a href="/tags/Go/">
+                        <span class="chip bg-color">Go</span>
                     </a>
                     
                 </div>
@@ -1039,13 +996,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 

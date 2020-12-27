@@ -469,7 +469,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-26
+                    2020-12-27
                 </div>
                 
 
@@ -991,15 +991,15 @@ Adafruit_Fingerprint finger <span class="token operator">=</span> <span class="t
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">//查看设备
 lsusb
 //USB供电
-<span class="token function">sudo</span> /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P <span class="token number">2</span> -p <span class="token number">1</span>
+sudo /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 1
 //USB不供电
-<span class="token function">sudo</span> /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P <span class="token number">2</span> -p <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+sudo /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>设置定时任务：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">crontab</span> -e
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo crontab -e
 //命令如下
 //每天7点30供电，21点40停止供电
-<span class="token number">30</span> <span class="token number">7</span> * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P <span class="token number">2</span> -p <span class="token number">0</span>
-<span class="token number">40</span> <span class="token number">21</span> * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P <span class="token number">2</span> -p <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+30 7 * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0
+40 21 * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="添加触摸传感器"><a href="#添加触摸传感器" class="headerlink" title="添加触摸传感器"></a>添加触摸传感器</h4><p>为了避免长时间供电损坏引脚以及避免烧屏，采用传感器触发开启指纹。</p>
 <p>添加触摸传感器，其只有三个引脚VCC、GND、Sig。</p>
 <p>通过Respeaker上的Grove接口预留的GPIO12采集其信号。当检测到触摸传感器被触摸后返回的高电平信号，树莓派给USB口供电，启动指纹蓝牙键盘。使用树莓派的$I^2C$连接SSD1306的OLED屏幕显示树莓派当前状态，并将每次的log信息保存在项目文件夹中。</p>
@@ -1095,11 +1095,11 @@ filePath <span class="token operator">=</span> os<span class="token punctuation"
     displayInfo<span class="token punctuation">(</span><span class="token punctuation">)</span>
     checkTouch<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>最终的crontab：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># sudo crontab -e 定时任务</span>
-<span class="token number">40</span> <span class="token number">21</span> * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P <span class="token number">2</span> -p <span class="token number">0</span>
-<span class="token comment"># vim /etc/rc.local 开机自启</span>
-<span class="token function">sudo</span> /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P <span class="token number">2</span> -p <span class="token number">0</span>
-<span class="token builtin class-name">cd</span> /home/pi <span class="token operator">&amp;&amp;</span> python3 finger.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># sudo crontab -e 定时任务
+40 21 * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0
+# vim /etc/rc.local 开机自启
+sudo /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0
+cd /home/pi &amp;&amp; python3 finger.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="最终实物图"><a href="#最终实物图" class="headerlink" title="最终实物图"></a>最终实物图</h3><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/ESP32%E6%8C%87%E7%BA%B9%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E5%BC%80%E5%8F%91_%E5%AE%9E%E7%89%A9%E5%9B%BE.jpg"></p>
 
                 
@@ -1675,7 +1675,7 @@ filePath <span class="token operator">=</span> os<span class="token punctuation"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">98k</span>&nbsp;字
+                class="white-color">101.8k</span>&nbsp;字
             
             
             
