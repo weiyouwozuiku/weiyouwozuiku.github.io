@@ -4,6 +4,7 @@ author: 不二
 mathjax: false
 date: 2020-11-10 12:14:19
 tags: C++
+cover: true
 img:
 categories: 程序设计
 ---

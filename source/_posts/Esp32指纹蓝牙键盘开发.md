@@ -6,6 +6,7 @@ date: 2020-11-18 18:57:29
 tags: 
 - Esp32
 - 树莓派
+cover: true
 img:
 categories: 
 - 嵌入式
