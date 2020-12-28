@@ -25,6 +25,10 @@
                         <%- partial('_widget/video') %>
                     <% } %>
 
+                    <% if (theme.github_status.enable) { %>
+                        <%- partial('_widget/github_status') %>
+                    <% } %>
+
                     <% if (theme.recommend.enable) { %>
                     <div id="recommend-sections" class="recommend">
                         <%- partial('_widget/recommend') %>

@@ -106,6 +106,14 @@ video:
   preload: 'auto' # 预加载，可选值: 'none', 'metadata', 'auto'
   volume: 0.7
 
+  # 自定义显示Github近况
+github_status:
+  enable: true
+  data:
+    - "https://github-readme-stats.vercel.app/api/top-langs/?username=weiyouwozuiku&layout=compact&theme=tokyonight"
+    - "https://github-readme-stats.vercel.app/api?username=weiyouwozuiku&show_icons=true&theme=tokyonight&hide=prs"
+    - "https://github-readme-stats.vercel.app/api/pin/?username=weiyouwozuiku&repo=weiyouwozuiku&theme=tokyonight"
+
 # Whether to display the title of the recommended posts
 # 是否显示推荐文章的标题
 recommend:
@@ -604,7 +612,7 @@ jsDelivr:
   
 # 网站背景图
 background:
-  enable: false
+  enable: true
   url: "https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg"
 
 # 说说 https://artitalk.js.org/

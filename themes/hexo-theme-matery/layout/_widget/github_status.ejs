@@ -1,0 +1,31 @@
+<%
+// the github_status photos of theme _config.yml.
+var github_status = theme.github_status.data;
+%>
+<div id="github_status class="my-gallery">
+    <div class="title center-align" data-aos="zoom-in-up">
+        <i class="far fa-image"></i>&nbsp;&nbsp;<%- __('github_status') %>
+    </div>
+    <div class="row">
+        <% if (github_status) { %>
+        <% Object.keys(github_status).forEach(function(photo) { %>
+        <div class="photo col s12 m6 l4" data-aos="fade-up">
+            <div class="img-item" data-src="<%- github_status[photo] %>">
+                <img src="<%- url_for(github_status[photo]) %>" class="responsive-img">
+            </div>
+        </div>
+        <% }); %>
+        <% } %>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        let animateClass = 'animated pulse';
+        $('#github_status .photo').hover(function () {
+            $(this).addClass(animateClass);
+        }, function () {
+            $(this).removeClass(animateClass);
+        });
+    });
+</script>
