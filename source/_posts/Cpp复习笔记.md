@@ -915,7 +915,31 @@ List将元素按顺序存储在链表中，与向量（vectors）相比，它允
 
 - **布局有序，普通成员有相同的访问级别。注意是普通成员。静态成员之类的不在此考虑范围。**
 
-- **第一个成员必须是自己的。**
+- **类中的第一个非静态成员的类型不能与其基类相同，不然就不是标准布局的类型。**
 
 - **只要有父类，普通成员只能在其中一个类中，不可分散。**
+
+##### 使用POD数据
+
+```cpp
+#include <iostream>
+using namespace std;
+class A{
+public:
+    int a;
+}
+int main(){
+    //初始化a1
+    A a1;
+    a1.a=10;
+    //使用C语言的memcpy()底层函数拷贝数据到p中
+    char* p=new char[sizeof(A)];
+    memcpy(p,&a1,sizeof(A));
+    //将p强制转换成A*类型
+    A* a2=reinterpret_cast<A*>(p);
+    return 0;
+}
+```
+
+
 
