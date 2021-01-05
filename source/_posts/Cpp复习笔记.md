@@ -935,9 +935,9 @@ int main(){
     //使用C语言的memcpy()底层函数拷贝数据到p中
     char* p=new char[sizeof(A)];
     memcpy(p,&a1,sizeof(A));
-    //将p强制转换成A*类型
+    //将p强制转换成A*
     A* a2=reinterpret_cast<A*>(p);
-    return 0;
+    
 }
 ```
 
