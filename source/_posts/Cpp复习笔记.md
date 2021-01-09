@@ -758,7 +758,147 @@ Singleton::~Singleton() {
 
 1. 将问题的指责解耦合，将Observable和Observer抽象开，分清抽象和实体。
 
+```cpp
+//Observer.h
+#ifndef ACWING_OBSERVER_H
+#define ACWING_OBSERVER_H
 
+class Observer {
+public:
+    Observer()= default;
+    virtual ~Observer()= default;
+    //当被观察对象发生变化时，通知被观察者调用这个方法
+    virtual void Update(void* pArg)=0;
+};
+
+#endif //ACWING_OBSERVER_H
+
+//Observable.h
+#ifndef ACWING_OBSERVABLE_H
+#define ACWING_OBSERVABLE_H
+
+#include <list>
+#include <string>
+#include "Observer.h"
+
+class Observable {
+public:
+    Observable();
+
+    virtual ~Observable()=default;
+
+    //注册观察者
+    void Attach(Observer *pOb);
+
+    //注销观察者
+    void Detach(Observer *pOb);
+
+    int GetObserverCount() const;
+
+    void DetachAll(){
+        _Obs.clear();
+    }
+
+    virtual void GetSomeNews(std::string str){
+        SetChange(str);
+    }
+
+protected:
+    void SetChange(std::string str);
+
+private:
+    std::list<Observer *> _Obs;
+    bool _bChange;
+    //通知函数
+    void Notify(void *pArg);
+};
+
+#endif //ACWING_OBSERVABLE_H
+
+//Observable.cpp
+#include "Observable.h"
+
+Observable::Observable() : _bChange(false) {}
+
+void Observable::Attach(Observer *pOb) {
+    if (!pOb) {
+        return;
+    }
+    auto it = _Obs.begin();
+    for (; it != _Obs.end(); it++) {
+        if (*it == pOb) {
+            return;
+        }
+    }
+    _Obs.push_back(pOb);
+}
+
+void Observable::Detach(Observer *pOb) {
+    if (!pOb || _Obs.empty()) {
+        return;
+    }
+    _Obs.remove(pOb);
+}
+
+int Observable::GetObserverCount() const {
+    return _Obs.size();
+}
+
+void Observable::Notify(void *pArg) {
+    if (!_bChange) {
+        return;
+    }
+    auto it = _Obs.begin();
+    for (; it != _Obs.end(); it++) {
+        (*it)->Update(pArg);
+    }
+    _bChange = false;
+}
+
+void Observable::SetChange(std::string str) {
+    _bChange = true;
+    Notify((void *) str.c_str());
+}
+
+//main.cpp
+#include <iostream>
+#include "Observable.h"
+
+using namespace std;
+class News: public Observable{
+public:
+    virtual void GetSomeNews(std::string str){
+        SetChange("News: "+str);
+    }
+};
+class User1: public Observer{
+    void Update(void* pArg) override{
+        cout<<"User1 Got News"<<", "<<(char *)pArg<<endl;
+    }
+};
+class User2: public Observer{
+    void Update(void* pArg) override{
+        cout<<"User2 Got News"<<", "<<(char *)pArg<<endl;
+    }
+};
+
+int main(){
+    User1 user1;
+    User2 user2;
+    News n1;
+    n1.Attach(&user1);
+    n1.Attach(&user2);
+    n1.GetSomeNews("hello world");
+    cout<<n1.GetObserverCount()<<endl;
+    n1.Detach(&user2);
+    n1.GetSomeNews("hello world");
+    cout<<n1.GetObserverCount()<<endl;
+    n1.DetachAll();
+    n1.GetSomeNews("hello world");
+    cout<<n1.GetObserverCount()<<endl;
+    return 0;
+}
+```
 
 ---
 
@@ -937,9 +1077,25 @@ int main(){
     memcpy(p,&a1,sizeof(A));
     //将p强制转换成A*
     A* a2=reinterpret_cast<A*>(p);
-    
 }
 ```
 
+##### void*,NULL,nullptr
 
+在C中`#define NULL ((void *)0)`，其中`void *`可以表示所有指针。
 
+在C++中定义如下：
+
+```cpp
+#ifndef NULL
+	#ifdef __cplusplus
+		#define NULL 0
+	#else
+		#define NULL ((void *)0)
+	#endif
+#endif 
+```
+
+在C++11中，nullptr用来代表(void *)0,NULL则表示为0；
+
+ 
