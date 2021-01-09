@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-29
+                    2021-01-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.2k
+                    7.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    27 分
+                    29 分
                 </div>
                 
 
@@ -1160,6 +1160,145 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 <ol>
 <li>将问题的指责解耦合，将Observable和Observer抽象开，分清抽象和实体。</li>
 </ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//Observer.h</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">ACWING_OBSERVER_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">ACWING_OBSERVER_H</span></span>
+
+<span class="token keyword">class</span> <span class="token class-name">Observer</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Observer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span> <span class="token keyword">default</span><span class="token punctuation">;</span>
+    <span class="token keyword">virtual</span> <span class="token operator">~</span><span class="token function">Observer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span> <span class="token keyword">default</span><span class="token punctuation">;</span>
+    <span class="token comment">//当被观察对象发生变化时，通知被观察者调用这个方法</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> pArg<span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">//ACWING_OBSERVER_H</span></span>
+
+<span class="token comment">//Observable.h</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">ACWING_OBSERVABLE_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">ACWING_OBSERVABLE_H</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;list&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Observer.h"</span></span>
+
+<span class="token keyword">class</span> <span class="token class-name">Observable</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Observable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">virtual</span> <span class="token operator">~</span><span class="token function">Observable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token keyword">default</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//注册观察者</span>
+    <span class="token keyword">void</span> <span class="token function">Attach</span><span class="token punctuation">(</span>Observer <span class="token operator">*</span>pOb<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//注销观察者</span>
+    <span class="token keyword">void</span> <span class="token function">Detach</span><span class="token punctuation">(</span>Observer <span class="token operator">*</span>pOb<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> <span class="token function">GetObserverCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">void</span> <span class="token function">DetachAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        _Obs<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">GetSomeNews</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">SetChange</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">protected</span><span class="token operator">:</span>
+    <span class="token keyword">void</span> <span class="token function">SetChange</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">private</span><span class="token operator">:</span>
+    std<span class="token operator">::</span>list<span class="token operator">&lt;</span>Observer <span class="token operator">*</span><span class="token operator">&gt;</span> _Obs<span class="token punctuation">;</span>
+    <span class="token keyword">bool</span> _bChange<span class="token punctuation">;</span>
+    <span class="token comment">//通知函数</span>
+    <span class="token keyword">void</span> <span class="token function">Notify</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>pArg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">//ACWING_OBSERVABLE_H</span></span>
+
+<span class="token comment">//Observable.cpp</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Observable.h"</span></span>
+
+<span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">Observable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">_bChange</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">Attach</span><span class="token punctuation">(</span>Observer <span class="token operator">*</span>pOb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>pOb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">auto</span> it <span class="token operator">=</span> _Obs<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> it <span class="token operator">!=</span> _Obs<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> it<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">*</span>it <span class="token operator">==</span> pOb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    _Obs<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>pOb<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">Detach</span><span class="token punctuation">(</span>Observer <span class="token operator">*</span>pOb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>pOb <span class="token operator">||</span> _Obs<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    _Obs<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>pOb<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">GetObserverCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> _Obs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">Notify</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>pArg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>_bChange<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">auto</span> it <span class="token operator">=</span> _Obs<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> it <span class="token operator">!=</span> _Obs<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> it<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">(</span><span class="token operator">*</span>it<span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token function">Update</span><span class="token punctuation">(</span>pArg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    _bChange <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">SetChange</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    _bChange <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token function">Notify</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> str<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//main.cpp</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Observable.h"</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">News</span><span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Observable</span></span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">GetSomeNews</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">SetChange</span><span class="token punctuation">(</span><span class="token string">"News: "</span><span class="token operator">+</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">User1</span><span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Observer</span></span><span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> pArg<span class="token punctuation">)</span> override<span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token string">"User1 Got News"</span><span class="token operator">&lt;&lt;</span><span class="token string">", "</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>pArg<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">User2</span><span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Observer</span></span><span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> pArg<span class="token punctuation">)</span> override<span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token string">"User2 Got News"</span><span class="token operator">&lt;&lt;</span><span class="token string">", "</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>pArg<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    User1 user1<span class="token punctuation">;</span>
+    User2 user2<span class="token punctuation">;</span>
+    News n1<span class="token punctuation">;</span>
+    n1<span class="token punctuation">.</span><span class="token function">Attach</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>user1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    n1<span class="token punctuation">.</span><span class="token function">Attach</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>user2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    n1<span class="token punctuation">.</span><span class="token function">GetSomeNews</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>n1<span class="token punctuation">.</span><span class="token function">GetObserverCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    n1<span class="token punctuation">.</span><span class="token function">Detach</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>user2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    n1<span class="token punctuation">.</span><span class="token function">GetSomeNews</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>n1<span class="token punctuation">.</span><span class="token function">GetObserverCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    n1<span class="token punctuation">.</span><span class="token function">DetachAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    n1<span class="token punctuation">.</span><span class="token function">GetSomeNews</span><span class="token punctuation">(</span><span class="token string">"hello world"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>n1<span class="token punctuation">.</span><span class="token function">GetObserverCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h3 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h3><p><code>sizeof(char str[])</code>为字面值+1。</p>
 <h4 id="浅拷贝与深拷贝"><a href="#浅拷贝与深拷贝" class="headerlink" title="浅拷贝与深拷贝"></a>浅拷贝与深拷贝</h4><p>浅拷贝：只拷贝指针地址，C++默认拷贝构造函数与赋值运算符重载都是浅拷贝；节省空间，但是容易引发多次释放。</p>
@@ -1379,10 +1518,17 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
     <span class="token function">memcpy</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span><span class="token operator">&amp;</span>a1<span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">//将p强制转换成A*</span>
     A<span class="token operator">*</span> a2<span class="token operator">=</span><span class="token keyword">reinterpret_cast</span><span class="token operator">&lt;</span>A<span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="void-NULL-nullptr"><a href="#void-NULL-nullptr" class="headerlink" title="void*,NULL,nullptr"></a>void*,NULL,nullptr</h5><p>在C中<code>#define NULL ((void *)0)</code>，其中<code>void *</code>可以表示所有指针。</p>
+<p>在C++中定义如下：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression"><span class="token constant">NULL</span></span></span>
+	<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">__cplusplus</span></span>
+		<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression"><span class="token constant">NULL</span> <span class="token number">0</span></span></span>
+	<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
+		<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression"><span class="token constant">NULL</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token number">0</span><span class="token punctuation">)</span></span></span>
+	<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在C++11中，nullptr用来代表(void *)0,NULL则表示为0；</p>
 
                 
             </div>
@@ -1950,7 +2096,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">102.9k</span>&nbsp;字
+                class="white-color">103.5k</span>&nbsp;字
             
             
             
