@@ -1103,6 +1103,7 @@ int main(){
 提供给开发者用来进行指针和引用的转换。
 
 - const_cast<new_type>(expression):用于转换指针或引用，去掉类型的const属性。但是其原本的数值并不会改变，只是一种处于无奈的情况。或者一个修饰了const属性的指针或引用指向的是一个非const修饰的数据时，才可以修改原数值。
-- static_cast<new_type>(expression):**很危险**，重新解释类型，既不检查指向的内容，也不检查指针类型本身，但要求转换前后的类型所占用空间大小一致，否则引发编译时错误。
-- reinterpret_cast<new_type>(expression):
-- dynamic_cast<new_type>(expression):
+- static_cast<new_type>(expression):用于基本类型转换，有继承关系类对象和类指针之间转换，由程序员来确保转换是安全的，它不会产生动态转换的类型安全检查的开销。
+- reinterpret_cast<new_type>(expression):**很危险**，重新解释类型，既不检查指向的内容，也不检查指针类型本身，但要求转换前后的类型所占用空间大小一致，否则引发编译时错误。
+- dynamic_cast<new_type>(expression):只能用于含有虚函数的类，必须用在多态体系中，用于类层次间的向上和向下转换；向下转化时，如果是非法的对于指针返回NULL；
+
