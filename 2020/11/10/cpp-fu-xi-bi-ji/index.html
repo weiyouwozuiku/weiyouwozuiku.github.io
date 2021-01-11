@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-10
+                    2021-01-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.6k
+                    7.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    29 分
+                    30 分
                 </div>
                 
 
@@ -1519,7 +1519,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
     <span class="token comment">//将p强制转换成A*</span>
     A<span class="token operator">*</span> a2<span class="token operator">=</span><span class="token keyword">reinterpret_cast</span><span class="token operator">&lt;</span>A<span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="void-NULL-nullptr"><a href="#void-NULL-nullptr" class="headerlink" title="void*,NULL,nullptr"></a>void*,NULL,nullptr</h5><p>在C中<code>#define NULL ((void *)0)</code>，其中<code>void *</code>可以表示所有指针。</p>
+<h4 id="void-NULL-nullptr"><a href="#void-NULL-nullptr" class="headerlink" title="void*,NULL,nullptr"></a>void*,NULL,nullptr</h4><p>在C中<code>#define NULL ((void *)0)</code>，其中<code>void *</code>可以表示所有指针。</p>
 <p>在C++中定义如下：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression"><span class="token constant">NULL</span></span></span>
 	<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">__cplusplus</span></span>
@@ -1529,6 +1529,13 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 	<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在C++11中，nullptr用来代表(void *)0,NULL则表示为0；</p>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p>提供给开发者用来进行指针和引用的转换。</p>
+<ul>
+<li>const_cast<new_type>(expression):用于转换指针或引用，去掉类型的const属性。但是其原本的数值并不会改变，只是一种处于无奈的情况。或者一个修饰了const属性的指针或引用指向的是一个非const修饰的数据时，才可以修改原数值。</new_type></li>
+<li>static_cast<new_type>(expression):<strong>很危险</strong>，重新解释类型，既不检查指向的内容，也不检查指针类型本身，但要求转换前后的类型所占用空间大小一致，否则引发编译时错误。</new_type></li>
+<li>reinterpret_cast<new_type>(expression):</new_type></li>
+<li>dynamic_cast<new_type>(expression):</new_type></li>
+</ul>
 
                 
             </div>
@@ -2096,7 +2103,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.5k</span>&nbsp;字
+                class="white-color">103.6k</span>&nbsp;字
             
             
             
