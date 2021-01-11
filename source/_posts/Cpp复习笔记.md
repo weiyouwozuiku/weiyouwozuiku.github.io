@@ -1080,7 +1080,7 @@ int main(){
 }
 ```
 
-##### void*,NULL,nullptr
+#### void*,NULL,nullptr
 
 在C中`#define NULL ((void *)0)`，其中`void *`可以表示所有指针。
 
@@ -1098,4 +1098,11 @@ int main(){
 
 在C++11中，nullptr用来代表(void *)0,NULL则表示为0；
 
- 
+ #### 类型转换
+
+提供给开发者用来进行指针和引用的转换。
+
+- const_cast<new_type>(expression):用于转换指针或引用，去掉类型的const属性。但是其原本的数值并不会改变，只是一种处于无奈的情况。或者一个修饰了const属性的指针或引用指向的是一个非const修饰的数据时，才可以修改原数值。
+- static_cast<new_type>(expression):**很危险**，重新解释类型，既不检查指向的内容，也不检查指针类型本身，但要求转换前后的类型所占用空间大小一致，否则引发编译时错误。
+- reinterpret_cast<new_type>(expression):
+- dynamic_cast<new_type>(expression):
