@@ -472,7 +472,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.9k
+                    9k
                 </div>
                 
 
@@ -733,7 +733,17 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">strcut Student<span class="token punctuation">{</span>
     <span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> age<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span class="token comment">//让对象实例成为一个callable,能够作为std::function</span>
+<span class="token keyword">struct</span> <span class="token class-name">Display</span> <span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token keyword">operator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> n <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">//调用可使用</span>
+Display<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//打印1</span>
+<span class="token comment">//或者</span>
+<span class="token function">for_each</span><span class="token punctuation">(</span>begin<span class="token punctuation">,</span>end<span class="token punctuation">,</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>结构体的内存布局需要综合考虑CPU的位数和当前结构体中最大的类型所占空间。不同的结构体中数据的排序也会导致结构体占用空间的不同。结构体所占的空间必然是最大元素所占空间的整数倍。</strong></p>
 <p>结构体中数据——缺省对齐原则</p>
 <p>针对32位CPU：</p>
@@ -777,7 +787,13 @@ T <span class="token function">max</span><span class="token punctuation">(</span
 <span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span>
 <span class="token keyword">char</span> <span class="token operator">*</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>a<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token function">strcmp</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//简单的for_each实现</span>
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">typename</span> <span class="token class-name">T</span><span class="token punctuation">,</span><span class="token keyword">typename</span> <span class="token class-name">Func</span><span class="token operator">&gt;</span>
+<span class="token keyword">void</span> <span class="token function">for_each</span><span class="token punctuation">(</span>T<span class="token operator">*</span> begin<span class="token punctuation">,</span>T<span class="token operator">*</span> end<span class="token punctuation">,</span><span class="token keyword">const</span> Func<span class="token operator">&amp;</span> f<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>begin<span class="token operator">!=</span>end<span class="token punctuation">)</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token operator">*</span>begin<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="模板元编程"><a href="#模板元编程" class="headerlink" title="模板元编程"></a>模板元编程</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">int</span> n<span class="token operator">&gt;</span>
 <span class="token keyword">struct</span> <span class="token class-name">Sum</span> <span class="token punctuation">{</span>
     <span class="token keyword">enum</span> <span class="token class-name">Value</span> <span class="token punctuation">{</span>
@@ -1161,12 +1177,10 @@ STL标准库六大组件--&gt;空间配置器 &amp; 容器 &amp; 适配器 &amp;
 算法--&gt;find &amp; swap &amp; reverse &amp; sort &amp; merge
 迭代器--&gt;iterator &amp; const_iterator &amp; reverse_iterator &amp; const_reverse_iterator</pre>
 
+<h4 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h4><p>容器用来存放数据，STL的容器分为两大类：</p>
 <ul>
-<li>容器用来存放数据，STL的容器分为两大类：<ul>
 <li>序列式容器(Sequence Containers):其中的元素都是可排序的(ordered)，STL提供了<code>vector,list,deque</code>等序列式容器，而<code>stack,queue,priority_queue</code>则是容器适配器；</li>
 <li>关联式容器(Associative Containers):每个数据元素都是由一个键(key)和值(value)组成，当元素被插入到容器时，按其键以某特定规则放入适当位置；常见的STL关联容器如:<code>set,muitiset,map,multimap</code>；</li>
-</ul>
-</li>
 </ul>
 <hr>
 <h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><ul>
