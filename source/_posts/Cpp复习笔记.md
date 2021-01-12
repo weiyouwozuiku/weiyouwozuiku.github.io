@@ -293,6 +293,14 @@ union Score{
 
 ---
 
+### 泛型
+
+- 如果说面向对象是一种通过间接层来调用函数，以换取一种抽象，那么泛型编程则是更直接的抽象，因为它不会因为间接层而损失效率；
+- 不同于面向对象的动态期多态，泛型编程则是一种静态期多态，通过编译器生成最直接的代码；
+- 泛型编程可以将算法与特定类型，结构相剥离，尽可能复用代码；
+
+---
+
 ### 函数
 
 函数名与参数列表一起构成了函数签名。
@@ -705,6 +713,11 @@ bool copyFile(const std::string &src, const std::string &dst) {
 
 ### 设计模式
 
+- 23种面向对象的设计模式从分类上大致有创建型，结构型和行为型模式；
+- 设计模式不是万能的，它建立在系统变化点上，哪里有变化哪里就可以用；
+- 设计模式为了解耦合，为了扩展，它通常是演变过来的，需要演变才能准确定位；
+- 设计模式是一种软件设计的方法，不是标准，当前大部分的框架中都已经包含了大量设计模式的思想；
+
 #### 单例模式\(Singleton\)
 
 实现思路：
@@ -896,6 +909,74 @@ int main(){
     n1.DetachAll();
     n1.GetSomeNews("hello world");
     cout<<n1.GetObserverCount()<<endl;
+    return 0;
+}
+```
+
+#### 适配器模式(Adapter)
+
+- 适配器将类接口转换为客户端期望的另一个接口
+- 使用适配器可防止类由于接口不兼容而不工作
+- 适配器模式的动机是，如果可以更改接口，则可以重用现有软件
+
+```cpp
+//LegacyRectanle.h
+#ifndef ACWING_LEGACYRECTANLE_H
+#define ACWING_LEGACYRECTANLE_H
+#include <iostream>
+//原始数据类
+class LegacyRectanle {
+public:
+    LegacyRectanle(double x1,double y1,double x2,double y2):_x1(x1),_y1(y1),_x2(x2),_y2(y2){};
+    void LagacyRectangleDraw();
+private:
+    double _x1,_y1,_x2,_y2;
+};
+
+//接口调用类
+class Rectangle{
+public:
+    virtual void Draw(std::string str)=0;
+};
+
+//第一种适配方式：使用多重继承
+class RectangleAdapter: public Rectangle, public LegacyRectanle{
+public:
+    RectangleAdapter(double x,double y,double w,double h):LegacyRectanle(x,y,x+w,y+h){};
+    virtual void Draw(std::string str);
+};
+
+//第二种适配方式：使用组合
+class RectangleAdapter2: public Rectangle{
+public:
+    RectangleAdapter2(double x,double y,double w,double h):_legacyRectanle(x,y,x+w,y+h){};
+    virtual void Draw(std::string str);
+private:
+    LegacyRectanle _legacyRectanle;
+};
+#endif //ACWING_LEGACYRECTANLE_H
+
+//LegacyRectanle.cpp
+#include "LegacyRectanle.h"
+void LegacyRectanle::LagacyRectangleDraw() {
+    std::cout<<_x1<<_y1<<_x2<<_y2<<std::endl;
+}
+void RectangleAdapter::Draw(std::string str) {
+    LagacyRectangleDraw();
+    std::cout<<str<<std::endl;
+}
+void RectangleAdapter2::Draw(std::string str) {
+    _legacyRectanle.LagacyRectangleDraw();
+    std::cout<<str<<std::endl;
+}
+
+#include "LegacyRectanle.h"
+int main(){
+    double x=2,y=5,w=1,h=3;
+    Rectangle* a=dynamic_cast<Rectangle*>(new RectangleAdapter(x,y,w,h));
+    a->Draw("hello");
+    Rectangle* b=dynamic_cast<Rectangle*>(new RectangleAdapter2(x+1,y+2,w,h));
+    b->Draw("hello");
     return 0;
 }
 ```
@@ -1105,5 +1186,5 @@ int main(){
 - const_cast<new_type>(expression):用于转换指针或引用，去掉类型的const属性。但是其原本的数值并不会改变，只是一种处于无奈的情况。或者一个修饰了const属性的指针或引用指向的是一个非const修饰的数据时，才可以修改原数值。
 - static_cast<new_type>(expression):用于基本类型转换，有继承关系类对象和类指针之间转换，由程序员来确保转换是安全的，它不会产生动态转换的类型安全检查的开销。
 - reinterpret_cast<new_type>(expression):**很危险**，重新解释类型，既不检查指向的内容，也不检查指针类型本身，但要求转换前后的类型所占用空间大小一致，否则引发编译时错误。
-- dynamic_cast<new_type>(expression):只能用于含有虚函数的类，必须用在多态体系中，用于类层次间的向上和向下转换；向下转化时，如果是非法的对于指针返回NULL；
+- dynamic_cast<new_type>(expression):只能用于含有虚函数的类，必须用在多态体系中，用于类层次间的向上和向下转换；向下转化时，如果是非法的对于指针返回NULL，需要做判空处理。
 
