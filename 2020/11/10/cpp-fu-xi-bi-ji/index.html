@@ -472,14 +472,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.9k
+                    8.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    30 分
+                    33 分
                 </div>
                 
 
@@ -762,6 +762,12 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>联合体的空间按照最大元素所占空间决定。</strong></p>
 <h4 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h4><p>宏定义版min函数：<code>#define MIN(a,b) (((a)&gt;=(b))?(b):(a))</code>，这里的a或b可能是式子，所以加上括号。</p>
+<hr>
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><ul>
+<li>如果说面向对象是一种通过间接层来调用函数，以换取一种抽象，那么泛型编程则是更直接的抽象，因为它不会因为间接层而损失效率；</li>
+<li>不同于面向对象的动态期多态，泛型编程则是一种静态期多态，通过编译器生成最直接的代码；</li>
+<li>泛型编程可以将算法与特定类型，结构相剥离，尽可能复用代码；</li>
+</ul>
 <hr>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数名与参数列表一起构成了函数签名。</p>
 <p>函数的参数默认值必须是最右的有值才行，这取决于代码编译成汇编语言时先操作的是最右的参数进行压栈，之后从右向左进行赋值。</p>
@@ -1114,7 +1120,13 @@ streambuf--&gt;strstreambuf &amp; filebuf</pre>
     out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
-<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><h4 id="单例模式-Singleton"><a href="#单例模式-Singleton" class="headerlink" title="单例模式(Singleton)"></a>单例模式(Singleton)</h4><p>实现思路：</p>
+<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><ul>
+<li>23种面向对象的设计模式从分类上大致有创建型，结构型和行为型模式；</li>
+<li>设计模式不是万能的，它建立在系统变化点上，哪里有变化哪里就可以用；</li>
+<li>设计模式为了解耦合，为了扩展，它通常是演变过来的，需要演变才能准确定位；</li>
+<li>设计模式是一种软件设计的方法，不是标准，当前大部分的框架中都已经包含了大量设计模式的思想；</li>
+</ul>
+<h4 id="单例模式-Singleton"><a href="#单例模式-Singleton" class="headerlink" title="单例模式(Singleton)"></a>单例模式(Singleton)</h4><p>实现思路：</p>
 <ol>
 <li>Singleton拥有一个私有构造函数，确保用户无法通过new直接实例化。</li>
 <li>包含一个静态私有成员变量instance与静态公有方法Instance()。</li>
@@ -1299,6 +1311,70 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
     cout<span class="token operator">&lt;&lt;</span>n1<span class="token punctuation">.</span><span class="token function">GetObserverCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="适配器模式-Adapter"><a href="#适配器模式-Adapter" class="headerlink" title="适配器模式(Adapter)"></a>适配器模式(Adapter)</h4><ul>
+<li>适配器将类接口转换为客户端期望的另一个接口</li>
+<li>使用适配器可防止类由于接口不兼容而不工作</li>
+<li>适配器模式的动机是，如果可以更改接口，则可以重用现有软件</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//LegacyRectanle.h</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">ACWING_LEGACYRECTANLE_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">ACWING_LEGACYRECTANLE_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token comment">//原始数据类</span>
+<span class="token keyword">class</span> <span class="token class-name">LegacyRectanle</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">LegacyRectanle</span><span class="token punctuation">(</span><span class="token keyword">double</span> x1<span class="token punctuation">,</span><span class="token keyword">double</span> y1<span class="token punctuation">,</span><span class="token keyword">double</span> x2<span class="token punctuation">,</span><span class="token keyword">double</span> y2<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">_x1</span><span class="token punctuation">(</span>x1<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">_y1</span><span class="token punctuation">(</span>y1<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">_x2</span><span class="token punctuation">(</span>x2<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">_y2</span><span class="token punctuation">(</span>y2<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">LagacyRectangleDraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token keyword">double</span> _x1<span class="token punctuation">,</span>_y1<span class="token punctuation">,</span>_x2<span class="token punctuation">,</span>_y2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//接口调用类</span>
+<span class="token keyword">class</span> <span class="token class-name">Rectangle</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//第一种适配方式：使用多重继承</span>
+<span class="token keyword">class</span> <span class="token class-name">RectangleAdapter</span><span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Rectangle</span><span class="token punctuation">,</span> <span class="token keyword">public</span> <span class="token class-name">LegacyRectanle</span></span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">RectangleAdapter</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">,</span><span class="token keyword">double</span> y<span class="token punctuation">,</span><span class="token keyword">double</span> w<span class="token punctuation">,</span><span class="token keyword">double</span> h<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">LegacyRectanle</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>x<span class="token operator">+</span>w<span class="token punctuation">,</span>y<span class="token operator">+</span>h<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">//第二种适配方式：使用组合</span>
+<span class="token keyword">class</span> <span class="token class-name">RectangleAdapter2</span><span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Rectangle</span></span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">RectangleAdapter2</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">,</span><span class="token keyword">double</span> y<span class="token punctuation">,</span><span class="token keyword">double</span> w<span class="token punctuation">,</span><span class="token keyword">double</span> h<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">_legacyRectanle</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>x<span class="token operator">+</span>w<span class="token punctuation">,</span>y<span class="token operator">+</span>h<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    LegacyRectanle _legacyRectanle<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">//ACWING_LEGACYRECTANLE_H</span></span>
+
+<span class="token comment">//LegacyRectanle.cpp</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"LegacyRectanle.h"</span></span>
+<span class="token keyword">void</span> <span class="token class-name">LegacyRectanle</span><span class="token operator">::</span><span class="token function">LagacyRectangleDraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span>_x1<span class="token operator">&lt;&lt;</span>_y1<span class="token operator">&lt;&lt;</span>_x2<span class="token operator">&lt;&lt;</span>_y2<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token class-name">RectangleAdapter</span><span class="token operator">::</span><span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">LagacyRectangleDraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span>str<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token class-name">RectangleAdapter2</span><span class="token operator">::</span><span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    _legacyRectanle<span class="token punctuation">.</span><span class="token function">LagacyRectangleDraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span>str<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"LegacyRectanle.h"</span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">double</span> x<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>w<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>h<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+    Rectangle<span class="token operator">*</span> a<span class="token operator">=</span><span class="token keyword">dynamic_cast</span><span class="token operator">&lt;</span>Rectangle<span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">RectangleAdapter</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    a<span class="token operator">-&gt;</span><span class="token function">Draw</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Rectangle<span class="token operator">*</span> b<span class="token operator">=</span><span class="token keyword">dynamic_cast</span><span class="token operator">&lt;</span>Rectangle<span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">RectangleAdapter2</span><span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    b<span class="token operator">-&gt;</span><span class="token function">Draw</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h3 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h3><p><code>sizeof(char str[])</code>为字面值+1。</p>
 <h4 id="浅拷贝与深拷贝"><a href="#浅拷贝与深拷贝" class="headerlink" title="浅拷贝与深拷贝"></a>浅拷贝与深拷贝</h4><p>浅拷贝：只拷贝指针地址，C++默认拷贝构造函数与赋值运算符重载都是浅拷贝；节省空间，但是容易引发多次释放。</p>
@@ -1534,7 +1610,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 <li>const_cast<new_type>(expression):用于转换指针或引用，去掉类型的const属性。但是其原本的数值并不会改变，只是一种处于无奈的情况。或者一个修饰了const属性的指针或引用指向的是一个非const修饰的数据时，才可以修改原数值。</new_type></li>
 <li>static_cast<new_type>(expression):用于基本类型转换，有继承关系类对象和类指针之间转换，由程序员来确保转换是安全的，它不会产生动态转换的类型安全检查的开销。</new_type></li>
 <li>reinterpret_cast<new_type>(expression):<strong>很危险</strong>，重新解释类型，既不检查指向的内容，也不检查指针类型本身，但要求转换前后的类型所占用空间大小一致，否则引发编译时错误。</new_type></li>
-<li>dynamic_cast<new_type>(expression):只能用于含有虚函数的类，必须用在多态体系中，用于类层次间的向上和向下转换；向下转化时，如果是非法的对于指针返回NULL；</new_type></li>
+<li>dynamic_cast<new_type>(expression):只能用于含有虚函数的类，必须用在多态体系中，用于类层次间的向上和向下转换；向下转化时，如果是非法的对于指针返回NULL，需要做判空处理。</new_type></li>
 </ul>
 
                 
@@ -2103,7 +2179,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.7k</span>&nbsp;字
+                class="white-color">104.3k</span>&nbsp;字
             
             
             
