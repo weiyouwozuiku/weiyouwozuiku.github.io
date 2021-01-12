@@ -245,6 +245,16 @@ strcut Student{
     char name[6];
     int age;
 }
+//让对象实例成为一个callable,能够作为std::function
+struct Display {
+    void operator()(const int &n) const {
+        cout << n << " ";
+    }
+};
+//调用可使用
+Display{}(1);//打印1
+//或者
+for_each(begin,end,Display());
 ```
 
 **结构体的内存布局需要综合考虑CPU的位数和当前结构体中最大的类型所占空间。不同的结构体中数据的排序也会导致结构体占用空间的不同。结构体所占的空间必然是最大元素所占空间的整数倍。**
@@ -309,6 +319,12 @@ T max(T a, T b) {
 template<>
 char *max(char *a, char *b) {
     return (strcmp(a, b) > 0) ? (a) : (b);
+}
+
+//简单的for_each实现
+template<typename T,typename Func>
+void for_each(T* begin,T* end,const Func& f){
+    while (begin!=end) f(*begin++);
 }
 ```
 
@@ -764,9 +780,12 @@ STL标准库六大组件-->空间配置器 & 容器 & 适配器 & 仿函数 & �
 迭代器-->iterator & const_iterator & reverse_iterator & const_reverse_iterator
 ```
 
-- 容器用来存放数据，STL的容器分为两大类：
-  - 序列式容器(Sequence Containers):其中的元素都是可排序的(ordered)，STL提供了`vector,list,deque`等序列式容器，而`stack,queue,priority_queue`则是容器适配器；
-  - 关联式容器(Associative Containers):每个数据元素都是由一个键(key)和值(value)组成，当元素被插入到容器时，按其键以某特定规则放入适当位置；常见的STL关联容器如:`set,muitiset,map,multimap`；
+#### 容器
+
+容器用来存放数据，STL的容器分为两大类：
+
+- 序列式容器(Sequence Containers):其中的元素都是可排序的(ordered)，STL提供了`vector,list,deque`等序列式容器，而`stack,queue,priority_queue`则是容器适配器；
+- 关联式容器(Associative Containers):每个数据元素都是由一个键(key)和值(value)组成，当元素被插入到容器时，按其键以某特定规则放入适当位置；常见的STL关联容器如:`set,muitiset,map,multimap`；
 
 ---
 
