@@ -299,6 +299,42 @@ union Score{
 - 不同于面向对象的动态期多态，泛型编程则是一种静态期多态，通过编译器生成最直接的代码；
 - 泛型编程可以将算法与特定类型，结构相剥离，尽可能复用代码；
 
+```cpp
+template<class T>
+T max(T a, T b) {
+    return a > b ? a : b;
+}
+
+//特化
+template<>
+char *max(char *a, char *b) {
+    return (strcmp(a, b) > 0) ? (a) : (b);
+}
+```
+
+#### 模板元编程
+
+```cpp
+template<int n>
+struct Sum {
+    enum Value {
+        N = Sum<n - 1>::N + n
+    };
+};
+template<>
+struct Sum<1> {
+    enum Value {
+        N = 1
+    };
+};
+int main(){
+    cout << Sum<100>::N;
+    return 0;
+}
+```
+
+这个函数的整个计算过程不是在运行时完成，而是在编译期完成。
+
 ---
 
 ### 函数
@@ -313,7 +349,7 @@ switch分支与if分支比较：
 
 使用场景：
 
-1. switch只支持尺量值固定相等的分支判断;
+1. switch只支持常量值固定相等的分支判断;
 2. if还可以判断区间范围;
 3. 用switch能做的，用if都能做，但反过来则不行;
 
@@ -708,6 +744,29 @@ bool copyFile(const std::string &src, const std::string &dst) {
     out.close();
 }
 ```
+
+---
+
+### STL
+
+- STL(Standard Template Library)算法是泛型的(generic)，不与任何特定的数据结构和对象绑定，不必在环境类似的情况下重写代码；
+- STL算法可以量身定做，并且具有很好的效率；
+- STL可以进行扩展，你可以编写自己的组件并且能与STL标准的组件进行很好的配合；
+
+```mermaid
+graph LR
+STL标准库六大组件-->空间配置器 & 容器 & 适配器 & 仿函数 & 算法 & 迭代器
+空间配置器-->allocator
+容器-->string & vector & list & deque & map & set & multimap & multiset
+适配器-->stack & queue & priority_queue
+仿函数-->greater & less
+算法-->find & swap & reverse & sort & merge
+迭代器-->iterator & const_iterator & reverse_iterator & const_reverse_iterator
+```
+
+- 容器用来存放数据，STL的容器分为两大类：
+  - 序列式容器(Sequence Containers):其中的元素都是可排序的(ordered)，STL提供了`vector,list,deque`等序列式容器，而`stack,queue,priority_queue`则是容器适配器；
+  - 关联式容器(Associative Containers):每个数据元素都是由一个键(key)和值(value)组成，当元素被插入到容器时，按其键以某特定规则放入适当位置；常见的STL关联容器如:`set,muitiset,map,multimap`；
 
 ---
 
