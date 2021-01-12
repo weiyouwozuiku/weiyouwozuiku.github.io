@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-12
+                    2021-01-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.5k
+                    8.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    33 分
+                    35 分
                 </div>
                 
 
@@ -768,13 +768,40 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
 <li>不同于面向对象的动态期多态，泛型编程则是一种静态期多态，通过编译器生成最直接的代码；</li>
 <li>泛型编程可以将算法与特定类型，结构相剥离，尽可能复用代码；</li>
 </ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+T <span class="token function">max</span><span class="token punctuation">(</span>T a<span class="token punctuation">,</span> T b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">&gt;</span> b <span class="token operator">?</span> a <span class="token operator">:</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//特化</span>
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+<span class="token keyword">char</span> <span class="token operator">*</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>a<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token function">strcmp</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="模板元编程"><a href="#模板元编程" class="headerlink" title="模板元编程"></a>模板元编程</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">int</span> n<span class="token operator">&gt;</span>
+<span class="token keyword">struct</span> <span class="token class-name">Sum</span> <span class="token punctuation">{</span>
+    <span class="token keyword">enum</span> <span class="token class-name">Value</span> <span class="token punctuation">{</span>
+        N <span class="token operator">=</span> Sum<span class="token operator">&lt;</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token operator">&gt;</span><span class="token operator">::</span>N <span class="token operator">+</span> n
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+<span class="token keyword">struct</span> <span class="token class-name">Sum</span><span class="token operator">&lt;</span><span class="token number">1</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">enum</span> <span class="token class-name">Value</span> <span class="token punctuation">{</span>
+        N <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> Sum<span class="token operator">&lt;</span><span class="token number">100</span><span class="token operator">&gt;</span><span class="token operator">::</span>N<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这个函数的整个计算过程不是在运行时完成，而是在编译期完成。</p>
 <hr>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数名与参数列表一起构成了函数签名。</p>
 <p>函数的参数默认值必须是最右的有值才行，这取决于代码编译成汇编语言时先操作的是最右的参数进行压栈，之后从右向左进行赋值。</p>
 <h4 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h4><p>switch分支与if分支比较：</p>
 <p>使用场景：</p>
 <ol>
-<li>switch只支持尺量值固定相等的分支判断;</li>
+<li>switch只支持常量值固定相等的分支判断;</li>
 <li>if还可以判断区间范围;</li>
 <li>用switch能做的，用if都能做，但反过来则不行;</li>
 </ol>
@@ -1119,6 +1146,28 @@ streambuf--&gt;strstreambuf &amp; filebuf</pre>
     in<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h3 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h3><ul>
+<li>STL(Standard Template Library)算法是泛型的(generic)，不与任何特定的数据结构和对象绑定，不必在环境类似的情况下重写代码；</li>
+<li>STL算法可以量身定做，并且具有很好的效率；</li>
+<li>STL可以进行扩展，你可以编写自己的组件并且能与STL标准的组件进行很好的配合；</li>
+</ul>
+<pre class="mermaid">graph LR
+STL标准库六大组件--&gt;空间配置器 &amp; 容器 &amp; 适配器 &amp; 仿函数 &amp; 算法 &amp; 迭代器
+空间配置器--&gt;allocator
+容器--&gt;string &amp; vector &amp; list &amp; deque &amp; map &amp; set &amp; multimap &amp; multiset
+适配器--&gt;stack &amp; queue &amp; priority_queue
+仿函数--&gt;greater &amp; less
+算法--&gt;find &amp; swap &amp; reverse &amp; sort &amp; merge
+迭代器--&gt;iterator &amp; const_iterator &amp; reverse_iterator &amp; const_reverse_iterator</pre>
+
+<ul>
+<li>容器用来存放数据，STL的容器分为两大类：<ul>
+<li>序列式容器(Sequence Containers):其中的元素都是可排序的(ordered)，STL提供了<code>vector,list,deque</code>等序列式容器，而<code>stack,queue,priority_queue</code>则是容器适配器；</li>
+<li>关联式容器(Associative Containers):每个数据元素都是由一个键(key)和值(value)组成，当元素被插入到容器时，按其键以某特定规则放入适当位置；常见的STL关联容器如:<code>set,muitiset,map,multimap</code>；</li>
+</ul>
+</li>
+</ul>
 <hr>
 <h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><ul>
 <li>23种面向对象的设计模式从分类上大致有创建型，结构型和行为型模式；</li>
@@ -2179,7 +2228,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">104.3k</span>&nbsp;字
+                class="white-color">104.8k</span>&nbsp;字
             
             
             
