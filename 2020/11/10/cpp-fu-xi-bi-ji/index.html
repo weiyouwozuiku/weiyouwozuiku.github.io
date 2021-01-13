@@ -472,14 +472,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9k
+                    9.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    35 分
+                    36 分
                 </div>
                 
 
@@ -1179,8 +1179,8 @@ STL标准库六大组件--&gt;空间配置器 &amp; 容器 &amp; 适配器 &amp;
 
 <h4 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h4><p>容器用来存放数据，STL的容器分为两大类：</p>
 <ul>
-<li>序列式容器(Sequence Containers):其中的元素都是可排序的(ordered)，STL提供了<code>vector,list,deque</code>等序列式容器，而<code>stack,queue,priority_queue</code>则是容器适配器；</li>
-<li>关联式容器(Associative Containers):每个数据元素都是由一个键(key)和值(value)组成，当元素被插入到容器时，按其键以某特定规则放入适当位置；常见的STL关联容器如:<code>set,muitiset,map,multimap</code>；</li>
+<li>序列式容器(Sequence Containers):其中的元素都是可排序的(ordered)，STL提供了<code>vector(单项开口的连续线性空间),list(环状双向列表),deque(双向开口的连续线性空间，并不是真正的连续线性空间，而是通过node_buffer模拟的)</code>等序列式容器，而<code>stack(栈，先进后出),queue(队列，先进先出),priority_queue(优先队列，按优先权)</code>则是容器适配器；</li>
+<li>关联式容器(Associative Containers):每个数据元素都是由一个键(key)和值(value)组成，当元素被插入到容器时，按其键以某特定规则放入适当位置；常见的STL关联容器如:<code>set,muitiset,map(map.insert(pair&lt;type1,type2&gt;(value1,value2))或map.insert(map&lt;type1,type2&gt;::value_type(value1,value2)),multimap</code>；map中直接插入key一样的键值对会失败，数据不会被更新，但是用键进行修改则可以。</li>
 </ul>
 <hr>
 <h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><ul>
@@ -1948,12 +1948,12 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Esp32/">
-                        <span class="chip bg-color">Esp32</span>
-                    </a>
-                    
                     <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">
                         <span class="chip bg-color">树莓派</span>
+                    </a>
+                    
+                    <a href="/tags/Esp32/">
+                        <span class="chip bg-color">Esp32</span>
                     </a>
                     
                 </div>
@@ -2242,7 +2242,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">104.8k</span>&nbsp;字
+                class="white-color">105.3k</span>&nbsp;字
             
             
             
