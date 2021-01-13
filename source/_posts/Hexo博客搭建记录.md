@@ -180,17 +180,63 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令
 
 博客的基本信息存储在博客根目录下的`_config.yml`文件中。
 
+#### 模板设置
+
+#### 文章排序自定义
+
+hexo中默认是按照文章的创建时间显示，但是博客不是日记，好多步骤或者笔记需要进行更新记录，所以单纯的按照创建时间会导致自己较早创建但一直更新的笔记被放在最后。
+
+hexo的`db.json`文件中包含了每篇博客的更新时间，字段是`db.json`，只需修改博客顶层文件夹中的`_config.yml`中的如下字段：
+
+```yaml
+index_generator:
+	path: ''
+	per_page: 18
+	#默认是-date 符号表示顺序还是逆序
+	order_by: -updated
+```
+
 ## 主题选择与优化
 
 我使用的主题是
 
 ### 首页添加Github状态
 
+### 可选插件
 
+### 主题的个性化
 
 ## 访问加速
 
 
 
 ## 分支存储源码
+
+首先在Github的仓库中创建一个新的分支，因为Github Page默认是master分支，所以随便创建一个分支名即可。
+
+在Hexo博客的顶层文件夹中执行如下命令：
+
+1. 克隆Github中的当前项目，将克隆下载的文件夹中的.git文件夹移动到hexo博客的顶层目录。
+
+2. 编写.gitignore：
+
+   ```wiki
+   .DS_Store
+   Thumbs.db
+   db.json
+   *.log
+   node_modules/
+   public/
+   .deploy*/
+   ```
+
+3. 创建本地分支并切换到该分支：`git checkout -b 分支名`
+
+4. 添加文件：`git add .`
+
+5. 添加注释信息：`git commit -m "hexo src update"`
+
+6. 提交本地代码：`git push --set-upstream origin src`
+
+7. 以后的上传代码则为：`git add . && git commit -m "hexo src update" && git push origin src && hexo d -g`
 
