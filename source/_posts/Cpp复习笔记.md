@@ -787,6 +787,72 @@ STL标准库六大组件-->空间配置器 & 容器 & 适配器 & 仿函数 & �
 - 序列式容器(Sequence Containers):其中的元素都是可排序的(ordered)，STL提供了`vector(单项开口的连续线性空间),list(环状双向列表),deque(双向开口的连续线性空间，并不是真正的连续线性空间，而是通过node_buffer模拟的)`等序列式容器，而`stack(栈，先进后出),queue(队列，先进先出),priority_queue(优先队列，按优先权)`则是容器适配器；
 - 关联式容器(Associative Containers):每个数据元素都是由一个键(key)和值(value)组成，当元素被插入到容器时，按其键以某特定规则放入适当位置；常见的STL关联容器如:`set,muitiset,map(map.insert(pair<type1,type2>(value1,value2))或map.insert(map<type1,type2>::value_type(value1,value2)),multimap`；map中直接插入key一样的键值对会失败，数据不会被更新，但是用键进行修改则可以。
 
+**使用时注意迭代器失效的问题。**
+
+#### 仿函数
+
+- 仿函数(functor)一般不会单独使用，主要是为了搭配STL算法使用；
+- 函数指针不能满足STL对抽象性的要求，不能满足软件积木的要求，无法和STL其他组件搭配；
+- 本质就是类重载了operator()，创建一个行为类似函数的对象；
+
+```cpp
+//C++仿函数模板
+template<class T>
+struct SortF{
+    inline bool operator() (T const& a,T const& b)const{
+        return a<b;
+    }
+};
+```
+
+#### 算法
+
+STL中的算法大致分为四类：包含`<algorithm>,<numeric>,<functional>`
+
+1. 非可变排序算法：指不直接修改其所操作的容器内容的算法；
+2. 可变排序算法：指可以修改它们所操作的容器内容的算法；
+3. 排序算法：包括对序列进行排序和合并的算法、搜索算法以及有序序列上的集合操作；
+4. 数值算法：对容器内容进行数值计算；
+
+##### Lambda表达式
+
+Lambda表达式完整的声明格式如下：
+
+```cpp
+[capture list] (params list) mutable exception-> return type { function body }
+```
+
+各项具体含义如下：
+
+- capture list：捕获外部变量列表
+- params list：形参列表
+- mutable指示符：用来说用是否可以修改捕获的变量
+- exception：异常设定
+- return type：返回类型
+- function body：函数体
+
+| 序号 | 格式                                                        |
+| ---- | ----------------------------------------------------------- |
+| 1    | [capture list] (params list) -> return type {function body} |
+| 2    | [capture list] (params list) {function body}                |
+| 3    | [capture list] {function body}                              |
+
+其中：
+
+- 格式1声明了const类型的表达式，这种类型的表达式不能修改捕获列表中的值。
+- 格式2省略了返回值类型，但编译器可以根据以下规则推断出Lambda表达式的返回类型： （1）：如果function body中存在return语句，则该Lambda表达式的返回类型由return语句的返回类型确定； （2）：如果function body中没有return语句，则返回值为void类型。
+- 格式3中省略了参数列表，类似普通函数中的无参函数。
+
+**对容器中的数进行操作可以考虑使用transform函数。**
+
+**统计容器中有多少个该元素可以使用count函数。需要自己定义函数使用count_if函数，结合bind2nd和bind1st,类似`bind2nd(less<int>(),7)`**
+
+二分查找：`binary_search`
+
+查找子序列返回位置的地址：`search`
+
+
+
 ---
 
 ### 设计模式

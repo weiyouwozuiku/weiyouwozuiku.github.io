@@ -137,7 +137,7 @@ void merge_sort(int p[], int l, int r) {
     //如果还有没有处理的元素，进行处理
     while (i <= mid) temp[k++] = p[i++];
     while (j <= r) temp[k++] = p[j++];
-    //将tmp数组中的数组转移到原本的数组中
+    //将tmp数组中的数组转移到原本的数组中,注意这里的i使用l初始化
     for (i = l, j = 0; i <= r; i++, j++) {
         p[i] = temp[j];
     }
@@ -306,7 +306,7 @@ int main(){
 #include <vector>
 using namespace std;
 
-vector<int> add(vector<int> &A,vector<int> &B){
+vector<int> add(const vector<int> &A,const vector<int> &B){
     vector<int> C;
     //t为当前操作位
     int t=0;
@@ -316,6 +316,7 @@ vector<int> add(vector<int> &A,vector<int> &B){
         C.push_back(t%10);
         t/=10;
     }
+    //注意，最后进位不为0的话需要进一
     if (t) C.push_back(1);
     return C;
 }
@@ -324,6 +325,7 @@ int main(){
     string a,b;
     cin>>a>>b;
     vector<int> A,B;
+    //注意下面的i是从size()-1开始，size()出没有值
     for(int i=a.size()-1;i>=0;i--) A.push_back(a[i]-'0');
     for(int i=b.size()-1;i>=0;i--) B.push_back(b[i]-'0');
     auto C=add(A,B);
@@ -426,6 +428,8 @@ vector<int> div(vector<int> &A, int B, int &r) {
 ### 前缀与差分
 
 ##### 前缀和
+
+前缀和一定要从1开始。
 
 **a[]和s[]数组的第0位都放0，之后进行存储运算从第1位开始。这样在进行计算s[]的时候可以直接用-1**
 
