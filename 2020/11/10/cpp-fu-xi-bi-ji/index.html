@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-13
+                    2021-01-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.1k
+                    9.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    36 分
+                    38 分
                 </div>
                 
 
@@ -1182,6 +1182,67 @@ STL标准库六大组件--&gt;空间配置器 &amp; 容器 &amp; 适配器 &amp;
 <li>序列式容器(Sequence Containers):其中的元素都是可排序的(ordered)，STL提供了<code>vector(单项开口的连续线性空间),list(环状双向列表),deque(双向开口的连续线性空间，并不是真正的连续线性空间，而是通过node_buffer模拟的)</code>等序列式容器，而<code>stack(栈，先进后出),queue(队列，先进先出),priority_queue(优先队列，按优先权)</code>则是容器适配器；</li>
 <li>关联式容器(Associative Containers):每个数据元素都是由一个键(key)和值(value)组成，当元素被插入到容器时，按其键以某特定规则放入适当位置；常见的STL关联容器如:<code>set,muitiset,map(map.insert(pair&lt;type1,type2&gt;(value1,value2))或map.insert(map&lt;type1,type2&gt;::value_type(value1,value2)),multimap</code>；map中直接插入key一样的键值对会失败，数据不会被更新，但是用键进行修改则可以。</li>
 </ul>
+<p><strong>使用时注意迭代器失效的问题。</strong></p>
+<h4 id="仿函数"><a href="#仿函数" class="headerlink" title="仿函数"></a>仿函数</h4><ul>
+<li>仿函数(functor)一般不会单独使用，主要是为了搭配STL算法使用；</li>
+<li>函数指针不能满足STL对抽象性的要求，不能满足软件积木的要求，无法和STL其他组件搭配；</li>
+<li>本质就是类重载了operator()，创建一个行为类似函数的对象；</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//C++仿函数模板</span>
+<span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">T</span><span class="token operator">&gt;</span>
+<span class="token keyword">struct</span> <span class="token class-name">SortF</span><span class="token punctuation">{</span>
+    <span class="token keyword">inline</span> <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>T <span class="token keyword">const</span><span class="token operator">&amp;</span> a<span class="token punctuation">,</span>T <span class="token keyword">const</span><span class="token operator">&amp;</span> b<span class="token punctuation">)</span><span class="token keyword">const</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> a<span class="token operator">&lt;</span>b<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p>STL中的算法大致分为四类：包含<code>&lt;algorithm&gt;,&lt;numeric&gt;,&lt;functional&gt;</code></p>
+<ol>
+<li>非可变排序算法：指不直接修改其所操作的容器内容的算法；</li>
+<li>可变排序算法：指可以修改它们所操作的容器内容的算法；</li>
+<li>排序算法：包括对序列进行排序和合并的算法、搜索算法以及有序序列上的集合操作；</li>
+<li>数值算法：对容器内容进行数值计算；</li>
+</ol>
+<h5 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h5><p>Lambda表达式完整的声明格式如下：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token punctuation">[</span>capture list<span class="token punctuation">]</span> <span class="token punctuation">(</span>params list<span class="token punctuation">)</span> <span class="token keyword">mutable</span> exception<span class="token operator">-&gt;</span> <span class="token keyword">return</span> type <span class="token punctuation">{</span> function body <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>各项具体含义如下：</p>
+<ul>
+<li>capture list：捕获外部变量列表</li>
+<li>params list：形参列表</li>
+<li>mutable指示符：用来说用是否可以修改捕获的变量</li>
+<li>exception：异常设定</li>
+<li>return type：返回类型</li>
+<li>function body：函数体</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>格式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>[capture list] (params list) -&gt; return type {function body}</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[capture list] (params list) {function body}</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[capture list] {function body}</td>
+</tr>
+</tbody></table>
+<p>其中：</p>
+<ul>
+<li>格式1声明了const类型的表达式，这种类型的表达式不能修改捕获列表中的值。</li>
+<li>格式2省略了返回值类型，但编译器可以根据以下规则推断出Lambda表达式的返回类型： （1）：如果function body中存在return语句，则该Lambda表达式的返回类型由return语句的返回类型确定； （2）：如果function body中没有return语句，则返回值为void类型。</li>
+<li>格式3中省略了参数列表，类似普通函数中的无参函数。</li>
+</ul>
+<p><strong>对容器中的数进行操作可以考虑使用transform函数。</strong></p>
+<p><strong>统计容器中有多少个该元素可以使用count函数。需要自己定义函数使用count_if函数，结合bind2nd和bind1st,类似<code>bind2nd(less&lt;int&gt;(),7)</code></strong></p>
+<p>二分查找：<code>binary_search</code></p>
+<p>查找子序列返回位置的地址：<code>search</code></p>
 <hr>
 <h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><ul>
 <li>23种面向对象的设计模式从分类上大致有创建型，结构型和行为型模式；</li>
@@ -2242,7 +2303,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">105.3k</span>&nbsp;字
+                class="white-color">105.9k</span>&nbsp;字
             
             
             
