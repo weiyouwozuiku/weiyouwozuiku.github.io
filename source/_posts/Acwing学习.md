@@ -496,6 +496,8 @@ int main() {
 
 思路：假定前缀和数组a[]每个元素都是从0开始，差分数组b[]相应的也都是0。然后获取a[]每个元素的过程视为a[i]=(i,i)区间内加上$a_i$的值。
 
+使用前缀和计算原数组：$b[i]+=c \&\& b[i+1]-=c$，前缀和就是$b[i]+=b[i-1]$的累加。
+
 ```cpp
 const int N=100010;
 int a[N],b[N];
@@ -610,7 +612,7 @@ for(int i=0,j=0;i<=n;i++){
 }
 ```
 
-这里i是终点，j是往右最远的距离就是答案。本题中j的移动是单调的。
+这里i是终点，j是往右最远的距离就是答案。本题中j的移动是单调的。所以只有有重复的必然是b[a[i]]所带来的，将j右移,b[a[j]]--。
 
 下面是双指针实现的最长连续不重复子序列：
 
@@ -637,4 +639,186 @@ int main(){
     return 0;
 }
 ```
+
+### 位运算
+
+一般用于计算n的二进制表示第k位是什么。`n>>k&1`
+
+`lowbit(x)`：返回x的最后一位1。实现的原理是基于C++中负数是原数取反+1，所以x&-x即x&(~x+1)。、取反后最后一位1是0之后都是1，加1之后全部变成0,最后一位再次变成1,前面的还是取反状态与运算0。
+
+##### 二进制中1的个数
+
+```cpp
+#include <iostream>
+
+int lowbit(int x){
+    return x&-x;
+}
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    int x,t=0;
+    while(n--){
+        scanf("%d",&x);
+        while(x){
+            x-=lowbit(x);
+            t++;
+        }
+        printf("%d ",t);
+        t=0;
+    }
+    return 0;
+}
+```
+
+### 整数离散化
+
+难点：
+
+- 数组中可能有重复元素，**去重**。
+- 如何找出相应数对应的下标，**二分**。
+
+C++中的`unique(容器.begin(),容器.end())`函数将所有重复元素放置到容器的尾部，并返回指向第一个重复元素的迭代器。
+
+离散化模板：
+
+```cpp
+vector<int> alls;//存储所有待离散化的值
+sort(alls.begin(),alls.end());//将所有值排序
+alls.erase(unique(alls.begin(),alls.end()),alls.end());//去重
+//二分求出x对应的离散化的值，找出第一个大于等于x的位置
+int find(int x){
+    int l=0,r=alls.size()-1;
+    while(l<r){
+        int mid=l+r>>1;
+        if(alls[mid]>=x)r=mid;
+        else l=mid+1;
+    }
+    return r+1;//映射到1,2..，不加一就是不映射
+}
+```
+
+求区间和：假定有一个无限长的数轴，数轴上每个坐标上的数都是0。现在，我们首先进行 n 次操作，每次操作将某一位置x上的数加c。接下来，进行 m 次询问，每个询问包含两个整数l和r，你需要求出在区间[l, r]之间的所有数的和。
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+//坐标x的数量上限为1e5，两个坐标l,r的数量上限也为1e5,所以加起来为3*le5
+const int N=300010;
+typedef pair<int,int> PII;
+vector<PII> add,query;
+vector<int> alls;
+int q[N],s[N];
+int find(int x){
+    int l=0,r=alls.size()-1;
+    while(l<r){
+        int mid=l+r>>1;
+        if(alls[mid]>=x) r=mid;
+        else l=mid+1;
+    }
+    //因为后续要使用前缀和，所以返回的坐标要加上1
+    return r+1;
+}
+//unique的自己实现
+vector<int> unique(vector<int> &A){
+	int j=0;
+	for(int i=0;i<A.size();i++){
+		if(!i||A[i]!=A[i-1]) A[j++]=A[i];
+		return A.begin()+j;
+	}
+}
+int main(){
+    int n,m;
+    scanf("%d %d",&n,&m);
+    int x,c;
+    //一次性读取所有添加和查询的坐标，以便进行离散化
+    for(int i=0;i<n;i++){
+        scanf("%d %d",&x,&c);
+        add.push_back({x,c});
+        alls.push_back(x);
+    }
+    int l,r;
+    for(int i=0;i<m;i++){
+        scanf("%d %d",&l,&r);
+        query.push_back({l,r});
+        alls.push_back(l);
+        alls.push_back(r);
+    }
+    //排序去重
+    sort(alls.begin(),alls.end());
+    alls.erase(unique(alls.begin(),alls.end()),alls.end());
+    //处理加入，构建原数组
+    for(auto item:add){
+        q[find(item.first)]+=item.second;
+    }
+    //计算前缀和
+    for(int i=1;i<=alls.size();i++) s[i]=s[i-1]+q[i];
+    //查询
+    for(auto item:query){
+        printf("%d\n",s[find(item.second)]-s[find(item.first)-1]);
+    }
+    return 0;
+}
+```
+
+### 区间合并
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+typedef pair<int,int> PII;
+vector<PII> seg;
+void merge(vector<PII> a){
+    vector<PII> res;
+    //按左端点排序
+    sort(seg.begin(),seg.end());
+    int st=-2e9,ed=-2e9;
+    for(auto item:seg){
+        //情况1：两个区间无法合并
+        if(ed<item.first){
+            //区间1放进res数组
+            if(st!=-2e9)res.push_back({st,ed});
+            //维护区间2
+            st=item.first;
+            ed=item.second;
+        }else{
+            ed=max(item.second,ed);
+        }
+    }
+    //剩下还有一个序列，但循环中没有放进res数组，因为它是序列中的最后一个序列
+    if(st!=-2e9) res.push_back({st,ed});
+    seg=res;
+}
+int main(){
+    int n;
+    scanf("%d",&n);
+    int l,r;
+    while(n--){
+        scanf("%d %d",&l,&r);
+        seg.push_back({l,r});
+    }
+    merge(seg);
+    printf("%d",seg.size());
+    return 0;
+}
+```
+
+## 数据结构
+
+### 链表与邻接表
+
+
+
+## 搜索与图论
+
+## 数学知识
+
+## 动态规划
+
+## 贪心
 
