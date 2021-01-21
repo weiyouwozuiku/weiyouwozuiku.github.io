@@ -812,6 +812,73 @@ int main(){
 
 ### 链表与邻接表
 
+使用两个数组记录一个链表，在算法题目中大多使用这种形式的链表，避免了new和delete过程所花费的时间。
+
+```cpp
+#include <iostream>
+
+const int N = 100010;
+//va[i]表示i的数值，ne[i]表示节点i中的next指针是多少
+int va[N], ne[N]
+//head表示头节点的下标，idx存储当前已经用到了哪个点
+int head, idx;
+
+void init() {
+    head = -1;
+    idx=0;
+}
+
+void insert_head(int key){
+    va[idx]=key;
+    ne[idx]=head;
+    head=idx;
+    idx++;
+}
+
+void insert(int key,int value){
+    va[idx]=value;
+    ne[idx]=ne[key];
+    ne[key]=idx;
+    idx++;
+}
+
+void remove(int key){
+    ne[key]=ne[ne[key]];
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    init();
+    char op;
+    int key, value;
+    while (n--) {
+        getchar();
+        scanf("%c", &op);
+        if (op == 'H') {
+            scanf("%d", &key);
+            insert_head(key);
+        }
+        if (op == 'D') {
+            scanf("%d", &key);
+            //如果删除的是头节点，将头指针设置为头指针指向的下一个
+            if(!key) head=ne[head];
+            //注意下标
+            else remove(key-1);
+        }
+        if (op == 'I') {
+            scanf("%d %d", &key, &value);
+             //注意下标
+            insert(key-1,value);
+        }
+    }
+    for (int i = head; i !=-1 ; i=ne[i]) {
+        printf("%d ",va[i]);
+    }
+    return 0;
+}
+```
+
 
 
 ## 搜索与图论
