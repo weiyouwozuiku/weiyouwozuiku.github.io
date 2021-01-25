@@ -1,5 +1,5 @@
 ---
-title: Java基础
+title: Java复习笔记
 author: 不二
 mathjax: true
 date: 2020-10-28 19:31:52
@@ -8,6 +8,10 @@ tags:
 img:
 categories: 程序设计
 ---
+
+## JVM
+
+
 
 ## 常识
 
