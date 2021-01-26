@@ -472,14 +472,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    14 分
                 </div>
                 
 
@@ -701,6 +701,42 @@
 
 <h2 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h2><h2 id="多线程与并发"><a href="#多线程与并发" class="headerlink" title="多线程与并发"></a>多线程与并发</h2><h2 id="常见类库"><a href="#常见类库" class="headerlink" title="常见类库"></a>常见类库</h2><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.png"></p>
 <h3 id="List和Set"><a href="#List和Set" class="headerlink" title="List和Set"></a>List和Set</h3><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_List&amp;Set.png"></p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><p>在Java8以前实现方式为数组+链表。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_HashMap.png"></p>
+<p> 当大量数值的hash值相同时，则存储在链表中。链表查找是通过便利进行查找，所以性能恶化时，会从$O(1)$变成$O(n)$。</p>
+<p>在Java8之后实现方式变为数组+链表+红黑树。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_HashMap_JDK8.png"></p>
+<p>当链表超过8时，链表变化成红黑树。当链表小于6时，退化成链表。</p>
+<p>put方法的逻辑：</p>
+<ol>
+<li>如果HashMao未被初始化过，则初始化</li>
+<li>对Key求Hash值，然后再计算下标</li>
+<li>如果没有碰撞，直接放入桶中</li>
+<li>如果碰撞，以链表的方式链接到后面</li>
+<li>如果链表长度超过阈值，就把链表转成红黑树</li>
+<li>如果链表长度低于6,就把红黑树转回成链表</li>
+<li>如果节点已经存在就替换旧值</li>
+<li>如果桶满了（容量16×加载因子0.75），就需要resize（扩容后重排）</li>
+</ol>
+<p>如何有效的减少碰撞：</p>
+<ul>
+<li>扰动函数：促使元素位置分布均匀，减少碰撞几率</li>
+<li>使用final对象，并采用合适的equals和hashCode方法</li>
+</ul>
+<p>获取hash到散列的过程：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_HashMapGetHash.png"></p>
+<p>扩容问题：</p>
+<ul>
+<li>多线程环境下，调整大小会存在条件竞争，容易造成死锁</li>
+<li>rehashing是一个比较耗时的过程</li>
+</ul>
+<p>HashMap变成线程安全需要用<code>Collections.synchronizedMap()</code>包裹。因为synchronizedMap里面有一个final属性的mutex进行控制。</p>
+<h4 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h4><p>HashTable是线程安全的，所有方法都被<code>synchronized</code>修饰。因为是串行执行，所以效率较低。</p>
+<p>可以通过锁细粒度化，将整把锁拆分成多个锁进行优化。</p>
+<h4 id="ConccurentHashMap"><a href="#ConccurentHashMap" class="headerlink" title="ConccurentHashMap"></a>ConccurentHashMap</h4><p>早期ConcurrentHashMap：通过分化锁Segment实现。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E6%97%A9%E6%9C%9FConcurrentHashMap.png"></p>
+<p>当前的ConcurrentHashMap：CAS+synchronized使得锁更细化。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_ConcurrentHashMap.png"></p>
 <h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><ul>
 <li>What：异常类型回答了什么被抛出</li>
 <li>Where：异常堆栈跟踪回答了在哪被抛出</li>
@@ -1419,7 +1455,7 @@ s<span class="token punctuation">.</span><span class="token function">intern</sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">115.7k</span>&nbsp;字
+                class="white-color">116.1k</span>&nbsp;字
             
             
             
