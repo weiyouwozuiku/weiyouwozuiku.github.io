@@ -281,7 +281,11 @@ public class ReflectSample {
 
 ## 常见类库
 
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.png)
 
+### List和Set
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_List&Set.png)
 
 ## 异常
 
