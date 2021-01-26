@@ -287,6 +287,65 @@ public class ReflectSample {
 
 ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_List&Set.png)
 
+### Map
+
+#### HashMap
+
+在Java8以前实现方式为数组+链表。
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_HashMap.png)
+
+ 当大量数值的hash值相同时，则存储在链表中。链表查找是通过便利进行查找，所以性能恶化时，会从$O(1)$变成$O(n)$。
+
+在Java8之后实现方式变为数组+链表+红黑树。
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_HashMap_JDK8.png)
+
+当链表超过8时，链表变化成红黑树。当链表小于6时，退化成链表。
+
+put方法的逻辑：
+
+1. 如果HashMao未被初始化过，则初始化
+2. 对Key求Hash值，然后再计算下标
+3. 如果没有碰撞，直接放入桶中
+4. 如果碰撞，以链表的方式链接到后面
+5. 如果链表长度超过阈值，就把链表转成红黑树
+6. 如果链表长度低于6,就把红黑树转回成链表
+7. 如果节点已经存在就替换旧值
+8. 如果桶满了（容量16×加载因子0.75），就需要resize（扩容后重排）
+
+如何有效的减少碰撞：
+
+- 扰动函数：促使元素位置分布均匀，减少碰撞几率
+- 使用final对象，并采用合适的equals和hashCode方法
+
+获取hash到散列的过程：
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_HashMapGetHash.png)
+
+扩容问题：
+
+- 多线程环境下，调整大小会存在条件竞争，容易造成死锁
+- rehashing是一个比较耗时的过程
+
+HashMap变成线程安全需要用`Collections.synchronizedMap()`包裹。因为synchronizedMap里面有一个final属性的mutex进行控制。
+
+#### HashTable
+
+HashTable是线程安全的，所有方法都被`synchronized`修饰。因为是串行执行，所以效率较低。
+
+可以通过锁细粒度化，将整把锁拆分成多个锁进行优化。
+
+#### ConccurentHashMap
+
+早期ConcurrentHashMap：通过分化锁Segment实现。
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E6%97%A9%E6%9C%9FConcurrentHashMap.png)
+
+当前的ConcurrentHashMap：CAS+synchronized使得锁更细化。
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_ConcurrentHashMap.png)
+
 ## 异常
 
 - What：异常类型回答了什么被抛出
