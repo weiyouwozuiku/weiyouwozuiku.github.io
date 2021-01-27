@@ -397,6 +397,8 @@ Mark Word结构：
 
 锁膨胀方向：无锁->偏向锁->轻量级锁->重量级锁
 
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E9%94%81%E6%B1%87%E6%80%BB.png)
+
 ##### 偏向锁
 
 减少同一线程获取锁的代价。
@@ -438,6 +440,8 @@ Mark Word结构：
 当线程释放锁时，Java内存模型会把该线程对应的本地内存中的共享变量刷新到主内存中。
 
 当线程获取锁时，Java内存模型会把该线程对应的本地内存置为无效，从而使得被监视器保护的临界区代码必须从主内存中读取共享变量。
+
+
 
 ### Thread
 
