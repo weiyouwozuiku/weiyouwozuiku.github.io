@@ -277,7 +277,177 @@ public class ReflectSample {
 
 ## 多线程与并发
 
+### 进程与线程
 
+进程：进程独占内存空间，保存各自运行状态，相互间不干扰且可以互相切换，为并发处理任务提供了可能。
+
+线程：共享进程的内存资源，互相间切换更快捷，支持更细粒度的任务控制，使进程内的子任务的一并发执行。
+
+进程是资源分配的最小单位，线程是CPU调度的最小单位。
+
+所有与进程相关的资源，都被记录在PCB中。
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_PCB.png)
+
+进程是抢占处理机的调度单位。线程属于某个进程，共享其资源。
+
+线程只由堆栈寄存器、程序计数器和TCB组成。
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_TCB.png)
+
+区别：
+
+- 线程不能看作独立应用，而进程可看作独立应用
+- 进程有独立的地址空间，相互不影响，线程只是进程的不同执行路径。当线程down掉，进程也会down掉
+- 线程没有独立的地址空间，多进程的程序比多线程的程序健壮
+- 进程的切换比线程的切换开销大
+
+### Java中的进程与线程
+
+- Java对OS提供的功能进行封装，包括线程与进程
+- 运行一个程序会产生一个进程，进程包含至少一个线程
+- 每个进程对应一个JVM实例，多个线程共享JVM里的堆，每一个线程都有自己私有的栈
+- Java采用单线程编程模型，程序会自动创建主线程
+- 主线程可以创建子线程，原则上要后于子线程完成执行
+
+使用`Thread.currentThread()`获得当前的线程。
+
+JVM不是只有一个线程 ，比如GC。
+
+### Thread
+
+#### run方法和start方法
+
+调用run方法的时候会调用主线程执行方法，当调用start会调用非main的线程执行方法。
+
+- 调用start方法会创建一个新的子线程并启动
+- run方法只是Thread的一个普通的方法调用
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_run%E6%96%B9%E6%B3%95.png)
+
+#### Runnable和Thread
+
+Runnable只是一个接口，里面有一个抽象的run方法。
+
+- Thread是实现了Runnable接口的类，使得run支持多线程
+- 因类的单一继承原则，推荐多使用Runnable接口
+
+### run方法传参
+
+- 构造函数传参
+- 成员变量传参
+- 回调函数传参
+
+### 处理线程的返回值
+
+- 主线程等待法，需要自己实现等待的方法。当变量多的时候，会导致代码繁琐，无法做到精准的控制
+- 使用Thread类的join方法阻塞当前进程以等待子线程处理完毕。但是粒度粗。
+- 通过Callable接口实现：通过FutureTask Or 线程池获取
+
+#### Callable接口
+
+该接口中只有一个抽象方法：call()。
+
+```java
+//MyCallable.java
+import java.util.concurrent.Callable;
+
+public class MyCallable implements Callable<String> {
+    @Override
+    public String call() throws Exception{
+        String value="test";
+        System.out.println("Ready to work");
+        Thread.currentThread().sleep(5000);
+        System.out.println("task done");
+        return  value;
+    }
+}
+
+//FutureTaskDemo.java
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+
+public class FutureTaskDemo {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        FutureTask<String> task = new FutureTask<String>(new MyCallable());
+        new Thread(task).start();
+        if(!task.isDone()){
+            System.out.println("task has not finished, please wait!");
+        }
+        System.out.println("task return: " + task.get());
+
+    }
+}
+
+```
+
+FutureTask的isDone方法表示线程执行完成，get方法获取返回值，get方法能设定最长等待时间，直接传参即可。
+
+#### 线程池
+
+```java
+//MyCallable.java
+import java.util.concurrent.Callable;
+
+public class MyCallable implements Callable<String> {
+    @Override
+    public String call() throws Exception{
+        String value="test";
+        System.out.println("Ready to work");
+        Thread.currentThread().sleep(5000);
+        System.out.println("task done");
+        return  value;
+    }
+}
+//ThreadPoolDemo.java
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class ThreadPoolDemo {
+    public static void main(String[] args) {
+        ExecutorService newCachedThreadPool = Executors.newCachedThreadPool();
+        Future<String> future = newCachedThreadPool.submit(new MyCallable());
+        if(!future.isDone()){
+            System.out.println("task has not finished, please wait!");
+        }
+        try {
+            System.out.println(future.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } finally {
+            newCachedThreadPool.shutdown();
+        }
+    }
+}
+
+```
+
+通过`Executors.newCachedThreadPool`创建`ExecutorService`对象。通过对象的submit方法包裹继承Callable接口的自定义类，注意这里的返回值使用Future去接收。最后记得关闭线程池，使用ExecutorService的shutdown方法。
+
+### 线程的状态
+
+六个状态：
+
+- 新建（New）：创建后尚未启动的状态
+- 运行（Runnable）：包含Running和Ready
+- 无限期等待（Waiting）：不会被分配CPU执行时间，需要显式被唤醒。
+
+  - 没有设置Timeout参数的Object.wait()方法
+  - 没有设置Timeout参数的Thread.join()方法
+  - LockSupport.park()方法
+- 限期等待（Timed Waiting）：在一定时间后由系统自动唤醒
+
+  - Thread.sleep()方法
+  - 设置Timeout参数的Object.wait()方法
+  - 设置Timeout参数的Thread.join()方法
+  - LockSupport.parkNanos()方法
+  - LockSupport.parkUtil()方法
+- 阻塞（Blocked）：等待获取排它锁
+- 结束（Terminated）：已终止线程的状态，线程已经结束执行
 
 ## 常见类库
 
@@ -290,6 +460,10 @@ public class ReflectSample {
 ### Map
 
 #### HashMap
+
+**在HashMap中，null可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为null。**
+
+当get()方法返回null值时，即可以表示 HashMap中没有该键，也可以表示该键所对应的值为null。因此，在HashMap中不能由get()方法来判断HashMap中是否存在某个键， 而应该用containsKey()方法来判断。
 
 在Java8以前实现方式为数组+链表。
 
@@ -305,7 +479,7 @@ public class ReflectSample {
 
 put方法的逻辑：
 
-1. 如果HashMao未被初始化过，则初始化
+1. 如果HashMap未被初始化过，则初始化
 2. 对Key求Hash值，然后再计算下标
 3. 如果没有碰撞，直接放入桶中
 4. 如果碰撞，以链表的方式链接到后面
@@ -314,14 +488,26 @@ put方法的逻辑：
 7. 如果节点已经存在就替换旧值
 8. 如果桶满了（容量16×加载因子0.75），就需要resize（扩容后重排）
 
+默认的负载因子大小为0.75，也就是说，当一个map填满了75%的bucket时候，和其它集合类(如ArrayList等)一样，将会创建原来HashMap大小的两倍的bucket数组，来重新调整map的大小，并将原来的对象放入新的bucket数组中。这个过程叫作rehashing，因为它调用hash方法找到新的bucket位置。
+
 如何有效的减少碰撞：
 
 - 扰动函数：促使元素位置分布均匀，减少碰撞几率
 - 使用final对象，并采用合适的equals和hashCode方法
 
+重新调整HashMap大小存在的问题：
+
+当重新调整HashMap大小的时候，确实存在条件竞争，因为如果两个线程都发现HashMap需要重新调整大小了，它们会同时试着调整大小。在调整大小的过程中，存储在链表中的元素的次序会反过来，因为移动到新的bucket位置的时候，HashMap并不会将元素放在链表的尾部，而是放在头部，这是为了避免尾部遍历(tail traversing)。如果条件竞争发生了，那么就死循环了。
+
 获取hash到散列的过程：
 
 ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_HashMapGetHash.png)
+
+HashMap 底层数组的长度总是 2 的 n 次方。
+
+当 length 总是 2 的倍数时，h & (length-1) 将是一个非常巧妙的设计：假设 h=5,length=16, 那么 h & length - 1 将得到 5；如果 h=6,length=16, 那么 h & length - 1 将得到 6 ……如果 h=15,length=16, 那么 h & length - 1 将得到 15；但是当 h=16 时 , length=16 时，那么 h & length - 1 将得到 0 了；当 h=17 时 , length=16 时，那么 h & length - 1 将得到 1 了……这样保证计算得到的索引值总是位于 table 数组的索引之内。
+
+**增大负载因子可以减少 Hash 表（就是那个 Entry 数组）所占用的内存空间，但会增加查询数据的时间开销，而查询是最频繁的的操作（HashMap 的 get() 与 put() 方法都要用到查询）；减小负载因子会提高数据查询的性能，但会增加 Hash 表所占用的内存空间。**
 
 扩容问题：
 
@@ -336,6 +522,8 @@ HashTable是线程安全的，所有方法都被`synchronized`修饰。因为是
 
 可以通过锁细粒度化，将整把锁拆分成多个锁进行优化。
 
+**Hashtable中，key和value都不允许出现null值。**
+
 #### ConccurentHashMap
 
 早期ConcurrentHashMap：通过分化锁Segment实现。
@@ -345,6 +533,12 @@ HashTable是线程安全的，所有方法都被`synchronized`修饰。因为是
 当前的ConcurrentHashMap：CAS+synchronized使得锁更细化。
 
 ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_ConcurrentHashMap.png)
+
+### HashSet
+
+HashSet 本身就采用 HashMap 来实现的。但是HashMap是Map接口的常用实现类，HashSet是Set接口的常用实现类。接口规范不同，但是底层的Hash存储机制完全一样。
+
+HashSet的实现其实非常简单，它只是封装了一个HashMap对象来存储所有的集合元素。所有放入HashSet中的集合元素实际上由HashMap的key来保存，而HashMap的value则存储了一个PRESENT，它是一个静态的Object对象。
 
 ## 异常
 
