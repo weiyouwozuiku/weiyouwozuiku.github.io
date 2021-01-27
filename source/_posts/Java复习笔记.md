@@ -314,6 +314,131 @@ public class ReflectSample {
 
 JVM不是只有一个线程 ，比如GC。
 
+### 线程安全的主要原因
+
+- 存在共享数据（临界资源）
+- 存在多条线程同时操作这些共享数据
+
+解决的根本方法：
+
+同一时刻有且只有一个线程在操作共享数据，其他线程必须等待该线程处理完数据后再对共享数据进行操作。
+
+### 互斥锁
+
+特性：
+
+- 互斥性：即在同一时间只允许一个线程持有某个对象锁，通过这种特性来实现多线程的协调机制。这样在同一时间只有一个线程对需要同步的代码块（复合操作）进行访问。互斥性即原子性。
+- 可见性：必须确保在锁被释放之前，对共享变量所做的修改，对于随后获得该锁的另一个线程是可见的（即在获得锁时应获得最新共享变量的值），否则另一个线程可能是在本地缓存的某个副本上继续操作，从而引起不一致。
+
+### synchronized
+
+synchronzied锁的不是代码，而是对象。
+
+根据获取锁的分类：获取对象锁和获取类锁。
+
+#### 获取对象锁
+
+两种方法：
+
+1. 同步代码块（synchronized(this)，synchronized(类实例对象)），锁是小括号()中的对象
+2. 同步非静态方法（synchronized method），锁是当前对象的实例对象
+
+#### 获取类锁
+
+两种方法：
+
+1. 同步代码块（synchronized(类.class)），锁是小括号()中的类对象(Class对象)
+2. 同步静态方法（synchronzied static method），锁是当前对象的类对象(Class对象)
+
+#### 总结
+
+- 线程访问对象的同步代码块时，另外的线程可以访问该对象的非同步代码块
+- 若锁住的是同一个对象，一个线程在访问对象的同步代码块时，另一个访问对象的同步代码块的线程会被阻塞
+- 若锁住的是同一个对象，一个线程在访问对象的同步方法时，另一个访问对象同步方法的线程会被阻塞
+- 若锁住的是同一个对象，一个线程在访问对象的同步代码块时，另一个访问对象同步方法的线程会被阻塞，反之亦然
+- 同一个类的不同对象的对象锁互不干扰
+- 类锁由于也是一种特殊的对象锁，因此表现和上述1,2,3,4一致，而由于一个类只有一把对象锁，所以同一个类的不同对象使用类锁，将会是同步的
+- 类锁和对象锁互不干扰
+
+#### 原理
+
+##### 重入
+
+从互斥锁的设计上来说，当一个线程试图操作一个由其他线程持有的对象锁的临界资源时，将会进入阻塞状态。但当一个线程再次请求自己持有对象锁的临界资源的时候，这种情况就叫重入。
+
+##### Java对象头
+
+对象在内存中的布局：
+
+- 对象头
+- 实例数据
+- 对齐填充
+
+对象头的结构：
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E5%AF%B9%E8%B1%A1%E5%A4%B4%E7%BB%93%E6%9E%84.png)
+
+Mark Word结构：
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_MarkWord.png)
+
+##### Monitor
+
+每个Java对象天生自带了一把看不见的锁。
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_Montior%E9%94%81.png)
+
+#### synchronized的四种状态
+
+- 无锁
+- 偏向锁
+- 轻量级锁
+- 重量级锁
+
+锁膨胀方向：无锁->偏向锁->轻量级锁->重量级锁
+
+##### 偏向锁
+
+减少同一线程获取锁的代价。
+
+大多数情况下，锁不存在竞争，总是由同一线程多次获得。
+
+不适用于锁竞争比较激烈的多线程场合。
+
+核心思想：
+
+如果一个线程呢个获得了锁，那么锁就进入偏向模式。此时Mark Word的结构也就变为偏向锁，当该线程再次请求锁，无需再做任何同步操作，即获得锁的过程只需检查Mark Word的锁标记位为偏向锁以及当前线程的ID等于ThreadID即可，这样就省去了大量有关锁申请的操作。
+
+##### 轻量级锁
+
+轻量级锁是由偏向锁升级来的，偏向锁运行一个线程进入同步块的情况下。当第二个线程加入锁争用的时候，偏向锁会升级成轻量级锁。
+
+使用场景：线程交替执行同步代码块
+
+若存在同一时间多个线程访问同一锁的情况，就会导致轻量级锁膨胀为重量级锁。
+
+###### 加锁过程
+
+1. 在代码进入同步代码块的时候，如果同步对象锁状态为无锁状态（锁标志位为“01”），虚拟机首先在当前线程的栈帧中创建一个名为锁记录(Lock Record)的空间，用于存储锁对象目前的Mark Word拷贝。官方称之为Displaced Mark Word。这时候线程堆栈与对象头的状态如图所示。
+
+   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E5%88%9D%E5%A7%8B%E5%8C%96%E9%94%81.png)
+
+2. 拷贝对象头中的Mark Word复制到锁记录中。
+
+3. 拷贝完成后，虚拟机将使用CAS操作尝试将对象的Mark Word更新为指向Lock Record的指针，并将Lock Record里的owner指针指向object mark word。如果成功，则执行步骤4,否则执行步骤5。
+
+4. 如果这个更新成功，那么这个线程就拥有了该对象的锁，并且该对象Mark Word的锁标志位设置为“00”，即表示此对象处于轻量级锁定状态，这时候线程堆栈与对象头的状态如图所示。
+
+   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81.png)
+
+5. 如果这个更新失败，虚拟机首先会检查对象的Mark Word是否指向当前线程的栈帧。如果是就说明当前线程已经拥有这个对象的锁，那就可以直接进入同步块继续执行。否则说明多个线程竞争锁，轻量级锁膨胀为重量级锁，锁标志位的状态值设置为“10”，Mark Word中存储的就是指向重量级锁（互斥量）的指针，后面等待锁的线程也就要进入阻塞状态。而当前线程便尝试使用自旋来获取锁。
+
+### 锁的内存语义
+
+当线程释放锁时，Java内存模型会把该线程对应的本地内存中的共享变量刷新到主内存中。
+
+当线程获取锁时，Java内存模型会把该线程对应的本地内存置为无效，从而使得被监视器保护的临界区代码必须从主内存中读取共享变量。
+
 ### Thread
 
 #### run方法和start方法
@@ -331,6 +456,33 @@ Runnable只是一个接口，里面有一个抽象的run方法。
 
 - Thread是实现了Runnable接口的类，使得run支持多线程
 - 因类的单一继承原则，推荐多使用Runnable接口
+
+#### 变化
+
+早期版本中，synchronzied属于重量级锁，依赖于Mutex Lock实现。线程之间的切换需要从用户态转换成核心态，开销较大。
+
+JDK6之后，性能获得提升，引入Adaptive Spinning、Lock Eliminate、Lock Coarsening、Lightweight Locking、Biased Locking...
+
+### 自旋锁
+
+- 许多情况下，共享数据的锁定状态持续时间较短，切换进程不值得
+- 通过让线程执行忙循环等待锁的释放，不让出CPU
+- 缺点：若锁被其他线程长时间占用，会带来许多性能上的开销
+
+可以使用PerBlockSpin进行更改。
+
+### 自适应自旋锁
+
+- 自旋的次数不再固定
+- 由前一次在同一个锁上的自旋时间及锁的拥有这的状态来决定
+
+### 锁消除
+
+JIT编译时，对运行上下文进行扫描，去除不可能存在竞争的锁。
+
+### 锁粗化
+
+为了帮助一连串琐碎的加锁去锁的过程，在外部加锁。
 
 ### run方法传参
 
@@ -449,6 +601,50 @@ public class ThreadPoolDemo {
 - 阻塞（Blocked）：等待获取排它锁
 - 结束（Terminated）：已终止线程的状态，线程已经结束执行
 
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E5%9B%BE.png)
+
+### sleep和wait
+
+- sleep()是Thread类的方法，wait是Object类中定义的方法
+- sleep()方法可以在任何地方使用
+- wait()方法只能在synchronized方法或synchronized块中使用
+- **Thread.sleep()只会让出CPU,不会导致锁行为的改变**
+- **Object.wait()不仅让出CPU,还会释放已经占用的同步资源锁**
+- Object.wait()方法能被notify和notifyAll唤醒
+
+### notify和notifyAll
+
+#### 锁池EntryList
+
+假设线程A已经拥有了某个对象（不是类）的锁，而其他线程B、C想要调用这个对象的某个synchronized方法（或者块），由于B、C线程在进入对象的synchronized方法（或者块）之前必须获得该对象锁的拥有权，而恰好该对象的锁目前正被线程A所占用。此时B、C线程就会被阻塞，进入一个地方等待锁的释放，这个地方就是该对象的锁池。
+
+#### 等待池WaitSet
+
+假设线程A调用了某个对象的wait()方法，线程A就会释放该对象的锁。同时线程A就进入到该对象的等待池中，不会去竞争该对象的锁。
+
+#### 区别
+
+- notifyAll会让所有处于等待池的线程全部进入锁池去竞争获取锁的机会
+- notify只会随即选取一个处于等待池中的线程进入锁池去争取竞争获取锁的机会
+
+### yield
+
+当调用Thread.yield()函数时，会给线程调度器一个当前线程愿意让出CPU使用的暗示，但是线程调度器可能会忽略这个暗示。**但是不会释放锁资源。**
+
+### 中断线程
+
+已经被抛弃的方法：
+
+- 通过调用stop()停止线程
+- 通过调用suspend()方法和resume()方法
+
+目前使用的方法：
+
+调用interrupt()方法，通知线程应该中断了。
+
+- 如果线程处于被阻塞的状态，那么线程将立即推出被阻塞的状态，并抛出一个InterruptedException异常
+- 如果线程处于正常活动状态，那么会将该线程的中断标志设置为true.被设置中断标志的线程将继续正常运行，不受影响
+
 ## 常见类库
 
 ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.png)
@@ -539,6 +735,17 @@ HashTable是线程安全的，所有方法都被`synchronized`修饰。因为是
 HashSet 本身就采用 HashMap 来实现的。但是HashMap是Map接口的常用实现类，HashSet是Set接口的常用实现类。接口规范不同，但是底层的Hash存储机制完全一样。
 
 HashSet的实现其实非常简单，它只是封装了一个HashMap对象来存储所有的集合元素。所有放入HashSet中的集合元素实际上由HashMap的key来保存，而HashMap的value则存储了一个PRESENT，它是一个静态的Object对象。
+
+### String、StringBuffer、StringBuilder
+
+String是字符串常量，而StringBuffer和StringBuilder是字符串变量。由String创建的字符内容是不可改变的，而由StringBuffer和StringBuilder创建的字符内容是可以改变的。
+
+StringBuffer是线程安全的，而StringBuilder是非线程安全的。StringBuilder是从JDK 5开始，为StringBuffer类补充的一个单线程的等价类。**我们在单线程使用时应优先考虑使用StringBuilder**，因为它支持StringBuffer的所有操作，但是因为它不执行同步，不会有线程安全带来额外的系统消耗，所以速度更快。
+
+虽然String、StringBuffer和StringBuilder都是final类，它们生成的对象都是不可变的，而且它们内部也都是靠char数组实现的，但是不同之处在于，String类中定义的char数组是final的，而StringBuffer和StringBuilder都是继承自AbstractStringBuilder类，它们的内部实现都是靠这个父类完成的，而这个父类中定义的char数组只是一个普通是私有变量，可以用append追加。因为AbstractStringBuilder实现了Appendable接口。
+
+
+
 
 ## 异常
 
