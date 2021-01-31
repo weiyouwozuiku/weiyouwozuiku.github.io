@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-13
+                    2021-01-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -538,9 +538,11 @@
     <span class="token property">"hexo-filter-github-emojis"</span><span class="token operator">:</span> <span class="token string">"^3.0.4"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-filter-mermaid-diagrams"</span><span class="token operator">:</span> <span class="token string">"^1.0.5"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-generator-archive"</span><span class="token operator">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"hexo-generator-baidu-sitemap"</span><span class="token operator">:</span> <span class="token string">"^0.1.9"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-generator-category"</span><span class="token operator">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-generator-index"</span><span class="token operator">:</span> <span class="token string">"^2.0.0"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-generator-search"</span><span class="token operator">:</span> <span class="token string">"^2.4.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"hexo-generator-sitemap"</span><span class="token operator">:</span> <span class="token string">"^2.1.0"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-generator-tag"</span><span class="token operator">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-permalink-pinyin"</span><span class="token operator">:</span> <span class="token string">"^1.1.0"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-renderer-ejs"</span><span class="token operator">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span>
@@ -549,8 +551,7 @@
     <span class="token property">"hexo-server"</span><span class="token operator">:</span> <span class="token string">"^2.0.0"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-wordcount"</span><span class="token operator">:</span> <span class="token string">"^6.0.1"</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h4><h5 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h5><p>Manjaro：<code>sudo pacman -S git</code></p>
 <p>Windows：下载安装一直下一步</p>
 <h5 id="配置信息"><a href="#配置信息" class="headerlink" title="配置信息"></a>配置信息</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ git config --global user.name "Your Name"
@@ -631,6 +632,20 @@ public/
 <li><p>以后的上传代码则为：<code>git add . &amp;&amp; git commit -m "hexo src update" &amp;&amp; git push origin src &amp;&amp; hexo d -g</code></p>
 </li>
 </ol>
+<h2 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h2><p>站点地图即 sitemap，是一个页面，上面放置了网站上需要搜索引擎抓取的所有页面的链接。站点地图可以告诉搜索引擎网站上有哪些可供抓取的网页，以便搜索引擎可以更加智能地抓取网站。</p>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo-generator-baidu-sitemap --save
+npm install hexo-generator-sitemap --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在<code>_config.yml</code>中添加如下字段：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"># 自动生成sitemap
+sitemap<span class="token operator">:</span>
+  path<span class="token operator">:</span> sitemap.xml
+baidusitemap<span class="token operator">:</span>
+  path<span class="token operator">:</span> baidusitemap.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h3><p>执行<code>hexo g</code>。该命令会在public目录中生成<code>sitemap.xml</code>和<code>baidusitemap.xml</code>，这是生成的站点地图，里面包含了网站上所有页面的链接，搜索引擎通过这两个文件来抓取网站页面。</p>
+<ul>
+<li>sitemap.xml — 用来提交给 Google</li>
+<li>baidusitemap.xml — 用来提交给Baidu</li>
+</ul>
 
                 
             </div>
@@ -1194,7 +1209,7 @@ public/
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">120.6k</span>&nbsp;字
+                class="white-color">120.9k</span>&nbsp;字
             
             
             
