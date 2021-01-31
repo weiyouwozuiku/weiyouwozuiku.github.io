@@ -81,9 +81,11 @@ npm更新某个项目的包 (项目目录)：`npm-check -u`。
     "hexo-filter-github-emojis": "^3.0.4",
     "hexo-filter-mermaid-diagrams": "^1.0.5",
     "hexo-generator-archive": "^1.0.0",
+    "hexo-generator-baidu-sitemap": "^0.1.9",
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-index": "^2.0.0",
     "hexo-generator-search": "^2.4.1",
+    "hexo-generator-sitemap": "^2.1.0",
     "hexo-generator-tag": "^1.0.0",
     "hexo-permalink-pinyin": "^1.1.0",
     "hexo-renderer-ejs": "^1.0.0",
@@ -93,7 +95,6 @@ npm更新某个项目的包 (项目目录)：`npm-check -u`。
     "hexo-wordcount": "^6.0.1"
   }
 }
-
 ```
 
 #### Git
@@ -239,4 +240,34 @@ index_generator:
 6. 提交本地代码：`git push --set-upstream origin src`
 
 7. 以后的上传代码则为：`git add . && git commit -m "hexo src update" && git push origin src && hexo d -g`
+
+## SEO
+
+站点地图即 sitemap，是一个页面，上面放置了网站上需要搜索引擎抓取的所有页面的链接。站点地图可以告诉搜索引擎网站上有哪些可供抓取的网页，以便搜索引擎可以更加智能地抓取网站。
+
+### 安装插件
+
+```shell
+npm install hexo-generator-baidu-sitemap --save
+npm install hexo-generator-sitemap --save
+```
+
+### 修改配置文件
+
+在`_config.yml`中添加如下字段：
+
+```json
+# 自动生成sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+```
+
+### 生成
+
+执行`hexo g`。该命令会在public目录中生成`sitemap.xml`和`baidusitemap.xml`，这是生成的站点地图，里面包含了网站上所有页面的链接，搜索引擎通过这两个文件来抓取网站页面。
+
+- sitemap.xml — 用来提交给 Google
+- baidusitemap.xml — 用来提交给Baidu
 
