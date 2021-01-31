@@ -271,3 +271,19 @@ baidusitemap:
 - sitemap.xml — 用来提交给 Google
 - baidusitemap.xml — 用来提交给Baidu
 
+### 百度站长平台
+
+- 注册并登录百度站长平台：https://ziyuan.baidu.com/
+- 验证网站所有权，有三种方式：文件验证、html标签、cname解析验证。推荐使用cname，感觉是最方便的。
+- 添加sitemap
+
+### Google站长平台
+
+- 注册并登录Google站长平台：https://www.google.com/webmasters/verification/home
+- 验证网站所有权，还是采用cname。默认是txt,需要选择备用方案。
+- 添加sitemap
+
+成功截图如下：
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95_Google%E6%94%B6%E5%BD%95%E6%88%90%E5%8A%9F.png)
+
