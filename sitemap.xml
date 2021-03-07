@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://buerlog.top/2021/03/02/dan-yuan-ce-shi-zhi-shi/</loc>
+    
+    <lastmod>2021-03-07</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/2020/12/27/hexo-bo-ke-da-jian-ji-lu/</loc>
     
     <lastmod>2021-01-31</lastmod>
@@ -677,6 +684,13 @@
   
   <url>
     <loc>http://buerlog.top/tags/Nginx/</loc>
+    <lastmod>2021-03-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2021-03-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
