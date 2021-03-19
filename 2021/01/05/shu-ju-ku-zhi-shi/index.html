@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-25
+                    2021-03-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    11 分
                 </div>
                 
 
@@ -502,7 +502,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="ACID四原则"><a href="#ACID四原则" class="headerlink" title="ACID四原则"></a>ACID四原则</h2><p>事务具有四个特性：原子性、一致性、隔离性和持久性。</p>
+                <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>一个数据库的组成主要可以分为以下几个模块：</p>
+<ul>
+<li>存储（文件系统）</li>
+<li>程序实例<ul>
+<li>存储管理</li>
+<li>缓存机制（淘汰机制）</li>
+<li>SQL解析</li>
+<li>日志管理</li>
+<li>权限划分</li>
+<li>容灾机制</li>
+<li>索引管理</li>
+<li>锁管理</li>
+</ul>
+</li>
+</ul>
+<h2 id="ACID四原则"><a href="#ACID四原则" class="headerlink" title="ACID四原则"></a>ACID四原则</h2><p>事务具有四个特性：原子性、一致性、隔离性和持久性。</p>
 <ul>
 <li>原子性：事务是数据库的逻辑工作单位，不可分割，事务中包含的各操作要么都做，要么都不做。</li>
 <li>一致性：事务执行的结果必须是使数据库从一个一致性状态变到另一个一致性状态。因此当数据库只包含成功事务提交的结果时，就说数据库处于一致性状态。如果数据库系统运行中发生故障，有些事务尚未完成就被迫中断，这些未完成事务对数据库所做的修改有一部分已写入物理数据库，这时数据库就处于一种不正确的状态，或者说是 不一致的状态。</li>
@@ -685,7 +700,22 @@ product_id<span class="token punctuation">,</span> product_name
 <p>在ORDER BY子句中可以使用SELECT子句中未使用的列和聚合函数。</p>
 <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>通过索引可以大幅提升查询数据的速度。</p>
 <h3 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h3><p>主键、唯一键以及普通键等。</p>
-<h3 id="索引的数据结构"><a href="#索引的数据结构" class="headerlink" title="索引的数据结构"></a>索引的数据结构</h3><p>生成索引，建立二叉查找树进行二分查找或建立B-Tree结构进行查找或建立B+-Tree结构进行查找（MYSQl）或建立Hash结构进行查找。</p>
+<h3 id="索引的数据结构"><a href="#索引的数据结构" class="headerlink" title="索引的数据结构"></a>索引的数据结构</h3><ul>
+<li><p>建立二叉查找树进行二分查找</p>
+</li>
+<li><p>建立B-Tree结构进行查找</p>
+</li>
+<li><p>建立B+-Tree结构进行查找（MYSQl）</p>
+</li>
+<li><p>建立Hash结构进行查找。</p>
+</li>
+</ul>
+<h3 id="B-Tree"><a href="#B-Tree" class="headerlink" title="B-Tree"></a>B-Tree</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
+<li>根节点至少包含两个子节点</li>
+<li>树中每个节点最多含有m个子节点（m&gt;=2）</li>
+<li>除根节点和叶节点外，其他每个节点至少有ceil(m/2)个子节点（ceil为取上限）</li>
+<li>所有叶子节点都在同一层</li>
+</ul>
 
                 
             </div>
@@ -1256,7 +1286,7 @@ product_id<span class="token punctuation">,</span> product_name
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">123.1k</span>&nbsp;字
+                class="white-color">123.2k</span>&nbsp;字
             
             
             
