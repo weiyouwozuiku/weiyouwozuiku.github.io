@@ -23,7 +23,7 @@ config={'host':'','port':3306,'user':"",'password':'','database':''}
 try:
     con=mysql.connector.connect(**config)
 	cursor=con.cursor()
-	cursor.execute(sql)
+	cursor.execute(sql)或cursor.executemany()反复执行一条sql语句
 	cursor.fetchone()或cursor.fetchall()
 except Exception as e:
     print(e)
