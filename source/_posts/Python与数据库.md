@@ -43,7 +43,14 @@ con.commit()
 con.rollback()
 ```
 
+### 数据库连接池
 
+```Python
+import mysql.connector.pooling
+config={....}
+pool=mysql.connector.pooling.MySQLConnetcionPool(**config,pool_size=10)
+con=pool.get_connection()
+```
 
 ## Tip
 
