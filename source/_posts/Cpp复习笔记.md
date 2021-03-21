@@ -787,6 +787,10 @@ STL标准库六大组件-->空间配置器 & 容器 & 适配器 & 仿函数 & �
 - 序列式容器(Sequence Containers):其中的元素都是可排序的(ordered)，STL提供了`vector(单项开口的连续线性空间),list(环状双向列表),deque(双向开口的连续线性空间，并不是真正的连续线性空间，而是通过node_buffer模拟的)`等序列式容器，而`stack(栈，先进后出),queue(队列，先进先出),priority_queue(优先队列，按优先权)`则是容器适配器；
 - 关联式容器(Associative Containers):每个数据元素都是由一个键(key)和值(value)组成，当元素被插入到容器时，按其键以某特定规则放入适当位置；常见的STL关联容器如:`set,muitiset,map(map.insert(pair<type1,type2>(value1,value2))或map.insert(map<type1,type2>::value_type(value1,value2)),multimap`；map中直接插入key一样的键值对会失败，数据不会被更新，但是用键进行修改则可以。
 
+##### unordered_set
+
+unodered_set是一种关联式容器，set和map内部实现是基于RB-Tree,有序，unordered_set和unordered_map是基于hashmap的，无序。
+
 **使用时注意迭代器失效的问题。**
 
 #### 仿函数
