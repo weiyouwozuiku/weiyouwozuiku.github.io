@@ -472,7 +472,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    277
+                    299
                 </div>
                 
 
@@ -524,8 +524,10 @@ finally:
 #事务的提交需要手动提交，不会自动触发
 con.commit()
 con.rollback()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<h3 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h3><pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import mysql.connector.pooling
+config={....}
+pool=mysql.connector.pooling.MySQLConnetcionPool(**config,pool_size=10)
+con=pool.get_connection()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3><p>由于SQL是解释型语言，存在SQL注入问题。</p>
 <p>此时可以利用SQL预编译机制抵御注入攻击。</p>
 <p>SQL预编译机制：数据库提前将SQL语句编译成二进制，避免了词法分析，这样反复执行同一条SQL效率提升。</p>
