@@ -465,14 +465,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-15
+                    2021-03-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    95
+                    179
                 </div>
                 
 
@@ -503,7 +503,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录本人刷Leetcode过程的收获和代码。语言选择C++。</p>
-<h2 id="1～100"><a href="#1～100" class="headerlink" title="1～100"></a>1～100</h2><h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1 两数之和"></a>1 两数之和</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<h2 id="1～100"><a href="#1～100" class="headerlink" title="1～100"></a>1～100</h2><h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a></h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span> heap<span class="token punctuation">;</span>
@@ -518,6 +518,21 @@
         <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="101-200"><a href="#101-200" class="headerlink" title="101~200"></a>101~200</h2><h3 id="191-位1的个数"><a href="#191-位1的个数" class="headerlink" title="191. 位1的个数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-1-bits/">191. 位1的个数</a></h3><p> 函数<code>lowbit(x)</code>可以返回当前数字x二进制下最后1位1在第几位，实现方法为x&amp;-x，在Cpp中-x=~x+1。本题解法就是这样的思路。</p>
+<pre class="line-numbers language-Cpp" data-language="Cpp"><code class="language-Cpp">class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int num=0;
+        while(n){
+            n-=n&amp;-n;
+            num++;
+        }
+        return num;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="201-300"><a href="#201-300" class="headerlink" title="201~300"></a>201~300</h2><h2 id="301-400"><a href="#301-400" class="headerlink" title="301~400"></a>301~400</h2><h2 id="401-500"><a href="#401-500" class="headerlink" title="401~500"></a>401~500</h2><h2 id="501-600"><a href="#501-600" class="headerlink" title="501~600"></a>501~600</h2><h2 id="601-700"><a href="#601-700" class="headerlink" title="601~700"></a>601~700</h2><h2 id="701-800"><a href="#701-800" class="headerlink" title="701~800"></a>701~800</h2><h2 id="801-900"><a href="#801-900" class="headerlink" title="801~900"></a>801~900</h2><h2 id="901-1000"><a href="#901-1000" class="headerlink" title="901~1000"></a>901~1000</h2>
                 
             </div>
             <hr/>
@@ -1087,7 +1102,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">123.6k</span>&nbsp;字
+                class="white-color">123.7k</span>&nbsp;字
             
             
             
