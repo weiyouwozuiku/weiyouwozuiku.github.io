@@ -60,6 +60,41 @@ public:
 
 ## 301~400
 
+#### [341. 扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator/)
+
+递归写法：
+
+```Cpp
+class NestedIterator {
+public:
+    NestedIterator(vector<NestedInteger> &nestedList) {
+        k=0;
+        for (auto &itor: nestedList) dfs(itor);
+    }
+
+    void dfs(NestedInteger &next){
+        if(next.isInteger()) q.push_back(next.getInteger());
+        else{
+            for (auto &itor:next.getList()) dfs(itor);
+        }
+    }
+    
+    int next() {
+        return q[k++];
+    }
+    
+    bool hasNext() {
+        return k<q.size();
+    }
+
+private:
+    vector<int> q;
+    int k;
+};
+```
+
+
+
 ## 401~500
 
 ## 501~600
