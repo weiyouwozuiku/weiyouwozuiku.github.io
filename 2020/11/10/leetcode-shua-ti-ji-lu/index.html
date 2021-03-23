@@ -465,14 +465,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-22
+                    2021-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    179
+                    254
                 </div>
                 
 
@@ -532,7 +532,36 @@ public:
 };<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h2 id="201-300"><a href="#201-300" class="headerlink" title="201~300"></a>201~300</h2><h2 id="301-400"><a href="#301-400" class="headerlink" title="301~400"></a>301~400</h2><h2 id="401-500"><a href="#401-500" class="headerlink" title="401~500"></a>401~500</h2><h2 id="501-600"><a href="#501-600" class="headerlink" title="501~600"></a>501~600</h2><h2 id="601-700"><a href="#601-700" class="headerlink" title="601~700"></a>601~700</h2><h2 id="701-800"><a href="#701-800" class="headerlink" title="701~800"></a>701~800</h2><h2 id="801-900"><a href="#801-900" class="headerlink" title="801~900"></a>801~900</h2><h2 id="901-1000"><a href="#901-1000" class="headerlink" title="901~1000"></a>901~1000</h2>
+<h2 id="201-300"><a href="#201-300" class="headerlink" title="201~300"></a>201~300</h2><h2 id="301-400"><a href="#301-400" class="headerlink" title="301~400"></a>301~400</h2><h4 id="341-扁平化嵌套列表迭代器"><a href="#341-扁平化嵌套列表迭代器" class="headerlink" title="341. 扁平化嵌套列表迭代器"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/">341. 扁平化嵌套列表迭代器</a></h4><p>递归写法：</p>
+<pre class="line-numbers language-Cpp" data-language="Cpp"><code class="language-Cpp">class NestedIterator {
+public:
+    NestedIterator(vector&lt;NestedInteger&gt; &amp;nestedList) {
+        k=0;
+        for (auto &amp;itor: nestedList) dfs(itor);
+    }
+
+    void dfs(NestedInteger &amp;next){
+        if(next.isInteger()) q.push_back(next.getInteger());
+        else{
+            for (auto &amp;itor:next.getList()) dfs(itor);
+        }
+    }
+    
+    int next() {
+        return q[k++];
+    }
+    
+    bool hasNext() {
+        return k&lt;q.size();
+    }
+
+private:
+    vector&lt;int&gt; q;
+    int k;
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="401-500"><a href="#401-500" class="headerlink" title="401~500"></a>401~500</h2><h2 id="501-600"><a href="#501-600" class="headerlink" title="501~600"></a>501~600</h2><h2 id="601-700"><a href="#601-700" class="headerlink" title="601~700"></a>601~700</h2><h2 id="701-800"><a href="#701-800" class="headerlink" title="701~800"></a>701~800</h2><h2 id="801-900"><a href="#801-900" class="headerlink" title="801~900"></a>801~900</h2><h2 id="901-1000"><a href="#901-1000" class="headerlink" title="901~1000"></a>901~1000</h2>
                 
             </div>
             <hr/>
@@ -1102,7 +1131,7 @@ public:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">123.7k</span>&nbsp;字
+                class="white-color">123.8k</span>&nbsp;字
             
             
             

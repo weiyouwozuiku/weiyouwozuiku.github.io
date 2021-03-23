@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python与数据库, 博客">
+    <meta name="keywords" content="Acwing刷题记录, 博客">
     <meta name="description" content="个人学习储备知识与经验的秘密基地">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python与数据库 | 不二博客</title>
+    <title>Acwing刷题记录 | 不二博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python与数据库</h1>
+                    <h1 class="description center-align post-title">Acwing刷题记录</h1>
                 </div>
             </div>
         </div>
@@ -433,8 +433,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -445,8 +445,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
-                                程序设计
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -458,21 +458,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-21
+                    2021-03-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-21
+                    2021-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    311
+                    39
                 </div>
                 
 
@@ -502,40 +502,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
-<li>安装mysql-connect的包</li>
-</ul>
-<p>代码如下：</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import mysql.connector
-
-config={'host':'','port':3306,'user':"",'password':'','database':''}
-try:
-    con=mysql.connector.connect(**config)
-	cursor=con.cursor()
-	cursor.execute(sql)或cursor.executemany()反复执行一条sql语句
-	cursor.fetchone()或cursor.fetchall()
-except Exception as e:
-    print(e)
-finally:
-    if "con" in dir():
-        con.close()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="事务控制"><a href="#事务控制" class="headerlink" title="事务控制"></a>事务控制</h3><p><code>Connector</code>提供了简单的事务控制函数</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">con.start_transaction([事务隔离级别])
-#事务的提交需要手动提交，不会自动触发
-con.commit()
-con.rollback()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h3><pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import mysql.connector.pooling
-config={....}
-pool=mysql.connector.pooling.MySQLConnetcionPool(**config,pool_size=10)
-con=pool.get_connection()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3><p>由于SQL是解释型语言，存在SQL注入问题。</p>
-<p>此时可以利用SQL预编译机制抵御注入攻击。</p>
-<p>SQL预编译机制：数据库提前将SQL语句编译成二进制，避免了词法分析，这样反复执行同一条SQL效率提升。</p>
-<p>SQL语句编译的过程中，关键字已经被解析过了，所以向编译后的SQL语句传入参数，都被当作字符串处理，数据库不会解析其中注入的SQL语句。</p>
-<p>使用方式如下：</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">sql="select * from user where username=%s and password=%s"
-cursor.execute(sql,(username,password))#此时两个数作为参数传入已经编译好了的sql语句中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录本人刷Acwing过程的收获和代码。语言选择C++。</p>
+<h2 id="1～100"><a href="#1～100" class="headerlink" title="1～100"></a>1～100</h2><h3 id="35-反转链表"><a href="#35-反转链表" class="headerlink" title="35. 反转链表"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/33/">35. 反转链表</a></h3><h2 id="101-200"><a href="#101-200" class="headerlink" title="101~200"></a>101~200</h2><h2 id="201-300"><a href="#201-300" class="headerlink" title="201~300"></a>201~300</h2><h2 id="301-400"><a href="#301-400" class="headerlink" title="301~400"></a>301~400</h2><h2 id="401-500"><a href="#401-500" class="headerlink" title="401~500"></a>401~500</h2><h2 id="501-600"><a href="#501-600" class="headerlink" title="501~600"></a>501~600</h2><h2 id="601-700"><a href="#601-700" class="headerlink" title="601~700"></a>601~700</h2><h2 id="701-800"><a href="#701-800" class="headerlink" title="701~800"></a>701~800</h2><h2 id="801-900"><a href="#801-900" class="headerlink" title="801~900"></a>801~900</h2><h2 id="901-1000"><a href="#901-1000" class="headerlink" title="901~1000"></a>901~1000</h2>
                 
             </div>
             <hr/>
@@ -561,7 +529,7 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://buerlog.top/2021/03/21/python-yu-shu-ju-ku/">http://buerlog.top/2021/03/21/python-yu-shu-ju-ku/</a>
+                    <a href="http://buerlog.top/2021/03/23/acwing-shua-ti-ji-lu/">http://buerlog.top/2021/03/23/acwing-shua-ti-ji-lu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -599,8 +567,8 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
                         </div>
@@ -770,9 +738,10 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/03/23/acwing-shua-ti-ji-lu/">
                     <div class="card-image">
@@ -790,9 +759,9 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -805,6 +774,7 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -823,13 +793,13 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/21/qi-qi-guai-guai-de-zhi-shi/">
+                <a href="/2021/03/21/python-yu-shu-ju-ku/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="奇奇怪怪的知识">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="Python与数据库">
                         
-                        <span class="card-title">奇奇怪怪的知识</span>
+                        <span class="card-title">Python与数据库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -846,8 +816,8 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">
-                                    经验总结
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    程序设计
                                 </a>
                             
                             
@@ -857,8 +827,8 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%BD%AF%E4%BB%B6/">
-                        <span class="chip bg-color">软件</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
