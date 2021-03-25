@@ -465,14 +465,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-23
+                    2021-03-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    254
+                    338
                 </div>
                 
 
@@ -518,6 +518,27 @@
         <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="82-删除排序链表中的重复元素-II"><a href="#82-删除排序链表中的重复元素-II" class="headerlink" title="82. 删除排序链表中的重复元素 II"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/">82. 删除排序链表中的重复元素 II</a></h4><pre class="line-numbers language-Cpp" data-language="Cpp"><code class="language-Cpp">class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        if(!head||!head-&gt;next) return head;
+        ListNode* dummy=new ListNode(0);
+        dummy-&gt;next=head;
+        auto pre=dummy;
+        while(pre-&gt;next){
+            auto cur=pre-&gt;next;
+            while(cur-&gt;next&amp;&amp;cur-&gt;val==cur-&gt;next-&gt;val){
+                cur=cur-&gt;next;
+            }
+            if(pre-&gt;next==cur) pre=cur;
+            else pre-&gt;next=cur-&gt;next;
+        }
+        
+        return dummy-&gt;next;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <h2 id="101-200"><a href="#101-200" class="headerlink" title="101~200"></a>101~200</h2><h3 id="191-位1的个数"><a href="#191-位1的个数" class="headerlink" title="191. 位1的个数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-1-bits/">191. 位1的个数</a></h3><p> 函数<code>lowbit(x)</code>可以返回当前数字x二进制下最后1位1在第几位，实现方法为x&amp;-x，在Cpp中-x=~x+1。本题解法就是这样的思路。</p>
 <pre class="line-numbers language-Cpp" data-language="Cpp"><code class="language-Cpp">class Solution {
 public:
@@ -1131,7 +1152,7 @@ private:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">123.8k</span>&nbsp;字
+                class="white-color">124k</span>&nbsp;字
             
             
             
