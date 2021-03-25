@@ -16,7 +16,34 @@ categories: 算法
 
 ### [35. 反转链表](https://www.acwing.com/problem/content/33/)
 
+此题有两个版本，一个迭代，一个递归。
 
+迭代版：
+
+```Cpp
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        //如果没有节点或者只有一个节点
+        if(head==NULL||head->next==NULL) return head;
+        auto current=head;
+        ListNode* pre=NULL;
+        while(current){
+            auto next=current->next;
+            current->next=pre;
+            pre=current;
+            current=next;
+        }
+        return pre;
+    }
+};
+```
+
+递归版：
+
+```Cpp
+
+```
 
 ## 101~200
 

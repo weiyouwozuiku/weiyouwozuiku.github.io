@@ -34,6 +34,32 @@ public:
 };
 ```
 
+#### [82. 删除排序链表中的重复元素 II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)
+
+```Cpp
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        if(!head||!head->next) return head;
+        ListNode* dummy=new ListNode(0);
+        dummy->next=head;
+        auto pre=dummy;
+        while(pre->next){
+            auto cur=pre->next;
+            while(cur->next&&cur->val==cur->next->val){
+                cur=cur->next;
+            }
+            if(pre->next==cur) pre=cur;
+            else pre->next=cur->next;
+        }
+        
+        return dummy->next;
+    }
+};
+```
+
+
+
 ## 101~200
 
 ###  [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)
