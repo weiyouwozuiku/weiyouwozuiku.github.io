@@ -465,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-25
+                    2021-03-27
                 </div>
                 
 
@@ -505,24 +505,24 @@
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录本人刷Acwing过程的收获和代码。语言选择C++。</p>
 <h2 id="1～100"><a href="#1～100" class="headerlink" title="1～100"></a>1～100</h2><h3 id="35-反转链表"><a href="#35-反转链表" class="headerlink" title="35. 反转链表"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/33/">35. 反转链表</a></h3><p>此题有两个版本，一个迭代，一个递归。</p>
 <p>迭代版：</p>
-<pre class="line-numbers language-Cpp" data-language="Cpp"><code class="language-Cpp">class Solution {
-public:
-    ListNode* reverseList(ListNode* head) {
-        //如果没有节点或者只有一个节点
-        if(head==NULL||head-&gt;next==NULL) return head;
-        auto current=head;
-        ListNode* pre=NULL;
-        while(current){
-            auto next=current-&gt;next;
-            current-&gt;next=pre;
-            pre=current;
-            current=next;
-        }
-        return pre;
-    }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    ListNode<span class="token operator">*</span> <span class="token function">reverseList</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//如果没有节点或者只有一个节点</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span><span class="token constant">NULL</span><span class="token operator">||</span>head<span class="token operator">-&gt;</span>next<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">auto</span> current<span class="token operator">=</span>head<span class="token punctuation">;</span>
+        ListNode<span class="token operator">*</span> pre<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">auto</span> next<span class="token operator">=</span>current<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+            current<span class="token operator">-&gt;</span>next<span class="token operator">=</span>pre<span class="token punctuation">;</span>
+            pre<span class="token operator">=</span>current<span class="token punctuation">;</span>
+            current<span class="token operator">=</span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> pre<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>递归版：</p>
-<pre class="line-numbers language-Cpp" data-language="Cpp"><code class="language-Cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="101-200"><a href="#101-200" class="headerlink" title="101~200"></a>101~200</h2><h2 id="201-300"><a href="#201-300" class="headerlink" title="201~300"></a>201~300</h2><h2 id="301-400"><a href="#301-400" class="headerlink" title="301~400"></a>301~400</h2><h2 id="401-500"><a href="#401-500" class="headerlink" title="401~500"></a>401~500</h2><h2 id="501-600"><a href="#501-600" class="headerlink" title="501~600"></a>501~600</h2><h2 id="601-700"><a href="#601-700" class="headerlink" title="601~700"></a>601~700</h2><h2 id="701-800"><a href="#701-800" class="headerlink" title="701~800"></a>701~800</h2><h2 id="801-900"><a href="#801-900" class="headerlink" title="801~900"></a>801~900</h2><h2 id="901-1000"><a href="#901-1000" class="headerlink" title="901~1000"></a>901~1000</h2>
                 
             </div>
@@ -1095,7 +1095,7 @@ public:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124k</span>&nbsp;字
+                class="white-color">124.1k</span>&nbsp;字
             
             
             
