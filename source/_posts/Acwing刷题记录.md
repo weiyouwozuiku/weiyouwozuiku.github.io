@@ -20,7 +20,7 @@ categories: 算法
 
 迭代版：
 
-```Cpp
+```cpp
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
@@ -41,7 +41,7 @@ public:
 
 递归版：
 
-```Cpp
+```cpp
 
 ```
 

@@ -36,7 +36,7 @@ public:
 
 #### [82. 删除排序链表中的重复元素 II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)
 
-```Cpp
+```cpp
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
@@ -58,6 +58,22 @@ public:
 };
 ```
 
+#### [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
+
+```cpp
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        auto cur=head;
+        while(cur&&cur->next){
+            if(cur->val==cur->next->val) cur->next=cur->next->next;
+            else cur=cur->next;
+        }
+        return head;
+    }
+};
+```
+
 
 
 ## 101~200
@@ -66,7 +82,7 @@ public:
 
  函数`lowbit(x)`可以返回当前数字x二进制下最后1位1在第几位，实现方法为x&-x，在Cpp中-x=~x+1。本题解法就是这样的思路。
 
-```Cpp
+```cpp
 class Solution {
 public:
     int hammingWeight(uint32_t n) {
@@ -90,7 +106,7 @@ public:
 
 递归写法：
 
-```Cpp
+```cpp
 class NestedIterator {
 public:
     NestedIterator(vector<NestedInteger> &nestedList) {
