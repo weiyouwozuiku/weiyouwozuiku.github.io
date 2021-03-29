@@ -465,14 +465,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-27
+                    2021-03-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    113
+                    332
                 </div>
                 
 
@@ -503,7 +503,41 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录本人刷Acwing过程的收获和代码。语言选择C++。</p>
-<h2 id="1～100"><a href="#1～100" class="headerlink" title="1～100"></a>1～100</h2><h3 id="35-反转链表"><a href="#35-反转链表" class="headerlink" title="35. 反转链表"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/33/">35. 反转链表</a></h3><p>此题有两个版本，一个迭代，一个递归。</p>
+<h2 id="1～100"><a href="#1～100" class="headerlink" title="1～100"></a>1～100</h2><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/31/">19. 二叉树的下一个节点</a></p>
+<p>这题主要想法就是判断当前节点是否拥有右节点。如果拥有右节点，则中序遍历的后一个节点为右节点子树的最左的节点。即，通过右节点循环找到子树的最左的节点；如果没有右节点，则中序遍历的后一个节点为该节点父节点的拐点。即上一次子树的根节点。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    TreeNode<span class="token operator">*</span> <span class="token function">inorderSuccessor</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>p<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span>
+                p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>left<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> p<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">-&gt;</span>father<span class="token operator">&amp;&amp;</span>p<span class="token operator">-&gt;</span>father<span class="token operator">-&gt;</span>right<span class="token operator">==</span>p<span class="token punctuation">)</span> p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>father<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> p<span class="token operator">-&gt;</span>father<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/32/">33. 链表中倒数第k个节点</a></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    ListNode<span class="token operator">*</span> <span class="token function">findKthToTail</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> pListHead<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> p<span class="token operator">=</span>pListHead<span class="token punctuation">;</span>p<span class="token punctuation">;</span>p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>next<span class="token punctuation">)</span> n<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> step<span class="token operator">=</span>n<span class="token operator">-</span>k<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>step<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>step<span class="token operator">--</span><span class="token punctuation">)</span>pListHead<span class="token operator">=</span>pListHead<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> pListHead<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/33/">35. 反转链表</a></p>
+<p>此题有两个版本，一个迭代，一个递归。</p>
 <p>迭代版：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
@@ -1095,7 +1129,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.1k</span>&nbsp;字
+                class="white-color">124.3k</span>&nbsp;字
             
             
             
