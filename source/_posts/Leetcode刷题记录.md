@@ -78,6 +78,45 @@ public:
 
 ## 101~200
 
+[173. 二叉搜索树迭代器](https://leetcode-cn.com/problems/binary-search-tree-iterator/)
+
+```cpp
+class BSTIterator {
+public:
+    //构造栈，将根节点的左节点循环加入栈中，以此寻找相应子树的节点
+    BSTIterator(TreeNode* root) {
+        while (root){
+            stk.push(root);
+            root=root->left;
+        }
+    }
+
+    //获取当前节点的信息。如果该节点存在右节点将右节点下的左节点压入栈中
+    int next() {
+        auto p=stk.top();
+        stk.pop();
+        int val=p->val;
+        p=p->right;
+        while(p){
+            stk.push(p);
+            p=p->left;
+        }
+        return val;
+    }
+
+    //检测是否还有元素没有遍历只需检测栈中是否还有节点
+    bool hasNext() {
+        return stk.size();
+    }
+
+private:
+    //使用栈存储节点信息
+    stack<TreeNode*> stk;
+};
+```
+
+
+
 [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)
 
  函数`lowbit(x)`可以返回当前数字x二进制下最后1位1在第几位，实现方法为x&-x，在Cpp中-x=~x+1。本题解法就是这样的思路。
