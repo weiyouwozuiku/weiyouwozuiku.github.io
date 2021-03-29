@@ -472,7 +472,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    332
+                    347
                 </div>
                 
 
@@ -509,17 +509,19 @@
 <span class="token keyword">public</span><span class="token operator">:</span>
     TreeNode<span class="token operator">*</span> <span class="token function">inorderSuccessor</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>p<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        <span class="token comment">//有右节点的情况</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">{</span>
             p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>
             <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span>
                 p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>left<span class="token punctuation">;</span>
             <span class="token keyword">return</span> p<span class="token punctuation">;</span>
         <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token comment">//没有右节点的情况</span>
             <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">-&gt;</span>father<span class="token operator">&amp;&amp;</span>p<span class="token operator">-&gt;</span>father<span class="token operator">-&gt;</span>right<span class="token operator">==</span>p<span class="token punctuation">)</span> p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>father<span class="token punctuation">;</span>
             <span class="token keyword">return</span> p<span class="token operator">-&gt;</span>father<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/32/">33. 链表中倒数第k个节点</a></p>
