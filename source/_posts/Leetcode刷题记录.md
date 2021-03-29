@@ -14,7 +14,7 @@ categories: 算法
 
 ## 1～100
 
-### [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
+[1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
 
 ```cpp
 class Solution {
@@ -34,7 +34,7 @@ public:
 };
 ```
 
-#### [82. 删除排序链表中的重复元素 II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)
+[82. 删除排序链表中的重复元素 II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)
 
 ```cpp
 class Solution {
@@ -58,7 +58,7 @@ public:
 };
 ```
 
-#### [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
+[83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
 
 ```cpp
 class Solution {
@@ -78,7 +78,7 @@ public:
 
 ## 101~200
 
-###  [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)
+[191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)
 
  函数`lowbit(x)`可以返回当前数字x二进制下最后1位1在第几位，实现方法为x&-x，在Cpp中-x=~x+1。本题解法就是这样的思路。
 
@@ -102,7 +102,7 @@ public:
 
 ## 301~400
 
-#### [341. 扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator/)
+[341. 扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator/)
 
 递归写法：
 
