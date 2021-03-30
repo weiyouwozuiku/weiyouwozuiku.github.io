@@ -472,7 +472,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    450
+                    490
                 </div>
                 
 
@@ -522,22 +522,26 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/32/">33. 链表中倒数第k个节点</a></p>
+<p>本题解题分为两步：</p>
+<ol>
+<li>计算当前链表长度</li>
+<li>通过n-k循环找到返回的节点</li>
+</ol>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     ListNode<span class="token operator">*</span> <span class="token function">findKthToTail</span><span class="token punctuation">(</span>ListNode<span class="token operator">*</span> pListHead<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> n<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> p<span class="token operator">=</span>pListHead<span class="token punctuation">;</span>p<span class="token punctuation">;</span>p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>next<span class="token punctuation">)</span> n<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> step<span class="token operator">=</span>n<span class="token operator">-</span>k<span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>step<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>pListHead<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> len<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> p<span class="token operator">=</span>pListHead<span class="token punctuation">;</span>p<span class="token punctuation">;</span>p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>next<span class="token punctuation">)</span> len<span class="token operator">+=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>k<span class="token operator">&gt;</span>len<span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
         <span class="token keyword">else</span><span class="token punctuation">{</span>
-            <span class="token keyword">while</span><span class="token punctuation">(</span>step<span class="token operator">--</span><span class="token punctuation">)</span>pListHead<span class="token operator">=</span>pListHead<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+            <span class="token keyword">auto</span> p<span class="token operator">=</span>pListHead<span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>len<span class="token operator">-</span>k<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> p<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> pListHead<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/33/">35. 反转链表</a></p>
 <p>此题有两个版本，一个迭代，一个递归。</p>
 <p>迭代版：</p>
@@ -1152,7 +1156,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.7k</span>&nbsp;字
+                class="white-color">124.9k</span>&nbsp;字
             
             
             
