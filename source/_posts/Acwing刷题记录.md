@@ -91,6 +91,11 @@ public:
 
 [77.翻转单词顺序](https://www.acwing.com/problem/content/73/)
 
+本题分为二步：
+
+1. 首先将整个字符串进行翻转
+2. 将每个字母进行翻转。此处用双指针算法，设置j获取当前字母长度，进行翻转
+
 ```cpp
 class Solution {
 public:
