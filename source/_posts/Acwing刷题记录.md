@@ -89,6 +89,26 @@ public:
 
 ```
 
+[77.翻转单词顺序](https://www.acwing.com/problem/content/73/)
+
+```cpp
+class Solution {
+public:
+    string reverseWords(string s) {
+        reverse(s.begin(),s.end());
+        for(int i=0;i<s.size();i++){
+            int j=i+1;
+            while(s[j]!=' '&&j<s.size()) j++;
+            reverse(s.begin()+i,s.begin()+j);
+            i=j;
+        }
+        return s;
+    }
+};
+```
+
+
+
 ## 101~200
 
 ## 201~300

@@ -115,7 +115,25 @@ private:
 };
 ```
 
+[190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/)
 
+这题最好的解法是分治算法，但是局限性很大。故本题给出基于循环处理位运算的解法。
+
+本题可以分解为两个部分：
+
+1. 首先获取当前位二进制值，n>>i&1
+2. 将二进制数组装进结果，res<<1+当前位二进制值
+
+```cpp
+class Solution {
+public:
+    uint32_t reverseBits(uint32_t n) {
+        uint32_t res = 0;
+        for (int i = 0; i < 32; i++) res = (res << 1) + (n >> i & 1);
+        return res;
+    }
+};
+```
 
 [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)
 
