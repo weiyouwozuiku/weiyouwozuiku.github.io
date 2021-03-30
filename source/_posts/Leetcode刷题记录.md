@@ -34,6 +34,44 @@ public:
 };
 ```
 
+[61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/)
+
+本题的移动位置k会给的很大，需要进行取余操作。
+
+本题的解题步骤分为四步：
+
+1. 将n-k-1处的节点的next指向NULL
+2. 将整个链表的尾部指向头节点
+3. 返回原本n-k处的节点
+
+```cpp
+class Solution {
+public:
+    ListNode *rotateRight(ListNode *head, int k) {
+        if (!head || k == 0) return head;
+        //获取链表长度
+        int len = 0;
+        for(auto p=head;p;p=p->next) len+=1;
+        k%=len;
+        //判断取余后的k是否为0,如果是直接返回
+        if(!k) return head;
+        else{
+            //找到第n-k-1节点
+            auto p=head;
+            for(int i=0;i<len-k-1;i++) p=p->next;
+            //找到尾节点
+            auto tail=head;
+            while (tail->next) tail=tail->next;
+            //链接
+            tail->next=head;
+            head=p->next;
+            p->next=NULL;
+        }
+        return head;
+    }
+};
+```
+
 [82. 删除排序链表中的重复元素 II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)
 
 ```cpp

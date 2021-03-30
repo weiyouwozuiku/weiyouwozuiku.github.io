@@ -38,22 +38,26 @@ public:
 };
 ```
 
-
-
 [33. 链表中倒数第k个节点](https://www.acwing.com/problem/content/32/)
+
+本题解题分为两步：
+
+1. 计算当前链表长度
+2. 通过n-k循环找到返回的节点
 
 ```cpp
 class Solution {
 public:
     ListNode* findKthToTail(ListNode* pListHead, int k) {
-        int n=0;
-        for(auto p=pListHead;p;p=p->next) n++;
-        int step=n-k;
-        if(step<0) return NULL;
+        if(!pListHead) return NULL;
+        int len=0;
+        for(auto p=pListHead;p;p=p->next) len+=1;
+        if(k>len)return NULL;
         else{
-            while(step--)pListHead=pListHead->next;
+            auto p=pListHead;
+            for(int i=0;i<len-k;i++) p=p->next;
+            return p;
         }
-        return pListHead;
     }
 };
 ```
