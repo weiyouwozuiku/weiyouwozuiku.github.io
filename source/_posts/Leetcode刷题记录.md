@@ -112,6 +112,47 @@ public:
 };
 ```
 
+[90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)
+
+```cpp
+class Solution {
+private:
+    //key为数字，value为出现次数
+    unordered_map<int, int> cnt;
+    //结果集合
+    vector<vector<int>> ans;
+    //路径
+    vector<int> path;
+public:
+    vector<vector<int>> subsetsWithDup(vector<int> &nums) {
+        //如果只有一个数字，直接返回一个空集与当前数字
+        if (nums.size() == 1) {
+            ans.push_back(vector<int>{});
+            ans.push_back(vector<int>{nums[0]});
+        } else {
+            for (auto itor:nums) cnt[itor] += 1;
+            //这题范围较小，直接枚举
+            dfs(-10);
+        }
+        return ans;
+    }
+
+    void dfs(int n) {
+        //超过边界将结果保存
+        if (n > 10) ans.push_back(path);
+        else {
+            //这里处理数字出现的次数，从0到cnk[n]次
+            for (int i=0;i<cnt[n]+1;i++){
+                dfs(n+1);
+                path.push_back(n);
+            }
+            //清理现场
+            for (int i=0;i<cnt[n]+1;i++) path.pop_back();
+        }
+    }
+};
+```
+
 
 
 ## 101~200
