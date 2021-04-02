@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-30
+                    2021-04-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    490
+                    789
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -584,7 +584,35 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h2 id="101-200"><a href="#101-200" class="headerlink" title="101~200"></a>101~200</h2><h2 id="201-300"><a href="#201-300" class="headerlink" title="201~300"></a>201~300</h2><h2 id="301-400"><a href="#301-400" class="headerlink" title="301~400"></a>301~400</h2><h2 id="401-500"><a href="#401-500" class="headerlink" title="401~500"></a>401~500</h2><h2 id="501-600"><a href="#501-600" class="headerlink" title="501~600"></a>501~600</h2><h2 id="601-700"><a href="#601-700" class="headerlink" title="601~700"></a>601~700</h2><h2 id="701-800"><a href="#701-800" class="headerlink" title="701~800"></a>701~800</h2><h2 id="801-900"><a href="#801-900" class="headerlink" title="801~900"></a>801~900</h2><h2 id="901-1000"><a href="#901-1000" class="headerlink" title="901~1000"></a>901~1000</h2>
+<h2 id="101-200"><a href="#101-200" class="headerlink" title="101~200"></a>101~200</h2><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/199/">197. 阶乘分解</a></p>
+<p>质数定理：不超过x的质数的个数近似为$\frac{x}{ln(x)}$。</p>
+<p>底数为10时，对数可简写为$lg(x)$。</p>
+<p>底数为e时，对数可简写为$ln(x)$。</p>
+<h2 id="201-300"><a href="#201-300" class="headerlink" title="201~300"></a>201~300</h2><h2 id="301-400"><a href="#301-400" class="headerlink" title="301~400"></a>301~400</h2><h2 id="401-500"><a href="#401-500" class="headerlink" title="401~500"></a>401~500</h2><h2 id="501-600"><a href="#501-600" class="headerlink" title="501~600"></a>501~600</h2><h2 id="601-700"><a href="#601-700" class="headerlink" title="601~700"></a>601~700</h2><h2 id="701-800"><a href="#701-800" class="headerlink" title="701~800"></a>701~800</h2><h2 id="801-900"><a href="#801-900" class="headerlink" title="801~900"></a>801~900</h2><h2 id="901-1000"><a href="#901-1000" class="headerlink" title="901~1000"></a>901~1000</h2><h2 id="1001～1100"><a href="#1001～1100" class="headerlink" title="1001～1100"></a>1001～1100</h2><h2 id="1101～1200"><a href="#1101～1200" class="headerlink" title="1101～1200"></a>1101～1200</h2><h2 id="1201～1300"><a href="#1201～1300" class="headerlink" title="1201～1300"></a>1201～1300</h2><h2 id="1301～1400"><a href="#1301～1400" class="headerlink" title="1301～1400"></a>1301～1400</h2><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1383/">1381. 阶乘</a></p>
+<p>本题重点在于如何获取最后一个非零的数。通过分解质因数可知，这里计算出来的阶乘可以拆分为$n!=2^{\alpha-k}*5^{\beta-k}<em>10^k</em>C$,阶乘中的0就来源于这里的2和5之积，也就是k的数量。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//这里的d2表示因数中2的个数，d5表示5的个数</span>
+    <span class="token keyword">int</span> res<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>d2<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>d5<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> x<span class="token operator">=</span>i<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token operator">%</span><span class="token number">2</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> x<span class="token operator">/=</span><span class="token number">2</span><span class="token punctuation">,</span>d2<span class="token operator">+=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token operator">%</span><span class="token number">5</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> x<span class="token operator">/=</span><span class="token number">5</span><span class="token punctuation">,</span>d5<span class="token operator">+=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token comment">//这里取余可以有效的减小数字的大小，对于结果没有影响</span>
+        res<span class="token operator">=</span>res<span class="token operator">*</span>x<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//将多扣除的2或者5乘回去</span>
+    <span class="token keyword">int</span> k<span class="token operator">=</span>d2<span class="token operator">&lt;</span>d5<span class="token operator">?</span>d2<span class="token operator">:</span>d5<span class="token punctuation">;</span>
+    <span class="token comment">//这里取余可以有效的减小数字的大小，对于结果没有影响</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>d2<span class="token operator">-</span>k<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> res<span class="token operator">=</span>res<span class="token operator">*</span><span class="token number">2</span><span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>d5<span class="token operator">-</span>k<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> res<span class="token operator">=</span>res<span class="token operator">*</span><span class="token number">5</span><span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>res<span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -1156,7 +1184,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">125.9k</span>&nbsp;字
+                class="white-color">126.3k</span>&nbsp;字
             
             
             
