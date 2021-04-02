@@ -120,6 +120,14 @@ public:
 
 ## 101~200
 
+[197. 阶乘分解](https://www.acwing.com/problem/content/description/199/)
+
+质数定理：不超过x的质数的个数近似为$\frac{x}{ln(x)}$。
+
+底数为10时，对数可简写为$lg(x)$。
+
+底数为e时，对数可简写为$ln(x)$。
+
 ## 201~300
 
 ## 301~400
@@ -135,4 +143,41 @@ public:
 ## 801~900
 
 ## 901~1000
+
+## 1001～1100
+
+## 1101～1200
+
+## 1201～1300
+
+## 1301～1400
+
+[1381. 阶乘](https://www.acwing.com/problem/content/1383/)
+
+本题重点在于如何获取最后一个非零的数。通过分解质因数可知，这里计算出来的阶乘可以拆分为$n!=2^{\alpha-k}*5^{\beta-k}*10^k*C$,阶乘中的0就来源于这里的2和5之积，也就是k的数量。
+
+```cpp
+#include <iostream>
+using namespace std;
+int main(){
+    int n;
+    scanf("%d",&n);
+    //这里的d2表示因数中2的个数，d5表示5的个数
+    int res=1,d2=0,d5=0;
+    for(int i=1;i<=n;i++){
+        int x=i;
+        while(x%2==0) x/=2,d2+=1;
+        while(x%5==0) x/=5,d5+=1;
+        //这里取余可以有效的减小数字的大小，对于结果没有影响
+        res=res*x%10;
+    }
+    //将多扣除的2或者5乘回去
+    int k=d2<d5?d2:d5;
+    //这里取余可以有效的减小数字的大小，对于结果没有影响
+    for(int i=0;i<d2-k;i++) res=res*2%10;
+    for(int i=0;i<d5-k;i++) res=res*5%10;
+    printf("%d",res%10);
+    return 0;
+}
+```
 
