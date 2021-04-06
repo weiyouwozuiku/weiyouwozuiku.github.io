@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -581,6 +581,58 @@
 <td>用来指定镜像的默认启动脚本</td>
 </tr>
 </tbody></table>
+<h4 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h4><h5 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h5><p>例如：<code>docker run -ti centos:latest /bin/bash</code></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>–interactive</td>
+<td>等同于-i，接受stdin的输入</td>
+</tr>
+<tr>
+<td>–tty</td>
+<td>等同于-t，分配一个tty,一般和i一起使用</td>
+</tr>
+<tr>
+<td>–name</td>
+<td>给容器设置名字</td>
+</tr>
+<tr>
+<td>–add-host</td>
+<td>给容器设置hosts文件，格式 host:ip</td>
+</tr>
+<tr>
+<td>–env</td>
+<td>环境变量设置</td>
+</tr>
+<tr>
+<td>–expose</td>
+<td>暴露端口</td>
+</tr>
+<tr>
+<td>–hostname</td>
+<td>设置容器的主机名</td>
+</tr>
+<tr>
+<td>–link</td>
+<td>容器网络相关，和其他的container连接</td>
+</tr>
+<tr>
+<td>–cpu-quota</td>
+<td>设置CPU限制</td>
+</tr>
+<tr>
+<td>–memory</td>
+<td>设置容器可以使用的内存限制</td>
+</tr>
+</tbody></table>
+<h5 id="docker-attach"><a href="#docker-attach" class="headerlink" title="docker attach"></a>docker attach</h5><p>通过给一个正在运行的容器分配一个stdin、stdout、stderr，从而使得我们可以进入一个运行着的容器内部。</p>
+<p><strong>注意：使用<code>docker attach</code>进入之后，如果使用exit会导致原容器也退出。推荐使用<code>Ctrl+C</code>退出。</strong></p>
+<h5 id="docker-exec"><a href="#docker-exec" class="headerlink" title="docker exec"></a>docker exec</h5><p>该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层，</p>
 <h2 id="Docker核心技术"><a href="#Docker核心技术" class="headerlink" title="Docker核心技术"></a>Docker核心技术</h2><h2 id="Docker最佳实践"><a href="#Docker最佳实践" class="headerlink" title="Docker最佳实践"></a>Docker最佳实践</h2><h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
 <p>K8s采用声明式API,而不是命令式API。SQL就是典型的声明式API，其不关心具体实现如何，只在乎我们所需的状态或结果。而命令式API就是告诉他每一步怎么做。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Docker%E4%B8%8EK8s_k8s%E6%9E%B6%E6%9E%84.png"></p>
@@ -823,18 +875,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/02/docker-yu-k8s/">
+                <a href="/2021/04/06/fen-bu-shi-xi-tong-6-824/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="Docker与K8s">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="分布式系统6.824">
                         
-                        <span class="card-title">Docker与K8s</span>
+                        <span class="card-title">分布式系统6.824</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -844,31 +895,26 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-02
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">
-                                    云计算
+                            <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    课程学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
-                    </a>
-                    
-                    <a href="/tags/Kubernetes/">
-                        <span class="chip bg-color">Kubernetes</span>
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">分布式系统</span>
                     </a>
                     
                 </div>
@@ -1164,7 +1210,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.4k</span>&nbsp;字
+                class="white-color">127.6k</span>&nbsp;字
             
             
             
