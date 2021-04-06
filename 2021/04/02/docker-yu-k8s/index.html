@@ -476,7 +476,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.4k
                 </div>
                 
 
@@ -632,8 +632,12 @@
 </tbody></table>
 <h5 id="docker-attach"><a href="#docker-attach" class="headerlink" title="docker attach"></a>docker attach</h5><p>通过给一个正在运行的容器分配一个stdin、stdout、stderr，从而使得我们可以进入一个运行着的容器内部。</p>
 <p><strong>注意：使用<code>docker attach</code>进入之后，如果使用exit会导致原容器也退出。推荐使用<code>Ctrl+C</code>退出。</strong></p>
-<h5 id="docker-exec"><a href="#docker-exec" class="headerlink" title="docker exec"></a>docker exec</h5><p>该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层，</p>
-<h2 id="Docker核心技术"><a href="#Docker核心技术" class="headerlink" title="Docker核心技术"></a>Docker核心技术</h2><h2 id="Docker最佳实践"><a href="#Docker最佳实践" class="headerlink" title="Docker最佳实践"></a>Docker最佳实践</h2><h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
+<h5 id="docker-exec"><a href="#docker-exec" class="headerlink" title="docker exec"></a>docker exec</h5><p>该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层面，相当于fork了一个进程，然后这个进程设置和容器相同的NameSpace。如果在OPTIONS中指定<code>-ti</code>，则会进入到容器内。因为这是fork出来的进程，可以exit。</p>
+<h5 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h5><p>用来列出所有在运行容器的信息。</p>
+<h5 id="docker-kill"><a href="#docker-kill" class="headerlink" title="docker kill"></a>docker kill</h5><p>杀死一个或一组container。</p>
+<h5 id="docker-log"><a href="#docker-log" class="headerlink" title="docker log"></a>docker log</h5><p>用来获取docker的log信息。</p>
+<h5 id="docker-top"><a href="#docker-top" class="headerlink" title="docker top"></a>docker top</h5><p>查看这个容器在宿主机上的进程，毕竟本质上container只是一个进程。</p>
+<h4 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h4><h2 id="Docker核心技术"><a href="#Docker核心技术" class="headerlink" title="Docker核心技术"></a>Docker核心技术</h2><h2 id="Docker最佳实践"><a href="#Docker最佳实践" class="headerlink" title="Docker最佳实践"></a>Docker最佳实践</h2><h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
 <p>K8s采用声明式API,而不是命令式API。SQL就是典型的声明式API，其不关心具体实现如何，只在乎我们所需的状态或结果。而命令式API就是告诉他每一步怎么做。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Docker%E4%B8%8EK8s_k8s%E6%9E%B6%E6%9E%84.png"></p>
 <h2 id="云原生监控方案"><a href="#云原生监控方案" class="headerlink" title="云原生监控方案"></a>云原生监控方案</h2>
@@ -1210,7 +1214,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.6k</span>&nbsp;字
+                class="white-color">127.7k</span>&nbsp;字
             
             
             
