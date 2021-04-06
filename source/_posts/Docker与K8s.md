@@ -119,7 +119,27 @@ Docker官方提供的openjdk镜像。
 
 ##### docker exec
 
-该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层，
+该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层面，相当于fork了一个进程，然后这个进程设置和容器相同的NameSpace。如果在OPTIONS中指定`-ti`，则会进入到容器内。因为这是fork出来的进程，可以exit。
+
+##### docker ps
+
+用来列出所有在运行容器的信息。
+
+##### docker kill
+
+杀死一个或一组container。
+
+##### docker log
+
+用来获取docker的log信息。
+
+##### docker top
+
+查看这个容器在宿主机上的进程，毕竟本质上container只是一个进程。
+
+#### 镜像操作
+
+
 
 ## Docker核心技术
 
