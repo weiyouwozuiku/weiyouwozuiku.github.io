@@ -92,7 +92,34 @@ Docker官方提供的openjdk镜像。
 
 
 
+#### Docker命令
 
+##### docker run
+
+例如：`docker run -ti centos:latest /bin/bash`
+
+| 参数          | 含义                                  |
+| ------------- | ------------------------------------- |
+| --interactive | 等同于-i，接受stdin的输入             |
+| --tty         | 等同于-t，分配一个tty,一般和i一起使用 |
+| --name        | 给容器设置名字                        |
+| --add-host    | 给容器设置hosts文件，格式 host:ip     |
+| --env         | 环境变量设置                          |
+| --expose      | 暴露端口                              |
+| --hostname    | 设置容器的主机名                      |
+| --link        | 容器网络相关，和其他的container连接   |
+| --cpu-quota   | 设置CPU限制                           |
+| --memory      | 设置容器可以使用的内存限制            |
+
+##### docker attach
+
+通过给一个正在运行的容器分配一个stdin、stdout、stderr，从而使得我们可以进入一个运行着的容器内部。
+
+**注意：使用`docker attach`进入之后，如果使用exit会导致原容器也退出。推荐使用`Ctrl+C`退出。**
+
+##### docker exec
+
+该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层，
 
 ## Docker核心技术
 
