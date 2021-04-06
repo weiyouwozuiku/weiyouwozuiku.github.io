@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -581,7 +581,7 @@
 <td>用来指定镜像的默认启动脚本</td>
 </tr>
 </tbody></table>
-<h4 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h4><h5 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h5><p>例如：<code>docker run -ti centos:latest /bin/bash</code></p>
+<h4 id="容器操作命令"><a href="#容器操作命令" class="headerlink" title="容器操作命令"></a>容器操作命令</h4><h5 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h5><p>例如：<code>docker run -ti centos:latest /bin/bash</code></p>
 <table>
 <thead>
 <tr>
@@ -637,7 +637,8 @@
 <h5 id="docker-kill"><a href="#docker-kill" class="headerlink" title="docker kill"></a>docker kill</h5><p>杀死一个或一组container。</p>
 <h5 id="docker-log"><a href="#docker-log" class="headerlink" title="docker log"></a>docker log</h5><p>用来获取docker的log信息。</p>
 <h5 id="docker-top"><a href="#docker-top" class="headerlink" title="docker top"></a>docker top</h5><p>查看这个容器在宿主机上的进程，毕竟本质上container只是一个进程。</p>
-<h4 id="镜像操作"><a href="#镜像操作" class="headerlink" title="镜像操作"></a>镜像操作</h4><h2 id="Docker核心技术"><a href="#Docker核心技术" class="headerlink" title="Docker核心技术"></a>Docker核心技术</h2><h2 id="Docker最佳实践"><a href="#Docker最佳实践" class="headerlink" title="Docker最佳实践"></a>Docker最佳实践</h2><h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
+<h4 id="镜像操作命令"><a href="#镜像操作命令" class="headerlink" title="镜像操作命令"></a>镜像操作命令</h4><h5 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h5><p>显示本地所有非隐藏镜像，默认会将中间依赖镜像隐藏</p>
+<h5 id="docker-build"><a href="#docker-build" class="headerlink" title="docker build"></a>docker build</h5><h5 id="docker-commit"><a href="#docker-commit" class="headerlink" title="docker commit"></a>docker commit</h5><h5 id="docker-history"><a href="#docker-history" class="headerlink" title="docker history"></a>docker history</h5><h5 id="docker-save"><a href="#docker-save" class="headerlink" title="docker save"></a>docker save</h5><h5 id="docker-import"><a href="#docker-import" class="headerlink" title="docker import"></a>docker import</h5><h5 id="docker-load"><a href="#docker-load" class="headerlink" title="docker load"></a>docker load</h5><h5 id="docker-rmi"><a href="#docker-rmi" class="headerlink" title="docker rmi"></a>docker rmi</h5><h5 id="docker-tag"><a href="#docker-tag" class="headerlink" title="docker tag"></a>docker tag</h5><h2 id="Docker核心技术"><a href="#Docker核心技术" class="headerlink" title="Docker核心技术"></a>Docker核心技术</h2><h2 id="Docker最佳实践"><a href="#Docker最佳实践" class="headerlink" title="Docker最佳实践"></a>Docker最佳实践</h2><h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
 <p>K8s采用声明式API,而不是命令式API。SQL就是典型的声明式API，其不关心具体实现如何，只在乎我们所需的状态或结果。而命令式API就是告诉他每一步怎么做。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Docker%E4%B8%8EK8s_k8s%E6%9E%B6%E6%9E%84.png"></p>
 <h2 id="云原生监控方案"><a href="#云原生监控方案" class="headerlink" title="云原生监控方案"></a>云原生监控方案</h2>
@@ -1214,7 +1215,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.7k</span>&nbsp;字
+                class="white-color">128k</span>&nbsp;字
             
             
             
