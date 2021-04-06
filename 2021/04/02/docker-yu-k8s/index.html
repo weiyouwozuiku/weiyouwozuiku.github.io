@@ -469,21 +469,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-02
+                    2021-04-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    499
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -526,11 +526,61 @@
 <p>通过Docker启动的容器本质上和操作系统中运行的进程本质上没有区别。</p>
 <h3 id="Docker架构"><a href="#Docker架构" class="headerlink" title="Docker架构"></a>Docker架构</h3><p>Docker的主要组成部分可以大致分为：</p>
 <ul>
-<li>Docker Client：与Docker daemon 进行交互</li>
-<li>Docker Daemon</li>
-<li>Docker Registry</li>
+<li><p>Docker Client：与Docker daemon 进行交互，与用户交互的客户端</p>
+</li>
+<li><p>Docker Daemon：docker后台运行的守护进程</p>
+<ul>
+<li>启用：<code>service docker start</code>或<code>systemctl start docker.service</code></li>
+<li>通过<code>/var/run/docker.sock</code>与client之间连接</li>
+</ul>
+</li>
+<li><p>Docker Registry：用来存储Docker镜像</p>
+<ul>
+<li>拉取镜像：docker pull <image-name></image-name></li>
+<li>最底层的镜像为scratch镜像</li>
+<li>镜像的构建通过DSL编写，叫dockerfile。</li>
+<li>容器是镜像的运行实例</li>
+</ul>
+<p>容器默认与其他容器与其宿主机相隔离开。具体的隔离策略可以进行自定义设置。</p>
+</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Docker%E4%B8%8EK8s_Docker%E6%9E%B6%E6%9E%84.png"></p>
+<h3 id="Docker镜像"><a href="#Docker镜像" class="headerlink" title="Docker镜像"></a>Docker镜像</h3><p>镜像中包含的操作系统文件最好之后一个精简版的，而非全量。在启动容器之后，容器进程还是去和宿主机的操作系统进行交互。</p>
+<p>对于多个应用使用同一基础镜像，推荐使用官方的镜像或将基础环境配置为镜像，复用基础镜像。</p>
+<h4 id="镜像介绍"><a href="#镜像介绍" class="headerlink" title="镜像介绍"></a>镜像介绍</h4><h5 id="Alpine镜像"><a href="#Alpine镜像" class="headerlink" title="Alpine镜像"></a>Alpine镜像</h5><p>apline linux借助fs的文件格式将整个镜像包的大小压缩到很小，但是存在诸多坑，例如alphine使用的是musl libc,而一般程序使用的都是glibc,会导致找不到运行的动态链接库等问题。且因为使用musl libc使用的人较少，产生的问题也相对难以解决。</p>
+<h5 id="Busybox"><a href="#Busybox" class="headerlink" title="Busybox"></a>Busybox</h5><p>简单来说，busybox是一个集成了一百多个最常用的Linux命令和工具的软件工具箱。</p>
+<h5 id="OpenJDK"><a href="#OpenJDK" class="headerlink" title="OpenJDK"></a>OpenJDK</h5><p>Docker官方提供的openjdk镜像。</p>
+<h4 id="镜像构建"><a href="#镜像构建" class="headerlink" title="镜像构建"></a>镜像构建</h4><p>镜像构建是基于Dockerfile来构建的，具体来说就是只需要按照容器便准写好Dockerfile文件，然后通过创建命令就可以构建出所需镜像了。</p>
+<ol>
+<li>先将源代码文件编译成可执行文件</li>
+<li>编写Dockerfile</li>
+<li>镜像build：<code>docker build -t &lt;镜像名称&gt;:&lt;版本名称&gt;</code></li>
+<li>启动镜像：<code>docker run -p 8080:8080 &lt;镜像名称&gt;:&lt;版本名称&gt;</code></li>
+</ol>
+<h5 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h5><table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FROM</td>
+<td>表示构建镜像所基于的镜像</td>
+</tr>
+<tr>
+<td>COPY</td>
+<td>拷贝文件</td>
+</tr>
+<tr>
+<td>EXPOSE</td>
+<td>暴露端口</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>用来指定镜像的默认启动脚本</td>
+</tr>
+</tbody></table>
 <h2 id="Docker核心技术"><a href="#Docker核心技术" class="headerlink" title="Docker核心技术"></a>Docker核心技术</h2><h2 id="Docker最佳实践"><a href="#Docker最佳实践" class="headerlink" title="Docker最佳实践"></a>Docker最佳实践</h2><h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
 <p>K8s采用声明式API,而不是命令式API。SQL就是典型的声明式API，其不关心具体实现如何，只在乎我们所需的状态或结果。而命令式API就是告诉他每一步怎么做。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Docker%E4%B8%8EK8s_k8s%E6%9E%B6%E6%9E%84.png"></p>
@@ -1114,7 +1164,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">126.9k</span>&nbsp;字
+                class="white-color">127.4k</span>&nbsp;字
             
             
             
