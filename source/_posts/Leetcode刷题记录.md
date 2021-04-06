@@ -12,7 +12,11 @@ categories: 算法
 
 本文记录本人刷Leetcode过程的收获和代码。语言选择C++。
 
-## 1～100
+## 1～1000
+
+### 1～500
+
+####1～100
 
 [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
 
@@ -155,7 +159,7 @@ public:
 
 
 
-## 101~200
+#### 101~200
 
 [173. 二叉搜索树迭代器](https://leetcode-cn.com/problems/binary-search-tree-iterator/)
 
@@ -234,9 +238,9 @@ public:
 
 
 
-## 201~300
+#### 201~300
 
-## 301~400
+#### 301~400
 
 [341. 扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator/)
 
@@ -273,15 +277,50 @@ private:
 
 
 
-## 401~500
+#### 401~500
 
-## 501~600
+### 501~1000
 
-## 601~700
+#### 501~600
 
-## 701~800
+#### 601~700
 
-## 801~900
+#### 701~800
 
-## 901~1000
+[781. 森林中的兔子](https://leetcode-cn.com/problems/rabbits-in-forest/)
+
+这题的难点在于分析兔子的种类数量与同一种类中兔子的数量。因此分为两步计算：
+
+假设有x只兔子说有y只兔子同色。
+
+1. 计算兔子种类：$\lceil\frac{x}{y+1}\rceil$
+2. 计算同一种类兔子的数量：$y+1$
+3. 二者相乘就是本题答案
+
+注意代码中公式的顺序，因为整数除法涉及小数舍去。
+
+代码中$\lceil\frac{x}{y+1}\rceil*(y+1)$通过$\frac{x+y}{y+1}*(y+1)$实现。
+
+下面证明 $\lceil\frac{n}{x+1}\rceil = \frac{n +x}{x+1}$ 。
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95_#781.png)
+
+```cpp
+class Solution {
+public:
+    int numRabbits(vector<int>& answers) {
+        unordered_map<int,int> cnt;
+        for(auto itor : answers) cnt[itor]+=1;
+        int res=0;
+        for(auto [k,v]:cnt){
+            res+=(v+k)/(k+1)*(k+1);
+        }
+        return res;
+    }
+};
+```
+
+#### 801~900
+
+#### 901~1000
 

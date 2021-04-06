@@ -92,7 +92,7 @@ Docker官方提供的openjdk镜像。
 
 
 
-#### Docker命令
+#### 容器操作命令
 
 ##### docker run
 
@@ -137,9 +137,27 @@ Docker官方提供的openjdk镜像。
 
 查看这个容器在宿主机上的进程，毕竟本质上container只是一个进程。
 
-#### 镜像操作
+#### 镜像操作命令
 
+##### docker images
 
+显示本地所有非隐藏镜像，默认会将中间依赖镜像隐藏
+
+##### docker build
+
+##### docker commit
+
+##### docker history
+
+##### docker save
+
+##### docker import
+
+##### docker load
+
+##### docker rmi
+
+##### docker tag
 
 ## Docker核心技术
 
