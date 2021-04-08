@@ -225,11 +225,11 @@ myProjects:
       iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
       url: https://github.com/weiyouwozuiku/ESP32_BluetoothKeyboard
       desc: 这个项目采用ESP32作为主控，利用其内置的蓝牙模块将其模拟成一个蓝牙键盘。使其在采集了as608传来的数据后自动输入相应的密码。
-    LeetcodeSolution:
+    AlgorithmSolution:
         icon: fas fa-database
         iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-        url: https://github.com/weiyouwozuiku/LeetcodeSolution
-        desc: 记录刷Leetcode中的代码和笔记。
+        url: https://github.com/weiyouwozuiku/AlgorithmSolution
+        desc: 记录刷Leetcode与Acwing的刷题心得的代码。
     Step_Step_Java:
         icon: fas fa-file-alt
         iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
