@@ -214,47 +214,24 @@ int main(){
 **这里的mid是否加一,取决于当为true时是l=mid还是r=mid.如果是l=mid,默认的除法是下取整,在l和r之间只相差一个的时候导致一直是l=l,进而导致死循环.**写程序的时候先写成`l+r>>1`，之后再根据l和r，选择是否+1。
 
 ```cpp
-#include < iostream >
-
-const int N = 10010;
-
-int n, m;
-int q[N];
-
-int main() {
-    scanf("%d %d", &n, &m);
-    for (int i = 0; i < n; ++i) {
-        scanf("%d", &q[i]);
+//区间[l,r]被划分为[l,mid]和[mid+1,l]时使用
+int bsearch_1(int l,int r){
+    while(l<r){
+        int mid=l+r>>1;
+        if(check(mid)) r=mid;
+        else l=mid+1;
     }
-    while (m--) {
-        int x;
-        scanf("%d", &x);
-        int l = 0, r = n - 1;
-        while (l < r) {
-            int mid = l + r >> 1;
-            if (q[mid] >= x) {
-                r = mid;
-            } else {
-                l = mid + 1;
-            }
-        }
-        if (q[l] != x) {
-            std::cout << "-1 -1" << std::endl;
-        } else {
-            std::cout << l << " ";
-            int l = 0, r = n - 1;
-            while (l < r) {
-                int mid = l + r + 1 >> 1;
-                if (q[mid] <= x) {
-                    l = mid;
-                } else {
-                    r = mid - 1;
-                }
-            }
-            std::cout << l << std::endl;
-        }
+    return l;
+}
+
+//区间[l,r]被划分为[l,mid-1]和[mid,r]时使用
+int bsearch_2(int l, int r){
+    while(l<r){
+        int mid=l+r>>1;
+        if(check(mid))l=mid;
+        else r=mid-1;
     }
-    return 0;
+    return l;
 }
 ```
 

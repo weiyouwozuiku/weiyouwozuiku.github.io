@@ -180,6 +180,86 @@ int main() {
 }
 ```
 
+[787. 归并排序](https://www.acwing.com/problem/content/789/)
+
+```cpp
+#include <iostream>
+
+using namespace std;
+const int N = 1e6 + 10;
+int q[N], tmp[N];
+
+void merge_sort(int q[], int l, int r) {
+    if (l >= r) return;
+    int mid = (l + r) >> 1;
+    merge_sort(q,l, mid), merge_sort(q,mid + 1, r);
+    int i = l, j = mid + 1, k = 0;
+    while (i <= mid && j <= r) {
+        if (q[i] <= q[j]) tmp[k++] = q[i++];
+        else tmp[k++] = q[j++];
+    }
+    while (i <= mid) tmp[k++] = q[i++];
+    while (j <= r) tmp[k++] = q[j++];
+    for(i=l,j=0;i<=r;i++,j++) q[i]= tmp[j];
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) scanf("%d ", &q[i]);
+    merge_sort(q, 0, n - 1);
+    for (int i = 0; i < n; i++) printf("%d", q[i]);
+    return 0;
+}
+```
+
+[789. 数的范围](https://www.acwing.com/problem/content/791/)
+
+```cpp
+#include < iostream >
+
+const int N = 10010;
+
+int n, m;
+int q[N];
+
+int main() {
+    scanf("%d %d", &n, &m);
+    for (int i = 0; i < n; ++i) {
+        scanf("%d", &q[i]);
+    }
+    while (m--) {
+        int x;
+        scanf("%d", &x);
+        int l = 0, r = n - 1;
+        while (l < r) {
+            int mid = l + r >> 1;
+            if (q[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        if (q[l] != x) {
+            std::cout << "-1 -1" << std::endl;
+        } else {
+            std::cout << l << " ";
+            int l = 0, r = n - 1;
+            while (l < r) {
+                int mid = l + r + 1 >> 1;
+                if (q[mid] <= x) {
+                    l = mid;
+                } else {
+                    r = mid - 1;
+                }
+            }
+            std::cout << l << std::endl;
+        }
+    }
+    return 0;
+}
+```
+
 
 
 #### 801~900
