@@ -52,6 +52,10 @@ pool=mysql.connector.pooling.MySQLConnetcionPool(**config,pool_size=10)
 con=pool.get_connection()
 ```
 
+### 性能优化
+
+当大量数据需要插入时，可以使用`executemany()`方法。其效果可以有效的优化自己每次使用`execute()`方法所带来的性能损耗，尤其是当数据库中有10万条以上的数据后。
+
 ## Tip
 
 ### SQL注入

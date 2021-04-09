@@ -5,7 +5,22 @@ from tqdm import tqdm
 import os, re, json, sys, traceback, time
 
 
-# 将信息保存在日志文件中
+# 保存错误日志至文件中
+def saveErrorLog(msg):
+    try:
+        path = os.getcwd()
+        filePath = path + os.sep + "CheckDBErrorLog.txt"
+        with open(filePath, 'a+', encoding='utf-8') as f:
+            f.writelines(msg + "\n")
+        f.close()
+    except Exception as e:
+        if 'f' in dir():
+            f.close()
+        traceback.print_exc()
+        print("ERROR:信息保存出错，信息为：" + msg)
+
+
+# 保存运行日志至文件中
 def saveLog(msg):
     try:
         path = os.getcwd()
@@ -31,6 +46,7 @@ def getDBConfig(DBConfig):
         if 'f' in dir():
             f.close()
             saveAndPrintERROR("ERROR:读取数据库配置文件出错")
+            saveLog("ERROR:读取数据库配置文件出错")
         traceback.print_exc()
     return data
 
@@ -38,7 +54,7 @@ def getDBConfig(DBConfig):
 # 打印错误信息并保存在日志文件中
 def saveAndPrintERROR(msg):
     print(msg)
-    saveLog(msg)
+    saveErrorLog(msg)
 
 
 # 通过excel生成view名与prikey信息的json文件
@@ -65,6 +81,7 @@ def getKeysFromExcel(excelName, sheetName, columns, interfaceCName):
         if 'f' in dir():
             f.close()
         saveAndPrintERROR("ERROR:生成视图名与主键文件失败")
+        saveLog("ERROR:生成视图名与主键文件失败")
         traceback.print_exc()
     return jsonName
 
@@ -79,6 +96,7 @@ def getViewAndKeys(filePath):
         if 'f' in dir():
             f.close()
             saveAndPrintERROR("ERROR:读取视图与主键json出错")
+            saveLog("ERROR:读取视图与主键json出错")
         traceback.print_exc()
     for key, value in data.items():
         priKey = value.split('|')
@@ -101,6 +119,7 @@ def findViewName(pool, dbName):
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:获取当前数据库:" + dbName + "所有视图名称出错")
+        saveLog("ERROR:获取当前数据库:" + dbName + "所有视图名称出错")
         traceback.print_exc()
     return viewName
 
@@ -120,6 +139,7 @@ def getColumnsFromView(pool, dbName, viewName):
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:当前视图" + viewName + "字段信息获取失败")
+        saveLog("ERROR:当前视图" + viewName + "字段信息获取失败")
         traceback.print_exc()
     return columns
 
@@ -139,6 +159,7 @@ def getColumnsInfoFromView(pool, dbName, viewName):
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:获取当前视图" + viewName + "字段名与类型失败")
+        saveLog("ERROR:获取当前视图" + viewName + "字段名与类型失败")
         traceback.print_exc()
     return columns
 
@@ -158,6 +179,7 @@ def getDataFromView(pool, dbName, viewName):
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:当前视图" + viewName + "信息获取失败")
+        saveLog("ERROR:当前视图" + viewName + "信息获取失败")
         traceback.print_exc()
     return result
 
@@ -179,7 +201,11 @@ def checkViewBetweenOldAndNew(oldPool, newPool, dbNameOld, dbNameNew):
             for itor in diff:
                 msg += itor[0] + "\n"
             saveAndPrintERROR(msg)
+            saveLog(msg)
             diffView.add(view)
+        else:
+            msg = "视图名：" + view + "在新旧数据库中字段一致\n"
+            saveLog(msg)
     return sameView - diffView
 
 
@@ -207,6 +233,7 @@ def getDBName(pool):
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:获取当前数据库中所有数据库信息失败")
+        saveLog("ERROR:获取当前数据库中所有数据库信息失败")
         traceback.print_exc()
     return dbName
 
@@ -226,6 +253,7 @@ def getTableAndViewName(pool, dbName):
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:获取数据库中所有表与视图名称失败")
+        saveLog("ERROR:获取数据库中所有表与视图名称失败")
         traceback.print_exc()
     return tableAndViewName
 
@@ -245,6 +273,7 @@ def getViewName(pool, dbName):
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:获取数据库中所有视图名称失败")
+        saveLog("ERROR:获取数据库中所有视图名称失败")
         traceback.print_exc()
     return viewName
 
@@ -301,6 +330,7 @@ def getColumnAndPosition(pool, dbName, viewName):
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:获取数据库中" + viewName + "视图的字段及其位置失败")
+        saveLog("ERROR:获取数据库中" + viewName + "视图的字段及其位置失败")
         traceback.print_exc()
     return columnPositionMap
 
@@ -329,6 +359,7 @@ def createNewTableFromViewToNewDB(oldPool, newPool, dbNameOld, dbNameNew, viewNa
             con.rollback()
             con.close()
         saveAndPrintERROR("ERROR:新表" + tableName + "创建失败")
+        saveLog("ERROR:新表" + tableName + "创建失败")
         traceback.print_exc()
     return tableInfo
 
@@ -346,8 +377,7 @@ def insertDataToNewTable(pool, tableInfo, data):
         con = pool.get_connection()
         con.start_transaction()
         cursor = con.cursor()
-        for itor in tqdm(data, desc=tableInfo[0] + '插入数据', unit='条'):
-            cursor.execute(insertSQL, itor)
+        cursor.executemany(insertSQL, tqdm(data, desc=tableInfo[0] + '插入数据', unit='条'))
         con.commit()
         con.close()
     except Exception as e:
@@ -355,6 +385,7 @@ def insertDataToNewTable(pool, tableInfo, data):
             con.rollback()
             con.close()
         saveAndPrintERROR("ERROR:数据表" + tableInfo[0] + "插入数据失败")
+        saveLog("ERROR:数据表" + tableInfo[0] + "插入数据失败")
         traceback.print_exc()
 
 
@@ -385,6 +416,7 @@ def findDiffInOldView(pool, oldTableName, newViewName, priKey):
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:检查视图" + newViewName + "旧数据库独有记录出错")
+        saveLog("ERROR:检查视图" + newViewName + "旧数据库独有记录出错")
         traceback.print_exc()
     return result
 
@@ -416,6 +448,7 @@ def findDiffInNewView(pool, oldTableName, newViewName, priKey):
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:检查视图" + newViewName + "新数据库独有记录出错")
+        saveLog("ERROR:检查视图" + newViewName + "新数据库独有记录出错")
         traceback.print_exc()
     return result
 
@@ -455,6 +488,7 @@ def findDiffBetweenOldAndNew(pool, oldTableName, newViewName, priKey, keys):
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:检查视图" + newViewName + "新旧数据库共有记录差异出错")
+        saveLog("ERROR:检查视图" + newViewName + "新旧数据库共有记录差异出错")
         traceback.print_exc()
     return result
 
@@ -478,6 +512,7 @@ def setPriIndexForTable(pool, tableName, priKey):
             con.rollback()
             con.close()
         saveAndPrintERROR("ERROR:数据表" + tableName + "设置主键出错，可能存在主键重复的情况，请排查。\n设置主键sql为：" + sql)
+        saveLog("ERROR:数据表" + tableName + "设置主键出错，可能存在主键重复的情况，请排查。\n设置主键sql为：" + sql)
         traceback.print_exc()
 
 
@@ -506,12 +541,24 @@ def checkDataDiffBetweenDBs(oldPool, newPool, dbNameOld, dbNameNew, viewName, pr
     if diff[0][1]:
         msg = "视图： " + newViewName + " 中共有" + str(diff[0][1]) + "条记录只在旧数据库中\n查询SQL为： " + diff[0][0] + "\n"
         saveAndPrintERROR(msg)
+        saveLog(msg)
+    else:
+        msg = "视图： " + newViewName + "在旧数据库中无独有数据\n"
+        saveLog(msg)
     if diff[1][1]:
         msg = "视图： " + newViewName + " 中共有" + str(diff[1][1]) + "条记录只在新数据库中\n查询SQL为： " + diff[1][0] + "\n"
         saveAndPrintERROR(msg)
+        saveLog(msg)
+    else:
+        msg = "视图： " + newViewName + "在新数据库中无独有数据\n"
+        saveLog(msg)
     if diff[2][1]:
         msg = "视图： " + newViewName + " 中共有" + str(diff[2][1]) + "条记录存在新旧数据库中但记录不同\n查询SQL为： " + diff[2][0] + "\n"
         saveAndPrintERROR(msg)
+        saveLog(msg)
+    else:
+        msg = "视图： " + newViewName + "在新旧数据库中一致\n"
+        saveLog(msg)
     return diff
 
 
@@ -529,6 +576,7 @@ def removeTempTable(pool, tableName):
             con.rollback()
             con.close()
         saveAndPrintERROR("ERROR:删除临时表" + tableName + "失败")
+        saveLog("ERROR:删除临时表" + tableName + "失败")
         traceback.print_exc()
 
 
@@ -585,6 +633,7 @@ def checkDataDiffDetailBetweenDBs(oldPool, newPool, dbNameOld, dbNameNew, viewNa
         if "con" in dir():
             con.close()
         saveAndPrintERROR("ERROR:对比过程出错")
+        saveLog("ERROR:对比过程出错")
         traceback.print_exc()
     removeTempTable(newPool, tableInfo[0])
     # 显示差异数据明细，暂不显示，改显示SQL，统计差异条数
@@ -599,7 +648,7 @@ def checkAllView(oldPool, newPool, dbNameOld, dbNameNew, viewAndKeys):
         end = time.time()
         speedTime = str(end - start)
         print("视图：" + key + "花费时间为：" + speedTime + "秒")
-        saveLog("视图：" + key + "花费时间为：" + speedTime + "秒")
+        saveLog("视图：" + key + "花费时间为：" + speedTime + "秒\n\n")
         # 该方法会显示数据差异明细并保存在文件中并删除临时表
         # checkDataDiffDetailBetweenDBs(oldPool,newPool,dbNameOld,dbNameNew,key,value)
 
