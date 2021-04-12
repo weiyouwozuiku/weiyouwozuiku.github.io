@@ -377,6 +377,38 @@ int main() {
 }
 ```
 
+[793. 高精度乘法](https://www.acwing.com/problem/content/795/)
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<int> mul(vector<int> &A, int B) {
+    vector<int> C;
+    int t = 0;
+    for (int i = 0; i < A.size() || t; i++) {
+        if (i < A.size()) t += A[i] * B;
+        C.push_back(t % 10);
+        t /= 10;
+    }
+    while (C.size() > 1 && C.back() == 0) C.pop_back();
+    return C;
+}
+
+int main() {
+    string a;
+    vector<int> A;
+    int b;
+    cin >> a >> b;
+    for (int i = a.size() - 1; i >= 0; --i) A.push_back(a[i] - '0');
+    auto C = mul(A, b);
+    for (int i = C.size() - 1; i >= 0; i--) printf("%d", C[i]);
+    return 0;
+}
+```
+
 
 
 #### 801~900
@@ -397,7 +429,7 @@ int main() {
 
 [1381. 阶乘](https://www.acwing.com/problem/content/1383/)
 
-本题重点在于如何获取最后一个非零的数。通过分解质因数可知，这里计算出来的阶乘可以拆分为$n!=2^{\alpha-k}*5^{\beta-k}*10^k*C$,阶乘中的0就来源于这里的2和5之积，也就是k的数量。
+本题重点在于如何获取最后一个非零的数。通过分解质因数可知，这里计算出来的阶乘可以拆分为$$n!=2^{\alpha-k}*5^{\beta-k}*10^k*C$$,阶乘中的0就来源于这里的2和5之积，也就是k的数量。
 
 ```cpp
 #include <iostream>
