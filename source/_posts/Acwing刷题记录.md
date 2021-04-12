@@ -260,6 +260,34 @@ int main() {
 }
 ```
 
+[790. 数的三次方根](https://www.acwing.com/problem/content/792/)
+
+本题需要主要三次方的时候，当数字是0.001之类的小于1的数时，寻找范围需要扩大。
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double x;
+    scanf("%lf", &x);
+    if (x < 0) {
+        printf("-");
+        x = -x;
+    }
+    double l = 0, r = x, mid;
+    if (x<1) r=1;
+    while (r - l >= 1e-8) {
+        mid = (r + l) / 2;
+        if (mid * mid * mid > x) r = mid;
+        else l = mid;
+    }
+    printf("%lf", mid);
+    return 0;
+}
+```
+
 
 
 #### 801~900

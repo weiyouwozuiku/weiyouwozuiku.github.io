@@ -214,6 +214,7 @@ int main(){
 **这里的mid是否加一,取决于当为true时是l=mid还是r=mid.如果是l=mid,默认的除法是下取整,在l和r之间只相差一个的时候导致一直是l=l,进而导致死循环.**写程序的时候先写成`l+r>>1`，之后再根据l和r，选择是否+1。
 
 ```cpp
+bool check(double x) {/* ... */} // 检查x是否满足某种性质
 //区间[l,r]被划分为[l,mid]和[mid+1,l]时使用
 int bsearch_1(int l,int r){
     while(l<r){
@@ -253,26 +254,7 @@ int kaifang(double x) {
 }
 ```
 
-下面是一个开三次方的例子，这里需要注意的是结果不一定是正数，所以需要放大搜索边界。
 
-```cpp
-#include <iostream>
-using namespace std;
-
-int main(){
-    double x;
-    scanf("%lf",&x);
-    double l=-x,r=x;
-    if(l>x) swap(l,r);
-    while(r-l>=1e-8){
-        double mid=(l+r))/2;
-        if(mid*mid*mid>x) r=mid;
-        else l=mid;
-    }
-    printf("%.6lf",l);
-    return 0;
-}
-```
 
 ### 大整数计算
 
