@@ -288,6 +288,95 @@ int main() {
 }
 ```
 
+[791. 高精度加法](https://www.acwing.com/problem/content/793/)
+
+这里的选择使用数组存储大整数，这里第0位存个位数，最高位放在数组最后面。这样当发生进位的时候，容易处理。
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+const int N = 16 + 10;
+
+vector<int> add(vector<int> &A, vector<int> &B) {
+    vector<int> C;
+    int t = 0;
+    for (int i = 0; i < A.size() || i < B.size(); i++) {
+        if (i < A.size()) t += A[i];
+        if (i < B.size()) t += B[i];
+        C.push_back(t % 10);
+        t /= 10;
+    }
+    if (t) C.push_back(t);
+    return C;
+}
+
+int main() {
+    vector<int> A, B;
+    string a, b;
+    cin >> a >> b;
+    for (int i = a.size() - 1; i >= 0; i--) A.push_back(a[i] - '0');
+    for (int i = b.size() - 1; i >= 0; --i) B.push_back(b[i] - '0');
+    auto c = add(A, B);
+    for (int i = c.size() - 1; i >= 0; --i) printf("%d", c[i]);
+    return 0;
+}
+```
+
+[792. 高精度减法](https://www.acwing.com/problem/content/794/)
+
+记得去掉结果中多余的0.
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<int> sub(vector<int> &A, vector<int> &B) {
+    vector<int> C;
+    int t = 0;
+    for (int i = 0; i < A.size(); i++) {
+        t = A[i] - t;
+        if (i < B.size()) t -= B[i];
+        C.push_back((t + 10) % 10);
+        if (t < 0) t = 1;
+        else t = 0;
+    }
+    while (C.size() > 1 && C.back() == 0) C.pop_back();
+    return C;
+}
+
+//A>=B
+bool cmp(vector<int> &A, vector<int> &B) {
+    if (A.size() != B.size()) return A.size() > B.size();
+    else {
+        for (int i = A.size() - 1; i >= 0; --i) {
+            if (A[i] != B[i]) return A[i] > B[i];
+        }
+    }
+    return true;
+}
+
+int main() {
+    string a, b;
+    cin >> a >> b;
+    vector<int> A, B;
+    for (int i = a.size() - 1; i >= 0; i--) A.push_back(a[i]-'0');
+    for (int i = b.size() - 1; i >= 0; i--) B.push_back(b[i]-'0');
+    if (cmp(A, B)) {
+        auto C = sub(A, B);
+        for (int i = C.size() - 1; i >= 0; i--) printf("%d", C[i]);
+    } else {
+        auto C = sub(B, A);
+        printf("-");
+        for (int i = C.size() - 1; i >= 0; i--) printf("%d", C[i]);
+    }
+    return 0;
+}
+```
+
 
 
 #### 801~900
