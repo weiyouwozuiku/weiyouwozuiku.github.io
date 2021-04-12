@@ -260,6 +260,8 @@ int kaifang(double x) {
 
 #### 两数相加
 
+这里的选择使用数组存储大整数，这里第0位存个位数，最高位放在数组最后面。这样当发生进位的时候，容易处理。
+
 ```cpp
 #include <iostream>
 #include <vector>
