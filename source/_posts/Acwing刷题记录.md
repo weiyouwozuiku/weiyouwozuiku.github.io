@@ -411,6 +411,8 @@ int main() {
 
 [794. 高精度除法](https://www.acwing.com/problem/content/796/)
 
+除法这里需要注意，运算从高位开始处理。所以需要反过来进行处理。
+
 ```cpp
 #include <iostream>
 #include <vector>
