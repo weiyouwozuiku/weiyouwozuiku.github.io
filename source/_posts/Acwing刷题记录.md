@@ -447,6 +447,35 @@ int main() {
 }
 ```
 
+[795. 前缀和](https://www.acwing.com/problem/content/797/)
+
+本题使用的是一维前缀和。注意这里的s数组存放前缀和，相减的时候需要将左边界-1。s[0],a[0]处放0，以便后续操作。
+
+```cpp
+#include <iostream>
+
+using namespace std;
+const int N = 1e6 + 10;
+int q[N];
+int s[N];
+
+int main() {
+    int n, m;
+    s[0] = 0;
+    scanf("%d%d", &n, &m);
+    for (int i = 1; i <= n; ++i) {
+        scanf("%d", &q[i]);
+        s[i] = s[i - 1] + q[i];
+    }
+    while (m--) {
+        int l, r;
+        scanf("%d%d", &l, &r);
+        printf("%d\n", s[r] - s[l - 1]);
+    }
+    return 0;
+}
+```
+
 
 
 #### 801~900
