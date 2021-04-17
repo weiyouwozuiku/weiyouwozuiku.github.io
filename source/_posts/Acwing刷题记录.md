@@ -476,6 +476,79 @@ int main() {
 }
 ```
 
+[796. 子矩阵的和](https://www.acwing.com/problem/content/798/)
+
+本题依旧是前缀和，不过是二维前缀和，重点就两个公式。此处假设S为前缀和数组，q为相应的差分数组。
+
+更新前缀和数组：$S[x-1,y]+S[x,y-1]-S[x-1,y-1]+q[x,y]$
+
+计算前缀和之差：$S[x_2,y_2]-S[x_1-1,y_2]-S[x_2,y_1-1]+S[x_1-1,y_1-1]$
+
+```cpp
+#include <iostream>
+
+using namespace std;
+const int N = 1010;
+int x[N][N], s[N][N];
+
+int main() {
+    int n, m, q;
+    scanf("%d%d%d", &n, &m, &q);
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m; ++j) {
+            scanf("%d", &x[i][j]);
+            s[i][j] = s[i][j - 1] + s[i - 1][j] - s[i - 1][j - 1] + x[i][j];
+        }
+    }
+    int x1, y1, x2, y2;
+    while (q--) {
+        scanf("%d%d%d%d", &x1, &y1, &x2, &y2);
+        printf("%d\n", s[x2][y2] - s[x1 - 1][y2] - s[x2][y1 - 1] + s[x1 - 1][y1 - 1]);
+    }
+    return 0;
+}
+```
+
+[797. 差分](https://www.acwing.com/problem/content/799/)
+
+```cpp
+#include <iostream>
+
+using namespace std;
+const int N = 1e6 + 10;
+// q数组为原数组,b数组为差分数组
+int q[N], b[N];
+void insert(int l,int r,int c){
+    b[l]+=c;
+    b[r+1]-=c;
+}
+
+int main() {
+    int n, m;
+    scanf("%d%d", &n, &m);
+    for (int i = 1; i <= n; i++) {
+        scanf("%d", &q[i]);
+        //step1 构造差分数组
+        insert(i,i,q[i]);
+    }
+    //step2 更新差分数组信息
+    int l,r,c;
+    while (m--) {
+        scanf("%d%d%d",&l,&r,&c);
+        insert(l,r,c);
+    }
+    //step3 更新前缀和
+    //此处的b数组成为前缀和数组
+    for(int i=1;i<=n;i++) {
+        b[i]+=b[i-1];
+        printf("%d ",b[i]);
+    }
+    return 0;
+}
+```
+
+
+
 
 
 #### 801~900
