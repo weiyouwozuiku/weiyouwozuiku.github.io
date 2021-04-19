@@ -42,6 +42,21 @@ public:
 };
 ```
 
+[26. 二进制中1的个数](https://www.acwing.com/problem/content/25/)
+
+```cpp
+class Solution {
+public:
+    int NumberOf1(int n) {
+        int res=0;
+        while(n) n-=n&-n,res+=1;
+        return res;
+    }
+};
+```
+
+
+
 [33. 链表中倒数第k个节点](https://www.acwing.com/problem/content/32/)
 
 本题解题分为两步：
@@ -623,6 +638,33 @@ int main() {
 
 
 #### 801~900
+
+[801. 二进制中1的个数](https://www.acwing.com/problem/content/803/)
+
+```cpp
+#include <iostream>
+
+using namespace std;
+int lowbit(int x){
+    return x&-x;
+}
+int main() {
+    int n;
+    scanf("%d", &n);
+    while (n--) {
+        int res=0,x;
+        scanf("%d",&x);
+        while (x){
+            x-=lowbit(x);
+            ++res;
+        }
+        printf("%d ",res);
+    }
+    return 0;
+}
+```
+
+
 
 #### 901~1000
 
