@@ -692,8 +692,8 @@ vector<int> unique(vector<int> &A){
 	int j=0;
 	for(int i=0;i<A.size();i++){
 		if(!i||A[i]!=A[i-1]) A[j++]=A[i];
-		return A.begin()+j;
 	}
+    return A.begin()+j;
 }
 int main(){
     int n,m;

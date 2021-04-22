@@ -681,6 +681,16 @@ int a[N], s[N];
 //alls存放对应索引信息
 vector<int> alls;
 
+//unique的自己实现
+vector<int> unique(vector<int> &A){
+	int j=0;
+	for(int i=0;i<A.size();i++){
+        //要么是第一个数要么不重复
+		if(!i||A[i]!=A[i-1]) A[j++]=A[i];
+	}
+    return A.begin()+j;
+}
+
 int find(int x) {
     int l = 0, r = alls.size() - 1;
     while (l < r) {
