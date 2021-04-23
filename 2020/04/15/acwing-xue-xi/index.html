@@ -465,14 +465,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-22
+                    2021-04-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    5.9k
                 </div>
                 
 
@@ -1086,12 +1086,15 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>seg<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="链表与邻接表"><a href="#链表与邻接表" class="headerlink" title="链表与邻接表"></a>链表与邻接表</h3><p>使用两个数组记录一个链表，在算法题目中大多使用这种形式的链表，避免了new和delete过程所花费的时间。</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>在笔试与面试的时候，直接生成节点的结构体在new的时候会花费大量时间。因此，需要使用数组来模拟链表，优化执行时间。</p>
+<h3 id="链表与邻接表"><a href="#链表与邻接表" class="headerlink" title="链表与邻接表"></a>链表与邻接表</h3><p>单链表最大的用途是写邻接表，而邻接表最大的用途是存储图和树。</p>
+<p>双链表来优化某些问题。</p>
+<p>使用两个数组记录一个链表，在算法题目中大多使用这种形式的链表，避免了new和delete过程所花费的时间。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 
 <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">100010</span><span class="token punctuation">;</span>
 <span class="token comment">//va[i]表示i的数值，ne[i]表示节点i中的next指针是多少</span>
-<span class="token keyword">int</span> va<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span>
+<span class="token keyword">int</span> va<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">//head表示头节点的下标，idx存储当前已经用到了哪个点</span>
 <span class="token keyword">int</span> head<span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
 
@@ -1721,7 +1724,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">131.1k</span>&nbsp;字
+                class="white-color">131.3k</span>&nbsp;字
             
             
             
