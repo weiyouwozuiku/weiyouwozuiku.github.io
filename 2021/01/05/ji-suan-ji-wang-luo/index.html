@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-25
+                    2021-05-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    16 分
                 </div>
                 
 
@@ -612,6 +612,70 @@
 <li>4xx：客户端错误——请求有语法错误或请求无法实现</li>
 <li>5XX：服务端错误——服务器未能实现合法的请求</li>
 </ul>
+<h5 id="常见HTTP请求头"><a href="#常见HTTP请求头" class="headerlink" title="常见HTTP请求头"></a>常见HTTP请求头</h5><table>
+<thead>
+<tr>
+<th>请求头</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accept-Charset</td>
+<td>用于指定客户端接受的字符集</td>
+</tr>
+<tr>
+<td>Accept-Encoding</td>
+<td>用于指定可接受的内容编码，如Accept-Encoding:gzip.deflate</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>用于指定一种自然语言，如Accept-Language:zh-cn</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>用于指定被请求资源的Internet主机和端口号，如Host:buerlog.top</td>
+</tr>
+<tr>
+<td>User-Agent</td>
+<td>客户端的操作系统、浏览器、等其他属性</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>当前连接是否保持，如Connection:Keep-Alive</td>
+</tr>
+</tbody></table>
+<h5 id="常见HTTP响应头"><a href="#常见HTTP响应头" class="headerlink" title="常见HTTP响应头"></a>常见HTTP响应头</h5><table>
+<thead>
+<tr>
+<th>响应头</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Server</td>
+<td>使用的服务器名称：如Server:nginx/1.10.3 (Ubuntu)</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>用来指明发送给客户端的实体正文的媒体类型，如text/html; charset=utf-8</td>
+</tr>
+<tr>
+<td>Content-Encoding</td>
+<td>与请求抱头Accept-Encoding对应，告诉浏览器服务端采用什么压缩格式</td>
+</tr>
+<tr>
+<td>Content-Language</td>
+<td>描述了资源所用的自然语言</td>
+</tr>
+<tr>
+<td>Content-length</td>
+<td>指明实体正文的长度，用以字节方式存储的十进制数字来表示</td>
+</tr>
+<tr>
+<td>Keep-Alive</td>
+<td>保持连接的时间，如Keep-Alive:timeout:5,max=120</td>
+</tr>
+</tbody></table>
 <h5 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h5><table>
 <thead>
 <tr>
@@ -624,6 +688,11 @@
 <td>200</td>
 <td>OK</td>
 <td>请求成功。一般用于GET与POST请求</td>
+</tr>
+<tr>
+<td>302</td>
+<td></td>
+<td>临时跳转，跳转地址通过location指定</td>
 </tr>
 <tr>
 <td>400</td>
@@ -1474,7 +1543,7 @@ This's a test
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">132.1k</span>&nbsp;字
+                class="white-color">132.5k</span>&nbsp;字
             
             
             

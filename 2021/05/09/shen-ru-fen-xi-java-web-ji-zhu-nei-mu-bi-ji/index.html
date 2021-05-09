@@ -431,12 +431,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                程序设计
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -459,7 +472,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    168
                 </div>
                 
 
@@ -489,7 +502,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="第一章-深入Web请求过程"><a href="#第一章-深入Web请求过程" class="headerlink" title="第一章 深入Web请求过程"></a>第一章 深入Web请求过程</h2><h3 id="HTTP、Socket、TCP三者的区别"><a href="#HTTP、Socket、TCP三者的区别" class="headerlink" title="HTTP、Socket、TCP三者的区别"></a>HTTP、Socket、TCP三者的区别</h3><pre class="mermaid">graph TD;
+    应用层[HTTP TELNET DNS]--&gt;Socket[Socket]--&gt;传输层[TCP UDP]</pre>
+
+<p>HTTP是传输层的协议，更加贴近用户端；TCP是传输层的协议；socket是从传输层上抽象出来的一个抽象层，<strong>本质是接口</strong>。</p>
+<p>相应的，发起一个HTTP请求与建立一个Socket连接的区别不大，只不过是<code>outputStream.write</code>写的二进制字节数据格式要符合HTTP。Java可以使用HttpClient发起http请求。</p>
+<p>使用<code>Ctrl+F5</code>请求非缓存页面，其会直接发起http请求，并添加两个属性在请求头中<code>Pragma:no-cache和Cache-Control:no-cache</code></p>
+
                 
             </div>
             <hr/>
@@ -552,7 +571,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -746,13 +769,25 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            不二
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    程序设计
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1037,7 +1072,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">132.1k</span>&nbsp;字
+                class="white-color">132.5k</span>&nbsp;字
             
             
             
