@@ -465,14 +465,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-06
+                    2021-05-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.1k
+                    6.2k
                 </div>
                 
 
@@ -1194,6 +1194,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h3><p>常见模型：找出每个数左边离它最近的比它大/小的数</p>
+<p>这里主要应用了结果的单调性，即找左边最近的最大或者最小的数。由于之前的数若大于等于当前数字则出栈，其永远不会是解，直至找到栈顶或小的数，并将当前数字压入栈中。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> tt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">while</span><span class="token punctuation">(</span>tt<span class="token operator">&amp;&amp;</span><span class="token function">check</span><span class="token punctuation">(</span>q<span class="token punctuation">[</span>tt<span class="token punctuation">]</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> tt<span class="token operator">--</span><span class="token punctuation">;</span>
@@ -1778,7 +1779,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">132.5k</span>&nbsp;字
+                class="white-color">132.6k</span>&nbsp;字
             
             
             
