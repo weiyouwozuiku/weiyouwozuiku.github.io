@@ -1224,7 +1224,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>因此，优化整体的检查次数，利用上一次扫描的结果避免重复的比较是优化方向，也是KMP算法的主要优化方式。</p>
-<h3 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h3><p>KMP算法的核心思想就是如何利用字符串对比中的信息，简化循环的次数。朴素算法采用两个for循环对每个字符串的元素进行比较，KMP先针对模式串进行处理，获取其next数组。其next[i]表示当前元素从右往左与从模板起始处相同子串的最大长度。这样当出现不匹配的情况时，可以一次性向后移动多个位置，而不是一个个移动，将算法的复杂度降至O(m+n)。</p>
+<h3 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h3><p>KMP算法的核心思想就是如何利用字符串对比中的信息，简化循环的次数。朴素算法采用两个for循环对每个字符串的元素进行比较，KMP先针对模式串进行处理，获取其next数组。其next[i]表示当前元素从右往左与从模板起始处相同子串的最大长度。这样当出现不匹配的情况时，可以一次性向后移动多个位置，而不是一个个移动，将算法的复杂度降至O(m+n)。KMP算法利用了模式串内部的重复性在失配的时候将模式串向后移动与匹配指针对齐，减少无意义的匹配</p>
 <p>在书写代码的时候<code>next</code>这个名字可能被使用了，可以使用<code>ne</code>作为名字。</p>
 <h2 id="搜索与图论"><a href="#搜索与图论" class="headerlink" title="搜索与图论"></a>搜索与图论</h2><h2 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h2><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2>
                 
