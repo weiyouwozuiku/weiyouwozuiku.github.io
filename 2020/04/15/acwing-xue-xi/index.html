@@ -472,7 +472,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.6k
+                    6.8k
                 </div>
                 
 
@@ -1207,7 +1207,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
     <span class="token keyword">while</span><span class="token punctuation">(</span>hh<span class="token operator">&lt;=</span>tt<span class="token operator">&amp;&amp;</span><span class="token function">check</span><span class="token punctuation">(</span>q<span class="token punctuation">[</span>tt<span class="token punctuation">]</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> tt<span class="token operator">--</span><span class="token punctuation">;</span>
     q<span class="token punctuation">[</span><span class="token operator">++</span>tt<span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h3 id="暴力算法"><a href="#暴力算法" class="headerlink" title="暴力算法"></a>暴力算法</h3><p>对于字符串匹配问题，暴力算法的时间复杂度为O(n*m)。字符串比较过程中，必然会每个字符之间进行大量重复比较，其很难优化。暴力算法其时间复杂度最差的情况为每次扫描在模式串最后处才匹配失败。其实现算法如下。</p>
+<h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h3 id="暴力算法"><a href="#暴力算法" class="headerlink" title="暴力算法"></a>暴力算法</h3><p>对于字符串匹配问题，暴力算法的时间复杂度为O(n*m)。只要枚举文本串的起始位置i，然后从改位开始逐位与模式串进行匹配。如果匹配过程中每一位都相同，则匹配成功。否则，只要出现某位不同，就让文本串的起始位置变成i+1，并从头开始模式串的匹配。字符串比较过程中，必然会每个字符之间进行大量重复比较，其很难优化。暴力算法其时间复杂度最差的情况为每次扫描在模式串最后处才匹配失败。其实现算法如下。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// brute force暴力枚举算法</span>
 <span class="token comment">// 复杂度为O(n*m)。当n和m为1e5数量级时，算法完全不可用。</span>
 <span class="token keyword">void</span> <span class="token function">bruteForce</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>S<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>P<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1224,8 +1224,8 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>因此，优化整体的检查次数，利用上一次扫描的结果避免重复的比较是优化方向，也是KMP算法的主要优化方式。</p>
-<h3 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h3><p>KMP算法的核心思想就是如何利用字符串对比中的信息，简化循环的次数。朴素算法采用两个for循环对每个字符串的元素进行比较，KMP先针对模式串进行处理，获取其next数组。其next[i]表示当前元素从右往左与从模板起始处相同子串的最大长度。这样当出现不匹配的情况时，可以一次性向后移动多个位置，而不是一个个移动，将算法的复杂度降至O(m+n)。KMP算法利用了模式串内部的重复性在失配的时候将模式串向后移动与匹配指针对齐，减少无意义的匹配</p>
-<p>在书写代码的时候<code>next</code>这个名字可能被使用了，可以使用<code>ne</code>作为名字。</p>
+<h3 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h3><p>KMP算法的核心思想就是如何利用字符串对比中的信息，简化循环的次数。朴素算法采用两个for循环对每个字符串的元素进行比较，KMP先针对模式串进行处理，获取其next数组。其next[i]表示当前元素从右往左与从模板起始处相同子串的最大长度。这样当出现不匹配的情况时，可以一次性向后移动多个位置，而不是一个个移动，将算法的复杂度降至O(m+n)。KMP算法利用了模式串内部的重复性在失配的时候将模式串向后移动与匹配指针对齐，减少无意义的匹配。</p>
+<p>在书写代码的时候<code>next</code>这个名字可能被使用了，可以使用<code>ne</code>作为名字。<code>next[i]</code>表示使子串s[0…i]的前缀s[0…k]等于后缀s[i-k…i]的最大的k（<strong>注意前缀跟后缀可以部分重叠，但不能是s[0…i]本身</strong>）。</p>
 <h2 id="搜索与图论"><a href="#搜索与图论" class="headerlink" title="搜索与图论"></a>搜索与图论</h2><h2 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h2><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2>
                 
             </div>
@@ -1796,7 +1796,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.4k</span>&nbsp;字
+                class="white-color">133.6k</span>&nbsp;字
             
             
             
