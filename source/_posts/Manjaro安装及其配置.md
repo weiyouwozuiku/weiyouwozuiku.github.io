@@ -163,6 +163,8 @@ lolcat：终端文本渐变色
 
 strace:追踪进程进行时的系统调用和接收的信号
 
+downgrade：指定软件版本降级
+
 ##### Goldendict
 
 Feature-rich dictionary lookup program
