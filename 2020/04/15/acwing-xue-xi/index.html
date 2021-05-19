@@ -433,8 +433,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/Cpp/">
+                                <span class="chip bg-color">Cpp</span>
                             </a>
                         
                     </div>
@@ -465,14 +465,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-14
+                    2021-05-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.8k
+                    7k
                 </div>
                 
 
@@ -502,25 +502,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前置Tip"><a href="#前置Tip" class="headerlink" title="前置Tip"></a>前置Tip</h2><h3 id="c-的io"><a href="#c-的io" class="headerlink" title="c++的io"></a>c++的io</h3><h4 id="cin和scanf速度"><a href="#cin和scanf速度" class="headerlink" title="cin和scanf速度"></a>cin和scanf速度</h4><p>cin、cout之所以效率低是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而<code>std::ios::sync_with_stdio(false);</code>可以来打消iostream的输入输出缓存，可以节省许多时间，使效率与scanf与printf相差无几。这样做了之后要注意不要同时混用cout和printf 之类。</p>
-<p>应注意的是scanf与printf使用的头文件应是stdio.h而不是 iostream。</p>
-<p>在默认的情况下cin绑定的是cout，每次执行 &lt;&lt; 操作符的时候都要调用flush，这样会增加IO负担。可以通过tie(0)（0表示NULL）来解除cin与cout的绑定，进一步加快执行效率。</p>
-<h4 id="sync-with-stdio"><a href="#sync-with-stdio" class="headerlink" title="sync_with_stdio"></a>sync_with_stdio</h4><p>这个函数是一个“是否兼容stdio”的开关，C++为了兼容C，保证程序在使用了std::printf和std::cout的时候不发生混乱，将输出流绑到了一起。</p>
-<h4 id="tie"><a href="#tie" class="headerlink" title="tie"></a>tie</h4><p>tie是将两个stream绑定的函数，空参数的话返回当前的输出流指针。如<code>std::cin.tie()</code>，默认返回cout，数据类型为std::ostream。</p>
-<h3 id="java的io"><a href="#java的io" class="headerlink" title="java的io"></a>java的io</h3><p> java.util.Scanner类是一个简单的文本扫描类，它可以解析基本数据类型和字符串。它本质上是使用正则表达式去读取不同的数据类型。</p>
-<p>Java.io.BufferedReader类为了能够高效的读取字符序列，从字符输入流和字符缓冲区读取文本。</p>
-<p>Java的标准输入串是System.in。System.in提供的read方法是通过字节来读取数据的，不好处理。</p>
-<p>java.util包中的Scanner读取数据是按空格符（这其中包括空格键，Tab键，Enter键）来分割数据的。只要遇到其中之一，Scanner的方法就会返回下一个输入（当然nextLine()方法的结束符为换行符，它    return 0;<br>}会返回换行符之前的数据）</p>
-<p>BufferReader位于java.io包中，使用BufferReader就相对来说没有那么多方法来让你选择！读取数据比较固定，这样格式也就相对来说比较单一，只要记住就这一个读取数据的方法。<code>BufferedReader br = new BufferedReader (newInputStreamReader(System.in));</code>。这个BufferReader对象通过readLine()；方法来读取数据，readLine()是按Enter回车来读取一行数据的，只要在回车键之前的都会被readLine()方法返回。</p>
-<p>readLine()方法返回的是字符串，因此要使用BufferReader输入一些字符之外的类型的数据，就要相对比较麻烦，需要通过一些XXXX.parseXxx()；来转换相应的数据类型，（例如：int类型的用Integer.parseInt（需要转换的字符串））。虽然麻烦一些，但通过BufferReader读入的效率要比Scanner高一倍，这个差距可想而知，而且读取的数据越多，效果就越明显。需要注意的是使用BufferReader对象的readLine()方法必须处理java.io.IOException异常。</p>
-<h4 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h4><ul>
-<li>Scanner提供了一系列nextXxx()方法，当我们确定输入的数据类型时，使用Scanner更加方便。也正是因为这个BufferedReader相对于Scanner来说要快一点，因为Scanner对输入数据进行类解析，而BufferedReader只是简单地读取字符序列</li>
-<li>BufferedReader是支持同步的，而Scanner不支持。如果我们处理多线程程序，BufferedReader应当使用。</li>
-<li>Scanner和BufferedReader都设置了缓冲区，Scanner有很少的缓冲区(1KB字符缓冲)相对于BufferedReader(8KB字节缓冲)，但是这是绰绰有余的。</li>
-<li>Scanner输入的一个问题：在Scanner类中如果我们在任何7个nextXXX()方法之后调用nextLine()方法，这nextLine()方法不能够从控制台读取任何内容，并且，这游标不会进入控制台，它将跳过这一步。nextXXX()方法包括nextInt()，nextFloat()， nextByte()，nextShort()，nextDouble()，nextLong()，next()。在BufferReader类中就没有那种问题。这种问题仅仅出现在Scanner类中，由于nextXXX()方法忽略换行符，但是nextLine()并不忽略它。如果我们在nextXXX()方法和nextLine()方法之间使用超过一个以上的nextLine()方法，这个问题将不会出现了；因为nextLine()把换行符消耗了。</li>
-</ul>
-<h3 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h3><p>通俗地讲就是能保证排序前两个相等的数据其在序列中的先后位置顺序与排序后它们两个先后位置顺序相同。即：如，如果$A_i==A_j$，$A_i$原来在$A_j$位置前，排序后$A_i$仍然是在$A_j$位置前。</p>
-<h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>基本流程：</p>
+                <h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>基本流程：</p>
 <ol>
 <li>确定分界点：通常随机选取q[l],q[(l+r)/2],q[r]</li>
 <li><strong>调整区间，左边区间$\leq x$，右边区间$\geq x$。</strong></li>
@@ -1224,13 +1206,34 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>因此，优化整体的检查次数，利用上一次扫描的结果避免重复的比较是优化方向，也是KMP算法的主要优化方式。</p>
-<h3 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h3><p>KMP算法的核心思想就是如何利用字符串对比中的信息，简化循环的次数。朴素算法采用两个for循环对每个字符串的元素进行比较，KMP先针对模式串进行处理，获取其next数组。其next[i]表示当前元素从右往左与从模板起始处相同子串的最大长度。这样当出现不匹配的情况时，可以一次性向后移动多个位置，而不是一个个移动，将算法的复杂度降至O(m+n)。KMP算法利用了模式串内部的重复性在失配的时候将模式串向后移动与匹配指针对齐，减少无意义的匹配。</p>
+<h3 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h3><p>KMP算法的核心思想就是如何利用字符串对比中的信息，简化循环的次数，利用可用的重复性。朴素算法采用两个for循环对每个字符串的元素进行比较，KMP先针对模式串进行处理，获取其next数组。其next[i]表示当前元素从右往左与从模板起始处相同子串的最大长度。这样当出现不匹配的情况时，可以一次性向后移动多个位置，而不是一个个移动，将算法的复杂度降至O(m+n)。KMP算法利用了模式串内部的重复性在失配的时候将模式串向后移动与匹配指针对齐，减少无意义的匹配。</p>
+<p>KMP算法中定义可用重复性使用的是<code>Partial Match</code>数组，<code>PM[i]</code>表示字符串长度为i+1的前缀里（除本身外）最长相等前后缀的长度。为了方便使用，<code>Next</code>数组。<code>Next[i]</code>表示匹配模式串i位置失配模式串向后滑动对其匹配指针的位置。Next数组的构建方式为将PM数组整体向后移动一位，并在第一个位置出补上-1。此时，Next数组的前两位就固定为Next[0]=-1,Next[1]=0。因为本身不计算，其只能是0。</p>
 <p>在书写代码的时候<code>next</code>这个名字可能被使用了，可以使用<code>ne</code>作为名字。<code>next[i]</code>表示使子串s[0…i]的前缀s[0…k]等于后缀s[i-k…i]的最大的k（<strong>注意前缀跟后缀可以部分重叠，但不能是s[0…i]本身</strong>）。如果找不到相等的前后缀，则令next[i]=-1。显然，next[i]就是所求最长相等前后缀中前缀最后一位的下标。</p>
 <p>next数组可以通过两个方式表示。</p>
 <ol>
 <li>按照人类习惯的方式直接比较出最长的前后缀。</li>
 </ol>
-<h2 id="搜索与图论"><a href="#搜索与图论" class="headerlink" title="搜索与图论"></a>搜索与图论</h2><h2 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h2><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2>
+<h2 id="搜索与图论"><a href="#搜索与图论" class="headerlink" title="搜索与图论"></a>搜索与图论</h2><h2 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h2><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="c-的io"><a href="#c-的io" class="headerlink" title="c++的io"></a>c++的io</h3><h4 id="cin和scanf速度"><a href="#cin和scanf速度" class="headerlink" title="cin和scanf速度"></a>cin和scanf速度</h4><p>cin、cout之所以效率低是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而<code>std::ios::sync_with_stdio(false);</code>可以来打消iostream的输入输出缓存，可以节省许多时间，使效率与scanf与printf相差无几。这样做了之后要注意不要同时混用cout和printf 之类。</p>
+<p>应注意的是scanf与printf使用的头文件应是stdio.h而不是 iostream。</p>
+<p>在默认的情况下cin绑定的是cout，每次执行 &lt;&lt; 操作符的时候都要调用flush，这样会增加IO负担。可以通过tie(0)（0表示NULL）来解除cin与cout的绑定，进一步加快执行效率。</p>
+<h4 id="sync-with-stdio"><a href="#sync-with-stdio" class="headerlink" title="sync_with_stdio"></a>sync_with_stdio</h4><p>这个函数是一个“是否兼容stdio”的开关，C++为了兼容C，保证程序在使用了std::printf和std::cout的时候不发生混乱，将输出流绑到了一起。</p>
+<h4 id="tie"><a href="#tie" class="headerlink" title="tie"></a>tie</h4><p>tie是将两个stream绑定的函数，空参数的话返回当前的输出流指针。如<code>std::cin.tie()</code>，默认返回cout，数据类型为std::ostream。</p>
+<h3 id="java的io"><a href="#java的io" class="headerlink" title="java的io"></a>java的io</h3><p> java.util.Scanner类是一个简单的文本扫描类，它可以解析基本数据类型和字符串。它本质上是使用正则表达式去读取不同的数据类型。</p>
+<p>Java.io.BufferedReader类为了能够高效的读取字符序列，从字符输入流和字符缓冲区读取文本。</p>
+<p>Java的标准输入串是System.in。System.in提供的read方法是通过字节来读取数据的，不好处理。</p>
+<p>java.util包中的Scanner读取数据是按空格符（这其中包括空格键，Tab键，Enter键）来分割数据的。只要遇到其中之一，Scanner的方法就会返回下一个输入（当然nextLine()方法的结束符为换行符，它    return 0;<br>}会返回换行符之前的数据）</p>
+<p>BufferReader位于java.io包中，使用BufferReader就相对来说没有那么多方法来让你选择！读取数据比较固定，这样格式也就相对来说比较单一，只要记住就这一个读取数据的方法。<code>BufferedReader br = new BufferedReader (newInputStreamReader(System.in));</code>。这个BufferReader对象通过readLine()；方法来读取数据，readLine()是按Enter回车来读取一行数据的，只要在回车键之前的都会被readLine()方法返回。</p>
+<p>readLine()方法返回的是字符串，因此要使用BufferReader输入一些字符之外的类型的数据，就要相对比较麻烦，需要通过一些XXXX.parseXxx()；来转换相应的数据类型，（例如：int类型的用Integer.parseInt（需要转换的字符串））。虽然麻烦一些，但通过BufferReader读入的效率要比Scanner高一倍，这个差距可想而知，而且读取的数据越多，效果就越明显。需要注意的是使用BufferReader对象的readLine()方法必须处理java.io.IOException异常。</p>
+<h4 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h4><ul>
+<li>Scanner提供了一系列nextXxx()方法，当我们确定输入的数据类型时，使用Scanner更加方便。也正是因为这个BufferedReader相对于Scanner来说要快一点，因为Scanner对输入数据进行类解析，而BufferedReader只是简单地读取字符序列</li>
+<li>BufferedReader是支持同步的，而Scanner不支持。如果我们处理多线程程序，BufferedReader应当使用。</li>
+<li>Scanner和BufferedReader都设置了缓冲区，Scanner有很少的缓冲区(1KB字符缓冲)相对于BufferedReader(8KB字节缓冲)，但是这是绰绰有余的。</li>
+<li>Scanner输入的一个问题：在Scanner类中如果我们在任何7个nextXXX()方法之后调用nextLine()方法，这nextLine()方法不能够从控制台读取任何内容，并且，这游标不会进入控制台，它将跳过这一步。nextXXX()方法包括nextInt()，nextFloat()， nextByte()，nextShort()，nextDouble()，nextLong()，next()。在BufferReader类中就没有那种问题。这种问题仅仅出现在Scanner类中，由于nextXXX()方法忽略换行符，但是nextLine()并不忽略它。如果我们在nextXXX()方法和nextLine()方法之间使用超过一个以上的nextLine()方法，这个问题将不会出现了；因为nextLine()把换行符消耗了。</li>
+</ul>
+<h3 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h3><p>通俗地讲就是能保证排序前两个相等的数据其在序列中的先后位置顺序与排序后它们两个先后位置顺序相同。即：如，如果$A_i==A_j$，$A_i$原来在$A_j$位置前，排序后$A_i$仍然是在$A_j$位置前。</p>
+<h3 id="短码"><a href="#短码" class="headerlink" title="短码"></a>短码</h3><p>判断i不等于-1：<code>if (~i)</code></p>
+<p>判断i不能0：<code>if(i)</code></p>
+
                 
             </div>
             <hr/>
@@ -1294,8 +1297,8 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
+                                <a href="/tags/Cpp/">
+                                    <span class="chip bg-color">Cpp</span>
                                 </a>
                             
                         </div>
@@ -1800,7 +1803,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.6k</span>&nbsp;字
+                class="white-color">133.8k</span>&nbsp;字
             
             
             
