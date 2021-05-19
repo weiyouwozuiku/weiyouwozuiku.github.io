@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Git学习</title>
+      <link href="2021/05/19/git-xue-xi/"/>
+      <url>2021/05/19/git-xue-xi/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 经验总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Rust学习</title>
       <link href="2021/05/19/rust-xue-xi/"/>
       <url>2021/05/19/rust-xue-xi/</url>
