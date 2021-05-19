@@ -122,7 +122,7 @@ const char *c_str = s1.c_str();
 
 栈内分配内存从高地址向低地址分配，堆区分配内存是从低地址到高地址。
 
-![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_Cpp%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png)
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_Cpp%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png)
 
 主流的编程语言中，C++是唯一一个依赖RAII(Resource Acquisition Is Initialization)来做资源管理的。
 
@@ -195,7 +195,7 @@ RAII有些比较成熟的智能指针代表：如`std:auto_ptr`和`boost:shared_
 
   循环引用会导致堆里的内存无法被正常回收，造成内存泄漏。
 
-![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98.png)
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98.png)
 
 #### weak_ptr
 
@@ -676,7 +676,7 @@ iostream-->fstream
 streambuf-->strstreambuf & filebuf
 ```
 
-![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_IO%E6%B5%81%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE.png)
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_IO%E6%B5%81%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE.png)
 
 #### 缓存区
 

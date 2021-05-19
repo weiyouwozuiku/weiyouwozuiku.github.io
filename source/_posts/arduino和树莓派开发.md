@@ -114,7 +114,7 @@ void moveSteeringEngine(SoftwareSerial serial,String command){
 
 等效电容示意图：
 
-![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/arduino和树莓派开发_0.png)
+![arduino和树莓派开发_0.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91_0.png)
 
 ESR是电容的串联等效电阻，ESL是电容的串联等效电感，C是真正理想的电容。ESL和ESR是由电容的制作工艺和材料决定的，没法消除。ESR影响电源的纹波，ESL影响电容的滤波频率特性。
 
@@ -126,7 +126,7 @@ ESR是电容的串联等效电阻，ESL是电容的串联等效电感，C是真�
 
 实际电容的滤波曲线如下图所示:
 
-![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/arduino和树莓派开发_1.png)
+![arduino和树莓派开发_1.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91_1.png)
 
 参见上图，我们想要的最好的滤波效果是在“谷”底，就是曲线凹进去的尖尖，在这个尖尖的时候，滤波效果做好，当我们的芯片IC内部的逻辑门在10-50Mhz范围内执行的时候，芯片内部产生的干扰也在10-50Mhz,（比如51单片机），仔细看上图的曲线，0.1uF电容 （有两种，一种是插件，一种是贴片）的谷底刚好落在了这个范围内，所以能够滤除这个频段的干扰，但是，看清楚，当频率很高的时候（50-100Mhz），就不是那么回事了，这个时候0.1uF电容个滤波效果就没有0.01uF好了，以此类推，频率再高，选用的滤波电容的量级还要变小。
 

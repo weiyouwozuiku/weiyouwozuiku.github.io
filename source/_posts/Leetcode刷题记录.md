@@ -16,7 +16,7 @@ categories: 算法
 
 ### 1～500
 
-####1～100
+#### 1～100
 
 [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
 

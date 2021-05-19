@@ -23,8 +23,6 @@ categories: 经验总结
 3. `win+x`+`a`进入管理员命令行
 4. 输入`bcdedit /set '{bootmgr}' path \EFI\Manjaro\grubx64.efi`
 
-<!-- more -->
-
 Win和Manjaro同时存在时会导致时间不同。原因在于电脑时间有两个:
 
 - 硬件时间：保存在主板中，信息少没有时区。
