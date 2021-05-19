@@ -12,6 +12,8 @@ categories: 程序设计
 
 ## vector
 
+###
+
 ## set
 
 ## string
@@ -27,4 +29,20 @@ categories: 程序设计
 ## pair
 
 ## algorithm
+
+### max()、min()和abs()
+
+### swap()
+
+### reverse()
+
+### next_permutation()
+
+### fill()
+
+### sort()
+
+### lower_bound()和upper_bound()
+
+
 
