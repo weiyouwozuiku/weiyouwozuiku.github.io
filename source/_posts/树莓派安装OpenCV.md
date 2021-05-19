@@ -5,7 +5,7 @@ date: 2019-07-10 17:54:52
 mathjax: true
 tags: 
 - 树莓派
-- Opencv
+- OpenCV
 categories:
 - 嵌入式
 ---

@@ -3,7 +3,7 @@ title: C++复习笔记
 author: 不二
 mathjax: false
 date: 2020-11-10 12:14:19
-tags: C++
+tags: Cpp
 cover: true
 img:
 categories: 程序设计
@@ -625,7 +625,7 @@ std::istream &operator>>(std::istream &is, Complex &x) {
    
    ```cpp
    #ifndef _SOMEFILE_H_
-#define _SOMEFILE_H_
+   #define _SOMEFILE_H_
    ...
    #endif
    ```

@@ -4,7 +4,7 @@ author: 不二
 mathjax: true
 date: 2021-03-23 02:35:22
 tags: 
-- C++
+- Cpp
 img:
 categories: 算法
 ---
