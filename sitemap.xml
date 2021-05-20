@@ -2,6 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://buerlog.top/2020/01/13/she-ji-mo-shi/</loc>
+    
+    <lastmod>2021-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2020/02/24/lun-wen-zong-jie/</loc>
+    
+    <lastmod>2021-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2019/12/01/sg90-duo-ji-kong-zhi/</loc>
+    
+    <lastmod>2021-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2019/07/13/qos-zhi-shi/</loc>
+    
+    <lastmod>2021-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2020/11/10/leetcode-shua-ti-ji-lu/</loc>
+    
+    <lastmod>2021-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2020/10/28/java-fu-xi-bi-ji/</loc>
+    
+    <lastmod>2021-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2020/12/27/hexo-bo-ke-da-jian-ji-lu/</loc>
+    
+    <lastmod>2021-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2019/12/27/arduino-he-shu-mei-pai-kai-fa/</loc>
+    
+    <lastmod>2021-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2020/12/18/go-yu-yan-wang-guan-kai-fa/</loc>
+    
+    <lastmod>2021-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2019/12/08/centos7.6-chu-shi-hua-an-zhuang-bu-zou/</loc>
+    
+    <lastmod>2021-05-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/2021/05/19/git-xue-xi/</loc>
     
     <lastmod>2021-05-20</lastmod>
@@ -23,13 +93,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2019/12/27/arduino-he-shu-mei-pai-kai-fa/</loc>
-    
-    <lastmod>2021-05-19</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/2021/01/05/shu-ju-ku-zhi-shi/</loc>
     
     <lastmod>2021-05-19</lastmod>
@@ -45,13 +108,6 @@
   
   <url>
     <loc>http://buerlog.top/2019/12/12/manjaro-an-zhuang-ji-qi-pei-zhi/</loc>
-    
-    <lastmod>2021-05-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2020/11/10/leetcode-shua-ti-ji-lu/</loc>
     
     <lastmod>2021-05-19</lastmod>
     
@@ -163,20 +219,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2020/12/27/hexo-bo-ke-da-jian-ji-lu/</loc>
-    
-    <lastmod>2021-01-31</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2020/10/28/java-fu-xi-bi-ji/</loc>
-    
-    <lastmod>2021-01-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/2021/01/25/nginx-xue-xi-bi-ji/</loc>
     
     <lastmod>2021-01-25</lastmod>
@@ -205,13 +247,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2019/12/01/sg90-duo-ji-kong-zhi/</loc>
-    
-    <lastmod>2020-12-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/2019/10/07/shu-ju-yu-chu-li/</loc>
     
     <lastmod>2020-12-27</lastmod>
@@ -220,13 +255,6 @@
   
   <url>
     <loc>http://buerlog.top/2020/02/15/v2ray/</loc>
-    
-    <lastmod>2020-12-26</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2019/12/08/centos7.6-chu-shi-hua-an-zhuang-bu-zou/</loc>
     
     <lastmod>2020-12-26</lastmod>
     
@@ -261,13 +289,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2020/02/24/lun-wen-zong-jie/</loc>
-    
-    <lastmod>2020-12-26</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/2020/05/14/yi-xie-suan-fa/</loc>
     
     <lastmod>2020-12-26</lastmod>
@@ -290,13 +311,6 @@
   
   <url>
     <loc>http://buerlog.top/2019/08/02/tmux/</loc>
-    
-    <lastmod>2020-12-26</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2019/07/13/qos-zhi-shi/</loc>
     
     <lastmod>2020-12-26</lastmod>
     
@@ -373,13 +387,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2020/12/18/go-yu-yan-wang-guan-kai-fa/</loc>
-    
-    <lastmod>2020-12-26</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/2019/07/08/cloudsim-xue-xi/</loc>
     
     <lastmod>2020-12-26</lastmod>
@@ -395,13 +402,6 @@
   
   <url>
     <loc>http://buerlog.top/2019/09/06/yun-ji-suan-bian-ma-yue-du-bi-ji/</loc>
-    
-    <lastmod>2020-12-26</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2020/01/13/she-ji-mo-shi/</loc>
     
     <lastmod>2020-12-26</lastmod>
     
@@ -669,13 +669,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/Centos/</loc>
-    <lastmod>2021-05-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/tags/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/</loc>
     <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
@@ -810,6 +803,13 @@
   
   <url>
     <loc>http://buerlog.top/tags/Git/</loc>
+    <lastmod>2021-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/tags/CentOS/</loc>
     <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
