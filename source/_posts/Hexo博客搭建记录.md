@@ -285,5 +285,5 @@ baidusitemap:
 
 成功截图如下：
 
-![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/buerlog_img/BlogImage/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95_Google%E6%94%B6%E5%BD%95%E6%88%90%E5%8A%9F.png)
+![Hexo博客搭建记录_Google收录成功.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95_Google%E6%94%B6%E5%BD%95%E6%88%90%E5%8A%9F.png)
 
