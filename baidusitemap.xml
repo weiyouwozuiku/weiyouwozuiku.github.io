@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://buerlog.top/2021/05/19/git-xue-xi/</loc>
+    <lastmod>2021-05-20</lastmod>
+  </url>
+  <url>
     <loc>http://buerlog.top/2020/11/18/esp32-zhi-wen-lan-ya-jian-pan-kai-fa/</loc>
     <lastmod>2021-05-19</lastmod>
   </url>
@@ -30,10 +34,6 @@
   </url>
   <url>
     <loc>http://buerlog.top/2020/11/10/cpp-fu-xi-bi-ji/</loc>
-    <lastmod>2021-05-19</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2021/05/19/git-xue-xi/</loc>
     <lastmod>2021-05-19</lastmod>
   </url>
   <url>
