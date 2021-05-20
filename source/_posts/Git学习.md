@@ -4,7 +4,7 @@ author: 不二
 mathjax: true
 date: 2021-05-19 13:44:48
 tags: Git
-img: 
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/themes/hexo-theme-matery/source/medias/featureimages/git.jpg
 categories: 经验总结
 ---
 
