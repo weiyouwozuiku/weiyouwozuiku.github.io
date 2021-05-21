@@ -6,6 +6,7 @@ mathjax: true
 tags: 
 - 树莓派
 - OpenCV
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/raspberry1.jpg
 categories:
 - 嵌入式
 ---
