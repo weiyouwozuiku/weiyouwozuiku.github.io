@@ -312,7 +312,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/raspberry.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -469,7 +469,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-26
+                    2021-05-21
                 </div>
                 
 
@@ -516,41 +516,41 @@
 <p>步骤：</p>
 <ol>
 <li><p>配置网桥</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> bridge-utils <span class="token comment">#安装网桥管理工具</span>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install bridge-utils #安装网桥管理工具
 brctl addbr br-lan
 brctl addif br-lan eth0
-<span class="token function">ifconfig</span> br-lan <span class="token number">192.168</span>.3.1 up <span class="token comment">#192.168.3.1就是树莓派在整个扩展网络中的地址</span>
-<span class="token function">ifconfig</span> eth0 <span class="token number">0.0</span>.0.0 up<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+ifconfig br-lan 192.168.3.1 up #192.168.3.1就是树莓派在整个扩展网络中的地址
+ifconfig eth0 0.0.0.0 up<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>配置IP转发</p>
 <p>一般的Linux发行版默认都不会开启ip_forward，因为正常的计算机都是作为终端，没有转发数据报的需求，因此需要手动打开。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /etc/sysctl.conf
-+ net.ipv4.ip_forward <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token comment">#或</span>
-sysctl net.ipv4.ip_forward <span class="token operator">=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/sysctl.conf
++ net.ipv4.ip_forward = 1
+#或
+sysctl net.ipv4.ip_forward = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>配置iptables</p>
 <p>想让内网的所有设备共享一个IP，需要在wlan0网口启用nat。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>安装DHCP/DNS服务器</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">apt</span> <span class="token function">install</span> dnsmasq -y
-<span class="token function">vim</span> /etc/dnsmasq.conf
-+<span class="token string">'dhcp-range=192.168.3.50,192.168.3.150,255.255.255.0,12h'</span> <span class="token operator">&gt;&gt;</span> /etc/dnsmasq.conf <span class="token comment">#这里IP的网段跟之前配置的需要一致</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">apt install dnsmasq -y
+vim /etc/dnsmasq.conf
++'dhcp-range=192.168.3.50,192.168.3.150,255.255.255.0,12h' &gt;&gt; /etc/dnsmasq.conf #这里IP的网段跟之前配置的需要一致<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>设置开机自启</p>
 <p>新建如下脚本:</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token shebang important">#!/bin/bash</span>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash
 brctl addbr br-lan
 brctl addif br-lan eth0
-<span class="token function">ifconfig</span> br-lan <span class="token number">192.168</span>.3.1 up <span class="token comment">#这里的地址随便，和Wan侧不在一个网段就行</span>
-<span class="token function">ifconfig</span> eth0 <span class="token number">0.0</span>.0.0 up
-sysctl net.ipv4.ip_forward<span class="token operator">=</span><span class="token number">1</span>
+ifconfig br-lan 192.168.3.1 up #这里的地址随便，和Wan侧不在一个网段就行
+ifconfig eth0 0.0.0.0 up
+sysctl net.ipv4.ip_forward=1
 iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用<code>vim /usr/lib/systemd/system/&lt;自定义&gt;.service</code>命令创建执行计划</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
-<span class="token assign-left variable">Description</span><span class="token operator">=</span>autostart
-<span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
-<span class="token assign-left variable">Type</span><span class="token operator">=</span>oneshot
-<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/home/pi/<span class="token operator">&lt;</span>上一步骤中脚本的名字<span class="token operator">&gt;</span>.sh
-<span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
-<span class="token assign-left variable">WantedBy</span><span class="token operator">=</span>multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[Unit]
+Description=autostart
+[Service]
+Type=oneshot
+ExecStart=/home/pi/&lt;上一步骤中脚本的名字&gt;.sh
+[Install]
+WantedBy=multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>执行<code>systemctl enable autostart.service</code></p>
 </li>
 </ol>
@@ -569,27 +569,27 @@ iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE<span aria-hidden="true" cl
 <li>把LCD背后的Backlight拨到“ON”。</li>
 </ol>
 <p>在<code>config.txt</code>文件中添加</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token assign-left variable">max_usb_current</span><span class="token operator">=</span><span class="token number">1</span>
-<span class="token assign-left variable">hdmi_group</span><span class="token operator">=</span><span class="token number">2</span>
-<span class="token assign-left variable">hdmi_mode</span><span class="token operator">=</span><span class="token number">87</span>
-hdmi_cvt <span class="token number">800</span> <span class="token number">480</span> <span class="token number">60</span> <span class="token number">6</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span>
-<span class="token assign-left variable">hdmi_drive</span><span class="token operator">=</span><span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">max_usb_current=1
+hdmi_group=2
+hdmi_mode=87
+hdmi_cvt 800 480 60 6 0 0 0
+hdmi_drive=1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>下载驱动程序：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">git</span> clone https://github.com/waveshare/LCD-show.git
-<span class="token builtin class-name">cd</span> LCD-show/
-<span class="token function">sudo</span> ./LCD5-show<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/waveshare/LCD-show.git
+cd LCD-show/
+sudo ./LCD5-show<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h2 id="Barrier"><a href="#Barrier" class="headerlink" title="Barrier"></a>Barrier</h2><p>安装Barrier：<code>sudo apt install barrier</code></p>
 <p>自启动：在<code>～/.config/autostart/</code>下新建文件<code>barrier.desktop</code>，添加如下字段：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>Desktop Entry<span class="token punctuation">]</span>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[Desktop Entry]
 
-<span class="token assign-left variable">Type</span><span class="token operator">=</span>Application
+Type=Application
 
-<span class="token assign-left variable">Name</span><span class="token operator">=</span>barrier
+Name=barrier
 
-<span class="token assign-left variable">NoDisplay</span><span class="token operator">=</span>false
+NoDisplay=false
 
-<span class="token assign-left variable">Exec</span><span class="token operator">=</span>/usr/bin/barrier<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+Exec=/usr/bin/barrier<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -836,8 +836,7 @@ hdmi_cvt <span class="token number">800</span> <span class="token number">480</s
                 <a href="/2019/12/27/arduino-he-shu-mei-pai-kai-fa/">
                     <div class="card-image">
                         
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="Arduino和树莓派开发">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/arduino.jpg" class="responsive-img" alt="Arduino和树莓派开发">
                         
                         <span class="card-title">Arduino和树莓派开发</span>
                     </div>
