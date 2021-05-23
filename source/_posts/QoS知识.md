@@ -3,6 +3,7 @@ title: QoS知识
 author: 不二
 date: 2019-07-13 19:54:46
 mathjax: true
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/qos.jpg
 tags: 
 - QoS
 categories: 云计算

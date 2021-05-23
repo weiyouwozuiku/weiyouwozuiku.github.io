@@ -3,6 +3,7 @@ title: CentOS7.6初始化安装步骤
 author: 不二
 date: 2019-12-08 09:46:56
 mathjax: true
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/centos.png
 tags: 
 - CentOS
 - Python

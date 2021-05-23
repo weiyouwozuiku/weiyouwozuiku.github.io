@@ -5,7 +5,7 @@ mathjax: false
 date: 2020-12-27 09:42:46
 tags: Hexo
 cover: true
-img:
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/h.jpg
 categories: 经验总结
 ---
 

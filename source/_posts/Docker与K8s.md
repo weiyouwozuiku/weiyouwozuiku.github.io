@@ -6,7 +6,7 @@ date: 2021-04-02 10:44:11
 tags: 
 - Docker
 - Kubernetes
-img:
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/docker_k8s.png
 categories: 云计算
 ---
 
