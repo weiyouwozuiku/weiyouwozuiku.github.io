@@ -6,7 +6,7 @@ date: 2021-05-19 10:44:34
 tags:
 - Cpp
 - STL
-img:
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/cpp_stl.jpg
 categories: 程序设计
 ---
 

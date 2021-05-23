@@ -7,6 +7,7 @@ tags:
 - 装机
 - Ranger
 - Manjaro
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/manjaro.jpg
 categories: 经验总结
 ---
 
