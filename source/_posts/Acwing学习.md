@@ -5,7 +5,7 @@ mathjax: true
 date: 2020-04-15 22:41:17
 tags: 
 - Cpp
-img:
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/algoritm1.jpeg
 categories: 算法
 ---
 
