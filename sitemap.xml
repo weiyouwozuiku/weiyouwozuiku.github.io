@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://buerlog.top/2021/05/19/rust-xue-xi/</loc>
+    
+    <lastmod>2021-05-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2021/01/05/ji-suan-ji-wang-luo/</loc>
+    
+    <lastmod>2021-05-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2021/01/05/shu-ju-ku-zhi-shi/</loc>
+    
+    <lastmod>2021-05-23</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/2021/04/02/docker-yu-k8s/</loc>
     
     <lastmod>2021-05-23</lastmod>
@@ -149,20 +170,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2021/01/05/shu-ju-ku-zhi-shi/</loc>
-    
-    <lastmod>2021-05-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2021/01/05/ji-suan-ji-wang-luo/</loc>
-    
-    <lastmod>2021-05-19</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/2019/12/12/manjaro-an-zhuang-ji-qi-pei-zhi/</loc>
     
     <lastmod>2021-05-19</lastmod>
@@ -178,13 +185,6 @@
   
   <url>
     <loc>http://buerlog.top/2019/12/01/go-xue-xi/</loc>
-    
-    <lastmod>2021-05-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2021/05/19/rust-xue-xi/</loc>
     
     <lastmod>2021-05-19</lastmod>
     
