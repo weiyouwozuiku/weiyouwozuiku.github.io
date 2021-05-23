@@ -912,11 +912,29 @@ KMP算法中定义可用重复性使用的是`Partial Match`数组，`PM[i]`表�
 
 在书写代码的时候`next`这个名字可能被使用了，可以使用`ne`作为名字。`next[i]`表示使子串s[0...i]的前缀s[0...k]等于后缀s[i-k...i]的最大的k（**注意前缀跟后缀可以部分重叠，但不能是s[0...i]本身**）。如果找不到相等的前后缀，则令next[i]=-1。显然，next[i]就是所求最长相等前后缀中前缀最后一位的下标。
 
-next数组可以通过两个方式表示。
+```cpp
+// KMP算法
+// 复杂度为O(m+n)
+void build(const char *pattern) {
+    int len = strlen(pattern);
+    ne.resize(len + 1);
+    for (int i = 0, j = ne[0] = -1; i < len; ne[++i] = ++j) {
+        while (~j && pattern[j] != pattern[i]) j = ne[j];
+    }
+}
 
-1. 按照人类习惯的方式直接比较出最长的前后缀。
-
-
+vector<int> match(const char *text, const char *pattern) {
+    vector<int> res;
+    int lenp = strlen(pattern), lent = strlen(text);
+    build(pattern);
+    for (int i = 0, j = 0; i < lent; ++i) {
+        while (j > 0 && text[i] != pattern[j]) j = ne[j];
+        if (text[i] == pattern[j]) ++j;
+        if (j == lenp) res.push_back(i - lenp + 1), j = ne[j];
+    }
+    return res;
+}
+```
 
 
 

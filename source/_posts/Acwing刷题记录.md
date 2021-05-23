@@ -1068,6 +1068,32 @@ int main() {
 }
 ```
 
+[831.KMP字符串](https://www.acwing.com/problem/content/description/833/)
+
+```cpp
+// KMP算法
+// 复杂度为O(m+n)
+void build(const char *pattern) {
+    int len = strlen(pattern);
+    ne.resize(len + 1);
+    for (int i = 0, j = ne[0] = -1; i < len; ne[++i] = ++j) {
+        while (~j && pattern[j] != pattern[i]) j = ne[j];
+    }
+}
+
+vector<int> match(const char *text, const char *pattern) {
+    vector<int> res;
+    int lenp = strlen(pattern), lent = strlen(text);
+    build(pattern);
+    for (int i = 0, j = 0; i < lent; ++i) {
+        while (j > 0 && text[i] != pattern[j]) j = ne[j];
+        if (text[i] == pattern[j]) ++j;
+        if (j == lenp) res.push_back(i - lenp + 1), j = ne[j];
+    }
+    return res;
+}
+```
+
 
 
 #### 901~1000
