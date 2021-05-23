@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://buerlog.top/2021/04/02/docker-yu-k8s/</loc>
+    <lastmod>2021-05-23</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2019/12/08/centos7.6-chu-shi-hua-an-zhuang-bu-zou/</loc>
+    <lastmod>2021-05-23</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2020/12/18/go-yu-yan-wang-guan-kai-fa/</loc>
+    <lastmod>2021-05-23</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2020/12/27/hexo-bo-ke-da-jian-ji-lu/</loc>
+    <lastmod>2021-05-23</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2020/10/28/java-fu-xi-bi-ji/</loc>
+    <lastmod>2021-05-23</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2020/11/10/leetcode-shua-ti-ji-lu/</loc>
+    <lastmod>2021-05-23</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2019/12/22/shen-ru-qian-chu-docker-bi-ji/</loc>
+    <lastmod>2021-05-23</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2019/07/13/qos-zhi-shi/</loc>
+    <lastmod>2021-05-23</lastmod>
+  </url>
+  <url>
     <loc>http://buerlog.top/2020/02/24/lun-wen-zong-jie/</loc>
     <lastmod>2021-05-21</lastmod>
   </url>
@@ -49,40 +81,8 @@
     <lastmod>2021-05-21</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/12/22/shen-ru-qian-chu-docker-bi-ji/</loc>
-    <lastmod>2021-05-20</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2019/07/13/qos-zhi-shi/</loc>
-    <lastmod>2021-05-20</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2020/11/10/leetcode-shua-ti-ji-lu/</loc>
-    <lastmod>2021-05-20</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2020/10/28/java-fu-xi-bi-ji/</loc>
-    <lastmod>2021-05-20</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2020/12/27/hexo-bo-ke-da-jian-ji-lu/</loc>
-    <lastmod>2021-05-20</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2020/12/18/go-yu-yan-wang-guan-kai-fa/</loc>
-    <lastmod>2021-05-20</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2019/12/08/centos7.6-chu-shi-hua-an-zhuang-bu-zou/</loc>
-    <lastmod>2021-05-20</lastmod>
-  </url>
-  <url>
     <loc>http://buerlog.top/2021/05/19/git-xue-xi/</loc>
     <lastmod>2021-05-20</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2021/04/02/docker-yu-k8s/</loc>
-    <lastmod>2021-05-19</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2021/01/05/shu-ju-ku-zhi-shi/</loc>
