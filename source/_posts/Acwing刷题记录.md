@@ -21,42 +21,30 @@ categories: 算法
 
 [1.](https://www.acwing.com/problem/content/)
 
-
-
 ```cpp
 ```
 
 [2.](https://www.acwing.com/problem/content/)
-
-
 
 ```cpp
 ```
 
 [3.](https://www.acwing.com/problem/content/)
 
-
-
 ```cpp
 ```
 
 [4.](https://www.acwing.com/problem/content/)
-
-
 
 ```cpp
 ```
 
 [5.](https://www.acwing.com/problem/content/)
 
-
-
 ```cpp
 ```
 
 [6.](https://www.acwing.com/problem/content/)
-
-
 
 ```cpp
 ```
