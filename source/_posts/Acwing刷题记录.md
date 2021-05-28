@@ -1071,6 +1071,31 @@ int main() {
 [831.KMP字符串](https://www.acwing.com/problem/content/description/833/)
 
 ```cpp
+#include <iostream>
+#include <cstring>
+#include <vector>
+
+using namespace std;
+const int N = 1e5 + 10, M = 1e6 + 10;
+char p[N], s[M];
+vector<int> ne;
+
+// brute force暴力枚举算法
+// 复杂度为O(n*m)。当n和m为1e5数量级时，算法完全不可用。
+void bruteForce(char *S, char *P) {
+    int lens = strlen(S), lenp = strlen(P);
+    for (int i = 0; i <= lens - lenp; ++i) {
+        bool flag = true;
+        for (int j = 0; P[j] != '\0'; ++j) {
+            if (S[i + j] != P[j]) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) printf("%d ", i);
+    }
+}
+
 // KMP算法
 // 复杂度为O(m+n)
 void build(const char *pattern) {
@@ -1092,6 +1117,19 @@ vector<int> match(const char *text, const char *pattern) {
     }
     return res;
 }
+
+int main() {
+    int n, m;
+    scanf("%d", &n);
+    getchar();
+    for (int i = 0; i < n; ++i) scanf("%c", &p[i]);
+    scanf("%d", &m);
+    getchar();
+    for (int i = 0; i < m; ++i) scanf("%c", &s[i]);
+    auto res = match(s, p);
+    for (auto itor:res) printf("%d ", itor);
+    return 0;
+} 
 ```
 
 [835.Trie字符串统计](https://www.acwing.com/problem/content/837/)
