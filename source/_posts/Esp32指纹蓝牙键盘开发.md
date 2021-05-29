@@ -8,7 +8,6 @@ tags:
 - 树莓派
 cover: true
 img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/nnn.jpg
-coverImg: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/nnn.jpg
 categories: 
 - 嵌入式
 ---
