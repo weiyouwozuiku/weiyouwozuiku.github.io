@@ -6,7 +6,6 @@ date: 2020-11-10 12:14:19
 tags: Cpp
 cover: true
 img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/cpp.png
-coverImg: @src/source/_posts/PageImg/cpp.png
 categories: 程序设计
 ---
 

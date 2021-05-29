@@ -119,8 +119,10 @@ var coverPostsCount = coverPosts.length;
                     coverImg = featureImage;
                 }
             %>
-            <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('<%- theme.jsDelivr.url %><%- url_for(coverImg) %>');">
+            <!-- <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('<%- theme.jsDelivr.url %><%- url_for(coverImg) %>');"> -->
+             <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('<%- url_for(coverImg) %>');">
                 <div class="container">
                     <div class="row">
                         <div class="col s10 offset-s1">
