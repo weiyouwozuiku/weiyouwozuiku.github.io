@@ -880,7 +880,41 @@ for(int i=0;i<n;i++){
 
 ### Trie
 
+Trie可以实现高效的存储和查找字符串集合。其本质上采用树的结构。除根节点之外的所有节点来存储字符串的每个字符信息。依据字符串来创建Trie树，并记录每个节点作为字符串结尾的次数。
+
+```cpp
+const int N = 1e5 + 1;
+int s[N][26], cnt[N], idx;
+char op, str[N];
+
+void insert(const char *str) {
+    int p = 0;
+    for (int i = 0; str[i]; ++i) {
+        int u = str[i] - 'a';
+        if (!s[p][u]) s[p][u] = ++idx;
+        p = s[p][u];
+    }
+    ++cnt[p];
+}
+
+int query(const char *str) {
+    int p = 0;
+    for (int i = 0; str[i]; ++i) {
+        int u = str[i] - 'a';
+        if (!s[p][u]) return 0;
+        p = s[p][u];
+    }
+    return cnt[p];
+}
+```
+
 ### 并查集
+
+通常将两个集合合并或查询两个元素是否在一个集合当中，朴素算法的时间复杂度为$O(n)$，而并查集的优点在于进行上述两种操作时，时间复杂度近乎$O(1)$。
+
+```cpp
+
+```
 
 ### 堆
 
@@ -952,35 +986,7 @@ vector<int> match(const char *text, const char *pattern) {
 
 ## 搜索与图论
 
-### Trie
 
-Trie可以实现高效的存储和查找字符串集合。其本质上采用树的结构。除根节点之外的所有节点来存储字符串的每个字符信息。依据字符串来创建Trie树，并记录每个节点作为字符串结尾的次数。
-
-```cpp
-const int N = 1e5 + 1;
-int s[N][26], cnt[N], idx;
-char op, str[N];
-
-void insert(const char *str) {
-    int p = 0;
-    for (int i = 0; str[i]; ++i) {
-        int u = str[i] - 'a';
-        if (!s[p][u]) s[p][u] = ++idx;
-        p = s[p][u];
-    }
-    ++cnt[p];
-}
-
-int query(const char *str) {
-    int p = 0;
-    for (int i = 0; str[i]; ++i) {
-        int u = str[i] - 'a';
-        if (!s[p][u]) return 0;
-        p = s[p][u];
-    }
-    return cnt[p];
-}
-```
 
 ### DFS
 
