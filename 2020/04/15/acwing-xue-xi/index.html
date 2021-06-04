@@ -472,7 +472,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.8k
+                    7.9k
                 </div>
                 
 
@@ -1222,6 +1222,9 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
 <p>基本原理为：每个集合用一棵树来表示。树根的编号就是整个集合的编号。每个节点存储它的父节点。，<code>p[x]</code>表示x的父节点。</p>
 <ul>
 <li>如何判断树根：<code>if(p[x]==x)</code></li>
+<li>求x的集合编号：<code>while(p[x]!=x) x=p[x];</code></li>
+<li>如何合并两个集合：设立任意一条边属于另一个树</li>
+<li>如何优化并查集寻找父节点的过程：使用路径压缩，即在寻找的过程中，将所有子节点的父指针直接指向树根。一般不用大枝合并。</li>
 </ul>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><h3 id="Hash表"><a href="#Hash表" class="headerlink" title="Hash表"></a>Hash表</h3><h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h3 id="暴力算法"><a href="#暴力算法" class="headerlink" title="暴力算法"></a>暴力算法</h3><p>对于字符串匹配问题，暴力算法的时间复杂度为O(n*m)。只要枚举文本串的起始位置i，然后从改位开始逐位与模式串进行匹配。如果匹配过程中每一位都相同，则匹配成功。否则，只要出现某位不同，就让文本串的起始位置变成i+1，并从头开始模式串的匹配。字符串比较过程中，必然会每个字符之间进行大量重复比较，其很难优化。暴力算法其时间复杂度最差的情况为每次扫描在模式串最后处才匹配失败。其实现算法如下。</p>
@@ -1870,7 +1873,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.8k</span>&nbsp;字
+                class="white-color">136k</span>&nbsp;字
             
             
             

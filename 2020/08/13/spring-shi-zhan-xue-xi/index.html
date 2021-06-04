@@ -469,21 +469,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-26
+                    2021-06-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -511,7 +511,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录学习《Spring实战》(第五版)中的知识点。</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录学习《Spring实战》(第五版)中的知识点，并将一些开发项目中遇到的相关经验与理解记录在这里。</p>
 <blockquote>
 <p>唯一不变的就是变化    —-希腊哲学家 赫拉克利特</p>
 </blockquote>
@@ -635,6 +635,23 @@
 </li>
 <li><p>@AllArgsConstructor：注释在类上；为类提供一个全参的构造方法</p>
 </li>
+</ul>
+<h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><ul>
+<li>slf4j是日志的规范/接口</li>
+<li>日志实现工具：log4j/logback/common-logging</li>
+</ul>
+<h4 id="logback"><a href="#logback" class="headerlink" title="logback"></a>logback</h4><p>logback是log4j创始人开发的新一款日志组件。SpringBoot默认采用logback作为日志组件。</p>
+<p>日志加载顺序:logback.xml-&gt;application.properties-&gt;logback-spring.xml</p>
+<p>引入方式：</p>
+<ul>
+<li>通过配置xml文件直接引入<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-logging<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.1.11.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">&gt;</span></span>compile<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>引入spring-boot-starter，会自动引入spring-boot-starter-logging</li>
+<li>引入spring-boot-starter-web,会自动引入spring-boot-starter</li>
 </ul>
 
                 
@@ -1209,7 +1226,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.8k</span>&nbsp;字
+                class="white-color">136k</span>&nbsp;字
             
             
             
