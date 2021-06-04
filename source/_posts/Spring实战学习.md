@@ -12,7 +12,7 @@ categories: 程序设计
 
 ## 前言
 
-本文记录学习《Spring实战》(第五版)中的知识点。
+本文记录学习《Spring实战》(第五版)中的知识点，并将一些开发项目中遇到的相关经验与理解记录在这里。
 
 > 唯一不变的就是变化    ----希腊哲学家 赫拉克利特
 
@@ -139,5 +139,28 @@ DevTools是Spring开发人员的开发期工具，包括：
 
 - @AllArgsConstructor：注释在类上；为类提供一个全参的构造方法
 
+## Tip
 
+### 日志
 
+- slf4j是日志的规范/接口
+- 日志实现工具：log4j/logback/common-logging
+
+#### logback
+
+logback是log4j创始人开发的新一款日志组件。SpringBoot默认采用logback作为日志组件。
+
+日志加载顺序:logback.xml->application.properties->logback-spring.xml
+
+引入方式：
+- 通过配置xml文件直接引入
+  ```xml
+      <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-logging</artifactId>
+      <version>2.1.11.RELEASE</version>
+      <scope>compile</scope>
+    </dependency>
+  ```
+- 引入spring-boot-starter，会自动引入spring-boot-starter-logging
+- 引入spring-boot-starter-web,会自动引入spring-boot-starter

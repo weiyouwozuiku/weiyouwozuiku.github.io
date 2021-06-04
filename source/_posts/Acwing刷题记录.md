@@ -1179,6 +1179,13 @@ int main() {
 }
 ```
 
+[836.合并集合](https://www.acwing.com/problem/content/838/)
+
+```cpp
+#include <iostream>
+using namespace std;
+
+```
 
 #### 901~1000
 
