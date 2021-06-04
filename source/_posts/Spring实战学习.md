@@ -6,7 +6,7 @@ date: 2020-08-13 23:58:08
 tags: 
 - Spring
 - Java
-img:
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/spring.jpg
 categories: 程序设计
 ---
 
@@ -164,3 +164,7 @@ logback是log4j创始人开发的新一款日志组件。SpringBoot默认采用l
   ```
 - 引入spring-boot-starter，会自动引入spring-boot-starter-logging
 - 引入spring-boot-starter-web,会自动引入spring-boot-starter
+
+### IDEA集成热部署
+
+JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有一个JRebel mybatisPlus extension是针对mybatis的mapper.xml的热部署）
