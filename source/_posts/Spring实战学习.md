@@ -152,7 +152,14 @@ logback是log4j创始人开发的新一款日志组件。SpringBoot默认采用l
 
 日志加载顺序:logback.xml->application.properties->logback-spring.xml
 
-引入方式：
+logback主要由以下三个模块组成：
+
+1. logback-core，是整个logback的核心模块
+2. logback-classic，支持了slf4j facade
+3. logback-access，集成了servlet容器来提供HTTP日志功能，适用于web应用
+
+##### 引入方式
+
 - 通过配置xml文件直接引入
   ```xml
       <dependency>
@@ -165,6 +172,66 @@ logback是log4j创始人开发的新一款日志组件。SpringBoot默认采用l
 - 引入spring-boot-starter，会自动引入spring-boot-starter-logging
 - 引入spring-boot-starter-web,会自动引入spring-boot-starter
 
+##### 使用方式
+
+因为`logback-classic`实现了SLF4J FACADE，所以上层应用只需要面向SLF4J的调用语法即可。使用语法如下：
+
+```java
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.core.util.StatusPrinter;
+
+public class HelloWorld2 {
+
+  public static void main(String[] args) {
+    //这里的Logger和LoggerFactory均为SLF4J的类，真正调用时会使用Logback的日志能力
+    //getLogger方法中传入的是Logger的名称，这个名称在后面讲解配置文件中的<logger>时会继续提到
+    Logger logger = LoggerFactory.getLogger("chapters.introduction.HelloWorld2");
+    
+    //打印一条Debug级别的日志
+    logger.debug("Hello world.");
+
+    //获取根Logger，使用场景比较少
+    Logger rootLogger = LoggerFactory.getLogger(org.slf4j.Logger.ROOT_LOGGER_NAME);
+  }
+}
+```
+
+##### 日志级别
+
+Logback中每一个Logger都有对应的日志级别，该日志级别可以是Logger自己定义的，也可以是从父Logger上继承下来的。Logback一共支持5个日志级别，从高到低分别是ERROR，WARN，INFO，DEBUG，TRACE。Logger的日志级别决定了哪些级别的日志可以被输出。只有大于等于该Logger级别的日志才会被打印出来。比如假设上文中获取的名为"chapters.introduction.HelloWorld2"的Logger日志级别为INFO，则调用logger.debug("xxx")不会输出日志内容，因为DEBUG日志级别低于INFO日志级别。
+
+日志级别可以帮助我们控制日志打印的粒度，比如在开发环境可以将日志级别设置到DEBUG帮助排查问题，而在生产环境则可以将日志级别设置到INFO，从而减少不必要的打印日志带来的性能影响。
+
+##### 参数化输出
+
+有时候我们往往并不只是打印出一条完整的日志，而是希望在日志中附带一些运行中参数。这就会带来字符串拼接的问题。虽然JVM对String字符串的拼接已经进行了优化，但是假如当前的日志级别为INFO，那么这段代码所执行字符串拼接操作就是完全不必要的。因此，建议在代码加上一行日志级别的判断进行优化，如下：
+
+```java
+//非debug级别不会执行字符串拼接操作，但是debug级别会执行两次isDebugEnabled操作，性能影响不大
+if(logger.isDebugEnabled()) { 
+    logger.debug("Hello World To " + username);
+}
+```
+
+但是，logback并不推荐在系统中使用字符串拼接的方式来输出日志，而是提倡使用参数传递的方式，由logback自己来执行日志的序列化。如下：
+
+```java
+//logger方法会判断是否为debug级别，再决定将entry序列化拼接如字符串
+logger.debug("The entry is {}.", entry);
+```
+
+这种日志输出方式就无需额外包一层日志级别的判断，因为logger.debug方法内部自己会判断一次日志级别，再去执行日志内容转码的操作。注意，传入的参数必须实现了toString方法，不然日志在对对象进行转码时，只会打印出对象的内存地址，而不是对象中的具体内容。
+
+##### 配置文件结构
+
+配置文件以`<configuration>`作为根元素，其下包含1个`<root>`元素用于定义根日志的配置信息，还有0到多个`<logger>`元素以及0到多个`<appender>`元素。其中`<logger>`元素对应了应用中通过LoggerFactory.getLogger()获取到的日志工具，`<appender>`元素定义了日志的输出目的地，一个`<logger>`可以关联多个`<appender>`，即允许将同样的一行日志输出到多个目的地。
+
 ### IDEA集成热部署
 
 JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有一个JRebel mybatisPlus extension是针对mybatis的mapper.xml的热部署）
+
+### 修改Spring启动字符
+
+每次spring项目启动时都会在终端打印`SPRING`。如果需要换成其他字符。在`src/main/resources/`路径下创建`banner.txt`即可。其中放入你想打印的字符。
