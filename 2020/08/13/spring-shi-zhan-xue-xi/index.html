@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    11 分
                 </div>
                 
 
@@ -642,8 +642,13 @@
 </ul>
 <h4 id="logback"><a href="#logback" class="headerlink" title="logback"></a>logback</h4><p>logback是log4j创始人开发的新一款日志组件。SpringBoot默认采用logback作为日志组件。</p>
 <p>日志加载顺序:logback.xml-&gt;application.properties-&gt;logback-spring.xml</p>
-<p>引入方式：</p>
-<ul>
+<p>logback主要由以下三个模块组成：</p>
+<ol>
+<li>logback-core，是整个logback的核心模块</li>
+<li>logback-classic，支持了slf4j facade</li>
+<li>logback-access，集成了servlet容器来提供HTTP日志功能，适用于web应用</li>
+</ol>
+<h5 id="引入方式"><a href="#引入方式" class="headerlink" title="引入方式"></a>引入方式</h5><ul>
 <li>通过配置xml文件直接引入<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-logging<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
@@ -653,7 +658,40 @@
 <li>引入spring-boot-starter，会自动引入spring-boot-starter-logging</li>
 <li>引入spring-boot-starter-web,会自动引入spring-boot-starter</li>
 </ul>
+<h5 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h5><p>因为<code>logback-classic</code>实现了SLF4J FACADE，所以上层应用只需要面向SLF4J的调用语法即可。使用语法如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Logger</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">LoggerFactory</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">ch<span class="token punctuation">.</span>qos<span class="token punctuation">.</span>logback<span class="token punctuation">.</span>classic<span class="token punctuation">.</span></span><span class="token class-name">LoggerContext</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">ch<span class="token punctuation">.</span>qos<span class="token punctuation">.</span>logback<span class="token punctuation">.</span>core<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">StatusPrinter</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloWorld2</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//这里的Logger和LoggerFactory均为SLF4J的类，真正调用时会使用Logback的日志能力</span>
+    <span class="token comment">//getLogger方法中传入的是Logger的名称，这个名称在后面讲解配置文件中的&lt;logger&gt;时会继续提到</span>
+    <span class="token class-name">Logger</span> logger <span class="token operator">=</span> <span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token string">"chapters.introduction.HelloWorld2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">//打印一条Debug级别的日志</span>
+    logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"Hello world."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//获取根Logger，使用场景比较少</span>
+    <span class="token class-name">Logger</span> rootLogger <span class="token operator">=</span> <span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span>org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span><span class="token class-name">Logger</span><span class="token punctuation">.</span>ROOT_LOGGER_NAME<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h5><p>Logback中每一个Logger都有对应的日志级别，该日志级别可以是Logger自己定义的，也可以是从父Logger上继承下来的。Logback一共支持5个日志级别，从高到低分别是ERROR，WARN，INFO，DEBUG，TRACE。Logger的日志级别决定了哪些级别的日志可以被输出。只有大于等于该Logger级别的日志才会被打印出来。比如假设上文中获取的名为”chapters.introduction.HelloWorld2”的Logger日志级别为INFO，则调用logger.debug(“xxx”)不会输出日志内容，因为DEBUG日志级别低于INFO日志级别。</p>
+<p>日志级别可以帮助我们控制日志打印的粒度，比如在开发环境可以将日志级别设置到DEBUG帮助排查问题，而在生产环境则可以将日志级别设置到INFO，从而减少不必要的打印日志带来的性能影响。</p>
+<h5 id="参数化输出"><a href="#参数化输出" class="headerlink" title="参数化输出"></a>参数化输出</h5><p>有时候我们往往并不只是打印出一条完整的日志，而是希望在日志中附带一些运行中参数。这就会带来字符串拼接的问题。虽然JVM对String字符串的拼接已经进行了优化，但是假如当前的日志级别为INFO，那么这段代码所执行字符串拼接操作就是完全不必要的。因此，建议在代码加上一行日志级别的判断进行优化，如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//非debug级别不会执行字符串拼接操作，但是debug级别会执行两次isDebugEnabled操作，性能影响不大</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>logger<span class="token punctuation">.</span><span class="token function">isDebugEnabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"Hello World To "</span> <span class="token operator">+</span> username<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>但是，logback并不推荐在系统中使用字符串拼接的方式来输出日志，而是提倡使用参数传递的方式，由logback自己来执行日志的序列化。如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//logger方法会判断是否为debug级别，再决定将entry序列化拼接如字符串</span>
+logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"The entry is {}."</span><span class="token punctuation">,</span> entry<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这种日志输出方式就无需额外包一层日志级别的判断，因为logger.debug方法内部自己会判断一次日志级别，再去执行日志内容转码的操作。注意，传入的参数必须实现了toString方法，不然日志在对对象进行转码时，只会打印出对象的内存地址，而不是对象中的具体内容。</p>
+<h5 id="配置文件结构"><a href="#配置文件结构" class="headerlink" title="配置文件结构"></a>配置文件结构</h5><p>配置文件以<code>&lt;configuration&gt;</code>作为根元素，其下包含1个<code>&lt;root&gt;</code>元素用于定义根日志的配置信息，还有0到多个<code>&lt;logger&gt;</code>元素以及0到多个<code>&lt;appender&gt;</code>元素。其中<code>&lt;logger&gt;</code>元素对应了应用中通过LoggerFactory.getLogger()获取到的日志工具，<code>&lt;appender&gt;</code>元素定义了日志的输出目的地，一个<code>&lt;logger&gt;</code>可以关联多个<code>&lt;appender&gt;</code>，即允许将同样的一行日志输出到多个目的地。</p>
 <h3 id="IDEA集成热部署"><a href="#IDEA集成热部署" class="headerlink" title="IDEA集成热部署"></a>IDEA集成热部署</h3><p>JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有一个JRebel mybatisPlus extension是针对mybatis的mapper.xml的热部署）</p>
+<h3 id="修改Spring启动字符"><a href="#修改Spring启动字符" class="headerlink" title="修改Spring启动字符"></a>修改Spring启动字符</h3><p>每次spring项目启动时都会在终端打印<code>SPRING</code>。如果需要换成其他字符。在<code>src/main/resources/</code>路径下创建<code>banner.txt</code>即可。其中放入你想打印的字符。</p>
 
                 
             </div>
@@ -1227,7 +1265,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">136.1k</span>&nbsp;字
+                class="white-color">137.1k</span>&nbsp;字
             
             
             
@@ -1490,7 +1528,7 @@ $(function () {
     
     <script type="text/javascript" color="0,0,255"
         pointColor="0,0,255" opacity='0.7'
-        zIndex="-1" count="99"
+        zIndex="-1" count="299"
         src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/canvas-nest.js"></script>
     
 
