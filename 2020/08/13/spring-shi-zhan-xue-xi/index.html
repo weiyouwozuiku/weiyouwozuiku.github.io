@@ -469,21 +469,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-04
+                    2021-06-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -688,8 +688,13 @@
 <p>但是，logback并不推荐在系统中使用字符串拼接的方式来输出日志，而是提倡使用参数传递的方式，由logback自己来执行日志的序列化。如下：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//logger方法会判断是否为debug级别，再决定将entry序列化拼接如字符串</span>
 logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"The entry is {}."</span><span class="token punctuation">,</span> entry<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>这种日志输出方式就无需额外包一层日志级别的判断，因为logger.debug方法内部自己会判断一次日志级别，再去执行日志内容转码的操作。注意，传入的参数必须实现了toString方法，不然日志在对对象进行转码时，只会打印出对象的内存地址，而不是对象中的具体内容。</p>
+<p>这种日志输出方式就无需额外包一层日志级别的判断，因为logger.debug方法内部自己会判断一次日志级别，再去执行日志内容转码的操作。注意，<strong>传入的参数必须实现了toString方法</strong>，不然日志在对对象进行转码时，只会打印出对象的内存地址，而不是对象中的具体内容。</p>
 <h5 id="配置文件结构"><a href="#配置文件结构" class="headerlink" title="配置文件结构"></a>配置文件结构</h5><p>配置文件以<code>&lt;configuration&gt;</code>作为根元素，其下包含1个<code>&lt;root&gt;</code>元素用于定义根日志的配置信息，还有0到多个<code>&lt;logger&gt;</code>元素以及0到多个<code>&lt;appender&gt;</code>元素。其中<code>&lt;logger&gt;</code>元素对应了应用中通过LoggerFactory.getLogger()获取到的日志工具，<code>&lt;appender&gt;</code>元素定义了日志的输出目的地，一个<code>&lt;logger&gt;</code>可以关联多个<code>&lt;appender&gt;</code>，即允许将同样的一行日志输出到多个目的地。</p>
+<h6 id="configuration标签"><a href="#configuration标签" class="headerlink" title="configuration标签"></a>configuration标签</h6><p>作为配置文件的根标签，configuration更多的是对整个Logback配置读取的模式进行定义，configuration标签汇中可以定义的属性如下：</p>
+<ol>
+<li>debug: 默认debug值为false，如果debug设置为true的话，则无论配置读取成功与否，都会将日志框架的状态打印出来，为false的话则只有在读取配置出错时才会打印状态日志。</li>
+<li>scan：默认为false，将scan设为true的话，则logback会自动的定期扫描配置文件，如果配置文件发生变更，则logback能够快速识别并重新配置。可以通过scanPeriod来覆盖默认的扫描间隔。这个功能在生产环境建议不要开启，因为基本上生产环境的日志框架的配置都是稳定的。只有在开发环境需要调试日志框架的行为时，可以将该功能开启，减少因为修改配置进行调试而重启应用的麻烦。</li>
+</ol>
 <h3 id="IDEA集成热部署"><a href="#IDEA集成热部署" class="headerlink" title="IDEA集成热部署"></a>IDEA集成热部署</h3><p>JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有一个JRebel mybatisPlus extension是针对mybatis的mapper.xml的热部署）</p>
 <h3 id="修改Spring启动字符"><a href="#修改Spring启动字符" class="headerlink" title="修改Spring启动字符"></a>修改Spring启动字符</h3><p>每次spring项目启动时都会在终端打印<code>SPRING</code>。如果需要换成其他字符。在<code>src/main/resources/</code>路径下创建<code>banner.txt</code>即可。其中放入你想打印的字符。</p>
 
@@ -1265,7 +1270,7 @@ logger<span class="token punctuation">.</span><span class="token function">debug
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">137.1k</span>&nbsp;字
+                class="white-color">137.3k</span>&nbsp;字
             
             
             
