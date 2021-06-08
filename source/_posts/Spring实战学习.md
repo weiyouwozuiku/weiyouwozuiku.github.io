@@ -234,6 +234,10 @@ logger.debug("The entry is {}.", entry);
 1. debug: 默认debug值为false，如果debug设置为true的话，则无论配置读取成功与否，都会将日志框架的状态打印出来，为false的话则只有在读取配置出错时才会打印状态日志。
 2. scan：默认为false，将scan设为true的话，则logback会自动的定期扫描配置文件，如果配置文件发生变更，则logback能够快速识别并重新配置。可以通过scanPeriod来覆盖默认的扫描间隔。这个功能在生产环境建议不要开启，因为基本上生产环境的日志框架的配置都是稳定的。只有在开发环境需要调试日志框架的行为时，可以将该功能开启，减少因为修改配置进行调试而重启应用的麻烦。
 
+###### logger标签
+
+logger是日志流隔离的基本单位，每个logger都会绑定到一个LoggerContext。Logger之间存在树状层级关系，即A Logger可以是B Logger的父Logger。而它们之间的层级关系则是根据logger的名称来决定的。假如logger A的name为com.moduleA，而logger B的name为com.moduleA.packageA，则可以说A是B的父logger。这种树状结构的作用在于，假如B并没有定义自己的日志级别，则会继承A的日志级别。其它的如appender也会根据继承关系计算得出。
+
 ### IDEA集成热部署
 
 JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有一个JRebel mybatisPlus extension是针对mybatis的mapper.xml的热部署）
