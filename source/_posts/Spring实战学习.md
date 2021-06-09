@@ -236,7 +236,55 @@ logger.debug("The entry is {}.", entry);
 
 ###### logger标签
 
-logger是日志流隔离的基本单位，每个logger都会绑定到一个LoggerContext。Logger之间存在树状层级关系，即A Logger可以是B Logger的父Logger。而它们之间的层级关系则是根据logger的名称来决定的。假如logger A的name为com.moduleA，而logger B的name为com.moduleA.packageA，则可以说A是B的父logger。这种树状结构的作用在于，假如B并没有定义自己的日志级别，则会继承A的日志级别。其它的如appender也会根据继承关系计算得出。
+logger是日志流隔离的基本单位，每个logger都会绑定到一个LoggerContext。Logger之间存在树状层级关系，即A Logger可以是B Logger的父Logger。而它们之间的层级关系则是根据logger的名称来决定的。假如logger A的name为`com.moduleA`，而logger B的name为`com.moduleA.packageA`，则可以说A是B的父logger。这种树状结构的作用在于，假如B并没有定义自己的日志级别，则会继承A的日志级别。其它的如appender也会根据继承关系计算得出。
+
+**logger只有一个name属性是必填的**。通常来说，除了需要特殊定义的几个logger name之外，其它的基本都会以module的维度进行定义，从而确保模块下的每一个类在以自己的类名获取Logger时，能够向上找到对应的Logger。
+
+举个例子，假如现在定义了一个name为`com.rale.service的logger`，则位于`com.rale.service.HelloService.java`类中使用`LoggerFactory.getLogger(HelloService.class)`获取到的Logger，虽然在配置文件中并没有声明，但是会以该类的全路径作为logger的名称，按照Logger的层级不断向上找到最近的父Logger，并最终返回name为`com.rale.service`的logger。
+
+logger还有一个标签为level，可以为该logger分配对应的日志级别，只有高于该级别的日志会输出。**如果没有显示定义level的值，则会从最近的显式声明了日志级别的父节点继承其日志级别**。
+
+一个基础的logger配置如下：
+
+```xml
+<logger name="integration" level="INFO" additivity="false">
+    <appender-ref ref="integration"/>
+    <appender-ref ref="common-error"/>
+</logger>
+```
+
+**一个logger下可以包含多个appender-ref标签，该标签声明了该logger的日志会打印到这些输出流中。这里还有一个比较特殊的属性additivity，它是用来约束appender继承行为的**。在默认情况下，aditicity的值为true，即logger除了会打印到当前显式声明的appender-ref中，还会打印到所有从父Logger中继承的appender中。例如假设root中声明了`<appender-ref ref="common">`，则integration会同时向这三个输出流中打印日志。如果父logger和子logger中存在相同的appender，该日志也会向该appender打印两遍。因此，通过additivity设置为false，可以减少因为意料之外的appender继承导致日志的过量输出。
+
+###### appender标签
+
+一个appender对应一个日志输出流。同一个appender可以绑定在多个logger上，即多个logger均可以向该appender输出日志。因此appender的实现内部进行了并发控制，防止日志乱码。
+
+appender支持的输出端很多，包括控制台，文件，远程Socket服务器，MySQL，PostgreSQL等数据库，远程UNIX日志进程，JMS等。
+
+`<appender>`有两个强制属性name和class（Appender类的全路径），包含0到多个`<layout class="">`标签，0到多个`<encoder class="">`标签，0到多个`<filter>`标签。它还可以包含任意多个Appender Bean类的成员变量属性值。
+
+其中layout和encoder标签用来对appender中的日志进行格式化，filter标签则支持对appender中传来的日志信息进行过滤，来决定哪些日志打印哪些不打印，因此可以通过filter来定义appender维度的日志级别。
+
+一个典型的appender如下：
+
+```xml
+    <appender name="common-error"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/sls-common-error.log</file>
+        <encoder>
+            <pattern>${LOCAL_FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+```
+
+这里声明了一个文件输出流，并且用file标签定义了输出文件的位置，用encoder定义了日志打印的格式。这里通过引用变量的形式来定义，变量将在后面property标签中详细介绍。接着绑定了一个filter，并且使用该filter定义了appender只会打印出日志级别大于等于ERROR级别的日志。
+
+###### root标签
+
+root标签要求在配置中必须声明一次，root标签其实定义的是root logger的配置信息，它的默认的日志级别为debug。所有的logger的最终的父logger一定是root logger。
 
 ### IDEA集成热部署
 
