@@ -469,21 +469,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-08
+                    2021-06-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    16 分
                 </div>
                 
 
@@ -695,7 +695,33 @@ logger<span class="token punctuation">.</span><span class="token function">debug
 <li>debug: 默认debug值为false，如果debug设置为true的话，则无论配置读取成功与否，都会将日志框架的状态打印出来，为false的话则只有在读取配置出错时才会打印状态日志。</li>
 <li>scan：默认为false，将scan设为true的话，则logback会自动的定期扫描配置文件，如果配置文件发生变更，则logback能够快速识别并重新配置。可以通过scanPeriod来覆盖默认的扫描间隔。这个功能在生产环境建议不要开启，因为基本上生产环境的日志框架的配置都是稳定的。只有在开发环境需要调试日志框架的行为时，可以将该功能开启，减少因为修改配置进行调试而重启应用的麻烦。</li>
 </ol>
-<h6 id="logger标签"><a href="#logger标签" class="headerlink" title="logger标签"></a>logger标签</h6><p>logger是日志流隔离的基本单位，每个logger都会绑定到一个LoggerContext。Logger之间存在树状层级关系，即A Logger可以是B Logger的父Logger。而它们之间的层级关系则是根据logger的名称来决定的。假如logger A的name为com.moduleA，而logger B的name为com.moduleA.packageA，则可以说A是B的父logger。这种树状结构的作用在于，假如B并没有定义自己的日志级别，则会继承A的日志级别。其它的如appender也会根据继承关系计算得出。</p>
+<h6 id="logger标签"><a href="#logger标签" class="headerlink" title="logger标签"></a>logger标签</h6><p>logger是日志流隔离的基本单位，每个logger都会绑定到一个LoggerContext。Logger之间存在树状层级关系，即A Logger可以是B Logger的父Logger。而它们之间的层级关系则是根据logger的名称来决定的。假如logger A的name为<code>com.moduleA</code>，而logger B的name为<code>com.moduleA.packageA</code>，则可以说A是B的父logger。这种树状结构的作用在于，假如B并没有定义自己的日志级别，则会继承A的日志级别。其它的如appender也会根据继承关系计算得出。</p>
+<p><strong>logger只有一个name属性是必填的</strong>。通常来说，除了需要特殊定义的几个logger name之外，其它的基本都会以module的维度进行定义，从而确保模块下的每一个类在以自己的类名获取Logger时，能够向上找到对应的Logger。</p>
+<p>举个例子，假如现在定义了一个name为<code>com.rale.service的logger</code>，则位于<code>com.rale.service.HelloService.java</code>类中使用<code>LoggerFactory.getLogger(HelloService.class)</code>获取到的Logger，虽然在配置文件中并没有声明，但是会以该类的全路径作为logger的名称，按照Logger的层级不断向上找到最近的父Logger，并最终返回name为<code>com.rale.service</code>的logger。</p>
+<p>logger还有一个标签为level，可以为该logger分配对应的日志级别，只有高于该级别的日志会输出。<strong>如果没有显示定义level的值，则会从最近的显式声明了日志级别的父节点继承其日志级别</strong>。</p>
+<p>一个基础的logger配置如下：</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>integration<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>INFO<span class="token punctuation">"</span></span> <span class="token attr-name">additivity</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>integration<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>common-error<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logger</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>一个logger下可以包含多个appender-ref标签，该标签声明了该logger的日志会打印到这些输出流中。这里还有一个比较特殊的属性additivity，它是用来约束appender继承行为的</strong>。在默认情况下，aditicity的值为true，即logger除了会打印到当前显式声明的appender-ref中，还会打印到所有从父Logger中继承的appender中。例如假设root中声明了<code>&lt;appender-ref ref="common"&gt;</code>，则integration会同时向这三个输出流中打印日志。如果父logger和子logger中存在相同的appender，该日志也会向该appender打印两遍。因此，通过additivity设置为false，可以减少因为意料之外的appender继承导致日志的过量输出。</p>
+<h6 id="appender标签"><a href="#appender标签" class="headerlink" title="appender标签"></a>appender标签</h6><p>一个appender对应一个日志输出流。同一个appender可以绑定在多个logger上，即多个logger均可以向该appender输出日志。因此appender的实现内部进行了并发控制，防止日志乱码。</p>
+<p>appender支持的输出端很多，包括控制台，文件，远程Socket服务器，MySQL，PostgreSQL等数据库，远程UNIX日志进程，JMS等。</p>
+<p><code>&lt;appender&gt;</code>有两个强制属性name和class（Appender类的全路径），包含0到多个<code>&lt;layout class=""&gt;</code>标签，0到多个<code>&lt;encoder class=""&gt;</code>标签，0到多个<code>&lt;filter&gt;</code>标签。它还可以包含任意多个Appender Bean类的成员变量属性值。</p>
+<p>其中layout和encoder标签用来对appender中的日志进行格式化，filter标签则支持对appender中传来的日志信息进行过滤，来决定哪些日志打印哪些不打印，因此可以通过filter来定义appender维度的日志级别。</p>
+<p>一个典型的appender如下：</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>common-error<span class="token punctuation">"</span></span>
+          <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.RollingFileAppender<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>file</span><span class="token punctuation">&gt;</span></span>${LOG_PATH}/sls-common-error.log<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>file</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>encoder</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">&gt;</span></span>${LOCAL_FILE_LOG_PATTERN}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filter</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.classic.filter.ThresholdFilter<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>level</span><span class="token punctuation">&gt;</span></span>ERROR<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>level</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里声明了一个文件输出流，并且用file标签定义了输出文件的位置，用encoder定义了日志打印的格式。这里通过引用变量的形式来定义，变量将在后面property标签中详细介绍。接着绑定了一个filter，并且使用该filter定义了appender只会打印出日志级别大于等于ERROR级别的日志。</p>
+<h6 id="root标签"><a href="#root标签" class="headerlink" title="root标签"></a>root标签</h6><p>root标签要求在配置中必须声明一次，root标签其实定义的是root logger的配置信息，它的默认的日志级别为debug。所有的logger的最终的父logger一定是root logger。</p>
 <h3 id="IDEA集成热部署"><a href="#IDEA集成热部署" class="headerlink" title="IDEA集成热部署"></a>IDEA集成热部署</h3><p>JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有一个JRebel mybatisPlus extension是针对mybatis的mapper.xml的热部署）</p>
 <h3 id="修改Spring启动字符"><a href="#修改Spring启动字符" class="headerlink" title="修改Spring启动字符"></a>修改Spring启动字符</h3><p>每次spring项目启动时都会在终端打印<code>SPRING</code>。如果需要换成其他字符。在<code>src/main/resources/</code>路径下创建<code>banner.txt</code>即可。其中放入你想打印的字符。</p>
 
@@ -1271,7 +1297,7 @@ logger<span class="token punctuation">.</span><span class="token function">debug
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">137.5k</span>&nbsp;字
+                class="white-color">138.4k</span>&nbsp;字
             
             
             
