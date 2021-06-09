@@ -476,7 +476,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    5k
                 </div>
                 
 
@@ -768,8 +768,15 @@ logger<span class="token punctuation">.</span><span class="token function">debug
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>root</span><span class="token punctuation">&gt;</span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<p><code>src/main/java/chapters/configuration/includedConfig.xml</code>文件的内容如下：</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>included</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>includedConsole<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.ConsoleAppender<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>encoder</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">&gt;</span></span>"%d - %m%n"<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>included</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>要求被include进来的文件的内容必须包含在included标签内，且语法满足logback配置文件的语法。这里就是引入了includeConfig.xml中声明的一个appender。</p>
 <h3 id="IDEA集成热部署"><a href="#IDEA集成热部署" class="headerlink" title="IDEA集成热部署"></a>IDEA集成热部署</h3><p>JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有一个JRebel mybatisPlus extension是针对mybatis的mapper.xml的热部署）</p>
 <h3 id="修改Spring启动字符"><a href="#修改Spring启动字符" class="headerlink" title="修改Spring启动字符"></a>修改Spring启动字符</h3><p>每次spring项目启动时都会在终端打印<code>SPRING</code>。如果需要换成其他字符。在<code>src/main/resources/</code>路径下创建<code>banner.txt</code>即可。其中放入你想打印的字符。</p>
 
@@ -1345,7 +1352,7 @@ logger<span class="token punctuation">.</span><span class="token function">debug
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139k</span>&nbsp;字
+                class="white-color">139.1k</span>&nbsp;字
             
             
             
@@ -1608,7 +1615,7 @@ $(function () {
     
     <script type="text/javascript" color="0,0,255"
         pointColor="0,0,255" opacity='0.7'
-        zIndex="-1" count="299"
+        zIndex="-1" count="150"
         src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/canvas-nest.js"></script>
     
 
