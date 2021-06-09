@@ -357,7 +357,19 @@ include标签允许引入另一个路径下存储的logback配置，示例如下
 </configuration>
 ```
 
+`src/main/java/chapters/configuration/includedConfig.xml`文件的内容如下：
 
+```xml
+<included>
+  <appender name="includedConsole" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>"%d - %m%n"</pattern>
+    </encoder>
+  </appender>
+</included>
+```
+
+要求被include进来的文件的内容必须包含在included标签内，且语法满足logback配置文件的语法。这里就是引入了includeConfig.xml中声明的一个appender。
 
 ### IDEA集成热部署
 
