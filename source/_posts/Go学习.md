@@ -3,6 +3,7 @@ title: Go学习
 author: 不二
 date: 2019-12-01 23:20:34
 mathjax: true
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/golang.jpg
 tags:
 - Go
 categories: 程序设计

@@ -6,8 +6,9 @@ mathjax: true
 tags:
 - Linux
 - V2ray
-- Ios
+- IOS
 - Windows
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/V2Ray.jpeg
 categories: 经验总结
 ---
 
