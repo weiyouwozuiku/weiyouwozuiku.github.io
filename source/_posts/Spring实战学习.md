@@ -284,7 +284,80 @@ appender支持的输出端很多，包括控制台，文件，远程Socket服务
 
 ###### root标签
 
-root标签要求在配置中必须声明一次，root标签其实定义的是root logger的配置信息，它的默认的日志级别为debug。所有的logger的最终的父logger一定是root logger。
+root标签要求在配置中必须声明一次，root标签其实定义的是root logger的配置信息，它的默认的日志级别为debug。所有的logger的最终的父logger一定是root logger。可以多个root标签来分别声明不同级别的日志等级输出的日志输出流。
+
+###### property标签
+
+property标签支持在配置文件中声明变量。配置文件的变量有四种来源，分别是通过JVM COMMAND，JAVA COMMAND，Classpth以及当前的配置文件。举个例子，JAVA命令传入变量的格式如下`java -DUSER_HOME="/home/sebastien" MyApp2`。`<property>`标签支持configuration文件中声明成员变量，它支持三种类型：KV，文件相对路径，Classpth下的文件。
+
+```xml
+  <!--键值型声明-->
+  <property name="USER_HOME" value="/home/sebastien" />
+
+  <!--配置文件声明-->
+  <property file="src/main/java/chapters/configuration/variables1.properties" />
+
+  <!--Classpath资源-->
+  <property resource="resource1.properties"/>
+```
+
+对于这些变量的引用采用标准Linux变量引用方法，通过`${变量名称}`即可以引用变量的值。同样也支持为这些变量声明默认值，通过`${变量名称:-默认值}`的语法结构。
+
+一个简单的声明配置并使用的例子如下：
+
+```xml
+<configuration>
+  <property name="USER_HOME" value="/home/sebastien" />
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <file>${USER_HOME}/myApp.log</file>
+    <encoder>
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="debug">
+    <appender-ref ref="FILE" />
+  </root>
+</configuration>
+```
+
+###### define标签
+
+**define标签也是用来声明变量的，但是和上面的property的不同点在于，define声明的是动态变量**，即这些变量的值是在程序运行起来后才能得到的。比如配置文件中默认存在的`${HOSTNAME}`变量，就是通过define标签实现的，它会在程序运行后动态的获取当前所处容器的主机名，并且赋值给HOSTNAME变量。
+
+一个典型的define标签用法如下，要求define的class中填入的类必须是PropertyDefiner接口的实现。
+
+```xml
+<configuration>
+
+  <define name="rootLevel" class="a.class.implementing.PropertyDefiner">
+    <shape>round</shape>
+    <color>brown</color>
+    <size>24</size>
+  </define>
+ 
+  <root level="${rootLevel}"/>
+</configuration>
+```
+
+logback提供了几个基础的Definer的实现，如`FileExistsPropertyDefiner`就是用来判断path中声明的文件是否存在的一个definer。
+
+###### include标签
+
+include标签允许引入另一个路径下存储的logback配置，示例如下：
+
+```xml
+<configuration>
+  <include file="src/main/java/chapters/configuration/includedConfig.xml"/>
+
+  <root level="DEBUG">
+    <appender-ref ref="includedConsole" />
+  </root>
+
+</configuration>
+```
+
+
 
 ### IDEA集成热部署
 
