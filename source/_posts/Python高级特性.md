@@ -5,6 +5,7 @@ date: 2019-07-15 12:32:34
 mathjax: true
 tags: 
 - Python
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/python4.jpg
 categories: 程序设计
 ---
 

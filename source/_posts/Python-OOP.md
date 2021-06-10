@@ -6,6 +6,7 @@ mathjax: true
 tags: 
 - Python
 - OOP
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/python3.jpg
 categories: 程序设计
 ---
 

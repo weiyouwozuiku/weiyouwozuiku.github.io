@@ -4,6 +4,7 @@ author: 不二
 date: 2020-02-15 20:32:48
 tags:
 - Linux
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/prompt-styles-high-contrast.png
 categories: 经验总结
 ---
 
