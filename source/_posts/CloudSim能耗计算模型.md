@@ -5,6 +5,7 @@ date: 2019-07-12 09:25:00
 mathjax: true
 tags: 
 - CloudSim
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/cloudsim1.png
 categories: 云计算
 ---
 

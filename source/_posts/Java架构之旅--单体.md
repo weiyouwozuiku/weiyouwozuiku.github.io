@@ -5,7 +5,7 @@ mathjax: true
 date: 2020-09-29 19:14:12
 tags:
 - Java
-img:
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/architecture.png
 categories: 程序设计
 ---
 
