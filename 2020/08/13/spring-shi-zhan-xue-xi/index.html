@@ -469,14 +469,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-10
+                    2021-06-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.1k
                 </div>
                 
 
@@ -614,7 +614,9 @@
 </ul>
 <p>当DevTools运行时，应用程序会被加载到Java虚拟机两个独立的类加载器中。其中一个类加载器会加载Jva代码、属性文件和项目中”src/main”路径下几乎所有的内容。另一个类加载器会加载依赖的库。当检测到变更时，DevTools只会重新加载包含项目代码的类加载器，并重启应用上下文。另一个类加载器和jvm保持不变，缩短应用启动时间。但<strong>导致自动重启无法反映依赖项的变化。需手动重新启动应用</strong>。DevTools在应用程序运行时，自启动一个LiveReload服务器。当LiveReload服务器与LiveReload浏览器插件结合时，有变化时自动刷新浏览器。</p>
 <p><strong>推荐使用Idea中的插件JRBEL</strong></p>
-<h4 id="Lombok"><a href="#Lombok" class="headerlink" title="Lombok"></a>Lombok</h4><blockquote>
+<h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="IDEA集成热部署"><a href="#IDEA集成热部署" class="headerlink" title="IDEA集成热部署"></a>IDEA集成热部署</h3><p>JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有一个JRebel mybatisPlus extension是针对mybatis的mapper.xml的热部署）</p>
+<h3 id="修改Spring启动字符"><a href="#修改Spring启动字符" class="headerlink" title="修改Spring启动字符"></a>修改Spring启动字符</h3><p>每次spring项目启动时都会在终端打印<code>SPRING</code>。如果需要换成其他字符。在<code>src/main/resources/</code>路径下创建<code>banner.txt</code>即可。其中放入你想打印的字符。</p>
+<h3 id="Lombok"><a href="#Lombok" class="headerlink" title="Lombok"></a>Lombok</h3><blockquote>
 <p>Lombok是一种JAVA的实用工具，可用来帮助开发人员消除JAVA的冗长，通过注解实现这一目的。</p>
 </blockquote>
 <p>常见的Lombok注释：</p>
@@ -630,14 +632,19 @@
 <li><p>@Log4j：注释在类上；为类提供一个属性名为log的log4j日志对象</p>
 </li>
 <li><p>@Slf4j：同上。其作用同如下代码</p>
-  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span><span class="token class-name">Logger</span> log<span class="token operator">=</span>org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span><span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">DesignTacoController</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span><span class="token class-name">Logger</span> log<span class="token operator">=</span>org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span><span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">DesignTacoController</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>@NoArgsConstructor：注释在类上；为类提供一个无参的构造方法</p>
 </li>
 <li><p>@AllArgsConstructor：注释在类上；为类提供一个全参的构造方法</p>
 </li>
 </ul>
-<h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="IDEA集成热部署"><a href="#IDEA集成热部署" class="headerlink" title="IDEA集成热部署"></a>IDEA集成热部署</h3><p>JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有一个JRebel mybatisPlus extension是针对mybatis的mapper.xml的热部署）</p>
-<h3 id="修改Spring启动字符"><a href="#修改Spring启动字符" class="headerlink" title="修改Spring启动字符"></a>修改Spring启动字符</h3><p>每次spring项目启动时都会在终端打印<code>SPRING</code>。如果需要换成其他字符。在<code>src/main/resources/</code>路径下创建<code>banner.txt</code>即可。其中放入你想打印的字符。</p>
+<h3 id="修改SpringBoot中Tomcat的服务端口"><a href="#修改SpringBoot中Tomcat的服务端口" class="headerlink" title="修改SpringBoot中Tomcat的服务端口"></a>修改SpringBoot中Tomcat的服务端口</h3><p>在配置文件<code>src/main/resources/application.properties</code>中修改或增加<code>server.port=8000</code>，其中8000就是指定的端口号，可以随意设置。</p>
+<h3 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h3><h4 id="ResponseBody"><a href="#ResponseBody" class="headerlink" title="@ResponseBody"></a>@ResponseBody</h4><p>返回字符串或JSON对象</p>
+<h4 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h4><p>约等于@ResponseBody和@Controller的结合</p>
+<h4 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h4><p>SpringBoot启动入口处的注解</p>
+<h4 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h4><p>只是简单的使用@RequestMapping注解表示这个接口支持所有的请求方式</p>
+<h4 id="GetMapping"><a href="#GetMapping" class="headerlink" title="@GetMapping"></a>@GetMapping</h4><p>不同于上一个@RequestMapping，其表示只接受get请求方式。或者写成<code>@RequestMapping(value="/hello", method=RequestMethod.GET)</code>，效果一样。</p>
+<h4 id="ComponentScan"><a href="#ComponentScan" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h4><p>该注解实现了扫描包的功能。但是<strong>其只会扫描当前文件夹及其子文件夹的内容，对于上级或同级目录不会扫描。</strong>后面的括号中需要</p>
 
                 
             </div>
@@ -1210,7 +1217,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">139.8k</span>&nbsp;字
+                class="white-color">140k</span>&nbsp;字
             
             
             
