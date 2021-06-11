@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -640,11 +640,15 @@
 </ul>
 <h3 id="修改SpringBoot中Tomcat的服务端口"><a href="#修改SpringBoot中Tomcat的服务端口" class="headerlink" title="修改SpringBoot中Tomcat的服务端口"></a>修改SpringBoot中Tomcat的服务端口</h3><p>在配置文件<code>src/main/resources/application.properties</code>中修改或增加<code>server.port=8000</code>，其中8000就是指定的端口号，可以随意设置。</p>
 <h3 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h3><h4 id="ResponseBody"><a href="#ResponseBody" class="headerlink" title="@ResponseBody"></a>@ResponseBody</h4><p>返回字符串或JSON对象</p>
+<h4 id="Controller"><a href="#Controller" class="headerlink" title="@Controller"></a>@Controller</h4><p>用于定义接口，是请求的入口。</p>
 <h4 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h4><p>约等于@ResponseBody和@Controller的结合</p>
 <h4 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h4><p>SpringBoot启动入口处的注解</p>
 <h4 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h4><p>只是简单的使用@RequestMapping注解表示这个接口支持所有的请求方式</p>
 <h4 id="GetMapping"><a href="#GetMapping" class="headerlink" title="@GetMapping"></a>@GetMapping</h4><p>不同于上一个@RequestMapping，其表示只接受get请求方式。或者写成<code>@RequestMapping(value="/hello", method=RequestMethod.GET)</code>，效果一样。</p>
-<h4 id="ComponentScan"><a href="#ComponentScan" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h4><p>该注解实现了扫描包的功能。但是<strong>其只会扫描当前文件夹及其子文件夹的内容，对于上级或同级目录不会扫描。</strong>后面的括号中需要</p>
+<h4 id="ComponentScan"><a href="#ComponentScan" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h4><p>该注解实现了扫描包的功能。但是<strong>其只会扫描当前文件夹及其子文件夹的内容，对于上级或同级目录不会扫描。</strong></p>
+<p>使用时在需要添加扫描的类上加上这个注解，并在注解后面的括号中写上包名，如<code>@ComponentScan("com.wangzhengbest.wiki")</code>。<strong>不要只写com,会扫描到第三方Jar,出错非常难排查。</strong>使用<code>@ComponentScan({"com.wangzhengbest","top.buerlog"})</code>扫描多个包。</p>
+<h4 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h4><p>该注解可以将配置文件中的变量读取到程序中。例如<code>@Value("${test.hello}")</code>就会去读取配置文件中的test.hello字段。</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在IDEA中可以创建以<code>.http</code>为结尾的文件来测试接口。在IDEA的设置中的实时模板中有创建测试的快捷指令。</p>
 
                 
             </div>
@@ -1217,7 +1221,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140k</span>&nbsp;字
+                class="white-color">140.1k</span>&nbsp;字
             
             
             
