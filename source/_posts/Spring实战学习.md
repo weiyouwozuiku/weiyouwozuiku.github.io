@@ -159,6 +159,10 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
 
 返回字符串或JSON对象
 
+#### @Controller
+
+用于定义接口，是请求的入口。
+
 #### @RestController
 
 约等于@ResponseBody和@Controller的结合
@@ -177,5 +181,14 @@ SpringBoot启动入口处的注解
 
 #### @ComponentScan
 
-该注解实现了扫描包的功能。但是**其只会扫描当前文件夹及其子文件夹的内容，对于上级或同级目录不会扫描。**后面的括号中需要
+该注解实现了扫描包的功能。但是**其只会扫描当前文件夹及其子文件夹的内容，对于上级或同级目录不会扫描。**
 
+使用时在需要添加扫描的类上加上这个注解，并在注解后面的括号中写上包名，如`@ComponentScan("com.wangzhengbest.wiki")`。**不要只写com,会扫描到第三方Jar,出错非常难排查。**使用`@ComponentScan({"com.wangzhengbest","top.buerlog"})`扫描多个包。
+
+#### @Value
+
+该注解可以将配置文件中的变量读取到程序中。例如`@Value("${test.hello}")`就会去读取配置文件中的test.hello字段。
+
+### 测试
+
+在IDEA中可以创建以`.http`为结尾的文件来测试接口。在IDEA的设置中的实时模板中有创建测试的快捷指令。
