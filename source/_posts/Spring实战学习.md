@@ -113,7 +113,17 @@ DevTools是Spring开发人员的开发期工具，包括：
 
 **推荐使用Idea中的插件JRBEL**
 
-#### Lombok
+## Tip
+
+### IDEA集成热部署
+
+JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有一个JRebel mybatisPlus extension是针对mybatis的mapper.xml的热部署）
+
+### 修改Spring启动字符
+
+每次spring项目启动时都会在终端打印`SPRING`。如果需要换成其他字符。在`src/main/resources/`路径下创建`banner.txt`即可。其中放入你想打印的字符。
+
+### Lombok
 
 >Lombok是一种JAVA的实用工具，可用来帮助开发人员消除JAVA的冗长，通过注解实现这一目的。
 
@@ -131,21 +141,41 @@ DevTools是Spring开发人员的开发期工具，包括：
 
 - @Slf4j：同上。其作用同如下代码
 
-    ```java
-    private static final org.slf4j.Logger log=org.slf4j.LoggerFactory.getLogger(DesignTacoController.class);
-    ```
+  ```java
+  private static final org.slf4j.Logger log=org.slf4j.LoggerFactory.getLogger(DesignTacoController.class);
+  ```
 
 - @NoArgsConstructor：注释在类上；为类提供一个无参的构造方法
 
 - @AllArgsConstructor：注释在类上；为类提供一个全参的构造方法
 
-## Tip
+### 修改SpringBoot中Tomcat的服务端口
 
-### IDEA集成热部署
+在配置文件`src/main/resources/application.properties`中修改或增加`server.port=8000`，其中8000就是指定的端口号，可以随意设置。
 
-JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有一个JRebel mybatisPlus extension是针对mybatis的mapper.xml的热部署）
+### 常用注解
 
-### 修改Spring启动字符
+#### @ResponseBody 
 
-每次spring项目启动时都会在终端打印`SPRING`。如果需要换成其他字符。在`src/main/resources/`路径下创建`banner.txt`即可。其中放入你想打印的字符。
+返回字符串或JSON对象
+
+#### @RestController
+
+约等于@ResponseBody和@Controller的结合
+
+#### @SpringBootApplication
+
+SpringBoot启动入口处的注解
+
+#### @RequestMapping
+
+只是简单的使用@RequestMapping注解表示这个接口支持所有的请求方式
+
+#### @GetMapping
+
+不同于上一个@RequestMapping，其表示只接受get请求方式。或者写成`@RequestMapping(value="/hello", method=RequestMethod.GET)`，效果一样。
+
+#### @ComponentScan
+
+该注解实现了扫描包的功能。但是**其只会扫描当前文件夹及其子文件夹的内容，对于上级或同级目录不会扫描。**后面的括号中需要
 
