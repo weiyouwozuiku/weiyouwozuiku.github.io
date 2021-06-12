@@ -157,6 +157,16 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
 
   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_tostring.png)
 
+- @EqualAndHashCode
+
+  自动生成`equals(Object other)`和`hashCode()`方法，包括所有非静态变量和非transient的变量
+
+  ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_equalsandhashcode.png)
+
+  如果某些变量不想要加进判断，可以透过exclude 排除，也可以使用of 指定某些字段
+
+  ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_equalsandhashcode_exclude.png)
+
 - @SneakyThrows：无需在签名处显式抛出异常
 
 - @Log4j：注释在类上；为类提供一个属性名为log的log4j日志对象
