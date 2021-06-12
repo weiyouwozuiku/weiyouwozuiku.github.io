@@ -476,14 +476,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -660,18 +660,34 @@
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_noargsconstructor.png" alt="lombok_noargsconstructor.png"></p>
 </li>
 <li><p>@AllArgsConstructor：注释在类上；为类提供一个全参的构造方法</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_allargsconstructor.png" alt="lombok_allargsconstructor.png"></p>
+<p><img src="lombok_allargsconstructor.png" alt="lombok_allargsconstructor.png"></p>
 <p>这里注意一个Java 的小坑，当我们没有指定constructor 时，Java compiler 会帮我们自动生成一个没有任何参数的constructor 给该类，但是如果我们自己写了constructor 之后，Java 就不会自动帮我们补上那个无参数的constructor 了</p>
 <p>然而很多地方（像是Spring Data JPA），会需要每个类都一定要有一个无参数的constructor，所以<strong>你在加上@AllArgsConstructor时，拜托，一定要补上@NoArgsConstrcutor，不然会有各种坑等着你</strong></p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">@AllArgsConstructor
-@NoArgsConstructor
-public class User {
-    private Integer id;
-    private String name;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>@RequiredArgsConstructor：生成一个包含“特定参数”的constructor，特定参数指的是那些有加上final修饰词的变量们</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_requiredargsconstructor.png" alt="lombok_requiredargsconstructor.png"></p>
 <p>如果所有的变量都是正常的，都没有用final 修饰的话，那就会生成一个没有参数的constructor。</p>
+</li>
+<li><p>@Value 基本与@Data相同，不同在于它会把所有变量设置为final。相应的也就没有setter方法了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_value.png" alt="lombok_value.png"></p>
+<p>此lombok 的注解@Value 和另一个Spring 的注解@Value 撞名，在import 时不要import 错了。</p>
+</li>
+<li><p>@Builder，自动生成流式set 值写法，从此之后再也不用写一堆setter 了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_builder.png" alt="lombok_builder.png"></p>
+<p>注意，虽然只要加上@Builder 注解，我们就能够用流式写法快速设定Object 的值，但是setter 还是必须要写不能省略的，因为Spring 或是其他框架有很多地方都会用到Object 的getter/setter对他们取值/赋值。所以<strong>通常是@Data 和@Builder 会一起用在同个类上，既方便我们流式写code，也方便框架做事</strong>。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@Builder</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 </li>
 </ul>
 <h3 id="修改SpringBoot中Tomcat的服务端口"><a href="#修改SpringBoot中Tomcat的服务端口" class="headerlink" title="修改SpringBoot中Tomcat的服务端口"></a>修改SpringBoot中Tomcat的服务端口</h3><p>在配置文件<code>src/main/resources/application.properties</code>中修改或增加<code>server.port=8000</code>，其中8000就是指定的端口号，可以随意设置。</p>
@@ -1280,7 +1296,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver<span aria-hidden="t
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.1k</span>&nbsp;字
+                class="white-color">142.3k</span>&nbsp;字
             
             
             
