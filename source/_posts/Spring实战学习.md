@@ -189,13 +189,13 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
 
 - @AllArgsConstructor：注释在类上；为类提供一个全参的构造方法
 
-  ![lombok_allargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_allargsconstructor.png)
+  ![lombok_allargsconstructor.png](lombok_allargsconstructor.png)
 
   这里注意一个Java 的小坑，当我们没有指定constructor 时，Java compiler 会帮我们自动生成一个没有任何参数的constructor 给该类，但是如果我们自己写了constructor 之后，Java 就不会自动帮我们补上那个无参数的constructor 了
 
   然而很多地方（像是Spring Data JPA），会需要每个类都一定要有一个无参数的constructor，所以**你在加上@AllArgsConstructor时，拜托，一定要补上@NoArgsConstrcutor，不然会有各种坑等着你**
 
-  ```Java
+  ```java
   @AllArgsConstructor
   @NoArgsConstructor
   public class User {
@@ -209,6 +209,29 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
   ![lombok_requiredargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_requiredargsconstructor.png)
 
   如果所有的变量都是正常的，都没有用final 修饰的话，那就会生成一个没有参数的constructor。
+
+- @Value 基本与@Data相同，不同在于它会把所有变量设置为final。相应的也就没有setter方法了。
+
+  ![lombok_value.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_value.png)
+
+  此lombok 的注解@Value 和另一个Spring 的注解@Value 撞名，在import 时不要import 错了。
+
+- @Builder，自动生成流式set 值写法，从此之后再也不用写一堆setter 了
+
+  ![lombok_builder.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_builder.png)
+
+  注意，虽然只要加上@Builder 注解，我们就能够用流式写法快速设定Object 的值，但是setter 还是必须要写不能省略的，因为Spring 或是其他框架有很多地方都会用到Object 的getter/setter对他们取值/赋值。所以**通常是@Data 和@Builder 会一起用在同个类上，既方便我们流式写code，也方便框架做事**。
+
+  ```java
+  @Data
+  @Builder
+  public class User {
+      private Integer id;
+      private String name;
+  }
+  ```
+
+  
 
 ### 修改SpringBoot中Tomcat的服务端口
 
