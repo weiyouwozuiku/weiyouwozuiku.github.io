@@ -189,7 +189,7 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
 
 - @AllArgsConstructor：注释在类上；为类提供一个全参的构造方法
 
-  ![lombok_allargsconstructor.png](lombok_allargsconstructor.png)
+  ![lombok_allargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_allargsconstructor.png)
 
   这里注意一个Java 的小坑，当我们没有指定constructor 时，Java compiler 会帮我们自动生成一个没有任何参数的constructor 给该类，但是如果我们自己写了constructor 之后，Java 就不会自动帮我们补上那个无参数的constructor 了
 
