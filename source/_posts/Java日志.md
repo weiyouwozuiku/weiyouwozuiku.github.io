@@ -141,6 +141,8 @@ appender支持的输出端很多，包括控制台，文件，远程Socket服务
 
 其中layout和encoder标签用来对appender中的日志进行格式化，filter标签则支持对appender中传来的日志信息进行过滤，来决定哪些日志打印哪些不打印，因此可以通过filter来定义appender维度的日志级别。
 
+常用的appender类有`ConsoleAppender`和`RollingFileAppender`。前者用来在控制台上打印日志，后者将日志输出到文件中。
+
 一个典型的appender如下：
 
 ```xml
@@ -157,6 +159,35 @@ appender支持的输出端很多，包括控制台，文件，远程Socket服务
 ```
 
 这里声明了一个文件输出流，并且用file标签定义了输出文件的位置，用encoder定义了日志打印的格式。这里通过引用变量的形式来定义，变量将在后面property标签中详细介绍。接着绑定了一个filter，并且使用该filter定义了appender只会打印出日志级别大于等于ERROR级别的日志。
+
+```xml
+<!-- info级别日志会输出到test-info.log日志文件中 -->
+<appender name="info-log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>/logback/log/test-info.log</file>
+    <encoder>
+    	<pattern>【logbck】%blue([requestId:%X{requestId:-syslogId}]) %d{yyyy-MM-dd HH:mm:ss.SSS} %red([%thread]) %5level - %msg%n</pattern>
+    </encoder>
+    <!-- filter过滤器，INFO级别 -->
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+    	<level>INFO</level>
+        <onMatch>ACCEPT</onMatch>
+        <onMismatch>DENY</onMismatch>
+    </filter>
+</appender>
+<!-- error级别日志会输出到test-error.log日志文件中 -->
+<appender name="info-error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>/logback/log/test-error.log</file>
+    <encoder>
+    	<pattern>【logbck】%blue([requestId:%X{requestId:-syslogId}]) %d{yyyy-MM-dd HH:mm:ss.SSS} %red([%thread]) %5level - %msg%n</pattern>
+    </encoder>
+    <!-- filter过滤器，ERROR级别 -->
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+    	<level>ERROR</level>
+        <onMatch>ACCEPT</onMatch>
+        <onMismatch>DENY</onMismatch>
+    </filter>
+</appender>
+```
 
 #### root标签
 
@@ -246,3 +277,60 @@ include标签允许引入另一个路径下存储的logback配置，示例如下
 ```
 
 要求被include进来的文件的内容必须包含在included标签内，且语法满足logback配置文件的语法。这里就是引入了includeConfig.xml中声明的一个appender。
+
+#### rollingPolicy标签
+
+用来设置日志的滚动策略。当达到条件后会自动将条件前的日志生成一份备份日志文件，条件后的日志输出到最新的日志文件中。常用的是按照时间来滚动（使用类`TimeBaseRollingPolicy`）还有一种就是基于索引来实现的（使用类`FixedWindowRollingPolicy`）。
+
+```xml
+    <!-- 
+    通过rollingPolicy设置日志滚动的策略，这是使用按照时间滚动
+    fileNamePattern属性设置滚动生成文件的格式,这里设置的精确到天，也就是按照天滚动，如果时间设置精确到秒，就按秒来滚动
+    maxHistory属性设定最大的文件数，比如按天滚动，这里设置了30天，在第31天日志生成的时候，第一天的日志就会被删掉
+    -->
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+    	<fileNamePattern>/logback/log/test-%d{yyyy-MM-dd}.log</fileNamePattern>
+        <maxHistory>30</maxHistory>
+    </rollingPolicy>
+```
+
+说明：`fileNamePattern`是要格外说明的。如上我设置按天来滚动，前一天日志打印到23点59分，然后就一直没有请求日志，直到次日的1点才有新的日志进入。在0点到1点这个时间段，日志文件是不会滚动生成新的日志文件。因为**滚动的动作是需要日志写入动作来触发**。
+
+```xml
+<!-- 设置为按照索引的方式滚动，定义文件名称的时候使用%i作为占位符，滚动后会会用角标替换 -->
+<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+    <fileNamePattern>/logback/log/test-%i.log</fileNamePattern>
+    <minIndex>1</minIndex>
+    <maxIndex>3</maxIndex>
+</rollingPolicy>
+<!-- 指定文件最大尺寸，达到该尺寸，就触发rollingPolicy对应的策略，maxFileSize属性指定文件大小 -->
+<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+	<maxFileSize>1MB</maxFileSize>
+</triggeringPolicy>
+```
+
+说明：
+
+- maxIndex不可设置为过大，过大后会自动被置为默认值12，这个过大的值具体是多少没测试过。
+- 第一次滚动，生成test-1.log，第二次滚动时会将之前的test-1.log文件修改成test-2.log，将最新生成的日志文件命名为test-1.log，依此类推，直到索引达到设置的最大值。当超过最大值的时候，会将索引最大的文件直接删除，用前一个文件移到最后一位。就像传送带，最先放上的物品会最先掉出传送带。
+- 在时间滚动的方式里面，可以用时间作为触发机制。但是在使用索引方式的时候，需要定义一个triggeringPolicy作为触发机制。
+
+**`rollingPolicy`对应的是时间策略并配合文件大小触发器来实现日志文件定义：**
+
+```xml
+<!-- 使用按照时间滚动策略，内嵌按照文件大小来分隔日志的触发器策略 -->
+<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+    <fileNamePattern>/logback/log/test-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+    <!-- 使用SizeAndTimeBasedFNATP实现，可以看一下TimeBasedRollingPolicy源码中对应timeBasedFileNamingAndTriggeringPolicy的类型，根据类型确定需要使用的class类 -->
+    <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+    	<maxFileSize>1MB</maxFileSize>
+    </timeBasedFileNamingAndTriggeringPolicy>
+</rollingPolicy>
+```
+
+说明：按照时间滚动的单位是天，按照文件大小的滚动是1M，当今天产生的日志大小是5M，就会生成5个日志文件，每个文件对应的大小是1M，对应生成日期是一天，对应的编号不同，也就是`%i`占位符替换后的编号(从0开始)。
+
+#### triggerPolicy标签
+
+该标签用来设置日志触发器策略，常用的是日志大小的控制。当日志达到对应的大小的时候，就会触发。进而生成新的日志文件。日志大小的控制配合`rollingPolicy`使用的时候，不同的`rollingPolicy`会有所不同。
+

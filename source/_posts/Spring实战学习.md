@@ -127,7 +127,23 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
 
 >Lombok是一种JAVA的实用工具，可用来帮助开发人员消除JAVA的冗长，通过注解实现这一目的。
 
-常见的Lombok注释：
+#### 安装
+
+1. 添加lombok依赖
+
+   ```xml
+   <!--        lombok-->
+           <dependency>
+               <groupId>org.projectlombok</groupId>
+               <artifactId>lombok</artifactId>
+           </dependency>
+   ```
+
+2. 在IDEA中安装lombok插件。这一步是保证IDEA不会将代码标红。虽然不安装该插件也不会影响运行，但是会导致IDEA标红。
+
+#### 常见的Lombok注释
+
+![lombok_overview.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_overview.png)
 
 - @Data：注解在类上。提供类所有属性的getter和setter方法，还提供了equals、canEqual、hashCode、toString方法。
 
@@ -187,8 +203,44 @@ SpringBoot启动入口处的注解
 
 #### @Value
 
-该注解可以将配置文件中的变量读取到程序中。例如`@Value("${test.hello}")`就会去读取配置文件中的test.hello字段。
+该注解可以将配置文件中的变量读取到程序中。例如`@Value("${test.hello:Test}")`就会去读取配置文件中的test.hello字段。后面的`:Test`表示这个值没有在配置文件中读取到时赋值为Test。
 
 ### 测试
 
 在IDEA中可以创建以`.http`为结尾的文件来测试接口。在IDEA的设置中的实时模板中有创建测试的快捷指令。
+
+### Mybatis
+
+#### 使用方法
+
+1. 在`pom.xml`文件中添加依赖
+
+   ```xml
+   <!--        集成Mybatis-->
+           <dependency>
+               <groupId>org.mybatis.spring.boot</groupId>
+               <artifactId>mybatis-spring-boot-starter</artifactId>
+               <version>2.1.3</version>
+           </dependency>
+   
+   <!--        集成mysql连接-->
+           <dependency>
+               <groupId>mysql</groupId>
+               <artifactId>mysql-connector-java</artifactId>
+           </dependency>
+       </dependencies>
+   ```
+
+2. 在配置文件中添加数据库信息，不添加这个信息直接运行会报错
+
+   ```xml
+   spring.datasource.url=jdbc:mysql://数据库ip/wiki?characterEncoding=UTF8&autoReconnect=true&serverTimeZone=Asia/Shanghai
+   spring.datasource.username=
+   spring.datasource.password=
+   spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+   ```
+
+### 项目结构
+
+一般Spring项目中的源代码会分成几个层次：controller层（一般用来作为服务的入口），domain层（也可以叫POJO或entity，放置与数据库表一一映射的实体类），mapper层（持久层，也就是Dao层，生成的代码都以Mapper结尾）
+
