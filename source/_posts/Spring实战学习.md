@@ -231,8 +231,6 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
   }
   ```
 
-  
-
 ### 修改SpringBoot中Tomcat的服务端口
 
 在配置文件`src/main/resources/application.properties`中修改或增加`server.port=8000`，其中8000就是指定的端口号，可以随意设置。
