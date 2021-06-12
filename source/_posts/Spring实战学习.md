@@ -151,6 +151,12 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
 
 - @Getter：注解在属性上；为属性提供getting方法
 
+  ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_getter_setter.png)
+
+- @ToString：自动重写`toString`方法
+
+  ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_tostring.png)
+
 - @SneakyThrows：无需在签名处显式抛出异常
 
 - @Log4j：注释在类上；为类提供一个属性名为log的log4j日志对象
