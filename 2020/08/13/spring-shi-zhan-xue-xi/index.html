@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
 
@@ -640,6 +640,12 @@
 </li>
 <li><p>@ToString：自动重写<code>toString</code>方法</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_tostring.png"></p>
+</li>
+<li><p>@EqualAndHashCode</p>
+<p>自动生成<code>equals(Object other)</code>和<code>hashCode()</code>方法，包括所有非静态变量和非transient的变量</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_equalsandhashcode.png"></p>
+<p>如果某些变量不想要加进判断，可以透过exclude 排除，也可以使用of 指定某些字段</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_equalsandhashcode_exclude.png"></p>
 </li>
 <li><p>@SneakyThrows：无需在签名处显式抛出异常</p>
 </li>
@@ -1258,7 +1264,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver<span aria-hidden="t
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">141.7k</span>&nbsp;字
+                class="white-color">141.8k</span>&nbsp;字
             
             
             
