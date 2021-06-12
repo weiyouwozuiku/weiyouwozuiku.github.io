@@ -660,7 +660,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_noargsconstructor.png" alt="lombok_noargsconstructor.png"></p>
 </li>
 <li><p>@AllArgsConstructor：注释在类上；为类提供一个全参的构造方法</p>
-<p><img src="lombok_allargsconstructor.png" alt="lombok_allargsconstructor.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_allargsconstructor.png" alt="lombok_allargsconstructor.png"></p>
 <p>这里注意一个Java 的小坑，当我们没有指定constructor 时，Java compiler 会帮我们自动生成一个没有任何参数的constructor 给该类，但是如果我们自己写了constructor 之后，Java 就不会自动帮我们补上那个无参数的constructor 了</p>
 <p>然而很多地方（像是Spring Data JPA），会需要每个类都一定要有一个无参数的constructor，所以<strong>你在加上@AllArgsConstructor时，拜托，一定要补上@NoArgsConstrcutor，不然会有各种坑等着你</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@AllArgsConstructor</span>
