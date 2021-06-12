@@ -145,27 +145,33 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
 
 ![lombok_overview.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_overview.png)
 
-- @Data：注解在类上。提供类所有属性的getter和setter方法，还提供了equals、canEqual、hashCode、toString方法。
+- @Data：注解在类上。提供类所有属性的getter和setter方法，还提供了equals、hashCode、toString、RequiredArgsConstructor方法。
+
+  ![lombok_data.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_data.png)
 
 - @Setter：注解在属性上；为属性提供setting方法
 
 - @Getter：注解在属性上；为属性提供getting方法
 
-  ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_getter_setter.png)
+  ![lombok_getter_setter.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_getter_setter.png)
 
 - @ToString：自动重写`toString`方法
 
-  ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_tostring.png)
+  ![lombok_tostring.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_tostring.png)
 
 - @EqualAndHashCode
 
   自动生成`equals(Object other)`和`hashCode()`方法，包括所有非静态变量和非transient的变量
 
-  ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_equalsandhashcode.png)
+  ![lombok_equalsandhashcode.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_equalsandhashcode.png)
 
   如果某些变量不想要加进判断，可以透过exclude 排除，也可以使用of 指定某些字段
 
-  ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_equalsandhashcode_exclude.png)
+  ![lombok_equalsandhashcode_exclude.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_equalsandhashcode_exclude.png)
+
+  Q :为什么只有一个整体的@EqualsAndHashCode注解，而不是分开的两个@Equals和@HashCode？
+
+  A : 在Java 中有规定，当两个object equals 时，他们的hashcode 一定要相同，反之，当hashcode 相同时，object 不一定equals。所以equals 和hashcode 要一起implement，免得发生违反Java 规定的情形发生
 
 - @SneakyThrows：无需在签名处显式抛出异常
 
@@ -179,7 +185,30 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
 
 - @NoArgsConstructor：注释在类上；为类提供一个无参的构造方法
 
+  ![lombok_noargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_noargsconstructor.png)
+
 - @AllArgsConstructor：注释在类上；为类提供一个全参的构造方法
+
+  ![lombok_allargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_allargsconstructor.png)
+
+  这里注意一个Java 的小坑，当我们没有指定constructor 时，Java compiler 会帮我们自动生成一个没有任何参数的constructor 给该类，但是如果我们自己写了constructor 之后，Java 就不会自动帮我们补上那个无参数的constructor 了
+
+  然而很多地方（像是Spring Data JPA），会需要每个类都一定要有一个无参数的constructor，所以**你在加上@AllArgsConstructor时，拜托，一定要补上@NoArgsConstrcutor，不然会有各种坑等着你**
+
+  ```Java
+  @AllArgsConstructor
+  @NoArgsConstructor
+  public class User {
+      private Integer id;
+      private String name;
+  }
+  ```
+
+- @RequiredArgsConstructor：生成一个包含“特定参数”的constructor，特定参数指的是那些有加上final修饰词的变量们
+
+  ![lombok_requiredargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/lombok_requiredargsconstructor.png)
+
+  如果所有的变量都是正常的，都没有用final 修饰的话，那就会生成一个没有参数的constructor。
 
 ### 修改SpringBoot中Tomcat的服务端口
 
