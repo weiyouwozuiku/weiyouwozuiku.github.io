@@ -469,14 +469,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-12
+                    2021-06-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.2k
                 </div>
                 
 
@@ -511,7 +511,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录学习《Spring实战》(第五版)中的知识点，并将一些开发项目中遇到的相关经验与理解记录在这里。</p>
+                <p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/spring.jpg">https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/spring.jpg</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录学习《Spring实战》(第五版)中的知识点，并将一些开发项目中遇到的相关经验与理解记录在这里。</p>
 <blockquote>
 <p>唯一不变的就是变化    —-希腊哲学家 赫拉克利特</p>
 </blockquote>
@@ -719,9 +720,14 @@
 spring.datasource.username=
 spring.datasource.password=
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3></li>
+<p>mapper层设置完毕之后，还不能被spring扫描到。因此需要在启动spring的<code>XXXApplication.java</code>文件中添加上注解<code>@MapperScan("com.wangzhengbest.WIKI.mapper")</code>。这里的包路径就是mapper层的路径。</p>
+</li>
 </ol>
-<p>一般Spring项目中的源代码会分成几个层次：controller层（一般用来作为服务的入口），domain层（也可以叫POJO或entity，放置与数据库表一一映射的实体类），mapper层（持久层，也就是Dao层，生成的代码都以Mapper结尾）</p>
+<p>同理，sql对应的xml文件建立后，需要在<code>application.properties</code>文件中添加：</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">#配置mybatis所有Mapper.xml所在的路径
+mybatis.mapper-locations=classpath:/mapper/**/*.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>使用的时候使用注解<code>@AutoWired</code>。</p>
+<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><p>一般Spring项目中的源代码会分成几个层次：controller层（一般用来作为服务的入口），domain层（也可以叫POJO或entity，放置与数据库表一一映射的实体类），mapper层（持久层，也就是Dao层，生成的代码都以Mapper结尾）</p>
 
                 
             </div>
@@ -1294,7 +1300,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver<span aria-hidden="t
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.3k</span>&nbsp;字
+                class="white-color">142.4k</span>&nbsp;字
             
             
             
