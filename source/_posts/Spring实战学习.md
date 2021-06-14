@@ -10,6 +10,8 @@ img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/sourc
 categories: 程序设计
 ---
 
+https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/spring.jpg
+
 ## 前言
 
 本文记录学习《Spring实战》(第五版)中的知识点，并将一些开发项目中遇到的相关经验与理解记录在这里。
@@ -306,7 +308,20 @@ SpringBoot启动入口处的注解
    spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
    ```
 
+mapper层设置完毕之后，还不能被spring扫描到。因此需要在启动spring的`XXXApplication.java`文件中添加上注解`@MapperScan("com.wangzhengbest.WIKI.mapper")`。这里的包路径就是mapper层的路径。
+
+同理，sql对应的xml文件建立后，需要在`application.properties`文件中添加：
+
+```xml
+#配置mybatis所有Mapper.xml所在的路径
+mybatis.mapper-locations=classpath:/mapper/**/*.xml
+```
+
+使用的时候使用注解`@AutoWired`。
+
 ### 项目结构
 
 一般Spring项目中的源代码会分成几个层次：controller层（一般用来作为服务的入口），domain层（也可以叫POJO或entity，放置与数据库表一一映射的实体类），mapper层（持久层，也就是Dao层，生成的代码都以Mapper结尾）
+
+
 
