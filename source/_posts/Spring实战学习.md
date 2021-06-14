@@ -10,7 +10,7 @@ img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/sourc
 categories: 程序设计
 ---
 
-https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/spring.jpg
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring实战学习/spring.jpg)
 
 ## 前言
 
