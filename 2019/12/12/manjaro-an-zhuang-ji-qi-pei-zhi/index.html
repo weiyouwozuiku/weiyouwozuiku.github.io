@@ -473,21 +473,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-23
+                    2021-06-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.5k
+                    11.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    67 分
+                    68 分
                 </div>
                 
 
@@ -2490,6 +2490,7 @@ sudo pacman -S texlive-most<span aria-hidden="true" class="line-numbers-rows"><s
 <p><a target="_blank" rel="noopener" href="https://www.archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/"> zathura-pdf-mupdf</a>：zathura的pdf支持插件</p>
 <p>the_silver_searcher：</p>
 <p>touchegg：触控板程序，创建开机自启可以使用”/usr/bin/touchegg –daemon &amp; /usr/bin/touchegg –client”</p>
+<p>logiops：罗技MX系列鼠标在linux下的驱动</p>
 <h4 id="Appimage形式存在的软件"><a href="#Appimage形式存在的软件" class="headerlink" title="Appimage形式存在的软件"></a>Appimage形式存在的软件</h4><p>pdman：数据库设计软件</p>
 <hr>
 <h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><h4 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h4><p><strong>Http代理</strong></p>
@@ -2542,6 +2543,44 @@ yay -S maltego<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 <p>修改<code>/etc/bluetooth/main.conf</code>，修改如下字段：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>Policy<span class="token punctuation">]</span>
 AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="更新错误"><a href="#更新错误" class="headerlink" title="更新错误"></a>更新错误</h3><h4 id="下载出现依赖关系的错误"><a href="#下载出现依赖关系的错误" class="headerlink" title="下载出现依赖关系的错误"></a>下载出现依赖关系的错误</h4><p>推荐去官网的公告区查看最新信息。</p>
+<p><a target="_blank" rel="noopener" href="https://forum.manjaro.org/c/announcements/11">https://forum.manjaro.org/c/announcements/11</a></p>
+<h4 id="包错误或损坏"><a href="#包错误或损坏" class="headerlink" title="包错误或损坏"></a>包错误或损坏</h4><p>首先自然是重新下载。但是顺利下载下来的内容依旧是损坏或错误，此时推荐使用<code>sudo pacman -S archlinuxcn-keyring</code>。</p>
+<h3 id="罗技驱动"><a href="#罗技驱动" class="headerlink" title="罗技驱动"></a>罗技驱动</h3><p>罗技的MX系列鼠标没有板载内存，只能通过读取软件中设置的方式来实现按键自定义。因此，需要在Linux下也安装相应的驱动才能正常使用。详情见<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Logitech_MX_Master">https://wiki.archlinux.org/title/Logitech_MX_Master</a></p>
+<ol>
+<li><p><code>yay -s logiops</code>安装驱动。</p>
+</li>
+<li><p>启动服务<code>systemctl start logid</code></p>
+</li>
+<li><p>使用命令<code>sudo logid -v</code>获取设备的名称。</p>
+</li>
+<li><p>编写配置文件<code>/etc/logid.cfg</code></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">devices: ({
+  name: "Logitech Wireless Mouse MX Master 3";
+
+  // A lower threshold number makes the wheel switch to free-spin mode
+  // quicker when scrolling fast.
+  smartshift: { on: true; threshold: 20; };
+
+  hiresscroll: { hires: false; invert: false; target: false; };
+
+  // Higher numbers make the mouse more sensitive (cursor moves faster),
+  // 4000 max for MX Master 3.
+  dpi: 1500;
+
+  buttons: (
+
+    // Make thumb button 10.
+    { cid: 0xc3; action = { type: "Keypress"; keys: ["BTN_FORWARD"]; }; },
+
+    // Make top button 11.
+    { cid: 0xc4; action = { type: "Keypress"; keys: ["BTN_BACK"];    }; }
+
+  );
+});<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+</ol>
 
                 
             </div>
@@ -3126,7 +3165,7 @@ AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">142.4k</span>&nbsp;字
+                class="white-color">142.7k</span>&nbsp;字
             
             
             
