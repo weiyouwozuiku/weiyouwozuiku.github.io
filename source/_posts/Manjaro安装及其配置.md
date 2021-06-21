@@ -2254,6 +2254,8 @@ the_silver_searcher：
 
 touchegg：触控板程序，创建开机自启可以使用"/usr/bin/touchegg --daemon & /usr/bin/touchegg --client"
 
+logiops：罗技MX系列鼠标在linux下的驱动
+
 #### Appimage形式存在的软件
 
 pdman：数据库设计软件
@@ -2364,3 +2366,54 @@ yay -S maltego
 AutoEnable-true
 ```
 
+### 更新错误
+
+#### 下载出现依赖关系的错误
+
+推荐去官网的公告区查看最新信息。
+
+[https://forum.manjaro.org/c/announcements/11](https://forum.manjaro.org/c/announcements/11)
+
+#### 包错误或损坏
+
+首先自然是重新下载。但是顺利下载下来的内容依旧是损坏或错误，此时推荐使用`sudo pacman -S archlinuxcn-keyring`。
+
+### 罗技驱动
+
+罗技的MX系列鼠标没有板载内存，只能通过读取软件中设置的方式来实现按键自定义。因此，需要在Linux下也安装相应的驱动才能正常使用。详情见[https://wiki.archlinux.org/title/Logitech_MX_Master](https://wiki.archlinux.org/title/Logitech_MX_Master)
+
+1. `yay -s logiops`安装驱动。
+
+2. 启动服务`systemctl start logid`
+
+3. 使用命令`sudo logid -v`获取设备的名称。
+
+4. 编写配置文件`/etc/logid.cfg`
+
+   ```xml
+   devices: ({
+     name: "Logitech Wireless Mouse MX Master 3";
+   
+     // A lower threshold number makes the wheel switch to free-spin mode
+     // quicker when scrolling fast.
+     smartshift: { on: true; threshold: 20; };
+   
+     hiresscroll: { hires: false; invert: false; target: false; };
+   
+     // Higher numbers make the mouse more sensitive (cursor moves faster),
+     // 4000 max for MX Master 3.
+     dpi: 1500;
+   
+     buttons: (
+   
+       // Make thumb button 10.
+       { cid: 0xc3; action = { type: "Keypress"; keys: ["BTN_FORWARD"]; }; },
+   
+       // Make top button 11.
+       { cid: 0xc4; action = { type: "Keypress"; keys: ["BTN_BACK"];    }; }
+   
+     );
+   });
+   ```
+
+   
