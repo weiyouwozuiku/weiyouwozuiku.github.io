@@ -2391,29 +2391,31 @@ AutoEnable-true
 4. 编写配置文件`/etc/logid.cfg`
 
    ```xml
-   devices: ({
-     name: "Logitech Wireless Mouse MX Master 3";
-   
-     // A lower threshold number makes the wheel switch to free-spin mode
-     // quicker when scrolling fast.
-     smartshift: { on: true; threshold: 20; };
-   
-     hiresscroll: { hires: false; invert: false; target: false; };
-   
-     // Higher numbers make the mouse more sensitive (cursor moves faster),
-     // 4000 max for MX Master 3.
-     dpi: 1500;
-   
-     buttons: (
-   
-       // Make thumb button 10.
-       { cid: 0xc3; action = { type: "Keypress"; keys: ["BTN_FORWARD"]; }; },
-   
-       // Make top button 11.
-       { cid: 0xc4; action = { type: "Keypress"; keys: ["BTN_BACK"];    }; }
-   
-     );
-   });
+   devices: (
+   {
+       name: "Wireless Mouse MX Master 3";
+       buttons: (
+           {
+               # 鼠标侧键的下键
+               cid: 0x53;
+               action =
+               {
+                   type: "Keypress";
+                   keys: ["KEY_F12"];
+               };
+           },
+           {
+               # 鼠标侧键的上键
+               cid: 0x56;
+               action =
+               {
+                   type :  "Keypress";
+                   keys: ["KEY_LEFTALT", "KEY_L"];
+               };
+           }
+       );
+   }
+   );
    ```
-
+   
    
