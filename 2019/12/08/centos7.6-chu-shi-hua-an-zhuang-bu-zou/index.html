@@ -473,21 +473,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-23
+                    2021-07-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    695
+                    876
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -564,8 +564,7 @@ grant all privileges on *.* to root@"113.64.243.1" identified by "123456789";<sp
 character_set_server=utf8
 init_connect='SET NAMES utf8'
 port=3500<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<hr>
-<h3 id="配置终端"><a href="#配置终端" class="headerlink" title="配置终端"></a>配置终端</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum install zsh git
+<h2 id="配置终端"><a href="#配置终端" class="headerlink" title="配置终端"></a>配置终端</h2><h3 id="powerlevel9k-不推荐"><a href="#powerlevel9k-不推荐" class="headerlink" title="powerlevel9k(不推荐)"></a>powerlevel9k(不推荐)</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum install zsh git
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>修改.zshrc文件</p>
@@ -589,7 +588,35 @@ plugins=(
   history
   extract
 )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<hr>
+<h3 id="powerlevel10k"><a href="#powerlevel10k" class="headerlink" title="powerlevel10k"></a>powerlevel10k</h3><p>因为powerlevel10k需要zsh5.1以上的版本，而yum源中自带的zsh只有5.0.2。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># yum info zsh
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+Installed Packages
+Name        : zsh
+Arch        : x86_64
+Version     : 5.0.2
+Release     : 34.el7_8.2
+Size        : 5.6 M
+Repo        : installed
+From repo   : base
+Summary     : Powerful interactive shell
+URL         : http://zsh.sourceforge.net/
+License     : MIT
+Description : The zsh shell is a command interpreter usable as an interactive login
+            : shell and as a shell script command processor.  Zsh resembles the ksh
+            : shell (the Korn shell), but includes many enhancements.  Zsh supports
+            : command line editing, built-in spelling correction, programmable
+            : command completion, shell functions (with autoloading), a history
+            : mechanism, and more.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>所以只能通过编译源码的方式安装zsh。</p>
+<ol>
+<li><p>下载最新版源代码。最新版源代码可以在<code>https://zsh.sourceforge.io/Arc/source.html</code>中获取。</p>
+</li>
+<li><p>安装编译依赖</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum -y install gcc perl-ExtUtils-MakeMaker ncurses-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li></li>
+</ol>
 
                 
             </div>
@@ -1174,7 +1201,7 @@ plugins=(
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.2k</span>&nbsp;字
+                class="white-color">143.4k</span>&nbsp;字
             
             
             
