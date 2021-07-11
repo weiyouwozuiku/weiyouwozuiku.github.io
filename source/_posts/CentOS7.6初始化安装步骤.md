@@ -154,9 +154,9 @@ init_connect='SET NAMES utf8'
 port=3500
 ```
 
----
+## 配置终端
 
-### 配置终端
+### powerlevel9k(不推荐)
 
 ```shell
 sudo yum install zsh git
@@ -189,7 +189,42 @@ plugins=(
 )
 ```
 
----
+### powerlevel10k
 
+因为powerlevel10k需要zsh5.1以上的版本，而yum源中自带的zsh只有5.0.2。
 
+```shell
+# yum info zsh
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+Installed Packages
+Name        : zsh
+Arch        : x86_64
+Version     : 5.0.2
+Release     : 34.el7_8.2
+Size        : 5.6 M
+Repo        : installed
+From repo   : base
+Summary     : Powerful interactive shell
+URL         : http://zsh.sourceforge.net/
+License     : MIT
+Description : The zsh shell is a command interpreter usable as an interactive login
+            : shell and as a shell script command processor.  Zsh resembles the ksh
+            : shell (the Korn shell), but includes many enhancements.  Zsh supports
+            : command line editing, built-in spelling correction, programmable
+            : command completion, shell functions (with autoloading), a history
+            : mechanism, and more.
+```
+
+所以只能通过编译源码的方式安装zsh。
+
+1. 下载最新版源代码。最新版源代码可以在`https://zsh.sourceforge.io/Arc/source.html`中获取。
+
+2. 安装编译依赖
+
+   ```shell
+   yum -y install gcc perl-ExtUtils-MakeMaker ncurses-devel
+   ```
+
+3. 
 
