@@ -64,3 +64,8 @@ Home Assistant是一款用于家庭自动化的免费开源软件，旨在成为
 
 6. APP端的Home Assistant的设置中可以设置内网访问地址和外部访问地址。
 
+## Tip
+
+Home assistant中的小米设备需要安装HACS中的集合`Miot Auto`和`Miot`。
+
+由于HACS中许多插件都是从github进行下载，又因为国内的网络环境。可以通过进入docker中修改`/etc/hosts`中的域名加ip进行访问。
