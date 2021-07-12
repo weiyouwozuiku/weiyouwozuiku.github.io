@@ -2417,5 +2417,65 @@ AutoEnable-true
    }
    );
    ```
-   
-   
+
+### Navicat15
+
+1. 首先下载navicat15的软件包。`wget https://github.com/HeQuanX/navicat-keygen-tools/releases/download/recommended/navicat15-premium-cs.zip`
+
+2. 提取Appimage文件中的内容到指定文件夹中
+
+   ```shell
+   mkdir navicat15-premium-cs
+   sudo mount -o loop navicat15-premium-cs.AppImage navicat15-premium-cs
+   sudo cp -r navicat15-premium-cs navicat
+   sudo umount navicat15-premium-cs
+   rm -rf navicat15-premium-cs
+   ```
+
+3. 安装编译依赖软件
+
+   ```shell
+   yay -S capstone keystone rapidjson openssl
+   ```
+
+4. 编译生成补丁文件
+
+   ```shell
+   git clone -b linux --single-branch https://github.com/Orginly/navicat-keygen.git
+   cd navicat-keygen
+   make all
+   ```
+
+   **生成完成后，你会在 `./bin` 文件夹下看到编译后的keygen/patcher。**
+
+5. navicat-patcher 替换官方公钥
+
+   ```shell
+   sudo ./bin/navicat-patcher ../navicat
+   ```
+
+6. 重新打包成AppImage文件
+
+   ```shell
+   yay -S appimagetool
+   appimagetool navicat navicat15.AppImage
+   ./navicat15.AppImage
+   ```
+
+7. 激活
+
+   ```shell
+   cd navicat-keygen
+   ./bin/navicat-keygen --text ./RegPrivateKey.pem
+   ```
+
+   在这里输入请求码，并复制生成的激活码。此过程中记得断网，使用手动激活的方式。
+
+8. 清理
+
+   ```shell
+   sudo rm -rf navicat15-premium-cs
+   sudo rm -rf navicat15-premium-cs.AppImage
+   sudo rm -rf navicat
+   ```
+
