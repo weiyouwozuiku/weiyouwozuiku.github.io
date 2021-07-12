@@ -515,13 +515,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="安装python3-7和pip"><a href="#安装python3-7和pip" class="headerlink" title="安装python3.7和pip"></a>安装python3.7和pip</h2><h3 id="下载python源码包"><a href="#下载python源码包" class="headerlink" title="下载python源码包"></a>下载python源码包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<a id="more"></a>
-
+                <h2 id="安装python3-9和pip"><a href="#安装python3-9和pip" class="headerlink" title="安装python3.9和pip"></a>安装python3.9和pip</h2><h3 id="下载python源码包"><a href="#下载python源码包" class="headerlink" title="下载python源码包"></a>下载python源码包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tar.xz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="安装所需依赖关系"><a href="#安装所需依赖关系" class="headerlink" title="安装所需依赖关系"></a>安装所需依赖关系</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum -y groupinstall "Development tools"
 sudo yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="解压进入相应目录"><a href="#解压进入相应目录" class="headerlink" title="解压进入相应目录"></a>解压进入相应目录</h3><p>直接使用zsh的extract。</p>
-<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/configure --prefix=/usr/local/python3  
+<h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./configure --prefix=/usr/local/python3  
 make  
 sudo make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="创建相应软连接命令"><a href="#创建相应软连接命令" class="headerlink" title="创建相应软连接命令"></a>创建相应软连接命令</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo ln -s /usr/local/python3/bin/python3 /usr/bin/python3
@@ -632,11 +630,16 @@ vim /etc/shells # 添加：/usr/local/bin/zsh<span aria-hidden="true" class="lin
 <p>安装powerlvel10k：<code>git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k</code></p>
 <p>Set <code>ZSH_THEME="powerlevel10k/powerlevel10k"</code> in <code>~/.zshrc</code>.</p>
 <h3 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h3><p>安装<code>sudo yum install tmux -y</code></p>
+<p>该配置文件需要tmux2.3以上。</p>
 <p>设置配置文件：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ cd
 $ git clone https://github.com/gpakosz/.tmux.git
 $ ln -s -f .tmux/.tmux.conf
 $ cp .tmux/.tmux.conf.local .<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="安装VIM8"><a href="#安装VIM8" class="headerlink" title="安装VIM8"></a>安装VIM8</h2><p>直接使用一键化脚本即可。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/chxuan/vimplus.git ~/.vimplus
+cd ~/.vimplus
+./install.sh //不加sudo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
