@@ -272,3 +272,7 @@ cd ~/.vimplus
 ./install.sh //不加sudo
 ```
 
+## 代理
+
+由于国内的特殊网络环境，云服务器在访问github时会出现无法访问的情况。此时需要设置代理才能clone远程仓库。这里推荐使用[v2rayA](https://github.com/v2rayA/v2rayA)。
+
