@@ -624,6 +624,8 @@ make &amp;&amp; make install
 vim /etc/shells # 添加：/usr/local/bin/zsh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注意将zsh添加到shells中时，要填写正确的zsh路径，因为我在执行./configure的时候没有指定安装的位置，所以默认是/usr/local/bin/zsh，不确定的话，执行 <strong>whereis zsh</strong> 命令查看具体的路径。</p>
 </li>
+<li><p>将当前的shell改成zsh：<code>chsh -s /usr/local/bin/zsh </code></p>
+</li>
 </ol>
 <p>此时，zsh最新版就安装完成了。</p>
 <p>安装<code>oh-my-zsh</code>：<code>sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></p>
@@ -1219,7 +1221,7 @@ $ cp .tmux/.tmux.conf.local .<span aria-hidden="true" class="line-numbers-rows">
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.5k</span>&nbsp;字
+                class="white-color">143.6k</span>&nbsp;字
             
             
             
