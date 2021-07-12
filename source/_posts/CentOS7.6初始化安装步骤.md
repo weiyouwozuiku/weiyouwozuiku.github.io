@@ -226,5 +226,37 @@ Description : The zsh shell is a command interpreter usable as an interactive lo
    yum -y install gcc perl-ExtUtils-MakeMaker ncurses-devel
    ```
 
-3. 
+3. 编译安装
+
+   ```shell
+   tar xvf zsh-5.8.tar.xz
+   cd zsh-5.8
+   ./configure
+   make && make install
+   # 将zsh加入/etc/shells
+   vim /etc/shells # 添加：/usr/local/bin/zsh
+   ```
+
+   注意将zsh添加到shells中时，要填写正确的zsh路径，因为我在执行./configure的时候没有指定安装的位置，所以默认是/usr/local/bin/zsh，不确定的话，执行 **whereis zsh** 命令查看具体的路径。
+
+此时，zsh最新版就安装完成了。
+
+安装`oh-my-zsh`：`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
+安装powerlvel10k：`git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
+
+Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`.
+
+### Tmux
+
+安装`sudo yum install tmux -y`
+
+设置配置文件：
+
+```shell
+$ cd
+$ git clone https://github.com/gpakosz/.tmux.git
+$ ln -s -f .tmux/.tmux.conf
+$ cp .tmux/.tmux.conf.local .
+```
 
