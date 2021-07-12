@@ -473,21 +473,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-22
+                    2021-07-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.7k
+                    12k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    68 分
+                    69 分
                 </div>
                 
 
@@ -2580,8 +2580,38 @@ AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><
     );
 }
 );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<h3 id="Navicat15"><a href="#Navicat15" class="headerlink" title="Navicat15"></a>Navicat15</h3></li>
+<li><p>首先下载navicat15的软件包。<code>wget https://github.com/HeQuanX/navicat-keygen-tools/releases/download/recommended/navicat15-premium-cs.zip</code></p>
+</li>
+<li><p>提取Appimage文件中的内容到指定文件夹中</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> navicat15-premium-cs
+<span class="token function">sudo</span> <span class="token function">mount</span> -o loop navicat15-premium-cs.AppImage navicat15-premium-cs
+<span class="token function">sudo</span> <span class="token function">cp</span> -r navicat15-premium-cs navicat
+<span class="token function">sudo</span> <span class="token function">umount</span> navicat15-premium-cs
+<span class="token function">rm</span> -rf navicat15-premium-cs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>安装编译依赖软件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yay -S capstone keystone rapidjson openssl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>编译生成补丁文件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">git</span> clone -b linux --single-branch https://github.com/Orginly/navicat-keygen.git
+<span class="token builtin class-name">cd</span> navicat-keygen
+<span class="token function">make</span> all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>生成完成后，你会在 <code>./bin</code> 文件夹下看到编译后的keygen/patcher。</strong></p>
+</li>
+<li><p>navicat-patcher 替换官方公钥</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> ./bin/navicat-patcher <span class="token punctuation">..</span>/navicat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>重新打包成AppImage文件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yay -S appimagetool
+appimagetool navicat navicat15.AppImage
+./navicat15.AppImage<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>激活</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> navicat-keygen
+./bin/navicat-keygen --text ./RegPrivateKey.pem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在这里输入请求码，并复制生成的激活码。此过程中记得断网，使用手动激活的方式。</p>
+</li>
+<li><p>清理</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat15-premium-cs
+<span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat15-premium-cs.AppImage
+<span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 
@@ -3168,7 +3198,7 @@ AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.7k</span>&nbsp;字
+                class="white-color">143.9k</span>&nbsp;字
             
             
             
