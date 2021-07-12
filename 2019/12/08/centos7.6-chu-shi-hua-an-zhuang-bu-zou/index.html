@@ -473,21 +473,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-11
+                    2021-07-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    876
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -615,8 +615,26 @@ Description : The zsh shell is a command interpreter usable as an interactive lo
 </li>
 <li><p>安装编译依赖</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum -y install gcc perl-ExtUtils-MakeMaker ncurses-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li></li>
+<li><p>编译安装</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tar xvf zsh-5.8.tar.xz
+cd zsh-5.8
+./configure
+make &amp;&amp; make install
+# 将zsh加入/etc/shells
+vim /etc/shells # 添加：/usr/local/bin/zsh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意将zsh添加到shells中时，要填写正确的zsh路径，因为我在执行./configure的时候没有指定安装的位置，所以默认是/usr/local/bin/zsh，不确定的话，执行 <strong>whereis zsh</strong> 命令查看具体的路径。</p>
+</li>
 </ol>
+<p>此时，zsh最新版就安装完成了。</p>
+<p>安装<code>oh-my-zsh</code>：<code>sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></p>
+<p>安装powerlvel10k：<code>git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k</code></p>
+<p>Set <code>ZSH_THEME="powerlevel10k/powerlevel10k"</code> in <code>~/.zshrc</code>.</p>
+<h3 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h3><p>安装<code>sudo yum install tmux -y</code></p>
+<p>设置配置文件：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ cd
+$ git clone https://github.com/gpakosz/.tmux.git
+$ ln -s -f .tmux/.tmux.conf
+$ cp .tmux/.tmux.conf.local .<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1201,7 +1219,7 @@ Description : The zsh shell is a command interpreter usable as an interactive lo
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">143.4k</span>&nbsp;字
+                class="white-color">143.5k</span>&nbsp;字
             
             
             
