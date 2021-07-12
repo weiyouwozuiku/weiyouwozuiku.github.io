@@ -11,15 +11,13 @@ tags:
 categories: 经验总结
 ---
 
-## 安装python3.7和pip
+## 安装python3.9和pip
 
 ### 下载python源码包
 
 ```shell
-wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
+wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tar.xz
 ```
-
-<!-- more -->
 
 ### 安装所需依赖关系
 
@@ -35,7 +33,7 @@ sudo yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-de
 ### 编译安装
 
 ```shell
-/configure --prefix=/usr/local/python3  
+./configure --prefix=/usr/local/python3  
 make  
 sudo make install
 ```
@@ -253,6 +251,8 @@ Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`.
 
 安装`sudo yum install tmux -y`
 
+该配置文件需要tmux2.3以上。
+
 设置配置文件：
 
 ```shell
@@ -260,5 +260,15 @@ $ cd
 $ git clone https://github.com/gpakosz/.tmux.git
 $ ln -s -f .tmux/.tmux.conf
 $ cp .tmux/.tmux.conf.local .
+```
+
+## 安装VIM8
+
+直接使用一键化脚本即可。
+
+```shell
+git clone https://github.com/chxuan/vimplus.git ~/.vimplus
+cd ~/.vimplus
+./install.sh //不加sudo
 ```
 
