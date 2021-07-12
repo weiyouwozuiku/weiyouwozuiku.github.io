@@ -238,6 +238,8 @@ Description : The zsh shell is a command interpreter usable as an interactive lo
    ```
 
    注意将zsh添加到shells中时，要填写正确的zsh路径，因为我在执行./configure的时候没有指定安装的位置，所以默认是/usr/local/bin/zsh，不确定的话，执行 **whereis zsh** 命令查看具体的路径。
+   
+4. 将当前的shell改成zsh：`chsh -s /usr/local/bin/zsh `
 
 此时，zsh最新版就安装完成了。
 
