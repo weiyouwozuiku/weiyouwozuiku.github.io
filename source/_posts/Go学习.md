@@ -220,6 +220,8 @@ for i:=初始值;条件;post {
 
 #### range遍历
 
+**python中的range是函数，而go中的range是关键词。**
+
 ```go
 for a,b:=range 数组{
     //todo
