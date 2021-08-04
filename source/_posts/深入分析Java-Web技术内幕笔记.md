@@ -3,7 +3,9 @@ title: 深入分析Java Web技术内幕笔记
 author: 不二
 mathjax: true
 date: 2021-05-09 14:31:48
-tags: Java
+tags: 
+- Java
+- Book
 img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/web.png
 categories: 程序设计
 ---
