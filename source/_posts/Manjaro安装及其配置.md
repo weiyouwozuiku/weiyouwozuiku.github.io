@@ -1,4 +1,3 @@
----
 title: Manjaro系统配置
 author: 不二
 date: 2019-12-12 09:47:30
@@ -9,7 +8,6 @@ tags:
 - Manjaro
 img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/manjaro.jpg
 categories: 经验总结
----
 
 ## Manjaro安装及其配置
 
@@ -2478,4 +2476,31 @@ AutoEnable-true
    sudo rm -rf navicat15-premium-cs.AppImage
    sudo rm -rf navicat
    ```
+
+### Manjaro与Win双系统蓝牙
+
+#### 普通蓝牙设备
+
+1. 在win10下建立与蓝牙设备的连接，以保证win中的系统注册表中有该设备配置项。
+
+2. 切换到Manjaro下，再次设备配对。
+
+3. 获取Manjaro系统下蓝牙设备的linkkey或设备认证码。路径在`/var/lib/bluetooth`下。里面的第一层文件夹是本机蓝牙的mac地址，再里面的文件夹就是每个与电脑配对的蓝牙设备的mac地址。找到相应设备的mac地址文件夹，其中info文件就记录着设备的linkkey。
+
+   ![](http://www.linuxdiyf.com/linux/uploads/allimg/170311/2-1F311100530443.png)
+
+4. 切换到win系统下，通过[微软官网](https://technet.microsoft.com/en-us/sysinternals/bb897553)下载PSTools工具修改系统注册表中的蓝牙linkkey。在命令行程序中执行`PsExec.exe -s -i regedit`。
+   
+5. 找到`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\BTHPORT\Parameters\Keys\`。将Manjaro下获取的key输入进去。重启电脑即可。
+
+   ![win10和ubuntu16共用蓝牙鼠标](http://www.linuxdiyf.com/linux/uploads/allimg/170311/2-1F311100555c6.png)
+
+#### 罗技Master3
+
+罗技的Master3不同于一般的蓝牙设备。**每次配对都会导致鼠标自身的mac地址自增(即+2)**，因此在修改时需要将Manjaro下的mac地址文件夹名字进行修改。
+
+1. 将鼠标在Manjaro系统下进行配对。完成后可以在`/var/lib/bluetooth/主机蓝牙设备地址/鼠标蓝牙设备地址` 下看到配对信息，在 info 中就存有配对验证使用的 `IdentityResolvingKey` 和 `SlaveLongTermKey` 。
+2. 同普通蓝牙设备，在win系统中配对设备并通过PSTools工具获取设备当前的`Address(设备地址)`、`IRK(IdentityResolvingKey)` 和 `LTK(SlaveLongTermKey)`。
+3. 进入Manjaro系统，将设备mac文件夹修改成现在自增后的mac地址，并将info中的`IdentityResolvingKey和SlaveLongTermKey`修改成和win下一致的数据。
+4. 重启系统即可。
 
