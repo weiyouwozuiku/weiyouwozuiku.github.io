@@ -6,10 +6,13 @@ mathjax: true
 img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/golang.jpg
 tags:
 - Go
+- Book
 categories: 程序设计
 ---
 
 #### Tip
+
+本文的主要大纲采用[《The Go Programming Language》](http://gopl.io/) 的[中文版](https://flydk.gitbooks.io/go/content/)。
 
 Go语言很特别，没有对象，没有继承多态，没有泛型，没有try/catch。相反，有接口，函数式编程，CSP并发模型(goroutine+channel)。
 
@@ -18,6 +21,27 @@ Go语言很特别，没有对象，没有继承多态，没有泛型，没有try
 `GOROOT`表示源码包所在路径。
 
 `GOPATH`表示开发者Go项目的默认路径。
+
+由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。
+
+```shell
+$ go env -w GO111MODULE=on
+$ go env -w GOPROXY=https://goproxy.cn,direct
+```
+
+或者基于系统的环境变量
+
+```shell
+# 一次性
+$ export GO111MODULE=on
+$ export GOPROXY=https://goproxy.cn
+# 永久
+$ echo "export GO111MODULE=on" >> ~/.profile
+$ echo "export GOPROXY=https://goproxy.cn" >> ~/.profile
+$ source ~/.profile
+```
+
+这里的`.profile`文件可以改成`.zshrc`。
 
 ## Go语言的执行、编译
 
@@ -370,6 +394,11 @@ http包：`net/http`。
 ## 基础数据类型
 
 $$数据类型\begin{cases}\text{基础类型}\begin{cases}\text{数字}\\\text{字符串}\\\text{布尔值}\end{cases}\\\text{复合类型}\begin{cases}\text{结构体}\\\text{数组}\end{cases}\\\text{引用类型}\begin{cases}\text{指针}\\\text{切片}\\\text{字典}\\\text{函数}\\\text{通道}\end{cases}\\\text{接口类型}\end{cases}$$
+
+- bool,string
+- (u)int,(u)int8,(u)int16,(u)int32,(u)int64,uintptr
+- byte,rune(32位，四字节，避免了c语言中char只有一字节导致的问题)
+- float32,float64,complex64,com
 
 ### 整数
 
