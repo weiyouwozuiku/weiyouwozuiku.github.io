@@ -23,20 +23,76 @@ categories: 算法
 ```cpp
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int,int> heap;
-        int r;
-        for(int i=0;i <nums.size();i++){
-            r=target-nums[i];
-            //heap.count(key)返回的是key的下标
-            if(heap.count(r)) return {heap[r],i};
-            else{heap[nums[i]]=i;}
+    vector<int> twoSum(vector<int> &nums, int target) {
+        //heap中的键存放数组元素，值存放数组元素的索引
+        unordered_map<int, int> heap;
+        for (int i = 0; i < nums.size(); i++) {
+            int re=target-nums[i];
+            //count函数中的值对应键值对中的key,检查是否有符合的key存在
+            if(heap.count(re)) return {heap[re],i};
+            heap[nums[i]]=i;
         }
         //防止报错
         return {};
     }
 };
 ```
+
+[2.两数相加](https://leetcode-cn.com/problems/add-two-numbers)
+
+```cpp
+class Solution {
+public:
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+        //dummy节点表示结果链表。用-1作为虚拟头节点，cur表示运算过程中的执行节点
+        auto dummy = new ListNode(-1), cur = dummy;
+        //t存储当前位相加的值
+        int t=0;
+        while (l1 || l2 || t) {
+            if(l1) t+=l1->val,l1=l1->next;
+            if(l2) t+=l2->val,l2=l2->next;
+            //记得在更新cur->next的同时，更新cur已进行下一轮运算
+            cur=cur->next=new ListNode(t%10);
+            t/=10;
+        }
+        return dummy->next;
+    }
+};
+```
+
+[3.无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters)
+
+```cpp
+/**
+ * 本题的解题思路：
+ * 双指针算法的主要优化点就是寻找题目中的单调性。假设变量i,j,i与j之间就是非重复元素的子串。
+ * 则当i向后时，j最前的位置只能是当前位置或朝后的位置。可以采用反证法证明。
+ */
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char, int> heap;
+        int res = 0;
+        //注意这里不能写成i,j=0会出错
+        for (int i = 0, j = 0; i < s.size(); i++) {
+            heap[s[i]]++;
+            while (heap[s[i]] > 1) heap[s[j++]]--;
+            res = max(res, i - j + 1);
+        }
+        return res;
+    }
+};
+```
+
+[4.](https://leetcode-cn.com/problems/median-of-two-sorted-arrays)
+
+[5.](https://leetcode-cn.com/problems/longest-palindromic-substring)
+
+[51.N皇后](https://leetcode-cn.com/problems/n-queens)
+
+[52.N皇后II](https://leetcode-cn.com/problems/n-queens-ii)
+
+[53.](https://leetcode-cn.com/problems/maximum-subarray)
 
 [61. 旋转链表](https://leetcode-cn.com/problems/rotate-list/)
 
@@ -303,7 +359,7 @@ private:
 
 下面证明 $\lceil\frac{n}{x+1}\rceil = \frac{n +x}{x+1}$ 。
 
-![Leetcode刷题记录_#781.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95_#781.png)
+![Leetcode刷题记录_#781.png](https://cdn.staticaly.com/gh/weiyouwozuiku/weiyouwozuiku.github.io/src/source/_posts/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95_%23781.png)
 
 ```cpp
 class Solution {
@@ -324,3 +380,6 @@ public:
 
 #### 901~1000
 
+## Tip
+
+Leetcode的评测模式是一个程序，也就是某些变量只会初始化一次，导致该容器（result）会保留上次运行的答案。

@@ -99,6 +99,7 @@ public:
         while(current){
             auto next=current->next;
             current->next=pre;
+            //为下一l
             pre=current;
             current=next;
         }
@@ -1071,7 +1072,7 @@ int main() {
 [831.KMP字符串](https://www.acwing.com/problem/content/description/833/)
 
 ```cpp
-#include <iostream>
+.#include <iostream>
 #include <cstring>
 #include <vector>
 
