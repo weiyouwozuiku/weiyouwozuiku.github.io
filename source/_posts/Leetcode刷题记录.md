@@ -84,7 +84,53 @@ public:
 };
 ```
 
-[4.](https://leetcode-cn.com/problems/median-of-two-sorted-arrays)
+[4.寻找两个正序数组的中位数](https://leetcode-cn.com/problems/median-of-two-sorted-arrays)
+
+```cpp
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
+        int total = nums1.size() + nums2.size();
+        if (total % 2 == 0) {
+            int left = findKthNumber(nums1, 0, nums2, 0, total / 2);
+            int right = findKthNumber(nums1, 0, nums2, 0, total / 2 + 1);
+            return (left + right) / 2.0;
+        } else {
+            //注意这里是totle/2+1
+            return findKthNumber(nums1, 0, nums2, 0, total / 2 + 1);
+        }
+    }
+
+    int findKthNumber(vector<int> &nums1, int i, vector<int> &nums2, int j, int k) {
+        /**保证nums1数组的长度小于nums2,如果不是则反转过来。
+         * 这样操作的原因在于可以减少考虑的情况。
+         * 如果不约定nums1的长度小于nums2,需要考虑三种情况：
+         * 1. n,m>=k/2
+         * 2. m<k/2
+         * 3. n<k/2
+         * 约定后只需要考虑两种情况
+         * 1. n,m>=k/2
+         * 2. m<k/2
+         */
+        if (nums1.size() - i > nums2.size() - j) return findKthNumber(nums2, j, nums1, i, k);
+        //这个判断需要放在k==1之前操作，因为i可能会在nums1中越界。这里判断的是nums1中没有数字的情况
+        if (nums1.size() == i) return nums2[j + k - 1];
+        if (k == 1) return min(nums1[i], nums2[j]);
+        //因为这里保证了nums1小于nums2中需要考虑元素的数量，因此存在nums2中的数字远多于nums1中的数字，直接使用i+k/2会导致超过nums1中元素的数量。
+        //因此需要使用min()保证不越界,这里与nums1.size()比较是因为i在不断增大，不能使用nums1.size()-k/2
+        //这里的si和sj分别表示在nums1和nums2数组中第k/2位置的后一位。因此在后面比较的时候需要-1。
+        int si = min(i + k / 2, int(nums1.size())), sj = j + k / 2;
+        //舍去无用子数组
+        if (nums1[si - 1] > nums2[sj - 1]) {
+            return findKthNumber(nums1, i, nums2, sj, k - (sj - j));
+        } else {
+            return findKthNumber(nums1, si, nums2, j, k - (si - i));
+        }
+    }
+};
+```
+
+
 
 [5.](https://leetcode-cn.com/problems/longest-palindromic-substring)
 
