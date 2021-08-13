@@ -119,6 +119,7 @@ public:
         //因为这里保证了nums1小于nums2中需要考虑元素的数量，因此存在nums2中的数字远多于nums1中的数字，直接使用i+k/2会导致超过nums1中元素的数量。
         //因此需要使用min()保证不越界,这里与nums1.size()比较是因为i在不断增大，不能使用nums1.size()-k/2
         //这里的si和sj分别表示在nums1和nums2数组中第k/2位置的后一位。因此在后面比较的时候需要-1。
+        //另外vector.size()返回的是无符号整形，因此需要强转int,而不能直接比较
         int si = min(i + k / 2, int(nums1.size())), sj = j + k / 2;
         //舍去无用子数组
         if (nums1[si - 1] > nums2[sj - 1]) {
