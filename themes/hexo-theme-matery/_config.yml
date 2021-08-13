@@ -254,6 +254,12 @@ mySkills:
     CSS:
       background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
       percent: 70%
+    GO:
+      background: 'linear-gradient(to right, #4CAF50 0%, #aaff00 100%)'
+      percent: 20%
+    RUST:
+      background: 'linear-gradient(to right, #4CAF50 0%, #6d85ab 100%)'
+      percent: 10%
     SQL:
       background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
       percent: 90%
