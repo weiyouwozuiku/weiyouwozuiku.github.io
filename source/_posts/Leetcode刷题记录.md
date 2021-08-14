@@ -131,9 +131,40 @@ public:
 };
 ```
 
+[5.最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring)
+
+```cpp
+/**
+ * 本题的回文串存在两种可能：
+ * 1. 数量为奇数，两边对称
+ * 2. 数量为偶数。从中向外，两两配对
+ *
+ * 解题的思路是选定一个i点，左边L点和R点分别是其回文串的左端点和右端点，则整个长度为(R-1)-(L+1)+1=R-L-1
+ * 复杂度分析:枚举所有点作为i点为O(n)，枚举i点的LR点也是O(n)，因此整体为O(n^2)
+ * 上述的解法较为通用，若是想追求更好的时间复杂度可以采用马拉车(Manacher)算法，将时间复杂度降至O(n)，但不具备通用性。
+ */
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        //最长回文串
+        string res;
+        //将字符串的每一个点作为i点进行分析
+        for (int i = 0; i < s.size(); i++) {
+            //假设此时i点的回文串字符数为奇数个
+            int l = i - 1, r = i + 1;
+            while (l >= 0 && r < s.size() && s[l] == s[r]) l--, r++;
+            if (res.size() < r - l - 1) res = s.substr(l + 1, r - l - 1);
+            //假设此时i点的回文串字符数为偶数个
+            l = i, r = i + 1;
+            while (l >= 0 && r < s.size() && s[l] == s[r]) l--, r++;
+            if (res.size() < r - l - 1) res = s.substr(l + 1, r - l - 1);
+        }
+        return res;
+    }
+};
+```
 
 
-[5.](https://leetcode-cn.com/problems/longest-palindromic-substring)
 
 [51.N皇后](https://leetcode-cn.com/problems/n-queens)
 
