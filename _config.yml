@@ -114,7 +114,7 @@ deploy:
     branch: master
 
   - type: git
-    repository: git@coding.net:weiyouwozuiku/weiyouwozuiku.git
+    repository: git@e.coding.net:weiyouwozuiku/weiyouwozuiku/weiyouwozuiku.git
     branch: master
 
 
