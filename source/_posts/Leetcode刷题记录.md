@@ -200,6 +200,50 @@ public:
 };
 ```
 
+[7.整数反转](https://leetcode-cn.com/problems/reverse-integer/)
+
+```cpp
+/**
+ * Tip：
+ * Cpp中取余运算不同于数学中的取模，整数取余为整数，负数取余为负数
+ * 这题使用long long就不需要考虑数据越界问题，直接比较生成数字是否越界即可
+ * 但如果使用int，需要先判断给定的数是否越界。如果越界直接返回为0
+ * 假定r是返回的反转数字，x是传入的原数字
+ * 举例： 如果是正数越界，此时10*r+x%10>INT_MAX,进行不等式变换，可以得到r>(INT_MAX-x%10)/10
+ * 即满足上述条件时，获得的反转数越界，可以直接返回0
+ * 负数借助Cpp中取余的特性同理可得。
+ *
+ * long long的写法如下：
+ */
+// class Solution {
+//public:
+//    int reverse(int x) {
+//        long long r=0;
+//        while(x){
+//            r=r*10+x%10;
+//            x/=10;
+//        }
+//        if(r>INT_MAX) return 0;
+//        if(r<INT_MIN) return 0;
+//        return r;
+//    }
+//};
+
+class Solution {
+public:
+    int reverse(int x) {
+        int res = 0;
+        while (x) {
+            if (res > 0 && res > (INT_MAX - x % 10) / 10) return 0;
+            if (res < 0 && res < (INT_MIN - x % 10) / 10) return 0;
+            res = res * 10 + x % 10;
+            x /= 10;
+        }
+        return res;
+    }
+};
+```
+
 
 
 [51.N皇后](https://leetcode-cn.com/problems/n-queens)
