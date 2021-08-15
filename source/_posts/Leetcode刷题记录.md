@@ -244,6 +244,80 @@ public:
 };
 ```
 
+[8.字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)
+
+```cpp
+/**
+ * 本题的解题思路：
+ * 1. 去掉字符串前面的空格字符
+ * 2. 该字符串全是空格，直接返回0
+ * 3. 判断是否有符号位,设置结果的符号位
+ * 4. 将字符串转化为数字
+ * 5. 判断是否越界
+ */
+class Solution {
+public:
+    int myAtoi(string s) {
+        //整个字符串的索引位置
+        int i = 0;
+        //去掉字符串前面的空格字符
+        while (s.size() && s[i] == ' ') ++i;
+        //该字符串全是空格，直接返回0
+        if (s.size() == i) return 0;
+        //设置结果的符号位
+        int flag = 1;
+        if (s[i] == '-') {
+            flag = -1;
+            ++i;
+        } else if (s[i] == '+') ++i;
+        //防止出现'-+'等情况
+        if (s[i] < '0' || s[i] > '9') return 0;
+        //将字符串转化为数字
+        long long res = 0;
+        while (s[i] >= '0' && s[i] <= '9') {
+            res = res * 10 + s[i++] - '0';
+            //避免出现过长字符串
+            if (res > INT_MAX) break;
+        }
+        res *= flag;
+        //判断是否越界
+        if (res > INT_MAX) res = INT_MAX;
+        if (res < INT_MIN) res = INT_MIN;
+        return res;
+    }
+};
+```
+
+[9.回文数](https://leetcode-cn.com/problems/palindrome-number/)
+
+```cpp
+class Solution {
+public:
+    //这是将x转化为string,并比较二者
+    bool isPalindrome_1(int x) {
+        //如果是负数，因为符号的存在，必然不是回文数
+        if (x < 0) return false;
+        //to_string函数为C++11引入
+        string s = to_string(x);
+        //使用反向迭代器将生成的字符串与与其相反的字符串对比其是否一致
+        return s == string(s.rbegin(), s.rend());
+    }
+
+    bool isPalindrome(int x) {
+        //如果是负数，因为符号的存在，必然不是回文数
+        if (x < 0) return false;
+        long long res = 0;
+        //因为后面修改了x的值，所以这里需要将x的值进行保存以便进行比较y
+        int y = x;
+        while (x) {
+            res = res * 10 + x % 10;
+            x /= 10;
+        }
+        return res == y;
+    }
+};
+```
+
 
 
 [51.N皇后](https://leetcode-cn.com/problems/n-queens)
