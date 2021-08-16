@@ -318,6 +318,46 @@ public:
 };
 ```
 
+[10.正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/)
+
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Leetcode刷题记录/Leetcode刷题记录_#10.png)
+
+```cpp
+/**
+ * 本题的解题思路：
+ * 本题是一个动态规划问题,思路详见笔记
+ */
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        //获取匹配串与模式串的字符长度以便于计算
+        int n = s.size(), m = p.size();
+        //将第一位空出便于后面从下标1开始运算
+        s = ' ' + s, p = ' ' + p;
+        //创建状态转移矩阵
+        vector <vector<bool>> f(n + 1, vector<bool>(m + 1));
+        //初始化第一个状态,即什么都没有
+        f[0][0] = true;
+        //这里从0开始是因为即使匹配串为空也可能符合模式串的要求
+        for (int i = 0; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                //遇到下一位是*的此位直接跳过，将此位与后面的*一起处理
+                //防止越界，需要多加一个判断
+                if (j + 1 <= m && p[j + 1] == '*') continue;
+                if (i && p[j] != '*') {
+                    f[i][j] = f[i - 1][j - 1] && (s[i] == p[j] || p[j] == '.');
+                } else if (p[j] == '*') {
+                    //因为这里需要看下标为i-1的值因此需要i不为零
+                    //因为这里的j下标指向的是*，所以需要与j-1下标的进行匹配
+                    f[i][j] = f[i][j - 2] || i && f[i - 1][j] && (s[i] == p[j - 1] || p[j - 1] == '.');
+                }
+            }
+        }
+        return f[n][m];
+    }
+};
+```
+
 
 
 [51.N皇后](https://leetcode-cn.com/problems/n-queens)
