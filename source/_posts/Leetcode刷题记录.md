@@ -358,6 +358,63 @@ public:
 };
 ```
 
+[21.合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+
+```cpp
+/**
+ * 本题的解题思路：
+ * 本题就是简单的二路归并问题
+ */
+class Solution {
+public:
+    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
+        //结果链表的头节点设置为虚拟节点避免
+        auto dummy = new ListNode(-1), tail = dummy;
+        while (l1 && l2) {
+            if (l1->val < l2->val) {
+                tail = tail->next = l1;
+                l1 = l1->next;
+            } else {
+                tail = tail->next = l2;
+                l2 = l2->next;
+            }
+        }
+        if (l1) tail->next = l1;
+        if (l2) tail->next = l2;
+        return dummy->next;
+    }
+};
+```
+
+[22.括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
+
+```cpp
+/**
+ * 本题的解题思路：
+ * 满足要求的小括号集合必然满足以下两个性质：
+ * 1. 任意前缀中'('数量必然>=')'的数量
+ * 2. 左右括号数量相等
+ * 如果本题不是需要输出所有方案，而是只求数量的话，可以通过卡特兰数进行计算
+ */
+class Solution {
+public:
+    vector <string> ans;
+
+    vector <string> generateParenthesis(int n) {
+        dfs(n, 0, 0, "");
+        return ans;
+    }
+
+    void dfs(int n, int lc, int rc, string seq) {
+        if (lc == n && rc == n) ans.push_back(seq);
+        else {
+            if (lc < n) dfs(n, lc + 1, rc, seq + '(');
+            if (rc < n && lc > rc) dfs(n, lc, rc + 1, seq + ')');
+        }
+    }
+};
+```
+
 
 
 [51.N皇后](https://leetcode-cn.com/problems/n-queens)
