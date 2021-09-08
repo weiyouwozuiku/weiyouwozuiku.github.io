@@ -314,6 +314,15 @@ int main() {
 }
 ```
 
+[788.逆序对的数量](https://www.acwing.com/problem/content/790/)
+
+![788逆序对的数量.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Acwing刷题记录/788逆序对的数量.png)
+
+```cpp
+```
+
+
+
 [789. 数的范围](https://www.acwing.com/problem/content/791/)
 
 ```cpp
