@@ -284,5 +284,6 @@ cd ~/.vimplus
 
 ```shell
 # 修改/etc/ssh/sshd_config
+# 这里实现了允许root和king通过ssh登陆，其中root需要通过指定IP来访问
 AllowUsers king root@ip
 ```
