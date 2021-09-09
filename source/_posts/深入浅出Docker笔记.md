@@ -52,7 +52,7 @@ OCI(开放容器计划)是CoreOS和Docker共同成立的管理委员会，发布
 
 #### Linux版Docker
 
-$$\begin{cases}\text{社区版(Community Edition)}\\\text{企业版(Enterprise Edition)}\end{cases}$$
+$$\begin{cases}\text{社区版(Community Edition)} \\ \text{企业版(Enterprise Edition)}\end{cases}$$
 
 Docker EE包含Docker CE中的全部功能，还包括了商业支持和其他Docker产品的集成。
 
