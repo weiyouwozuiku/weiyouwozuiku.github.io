@@ -472,7 +472,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    108
+                    202
                 </div>
                 
 
@@ -510,7 +510,16 @@
                 <h2 id="JETBRAINS"><a href="#JETBRAINS" class="headerlink" title="JETBRAINS"></a>JETBRAINS</h2><p>使用ToolBox安装IDE,其软件默认安装在<code>C:\Users\&lt;用户名&gt;\AppData\Local\JetBrains\</code>文件夹中。</p>
 <p>其中软件的使用证书受到注册表影响，需要将注册表<code>regedit</code>中的相关信息配置在云内电脑中，具体路径为<code>计算机\HKEY_CURRENT_USER\Software\JavaSoft</code>和<code>计算机\HKEY_CURRENT_USER\Software\JetBrains</code>中。</p>
 <p><code>C:\Users\&lt;用户名&gt;\AppData\Roaming\JetBrains</code>中放置的是IDE的配置与下载的插件。</p>
-<h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2>
+<h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><h2 id="VSCODE"><a href="#VSCODE" class="headerlink" title="VSCODE"></a>VSCODE</h2><p>当我们使用堡垒机连接服务器的时候，需要在vscode的ssh配置环境中加上如下格式的字段以保证能跳转到相应服务器上。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Host centos7
+  HostName {服务器ip}
+  User {登陆用户名}
+  ForwardAgent yes
+  ProxyCommand ssh -W {服务器的内网地址}:%p {堡垒机ip} 
+Host centos8
+  HostName {堡垒机ip}
+  User {登陆用户名}
+  ForwardAgent yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1071,7 +1080,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">151.1k</span>&nbsp;字
+                class="white-color">151.2k</span>&nbsp;字
             
             
             
