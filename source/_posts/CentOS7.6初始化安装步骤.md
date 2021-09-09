@@ -1,5 +1,5 @@
 ---
-title: CentOS7.6初始化安装步骤
+title: CentOS7初始化安装步骤
 author: 不二
 date: 2019-12-08 09:46:56
 mathjax: true
@@ -252,6 +252,8 @@ Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`.
 安装`sudo yum install tmux -y`
 
 该配置文件需要tmux2.3以上。
+
+CentOS7上安装较新版本的Tmux可以使用`sh -c "$(curl -fsSL https://gitee.com/lxyoucan/tools/raw/master/centos7/tmux/tmuxinstall.sh)"`
 
 设置配置文件：
 
