@@ -59,7 +59,7 @@ Docker EE包含Docker CE中的全部功能，还包括了商业支持和其他Do
 使用shell脚本的安装步骤如下：
 
 ```shell
-wget -qO- https://get.docker.com/ | sh
+ wget -qO- https://get.docker.com/ | sh
  # 将用户加入Docker Unix组，通过非root用户使用Docker
  sudo usermod -aG docker your-name
  # 查看是否添加到docker组成功，执行完毕需要重新登录，组权限才能生效
