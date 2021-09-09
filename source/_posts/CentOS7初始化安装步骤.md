@@ -278,3 +278,11 @@ cd ~/.vimplus
 
 由于国内的特殊网络环境，云服务器在访问github时会出现无法访问的情况。此时需要设置代理才能clone远程仓库。这里推荐使用[v2rayA](https://github.com/v2rayA/v2rayA)。
 
+## 限制SSH连接
+
+实现ssh服务中的root只能通过指定ip的服务器进行登陆
+
+```shell
+# 修改/etc/ssh/sshd_config
+AllowUsers king root@ip
+```
