@@ -480,14 +480,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -642,7 +642,10 @@ $ cp .tmux/.tmux.conf.local .<span aria-hidden="true" class="line-numbers-rows">
 cd ~/.vimplus
 ./install.sh //不加sudo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h2><p>由于国内的特殊网络环境，云服务器在访问github时会出现无法访问的情况。此时需要设置代理才能clone远程仓库。这里推荐使用<a target="_blank" rel="noopener" href="https://github.com/v2rayA/v2rayA">v2rayA</a>。</p>
-
+<h2 id="限制SSH连接"><a href="#限制SSH连接" class="headerlink" title="限制SSH连接"></a>限制SSH连接</h2><p>实现ssh服务中的root只能通过指定ip的服务器进行登陆</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 修改/etc/ssh/sshd_config
+# 这里实现了允许root和king通过ssh登陆，其中root需要通过指定IP来访问
+AllowUsers king root@ip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -668,7 +671,7 @@ cd ~/.vimplus
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://buerlog.top/2019/12/08/centos7.6-chu-shi-hua-an-zhuang-bu-zou/">http://buerlog.top/2019/12/08/centos7.6-chu-shi-hua-an-zhuang-bu-zou/</a>
+                    <a href="http://buerlog.top/2019/12/08/centos7-chu-shi-hua-an-zhuang-bu-zou/">http://buerlog.top/2019/12/08/centos7-chu-shi-hua-an-zhuang-bu-zou/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1230,7 +1233,7 @@ cd ~/.vimplus
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">151k</span>&nbsp;字
+                class="white-color">151.1k</span>&nbsp;字
             
             
             
