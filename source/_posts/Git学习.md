@@ -8,8 +8,31 @@ img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/theme
 categories: 经验总结
 ---
 
-创建仓库：
+## 原理
 
+Git区别于其他版本控制系统的主要差别在于**Git对待数据的方式**。
+
+其他版本控制系统以文件变更列表的方式存储信息，它们将存储的信息看作是一组基本文件和每个文件随时间逐步累积的差异，因此它们往往也叫做基于差异（delta-based）的版本控制。
+
+![其他版本控制系统](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Git学习/deltas.png)
+
+Git 不按照以上方式对待或保存数据。反之，Git 更像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个**快照流**。
+
+![Git](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Git学习/snapshots.png)
+
+Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。
+
+### 三种状态
+
+- 已修改表示修改了文件，但还没保存到数据库中。
+- 已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。
+- 已提交表示数据已经安全地保存在本地数据库中。
+
+
+## 常用命令
+
+创建仓库：
+delta-based
  ```shell
  git config --global user.name "Your name"
  git cinfug --globel user.email "email@example.com"
@@ -292,4 +315,3 @@ git log -stat -l
 ```shell
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 ```
-
