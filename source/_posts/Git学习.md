@@ -33,6 +33,7 @@ Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这�
 
 创建仓库：
 delta-based
+
  ```shell
  git config --global user.name "Your name"
  git cinfug --globel user.email "email@example.com"
@@ -51,6 +52,7 @@ delta-based
  ```shell
  git status
  ```
+
 查看修改：
 
  ```shell
