@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://buerlog.top/2021/05/19/git-xue-xi/</loc>
+    <loc>http://buerlog.top/2021/09/11/bu-long-guo-lu-qi-xue-xi/</loc>
     
-    <lastmod>2021-09-10</lastmod>
+    <lastmod>2021-09-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2021/08/28/hei-ke-yu-hua-jia/</loc>
+    
+    <lastmod>2021-09-11</lastmod>
     
   </url>
   
   <url>
     <loc>http://buerlog.top/2021/09/10/ren-zhi-tian-xing-du-hou-gan/</loc>
     
-    <lastmod>2021-09-10</lastmod>
+    <lastmod>2021-09-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2021/05/19/git-xue-xi/</loc>
+    
+    <lastmod>2021-09-11</lastmod>
     
   </url>
   
@@ -73,13 +87,6 @@
   
   <url>
     <loc>http://buerlog.top/tags/index.html</loc>
-    
-    <lastmod>2021-09-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2021/08/28/hei-ke-yu-hua-jia/</loc>
     
     <lastmod>2021-09-08</lastmod>
     
@@ -973,6 +980,13 @@
   
   <url>
     <loc>http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/</loc>
+    <lastmod>2021-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/</loc>
     <lastmod>2021-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
