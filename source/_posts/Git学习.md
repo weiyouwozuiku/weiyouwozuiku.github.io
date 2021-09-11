@@ -16,7 +16,7 @@ Git区别于其他版本控制系统的主要差别在于**Git对待数据的方
 
 ![其他版本控制系统](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Git学习/deltas.png)
 
-Git 不按照以上方式对待或保存数据。反之，Git 更像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个**快照流**。
+Git 不按照以上方式对待或保存数据。反之，Git 更像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个**快照流**。
 
 ![Git](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Git学习/snapshots.png)
 
@@ -28,15 +28,46 @@ Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这�
 - 已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。
 - 已提交表示数据已经安全地保存在本地数据库中。
 
+## Git配置
+
+Git使用配置工具实现控制Git外观与行为。一共有三种配置位置：
+
+- /etc/gitconfig 文件: 包含系统上每一个用户及他们仓库的通用配置。 如果在执行 git config 时带上 --system 选项，那么它就会读写该文件中的配置变量。 （由于它是系统配置文件，因此你需要管理员或超级用户权限来修改它。）
+
+- ~/.gitconfig 或 ~/.config/git/config 文件：只针对当前用户。 你可以传递 --global 选项让 Git 读写此文件，这会对你系统上 所有 的仓库生效。
+
+- 当前使用仓库的 Git 目录中的 config 文件（即 .git/config）：针对该仓库。 你可以传递 --local 选项让 Git 强制读写此文件，虽然默认情况下用的就是它。。 （当然，你需要进入某个 Git 仓库中才能让该选项生效。）
+
 
 ## 常用命令
 
+### 配置命令
+
+配置用户信息：
+
+```shell
+ git config --global user.name "Your name"
+ # github设置了email隐藏的话，需要将这里的邮箱设置成github的邮箱
+ git cinfug --globel user.email "email@example.com"
+```
+
+查看当前所有配置：
+
+```shell
+git config --list
+```
+
+设置常用的文本编辑器：
+
+```shell
+git config --global core.editor {编辑器名字}
+```
+
+### 操作命令
+
 创建仓库：
-delta-based
 
  ```shell
- git config --global user.name "Your name"
- git cinfug --globel user.email "email@example.com"
  git init
  ```
 
