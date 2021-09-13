@@ -64,6 +64,8 @@ git config --global core.editor {编辑器名字}
 
 ### 操作命令
 
+
+
 创建仓库：
 
  ```shell
@@ -152,7 +154,8 @@ git config --global core.editor {编辑器名字}
 克隆一个本地库：
 
  ```shell
- git clone git@github.com:weiyouwozuiku/repo-name.git
+ # 默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来
+ git clone <git仓库名> 自定义仓库名
  ```
 
 创建分支：
