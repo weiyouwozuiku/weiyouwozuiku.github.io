@@ -626,7 +626,10 @@ git clone &lt;git仓库名&gt; 自定义仓库名<span aria-hidden="true" class=
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git push origin :refs/tags/&lt;tagname&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>git 显示颜色：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global color.ui true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>不想提交的文件放在文件夹下面的.gitignore目录中<br>强制添加文件：</p>
+<p>不想提交的文件放在文件夹下面的.gitignore目录中</p>
+<p><code>.gitignore</code>文件中可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。</p>
+<p>其中glob的模式匹配是指shell所用的简化了的正则表达式。<code>*</code>匹配零个或多个人一字符。<code>[abc]</code>匹配</p>
+<p>强制添加文件：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git add -f &lt;file-name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看.gitignore的问题：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git check-ignore -v &lt;file-name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
