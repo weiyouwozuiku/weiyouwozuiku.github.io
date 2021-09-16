@@ -99,7 +99,10 @@ M  lib/simplegit.rb # 已修改且已暂存
 查看修改：
 
  ```shell
+ # 查看工作目录中当前文件和暂存区域快照之间的差异
  git diff <file>
+ # 查看已暂存的将要添加到下次提交里的内容
+ git diff --staged
  ```
 
 版本回退：
