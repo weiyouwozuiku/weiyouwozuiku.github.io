@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-13
+                    2021-09-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -540,8 +540,17 @@ git cinfug --globel user.email "email@example.com"<span aria-hidden="true" class
 <p>添加文件到Git仓库：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git add &lt;file&gt;
 git commit -m "message"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p> <strong><code>git add</code>即为精确的将内容添加到下一次提交中</strong></p>
 <p>工作区状态：</p>
- <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"> git status
+ # 状态简浏览
+ git status -s # git status --short
+  M README # 在工作区已修改但尚未暂存
+MM Rakefile # 文件已修，暂存后又作了修改
+A  lib/git.rb # 新添加到暂存区中的文件前面有 A 标记
+M  lib/simplegit.rb # 已修改且已暂存
+?? LICENSE.txt # 新添加到暂存区中的文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>修改过的文件前面有 M 标记。 输出中有两栏，左栏指明了暂存区的状态，右栏指明了工作区的状态。</strong></p>
 <p>查看修改：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>版本回退：</p>
@@ -1202,7 +1211,7 @@ git clone &lt;git仓库名&gt; 自定义仓库名<span aria-hidden="true" class=
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">151.6k</span>&nbsp;字
+                class="white-color">151.8k</span>&nbsp;字
             
             
             
