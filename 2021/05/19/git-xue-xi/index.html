@@ -552,7 +552,10 @@ M  lib/simplegit.rb # 已修改且已暂存
 ?? LICENSE.txt # 新添加到暂存区中的文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>修改过的文件前面有 M 标记。 输出中有两栏，左栏指明了暂存区的状态，右栏指明了工作区的状态。</strong></p>
 <p>查看修改：</p>
- <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 查看工作目录中当前文件和暂存区域快照之间的差异
+git diff &lt;file&gt;
+# 查看已暂存的将要添加到下次提交里的内容
+git diff --staged<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>版本回退：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reset --hard commit_id(可以用HEAD~选择前第几个版本)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看现在的提交历史：</p>
