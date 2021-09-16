@@ -472,14 +472,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -628,7 +628,27 @@ git clone &lt;git仓库名&gt; 自定义仓库名<span aria-hidden="true" class=
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global color.ui true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>不想提交的文件放在文件夹下面的.gitignore目录中</p>
 <p><code>.gitignore</code>文件中可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。</p>
-<p>其中glob的模式匹配是指shell所用的简化了的正则表达式。<code>*</code>匹配零个或多个人一字符。<code>[abc]</code>匹配</p>
+<p>其中glob的模式匹配是指shell所用的简化了的正则表达式。</p>
+<ul>
+<li><code>*</code>匹配零个或多个人一字符。</li>
+<li><code>[abc]</code>匹配任何一个列在方括号中的字符</li>
+<li><code>? </code>只匹配任意一个字符</li>
+<li><code>[0-9]</code> 表示匹配所有 0 到 9 的数字</li>
+<li><code>**</code>匹配任意中中间目录</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 忽略所有的 .a 文件
+*.a
+# 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件
+!lib.a
+# 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO
+/TODO
+# 忽略任何目录下名为 build 的文件夹
+build/
+# 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt
+doc/*.txt
+# 忽略 doc/ 目录及其所有子目录下的 .pdf 文件
+doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在最简单的情况下，一个仓库可能只根目录下有一个 .gitignore 文件，它递归地应用到整个仓库中。 然而，子目录下也可以有额外的 .gitignore 文件。子目录中的 .gitignore 文件中的规则只作用于它所在的目录中。</p>
 <p>强制添加文件：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git add -f &lt;file-name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看.gitignore的问题：</p>
@@ -1214,7 +1234,7 @@ git clone &lt;git仓库名&gt; 自定义仓库名<span aria-hidden="true" class=
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">151.8k</span>&nbsp;字
+                class="white-color">152.1k</span>&nbsp;字
             
             
             
