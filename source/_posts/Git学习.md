@@ -79,11 +79,22 @@ git config --global core.editor {编辑器名字}
  git commit -m "message"
  ```
 
+ **`git add`即为精确的将内容添加到下一次提交中**
+
 工作区状态：
 
  ```shell
  git status
+ # 状态简浏览
+ git status -s # git status --short
+  M README # 在工作区已修改但尚未暂存
+MM Rakefile # 文件已修，暂存后又作了修改
+A  lib/git.rb # 新添加到暂存区中的文件前面有 A 标记
+M  lib/simplegit.rb # 已修改且已暂存
+?? LICENSE.txt # 新添加到暂存区中的文件
  ```
+
+**修改过的文件前面有 M 标记。 输出中有两栏，左栏指明了暂存区的状态，右栏指明了工作区的状态。**
 
 查看修改：
 
