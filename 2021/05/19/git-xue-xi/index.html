@@ -465,14 +465,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-16
+                    2021-09-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2k
                 </div>
                 
 
@@ -555,7 +555,10 @@ M  lib/simplegit.rb # 已修改且已暂存
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 查看工作目录中当前文件和暂存区域快照之间的差异
 git diff &lt;file&gt;
 # 查看已暂存的将要添加到下次提交里的内容
-git diff --staged<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+git diff --staged
+# 下面的命令效果同上
+git diff --cached<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> <strong>git diff 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动.</strong></p>
 <p>版本回退：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reset --hard commit_id(可以用HEAD~选择前第几个版本)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看现在的提交历史：</p>
@@ -666,6 +669,8 @@ doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reset head &lt;filename&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>无敌配置：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>修改<code>git commit</code>默认的编辑器：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global core.editor<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1237,7 +1242,7 @@ doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">152.1k</span>&nbsp;字
+                class="white-color">152.2k</span>&nbsp;字
             
             
             
