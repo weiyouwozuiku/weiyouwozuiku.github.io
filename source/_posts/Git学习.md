@@ -103,7 +103,11 @@ M  lib/simplegit.rb # 已修改且已暂存
  git diff <file>
  # 查看已暂存的将要添加到下次提交里的内容
  git diff --staged
+ # 下面的命令效果同上
+ git diff --cached
  ```
+
+ **git diff 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动.**
 
 版本回退：
 
@@ -391,4 +395,10 @@ git log -stat -l
 
 ```shell
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+```
+
+修改`git commit`默认的编辑器：
+
+```shell
+git config --global core.editor
 ```
