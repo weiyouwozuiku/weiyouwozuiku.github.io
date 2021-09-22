@@ -8,3 +8,14 @@ date: 2021-09-22 15:23:38
 tags:
 categories:
 ---
+
+## 前言
+
+Django是一个开放源代码的Web应用框架。
+
+检测是否安装Django模块：
+
+```shell
+python -m django --version
+```
+
