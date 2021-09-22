@@ -11,6 +11,18 @@
         <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Django是一个开放源代码的Web应用框架。</p><p>检测是否安装Django模块：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python -m django --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> 程序设计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
       
     </entry>
     
@@ -24,6 +36,18 @@
         <content type="html"><![CDATA[]]></content>
       
       
+      <categories>
+          
+          <category> 经验总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 健身 </tag>
+            
+        </tags>
       
     </entry>
     
