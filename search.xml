@@ -8,7 +8,7 @@
       <link href="2021/09/22/django-xue-xi-bi-ji/"/>
       <url>2021/09/22/django-xue-xi-bi-ji/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Django是一个开放源代码的Web应用框架。</p><p>检测是否安装Django模块：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python -m django --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
       
       
       
