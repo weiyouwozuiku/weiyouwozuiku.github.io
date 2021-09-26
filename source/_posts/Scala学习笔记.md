@@ -24,3 +24,7 @@ object HelloWorld{
 ```
 
 上面的HelloWorld代码与Java最大的不同在于：Scala版的HelloWorld程序不通过static关键字把main方法标记成静态方法，而是使用object关键字创建了单件。
+
+`<10>.asInstanceOf[Double]`：Int类型的10转换成Double类型
+
+`10.isInstanceOf[Int]`：返回10是否为Int类型
