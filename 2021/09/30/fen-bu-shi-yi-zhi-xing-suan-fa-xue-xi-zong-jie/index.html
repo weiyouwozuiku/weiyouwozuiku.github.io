@@ -465,14 +465,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-30
+                    2021-10-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    166
+                    267
                 </div>
                 
 
@@ -517,7 +517,17 @@
 <h3 id="共识算法"><a href="#共识算法" class="headerlink" title="共识算法"></a>共识算法</h3><p>共识的意思就是指所有的参与者都有相同的认识（可以理解为强一致性）。共识算法可以依据是否有恶意节点分为两类，即是否有恶意节点。</p>
 <h4 id="Paxos算法"><a href="#Paxos算法" class="headerlink" title="Paxos算法"></a>Paxos算法</h4><p>Paxos算法是Leslie Lamport在1998年《The Part-Time Parliament》中所提出。</p>
 <p>Paxos算法中存在三种角色：</p>
-
+<ul>
+<li>Proposer：参与提案，并向Acceptor发送提案</li>
+<li>Acceptor：参与决策，回应提案。如果提案获得多数（过半）Acceptor接受，则认为提案被批准</li>
+<li>Learner：不参与决策，只学习最新达成一致的提案</li>
+</ul>
+<p>Paxos算法的决议过程分为两种：</p>
+<ul>
+<li>Basic Paxos:针对单个value的决议过程</li>
+<li>Multi Paxos：针对连续多个value的决议过程</li>
+</ul>
+<h5 id="Basic-Paxos"><a href="#Basic-Paxos" class="headerlink" title="Basic Paxos"></a>Basic Paxos</h5><h5 id="Multi-Paxos"><a href="#Multi-Paxos" class="headerlink" title="Multi Paxos"></a>Multi Paxos</h5>
                 
             </div>
             <hr/>
@@ -1087,7 +1097,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">153.2k</span>&nbsp;字
+                class="white-color">153.3k</span>&nbsp;字
             
             
             
