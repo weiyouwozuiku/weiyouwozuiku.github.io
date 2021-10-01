@@ -469,7 +469,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-30
+                    2021-10-01
                 </div>
                 
 
@@ -551,7 +551,7 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
 </tbody></table>
 <p><strong>go不需要语句或者声明的末尾添加分号，除非一行上有多条语句。编译器主动将特定符号后的换行符转换为分号。换行的位置会影响go代码的正确解析。</strong></p>
 <p>不允许使用无用的局部变量。可以使用空标识符:<code>_</code>。用于语法需要变量名，但是程序逻辑不需要。</p>
-<p>空表示<code>nil</code>。 </p>
+<p>空表示<code>nil</code>。</p>
 <p>函数和包级别的变量可以任意顺序声明，不影响调用。CPP需要提前申明。</p>
 <p>go中的传值类似C++的引用传递。指针是另一个指针，但是内存指向同一块区域。</p>
 <p>常量的值只能是数字、字符串、固定的布尔值。<code>const(变量名=值)</code>。</p>
@@ -567,15 +567,15 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>自增自减是语句，不能像C++中那样使用。且符号只能放在最后。</strong><code>x=i++</code>这样的语法是错误的。</p>
 <h3 id="定义变量和结构"><a href="#定义变量和结构" class="headerlink" title="定义变量和结构"></a>定义变量和结构</h3><p>变量没有显示初始化，则隐式初始化。数值为0，字符串为空。</p>
-<h4 id="定义、创建变量"><a href="#定义、创建变量" class="headerlink" title="定义、创建变量"></a>定义、创建变量</h4><p><code>var 变量名1,变量名2 变量类型 </code></p>
+<h4 id="定义、创建变量"><a href="#定义、创建变量" class="headerlink" title="定义、创建变量"></a>定义、创建变量</h4><p><code>var 变量名1,变量名2 变量类型</code></p>
 <p>变量定义的几种等价方式</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">s <span class="token operator">:=</span> <span class="token string">""</span>  <span class="token comment">//只能用在函数内部，不能用于包变量</span>
 <span class="token keyword">var</span> s <span class="token builtin">string</span>  <span class="token comment">//依赖字符串的默认初始化零值机制</span>
 <span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token string">""</span>  <span class="token comment">//用于多变量声明</span>
 <span class="token keyword">var</span> s <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">""</span>  <span class="token comment">//多变量多类型时使用</span>
 <span class="token keyword">var</span> <span class="token punctuation">(</span> <span class="token comment">//多个包变量的声明</span>
-	a<span class="token operator">=</span><span class="token string">""</span>
-    b<span class="token operator">=</span><span class="token string">""</span>
+ a<span class="token operator">=</span><span class="token string">""</span>
+ b<span class="token operator">=</span><span class="token string">""</span>
 <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="定义struct"><a href="#定义struct" class="headerlink" title="定义struct"></a>定义struct</h4><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> 类型名 <span class="token keyword">struct</span> <span class="token punctuation">{</span>
     数据元素 类型
@@ -904,7 +904,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <li>0xxxxxxx                                                 runes 0-127</li>
 <li>110xxxxx 10xxxxxx                                  128-2047</li>
 <li>1110xxxx 10xxxxxx 10xxxxxx                  2048-65535</li>
-<li>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  65536-0x10ffff </li>
+<li>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  65536-0x10ffff</li>
 </ul>
 <p>对于小于256码点值可以写在一个十六进制转义字节中，但是对于更大的码点则必须使用\u或者\U转义形式。</p>
 <p>判断一个字符串是否是另一个字符串的前缀/后缀：</p>
@@ -1630,7 +1630,7 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">153k</span>&nbsp;字
+                class="white-color">153.1k</span>&nbsp;字
             
             
             

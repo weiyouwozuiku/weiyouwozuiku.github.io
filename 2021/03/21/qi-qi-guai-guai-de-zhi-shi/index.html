@@ -465,14 +465,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2021-10-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    202
+                    255
                 </div>
                 
 
@@ -510,7 +510,7 @@
                 <h2 id="JETBRAINS"><a href="#JETBRAINS" class="headerlink" title="JETBRAINS"></a>JETBRAINS</h2><p>使用ToolBox安装IDE,其软件默认安装在<code>C:\Users\&lt;用户名&gt;\AppData\Local\JetBrains\</code>文件夹中。</p>
 <p>其中软件的使用证书受到注册表影响，需要将注册表<code>regedit</code>中的相关信息配置在云内电脑中，具体路径为<code>计算机\HKEY_CURRENT_USER\Software\JavaSoft</code>和<code>计算机\HKEY_CURRENT_USER\Software\JetBrains</code>中。</p>
 <p><code>C:\Users\&lt;用户名&gt;\AppData\Roaming\JetBrains</code>中放置的是IDE的配置与下载的插件。</p>
-<h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><h2 id="VSCODE"><a href="#VSCODE" class="headerlink" title="VSCODE"></a>VSCODE</h2><p>当我们使用堡垒机连接服务器的时候，需要在vscode的ssh配置环境中加上如下格式的字段以保证能跳转到相应服务器上。</p>
+<h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><h2 id="VSCODE"><a href="#VSCODE" class="headerlink" title="VSCODE"></a>VSCODE</h2><h3 id="堡垒机跳转"><a href="#堡垒机跳转" class="headerlink" title="堡垒机跳转"></a>堡垒机跳转</h3><p>当我们使用堡垒机连接服务器的时候，需要在vscode的ssh配置环境中加上如下格式的字段以保证能跳转到相应服务器上。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Host centos7
   HostName {服务器ip}
   User {登陆用户名}
@@ -520,6 +520,11 @@ Host centos8
   HostName {堡垒机ip}
   User {登陆用户名}
   ForwardAgent yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="多行文件显示"><a href="#多行文件显示" class="headerlink" title="多行文件显示"></a>多行文件显示</h3><p>vscode默认文件是一行显示，左右滑动。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86/%E6%96%87%E4%BB%B6%E5%8D%95%E8%A1%8C.png" alt="文件单行.png"></p>
+<p>可以通过设置进行更改，设置中勾选<code>workbench.editor.wrapTabs</code>标签即可实现如下效果。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86/%E6%96%87%E4%BB%B6%E5%A4%9A%E8%A1%8C.png" alt="文件多行.png"></p>
+
                 
             </div>
             <hr/>
@@ -1080,7 +1085,7 @@ Host centos8
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">153k</span>&nbsp;字
+                class="white-color">153.1k</span>&nbsp;字
             
             
             
