@@ -472,14 +472,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    756
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -512,7 +512,19 @@
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A3%81%E7%9B%98IO%E6%80%BB%E7%BB%93/%E7%A3%81%E7%9B%98%E7%9B%98%E7%89%87%E5%9E%82%E7%9B%B4%E8%A7%86%E8%A7%92.png" alt="磁盘盘片垂直视角.png "></p>
 <p>早期的硬盘每磁道扇区数相同，此时由磁盘基本参数可以计算出硬盘的容量：存储容量=磁头数<em>磁道（柱面）数</em>每道扇区数*每扇区字节数。由于每磁道扇区数相同，外圈磁道半径大，里圈磁道半径小，外圈和里圈扇区面积自然会不一样。同时，为了更好的读取数据，即使外圈扇区面积再大也只能和内圈扇区一样存放相同的字节数（512字节）。这样一来，外圈的记录密度就要比内圈小，会浪费大量的存储空间。</p>
 <p>如今的硬盘都使用ZBR（Zoned Bit Recording，区位记录）技术，盘片表面由里向外划分为数个区域，不同区域的磁道扇区数目不同，同一区域内各磁道扇区数相同，盘片外圈区域磁道长扇区数目较多，内圈区域磁道短扇区数目较少，大体实现了等密度，从而获得了更多的存储空间。此时，由于每磁道扇区数各不相同，所以传统的容量计算公式就不再适用。实际上如今的硬盘大多使用LBA（Logical Block Addressing）逻辑块寻址模式，知道LBA后即可计算出硬盘容量。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<h2 id="影响硬盘性能的因素"><a href="#影响硬盘性能的因素" class="headerlink" title="影响硬盘性能的因素"></a>影响硬盘性能的因素</h2><p>影响磁盘的关键因素是磁盘服务时间，即磁盘完成一个I/O请求所花的时间。</p>
+<p>磁盘服务时间=寻道时间+旋转延迟+数据传输时间</p>
+<h3 id="寻道时间"><a href="#寻道时间" class="headerlink" title="寻道时间"></a>寻道时间</h3><p>$T_{seek}$是指将读写磁头移动至正确的磁道上所需要的时间。寻道时间越短，I/O操作越快，目前磁盘的平均寻道时间一般在3-15ms。</p>
+<h3 id="旋转延迟"><a href="#旋转延迟" class="headerlink" title="旋转延迟"></a>旋转延迟</h3><p>$T_{rotation}$是指盘片旋转将请求数据所在的扇区移动到读写磁盘下方所需要的时间。旋转延迟取决于磁盘转速，通常用磁盘旋转一周所需时间的1/2表示。比如：7200rpm的磁盘平均旋转延迟大约为60*1000/7200/2 = 4.17ms，而转速为15000rpm的磁盘其平均旋转延迟为2ms。</p>
+<h3 id="数据传输时间"><a href="#数据传输时间" class="headerlink" title="数据传输时间"></a>数据传输时间</h3><p>$T_{transfer}$是指完成传输所请求的数据所需要的时间，它取决于数据传输率，其值等于数据大小除以数据传输率。目前IDE/ATA能达到133MB/s，SATA II可达到300MB/s的接口数据传输率，数据传输时间通常远小于前两部分消耗时间。简单计算时可忽略。</p>
+<h2 id="衡量性能指标"><a href="#衡量性能指标" class="headerlink" title="衡量性能指标"></a>衡量性能指标</h2><p>机械硬盘的连续读写性能很好，但随机读写性能很差，这主要是因为磁头移动到正确的磁道上需要时间，随机读写时，磁头需要不停的移动，时间都浪费在了磁头寻址上，所以性能不高。衡量磁盘的重要主要指标是IOPS和吞吐量。</p>
+<h3 id="IOPS"><a href="#IOPS" class="headerlink" title="IOPS"></a>IOPS</h3><p>IOPS（Input/Output Per Second）即每秒的输入输出量（或读写次数），即指每秒内系统能处理的I/O请求数量。随机读写频繁的应用，如小文件存储等，关注随机读写性能，IOPS是关键衡量指标。可以推算出磁盘的IOPS = 1000ms / (Tseek + Trotation + Transfer)，如果忽略数据传输时间，理论上可以计算出随机读写最大的IOPS。常见磁盘的随机读写最大IOPS为：</p>
+<ul>
+<li>7200rpm的磁盘 IOPS = 76 IOPS</li>
+<li>10000rpm的磁盘IOPS = 111 IOPS</li>
+<li>15000rpm的磁盘IOPS = 166 IOPS</li>
+</ul>
+<h3 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h3><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
 <li>IBM developerWorks，<a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/aix/library/1203_weixy_aixio/">AIX 下磁盘 I/O 性能分析</a>，2012。</li>
 <li>CSDN博客频道，<a target="_blank" rel="noopener" href="https://blog.csdn.net/hanchengxi/article/details/19089589">磁盘性能评价指标—IOPS和吞吐量</a>，2014。</li>
 <li>IBM developerWorks，<a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/linux/l-cn-read/">read 系统调用剖析</a>，2008。</li>
@@ -1094,7 +1106,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.1k</span>&nbsp;字
+                class="white-color">154.7k</span>&nbsp;字
             
             
             
