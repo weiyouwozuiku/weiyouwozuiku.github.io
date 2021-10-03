@@ -469,7 +469,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-01
+                    2021-10-03
                 </div>
                 
 
@@ -567,6 +567,8 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>自增自减是语句，不能像C++中那样使用。且符号只能放在最后。</strong><code>x=i++</code>这样的语法是错误的。</p>
 <h3 id="定义变量和结构"><a href="#定义变量和结构" class="headerlink" title="定义变量和结构"></a>定义变量和结构</h3><p>变量没有显示初始化，则隐式初始化。数值为0，字符串为空。</p>
+<p>var变量的时候，支持不同类型赋值，其赋值顺序为从左到右。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> b<span class="token punctuation">,</span> f<span class="token punctuation">,</span> s <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token number">2.3</span><span class="token punctuation">,</span> <span class="token string">"four"</span> <span class="token comment">// bool, float64, string</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="定义、创建变量"><a href="#定义、创建变量" class="headerlink" title="定义、创建变量"></a>定义、创建变量</h4><p><code>var 变量名1,变量名2 变量类型</code></p>
 <p>变量定义的几种等价方式</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">s <span class="token operator">:=</span> <span class="token string">""</span>  <span class="token comment">//只能用在函数内部，不能用于包变量</span>
@@ -577,6 +579,7 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
  a<span class="token operator">=</span><span class="token string">""</span>
  b<span class="token operator">=</span><span class="token string">""</span>
 <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>简短变量声明对于已经在相同语法域中声明过的变量，简短变量声明只进行赋值操作。</p>
 <h4 id="定义struct"><a href="#定义struct" class="headerlink" title="定义struct"></a>定义struct</h4><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> 类型名 <span class="token keyword">struct</span> <span class="token punctuation">{</span>
     数据元素 类型
 <span class="token punctuation">}</span>
@@ -1630,7 +1633,7 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">153.3k</span>&nbsp;字
+                class="white-color">153.6k</span>&nbsp;字
             
             
             
