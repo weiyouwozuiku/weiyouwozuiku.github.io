@@ -22,11 +22,13 @@ Go语言很特别，没有对象，没有继承多态，没有泛型，没有try
 
 `GOPATH`表示开发者Go项目的默认路径。
 
+### 依赖包下载网络配置
+
 由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。
 
 ```shell
-$ go env -w GO111MODULE=on
-$ go env -w GOPROXY=https://goproxy.cn,direct
+go env -w GO111MODULE=on
+go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
 或者基于系统的环境变量
@@ -42,6 +44,22 @@ $ source ~/.profile
 ```
 
 这里的`.profile`文件可以改成`.zshrc`。
+
+### Linux安装Go
+
+1. 去[官网](https://golang.org/dl/)下载最新的Go安装包。
+2. `tar -zxvf <tar.gz包> -C /usr/local`该命令会在`/usr/local`路径下生成go文件夹
+3. `sudo mkdir /usr/local/gopath && sudo chmod 777 /usr/local/gopath`这里存放go项目中的依赖
+4. 修改环境变量
+
+   ```shell
+   # sudo vi /etc/profile
+    export GOROOT=/usr/local/go
+    export GOPATH=/usr/local/gopath
+    export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+   ```
+
+5. `source /etc/profile`生效配置
 
 ## Go语言的执行、编译
 
@@ -239,7 +257,7 @@ go语言通过package管理。一个package由单个目录下的一个或者多�
 
 #### for循环
 
-**左大括号必须要和post语句在同一行**
+注意**左大括号必须要和post语句在同一行**
 
 ```go
 for i:=初始值;条件;post {
@@ -265,8 +283,8 @@ range每次返回两个数值：索引和相应元素值，并强制处理。
 
 ```go
 if err:=r.ParseForm();err!=nil{
-		log.Print(err)
-	}
+  log.Print(err)
+ }
 //等价于
 err := r.ParseForm()
 if err != nil {
@@ -628,8 +646,8 @@ bytes包提供了Buffer类型用于字节slice的缓存。一个Buffer开始是�
 package main
 
 import (
-	"bytes"
-	"fmt"
+ "bytes"
+ "fmt"
 )
 
 func intsToString(values []int)string{
@@ -676,8 +694,6 @@ $$无类型常量\begin{cases}无类型的布尔型\\无类型的整数\\无类�
 无类型整数常量转换为int，内存大小不确定。但是无类型浮点数内存大小明确是float64，无类型复数内存大小为complex128。
 
 当尝试将无类型的常量转为一个接口值时，要依靠它们明确接口对应的动态类型。
-
-
 
 ## 复合数据类型
 
@@ -775,8 +791,6 @@ m:=map[string]string {
 `delete(map名，key值)`删除元素。
 
 `map`使用哈希表，key必须可以比较。除了`slice,map,function的内建类型`都可以作为key。`stuct`不包含上述字段也可作为key。
-
-
 
 ### 结构体
 
