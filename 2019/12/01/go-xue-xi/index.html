@@ -469,21 +469,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-03
+                    2021-10-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.4k
+                    9.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    34 分
+                    35 分
                 </div>
                 
 
@@ -516,9 +516,9 @@
 <p><code>go</code>语言仅支持封装，不支持继承和多态。没有<code>class</code>只有<code>struct</code>。面向对象使用接口来实现。</p>
 <p><code>GOROOT</code>表示源码包所在路径。</p>
 <p><code>GOPATH</code>表示开发者Go项目的默认路径。</p>
-<p>由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ go env -w GO111MODULE=on
-$ go env -w GOPROXY=https://goproxy.cn,direct<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="依赖包下载网络配置"><a href="#依赖包下载网络配置" class="headerlink" title="依赖包下载网络配置"></a>依赖包下载网络配置</h3><p>由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">go env -w GO111MODULE=on
+go env -w GOPROXY=https://goproxy.cn,direct<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>或者基于系统的环境变量</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 一次性
 $ export GO111MODULE=on
@@ -528,6 +528,21 @@ $ echo "export GO111MODULE=on" &gt;&gt; ~/.profile
 $ echo "export GOPROXY=https://goproxy.cn" &gt;&gt; ~/.profile
 $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这里的<code>.profile</code>文件可以改成<code>.zshrc</code>。</p>
+<h3 id="Linux安装Go"><a href="#Linux安装Go" class="headerlink" title="Linux安装Go"></a>Linux安装Go</h3><ol>
+<li><p>去<a target="_blank" rel="noopener" href="https://golang.org/dl/">官网</a>下载最新的Go安装包。</p>
+</li>
+<li><p><code>tar -zxvf &lt;tar.gz包&gt; -C /usr/local</code>该命令会在<code>/usr/local</code>路径下生成go文件夹</p>
+</li>
+<li><p><code>sudo mkdir /usr/local/gopath &amp;&amp; sudo chmod 777 /usr/local/gopath</code>这里存放go项目中的依赖</p>
+</li>
+<li><p>修改环境变量</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># sudo vi /etc/profile
+ export GOROOT=/usr/local/go
+ export GOPATH=/usr/local/gopath
+ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><code>source /etc/profile</code>生效配置</p>
+</li>
+</ol>
 <h2 id="Go语言的执行、编译"><a href="#Go语言的执行、编译" class="headerlink" title="Go语言的执行、编译"></a>Go语言的执行、编译</h2><h3 id="go文件的执行"><a href="#go文件的执行" class="headerlink" title="go文件的执行"></a>go文件的执行</h3><p>go语言可以直接使用<code>go run + 相应go文件名</code>。</p>
 <p><strong>go语言原生支持Unicode，可以处理全世界任何语言的文本。</strong></p>
 <h3 id="go文件的编译"><a href="#go文件的编译" class="headerlink" title="go文件的编译"></a>go文件的编译</h3><p><code>go build + 相应go文件名</code>，生成相应二进制可执行文件，且是静态编译，无需担心在系统库更新的时候冲突。</p>
@@ -664,7 +679,7 @@ fmt<span class="token punctuation">.</span><span class="token function">PrintIn<
 <p><code>init</code>函数不能被调用或者引用。在每个文件中的<code>init</code>初始化函数，在程序开始执行时按照它们声明的顺序被自动调用。</p>
 <p>每个包只会被初始化一次。</p>
 <p>初始化工作自下而上进行，main包最后被初始化。确保在main函数执行之前，所有依赖的包都已经完成了初始化工作。</p>
-<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h4><p><strong>左大括号必须要和post语句在同一行</strong></p>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h4><p>注意<strong>左大括号必须要和post语句在同一行</strong></p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">for</span> i<span class="token operator">:=</span>初始值<span class="token punctuation">;</span>条件<span class="token punctuation">;</span>post <span class="token punctuation">{</span>
     <span class="token comment">//todo</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -675,8 +690,8 @@ fmt<span class="token punctuation">.</span><span class="token function">PrintIn<
 <p>range每次返回两个数值：索引和相应元素值，并强制处理。</p>
 <h3 id="选择判断"><a href="#选择判断" class="headerlink" title="选择判断"></a>选择判断</h3><p><code>if</code>可以在比较的时候进行简单语句的赋值行为，以下代码等价：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">if</span> err<span class="token operator">:=</span>r<span class="token punctuation">.</span><span class="token function">ParseForm</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>err<span class="token operator">!=</span><span class="token boolean">nil</span><span class="token punctuation">{</span>
-		log<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-	<span class="token punctuation">}</span>
+  log<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
 <span class="token comment">//等价于</span>
 err <span class="token operator">:=</span> r<span class="token punctuation">.</span><span class="token function">ParseForm</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
@@ -937,8 +952,8 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
 
 <span class="token keyword">import</span> <span class="token punctuation">(</span>
-	<span class="token string">"bytes"</span>
-	<span class="token string">"fmt"</span>
+ <span class="token string">"bytes"</span>
+ <span class="token string">"fmt"</span>
 <span class="token punctuation">)</span>
 
 <span class="token keyword">func</span> <span class="token function">intsToString</span><span class="token punctuation">(</span>values <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span><span class="token builtin">string</span><span class="token punctuation">{</span>
@@ -1633,7 +1648,7 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.7k</span>&nbsp;字
+                class="white-color">156.9k</span>&nbsp;字
             
             
             
