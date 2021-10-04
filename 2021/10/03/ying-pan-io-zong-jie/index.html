@@ -472,14 +472,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.5k
+                    9.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    26 分
+                    32 分
                 </div>
                 
 
@@ -583,12 +583,21 @@
 <ul>
 <li>Noop算法：最简单的I/O调度算法。<strong>该算法仅适当合并用户请求，并不排序请求。新的请求通常被插在调度队列的开头或末尾，下一个要处理的请求总是队列中的第一个请求。这种算法是为不需要寻道的块设备设计的，如SSD</strong>。因为其他三个算法的优化是基于缩短寻道时间的，而SSD硬盘没有所谓的寻道时间且I/O响应时间非常短。</li>
 <li>CFQ算法：算法的主要目标是在触发I/O请求的所有进程中确保磁盘I/O带宽的公平分配。算法使用许多个排序队列，存放了不同进程发出的请求。通过散列将同一个进程发出的请求插入同一个队列中。采用轮询方式扫描队列，从第一个非空队列开始，依次调度不同队列中特定个数（公平）的请求，然后将这些请求移动到调度队列的末尾。</li>
-<li>Deadline算法：算法引入了两个排队队列分别包含读请求和写请求，两个最后期限队列包含相同的读和写请求。本质就是一个超时定时器，当请求被传给电梯算法时开始计时。一旦最后期限队列中的超时时间已到，就想请求移至调度队列末尾。Deadline算法避免了电梯调度策略（为了减少寻道时间，会优先处理与上一个请求相近的请求）带来的对某个请求忽略很长一段时间的可能。</li>
-<li>AS算法：AS算法本质上依据局部性原理，预测进程发出的读请求与刚被调度的请求在磁盘上可能是“近邻”。算法统计每个进程I/O操作信息，当刚刚调度了由某个进程的一个读请求之后，算法马上检查排序队列中的下一个请求是否来自同一个进程。如果是，立即调度下一个请求。否则，查看关于该进程的统计信息，如果确定进程p可能很快发出另一个读请求，那么就延迟一小段时间。</li>
+<li>Deadline算法：算法引入了两个排队队列分别包含读请求和写请求，两个最后期限队列包含相同的读和写请求。本质就是一个超时定时器，当请求被传给电梯算法时开始计时。一旦最后期限队列中的超时时间已到，就请求移至调度队列末尾。Deadline算法避免了电梯调度策略（为了减少寻道时间，会优先处理与上一个请求相近的请求）带来的对某个请求忽略很长一段时间的可能。</li>
+<li>AS算法：AS算法本质上依据局部性原理，预测进程发出的读请求与刚被调度的请求在磁盘上可能是“近邻”。算法统计每个进程I/O操作信息，当刚刚调度了由某个进程的一个读请求之后，算法马上检查排序队列中的下一个请求是否来自同一个进程。如果是，立即调度下一个请求。否则，查看关于该进程的统计信息，如果确定进程可能很快发出另一个读请求，那么就延迟一小段时间。</li>
 </ul>
 <p>前文中计算出的IOPS是理论上的随机读写的最大IOPS，在随机读写中，每次I/O操作的寻址和旋转延时都不能忽略不计，有了这两个时间的存在也就限制了IOPS的大小。现在如果我们考虑在读取一个很大的存储连续分布在磁盘的文件，因为文件的存储的分布是连续的，磁头在完成一个读I/O操作之后，不需要重新寻址，也不需要旋转延时，在这种情况下我们能到一个很大的IOPS值。这时由于不再考虑寻址和旋转延时，则性能瓶颈仅是数据传输时延，假设数据传输时延为0.4ms，那么IOPS=1000 / 0.4 = 2500 IOPS。</p>
 <p>在许多的开源框架如Kafka、HBase中，都通过追加写的方式来尽可能的将随机I/O转换为顺序I/O，以此来降低寻址时间和旋转延时，从而最大限度的提高IOPS。</p>
-<h3 id="块设备驱动层"><a href="#块设备驱动层" class="headerlink" title="块设备驱动层"></a>块设备驱动层</h3><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<h3 id="块设备驱动层"><a href="#块设备驱动层" class="headerlink" title="块设备驱动层"></a>块设备驱动层</h3><p>驱动层中的驱动程序对应具体的物理块设备。它从上层中取出I/O请求，并根据该I/O请求中指定的信息，通过向具体块设备的设备控制器发送命令的方式，来操纵设备传输数据。</p>
+<h2 id="基于磁盘特性的设计"><a href="#基于磁盘特性的设计" class="headerlink" title="基于磁盘特性的设计"></a>基于磁盘特性的设计</h2><p>在了解Linux系统中请求到达磁盘的一次完整过程，期间Linux通过Cache以及排序合并I/O请求来提高系统的性能。其本质就是由于磁盘随机读写慢、顺序读写快。本节针对常见开源系统阐述一些基于磁盘I/O特性的设计技巧。</p>
+<h3 id="采用追加写"><a href="#采用追加写" class="headerlink" title="采用追加写"></a>采用追加写</h3><p>在进行系统设计时，良好的读性能和写性能往往不可兼得。<strong>在许多常见的开源系统中都是优先在保证写性能的前提下来优化读性能</strong>。那么如何设计能让一个系统拥有良好的写性能呢？一个好的办法就是采用追加写，每次将数据添加到文件。由于完全是顺序的，所以可以具有非常好的写操作性能。但是这种方式也存在一些缺点：从文件中读一些数据时将会需要更多的时间：需要倒序扫描，直到找到所需要的内容。当然在一些简单的场景下也能够保证读操作的性能：</p>
+<h4 id="数据是被整体访问的"><a href="#数据是被整体访问的" class="headerlink" title="数据是被整体访问的"></a>数据是被整体访问的</h4><p>HDFS建立在一次写多次读的模型之上。在HDFS中就是采用了追加写并且设计为高数据吞吐量；高吞吐量必然以高延迟为代价，所以HDFS并不适用于对数据访问要求低延迟的场景；由于采用是的追加写，也并不适用于任意修改文件的场景。HDFS设计为流式访问大文件，使用大数据块并且采用流式数据访问来保证数据被整体访问，同时最小化硬盘的寻址开销，只需要一次寻址即可，这时寻址时间相比于传输时延可忽略，从而也拥有良好的读性能。HDFS不适合存储小文件，原因之一是由于NameNode内存不足问题，还有就是因为访问大量小文件需要执行大量的寻址操作，并且需要不断的从一个datanode跳到另一个datanode，这样会大大降低数据访问性能。</p>
+<h4 id="知道文件明确的偏移量"><a href="#知道文件明确的偏移量" class="headerlink" title="知道文件明确的偏移量"></a>知道文件明确的偏移量</h4><p>在Kafka中，采用消息追加的方式来写入每个消息，每个消息读写时都会利用Page Cache的预读和回写特性，同时partition中都使用顺序读写，以此来提高I/O性能。虽然Kafka能够根据偏移量查找到具体的某个消息，但是查找过程是顺序查找，因此如果数据很大的话，查找效率就很低。所以Kafka中采用了分段和索引的方式来解决查找效率问题。Kafka把一个patition大文件又分成了多个小文件段，每个小文件段以偏移量命名，通过多个小文件段，不仅可以使用二分搜索法很快定位消息，同时也容易定期清除或删除已经消费完的文件，减少磁盘占用。为了进一步提高查找效率，Kafka为每个分段后的数据建立了索引文件，并通过索引文件稀疏存储来降低元数据占用大小。一个段中数据对应结构如下图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A3%81%E7%9B%98IO%E6%80%BB%E7%BB%93/kafka%E6%AE%B5%E7%BB%93%E6%9E%84.png" alt="kafka段结构.png"></p>
+<p>在面对更复杂的读场景（比如按key）时，如何来保证读操作的性能呢？简单的方式是像Kafka那样，将文件数据有序保存，使用二分查找来优化效率；或者通过建索引的方式来进行优化；也可以采用hash的方式将数据分割为不同的桶。以上的方法都能增加读操作的性能，但是由于在数据上强加了数据结构，又会降低写操作的性能。比如如果采用索引的方式来优化读操作，那么在更新索引时就需要更新B-tree中的特定部分，这时候的写操作就是随机写。那么有没有一种办法在保证写性能不损失的同时也提供较好的读性能呢？一个好的选择就是使用LSM-tree。LSM-tree与B-tree相比，LSM-tree牺牲了部分读操作，以此大幅提高写性能。</p>
+<p>日志结构的合并树LSM（The Log-Structured Merge-Tree）是HBase，LevelDB等NoSQL数据库的存储引擎。Log-Structured的思想是将整个磁盘看做一个日志，在日志中存放永久性数据及其索引，每次都添加到日志的末尾。并且通过将很多小文件的存取转换为连续的大批量传输，使得对于文件系统的大多数存取都是顺序的，从而提高磁盘I/O。LSM-tree就是这样一种采用追加写、数据有序以及将随机I/O转换为顺序I/O的延迟更新，批量写入硬盘的数据结构。LSM-tree将数据的修改增量先保存在内存中，达到指定的大小限制后再将这些修改操作批量写入磁盘。因此比较旧的文件不会被更新，重复的纪录只会通过创建新的纪录来覆盖，这也就产生了一些冗余的数据。所以系统会周期性的合并一些数据，移除重复的更新或者删除纪录，同时也会删除上述的冗余。在进行读操作时，如果内存中没有找到相应的key，那么就是倒序从一个个磁盘文件中查找。如果文件越来越多那么读性能就会越来越低，目前的解决方案是采用页缓存来减少查询次数，周期合并文件也有助于提高读性能。在文件越来越多时，可通过布隆过滤器来避免大量的读文件操作。LSM-tree牺牲了部分读性能，以此来换取写入的最大化性能，特别适用于读需求低，会产生大量插入操作的应用环境。</p>
+<h3 id="文件合并与元数据优化"><a href="#文件合并与元数据优化" class="headerlink" title="文件合并与元数据优化"></a>文件合并与元数据优化</h3><h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><h3 id="电梯调度算法"><a href="#电梯调度算法" class="headerlink" title="电梯调度算法"></a>电梯调度算法</h3><p>如果电梯到了你这个楼层，方向正好和你的需求一致，那么电梯就会停止，否则电梯会继续运行。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
 <li>IBM developerWorks，<a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/aix/library/1203_weixy_aixio/">AIX 下磁盘 I/O 性能分析</a>，2012。</li>
 <li>CSDN博客频道，<a target="_blank" rel="noopener" href="https://blog.csdn.net/hanchengxi/article/details/19089589">磁盘性能评价指标—IOPS和吞吐量</a>，2014。</li>
 <li>IBM developerWorks，<a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/linux/l-cn-read/">read 系统调用剖析</a>，2008。</li>
@@ -836,17 +845,16 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/10/03/ying-pan-io-zong-jie/">
+                <a href="/2021/10/04/bu-long-guo-lu-qi-xue-xi/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/硬盘IO总结.jpeg" class="responsive-img" alt="硬盘IO总结">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/布隆过滤器.jpg" class="responsive-img" alt="布隆过滤器学习">
                         
-                        <span class="card-title">硬盘IO总结</span>
+                        <span class="card-title">布隆过滤器学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -856,9 +864,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-03
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-04
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -871,12 +879,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A1%AC%E7%9B%98IO/">
-                        <span class="chip bg-color">硬盘IO</span>
+                    <a href="/tags/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">
+                        <span class="chip bg-color">布隆过滤器</span>
                     </a>
                     
                 </div>
@@ -1171,7 +1178,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">161k</span>&nbsp;字
+                class="white-color">162.7k</span>&nbsp;字
             
             
             
