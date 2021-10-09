@@ -40,7 +40,16 @@ type Node struct {
 NodeA.next=NodeB
 ```
 
-有序单链表的查找需要进行遍历。
+有序单链表的查找需要进行遍历。如下图。
+
+```mermaid
+graph LR
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
 
 ## BoltDB
 
