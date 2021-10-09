@@ -28,7 +28,7 @@ RBT红黑树与Skip List(跳跃列表)简单对比：
 | 数据顺序 | 天然有序 | 天然有序 |
 | 锁机制 | 需要加锁 | 无需加锁 |
 
-### 跳表解决了什么
+### 跳表的优势
 
 常见的链表结构如下：
 
@@ -44,12 +44,11 @@ NodeA.next=NodeB
 
 ```mermaid
 graph LR
-    A[Christmas] -->|Get money| B(Go shopping)
-    B --> C{Let me think}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[fa:fa-car Car]
+    A(2)-->B(4)-->C(9)-->D(11)-->E(26)
 ```
+
+想要找到上图中的26这个元素，只能从头到尾遍历一边整个链表。
+
 
 ## BoltDB
 
