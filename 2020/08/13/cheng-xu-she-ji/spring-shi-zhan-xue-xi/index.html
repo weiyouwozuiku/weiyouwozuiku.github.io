@@ -469,7 +469,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2021-10-10
                 </div>
                 
 
@@ -511,7 +511,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/spring.jpg"></p>
+                <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/spring.jpg"></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录学习《Spring实战》(第五版)中的知识点，并将一些开发项目中遇到的相关经验与理解记录在这里。</p>
 <blockquote>
 <p>唯一不变的就是变化    —-希腊哲学家 赫拉克利特</p>
@@ -630,24 +630,24 @@
 <li><p>在IDEA中安装lombok插件。这一步是保证IDEA不会将代码标红。虽然不安装该插件也不会影响运行，但是会导致IDEA标红。</p>
 </li>
 </ol>
-<h4 id="常见的Lombok注释"><a href="#常见的Lombok注释" class="headerlink" title="常见的Lombok注释"></a>常见的Lombok注释</h4><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_overview.png" alt="lombok_overview.png"></p>
+<h4 id="常见的Lombok注释"><a href="#常见的Lombok注释" class="headerlink" title="常见的Lombok注释"></a>常见的Lombok注释</h4><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_overview.png" alt="lombok_overview.png"></p>
 <ul>
 <li><p>@Data：注解在类上。提供类所有属性的getter和setter方法，还提供了equals、hashCode、toString、RequiredArgsConstructor方法。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_data.png" alt="lombok_data.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_data.png" alt="lombok_data.png"></p>
 </li>
 <li><p>@Setter：注解在属性上；为属性提供setting方法</p>
 </li>
 <li><p>@Getter：注解在属性上；为属性提供getting方法</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_getter_setter.png" alt="lombok_getter_setter.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_getter_setter.png" alt="lombok_getter_setter.png"></p>
 </li>
 <li><p>@ToString：自动重写<code>toString</code>方法</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_tostring.png" alt="lombok_tostring.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_tostring.png" alt="lombok_tostring.png"></p>
 </li>
 <li><p>@EqualAndHashCode</p>
 <p>自动生成<code>equals(Object other)</code>和<code>hashCode()</code>方法，包括所有非静态变量和非transient的变量</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_equalsandhashcode.png" alt="lombok_equalsandhashcode.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_equalsandhashcode.png" alt="lombok_equalsandhashcode.png"></p>
 <p>如果某些变量不想要加进判断，可以透过exclude 排除，也可以使用of 指定某些字段</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_equalsandhashcode_exclude.png" alt="lombok_equalsandhashcode_exclude.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_equalsandhashcode_exclude.png" alt="lombok_equalsandhashcode_exclude.png"></p>
 <p>Q :为什么只有一个整体的@EqualsAndHashCode注解，而不是分开的两个@Equals和@HashCode？</p>
 <p>A : 在Java 中有规定，当两个object equals 时，他们的hashcode 一定要相同，反之，当hashcode 相同时，object 不一定equals。所以equals 和hashcode 要一起implement，免得发生违反Java 规定的情形发生</p>
 </li>
@@ -658,10 +658,10 @@
 <li><p>@Slf4j：同上。其作用同如下代码</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span><span class="token class-name">Logger</span> log<span class="token operator">=</span>org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span><span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">DesignTacoController</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>@NoArgsConstructor：注释在类上；为类提供一个无参的构造方法</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_noargsconstructor.png" alt="lombok_noargsconstructor.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_noargsconstructor.png" alt="lombok_noargsconstructor.png"></p>
 </li>
 <li><p>@AllArgsConstructor：注释在类上；为类提供一个全参的构造方法</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_allargsconstructor.png" alt="lombok_allargsconstructor.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_allargsconstructor.png" alt="lombok_allargsconstructor.png"></p>
 <p>这里注意一个Java 的小坑，当我们没有指定constructor 时，Java compiler 会帮我们自动生成一个没有任何参数的constructor 给该类，但是如果我们自己写了constructor 之后，Java 就不会自动帮我们补上那个无参数的constructor 了</p>
 <p>然而很多地方（像是Spring Data JPA），会需要每个类都一定要有一个无参数的constructor，所以<strong>你在加上@AllArgsConstructor时，拜托，一定要补上@NoArgsConstrcutor，不然会有各种坑等着你</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@AllArgsConstructor</span>
@@ -671,15 +671,15 @@
     <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>@RequiredArgsConstructor：生成一个包含“特定参数”的constructor，特定参数指的是那些有加上final修饰词的变量们</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_requiredargsconstructor.png" alt="lombok_requiredargsconstructor.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_requiredargsconstructor.png" alt="lombok_requiredargsconstructor.png"></p>
 <p>如果所有的变量都是正常的，都没有用final 修饰的话，那就会生成一个没有参数的constructor。</p>
 </li>
 <li><p>@Value 基本与@Data相同，不同在于它会把所有变量设置为final。相应的也就没有setter方法了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_value.png" alt="lombok_value.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_value.png" alt="lombok_value.png"></p>
 <p>此lombok 的注解@Value 和另一个Spring 的注解@Value 撞名，在import 时不要import 错了。</p>
 </li>
 <li><p>@Builder，自动生成流式set 值写法，从此之后再也不用写一堆setter 了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_builder.png" alt="lombok_builder.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Spring%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0/lombok_builder.png" alt="lombok_builder.png"></p>
 <p>注意，虽然只要加上@Builder 注解，我们就能够用流式写法快速设定Object 的值，但是setter 还是必须要写不能省略的，因为Spring 或是其他框架有很多地方都会用到Object 的getter/setter对他们取值/赋值。所以<strong>通常是@Data 和@Builder 会一起用在同个类上，既方便我们流式写code，也方便框架做事</strong>。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token annotation punctuation">@Builder</span>

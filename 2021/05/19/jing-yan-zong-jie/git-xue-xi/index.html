@@ -465,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-22
+                    2021-10-10
                 </div>
                 
 
@@ -509,9 +509,9 @@
             <div id="articleContent">
                 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>Git区别于其他版本控制系统的主要差别在于<strong>Git对待数据的方式</strong>。</p>
 <p>其他版本控制系统以文件变更列表的方式存储信息，它们将存储的信息看作是一组基本文件和每个文件随时间逐步累积的差异，因此它们往往也叫做基于差异（delta-based）的版本控制。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Git%E5%AD%A6%E4%B9%A0/deltas.png" alt="其他版本控制系统"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/Git%E5%AD%A6%E4%B9%A0/deltas.png" alt="其他版本控制系统"></p>
 <p>Git 不按照以上方式对待或保存数据。反之，Git 更像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个<strong>快照流</strong>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Git%E5%AD%A6%E4%B9%A0/snapshots.png" alt="Git"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Git%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/snapshots.png" alt="Git"></p>
 <p>Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。</p>
 <h3 id="三种状态"><a href="#三种状态" class="headerlink" title="三种状态"></a>三种状态</h3><ul>
 <li>已修改表示修改了文件，但还没保存到数据库中。</li>

@@ -465,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2021-10-10
                 </div>
                 
 
@@ -514,13 +514,13 @@
 <li>如果这些键频繁出现相同的哈希值（频繁发生<strong>碰撞</strong>），这项任务就需要$O(n^2)$的时间。</li>
 </ul>
 <p>2003年，Scott A. Crosby 和 Dan S. Wallach 两位研究人员发表了一篇论文：<a href="https://link.zhihu.com/?target=https://www.usenix.org/legacy/events/sec03/tech/full_papers/crosby/crosby.pdf">Denial of Service via Algorithmic Complexity Attacks</a>。在这篇论文里他们首次提出：既然有些数据结构的最差运行时间这么废物，我们有没有可能通过算法上的漏洞，强行构造出一个最差情况，让服务器把全部的资源都浪费在处理这个最差情况上？</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8/DJBX33A.jpg" alt="DJBX33A.jpg"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8/DJBX33A_2.jpg" alt="DJBX33A_2.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Cybersecurity/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8/DJBX33A.jpg" alt="DJBX33A.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Cybersecurity/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8/DJBX33A_2.jpg" alt="DJBX33A_2.jpg"></p>
 <p>这样一来，只要构造出几万个同样哈希的字符串，把它们提交给服务器做哈希表， 就能用很低的成本将服务器打瘫了。</p>
 <p>这个成本具体有多低呢？依2011年的实验数据，攻击一台基于Java（Tomcat）的服务器时，仅仅需要6KB/s的流量就能打瘫一颗 Intel i7 处理器，1GB/s的流量可以打瘫 100000 颗 Intel i7 处理器，性价比远超TCP半开连接等传统的拒绝服务攻击。</p>
 <h3 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h3><p>首先介绍一个数学悖论，其之所以被称为悖论。不是因为其矛盾，而是因为其违背了大多数人的尝试。</p>
 <hr>
-<h4 id="生日悖论"><a href="#生日悖论" class="headerlink" title="生日悖论"></a>生日悖论</h4><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8/%E7%94%9F%E6%97%A5%E6%82%96%E8%AE%BA.png" alt="生日悖论"></p>
+<h4 id="生日悖论"><a href="#生日悖论" class="headerlink" title="生日悖论"></a>生日悖论</h4><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Cybersecurity/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8/%E7%94%9F%E6%97%A5%E6%82%96%E8%AE%BA.png" alt="生日悖论"></p>
 <p>通过上图可以得知，大概在23个人的全体里就有两个人的生日完全相同，并随着人数越多，发生重复的概率越大。通过简单的公式可以看出这点：</p>
 <p>$1-P= \frac{365}{365} * \frac{364}{365} * … * \frac{365-n+1}{365} = \frac{365!}{365^n(365-n)!}$​​​​</p>
 <p>其结果如表：</p>
@@ -555,7 +555,7 @@
 <p>黑客一方的攻击目标，是想办法刺探出种子的值，或者在不知道种子的情况下构造出一组会碰撞的键来。而安全研究人员的目标，就是设计出更安全的带密钥哈希算法，保护好种子的安全，避免种子被黑客绕过。</p>
 <p>这些年来，攻守双方在这个领域展开了激烈的攻防，来自Google、UIC等机构的众多研究人员设计了许多新的哈希函数：SipHash、MurmurHash、CityHash等等。这些算法不停地被推翻，不停地更新版本，到现在已经形成了一套稳定的算法标准，被众多编程语言和开源项目所采纳。</p>
 <p>下面这张表来自SipHash官网，里面列举了众多采用SipHash-2-4算法的知名项目。其中Rust、Python、Ruby等语言更是把SipHash-2-4作为默认的哈希表实现方法，用这些语言编写的项目天生免疫哈希洪水攻击：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8/SipHash.jpg" alt="SipHash"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Cybersecurity/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8/SipHash.jpg" alt="SipHash"></p>
 <h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><p>很遗憾，Java并没有使用带密钥哈希算法。而是采用在JDK1.8之后，HashMap、LinkedHashMap和ConcurrentHashMap三个类引入了一套新的策略来处理哈希碰撞。</p>
 <ul>
 <li>当一个位置存储的元素个数小于8个时，仍然使用链表存储。</li>

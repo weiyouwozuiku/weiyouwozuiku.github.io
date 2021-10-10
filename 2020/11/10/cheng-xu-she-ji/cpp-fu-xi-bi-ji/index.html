@@ -465,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2021-10-11
                 </div>
                 
 
@@ -629,7 +629,7 @@
 <p>没有初始化的，不用的或者超出范围的指针请置为NULL。</p>
 <p>编译器程序分解成符号的方法是：一个字符一个字符的读入，一直到读入的字符不再能组成一个有意义的符号。这个处理过程称为”贪心法”。</p>
 <p>栈内分配内存从高地址向低地址分配，堆区分配内存是从低地址到高地址。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_Cpp%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_Cpp%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.png" alt="Cpp复习笔记_Cpp存储结构.png"></p>
 <p>主流的编程语言中，C++是唯一一个依赖RAII(Resource Acquisition Is Initialization)来做资源管理的。</p>
 <p>RAII依托栈和析构函数，来对所有资源——包括堆内存在内进行管理。对RAII的使用，使得C++不需要类似于Java那样的垃圾收集方法，也能有效的对内存进行管理。RAII的存在，也是垃圾收集虽然理论上可以在C++使用，但从来没有真正流行的原因。</p>
 <p>RAII有些比较成熟的智能指针代表：如<code>std:auto_ptr</code>和<code>boost:shared_ptr</code>。</p>
@@ -715,7 +715,7 @@
 <p>循环引用会导致堆里的内存无法被正常回收，造成内存泄漏。</p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98.png" alt="Cpp复习笔记_智能指针的循环引用问题.png"></p>
 <h4 id="weak-ptr"><a href="#weak-ptr" class="headerlink" title="weak_ptr"></a>weak_ptr</h4><p><code>weak_ptr</code>被设计为与<code>shared_ptr</code>共同工作，用一种观察者模式工作。</p>
 <p>作用是协助<code>shared_ptr</code>工作，可获得资源的观测权，像旁观者那样观测资源的使用情况。观察者意味着<code>weak_ptr</code>只对<code>shared_ptr</code>进行引用，而不改变其引用计数，当被观察的<code>shared_ptr</code>失效后，相应的<code>weak_ptr</code>也相应失效。</p>
 <hr>
@@ -1070,7 +1070,7 @@ ostream--&gt;iostream &amp; ostrstream &amp; ofstream
 iostream--&gt;fstream
 streambuf--&gt;strstreambuf &amp; filebuf</pre>
 
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_IO%E6%B5%81%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Cpp%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_IO%E6%B5%81%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="Cpp复习笔记_IO流类层次结构图.png"></p>
 <h4 id="缓存区"><a href="#缓存区" class="headerlink" title="缓存区"></a>缓存区</h4><p>标准IO提供的三种类型的缓存模式：</p>
 <ul>
 <li>按块缓存：如文件系统</li>

@@ -465,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2021-10-10
                 </div>
                 
 
@@ -746,7 +746,7 @@ product_id<span class="token punctuation">,</span> product_name
 <li>遇到大量hash值相等的情况后性能并不一定就会比B-Tree索引高</li>
 </ul>
 <h4 id="BitMap索引"><a href="#BitMap索引" class="headerlink" title="BitMap索引"></a>BitMap索引</h4><h5 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h5><p>位图索引可以看作是存储了大量bit位的bit序列，并且通过这些bit序列上的按位操作来响应查询请求，同时每个bit序列中的位数与数据表中的行数是一致的。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95.png" alt="数据库知识_位图索引.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95.png" alt="数据库知识_位图索引.png"></p>
 <h3 id="索引模块"><a href="#索引模块" class="headerlink" title="索引模块"></a>索引模块</h3><h4 id="密集索引与稀疏索引"><a href="#密集索引与稀疏索引" class="headerlink" title="密集索引与稀疏索引"></a>密集索引与稀疏索引</h4><ul>
 <li><p>密集索引文件中的每个搜索码值都对应一个索引值</p>
 </li>
@@ -763,12 +763,12 @@ product_id<span class="token punctuation">,</span> product_name
 <li><p>若不满足以上条件，InnoDB内部会生成一个隐藏主键（密集索引），该列是一个6字节的列</p>
 </li>
 <li><p>非主键索引存储相关键位和其对应的主键值，包括两次查找</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E4%B8%8D%E5%90%8C%E5%BC%95%E6%93%8E%E7%B4%A2%E5%BC%95.png" alt="数据库知识_不同引擎索引.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E4%B8%8D%E5%90%8C%E5%BC%95%E6%93%8E%E7%B4%A2%E5%BC%95.png" alt="数据库知识_不同引擎索引.png"></p>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E8%BF%9E%E6%8E%A5.png" alt="数据库知识_连接.png"></p>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E8%BF%9E%E6%8E%A5.png" alt="数据库知识_连接.png"></p>
 <h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>在SQL在数据库中执行花费很长时间的时候需要考虑相应的性能优化问题。</p>
 <p>在优化的过程中大致可以分成两个部分：即程序在执行sql的过程中可否优化以及sql语句本身可否优化。针对第一点明显的就是在大量数据需要插入的时候，能否将多条数据整合进入一条sql中，以此加快执行的速度。或给表加上索引，mysql可以使用explain查看sql执行计划来检查查询是否命中索引。</p>
 <h3 id="explain"><a href="#explain" class="headerlink" title="explain"></a>explain</h3><p>explain执行计划中包含的信息如下：</p>
