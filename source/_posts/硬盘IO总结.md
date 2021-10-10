@@ -6,7 +6,7 @@ img: >-
 mathjax: true
 date: 2021-10-03 11:09:54
 tags: 硬盘IO
-categories: 经验总结
+categories: KV存储
 ---
 
 ## 背景
