@@ -320,7 +320,7 @@ public:
 
 [10.正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/)
 
-![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Leetcode刷题记录/Leetcode刷题记录_10.png)
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Leetcode刷题记录/Leetcode刷题记录_10.png)
 
 ```cpp
 /**
@@ -688,7 +688,7 @@ private:
 
 下面证明 $\lceil\frac{n}{x+1}\rceil = \frac{n +x}{x+1}$ 。
 
-![Leetcode刷题记录_#781.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Leetcode刷题记录/Leetcode刷题记录_781.png)
+![Leetcode刷题记录_#781.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Leetcode刷题记录/Leetcode刷题记录_781.png)
 
 ```cpp
 class Solution {

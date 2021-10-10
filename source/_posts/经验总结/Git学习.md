@@ -14,11 +14,11 @@ Git区别于其他版本控制系统的主要差别在于**Git对待数据的方
 
 其他版本控制系统以文件变更列表的方式存储信息，它们将存储的信息看作是一组基本文件和每个文件随时间逐步累积的差异，因此它们往往也叫做基于差异（delta-based）的版本控制。
 
-![其他版本控制系统](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Git学习/deltas.png)
+![其他版本控制系统](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/Git学习/deltas.png)
 
 Git 不按照以上方式对待或保存数据。反之，Git 更像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个**快照流**。
 
-![Git](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Git学习/snapshots.png)
+![Git](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Git学习/经验总结/snapshots.png)
 
 Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。
 
