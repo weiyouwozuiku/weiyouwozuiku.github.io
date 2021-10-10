@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="布隆过滤器学习, 博客">
+    <meta name="keywords" content="Home Assistant, 博客">
     <meta name="description" content="个人学习储备知识与经验的秘密基地">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>布隆过滤器学习 | 不二博客</title>
+    <title>Home Assistant | 不二博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/布隆过滤器.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/Home-Assistant.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">布隆过滤器学习</h1>
+                    <h1 class="description center-align post-title">Home Assistant</h1>
                 </div>
             </div>
         </div>
@@ -433,8 +433,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">
-                                <span class="chip bg-color">布隆过滤器</span>
+                            <a href="/tags/HomeAssistant/">
+                                <span class="chip bg-color">HomeAssistant</span>
                             </a>
                         
                     </div>
@@ -458,28 +458,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-04
+                    2021-07-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-04
+                    2021-09-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    120
+                    532
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -507,9 +507,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>平时查询一个value是否存在，通常会创建一个hashmap进行存储所有元素。它的好处是快速准确，缺点是浪费空间。因此，引入布隆过滤器。</p>
-<p>布隆过滤器（Bloom Filter）是1970年由布隆提出的。它实际上是由一个很长的bit数组和一系列哈希函数组成的。布隆过滤器可以用于检索一个元素是否在一个集合中。</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2>
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Home Assistant是一款用于家庭自动化的免费开源软件，旨在成为智能家居设备的中央控制系统，重点关注本地控制和隐私。可以通过基于Web的用户界面，Android和iOS的配套应用程序或通过受支持的虚拟助手（如Google Assistant或Amazon Alexa）使用语音命令来访问它。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>我选择安装的平台是树莓派，而不是选择NAS作为容器的宿主，因为树莓派上可以使用<code>NPS</code>进行内网穿透。采用了Docker的安装方式，直接使用Python的方式pip安装的话会失败。因为Home Assistant需要Python3.8以上的版本。而RaspberryOS默认apt源中最新只有Python3.7。</p>
+<ol>
+<li><p>首先给树莓派安装上一个系统，我这里为了方便以后做硬件的扩展性，采用官方的raspberryOS。<strong>记得安装完毕后，不要先更新系统，先扩展系统使用整个SD空间。</strong></p>
+</li>
+<li><p>安装Docker,这里使用的是Docker的一键化安装脚本<code>sudo curl -sSL https://get.docker.com | sh</code>。</p>
+</li>
+<li><p>安装容器</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run --init -d \
+  --name homeassistant \
+  --privileged \
+  --restart=unless-stopped \
+  -v /etc/localtime:/etc/localtime:ro \
+  -v /PATH_TO_YOUR_CONFIG:/config \
+  --network=host \
+  ghcr.io/home-assistant/raspberrypi3-homeassistant:stable<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>更新容器</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># if this returns "Image is up to date" then you can stop here
+docker pull ghcr.io/home-assistant/raspberrypi3-homeassistant<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># stop the running container
+docker stop homeassistant<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># finally, start a new one
+docker run --init -d \
+  --name homeassistant \
+  --restart=unless-stopped \
+  --privileged \
+  -v /PATH_TO_YOUR_CONFIG:/config \
+  -v /etc/localtime:/etc/localtime:ro \
+  --network=host \
+  ghcr.io/home-assistant/raspberrypi3-homeassistant:stable<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>此时本机上已经安装好了装有Home Assistant的容器，并且已经运行。访问该设备的<code>IP:8123</code>即可访问。</p>
+</li>
+<li><p>为了能在离家后控制设备，需要做内网穿透。这里我采用闲置的云服务器，借助<code>NPS</code>实现TCP映射。</p>
+</li>
+<li><p>APP端的Home Assistant的设置中可以设置内网访问地址和外部访问地址。</p>
+</li>
+</ol>
+<h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><p>Home assistant中的小米设备需要安装HACS中的集合<code>Miot Auto</code>和<code>Miot</code>。</p>
+<p>由于HACS中许多插件都是从github进行下载，又因为国内的网络环境。可以通过进入docker中修改<code>/etc/hosts</code>中的域名加ip进行访问。</p>
+
                 
             </div>
             <hr/>
@@ -535,7 +572,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://buerlog.top/2021/10/04/bu-long-guo-lu-qi-xue-xi/">http://buerlog.top/2021/10/04/bu-long-guo-lu-qi-xue-xi/</a>
+                    <a href="http://buerlog.top/2021/07/07/jing-yan-zong-jie/home-assistant/">http://buerlog.top/2021/07/07/jing-yan-zong-jie/home-assistant/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -573,8 +610,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">
-                                    <span class="chip bg-color">布隆过滤器</span>
+                                <a href="/tags/HomeAssistant/">
+                                    <span class="chip bg-color">HomeAssistant</span>
                                 </a>
                             
                         </div>
@@ -744,17 +781,16 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/10/04/bu-long-guo-lu-qi-xue-xi/">
+                <a href="/2021/08/05/shu-ju-mi-ji-xing-ying-yong-xi-tong-she-ji-xue-xi/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/布隆过滤器.jpg" class="responsive-img" alt="布隆过滤器学习">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/数据密集型应用系统设计.jpeg" class="responsive-img" alt="《数据密集型应用系统设计》学习">
                         
-                        <span class="card-title">布隆过滤器学习</span>
+                        <span class="card-title">《数据密集型应用系统设计》学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -764,27 +800,30 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-04
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">
-                                    经验总结
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    程序设计
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">
-                        <span class="chip bg-color">布隆过滤器</span>
+                    <a href="/tags/Book/">
+                        <span class="chip bg-color">Book</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">分布式系统</span>
                     </a>
                     
                 </div>
@@ -798,12 +837,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/03/ying-pan-io-zong-jie/">
+                <a href="/2021/06/10/java-ri-zhi/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/硬盘IO总结.jpeg" class="responsive-img" alt="硬盘IO总结">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/log.jpg" class="responsive-img" alt="Java日志">
                         
-                        <span class="card-title">硬盘IO总结</span>
+                        <span class="card-title">Java日志</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -814,14 +853,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">
-                                    经验总结
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    程序设计
                                 </a>
                             
                             
@@ -831,8 +870,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A1%AC%E7%9B%98IO/">
-                        <span class="chip bg-color">硬盘IO</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%97%A5%E5%BF%97/">
+                        <span class="chip bg-color">日志</span>
                     </a>
                     
                 </div>
@@ -1079,7 +1122,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">164.7k</span>&nbsp;字
+                class="white-color">164.8k</span>&nbsp;字
             
             
             
