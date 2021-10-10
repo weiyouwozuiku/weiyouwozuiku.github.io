@@ -50,7 +50,7 @@ Docker的主要组成部分可以大致分为：
   
   容器默认与其他容器与其宿主机相隔离开。具体的隔离策略可以进行自定义设置。
 
-![Docker与K8s_Docker架构.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Docker%E4%B8%8EK8s/Docker%E4%B8%8EK8s_Docker%E6%9E%B6%E6%9E%84.png)
+![Docker与K8s_Docker架构.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/Docker与K8s/Docker与K8s_Docker架构.png)
 
 ### Docker镜像
 
@@ -169,7 +169,7 @@ pod是一组容器的集合，类似进程组，是K8s中一个最小调度单�
 
 K8s采用声明式API,而不是命令式API。SQL就是典型的声明式API，其不关心具体实现如何，只在乎我们所需的状态或结果。而命令式API就是告诉他每一步怎么做。
 
-![Docker与K8s_k8s架构.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Docker%E4%B8%8EK8s/Docker%E4%B8%8EK8s_k8s%E6%9E%B6%E6%9E%84.png)
+![Docker与K8s_k8s架构.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/Docker与K8s/Docker与K8s_k8s架构.png)
 
 
 

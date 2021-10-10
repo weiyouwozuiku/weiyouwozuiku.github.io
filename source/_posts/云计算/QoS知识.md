@@ -67,13 +67,13 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
 	   	
 	   如下图所示，当公司分支1向公司总部以100M的速度发送数据时，将会使Router2的串口S0/1发生拥塞。
 	   
-	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_网络拥塞.png)
+	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_网络拥塞.png)
 	   
 	   拥塞管理是指网络在发生拥塞时，如何进行管理和控制。处理的方法是使用队列技术。将所有要从一个接口发出的报文进入多个队列，按照各个队列的优先级进行处理。不同的队列算法用来解决不同的问题，并产生不同的效果。常用的队列技术有FIFO、PQ、CQ、WFQ、CBWFQ等，下文逐一介绍这些常用队列技术的基本原理。
    
 	2. FIFO
 	
-	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_FIFO.png)
+	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_FIFO.png)
 	
 	   FIFO队列不对报文进行分类，当报文进入接口的速度大于接口能发送的速度时，FIFO按报文到达接口的先后顺序让报文进入队列，同时，FIFO在队列的出口让报文按进队的顺序出队，先进的报文将先出队，后进的报文将后出队。
 	
@@ -81,7 +81,7 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
 	   
 	3. PQ(Priority Queuing)
 	
-	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_PQ.png)
+	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_PQ.png)
 	
 	   优先队列是针对关键业务应用设计的。关键业务有一个重要特点，在拥塞发生时根据优先获得服务以减少响应的延迟。PQ可以根据网络协议（如IP、IPX）、数据流入接口、报文长短、IP报文的ToS、五元组（协议ID、源IP地址、目的IP地址、源端口号、目的端口号）等条件进行分类，对于MPLS网络，则根据MPLS报文EXP域值进行分类。最终将所有报文分成最多4类，分别属于PQ的4个队列中的一个，然后，按报文所属类别将报文送入相应的队列。
 	
@@ -93,7 +93,7 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
 	
 	4. CQ(Custom Queuing)
 	
-	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_CQ.png)
+	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_CQ.png)
 	
 	   CQ的分类方法和PQ基本相同，不同的是它最终将所有报文分成最多至17类，每类报文对应CQ中的一个队列，接口拥塞时，报文按匹配规则被送入对应的队列；如果报文不匹配任何规则，则被送入缺省队列（缺省队列默认为1，可配置修改缺省队列）。
 	
@@ -105,7 +105,7 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
 	
 	5. WFQ(Weighted Fair Queuing)
 	
-	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_WFQ.png)
+	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_WFQ.png)
 	
 	   加权公平队列对报文按流特征进行分类，对于IP网络，相同源IP地址、目的IP地址、源端口号、目的端口号、协议号、ToS的报文属于同一个流，而对于MPLS网络，具有相同的标签和EXP域值的报文属于同一个流。每一个流被分配到一个队列，该过程称为**散列**，采用HASH算法来自动完成，这种方式会尽量将不同特征的流分入不同的队列中。每个队列类别可以看作是一类流，其报文进入WFQ中的同一个队列。*WFQ允许的队列数目是有限的，用户可以根据需要配置该值。*
 	
@@ -117,7 +117,7 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
 	
 	6. CBQ(Class Bases Queuing)
 	
-	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_CBQ.jpg)
+	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_CBQ.jpg)
 	
 	   基于类的队列首先根据IP优先级或者DSCP、输入接口、IP报文的五元组等规则来对报文进行分类；对于MPLS网络的LSR，主要是根据EXP域值进行分类。然后让不同类别的报文进入不同的队列。对于不匹配任何类别的报文，报文被送入系统定义的缺省类。
 	
@@ -135,7 +135,7 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
 	
 	7. RTP(Real Time Protocol Priority Queuing) 
 	
-	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_RTP.jpg)
+	   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_RTP.jpg)
 	
 	   RTP优先队列是一种保证实时业务（包括语音与视频业务）服务质量的简单队列技术。其原理就是将承载语音或视频的RTP报文送入高优先级队列，使其得到优先发送，保证时延和抖动降低为最低限度，从而保证了语音或视频这种对时延敏感业务的服务质量。
 	   
@@ -149,7 +149,7 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
 
    为了避免这种情况的发生，队列可以采用加权随机早期检测**WRED（Weighted Random Early Detection）**的报文丢弃策略（WRED与RED的区别在于前者引入IP优先权，DSCP值，和MPLS EXP来区别丢弃策略）。采用WRED时，用户可以设定队列的阈值（threshold）。当队列的长度小于低阈值时，不丢弃报文；当队列的长度在低阈值和高阈值之间时，WRED开始随机丢弃报文（队列的长度越长，丢弃的概率越高）；当队列的长度大于高阈值时，丢弃所有的报文。
 
-   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_WRED.png)
+   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_WRED.png)
 
 4. 流量监控原理
 
@@ -157,7 +157,7 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
 
    CAR利用令牌桶（Token Bucket，简称TB）进行流量控制。下图所示为利用CAR进行流量控制的基本处理过程：
 
-   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_CAR.png)
+   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_CAR.png)
 
    首先，根据预先设置的匹配规则来对报文进行分类，如果是没有规定流量特性的报文，就直接继续发送，并不需要经过令牌桶的处理；如果是需要进行流量控制的报文，则会进入令牌桶中进行处理。如果令牌桶中有足够的令牌可以用来发送报文，则允许报文通过，报文可以被继续发送下去。如果令牌桶中的令牌不满足报文的发送条件，则报文被丢弃。这样，就可以对某类报文的流量进行控制。
 
@@ -171,7 +171,7 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
 
    GTS的基本处理过程如下图所示，其中用于缓存报文的队列称为GTS队列。
 
-   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_GTS.png)
+   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_GTS.png)
 
 6. 物理接口总速率限制原理
 
@@ -181,7 +181,7 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
 
    LR的基本处理过程如下图所示：
 
-   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_LR.png)
+   ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_LR.png)
 ### 4. 其他提高QoS的技术
 
  1. 链路效率机制
@@ -194,7 +194,7 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
      
           链路效率机制的工作原理图如下所示：
      
-          ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_LFI.png)
+          ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_LFI.png)
      
           如上图所示，应用LFI技术，在大报文出队的时候，可以将其分为定制长度的小片报文，这就使RTP优先队列或LLQ中的报文不必等到大片报文发完后再得到调度，它等候的时间只是其中小片报文的发送时间，这样就很大程度的降低了低速链路因为发送大片报文造成的时延。
      
@@ -206,7 +206,7 @@ Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，
      
           RTP报文头压缩的处理过程如下图所示：
      
-          ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/QoS知识/QoS知识_CRTP.png)
+          ![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/QoS知识/QoS知识_CRTP.png)
      
  2. 链路层QoS技术
 
