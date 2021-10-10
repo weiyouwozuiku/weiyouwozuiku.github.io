@@ -469,7 +469,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2021-10-10
                 </div>
                 
 
@@ -549,7 +549,7 @@
 <p>容器默认与其他容器与其宿主机相隔离开。具体的隔离策略可以进行自定义设置。</p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Docker%E4%B8%8EK8s/Docker%E4%B8%8EK8s_Docker%E6%9E%B6%E6%9E%84.png" alt="Docker与K8s_Docker架构.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/Docker%E4%B8%8EK8s/Docker%E4%B8%8EK8s_Docker%E6%9E%B6%E6%9E%84.png" alt="Docker与K8s_Docker架构.png"></p>
 <h3 id="Docker镜像"><a href="#Docker镜像" class="headerlink" title="Docker镜像"></a>Docker镜像</h3><p>镜像中包含的操作系统文件最好之后一个精简版的，而非全量。在启动容器之后，容器进程还是去和宿主机的操作系统进行交互。</p>
 <p>对于多个应用使用同一基础镜像，推荐使用官方的镜像或将基础环境配置为镜像，复用基础镜像。</p>
 <h4 id="镜像介绍"><a href="#镜像介绍" class="headerlink" title="镜像介绍"></a>镜像介绍</h4><h5 id="Alpine镜像"><a href="#Alpine镜像" class="headerlink" title="Alpine镜像"></a>Alpine镜像</h5><p>apline linux借助fs的文件格式将整个镜像包的大小压缩到很小，但是存在诸多坑，例如alphine使用的是musl libc,而一般程序使用的都是glibc,会导致找不到运行的动态链接库等问题。且因为使用musl libc使用的人较少，产生的问题也相对难以解决。</p>
@@ -645,7 +645,7 @@
 <h4 id="镜像操作命令"><a href="#镜像操作命令" class="headerlink" title="镜像操作命令"></a>镜像操作命令</h4><h5 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h5><p>显示本地所有非隐藏镜像，默认会将中间依赖镜像隐藏</p>
 <h5 id="docker-build"><a href="#docker-build" class="headerlink" title="docker build"></a>docker build</h5><h5 id="docker-commit"><a href="#docker-commit" class="headerlink" title="docker commit"></a>docker commit</h5><h5 id="docker-history"><a href="#docker-history" class="headerlink" title="docker history"></a>docker history</h5><h5 id="docker-save"><a href="#docker-save" class="headerlink" title="docker save"></a>docker save</h5><h5 id="docker-import"><a href="#docker-import" class="headerlink" title="docker import"></a>docker import</h5><h5 id="docker-load"><a href="#docker-load" class="headerlink" title="docker load"></a>docker load</h5><h5 id="docker-rmi"><a href="#docker-rmi" class="headerlink" title="docker rmi"></a>docker rmi</h5><h5 id="docker-tag"><a href="#docker-tag" class="headerlink" title="docker tag"></a>docker tag</h5><h2 id="Docker核心技术"><a href="#Docker核心技术" class="headerlink" title="Docker核心技术"></a>Docker核心技术</h2><h2 id="Docker最佳实践"><a href="#Docker最佳实践" class="headerlink" title="Docker最佳实践"></a>Docker最佳实践</h2><h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
 <p>K8s采用声明式API,而不是命令式API。SQL就是典型的声明式API，其不关心具体实现如何，只在乎我们所需的状态或结果。而命令式API就是告诉他每一步怎么做。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Docker%E4%B8%8EK8s/Docker%E4%B8%8EK8s_k8s%E6%9E%B6%E6%9E%84.png" alt="Docker与K8s_k8s架构.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/Docker%E4%B8%8EK8s/Docker%E4%B8%8EK8s_k8s%E6%9E%B6%E6%9E%84.png" alt="Docker与K8s_k8s架构.png"></p>
 <h2 id="云原生监控方案"><a href="#云原生监控方案" class="headerlink" title="云原生监控方案"></a>云原生监控方案</h2>
                 
             </div>

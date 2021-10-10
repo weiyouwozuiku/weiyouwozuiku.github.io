@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://buerlog.top/2021/04/02/yun-ji-suan/docker-yu-k8s/</loc>
+    <lastmod>2021-10-10</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2019/07/13/yun-ji-suan/qos-zhi-shi/</loc>
+    <lastmod>2021-10-10</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2019/07/18/yun-ji-suan/wei-fu-wu/</loc>
+    <lastmod>2021-10-10</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2019/09/06/yun-ji-suan/yun-ji-suan-bian-ma-yue-du-bi-ji/</loc>
+    <lastmod>2021-10-10</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2019/12/22/yun-ji-suan/shen-ru-qian-chu-docker-bi-ji/</loc>
+    <lastmod>2021-10-10</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2020/02/24/yun-ji-suan/lun-wen-zong-jie/</loc>
+    <lastmod>2021-10-10</lastmod>
+  </url>
+  <url>
     <loc>http://buerlog.top/2021/04/09/ji-suan-ji-ji-chu/csapp-15-213/</loc>
     <lastmod>2021-10-10</lastmod>
   </url>
@@ -77,15 +101,7 @@
     <lastmod>2021-09-09</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/12/22/yun-ji-suan/shen-ru-qian-chu-docker-bi-ji/</loc>
-    <lastmod>2021-09-09</lastmod>
-  </url>
-  <url>
     <loc>http://buerlog.top/2020/01/13/cheng-xu-she-ji/she-ji-mo-shi/</loc>
-    <lastmod>2021-09-08</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2020/02/24/yun-ji-suan/lun-wen-zong-jie/</loc>
     <lastmod>2021-09-08</lastmod>
   </url>
   <url>
@@ -133,15 +149,7 @@
     <lastmod>2021-09-08</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/07/18/yun-ji-suan/wei-fu-wu/</loc>
-    <lastmod>2021-09-08</lastmod>
-  </url>
-  <url>
     <loc>http://buerlog.top/2019/09/23/suan-fa/gui-yi-hua-suan-fa/</loc>
-    <lastmod>2021-09-08</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2019/09/06/yun-ji-suan/yun-ji-suan-bian-ma-yue-du-bi-ji/</loc>
     <lastmod>2021-09-08</lastmod>
   </url>
   <url>
@@ -178,10 +186,6 @@
   </url>
   <url>
     <loc>http://buerlog.top/2020/08/13/cheng-xu-she-ji/spring-shi-zhan-xue-xi/</loc>
-    <lastmod>2021-09-08</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2019/07/13/yun-ji-suan/qos-zhi-shi/</loc>
     <lastmod>2021-09-08</lastmod>
   </url>
   <url>
@@ -258,10 +262,6 @@
   </url>
   <url>
     <loc>http://buerlog.top/2020/11/18/qian-ru-shi/esp32-zhi-wen-lan-ya-jian-pan-kai-fa/</loc>
-    <lastmod>2021-09-08</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2021/04/02/yun-ji-suan/docker-yu-k8s/</loc>
     <lastmod>2021-09-08</lastmod>
   </url>
   <url>

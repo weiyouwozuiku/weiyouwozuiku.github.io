@@ -469,7 +469,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2021-10-10
                 </div>
                 
 
@@ -634,8 +634,8 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 <h2 id="第五章-Docker引擎"><a href="#第五章-Docker引擎" class="headerlink" title="第五章 Docker引擎"></a>第五章 Docker引擎</h2><p>Docker引擎是用来运行和管理容器的核心软件，通常将其代指为Docker或Docker平台。</p>
 <p>Docker引擎是模块化的。</p>
 <p>$Docker引擎组件\begin{cases}Docker\quad Client\Docker\quad daemon\containerd\runc\end{cases}$</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_Docker%E5%BC%95%E6%93%8E.png" alt="深入浅出Docker笔记_Docker引擎.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_Docker%E5%BC%95%E6%93%8E1.png" alt="深入浅出Docker笔记_Docker引擎1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_Docker%E5%BC%95%E6%93%8E.png" alt="深入浅出Docker笔记_Docker引擎.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_Docker%E5%BC%95%E6%93%8E1.png" alt="深入浅出Docker笔记_Docker引擎1.png"></p>
 <p>runc是OCi容器运行时规范的参考实现。实质上是一个轻量级的、针对Libcontainer进行了包装的命令行交互工具(Libcontainer取代了早起的LXC)。</p>
 <p>runc只有一个功能就是<strong>创建容器</strong>。本质是一个独立的容器运行时工具。</p>
 <p>containerd的主要任务是容器的生命周期管理，也可以进行镜像管理等。containerd组件确保了Docker镜像能够以之后以正确的OCI Bundle的格式传递给runc。</p>
@@ -643,7 +643,7 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 <p>Daemon使用一种CRUD风格的API，通过gRPC与containerd进行通信。</p>
 <p>Daemon的主要功能包括镜像管理、镜像构建、REST API、身份验证、安全、核心网络、编排。</p>
 <p>一旦Daemon接收到创建新容器的命令，就会向containerd发出调用。containerd指挥runc去做。containerd将Docker镜像转换成OCI bundle，并让runc基于此创建一个新的容器。runc与操作系统内核接口进行通信，基于所有必要的工具(Namespace、CGroup等)来创建容器。容器进程作为runc的子进程启动。启动完毕后，runc退出。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_Docker%E5%90%AF%E5%8A%A8.png" alt="深入浅出Docker笔记_Docker启动.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_Docker%E5%90%AF%E5%8A%A8.png" alt="深入浅出Docker笔记_Docker启动.png"></p>
 <p>将所有的用于启动、管理容器的逻辑和代码从daemon中移除，以为者容器运行时与Docker daemon是解耦的，称之为“无守护进程的容器”。因此，Docker daemon的维护和升级不会影响运行中的容器。</p>
 <p>每次创建容器<code>shim</code>fork一个新的runc实例。一旦容器创建完毕，对应的runc进程退出。</p>
 <p>一旦容器进程的父进程runc进程退出，相关联的containerd-shim进程就会成为容器的父进程。</p>
@@ -686,21 +686,21 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 <p>镜像的唯一标识是一个加密ID，即配置对象本身的散列值。每个镜像层也由一个加密ID区分，其值为镜像层本身内容的散列值。也就是内容散列。</p>
 <p><strong>每个镜像层在拉取或推送时，包含一个分发散列值，这是一个压缩版镜像的散列值。该散列值用于校验拉取的镜像是否被篡改过。</strong></p>
 <p>为了实现多架构的方便使用，Docker的镜像仓库服务API支持两种重要的结构：Manifest列表(新)和Manifest。Manifest列表是指某个镜像标签支持的架构列表。其支持的每种架构，都有自己的Manifest定义。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_Manifest%E5%88%97%E8%A1%A8.png" alt="深入浅出Docker笔记_Manifest列表.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_Manifest%E5%88%97%E8%A1%A8.png" alt="深入浅出Docker笔记_Manifest列表.png"></p>
 <p>Manifest列表是可选的。在没有Manifest列表的情况下，镜像仓库服务会返回普通的Manifest。</p>
 <p><code>docker image rm &lt;镜像名或镜像ID&gt;</code>：删除镜像。</p>
 <p>某个镜像层被多个镜像共享，那只有当全部依赖该镜像层的镜像都被删除，该镜像层才会被删除。</p>
 <p><code>docker image ls -q </code>：返回当前docker主机中所有容器的ID。</p>
 <p><code>docker image rm $ (docker image ls -q) -f</code></p>
 <h2 id="第七章-Docker容器"><a href="#第七章-Docker容器" class="headerlink" title="第七章 Docker容器"></a>第七章 Docker容器</h2><h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>镜像是一堆只读层的统一视角。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_image-container.png" alt="深入浅出Docker笔记_image-container.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_image-container.png" alt="深入浅出Docker笔记_image-container.png"></p>
 <p>统一文件系统：将多个只读层重叠在一起，并整合成一个文件系统，对用户隐藏。</p>
 <p>在一个运行的容器内部，相应的文件层是不可见的。</p>
 <p><strong>容器和镜像几乎一样，也是一堆层的统一视角。唯一区别在于容器最上面的一层是可读可写的。即，容器=镜像+可读写层</strong></p>
 <p>运行态容器：可读写的统一文件系统加上隔离的进程空间和包含其中的进程。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_%E8%BF%90%E8%A1%8C%E6%80%81%E5%AE%B9%E5%99%A8.png" alt="深入浅出Docker笔记_运行态容器.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_%E8%BF%90%E8%A1%8C%E6%80%81%E5%AE%B9%E5%99%A8.png" alt="深入浅出Docker笔记_运行态容器.png"></p>
 <p>一个文件层包含多信息：1.元数据(metadata)：关于这个层的额外信息，它不仅能够让Docker获取运行和构建时的信息，还包括父层的层次信息。<strong>只读层和读写层都包含元数据。</strong>2.指向父层的指针。如果没有这个指针，说明它处于最底层。3.id。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_dockerrun.png" alt="深入浅出Docker笔记_dockerrun.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_dockerrun.png" alt="深入浅出Docker笔记_dockerrun.png"></p>
 <p><code>docker ps </code>：；列出所有运行中的容器，隐藏非运行态的容器。-a参数可以列出所有容器。</p>
 <p>Docker主要解决了应用隔离、应用部署、资源限制。</p>
 <p>其中隔离技术只要依靠的是Namespace，资源限制使用的是Cgroup。</p>
