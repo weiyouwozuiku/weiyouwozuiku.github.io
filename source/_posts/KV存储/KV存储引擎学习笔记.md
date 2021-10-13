@@ -30,7 +30,11 @@ RBT红黑树与Skip List(跳跃列表)简单对比：
 
 ### 跳表的优势
 
-跳表的结构总的来说就是在原本链表不支持
+跳表的结构总的来说就是在原本链表不支持二分查找的基础上，利用空间换时间的方式，实现更快的插入与查找。
+
+Search: $O(logn)$ time complexity on average.
+
+Insertion: $O(logn)$ time complexity on average.
 
 常见的链表结构如下：
 
@@ -53,7 +57,9 @@ graph LR
 
 那么有没有更加快速的查找方法？
 
-一个朴素的想法就是借鉴数组查找中的二分查找的思想。
+一个朴素的想法就是借鉴数组查找中的二分查找的思想。用空间换时间。提取链表中的相应节点作为索引。通过检查索引的方式，优化查询过程。形成的跳表结构如下图所示：
+
+![skipList结构.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/KV存储/KV存储引擎学习笔记/skipList结构.png)
 
 ## BoltDB
 
