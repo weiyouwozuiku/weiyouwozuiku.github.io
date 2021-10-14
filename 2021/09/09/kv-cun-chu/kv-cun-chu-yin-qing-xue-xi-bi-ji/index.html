@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-14
+                    2021-10-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    754
+                    963
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -560,10 +560,23 @@ NodeA<span class="token punctuation">.</span>next<span class="token operator">=<
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/KV%E5%AD%98%E5%82%A8/KV%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/skipList%E7%BB%93%E6%9E%84.png" alt="skipList结构.png"></p>
 <p>这样减少了查找需要的次数，尤其在数据量很大的时候效果明显。但是数据量大的同时也会带来新的问题，就是索引的数量及其层数的选择尤为重要。</p>
 <p>通常的做法是按照每两个节点之间选择一个节点作为索引的原则。每个子链表及其原始链表以一个哨兵节点作为开始。只有L0层的链表才是全部数据。在具体实现的时候，并不拘泥于必须要每两个节点之间生成一个索引节点，而是<strong>按照二分之一的概念生成索引节点</strong>。可以视为随机抛硬币，如果是正面（或者反面）则作为索引节点，并以$L_{n-1}$层作为基础，生成$L_n$层的索引节点。</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><h2 id="BoltDB"><a href="#BoltDB" class="headerlink" title="BoltDB"></a>BoltDB</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
-<li><p>掘金社区，<a target="_blank" rel="noopener" href="https://juejin.cn/post/7015396092351086622?utm_source=gold_browser_extension">动图带你深入了解——跳跃列表</a>，2021。</p>
-</li>
-<li></li>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>SkipList的时间复杂度受制于两个方面：查找过程中所经历的层高以及每层查找的次数。</p>
+<p>假设严格按照每两个节点就回抽出一个节点作为上一级索引的节点。原始链表有n个节点，则一级索引有$n/2$个元素，二级索引有$n/4$个元素，则k级索引就有$n/{2^k}$个元素。最高层索引一般有两个元素，即最高级索引h满足$2=n/{2^h}$，即$h=log2n-1$。因此，总的层高就是$log2n$。</p>
+<p>每层最多遍历节点个数为3个。</p>
+<p>因此，整体的时间复杂度为$O(logn)$。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> Node <span class="token keyword">struct</span><span class="token punctuation">{</span>
+  data <span class="token builtin">int</span>
+  next <span class="token operator">*</span>Node
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> Element <span class="token keyword">struct</span><span class="token punctuation">{</span>
+  data KV <span class="token comment">// 真正的数据</span>
+  levels <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">*</span>Element <span class="token comment">// 存放节点</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="BoltDB"><a href="#BoltDB" class="headerlink" title="BoltDB"></a>BoltDB</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>掘金社区，<a target="_blank" rel="noopener" href="https://juejin.cn/post/7015396092351086622?utm_source=gold_browser_extension">动图带你深入了解——跳跃列表</a>，2021。</li>
+<li>YouTube，<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=m6m0pnsOzN4">2-3: 跳跃列表 Skip List</a>，2021。</li>
+<li>GitHub，<a target="_blank" rel="noopener" href="https://github.com/wangshusen/AdvancedAlgorithms/blob/master/Slides/02_Basic_3.pdf">2_Basic_3.pdf</a>，2021。</li>
 </ol>
 
                 
@@ -1133,7 +1146,7 @@ NodeA<span class="token punctuation">.</span>next<span class="token operator">=<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">165.1k</span>&nbsp;字
+                class="white-color">165.3k</span>&nbsp;字
             
             
             
