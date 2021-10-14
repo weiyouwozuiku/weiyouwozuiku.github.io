@@ -67,12 +67,32 @@ graph LR
 
 ### 复杂度分析
 
+SkipList的时间复杂度受制于两个方面：查找过程中所经历的层高以及每层查找的次数。
 
+假设严格按照每两个节点就回抽出一个节点作为上一级索引的节点。原始链表有n个节点，则一级索引有$n/2$个元素，二级索引有$n/4$个元素，则k级索引就有$n/{2^k}$个元素。最高层索引一般有两个元素，即最高级索引h满足$2=n/{2^h}$，即$h=log2n-1$。因此，总的层高就是$log2n$。
+
+每层最多遍历节点个数为3个。
+
+因此，整体的时间复杂度为$O(logn)$。
+
+### 实现
+
+```go
+type Node struct{
+  data int
+  next *Node
+}
+
+type Element struct{
+  data KV // 真正的数据
+  levels []*Element // 存放节点
+}
+```
 
 ## BoltDB
 
 ## 参考文献
 
 1. 掘金社区，[动图带你深入了解——跳跃列表](https://juejin.cn/post/7015396092351086622?utm_source=gold_browser_extension)，2021。
-
-2. 
+2. YouTube，[2-3: 跳跃列表 Skip List](https://www.youtube.com/watch?v=m6m0pnsOzN4)，2021。
+3. GitHub，[2_Basic_3.pdf](https://github.com/wangshusen/AdvancedAlgorithms/blob/master/Slides/02_Basic_3.pdf)，2021。
