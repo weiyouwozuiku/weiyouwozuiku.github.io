@@ -66,7 +66,40 @@ categories: 程序设计
 
 例如：`sed -i 's/^Str/String/' a.txt`默认不加`-i`则只是将替换后的内容打印出来，并不修改文件
 
-​			`sed -i 's/Jack/me/g a.txt`sed命令默认只处理一行中第一个符合条件的字符，只有在其后加上`g`才能将一行中所有符合的字符进行替换  
+`sed -i 's/Jack/me/g a.txt`sed命令默认只处理一行中第一个符合条件的字符，只有在其后加上`g`才能将一行中所有符合的字符进行替换  
 
-​			`sed -i '/^ *$/d' a.txt`表示删除多余的空行
+`sed -i '/^ *$/d' a.txt`表示删除多余的空行
 
+### nohup
+
+nohup 英文全称 no hang up（不挂起），用于在系统后台不挂断地运行命令，退出终端不会影响程序的运行。
+
+nohup 命令，在默认情况下（非重定向时），会输出一个名叫 nohup.out 的文件到当前目录下，如果当前目录的 nohup.out 文件不可写，输出重定向到 $HOME/nohup.out 文件中。
+
+```shell
+ nohup Command [ Arg … ] [　& ]
+ ```
+
+ 参数说明：
+
+- Command：要执行的命令。
+
+- Arg：一些参数，可以指定输出文件。
+
+- &：让命令在后台执行，终端退出后命令仍旧执行。
+
+如果要停止运行，你需要使用以下命令查找到 nohup 运行脚本到 PID，然后使用 kill 命令来删除：`ps -aux | grep "<执行脚本名称>" `。
+
+参数说明：
+
+- a : 显示所有程序
+- u : 以用户为主的格式来显示
+- x : 显示所有程序，不区分终端机
+
+2>&1 解释：
+
+将标准错误 2 重定向到标准输出 &1 ，标准输出 &1 再被重定向输入到 runoob.log 文件中。
+
+- 0 – stdin (standard input，标准输入)
+- 1 – stdout (standard output，标准输出)
+- 2 – stderr (standard error，标准错误输出)
