@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2021-10-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    569
+                    864
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -536,8 +536,34 @@
 <p>全称：stream editor，流编辑器</p>
 <p>适合用于对文本的行内容进行处理</p>
 <p>例如：<code>sed -i 's/^Str/String/' a.txt</code>默认不加<code>-i</code>则只是将替换后的内容打印出来，并不修改文件</p>
-<p>​            <code>sed -i 's/Jack/me/g a.txt</code>sed命令默认只处理一行中第一个符合条件的字符，只有在其后加上<code>g</code>才能将一行中所有符合的字符进行替换  </p>
-<p>​            <code>sed -i '/^ *$/d' a.txt</code>表示删除多余的空行</p>
+<p><code>sed -i 's/Jack/me/g a.txt</code>sed命令默认只处理一行中第一个符合条件的字符，只有在其后加上<code>g</code>才能将一行中所有符合的字符进行替换  </p>
+<p><code>sed -i '/^ *$/d' a.txt</code>表示删除多余的空行</p>
+<h3 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h3><p>nohup 英文全称 no hang up（不挂起），用于在系统后台不挂断地运行命令，退出终端不会影响程序的运行。</p>
+<p>nohup 命令，在默认情况下（非重定向时），会输出一个名叫 nohup.out 的文件到当前目录下，如果当前目录的 nohup.out 文件不可写，输出重定向到 $HOME/nohup.out 文件中。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">nohup Command [ Arg … ] [　&amp; ]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p> 参数说明：</p>
+<ul>
+<li><p>Command：要执行的命令。</p>
+</li>
+<li><p>Arg：一些参数，可以指定输出文件。</p>
+</li>
+<li><p>&amp;：让命令在后台执行，终端退出后命令仍旧执行。</p>
+</li>
+</ul>
+<p>如果要停止运行，你需要使用以下命令查找到 nohup 运行脚本到 PID，然后使用 kill 命令来删除：<code>ps -aux | grep "&lt;执行脚本名称&gt;" </code>。</p>
+<p>参数说明：</p>
+<ul>
+<li>a : 显示所有程序</li>
+<li>u : 以用户为主的格式来显示</li>
+<li>x : 显示所有程序，不区分终端机</li>
+</ul>
+<p>2&gt;&amp;1 解释：</p>
+<p>将标准错误 2 重定向到标准输出 &amp;1 ，标准输出 &amp;1 再被重定向输入到 runoob.log 文件中。</p>
+<ul>
+<li>0 – stdin (standard input，标准输入)</li>
+<li>1 – stdout (standard output，标准输出)</li>
+<li>2 – stderr (standard error，标准错误输出)</li>
+</ul>
 
                 
             </div>
@@ -1106,7 +1132,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">165.3k</span>&nbsp;字
+                class="white-color">165.6k</span>&nbsp;字
             
             
             
