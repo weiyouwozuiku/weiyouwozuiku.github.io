@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-10
+                    2021-10-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    15 分
                 </div>
                 
 
@@ -536,14 +536,91 @@
 <li>子类的构造函数中给接口类型的变量new一个具体实现类的实体，并通过这个实体定义一个方法不实现，只做调用相应实现类的方法。</li>
 <li>生成超类的对接口类型变量成员的setter。从而支持在运行时对变化方法的修改。</li>
 </ol>
-<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><ul>
-<li>针对具体实现编程导致以后对修改时需要大量改动。</li>
-<li>尽量将类似的接口进行封装统一。</li>
-<li>主题是真正拥有数据的人，观察者是主题的依赖者，在数据变化时更新，这样比起让许多对象控制同一份数据来，可以得到更干净的OO设计。</li>
-<li>松耦合：当两个对象之间松耦合，它们依然可以交互，但是不太清楚彼此的细节。</li>
-<li>观察者模式提供了一种对象设计，让主题和观察者之间松耦合。松耦合设计更有弹性，更能应对变化。</li>
-<li><strong>设计原则四：为交互对象之间的松耦合设计而努力。</strong></li>
-<li>有多个观察者时，不可以依赖特定的通知次序。</li>
+<pre class="line-numbers language-none"><code class="language-none">// 策略接口声明了某个算法各个不同版本间所共有的操作。上下文会使用该接口来
+// 调用有具体策略定义的算法。
+interface Strategy is
+    method execute(a, b)
+
+// 具体策略会在遵循策略基础接口的情况下实现算法。该接口实现了它们在上下文
+// 中的互换性。
+class ConcreteStrategyAdd implements Strategy is
+    method execute(a, b) is
+        return a + b
+
+class ConcreteStrategySubtract implements Strategy is
+    method execute(a, b) is
+        return a - b
+
+class ConcreteStrategyMultiply implements Strategy is
+    method execute(a, b) is
+        return a * b
+
+// 上下文定义了客户端关注的接口。
+class Context is
+    // 上下文会维护指向某个策略对象的引用。上下文不知晓策略的具体类。上下
+    // 文必须通过策略接口来与所有策略进行交互。
+    private strategy: Strategy
+
+    // 上下文通常会通过构造函数来接收策略对象，同时还提供设置器以便在运行
+    // 时切换策略。
+    method setStrategy(Strategy strategy) is
+        this.strategy = strategy
+
+    // 上下文会将一些工作委派给策略对象，而不是自行实现不同版本的算法。
+    method executeStrategy(int a, int b) is
+        return strategy.execute(a, b)
+
+
+// 客户端代码会选择具体策略并将其传递给上下文。客户端必须知晓策略之间的差
+// 异，才能做出正确的选择。
+class ExampleApplication is
+    method main() is
+
+        创建上下文对象。
+
+        读取第一个数。
+        读取最后一个数。
+        从用户输入中读取期望进行的行为。
+
+        if (action == addition) then
+            context.setStrategy(new ConcreteStrategyAdd())
+
+        if (action == subtraction) then
+            context.setStrategy(new ConcreteStrategySubtract())
+
+        if (action == multiplication) then
+            context.setStrategy(new ConcreteStrategyMultiply())
+
+        result = context.executeStrategy(First number, Second number)
+
+        打印结果。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>你可以在运行时切换对象内的算法</li>
+<li>你可以将算法的实现和使用算法的代码隔离开</li>
+<li>你可以使用组合来代替继承</li>
+<li>开闭原则。你无需对上下文进行修改就能够引入新的策略</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li><p>如果你的算法极少发生变化，那么没有任务理由引入新的类和接口。使用该模式只会让程序过于复杂</p>
+</li>
+<li><p>客户端必须知晓策略间的不同——它需要选择合适的策略</p>
+</li>
+<li><p>许多现代编程语言支持函数类型功能，允许你在一组匿名函数中实现不同版本的算法。这样，你使用这些函数的方式就和使用策略对象时完全相同，无需借助额外的类和接口来保持代码简洁</p>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2></li>
+<li><p>针对具体实现编程导致以后对修改时需要大量改动。</p>
+</li>
+<li><p>尽量将类似的接口进行封装统一。</p>
+</li>
+<li><p>主题是真正拥有数据的人，观察者是主题的依赖者，在数据变化时更新，这样比起让许多对象控制同一份数据来，可以得到更干净的OO设计。</p>
+</li>
+<li><p>松耦合：当两个对象之间松耦合，它们依然可以交互，但是不太清楚彼此的细节。</p>
+</li>
+<li><p>观察者模式提供了一种对象设计，让主题和观察者之间松耦合。松耦合设计更有弹性，更能应对变化。</p>
+</li>
+<li><p><strong>设计原则四：为交互对象之间的松耦合设计而努力。</strong></p>
+</li>
+<li><p>有多个观察者时，不可以依赖特定的通知次序。</p>
+</li>
 </ul>
 <h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>定义了对象之间的一对多依赖，这样一来，当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_2.png"></p>
@@ -610,7 +687,7 @@
 <li>创建相应的组件类，继承组件抽象类，并重写抽象方法。</li>
 <li>使用时，用组件抽象类类型变量new相应的装饰类或者组件类。一个对象进行装饰时，将哪一个对象依次传入每一个装饰器或组件中。</li>
 </ol>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul>
 <li>会在设计中加入大量小类，使人不容易理解设计方式。</li>
 </ul>
 <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><ul>
@@ -1236,7 +1313,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">165.6k</span>&nbsp;字
+                class="white-color">166.3k</span>&nbsp;字
             
             
             
