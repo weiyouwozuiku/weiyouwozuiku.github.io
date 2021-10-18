@@ -309,6 +309,19 @@
 </header>
 
     
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -1109,7 +1122,7 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">167.2k</span>&nbsp;字
+                class="white-color">167.5k</span>&nbsp;字
             
             
             
