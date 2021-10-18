@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python高级特性, 博客">
+    <meta name="keywords" content="《软技能》总结, 博客">
     <meta name="description" content="个人学习储备知识与经验的秘密基地">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python高级特性 | 不二博客</title>
+    <title>《软技能》总结 | 不二博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/python4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python高级特性</h1>
+                    <h1 class="description center-align post-title">《软技能》总结</h1>
                 </div>
             </div>
         </div>
@@ -431,25 +431,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
-                                程序设计
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -458,28 +445,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-15
+                    2021-10-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2021-10-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    621
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -507,40 +494,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Python语法糖"><a href="#Python语法糖" class="headerlink" title="Python语法糖"></a>Python语法糖</h2><hr>
-<ul>
-<li><p>对于取制定索引范围的操作，Python提供了切片(Slice)实现。例如：<code>L[0:3]</code>，这里表示的是从索引0开始取，知道索引3为止，<strong>左闭右开的区间</strong>。<em>如果第一个数是0，还可以省略</em>。<code>[:10:2]</code>其中的2表示每两位取一个。<code>[:]</code>表示原样复制一个list。</p>
-</li>
-<li><p>默认情况下，dict迭代的是key。如果要迭代value，可以使用<code>for value ind.values()</code>。如果需要同事迭代key和value，可以使用<code>for k,v in d.items()</code>。</p>
-<a id="more"></a>
-</li>
-<li><p>通过collections模块的Iterable类型判断是否是一个可迭代对象。<code>isinstance(变量,Iterable)</code>，这会返回一个布尔值。</p>
-</li>
-<li><p><code>enumerate</code>函数可以将一个list变成一个索引-元素树。</p>
-</li>
-<li><p>使用列表生成器来生成有一定复杂度的list。</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">&gt;&gt;&gt; [x * x for x in range(1, 11)]
-[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>其中还可以加入if判断</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">&gt;&gt;&gt; [x * x for x in range(1, 11) if x % 2 == 0]
-[4, 16, 36, 64, 100]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>还可以嵌套使用</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">&gt;&gt;&gt; [m + n for m in 'ABC' for n in 'XYZ']
-['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p>要善于使用生成器，避免存有大量有规律的数组存在。启用方法就是将列表生成器的<code>[]</code>替换成<code>()</code>。可以通过<code>next()</code>函数来获取生成器的下一个返回值。generator是一个可迭代对象。直接调用返回的是一个生成器对象。</p>
-</li>
-<li><p>可以使用<code>yield</code>定义generation。每次调用<code>next()</code>时执行generation，遇到<code>yield</code>语句返回，再次执行从上次返回<code>yield</code>处继续执行。</p>
-</li>
-<li><p>用<code>for</code>循环调用generator时，发现拿不到generator的<code>return</code>语句的返回值。如果想要拿到返回值，必须捕获<code>StopIteration</code>错误，返回值包含在<code>StopIteration</code>的<code>value</code>中。</p>
-</li>
-<li><p><code>a, b = b, a + b</code>本质上等于a=b，同时b=a+b。先赋值，后改变a、b值。</p>
-</li>
-<li><p>生成器是<code>Iterator</code>对象，而<code>list</code>、<code>dict</code>、<code>str</code>虽然是<code>Iterable</code>，但不是<code>Iterator</code>。若想将其变成<code>Iterator</code>可以使用<code>iter()</code>函数。本质上**<code>Iterator</code>是一个数据流，可以被<code>next()</code>函数调用并不断返回下一个数据，直至抛出<code>StopIteration</code>错误。期间无法获知序列长度，惰性计算。**凡是可作用于<code>for</code>循环的对象都是<code>Iterable</code>类型，凡是可作用于<code>next()</code>函数的对象都是<code>Iterator</code>类型，它们表示一个惰性计算的序列。</p>
-</li>
-<li><p>Python的<code>for</code>循环本质上就是通过不断调用<code>next()</code>函数实现的。</p>
-</li>
-</ul>
-
+                
                 
             </div>
             <hr/>
@@ -566,7 +520,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://buerlog.top/2019/07/15/cheng-xu-she-ji/python-gao-ji-te-xing/">http://buerlog.top/2019/07/15/cheng-xu-she-ji/python-gao-ji-te-xing/</a>
+                    <a href="http://buerlog.top/2021/10/19/si-wei-jin-hua/ruan-ji-neng-zong-jie/">http://buerlog.top/2021/10/19/si-wei-jin-hua/ruan-ji-neng-zong-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -603,11 +557,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -775,73 +725,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2019/07/16/cheng-xu-she-ji/python-han-shu-shi-bian-cheng/">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/python5.jpg" class="responsive-img" alt="Python函数式编程">
-                        
-                        <span class="card-title">Python函数式编程</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Python函数式编程
-函数式编程没有变量，在确定输入时，输出就已经确定了，没有因为变量的不确定导致的副作用。允许将番薯本身作为参数传入另一个函数，允许返回一个函数。
-
-一个函数可以接收另一个函数作为参数，称之为高阶函数。
-
-map()函数
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-07-16
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
-                                    程序设计
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">
-                        <span class="chip bg-color">函数式编程</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2019/07/13/yun-ji-suan/qos-zhi-shi/">
+                <a href="/2021/10/19/si-wei-jin-hua/ruan-ji-neng-zong-jie/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/qos.jpg" class="responsive-img" alt="QoS知识">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/" class="responsive-img" alt="《软技能》总结">
                         
-                        <span class="card-title">QoS知识</span>
+                        <span class="card-title">《软技能》总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -852,14 +746,51 @@ map()函数
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-07-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            不二
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/10/04/jing-yan-zong-jie/bu-long-guo-lu-qi-xue-xi/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/布隆过滤器.jpg" class="responsive-img" alt="布隆过滤器学习">
+                        
+                        <span class="card-title">布隆过滤器学习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">
-                                    云计算
+                            <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">
+                                    经验总结
                                 </a>
                             
                             
@@ -869,8 +800,8 @@ map()函数
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/QoS/">
-                        <span class="chip bg-color">QoS</span>
+                    <a href="/tags/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">
+                        <span class="chip bg-color">布隆过滤器</span>
                     </a>
                     
                 </div>

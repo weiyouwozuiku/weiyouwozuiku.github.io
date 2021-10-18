@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-18
+                    2021-10-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.7k
+                    5.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    18 分
                 </div>
                 
 
@@ -693,7 +693,30 @@ class ExampleApplication is
 </ul>
 <h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><h3 id="迭代器模型"><a href="#迭代器模型" class="headerlink" title="迭代器模型"></a>迭代器模型</h3><h4 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h4><p>迭代器模式提供一种方法顺序访问一个聚合对象中的各个元素，而又不暴露其内部的表示。</p>
 <p>迭代器模式把游走的任务放在迭代器上，而不是聚合上。这样简化了聚合的接口和实现，也让责任各得其所。</p>
-<h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><h2 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h2><h3 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h3><ul>
+<h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><p>当集合背后为复杂的数据结构，且你希望对客户端隐藏其复杂性时（出于使用便利性或安全性的考虑），可以使用迭代器模式。</p>
+<p>迭代器封装了与复杂数据结构进行交互的细节，为客户端提供了多个访问集合元素的简单方法。这种方式不仅对客户端来说方便，而且能避免客户端在直接与集合交互时执行错误或有害的操作，从而起到保护集合的作用。</p>
+<p>使用迭代器模式可以减少程序中重复的遍历代码。</p>
+<p>重要迭代算法的体积非常庞大。当这些代码被放置在程序业务逻辑中时，它就会让原始代码的逻辑不清楚，降低其维护性。</p>
+<p>如果你希望代码能够遍历不同的甚至是无法预知的数据结构，可以使用迭代器模式。</p>
+<p>该模式为集合和迭代器提供了一些通用接口。 如果你在代码中使用了这些接口， 那么将其他实现了这些接口的集合和迭代器传递给它时， 它仍将可以正常运行。</p>
+<h4 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h4><ol>
+<li>声明迭代器接口。 该接口必须提供至少一个方法来获取集合中的下个元素。 但为了使用方便， 你还可以添加一些其他方法， 例如获取前一个元素、 记录当前位置和判断迭代是否已结束。</li>
+<li>声明集合接口并描述一个获取迭代器的方法。 其返回值必须是迭代器接口。 如果你计划拥有多组不同的迭代器， 则可以声明多个类似的方法。</li>
+<li>为希望使用迭代器进行遍历的集合实现具体迭代器类。 迭代器对象必须与单个集合实体链接。 <strong>链接关系通常通过迭代器的构造函数建立</strong>。</li>
+<li><strong>在你的集合类中实现集合接口</strong>。 其主要思想是针对特定集合为客户端代码提供创建迭代器的快捷方式。 <strong>集合对象必须将自身传递给迭代器的构造函数来创建两者之间的链接</strong>。</li>
+<li>检查客户端代码， 使用迭代器替代所有集合遍历代码。 <strong>每当客户端需要遍历集合元素时都会获取一个新的迭代器</strong>。</li>
+</ol>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>单一职责原则。通过将提及庞大的遍历算法代码抽取为独立的类，可对客户端代码和集合进行整理</li>
+<li>开闭原则。可实现新型的集合和迭代器并将其传递给现有代码，无需修改现有代码</li>
+<li>你可以并行遍历统一集合，每个迭代器对象都包含其自身的遍历状态</li>
+<li>相似的，你可以暂停遍历并在需要时继续</li>
+</ul>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>如果你的程序只与简单的集合进行交互，应用该模式可能矫枉过正</li>
+<li><strong>对于某些特殊集合，使用迭代器可能必直接遍历的效率低</strong></li>
+</ul>
+<h2 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h2><h3 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h3><ul>
 <li><strong>设计原则五：类应该对扩展开放，对修改关闭。</strong></li>
 <li>在选择需要被扩展的代码部分时要小心。每个地方都采用开放-关闭原则，是一种浪费，也没必要，还会导致代码变得复杂且难以理解。</li>
 <li>装饰者和被装饰对象有着相同的超类型。</li>
@@ -725,7 +748,7 @@ class ExampleApplication is
 <li>创建相应的组件类，继承组件抽象类，并重写抽象方法。</li>
 <li>使用时，用组件抽象类类型变量new相应的装饰类或者组件类。一个对象进行装饰时，将哪一个对象依次传入每一个装饰器或组件中。</li>
 </ol>
-<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<h4 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h4><ul>
 <li>会在设计中加入大量小类，使人不容易理解设计方式。</li>
 </ul>
 
@@ -1308,7 +1331,7 @@ class ExampleApplication is
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">166.4k</span>&nbsp;字
+                class="white-color">167.2k</span>&nbsp;字
             
             
             
