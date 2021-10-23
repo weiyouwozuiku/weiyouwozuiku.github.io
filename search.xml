@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>技术面试整理</title>
+      <link href="2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/"/>
+      <url>2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/</url>
+      
+        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>首先作为一个有技术追求的人来说，面试绝对不等于跳槽。面试本身对于我们来说应该是一个自我检验与学习的方向性的指南。面试在刨除其找工作的原始目的之后，它更像是一个对于自身的考试与回顾。既然面试如此的重要，那我们如何全面的准备面试就显得尤为重要了。本文针对的都是技术性面试，其他类型的面试本文意义不大。</p><h2 id="面试时间的选择"><a href="#面试时间的选择" class="headerlink" title="面试时间的选择"></a>面试时间的选择</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol><li>飞书，<a href="https://nxwz51a5wp.feishu.cn/docs/doccnRKVA5WoHZTlxNH5BcXO2og">如何准备一场服务端的技术面试</a>，2021</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 经验总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LevelDB源码分析</title>
       <link href="2021/10/19/kv-cun-chu/leveldb-yuan-ma-fen-xi/"/>
       <url>2021/10/19/kv-cun-chu/leveldb-yuan-ma-fen-xi/</url>
