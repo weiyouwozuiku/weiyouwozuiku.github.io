@@ -485,14 +485,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    13 分
                 </div>
                 
 
@@ -706,6 +706,71 @@
 <li><a target="_blank" rel="noopener" href="https://juejin.cn/book/6844733722936377351">深入理解 RPC : 基于 Python 自建分布式高并发 RPC 服务</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CK4y127Lj/">Raft 分布式一致性(共识)算法 论文精读与ETCD源码分析</a></li>
 <li><a target="_blank" rel="noopener" href="https://zookeeper.apache.org/">Zookeeper/etcd 官方文档</a></li>
+</ol>
+<h3 id="专业领域"><a href="#专业领域" class="headerlink" title="专业领域"></a>专业领域</h3><ol>
+<li>深挖项目经历中所运用的技术(开源组件，理论知识)，绘制思维导图的方式，逐步深入。</li>
+<li>融合目标岗位中的招聘要求</li>
+<li>逐一完成知识的学习，制定计划(书，视频，源码，论文)。</li>
+<li>输出博客 -&gt; <strong>展示你在本专业领域的权威性</strong></li>
+</ol>
+<h2 id="面试表现"><a href="#面试表现" class="headerlink" title="面试表现"></a>面试表现</h2><h3 id="简历挖掘"><a href="#简历挖掘" class="headerlink" title="简历挖掘"></a>简历挖掘</h3><ol>
+<li>对涉及的知识点深度学习，录音进行模拟面试。</li>
+<li>绘制思维导图，对简历中可能被问的知识点建立一个DFS遍历的知识点树。</li>
+<li>想象面试官可能关心的问题，并向自己提问，回放自己的录音，找到改进点。</li>
+</ol>
+<h3 id="场景分析"><a href="#场景分析" class="headerlink" title="场景分析"></a>场景分析</h3><blockquote>
+<p>好的面试是涉及出来的。</p>
+</blockquote>
+<h4 id="编码考察"><a href="#编码考察" class="headerlink" title="编码考察"></a>编码考察</h4><ol>
+<li>提前沟通思路，<strong>题意不明及时询问</strong>，不要上来就写代码</li>
+<li>写代码要仔细，自己没有推敲完善时，不要着急邀请面试官review，<strong>自己需要加入一些bad case进行边界判断</strong>。一旦请面试官review代码，发现bug会严重影响面试。</li>
+<li>自己的代码要能讲明白，也要经得住挑战</li>
+<li>如果不能写出代码，也至少明确给出思路或合理猜测，<strong>甚至可以请面试官换一个题目</strong></li>
+</ol>
+<p>最简单的bad case比如输入int，考虑负数，0，1是不是都可以；如果是字符串，空字符串可不可以，特别长的字符串可不可以</p>
+<h4 id="专业领域-1"><a href="#专业领域-1" class="headerlink" title="专业领域"></a>专业领域</h4><ol>
+<li>速不要太快，讲明白技术亮点(<strong>为什么，有什么价值，怎么做，原理是什么，还能怎么改进</strong>)</li>
+<li>遵循金字塔结构，采用总-分结构，<strong>先讲业务背景，再说技术架构，再说组件接口交互，再细化到具体数据结构和算法</strong>。</li>
+<li>业务背景，和技术架构如果面试官没有多问，应该快速介绍完毕，并重点突出你自己在这个项目中的技术亮点与成长(<strong>性能优化，排查问题，架构决策能力</strong>)，<strong>用一些技术指标来衡量自己的实现效果</strong></li>
+<li>如果是资深研发面试，可以将更多精力放在，前沿技术的落地过程讲解(<strong>如何推进架构升级</strong>)</li>
+</ol>
+<h4 id="系统设计-1"><a href="#系统设计-1" class="headerlink" title="系统设计"></a>系统设计</h4><p>注意平时积累，观察日常使用的app，去思考这些app是如何设计的？然后去找资料印证。</p>
+<ol>
+<li>描述题目，确定问题边界，问题的约束条件。</li>
+<li>容量预估，DAU * 每人平均使用接口次数 / 86400 -&gt; qps ，ptc99，存储空间，cdn消耗，平均值，峰值预估等等。</li>
+<li><strong>寻找一般解</strong>， 一台服务器，一台数据库，实现基本功能的逻辑交互</li>
+<li><strong>寻找更优解</strong>，逐步考虑约束条件，改进设计方案。注意具体问题具体分析，不要上来给一个庞大的系统架构设计。根据约束条件进行特性化分析。</li>
+</ol>
+<h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><ol>
+<li>适当扩展，而不是问一句说一句。</li>
+<li>说的<strong>越深越好</strong>，越多越好，直到面试官打断。</li>
+<li><strong>认识到，基础知识的考察，是对程序员综合素质的考察，会说明一个人的潜力</strong>。</li>
+</ol>
+<h4 id="品质考察"><a href="#品质考察" class="headerlink" title="品质考察"></a>品质考察</h4><ol>
+<li><strong>抗压</strong>  非自己一点也不会，否则绝对不能放弃，要努力给出方案，识别出这是压力测试。至少想十分钟，尽量想的全面，<strong>不要想到那里说到那里，给出的方案一定要靠谱</strong></li>
+<li><strong>沟通</strong>  准确的表达出观点，需要不断练习，在准备阶段想清楚所有可能的提问</li>
+<li><strong>情绪</strong>  编码，设计方案时一定要想清楚，不要反复找面试官review，<strong>避免做事急躁</strong></li>
+<li><strong>稳定性</strong> 提前准备好，为什么跳槽，以及未来职业发展规划的说辞</li>
+<li><strong>积极性</strong>  对这份职业的看法与态度，一定要有一个积极乐观的说辞。</li>
+</ol>
+<h2 id="如何谈薪"><a href="#如何谈薪" class="headerlink" title="如何谈薪"></a>如何谈薪</h2><ol>
+<li>你这次跳槽是为了啥？ **钱不到位 OR (工作没有挑战，换城市，职业发展)**。立足于要么钱没到位要么职级没到位。涨薪超过百分之50才算突破。</li>
+<li>手里有哪些offer? 不要交出offer，只是口头沟通。<strong>不要交薪资截图，因为offer的法律效益就是你泄露出去就失效了。</strong></li>
+<li>期望薪资是多少？ 利用锚定效应，超出JD上限30%。不然就被倒挂。</li>
+</ol>
+<h2 id="如何养鱼与拒绝offer"><a href="#如何养鱼与拒绝offer" class="headerlink" title="如何养鱼与拒绝offer"></a>如何养鱼与拒绝offer</h2><ol>
+<li>不要说太多offer，只说几个关键竞品公司offer。</li>
+<li>不要截图等任何形式交出offer原件，这样才有回旋余地。</li>
+<li>在没有offer的时候，可以空手套白狼。</li>
+<li>管理预期，那就是我很热爱技术，但是现实情况必须要向钱看</li>
+</ol>
+<h2 id="结束也是开始"><a href="#结束也是开始" class="headerlink" title="结束也是开始"></a>结束也是开始</h2><ol>
+<li>开始写更高职级的简历</li>
+<li>在当前岗位，把简历上的规划一一实现</li>
+<li>结合业务发展不断调整</li>
+<li>去面更高级别的岗位</li>
+<li>做上一职级的事情，可能会让你在本岗位晋升，那就直接把简历改成晋升PPT</li>
+<li>时刻让自己暴露在招聘市场中，只有晋升才是王道。</li>
 </ol>
 <h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><h3 id="费曼学习法"><a href="#费曼学习法" class="headerlink" title="费曼学习法"></a>费曼学习法</h3><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/%E8%B4%B9%E6%9B%BC%E5%AD%A6%E4%B9%A0%E6%B3%95.jpg" alt="费曼学习法.jpg"></p>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
@@ -1282,7 +1347,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">170.5k</span>&nbsp;字
+                class="white-color">171.8k</span>&nbsp;字
             
             
             
