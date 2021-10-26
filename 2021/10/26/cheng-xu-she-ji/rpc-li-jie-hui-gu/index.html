@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-26
+                    2021-10-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    323
+                    728
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -535,8 +535,13 @@
                 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>单体服务在面对越来越多的流量显得力不从心，因此微服务应运而生。一个完整的大型服务会被打散成很多很多独立的小服务，每个小服务会由独立的进程去管理来对外提供服务，这就是「微服务」。</p>
 <p>当用户的请求到来时，我们需要将用户的请求分散到多个服务去各自处理，然后又需要将这些子服务的结果汇总起来呈现给用户。那么服务之间该使用何种方式进行交互就是需要解决的核心问题。RPC 就是为解决服务之间信息交互而发明和存在的。</p>
 <h2 id="RPC含义"><a href="#RPC含义" class="headerlink" title="RPC含义"></a>RPC含义</h2><p>RPC（Remote Procedure Call）,即远程过程调用，是一种分布式系统常用的通信方式。常见的多系统数据交互方式还包括：分布式消息队列、HTTP请求调用、数据库和分布式缓存等。</p>
-<p>其中，RPC和HTTP调用都*<strong>没有经过中间件</strong>，它们都是端对端系统之间直接数据交互。HTTP调用可以看做是一场特殊的RPC。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<p>其中，RPC和HTTP调用都<strong>没有经过中间件</strong>，它们都是端对端系统之间直接数据交互。HTTP调用可以看做是一场特殊的RPC。只不过传统意义上的 RPC 是指长连接数据交互，而 HTTP 一般是指即用即走的短链接。</p>
+<h2 id="RPC场景"><a href="#RPC场景" class="headerlink" title="RPC场景"></a>RPC场景</h2><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>Nginx 是互联网企业使用最为广泛的代理服务器。它可以为后端分布式服务提供负载均衡的功能，它可以将后端多个服务地址聚合为单个地址来对外提供服务。</p>
+<p>Nginx默认与后端服务走的HTTP协议，但它还支持其他协议，如uWSGI（Python），fastcgi（PHP-fpm）等协议。这两种协议都是采用了比HTTP协议更加节省流量的二进制协议。</p>
+<h3 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h3><p>最常见的 Hadoop 文件系统 hdfs，一般包括一个 NameNode 和多个 DataNode，NameNode 和 DataNode 之间就是通过一种称为 Hadoop RPC 的二进制协议进行通讯。</p>
+<h3 id="HTTP与RPC"><a href="#HTTP与RPC" class="headerlink" title="HTTP与RPC"></a>HTTP与RPC</h3><p>HTTP1.0 协议时，HTTP 调用还只能是短链接调用，一个请求来回之后连接就会关闭。HTTP1.1 在 HTTP1.0 协议的基础上进行了改进，引入了 KeepAlive 特性可以保持 HTTP 连接长时间不断开，以便在同一个连接之上进行多次连续的请求，进一步拉近了 HTTP 和 RPC 之间的距离。</p>
+<p>当 HTTP 协议进化到 2.0 之后，Google 开源了一个建立在 HTTP2.0 协议之上的通信框架直接取名为 gRPC，也就是 Google RPC，这时 HTTP 和 RPC 之间已经没有非常明显的界限了。所以在后文我们不再明确强调 RPC 和 HTTP 请求调用之间的细微区别了，直接统一称之为 RPC。</p>
+<h2 id="RPC交互流程"><a href="#RPC交互流程" class="headerlink" title="RPC交互流程"></a>RPC交互流程</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
 <li>掘金小册，<a target="_blank" rel="noopener" href="https://juejin.cn/book/6844733722936377351">深入理解 RPC : 基于 Python 自建分布式高并发 RPC 服务</a>，2019</li>
 </ol>
 
@@ -1133,7 +1138,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">172.1k</span>&nbsp;字
+                class="white-color">172.5k</span>&nbsp;字
             
             
             
