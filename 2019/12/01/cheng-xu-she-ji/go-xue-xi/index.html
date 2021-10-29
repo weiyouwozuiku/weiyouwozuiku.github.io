@@ -482,14 +482,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-21
+                    2021-10-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.6k
+                    9.7k
                 </div>
                 
 
@@ -623,9 +623,9 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <p>简短变量声明语句中必须<strong>至少</strong>要声明一个新的变量。其中可以有不是全部的变量之前声明过，这里只是简单的赋值。</p>
 <p>简短变量声明语句只有对已经在同级语法域声明过的变量才和赋值操作语句等价。变量是在外部语法域声明的，那么简短变量声明语句将在当前语法域重新声明一个新的变量。</p>
 <h4 id="new函数"><a href="#new函数" class="headerlink" title="new函数"></a>new函数</h4><p>使用new函数创建变量，表达式<code>new(类型名)</code>将创建一个T型的匿名变量，初始化为相应类型的零值，返回变量地址，返回类型为相应类型的指针。</p>
-<p>类型的大小为0，有可能地址相同。</p>
-<p><em>请谨慎使用大小为0的类型。如果类型的大小为0，可能导致Go语言的自动垃圾回收机制有不同的行为。</em></p>
-<p>new函数只是一个预定义的函数，并不是一个关键字。可以将new名字重新定义为别的类型。</p>
+<p>类型的大小为0，有可能地址相同，例如<code>struct{}</code>和<code>[0]int</code>。</p>
+<p><em>请谨慎使用大小为0的类型。如果类型的大小为0，可能导致Go语言的自动垃圾回收机制有不同的行为。具体请查看<code>runtime.SetFinalizer</code>函数相关文档</em></p>
+<p>new函数只是一个预定义的函数，并不是一个关键字。可以将new名字重新定义为别的类型。<strong>但是这样就会导致重定义new的空间内无法使用new函数。</strong></p>
 <h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go">input <span class="token operator">:=</span> bufio<span class="token punctuation">.</span><span class="token function">NewScanner</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>stdin<span class="token punctuation">)</span>
 input<span class="token punctuation">.</span><span class="token function">Scan</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//读入一行，并移除行末的换行符。读入一行返回true，否则false</span>
 input<span class="token punctuation">.</span><span class="token function">Text</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//获取一行输入。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -726,7 +726,7 @@ log<span class="token punctuation">.</span><span class="token function">Print</s
 <p>nil可以赋值给任何指针或引用类型的变量。</p>
 <h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>一个类型声明语句创建了一个新的类型名称。即使和现有类型具有相同的底层结构，新命名的类型提供了一个方法，用来分隔不同概念的类型，它们底层类型相同也不兼容。</p>
 <p>创造新的类型：<code>type 类型名字 底层类型</code>。</p>
-<p>类型声明语句一般出现在包一级。如果新创建的类型名字的首字符大写，则在外部包也可以使用。</p>
+<p>类型声明语句一般出现在包一级。<strong>如果新创建的类型名字的首字符大写，则在外部包也可以使用</strong>。</p>
 <p>对于中文汉字，Unicode标志作为小写处理。因此中文的命名默认不能导出。</p>
 <p>对于每一个类型T，都有一个对应的类型转换操作<code>T(x)</code>。如果T是指针类型，可能需要用小括弧包装T。前提是<strong>两个类型的底层基础类型相同或二者都是指向相同底层结构的指针类型</strong>。</p>
 <p>比较运算符可以用来比较一个命名类型的变量和另一个有着相同类型的变量，或有着相同底层类型的<em>未命名</em>类型的值之间进行比较。如果这两个值有着不同的类型，则不能直接比较。</p>
