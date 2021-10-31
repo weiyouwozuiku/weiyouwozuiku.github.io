@@ -5,7 +5,7 @@ date: 2019-08-02 09:43:09
 mathjax: true
 tags: 
 - Linux
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/tmux.png
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/tmux.png
 categories: 经验总结
 ---
 

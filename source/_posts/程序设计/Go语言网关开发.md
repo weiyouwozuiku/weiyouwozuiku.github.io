@@ -5,7 +5,7 @@ mathjax: true
 date: 2020-12-18 14:18:44
 tags: 
 - Go
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/go.png
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/go.png
 categories: 程序设计
 ---
 

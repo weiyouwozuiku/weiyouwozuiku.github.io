@@ -7,7 +7,7 @@ tags:
 - C
 - 树莓派
 - Arduino
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/arduino.jpg
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/嵌入式/arduino.jpg
 mathjax: true
 categories: 嵌入式
 ---

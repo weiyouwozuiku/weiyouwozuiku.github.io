@@ -5,7 +5,7 @@ date: 2019-07-09 12:33:48
 mathjax: true
 tags: 
 - Hadoop
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/hadoop.png
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/云计算/hadoop.png
 categories: 云计算
 ---
 

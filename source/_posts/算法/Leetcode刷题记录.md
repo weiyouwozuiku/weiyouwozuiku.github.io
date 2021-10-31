@@ -4,7 +4,7 @@ author: 不二
 mathjax: true
 date: 2020-11-10 00:14:48
 tags: Cpp
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/leetcode.png
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/leetcode.png
 categories: 算法
 ---
 

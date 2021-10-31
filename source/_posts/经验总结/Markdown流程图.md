@@ -4,7 +4,7 @@ author: 不二
 date: 2019-07-12 10:17:15
 tags: Markdown
 mathjax: true
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/markdown-logo.jpg
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/markdown-logo.jpg
 categories: 经验总结
 ---
 ## 文字不如图

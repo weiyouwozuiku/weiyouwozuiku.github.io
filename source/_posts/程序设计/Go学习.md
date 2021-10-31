@@ -3,7 +3,7 @@ title: Go学习
 author: 不二
 date: 2019-12-01 23:20:34
 mathjax: true
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/golang.jpg
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/golang.jpg
 tags:
 - Go
 - Book
@@ -807,6 +807,8 @@ func (node *TreeNode) setValue(value int){
     
 }
 ```
+
+
 
 **go中的函数传递都是值传递，所以想对结构体中的数据进行写操作数时，需要传入的指针，而不能是值。**只有使用指针才可以改变结构内容。
 

@@ -3,7 +3,7 @@ title: 深入浅出Docker笔记
 author: 不二
 date: 2019-12-22 08:56:53
 mathjax: true
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/docker.jpeg
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/云计算/docker.jpeg
 tags:
 - Docker
 - Book

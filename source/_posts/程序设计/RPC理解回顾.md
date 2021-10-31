@@ -2,7 +2,7 @@
 title: RPC理解回顾
 author: 不二
 img: >-
-  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/RPC.png
+  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/RPC.png
 mathjax: true
 date: 2021-10-26 10:52:52
 tags: 

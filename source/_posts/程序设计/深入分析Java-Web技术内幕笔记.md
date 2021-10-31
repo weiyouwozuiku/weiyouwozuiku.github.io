@@ -6,7 +6,7 @@ date: 2021-05-09 14:31:48
 tags: 
 - Java
 - Book
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/web.png
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/web.png
 categories: 程序设计
 ---
 

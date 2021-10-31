@@ -4,7 +4,7 @@ author: 不二
 mathjax: true
 date: 2020-11-21 10:55:31
 tags: Windows
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/win10.jpeg
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/win10.jpeg
 categories: 
 - 经验总结
 ---

@@ -4,7 +4,7 @@ author: 不二
 mathjax: true
 date: 2021-01-25 19:10:17
 tags: Nginx
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/nginx.png
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/nginx.png
 categories: 程序设计
 ---
 

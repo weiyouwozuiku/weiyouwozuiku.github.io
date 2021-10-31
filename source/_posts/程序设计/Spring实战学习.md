@@ -6,7 +6,7 @@ date: 2020-08-13 23:58:08
 tags: 
 - Spring
 - Java
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/spring.png
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/spring.png
 categories: 程序设计
 ---
 

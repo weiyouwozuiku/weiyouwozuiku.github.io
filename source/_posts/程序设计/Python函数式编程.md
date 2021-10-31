@@ -6,7 +6,7 @@ mathjax: true
 tags:
 - Python
 - 函数式编程
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/python5.jpg
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/python5.jpg
 categories: 程序设计
 ---
 

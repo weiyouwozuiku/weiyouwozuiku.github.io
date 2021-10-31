@@ -1,7 +1,7 @@
 ---
 title: Java日志
 author: 不二
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/log.jpg
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/log.jpg
 mathjax: true
 date: 2021-06-10 16:24:16
 tags: 

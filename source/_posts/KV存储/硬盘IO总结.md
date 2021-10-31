@@ -2,7 +2,7 @@
 title: 硬盘IO总结
 author: 不二
 img: >-
-  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/硬盘IO总结.jpeg
+  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/KV存储/硬盘IO总结.jpeg
 mathjax: true
 date: 2021-10-03 11:09:54
 tags: 硬盘IO

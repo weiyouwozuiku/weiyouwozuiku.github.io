@@ -4,7 +4,7 @@ author: 不二
 date: 2019-07-13 10:38:31
 mathjax: true
 tags: Python
-img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/python2.jpg
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/python2.jpg
 categories: 程序设计
 ---
 
