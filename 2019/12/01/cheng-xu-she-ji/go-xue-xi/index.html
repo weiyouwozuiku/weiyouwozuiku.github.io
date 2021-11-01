@@ -610,7 +610,7 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <p>简短变量声明对于已经在相同语法域中声明过的变量，简短变量声明只进行赋值操作。</p>
 <p><strong>简短变量声明语句中必须至少要声明一个新的变量</strong>。</p>
 <p><strong>简短变量声明语句只有对已经在同级词法域声明过的变量才和赋值操作语句等价，如果变量是在外部词法域声明的，那么简短变量声明语句将会在当前词法域重新声明一个新的变量</strong>。</p>
-<p><strong>包级变量的初始化顺序并不取决于变量的申明顺序，而取决于</strong></p>
+<p><strong>包级变量的初始化顺序并不完全取决于变量的声明顺序，而取决于调用关系。</strong></p>
 <h4 id="定义struct"><a href="#定义struct" class="headerlink" title="定义struct"></a>定义struct</h4><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> 类型名 <span class="token keyword">struct</span> <span class="token punctuation">{</span>
     数据元素 类型
 <span class="token punctuation">}</span>
