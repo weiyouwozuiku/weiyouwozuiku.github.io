@@ -482,21 +482,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-31
+                    2021-11-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.7k
+                    9.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    35 分
+                    36 分
                 </div>
                 
 
@@ -610,6 +610,7 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <p>简短变量声明对于已经在相同语法域中声明过的变量，简短变量声明只进行赋值操作。</p>
 <p><strong>简短变量声明语句中必须至少要声明一个新的变量</strong>。</p>
 <p><strong>简短变量声明语句只有对已经在同级词法域声明过的变量才和赋值操作语句等价，如果变量是在外部词法域声明的，那么简短变量声明语句将会在当前词法域重新声明一个新的变量</strong>。</p>
+<p><strong>包级变量的初始化顺序并不取决于变量的申明顺序，而取决于</strong></p>
 <h4 id="定义struct"><a href="#定义struct" class="headerlink" title="定义struct"></a>定义struct</h4><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> 类型名 <span class="token keyword">struct</span> <span class="token punctuation">{</span>
     数据元素 类型
 <span class="token punctuation">}</span>
@@ -998,6 +999,10 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <p>通过延迟明确常量的具体类型，不仅可以提供更高的运算精度，还可以直接用于更多的表达式而不需要显示的类型转换。</p>
 <p>无类型整数常量转换为int，内存大小不确定。但是无类型浮点数内存大小明确是float64，无类型复数内存大小为complex128。</p>
 <p>当尝试将无类型的常量转为一个接口值时，要依靠它们明确接口对应的动态类型。</p>
+<h3 id="类型申明语句"><a href="#类型申明语句" class="headerlink" title="类型申明语句"></a>类型申明语句</h3><p>语法：<code>type 类型名字 底层类型</code></p>
+<p>一个类型声明语句创建了一个新的类型名称，和现有类型具有相同的底层结构。新命名的类型提供了一个方法，用来分隔不同概念的类型，这样即使它们底层类型相同也是不兼容的。</p>
+<p>类型声明语句一般出现在包一级，因此如果新创建的类型名字的首字符大写，则在包外部也可以使用。</p>
+<p>自己创建的类型string方法可以如下申明方式：<code>func (c 类型名字) String() string { return 返回信息字段 }</code></p>
 <h2 id="复合数据类型"><a href="#复合数据类型" class="headerlink" title="复合数据类型"></a>复合数据类型</h2><p>数组是由同构的元素组成。结构体是由异构元素构成。都有着固定内存大小的数据结构。slice和map是动态数据结构，能根据需要进行增长。</p>
 <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>int类型的数组声明：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> a <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token builtin">int</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1665,7 +1670,7 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">172.9k</span>&nbsp;字
+                class="white-color">173.1k</span>&nbsp;字
             
             
             
