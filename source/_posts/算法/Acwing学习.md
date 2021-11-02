@@ -33,7 +33,7 @@ void quick_sort(int n[], int l, int r) {
     if (l >= r) return;
     //因为这里为了递归，在每次都直接将数组的指针进行加一，所以这里在声明的时候将范围左右各扩展一个
     //这里x也不能取到n[r]，理由和下面的类似
-    int x = n[(l+r)/2], i = l - 1, j = r + 1;
+    int x = q[(l+r)/2], i = l - 1, j = r + 1;
     while (i < j) {
         do i++; while (n[i] < x);
         do j--; while (n[j] > x);
