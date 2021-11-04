@@ -287,3 +287,16 @@ cd ~/.vimplus
 # 这里实现了允许root和king通过ssh登陆，其中root需要通过指定IP来访问
 AllowUsers king root@ip
 ```
+
+## RAR解压
+
+```shell
+# 下载解压程序
+wget http://www.rarlab.com/rar/rarlinux-x64-5.3.0.tar.gz
+# 解压
+tar -xf rarlinux-x64-5.3.0.tar.gz
+# 编译
+cd rar && sudo make
+# 解压文件
+rar x <rar文件名>
+```
