@@ -2,7 +2,7 @@
 title: Mac使用整理
 author: 不二
 img: >-
-  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/
+  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/mbp.jpg
 mathjax: true
 date: 2021-11-06 15:04:13
 tags:
@@ -65,7 +65,7 @@ categories: 经验总结
 
 ## 终端
 
-- brew:Mac上的包管理工具
+- brew
 - ranger
 - fzf
 - htop
@@ -225,3 +225,9 @@ export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" -E 
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "echo {} | ~/.config/file_preview.py" --preview-window=down'
 export FZF_COMPLETION_TRIGGER='\'
 ```
+
+### powerline10k
+
+## Mac内置键盘屏蔽
+
+借助Karabiner可以实现在检测到外置键盘或鼠标存在的时候，底层屏蔽内置键盘的输入。
