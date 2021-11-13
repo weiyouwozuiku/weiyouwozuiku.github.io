@@ -482,14 +482,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-01
+                    2021-11-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.9k
+                    10k
                 </div>
                 
 
@@ -524,38 +524,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><p>本文的主要大纲采用<a target="_blank" rel="noopener" href="http://gopl.io/">《The Go Programming Language》</a> 的<a target="_blank" rel="noopener" href="https://flydk.gitbooks.io/go/content/">中文版</a>。</p>
-<p>Go语言很特别，没有对象，没有继承多态，没有泛型，没有try/catch。相反，有接口，函数式编程，CSP并发模型(goroutine+channel)。</p>
-<p><code>go</code>语言仅支持封装，不支持继承和多态。没有<code>class</code>只有<code>struct</code>。面向对象使用接口来实现。</p>
-<p><code>GOROOT</code>表示源码包所在路径。</p>
-<p><code>GOPATH</code>表示开发者Go项目的默认路径。</p>
-<h3 id="依赖包下载网络配置"><a href="#依赖包下载网络配置" class="headerlink" title="依赖包下载网络配置"></a>依赖包下载网络配置</h3><p>由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">go env -w GO111MODULE=on
-go env -w GOPROXY=https://goproxy.cn,direct<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>或者基于系统的环境变量</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 一次性
-$ export GO111MODULE=on
-$ export GOPROXY=https://goproxy.cn
-# 永久
-$ echo "export GO111MODULE=on" &gt;&gt; ~/.profile
-$ echo "export GOPROXY=https://goproxy.cn" &gt;&gt; ~/.profile
-$ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这里的<code>.profile</code>文件可以改成<code>.zshrc</code>。</p>
-<h3 id="Linux安装Go"><a href="#Linux安装Go" class="headerlink" title="Linux安装Go"></a>Linux安装Go</h3><ol>
-<li><p>去<a target="_blank" rel="noopener" href="https://golang.org/dl/">官网</a>下载最新的Go安装包。</p>
-</li>
-<li><p><code>tar -zxvf &lt;tar.gz包&gt; -C /usr/local</code>该命令会在<code>/usr/local</code>路径下生成go文件夹</p>
-</li>
-<li><p><code>sudo mkdir /usr/local/gopath &amp;&amp; sudo chmod 777 /usr/local/gopath</code>这里存放go项目中的依赖</p>
-</li>
-<li><p>修改环境变量</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># sudo vi /etc/profile
- export GOROOT=/usr/local/go
- export GOPATH=/usr/local/gopath
- export PATH=$GOPATH/bin:$GOROOT/bin:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><code>source /etc/profile</code>生效配置</p>
-</li>
-</ol>
+                <h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>Go语言之父为罗伯特·格瑞史莫、罗伯·派克和肯·汤普逊.</p>
+<ul>
+<li>Rob Pike（罗伯·派克），早期贝尔实验室成员，参与了 Plan9 操作系统、C 编译器以及多种语言编译器的设计和实现，UTF-8 发明人之一。​</li>
+<li>Robert Griesemer（罗伯特·格瑞史莫），Java 的 HotSpot 虚拟机和 Chrome 浏览器的 JavaScript V8 引擎的设计者之一。​</li>
+<li>Ken Thompson（肯·汤普逊），图灵奖得主、Unix 之父以及 C 语言的发明人之一。</li>
+</ul>
 <h2 id="Go语言的执行、编译"><a href="#Go语言的执行、编译" class="headerlink" title="Go语言的执行、编译"></a>Go语言的执行、编译</h2><h3 id="go文件的执行"><a href="#go文件的执行" class="headerlink" title="go文件的执行"></a>go文件的执行</h3><p>go语言可以直接使用<code>go run + 相应go文件名</code>。</p>
 <p><strong>go语言原生支持Unicode，可以处理全世界任何语言的文本。</strong></p>
 <h3 id="go文件的编译"><a href="#go文件的编译" class="headerlink" title="go文件的编译"></a>go文件的编译</h3><p><code>go build + 相应go文件名</code>，生成相应二进制可执行文件，且是静态编译，无需担心在系统库更新的时候冲突。</p>
@@ -1086,7 +1060,41 @@ go install 包地址<span aria-hidden="true" class="line-numbers-rows"><span></s
 mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment">//操作</span>
 mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="基于共享变量的并发"><a href="#基于共享变量的并发" class="headerlink" title="基于共享变量的并发"></a>基于共享变量的并发</h2><h2 id="包和工具-1"><a href="#包和工具-1" class="headerlink" title="包和工具"></a>包和工具</h2><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><h2 id="底层编程"><a href="#底层编程" class="headerlink" title="底层编程"></a>底层编程</h2>
+<h2 id="基于共享变量的并发"><a href="#基于共享变量的并发" class="headerlink" title="基于共享变量的并发"></a>基于共享变量的并发</h2><h2 id="包和工具-1"><a href="#包和工具-1" class="headerlink" title="包和工具"></a>包和工具</h2><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><h2 id="底层编程"><a href="#底层编程" class="headerlink" title="底层编程"></a>底层编程</h2><h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><p>Go语言很特别，没有对象，没有继承多态，没有泛型，没有try/catch。相反，有接口，函数式编程，CSP并发模型(goroutine+channel)。</p>
+<p><code>go</code>语言仅支持封装，不支持继承和多态。没有<code>class</code>只有<code>struct</code>。面向对象使用接口来实现。</p>
+<p><code>GOROOT</code>表示源码包所在路径。</p>
+<p><code>GOPATH</code>表示开发者Go项目的默认路径。</p>
+<h3 id="依赖包下载网络配置"><a href="#依赖包下载网络配置" class="headerlink" title="依赖包下载网络配置"></a>依赖包下载网络配置</h3><p>由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">go env -w GO111MODULE=on
+go env -w GOPROXY=https://goproxy.cn,direct<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>或者基于系统的环境变量</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 一次性
+$ export GO111MODULE=on
+$ export GOPROXY=https://goproxy.cn
+# 永久
+$ echo "export GO111MODULE=on" &gt;&gt; ~/.profile
+$ echo "export GOPROXY=https://goproxy.cn" &gt;&gt; ~/.profile
+$ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里的<code>.profile</code>文件可以改成<code>.zshrc</code>。</p>
+<h3 id="Linux安装Go"><a href="#Linux安装Go" class="headerlink" title="Linux安装Go"></a>Linux安装Go</h3><ol>
+<li><p>去<a target="_blank" rel="noopener" href="https://golang.org/dl/">官网</a>下载最新的Go安装包。</p>
+</li>
+<li><p><code>tar -zxvf &lt;tar.gz包&gt; -C /usr/local</code>该命令会在<code>/usr/local</code>路径下生成go文件夹</p>
+</li>
+<li><p><code>sudo mkdir /usr/local/gopath &amp;&amp; sudo chmod 777 /usr/local/gopath</code>这里存放go项目中的依赖</p>
+</li>
+<li><p>修改环境变量</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># sudo vi /etc/profile
+ export GOROOT=/usr/local/go
+ export GOPATH=/usr/local/gopath
+ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><code>source /etc/profile</code>生效配置</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2></li>
+<li><p><a target="_blank" rel="noopener" href="http://gopl.io/">《The Go Programming Language》</a></p>
+</li>
+<li></li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -1670,7 +1678,7 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">174.2k</span>&nbsp;字
+                class="white-color">174.5k</span>&nbsp;字
             
             
             
