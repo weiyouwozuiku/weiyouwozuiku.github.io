@@ -62,6 +62,7 @@ categories: 经验总结
 - Magnet
 - iShot
 - Alacritty
+- [stats](https://github.com/exelban/stats)
 
 ## 终端
 

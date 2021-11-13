@@ -10,56 +10,14 @@ tags:
 categories: 程序设计
 ---
 
-## Tip
+## 基本介绍
 
-本文的主要大纲采用[《The Go Programming Language》](http://gopl.io/) 的[中文版](https://flydk.gitbooks.io/go/content/)。
+Go语言之父为罗伯特·格瑞史莫、罗伯·派克和肯·汤普逊.
 
-Go语言很特别，没有对象，没有继承多态，没有泛型，没有try/catch。相反，有接口，函数式编程，CSP并发模型(goroutine+channel)。
+- Rob Pike（罗伯·派克），早期贝尔实验室成员，参与了 Plan9 操作系统、C 编译器以及多种语言编译器的设计和实现，UTF-8 发明人之一。​
+- Robert Griesemer（罗伯特·格瑞史莫），Java 的 HotSpot 虚拟机和 Chrome 浏览器的 JavaScript V8 引擎的设计者之一。​
+- Ken Thompson（肯·汤普逊），图灵奖得主、Unix 之父以及 C 语言的发明人之一。
 
-`go`语言仅支持封装，不支持继承和多态。没有`class`只有`struct`。面向对象使用接口来实现。
-
-`GOROOT`表示源码包所在路径。
-
-`GOPATH`表示开发者Go项目的默认路径。
-
-### 依赖包下载网络配置
-
-由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。
-
-```shell
-go env -w GO111MODULE=on
-go env -w GOPROXY=https://goproxy.cn,direct
-```
-
-或者基于系统的环境变量
-
-```shell
-# 一次性
-$ export GO111MODULE=on
-$ export GOPROXY=https://goproxy.cn
-# 永久
-$ echo "export GO111MODULE=on" >> ~/.profile
-$ echo "export GOPROXY=https://goproxy.cn" >> ~/.profile
-$ source ~/.profile
-```
-
-这里的`.profile`文件可以改成`.zshrc`。
-
-### Linux安装Go
-
-1. 去[官网](https://golang.org/dl/)下载最新的Go安装包。
-2. `tar -zxvf <tar.gz包> -C /usr/local`该命令会在`/usr/local`路径下生成go文件夹
-3. `sudo mkdir /usr/local/gopath && sudo chmod 777 /usr/local/gopath`这里存放go项目中的依赖
-4. 修改环境变量
-
-   ```shell
-   # sudo vi /etc/profile
-    export GOROOT=/usr/local/go
-    export GOPATH=/usr/local/gopath
-    export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-   ```
-
-5. `source /etc/profile`生效配置
 
 ## Go语言的执行、编译
 
@@ -919,3 +877,55 @@ mu.Unlock()
 
 ## 底层编程
 
+## Tip
+
+Go语言很特别，没有对象，没有继承多态，没有泛型，没有try/catch。相反，有接口，函数式编程，CSP并发模型(goroutine+channel)。
+
+`go`语言仅支持封装，不支持继承和多态。没有`class`只有`struct`。面向对象使用接口来实现。
+
+`GOROOT`表示源码包所在路径。
+
+`GOPATH`表示开发者Go项目的默认路径。
+
+### 依赖包下载网络配置
+
+由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。
+
+```shell
+go env -w GO111MODULE=on
+go env -w GOPROXY=https://goproxy.cn,direct
+```
+
+或者基于系统的环境变量
+
+```shell
+# 一次性
+$ export GO111MODULE=on
+$ export GOPROXY=https://goproxy.cn
+# 永久
+$ echo "export GO111MODULE=on" >> ~/.profile
+$ echo "export GOPROXY=https://goproxy.cn" >> ~/.profile
+$ source ~/.profile
+```
+
+这里的`.profile`文件可以改成`.zshrc`。
+
+### Linux安装Go
+
+1. 去[官网](https://golang.org/dl/)下载最新的Go安装包。
+2. `tar -zxvf <tar.gz包> -C /usr/local`该命令会在`/usr/local`路径下生成go文件夹
+3. `sudo mkdir /usr/local/gopath && sudo chmod 777 /usr/local/gopath`这里存放go项目中的依赖
+4. 修改环境变量
+
+   ```shell
+   # sudo vi /etc/profile
+    export GOROOT=/usr/local/go
+    export GOPATH=/usr/local/gopath
+    export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+   ```
+
+5. `source /etc/profile`生效配置
+## 参考文献
+
+1. [《The Go Programming Language》](http://gopl.io/)
+2. 
