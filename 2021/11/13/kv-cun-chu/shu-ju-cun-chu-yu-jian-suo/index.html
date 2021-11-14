@@ -474,14 +474,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-13
+                    2021-11-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    201
+                    351
                 </div>
                 
 
@@ -565,6 +565,19 @@
 </tbody></table>
 <p>OLAP主要应用在hive,spark,hbase等.本文重点研究OLTP,并将侧重点放在<strong>面向页(b+ tree)的存储引擎</strong>以及<strong>日志结构(lsm tree)的存储引擎</strong>.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/KV%E5%AD%98%E5%82%A8/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%8E%E6%A3%80%E7%B4%A2/%E7%A0%94%E7%A9%B6%E5%A4%A7%E7%BA%B2.png" alt="研究大纲.png"></p>
+<h2 id="为什么选择B-树作为基于页的存储引擎"><a href="#为什么选择B-树作为基于页的存储引擎" class="headerlink" title="为什么选择B+树作为基于页的存储引擎"></a>为什么选择B+树作为基于页的存储引擎</h2><h3 id="现状分析"><a href="#现状分析" class="headerlink" title="现状分析"></a>现状分析</h3><ul>
+<li>读多写少的场景居多</li>
+<li>数据按行组织</li>
+<li>需要存储的数据量级增加到千万级量级</li>
+<li>存储时选择的存储介质需要满足成本较低\容量较大的特点</li>
+</ul>
+<h3 id="磁盘IOVS内存IO"><a href="#磁盘IOVS内存IO" class="headerlink" title="磁盘IOVS内存IO"></a>磁盘IOVS内存IO</h3><p>磁盘访问时间=寻道时间+旋转时间+传输时间:</p>
+<ul>
+<li>寻道时间: 8ms-12ms</li>
+<li>旋转时间: 7200转/min:半周 4ms</li>
+<li>传输时间: 50M/s,约0.3ms</li>
+</ul>
+<p>磁盘随机IO&lt;&lt;磁盘顺序IO≈内存随机IO&lt;&lt;内存顺序IO</p>
 
                 
             </div>
@@ -1115,7 +1128,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">174.5k</span>&nbsp;字
+                class="white-color">174.6k</span>&nbsp;字
             
             
             
