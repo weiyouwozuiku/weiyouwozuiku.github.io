@@ -18,6 +18,22 @@ Go语言之父为罗伯特·格瑞史莫、罗伯·派克和肯·汤普逊.
 - Robert Griesemer（罗伯特·格瑞史莫），Java 的 HotSpot 虚拟机和 Chrome 浏览器的 JavaScript V8 引擎的设计者之一。​
 - Ken Thompson（肯·汤普逊），图灵奖得主、Unix 之父以及 C 语言的发明人之一。
 
+### 产生的原因
+
+- 使用c++构建软件给程序员造成严重的心智负担​
+- 使用c++编写大型项目,难以忍受过长的编译时间​
+- c++对底层硬件的依赖以及编写并发/并行程序时的复杂性
+
+三位大佬决定开发一门新的语言,解决c++在工程上的痛点打造一个以编译速度快,心智负担小,简洁的并行编程为目标的新语言。
+
+### 特性
+
+- 从csp主要继承channel的概念
+- 从c主要继承基本的语法
+- 从Pascal主要继承包管理特性
+- 创造了defer,切片,map以及原生并发等特性
+
+![go特性.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/go特性.
 
 ## Go语言的执行、编译
 
