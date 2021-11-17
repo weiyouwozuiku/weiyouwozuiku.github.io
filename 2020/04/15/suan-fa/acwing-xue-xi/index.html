@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-02
+                    2021-11-18
                 </div>
                 
 
@@ -763,9 +763,10 @@ vector&lt;int&gt; mul(vector&lt;int&gt; &amp;A,int B){
             C.push_back(t%10);
             t/=10;
         }
+        // 去除前导0
         while(C.back()==0&amp;&amp;C.size()&gt;1) C.pop_back();
         return C;
-    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="两数相除"><a href="#两数相除" class="headerlink" title="两数相除"></a>两数相除</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;algorithm&gt;</span></span>
 <span class="token comment">//A是被除数，B是除数，C是商，r是余数。注意这里的r需要被调用，记得加引用</span>
 vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">div</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>A<span class="token punctuation">,</span> <span class="token keyword">int</span> B<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">&amp;</span>r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1890,7 +1891,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">174.8k</span>&nbsp;字
+                class="white-color">175k</span>&nbsp;字
             
             
             
