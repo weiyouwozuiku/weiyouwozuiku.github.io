@@ -33,7 +33,30 @@ Go语言之父为罗伯特·格瑞史莫、罗伯·派克和肯·汤普逊.
 - 从Pascal主要继承包管理特性
 - 创造了defer,切片,map以及原生并发等特性
 
-![go特性.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/go特性.
+![go特性.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/go特性.png)
+
+### 设计哲学
+
+#### 简单-少即是多
+
+1. 每种问题提供尽量少的答案
+2. 隐藏复杂度在语言本身的设计之中
+3. 对接口保永远的兼容
+
+#### 组合-正交解耦
+
+1. 通过类型嵌入,实现数据和算法的复用
+2. 通过接口,实现两个实体之间的解耦
+3. 通过channel,解耦两个并发实体之间的数据处理依赖
+
+#### 并发-原生并发
+1. 在语法层面提供一些关键字来实现并发程序的设计
+
+#### 实用-面向工程
+
+1. 实用且好用的标准库与工具链,似的开发,测试,调试,部署,运维等环节非常方便快捷
+2. 非面向过程也非面向过程
+3. 快速的写出简洁的代码却不易阅读
 
 ## Go语言的执行、编译
 

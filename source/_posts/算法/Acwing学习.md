@@ -316,6 +316,7 @@ vector<int> mul(vector<int> &A,int B){
             C.push_back(t%10);
             t/=10;
         }
+        // 去除前导0
         while(C.back()==0&&C.size()>1) C.pop_back();
         return C;
     }
