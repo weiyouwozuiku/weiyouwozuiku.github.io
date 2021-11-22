@@ -232,3 +232,12 @@ export FZF_COMPLETION_TRIGGER='\'
 ## Mac内置键盘屏蔽
 
 借助Karabiner可以实现在检测到外置键盘或鼠标存在的时候，底层屏蔽内置键盘的输入。
+
+## SSH
+
+为了保持会话的长久链接可以在本地通过新增`.ssh/config`文件中如下字段：
+
+```shell
+Host *
+  ServerAliveInterval 60
+```

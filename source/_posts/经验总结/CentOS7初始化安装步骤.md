@@ -300,3 +300,11 @@ cd rar && sudo make
 # 解压文件
 rar x <rar文件名>
 ```
+
+## 更新Host
+
+因为某些网络原因,Github的解析十分不稳定,需要定时更新Host,可以创建crontab定时任务
+
+```shell
+cat /etc/hosts.bak > /etc/hosts && curl https://gitee.com/ineo6/hosts/raw/master/hosts >> /etc/hosts
+```
