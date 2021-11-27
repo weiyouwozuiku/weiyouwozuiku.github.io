@@ -9,7 +9,6 @@ tags:
 - Mac
 categories: 经验总结
 ---
-
 ## 摘要
 
 本文旨在记录和汇总自己在工作以及学习过程中所使用的软件及其所遇问题的解决方案,以便日后所需.
@@ -81,7 +80,6 @@ categories: 经验总结
 - bat
 - httpie
 - ncdu
-
 
 ## zsh配置
 
@@ -235,9 +233,21 @@ export FZF_COMPLETION_TRIGGER='\'
 
 ## SSH
 
-为了保持会话的长久链接可以在本地通过新增`.ssh/config`文件中如下字段：
+为了保持会话的长久链接可以在本地通过新增 `.ssh/config`文件中如下字段：
 
 ```shell
 Host *
   ServerAliveInterval 60
 ```
+
+## vim
+
+安装 `vimplus`
+
+```shell
+git clone https://github.com/chxuan/vimplus.git ~/.vimplus
+cd ~/.vimplus
+./install.sh
+```
+
+直接安装完成直接会因为apple自研芯片的原因导致安装YouCompleteMe的过程中其实安装失败.可以使用 `python3 install.py --all --system-libclang`在YouCompleteMe文件夹中安装.
