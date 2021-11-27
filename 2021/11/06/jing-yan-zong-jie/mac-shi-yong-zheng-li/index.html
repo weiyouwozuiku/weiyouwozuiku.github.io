@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-22
+                    2021-11-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -725,9 +725,15 @@ export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" -E 
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "echo {} | ~/.config/file_preview.py" --preview-window=down'
 export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="powerline10k"><a href="#powerline10k" class="headerlink" title="powerline10k"></a>powerline10k</h3><h2 id="Mac内置键盘屏蔽"><a href="#Mac内置键盘屏蔽" class="headerlink" title="Mac内置键盘屏蔽"></a>Mac内置键盘屏蔽</h2><p>借助Karabiner可以实现在检测到外置键盘或鼠标存在的时候，底层屏蔽内置键盘的输入。</p>
-<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>为了保持会话的长久链接可以在本地通过新增<code>.ssh/config</code>文件中如下字段：</p>
+<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>为了保持会话的长久链接可以在本地通过新增 <code>.ssh/config</code>文件中如下字段：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Host *
   ServerAliveInterval 60<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>安装 <code>vimplus</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/chxuan/vimplus.git ~/.vimplus
+cd ~/.vimplus
+./install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>直接安装完成直接会因为apple自研芯片的原因导致安装YouCompleteMe的过程中其实安装失败.可以使用 <code>python3 install.py --all --system-libclang</code>在YouCompleteMe文件夹中安装.</p>
+
                 
             </div>
             <hr/>
@@ -1299,7 +1305,7 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">175.1k</span>&nbsp;字
+                class="white-color">175.2k</span>&nbsp;字
             
             
             
