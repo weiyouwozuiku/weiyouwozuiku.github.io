@@ -83,6 +83,12 @@ categories: 经验总结
 
 ## zsh配置
 
+### 安装zsh插件
+
+- git-open: git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open
+- zsh-syntax-highlighting: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+- zsh-autosuggestions: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 ### .zshrc
 
 ```shell
