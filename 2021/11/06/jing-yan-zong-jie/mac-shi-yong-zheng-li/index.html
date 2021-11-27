@@ -485,7 +485,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -587,7 +587,12 @@
 <li>httpie</li>
 <li>ncdu</li>
 </ul>
-<h2 id="zsh配置"><a href="#zsh配置" class="headerlink" title="zsh配置"></a>zsh配置</h2><h3 id="zshrc"><a href="#zshrc" class="headerlink" title=".zshrc"></a>.zshrc</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+<h2 id="zsh配置"><a href="#zsh配置" class="headerlink" title="zsh配置"></a>zsh配置</h2><h3 id="安装zsh插件"><a href="#安装zsh插件" class="headerlink" title="安装zsh插件"></a>安装zsh插件</h3><ul>
+<li>git-open: git clone <a target="_blank" rel="noopener" href="https://github.com/paulirish/git-open.git">https://github.com/paulirish/git-open.git</a> $ZSH_CUSTOM/plugins/git-open</li>
+<li>zsh-syntax-highlighting: git clone <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting.git">https://github.com/zsh-users/zsh-syntax-highlighting.git</a> ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</li>
+<li>zsh-autosuggestions: git clone <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a> ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</li>
+</ul>
+<h3 id="zshrc"><a href="#zshrc" class="headerlink" title=".zshrc"></a>.zshrc</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
