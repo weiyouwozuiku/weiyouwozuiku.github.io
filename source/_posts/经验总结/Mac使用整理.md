@@ -257,3 +257,58 @@ cd ~/.vimplus
 ```
 
 直接安装完成直接会因为apple自研芯片的原因导致安装YouCompleteMe的过程中其实安装失败.可以使用 `python3 install.py --all --system-libclang`在YouCompleteMe文件夹中安装.
+
+## ranger
+
+### 安装
+
+`brew install ranger`
+
+### 插件
+
+- ranger图标
+  
+```shell
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
+```
+
+- 图片预览
+
+Add the following lines to your ~/.config/ranger/rc.conf:
+
+```shell
+set preview_images true
+set preview_images_method iterm2
+```
+
+- highlight
+
+```shell
+brew install highlight
+```
+
+## fzf
+
+### 安装
+
+```shell
+brew install fzf
+#安装按键绑定与模糊补全
+$(brew --prefix)/opt/fzf/install
+```
+
+### 配置
+
+修改`.zshrc`
+
+```shell
+# 修改fzf的触发符号
+export FZF_COMPLETION_TRIGGER='\'
+# 修改fzf默认展示
+export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+```
+
+## 参考资料
+
+1. [Fuzzy finder(fzf+vim) 使用全指南](https://keelii.com/2018/08/12/fuzzy-finder-full-guide/),2018
