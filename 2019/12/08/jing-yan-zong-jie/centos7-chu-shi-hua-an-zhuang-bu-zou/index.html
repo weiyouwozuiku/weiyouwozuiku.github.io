@@ -486,7 +486,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-23
+                    2021-11-29
                 </div>
                 
 
@@ -539,15 +539,15 @@ sudo make install<span aria-hidden="true" class="line-numbers-rows"><span></span
 sudo ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="升级相应的pip版本"><a href="#升级相应的pip版本" class="headerlink" title="升级相应的pip版本"></a>升级相应的pip版本</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pip3 install --upgrade pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="安装python依赖包"><a href="#安装python依赖包" class="headerlink" title="安装python依赖包"></a>安装python依赖包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pip3 install -r requestment.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="python2与python3共存"><a href="#python2与python3共存" class="headerlink" title="python2与python3共存"></a>python2与python3共存</h3><p>将<code>/usr/bin/yum</code>和<code>/usr/libexec/urlgrabber-ext-down</code>文件的最首句最后的python改成python2。</p>
+<h3 id="python2与python3共存"><a href="#python2与python3共存" class="headerlink" title="python2与python3共存"></a>python2与python3共存</h3><p>将 <code>/usr/bin/yum</code>和 <code>/usr/libexec/urlgrabber-ext-down</code>文件的最首句最后的python改成python2。</p>
 <h3 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h3><p>（1）在执行 make 的时候没有出现问题，但是在 make install 的时候报错： ModuleNotFoundError: No module named ‘_ctypes’</p>
 <p>原因：这是因为没有安装上 tk-devel、libffi-devel这两个包，可以重新使用 yum 安装。</p>
-<p>（2）SyntaxError: invalid syntax  File “/usr/libexec/urlgrabber-ext-down” </p>
+<p>（2）SyntaxError: invalid syntax  File “/usr/libexec/urlgrabber-ext-down”</p>
 <p>原因：没有修改/usr/libexec/urlgrabber-ext-down 文件中python的环境为python2，因为现在安装了python3，它不知道应该使用哪一个，所以会报错。</p>
 <hr>
 <h2 id="安装mysql5-7"><a href="#安装mysql5-7" class="headerlink" title="安装mysql5.7"></a>安装mysql5.7</h2><h3 id="安装YUM-Repo"><a href="#安装YUM-Repo" class="headerlink" title="安装YUM Repo"></a>安装YUM Repo</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
 rpm -ivh mysql57-community-release-el7-9.noarch.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>执行完成后会在<code>/etc/yum.repos.d/</code>目录下生成两个repo文件<code>mysql-community.repo</code> <code>mysql-community-source.repo</code>。</p>
+<p>执行完成后会在 <code>/etc/yum.repos.d/</code>目录下生成两个repo文件 <code>mysql-community.repo</code> <code>mysql-community-source.repo</code>。</p>
 <h3 id="安装Mysql"><a href="#安装Mysql" class="headerlink" title="安装Mysql"></a>安装Mysql</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo yum install mysql-server
 sudo systemctl start mysqld #启动MySQL<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="配置Mysql"><a href="#配置Mysql" class="headerlink" title="配置Mysql"></a>配置Mysql</h3><p>获取初始密码</p>
@@ -622,7 +622,7 @@ Description : The zsh shell is a command interpreter usable as an interactive lo
             : mechanism, and more.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>所以只能通过编译源码的方式安装zsh。</p>
 <ol>
-<li><p>下载最新版源代码。最新版源代码可以在<code>https://zsh.sourceforge.io/Arc/source.html</code>中获取。</p>
+<li><p>下载最新版源代码。最新版源代码可以在 <code>https://zsh.sourceforge.io/Arc/source.html</code>中获取。</p>
 </li>
 <li><p>安装编译依赖</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum -y install gcc perl-ExtUtils-MakeMaker ncurses-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
@@ -639,12 +639,12 @@ vim /etc/shells # 添加：/usr/local/bin/zsh<span aria-hidden="true" class="lin
 </li>
 </ol>
 <p>此时，zsh最新版就安装完成了。</p>
-<p>安装<code>oh-my-zsh</code>：<code>sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></p>
+<p>安装 <code>oh-my-zsh</code>：<code>sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></p>
 <p>安装powerlvel10k：<code>git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k</code></p>
 <p>Set <code>ZSH_THEME="powerlevel10k/powerlevel10k"</code> in <code>~/.zshrc</code>.</p>
-<h3 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h3><p>安装<code>sudo yum install tmux -y</code></p>
+<h3 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h3><p>安装 <code>sudo yum install tmux -y</code></p>
 <p>该配置文件需要tmux2.3以上。</p>
-<p>CentOS7上安装较新版本的Tmux可以使用<code>sh -c "$(curl -fsSL https://gitee.com/lxyoucan/tools/raw/master/centos7/tmux/tmuxinstall.sh)"</code></p>
+<p>CentOS7上安装较新版本的Tmux可以使用 <code>sh -c "$(curl -fsSL https://gitee.com/lxyoucan/tools/raw/master/centos7/tmux/tmuxinstall.sh)"</code></p>
 <p>设置配置文件：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ cd
 $ git clone https://github.com/gpakosz/.tmux.git
