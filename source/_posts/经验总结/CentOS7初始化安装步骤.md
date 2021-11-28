@@ -10,7 +10,6 @@ tags:
 - Linux
 categories: 经验总结
 ---
-
 ## 安装python3.9和pip
 
 ### 下载python源码包
@@ -59,7 +58,7 @@ sudo pip3 install -r requestment.txt
 
 ### python2与python3共存
 
-将`/usr/bin/yum`和`/usr/libexec/urlgrabber-ext-down`文件的最首句最后的python改成python2。
+将 `/usr/bin/yum`和 `/usr/libexec/urlgrabber-ext-down`文件的最首句最后的python改成python2。
 
 ### 可能出现的问题
 
@@ -67,7 +66,7 @@ sudo pip3 install -r requestment.txt
 
 原因：这是因为没有安装上 tk-devel、libffi-devel这两个包，可以重新使用 yum 安装。
 
-（2）SyntaxError: invalid syntax  File "/usr/libexec/urlgrabber-ext-down" 
+（2）SyntaxError: invalid syntax  File "/usr/libexec/urlgrabber-ext-down"
 
 原因：没有修改/usr/libexec/urlgrabber-ext-down 文件中python的环境为python2，因为现在安装了python3，它不知道应该使用哪一个，所以会报错。
 
@@ -82,7 +81,7 @@ wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
 rpm -ivh mysql57-community-release-el7-9.noarch.rpm
 ```
 
-执行完成后会在`/etc/yum.repos.d/`目录下生成两个repo文件`mysql-community.repo` `mysql-community-source.repo`。
+执行完成后会在 `/etc/yum.repos.d/`目录下生成两个repo文件 `mysql-community.repo` `mysql-community-source.repo`。
 
 ### 安装Mysql
 
@@ -216,14 +215,12 @@ Description : The zsh shell is a command interpreter usable as an interactive lo
 
 所以只能通过编译源码的方式安装zsh。
 
-1. 下载最新版源代码。最新版源代码可以在`https://zsh.sourceforge.io/Arc/source.html`中获取。
-
+1. 下载最新版源代码。最新版源代码可以在 `https://zsh.sourceforge.io/Arc/source.html`中获取。
 2. 安装编译依赖
 
    ```shell
    yum -y install gcc perl-ExtUtils-MakeMaker ncurses-devel
    ```
-
 3. 编译安装
 
    ```shell
@@ -236,12 +233,11 @@ Description : The zsh shell is a command interpreter usable as an interactive lo
    ```
 
    注意将zsh添加到shells中时，要填写正确的zsh路径，因为我在执行./configure的时候没有指定安装的位置，所以默认是/usr/local/bin/zsh，不确定的话，执行 **whereis zsh** 命令查看具体的路径。
-   
 4. 将当前的shell改成zsh：`chsh -s /usr/local/bin/zsh `
 
 此时，zsh最新版就安装完成了。
 
-安装`oh-my-zsh`：`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+安装 `oh-my-zsh`：`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
 安装powerlvel10k：`git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
 
@@ -249,11 +245,11 @@ Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`.
 
 ### Tmux
 
-安装`sudo yum install tmux -y`
+安装 `sudo yum install tmux -y`
 
 该配置文件需要tmux2.3以上。
 
-CentOS7上安装较新版本的Tmux可以使用`sh -c "$(curl -fsSL https://gitee.com/lxyoucan/tools/raw/master/centos7/tmux/tmuxinstall.sh)"`
+CentOS7上安装较新版本的Tmux可以使用 `sh -c "$(curl -fsSL https://gitee.com/lxyoucan/tools/raw/master/centos7/tmux/tmuxinstall.sh)"`
 
 设置配置文件：
 
