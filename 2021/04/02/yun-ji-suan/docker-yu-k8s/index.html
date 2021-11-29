@@ -482,14 +482,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-31
+                    2021-11-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
@@ -533,8 +533,8 @@
 <li>USER：设置用户</li>
 <li>ENTRYPOINT：设置应用启动入口</li>
 </ul>
-<p>启动docker<code>service docker start</code>或<code>systemctl start docker.service</code>。</p>
-<p>如果使用rpm下载安装，需要下载<code>containerd</code>和<code>docker-ce-cli</code>和<code>docker-ce</code>，其中前两项为<code>docker-ce</code>的前置条件，且<code>docker-ce</code>和<code>docker-ce-cli</code>版本一致，<code>containerd</code>尽可能新就行。</p>
+<p>启动docker <code>service docker start</code>或 <code>systemctl start docker.service</code>。</p>
+<p>如果使用rpm下载安装，需要下载 <code>containerd</code>和 <code>docker-ce-cli</code>和 <code>docker-ce</code>，其中前两项为 <code>docker-ce</code>的前置条件，且 <code>docker-ce</code>和 <code>docker-ce-cli</code>版本一致，<code>containerd</code>尽可能新就行。</p>
 <p>docker与虚拟机的不同主要在于：</p>
 <ul>
 <li>所有dcoker应用共享一个宿主机操作系统，每个虚拟机有自己的操作系统</li>
@@ -548,13 +548,13 @@
 </li>
 <li><p>Docker Daemon：docker后台运行的守护进程</p>
 <ul>
-<li>启用：<code>service docker start</code>或<code>systemctl start docker.service</code></li>
-<li>通过<code>/var/run/docker.sock</code>与client之间连接</li>
+<li>启用：<code>service docker start</code>或 <code>systemctl start docker.service</code></li>
+<li>通过 <code>/var/run/docker.sock</code>与client之间连接</li>
 </ul>
 </li>
 <li><p>Docker Registry：用来存储Docker镜像</p>
 <ul>
-<li>拉取镜像：docker pull <image-name></image-name></li>
+<li>拉取镜像：docker pull <code>&lt;image-name&gt;</code></li>
 <li>最底层的镜像为scratch镜像</li>
 <li>镜像的构建通过DSL编写，叫dockerfile。</li>
 <li>容器是镜像的运行实例</li>
@@ -563,6 +563,7 @@
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/Docker%E4%B8%8EK8s/Docker%E4%B8%8EK8s_Docker%E6%9E%B6%E6%9E%84.png" alt="Docker与K8s_Docker架构.png"></p>
+<p>docker本身是在多层的只读层上添加了一个read-write层，即container layer。</p>
 <h3 id="Docker镜像"><a href="#Docker镜像" class="headerlink" title="Docker镜像"></a>Docker镜像</h3><p>镜像中包含的操作系统文件最好之后一个精简版的，而非全量。在启动容器之后，容器进程还是去和宿主机的操作系统进行交互。</p>
 <p>对于多个应用使用同一基础镜像，推荐使用官方的镜像或将基础环境配置为镜像，复用基础镜像。</p>
 <h4 id="镜像介绍"><a href="#镜像介绍" class="headerlink" title="镜像介绍"></a>镜像介绍</h4><h5 id="Alpine镜像"><a href="#Alpine镜像" class="headerlink" title="Alpine镜像"></a>Alpine镜像</h5><p>apline linux借助fs的文件格式将整个镜像包的大小压缩到很小，但是存在诸多坑，例如alphine使用的是musl libc,而一般程序使用的都是glibc,会导致找不到运行的动态链接库等问题。且因为使用musl libc使用的人较少，产生的问题也相对难以解决。</p>
@@ -649,12 +650,14 @@
 </tr>
 </tbody></table>
 <h5 id="docker-attach"><a href="#docker-attach" class="headerlink" title="docker attach"></a>docker attach</h5><p>通过给一个正在运行的容器分配一个stdin、stdout、stderr，从而使得我们可以进入一个运行着的容器内部。</p>
-<p><strong>注意：使用<code>docker attach</code>进入之后，如果使用exit会导致原容器也退出。推荐使用<code>Ctrl+C</code>退出。</strong></p>
-<h5 id="docker-exec"><a href="#docker-exec" class="headerlink" title="docker exec"></a>docker exec</h5><p>该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层面，相当于fork了一个进程，然后这个进程设置和容器相同的NameSpace。如果在OPTIONS中指定<code>-ti</code>，则会进入到容器内。因为这是fork出来的进程，可以exit。</p>
-<h5 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h5><p>用来列出所有在运行容器的信息。</p>
+<p><strong>注意：使用 <code>docker attach</code>进入之后，如果使用exit会导致原容器也退出。推荐使用 <code>Ctrl+C</code>退出。</strong></p>
+<h5 id="docker-exec"><a href="#docker-exec" class="headerlink" title="docker exec"></a>docker exec</h5><p>该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层面，相当于fork了一个进程，然后这个进程设置和容器相同的NameSpace。如果在OPTIONS中指定 <code>-ti</code>，则会进入到容器内。因为这是fork出来的进程，可以exit。</p>
+<h5 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h5><p>用来列出所有在运行容器的信息。使用 <code>-a</code>参数展示所有容器包括停止运行的。</p>
 <h5 id="docker-kill"><a href="#docker-kill" class="headerlink" title="docker kill"></a>docker kill</h5><p>杀死一个或一组container。</p>
 <h5 id="docker-log"><a href="#docker-log" class="headerlink" title="docker log"></a>docker log</h5><p>用来获取docker的log信息。</p>
 <h5 id="docker-top"><a href="#docker-top" class="headerlink" title="docker top"></a>docker top</h5><p>查看这个容器在宿主机上的进程，毕竟本质上container只是一个进程。</p>
+<p>docker container stop id/name </p>
+<p>一次性关闭所有容器：<code>docker container stop $(docker container ps -aq)</code></p>
 <h4 id="镜像操作命令"><a href="#镜像操作命令" class="headerlink" title="镜像操作命令"></a>镜像操作命令</h4><h5 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h5><p>显示本地所有非隐藏镜像，默认会将中间依赖镜像隐藏</p>
 <h5 id="docker-build"><a href="#docker-build" class="headerlink" title="docker build"></a>docker build</h5><h5 id="docker-commit"><a href="#docker-commit" class="headerlink" title="docker commit"></a>docker commit</h5><h5 id="docker-history"><a href="#docker-history" class="headerlink" title="docker history"></a>docker history</h5><h5 id="docker-save"><a href="#docker-save" class="headerlink" title="docker save"></a>docker save</h5><h5 id="docker-import"><a href="#docker-import" class="headerlink" title="docker import"></a>docker import</h5><h5 id="docker-load"><a href="#docker-load" class="headerlink" title="docker load"></a>docker load</h5><h5 id="docker-rmi"><a href="#docker-rmi" class="headerlink" title="docker rmi"></a>docker rmi</h5><h5 id="docker-tag"><a href="#docker-tag" class="headerlink" title="docker tag"></a>docker tag</h5><h2 id="Docker核心技术"><a href="#Docker核心技术" class="headerlink" title="Docker核心技术"></a>Docker核心技术</h2><h2 id="Docker最佳实践"><a href="#Docker最佳实践" class="headerlink" title="Docker最佳实践"></a>Docker最佳实践</h2><h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
 <p>K8s采用声明式API,而不是命令式API。SQL就是典型的声明式API，其不关心具体实现如何，只在乎我们所需的状态或结果。而命令式API就是告诉他每一步怎么做。</p>
@@ -1231,7 +1234,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">175.4k</span>&nbsp;字
+                class="white-color">175.5k</span>&nbsp;字
             
             
             
