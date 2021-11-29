@@ -9,7 +9,6 @@ tags:
 img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/云计算/docker_k8s.png
 categories: 云计算
 ---
-
 ## Docker基础
 
 docker相较于别的paas技术核心优势在于镜像，其是一套操作系统+应用程序，保证了环境的一致性，无需根据不同的开发语言选择不同打包方式。
@@ -22,9 +21,9 @@ docker相较于别的paas技术核心优势在于镜像，其是一套操作系�
 - USER：设置用户
 - ENTRYPOINT：设置应用启动入口
 
-启动docker`service docker start`或`systemctl start docker.service`。
+启动docker `service docker start`或 `systemctl start docker.service`。
 
-如果使用rpm下载安装，需要下载`containerd`和`docker-ce-cli`和`docker-ce`，其中前两项为`docker-ce`的前置条件，且`docker-ce`和`docker-ce-cli`版本一致，`containerd`尽可能新就行。
+如果使用rpm下载安装，需要下载 `containerd`和 `docker-ce-cli`和 `docker-ce`，其中前两项为 `docker-ce`的前置条件，且 `docker-ce`和 `docker-ce-cli`版本一致，`containerd`尽可能新就行。
 
 docker与虚拟机的不同主要在于：
 
@@ -40,17 +39,21 @@ Docker的主要组成部分可以大致分为：
 
 - Docker Client：与Docker daemon 进行交互，与用户交互的客户端
 - Docker Daemon：docker后台运行的守护进程
-  - 启用：`service docker start`或`systemctl start docker.service`
-  - 通过`/var/run/docker.sock`与client之间连接
+
+  - 启用：`service docker start`或 `systemctl start docker.service`
+  - 通过 `/var/run/docker.sock`与client之间连接
 - Docker Registry：用来存储Docker镜像
-  - 拉取镜像：docker pull <image-name>
+
+  - 拉取镜像：docker pull `<image-name>`
   - 最底层的镜像为scratch镜像
   - 镜像的构建通过DSL编写，叫dockerfile。
   - 容器是镜像的运行实例
-  
+
   容器默认与其他容器与其宿主机相隔离开。具体的隔离策略可以进行自定义设置。
 
 ![Docker与K8s_Docker架构.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/Docker与K8s/Docker与K8s_Docker架构.png)
+
+docker本身是在多层的只读层上添加了一个read-write层，即container layer。
 
 ### Docker镜像
 
@@ -90,8 +93,6 @@ Docker官方提供的openjdk镜像。
 | EXPOSE     | 暴露端口                   |
 | ENTRYPOINT | 用来指定镜像的默认启动脚本 |
 
-
-
 #### 容器操作命令
 
 ##### docker run
@@ -115,15 +116,15 @@ Docker官方提供的openjdk镜像。
 
 通过给一个正在运行的容器分配一个stdin、stdout、stderr，从而使得我们可以进入一个运行着的容器内部。
 
-**注意：使用`docker attach`进入之后，如果使用exit会导致原容器也退出。推荐使用`Ctrl+C`退出。**
+**注意：使用 `docker attach`进入之后，如果使用exit会导致原容器也退出。推荐使用 `Ctrl+C`退出。**
 
 ##### docker exec
 
-该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层面，相当于fork了一个进程，然后这个进程设置和容器相同的NameSpace。如果在OPTIONS中指定`-ti`，则会进入到容器内。因为这是fork出来的进程，可以exit。
+该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层面，相当于fork了一个进程，然后这个进程设置和容器相同的NameSpace。如果在OPTIONS中指定 `-ti`，则会进入到容器内。因为这是fork出来的进程，可以exit。
 
 ##### docker ps
 
-用来列出所有在运行容器的信息。
+用来列出所有在运行容器的信息。使用 `-a`参数展示所有容器包括停止运行的。
 
 ##### docker kill
 
@@ -136,6 +137,10 @@ Docker官方提供的openjdk镜像。
 ##### docker top
 
 查看这个容器在宿主机上的进程，毕竟本质上container只是一个进程。
+
+docker container stop id/name 
+
+一次性关闭所有容器：`docker container stop $(docker container ps -aq)`
 
 #### 镜像操作命令
 
@@ -171,7 +176,4 @@ K8s采用声明式API,而不是命令式API。SQL就是典型的声明式API，�
 
 ![Docker与K8s_k8s架构.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/Docker与K8s/Docker与K8s_k8s架构.png)
 
-
-
 ## 云原生监控方案
-

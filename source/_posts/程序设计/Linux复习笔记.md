@@ -103,3 +103,6 @@ nohup 命令，在默认情况下（非重定向时），会输出一个名叫 n
 - 0 – stdin (standard input，标准输入)
 - 1 – stdout (standard output，标准输出)
 - 2 – stderr (standard error，标准错误输出)
+
+## Shell编写
+

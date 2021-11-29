@@ -38,7 +38,7 @@ categories: 经验总结
 - EasyConnect
 - Logi Options
 - 滴答清单
-- PDF Reader Pro
+- PDF Expert
 - IINA
 - Jetbrains家族
 - Office家族
