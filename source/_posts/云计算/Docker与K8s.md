@@ -111,6 +111,7 @@ Docker官方提供的openjdk镜像。
 | --link        | 容器网络相关，和其他的container连接   |
 | --cpu-quota   | 设置CPU限制                           |
 | --memory      | 设置容器可以使用的内存限制            |
+| --detach(-d)  | 后台运行docker                     ｜ |
 
 ##### docker attach
 
@@ -138,7 +139,7 @@ Docker官方提供的openjdk镜像。
 
 查看这个容器在宿主机上的进程，毕竟本质上container只是一个进程。
 
-docker container stop id/name 
+docker container stop id/name
 
 一次性关闭所有容器：`docker container stop $(docker container ps -aq)`
 
@@ -163,6 +164,16 @@ docker container stop id/name
 ##### docker rmi
 
 ##### docker tag
+
+docker container run 执行步骤
+
+当输入 `docker cintainer run -d --pulish 80:80 --name webhost nginx`
+
+1. 在本地查找是否有nginx的镜像。如果没有去远程拉取nginx镜像（默认从Docker Hub）
+2. 基于nginx镜像创建一个新的容器，并准备执行
+3. docker engine分配这个容器一个虚拟ip地址
+4. 在宿主机上打来80端口并将容器的80端口转发到宿主机上
+5. 启动容器，运行指定的命令
 
 ## Docker核心技术
 

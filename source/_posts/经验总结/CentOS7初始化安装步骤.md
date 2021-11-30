@@ -304,3 +304,7 @@ rar x <rar文件名>
 ```shell
 cat /etc/hosts.bak > /etc/hosts && curl https://gitee.com/ineo6/hosts/raw/master/hosts >> /etc/hosts
 ```
+
+## psmisc
+
+安装之后可以通过pstree -halps 进程号，查到docker在宿主机中的进程。
