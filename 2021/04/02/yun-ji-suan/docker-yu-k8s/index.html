@@ -482,14 +482,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-30
+                    2021-12-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -648,6 +648,10 @@
 <td>–memory</td>
 <td>设置容器可以使用的内存限制</td>
 </tr>
+<tr>
+<td>–detach(-d)</td>
+<td>后台运行docker                     ｜</td>
+</tr>
 </tbody></table>
 <h5 id="docker-attach"><a href="#docker-attach" class="headerlink" title="docker attach"></a>docker attach</h5><p>通过给一个正在运行的容器分配一个stdin、stdout、stderr，从而使得我们可以进入一个运行着的容器内部。</p>
 <p><strong>注意：使用 <code>docker attach</code>进入之后，如果使用exit会导致原容器也退出。推荐使用 <code>Ctrl+C</code>退出。</strong></p>
@@ -656,10 +660,19 @@
 <h5 id="docker-kill"><a href="#docker-kill" class="headerlink" title="docker kill"></a>docker kill</h5><p>杀死一个或一组container。</p>
 <h5 id="docker-log"><a href="#docker-log" class="headerlink" title="docker log"></a>docker log</h5><p>用来获取docker的log信息。</p>
 <h5 id="docker-top"><a href="#docker-top" class="headerlink" title="docker top"></a>docker top</h5><p>查看这个容器在宿主机上的进程，毕竟本质上container只是一个进程。</p>
-<p>docker container stop id/name </p>
+<p>docker container stop id/name</p>
 <p>一次性关闭所有容器：<code>docker container stop $(docker container ps -aq)</code></p>
 <h4 id="镜像操作命令"><a href="#镜像操作命令" class="headerlink" title="镜像操作命令"></a>镜像操作命令</h4><h5 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h5><p>显示本地所有非隐藏镜像，默认会将中间依赖镜像隐藏</p>
-<h5 id="docker-build"><a href="#docker-build" class="headerlink" title="docker build"></a>docker build</h5><h5 id="docker-commit"><a href="#docker-commit" class="headerlink" title="docker commit"></a>docker commit</h5><h5 id="docker-history"><a href="#docker-history" class="headerlink" title="docker history"></a>docker history</h5><h5 id="docker-save"><a href="#docker-save" class="headerlink" title="docker save"></a>docker save</h5><h5 id="docker-import"><a href="#docker-import" class="headerlink" title="docker import"></a>docker import</h5><h5 id="docker-load"><a href="#docker-load" class="headerlink" title="docker load"></a>docker load</h5><h5 id="docker-rmi"><a href="#docker-rmi" class="headerlink" title="docker rmi"></a>docker rmi</h5><h5 id="docker-tag"><a href="#docker-tag" class="headerlink" title="docker tag"></a>docker tag</h5><h2 id="Docker核心技术"><a href="#Docker核心技术" class="headerlink" title="Docker核心技术"></a>Docker核心技术</h2><h2 id="Docker最佳实践"><a href="#Docker最佳实践" class="headerlink" title="Docker最佳实践"></a>Docker最佳实践</h2><h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
+<h5 id="docker-build"><a href="#docker-build" class="headerlink" title="docker build"></a>docker build</h5><h5 id="docker-commit"><a href="#docker-commit" class="headerlink" title="docker commit"></a>docker commit</h5><h5 id="docker-history"><a href="#docker-history" class="headerlink" title="docker history"></a>docker history</h5><h5 id="docker-save"><a href="#docker-save" class="headerlink" title="docker save"></a>docker save</h5><h5 id="docker-import"><a href="#docker-import" class="headerlink" title="docker import"></a>docker import</h5><h5 id="docker-load"><a href="#docker-load" class="headerlink" title="docker load"></a>docker load</h5><h5 id="docker-rmi"><a href="#docker-rmi" class="headerlink" title="docker rmi"></a>docker rmi</h5><h5 id="docker-tag"><a href="#docker-tag" class="headerlink" title="docker tag"></a>docker tag</h5><p>docker container run 执行步骤</p>
+<p>当输入 <code>docker cintainer run -d --pulish 80:80 --name webhost nginx</code></p>
+<ol>
+<li>在本地查找是否有nginx的镜像。如果没有去远程拉取nginx镜像（默认从Docker Hub）</li>
+<li>基于nginx镜像创建一个新的容器，并准备执行</li>
+<li>docker engine分配这个容器一个虚拟ip地址</li>
+<li>在宿主机上打来80端口并将容器的80端口转发到宿主机上</li>
+<li>启动容器，运行指定的命令</li>
+</ol>
+<h2 id="Docker核心技术"><a href="#Docker核心技术" class="headerlink" title="Docker核心技术"></a>Docker核心技术</h2><h2 id="Docker最佳实践"><a href="#Docker最佳实践" class="headerlink" title="Docker最佳实践"></a>Docker最佳实践</h2><h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
 <p>K8s采用声明式API,而不是命令式API。SQL就是典型的声明式API，其不关心具体实现如何，只在乎我们所需的状态或结果。而命令式API就是告诉他每一步怎么做。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/Docker%E4%B8%8EK8s/Docker%E4%B8%8EK8s_k8s%E6%9E%B6%E6%9E%84.png" alt="Docker与K8s_k8s架构.png"></p>
 <h2 id="云原生监控方案"><a href="#云原生监控方案" class="headerlink" title="云原生监控方案"></a>云原生监控方案</h2>
@@ -1234,7 +1247,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">175.5k</span>&nbsp;字
+                class="white-color">175.7k</span>&nbsp;字
             
             
             
