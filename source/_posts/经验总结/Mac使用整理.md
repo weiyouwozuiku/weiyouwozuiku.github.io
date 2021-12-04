@@ -54,7 +54,7 @@ categories: 经验总结
 - Mos
 - HHKB Keymap Tool
 - Alfred
-- Kronos Time Tracker
+- Kronos Time Tra
 - Karabiner-Elements
 - Karabiner-EventViewer
 - Karabiner-VirtualHIDDevice-Manager
@@ -62,6 +62,10 @@ categories: 经验总结
 - iShot
 - Alacritty
 - [stats](https://github.com/exelban/stats)
+- One Switch 
+- Dash
+- Better Touch Tools
+- Transmit
 
 ## 终端
 
