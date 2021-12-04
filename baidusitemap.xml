@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://buerlog.top/2021/11/06/jing-yan-zong-jie/mac-shi-yong-zheng-li/</loc>
+    <lastmod>2021-12-04</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2021/08/05/cheng-xu-she-ji/shu-ju-mi-ji-xing-ying-yong-xi-tong-she-ji-xue-xi/</loc>
+    <lastmod>2021-12-04</lastmod>
+  </url>
+  <url>
     <loc>http://buerlog.top/2021/04/02/yun-ji-suan/docker-yu-k8s/</loc>
-    <lastmod>2021-11-30</lastmod>
+    <lastmod>2021-12-02</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2019/12/08/jing-yan-zong-jie/centos7-chu-shi-hua-an-zhuang-bu-zou/</loc>
@@ -10,10 +18,6 @@
   </url>
   <url>
     <loc>http://buerlog.top/2021/01/25/cheng-xu-she-ji/linux-fu-xi-bi-ji/</loc>
-    <lastmod>2021-11-29</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2021/11/06/jing-yan-zong-jie/mac-shi-yong-zheng-li/</loc>
     <lastmod>2021-11-29</lastmod>
   </url>
   <url>
@@ -238,10 +242,6 @@
   </url>
   <url>
     <loc>http://buerlog.top/2020/08/13/cheng-xu-she-ji/spring-shi-zhan-xue-xi/</loc>
-    <lastmod>2021-10-31</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2021/08/05/cheng-xu-she-ji/shu-ju-mi-ji-xing-ying-yong-xi-tong-she-ji-xue-xi/</loc>
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>
