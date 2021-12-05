@@ -64,8 +64,14 @@ categories: 经验总结
 - [stats](https://github.com/exelban/stats)
 - One Switch 
 - Dash
-- Better Touch Tools
+- BetterTouchTool
 - Transmit
+- Mountain Duck
+- Moment
+- Progressive Downloader
+- Pika
+- (another-redis-desktop-manager)[https://github.com/qishibo/AnotherRedisDesktopManager]
+- OmniGraffle
 
 ## 终端
 
@@ -240,6 +246,108 @@ export FZF_COMPLETION_TRIGGER='\'
 ## Mac内置键盘屏蔽
 
 借助Karabiner可以实现在检测到外置键盘或鼠标存在的时候，底层屏蔽内置键盘的输入。
+
+## 键盘映射
+
+同样是借助Karabiner实现键盘映射的功能，单个按键简单映射直接在软件本身设置即可。针对组合键的映射，可以通过在`.config/karabiner/assets/complex_modifications`文件中编写任意文件名的json文件来实现。
+
+```json
+{
+  "title": "vim",
+  "rules": [
+    {
+      "description": "option+hjkl;",
+      "manipulators": [
+        {
+          "description": "option+h",
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow"
+            }
+          ]
+        },
+        {
+          "description": "option+j",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow"
+            }
+          ]
+        },
+        {
+          "description": "option+k",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "up_arrow"
+            }
+          ]
+        },
+        {
+          "description": "option+l",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow"
+            }
+          ]
+        },
+        {
+          "description": "option+;",
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ## SSH
 
