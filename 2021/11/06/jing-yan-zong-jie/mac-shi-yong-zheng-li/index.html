@@ -485,14 +485,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -571,8 +571,14 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/exelban/stats">stats</a></li>
 <li>One Switch </li>
 <li>Dash</li>
-<li>Better Touch Tools</li>
+<li>BetterTouchTool</li>
 <li>Transmit</li>
+<li>Mountain Duck</li>
+<li>Moment</li>
+<li>Progressive Downloader</li>
+<li>Pika</li>
+<li>(another-redis-desktop-manager)[<a target="_blank" rel="noopener" href="https://github.com/qishibo/AnotherRedisDesktopManager]">https://github.com/qishibo/AnotherRedisDesktopManager]</a></li>
+<li>OmniGraffle</li>
 </ul>
 <h2 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h2><ul>
 <li>brew</li>
@@ -734,6 +740,102 @@ export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" -E 
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "echo {} | ~/.config/file_preview.py" --preview-window=down'
 export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="powerline10k"><a href="#powerline10k" class="headerlink" title="powerline10k"></a>powerline10k</h3><h2 id="Mac内置键盘屏蔽"><a href="#Mac内置键盘屏蔽" class="headerlink" title="Mac内置键盘屏蔽"></a>Mac内置键盘屏蔽</h2><p>借助Karabiner可以实现在检测到外置键盘或鼠标存在的时候，底层屏蔽内置键盘的输入。</p>
+<h2 id="键盘映射"><a href="#键盘映射" class="headerlink" title="键盘映射"></a>键盘映射</h2><p>同样是借助Karabiner实现键盘映射的功能，单个按键简单映射直接在软件本身设置即可。针对组合键的映射，可以通过在<code>.config/karabiner/assets/complex_modifications</code>文件中编写任意文件名的json文件来实现。</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"vim"</span><span class="token punctuation">,</span>
+  <span class="token property">"rules"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"option+hjkl;"</span><span class="token punctuation">,</span>
+      <span class="token property">"manipulators"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"option+h"</span><span class="token punctuation">,</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"basic"</span><span class="token punctuation">,</span>
+          <span class="token property">"from"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"key_code"</span><span class="token operator">:</span> <span class="token string">"h"</span><span class="token punctuation">,</span>
+            <span class="token property">"modifiers"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"mandatory"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"left_option"</span>
+              <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"to"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"key_code"</span><span class="token operator">:</span> <span class="token string">"left_arrow"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"option+j"</span><span class="token punctuation">,</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"basic"</span><span class="token punctuation">,</span>
+          <span class="token property">"from"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"key_code"</span><span class="token operator">:</span> <span class="token string">"j"</span><span class="token punctuation">,</span>
+            <span class="token property">"modifiers"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"mandatory"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"left_option"</span>
+              <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"to"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"key_code"</span><span class="token operator">:</span> <span class="token string">"down_arrow"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"option+k"</span><span class="token punctuation">,</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"basic"</span><span class="token punctuation">,</span>
+          <span class="token property">"from"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"key_code"</span><span class="token operator">:</span> <span class="token string">"k"</span><span class="token punctuation">,</span>
+            <span class="token property">"modifiers"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"mandatory"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"left_option"</span>
+              <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"to"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"key_code"</span><span class="token operator">:</span> <span class="token string">"up_arrow"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"option+l"</span><span class="token punctuation">,</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"basic"</span><span class="token punctuation">,</span>
+          <span class="token property">"from"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"key_code"</span><span class="token operator">:</span> <span class="token string">"l"</span><span class="token punctuation">,</span>
+            <span class="token property">"modifiers"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"mandatory"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"left_option"</span>
+              <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"to"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"key_code"</span><span class="token operator">:</span> <span class="token string">"right_arrow"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"option+;"</span><span class="token punctuation">,</span>
+          <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"basic"</span><span class="token punctuation">,</span>
+          <span class="token property">"from"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"key_code"</span><span class="token operator">:</span> <span class="token string">"semicolon"</span><span class="token punctuation">,</span>
+            <span class="token property">"modifiers"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token property">"mandatory"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"left_option"</span>
+              <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">"to"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"key_code"</span><span class="token operator">:</span> <span class="token string">"return_or_enter"</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>为了保持会话的长久链接可以在本地通过新增 <code>.ssh/config</code>文件中如下字段：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Host *
   ServerAliveInterval 60<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -1341,7 +1443,7 @@ export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --preview '(highlight -O 
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">175.7k</span>&nbsp;字
+                class="white-color">175.8k</span>&nbsp;字
             
             
             
