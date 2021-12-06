@@ -967,6 +967,7 @@ $ source ~/.profile
    ```
 
 5. `source /etc/profile`生效配置
+
 ### SOLID原则
 
 在[程序设计](https://zh.wikipedia.org/wiki/程序设计)领域， **SOLID**（**单一功能、开闭原则、里氏替换、接口隔离**以及**依赖反转**）是由[罗伯特·C·马丁](https://zh.wikipedia.org/w/index.php?title=Robert_C._Martin&action=edit&redlink=1)在21世纪早期[[1\]](https://zh.wikipedia.org/wiki/SOLID_(面向对象设计)#cite_note-metz-presentation-2009-1) 引入的[记忆术](https://zh.wikipedia.org/wiki/记忆术)[首字母缩略字](https://zh.wikipedia.org/wiki/首字母缩略字)[[2\]](https://zh.wikipedia.org/wiki/SOLID_(面向对象设计)#cite_note-ub-old-web-solid-2)[[3\]](https://zh.wikipedia.org/wiki/SOLID_(面向对象设计)#cite_note-ub-solid-3)，指代了[面向对象编程](https://zh.wikipedia.org/wiki/面向对象编程)和[面向对象设计](https://zh.wikipedia.org/wiki/面向对象设计)的五个基本原则。当这些原则被一起应用时，它们使得一个[程序员](https://zh.wikipedia.org/wiki/程序员)开发一个容易进行[软件维护](https://zh.wikipedia.org/wiki/軟體維護)和扩展的系统变得更加可能。[[1\]](https://zh.wikipedia.org/wiki/SOLID_(面向对象设计)#cite_note-metz-presentation-2009-1) SOLID所包含的原则是通过引发编程者进行软件[源代码](https://zh.wikipedia.org/wiki/源代码)的[代码重构](https://zh.wikipedia.org/wiki/代码重构)进行软件的[代码异味](https://zh.wikipedia.org/wiki/代码异味)清扫，从而使得软件清晰可读以及可扩展时可以应用的指南。SOLID被典型的应用在[测试驱动开发](https://zh.wikipedia.org/wiki/测试驱动开发)上，并且是[敏捷开发](https://zh.wikipedia.org/wiki/敏捷开发)以及[自适应软件开发](https://zh.wikipedia.org/w/index.php?title=Adaptive_programming&action=edit&redlink=1)的基本原则的重要组成部分。
