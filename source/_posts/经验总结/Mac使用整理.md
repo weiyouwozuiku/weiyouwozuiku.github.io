@@ -70,7 +70,7 @@ categories: 经验总结
 - Moment
 - Progressive Downloader
 - Pika
-- (another-redis-desktop-manager)[https://github.com/qishibo/AnotherRedisDesktopManager]
+- [another-redis-desktop-manager](https://github.com/qishibo/AnotherRedisDesktopManager)
 - OmniGraffle
 
 ## 终端
@@ -369,6 +369,8 @@ cd ~/.vimplus
 ```
 
 直接安装完成直接会因为apple自研芯片的原因导致安装YouCompleteMe的过程中其实安装失败.可以使用 `python3 install.py --all --system-libclang`在YouCompleteMe文件夹中安装.
+
+安装YouCompleteMe中可能出现`Python headers are missing in /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.7/Headers.`的错误，只需要执行`echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc`即可。这个问题的原因可以通过执行`brew doctor`发现。
 
 ## ranger
 
