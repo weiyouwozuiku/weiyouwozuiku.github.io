@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-05
+                    2021-12-07
                 </div>
                 
 
@@ -577,7 +577,7 @@
 <li>Moment</li>
 <li>Progressive Downloader</li>
 <li>Pika</li>
-<li>(another-redis-desktop-manager)[<a target="_blank" rel="noopener" href="https://github.com/qishibo/AnotherRedisDesktopManager]">https://github.com/qishibo/AnotherRedisDesktopManager]</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/qishibo/AnotherRedisDesktopManager">another-redis-desktop-manager</a></li>
 <li>OmniGraffle</li>
 </ul>
 <h2 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h2><ul>
@@ -844,6 +844,7 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
 cd ~/.vimplus
 ./install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>直接安装完成直接会因为apple自研芯片的原因导致安装YouCompleteMe的过程中其实安装失败.可以使用 <code>python3 install.py --all --system-libclang</code>在YouCompleteMe文件夹中安装.</p>
+<p>安装YouCompleteMe中可能出现<code>Python headers are missing in /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.7/Headers.</code>的错误，只需要执行<code>echo 'export PATH="/usr/local/bin:$PATH"' &gt;&gt; ~/.zshrc</code>即可。这个问题的原因可以通过执行<code>brew doctor</code>发现。</p>
 <h2 id="ranger"><a href="#ranger" class="headerlink" title="ranger"></a>ranger</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>brew install ranger</code></p>
 <h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><ul>
 <li>ranger图标</li>
