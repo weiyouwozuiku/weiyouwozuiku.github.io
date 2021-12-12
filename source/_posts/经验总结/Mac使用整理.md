@@ -72,6 +72,7 @@ categories: 经验总结
 - Pika
 - [another-redis-desktop-manager](https://github.com/qishibo/AnotherRedisDesktopManager)
 - OmniGraffle
+- MonitorControl
 
 ## 终端
 
@@ -90,6 +91,7 @@ categories: 经验总结
 - bat
 - httpie
 - ncdu
+- axel
 
 ## zsh配置
 
