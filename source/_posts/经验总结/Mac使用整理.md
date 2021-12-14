@@ -73,6 +73,8 @@ categories: 经验总结
 - [another-redis-desktop-manager](https://github.com/qishibo/AnotherRedisDesktopManager)
 - OmniGraffle
 - MonitorControl
+- NeatDownloadManager
+- Swish
 
 ## 终端
 
