@@ -41,6 +41,8 @@ TIME-WAIT等待2MSL是保证TCP协议的全双工连接能够可靠关闭。保�
 
 缓冲区大小称之为接收端口，用变量win表示。如果win=0，则发送方停止发送。
 
+![TCP流量控制.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go语言网关开发/TCP流量控制.png)
+
 ### TCP拥塞控制
 
 拥塞控制是调节网络的负载。接收方网络资源繁忙，因未及时响应ACK导致发送方重传大量数据，这样将会导致网络更加拥堵。**拥塞控制是动态调整win大小，不知是依赖缓冲区大小确定窗口大小**。
