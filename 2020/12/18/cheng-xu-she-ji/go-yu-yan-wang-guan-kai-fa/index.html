@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-14
+                    2021-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    461
+                    908
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -543,7 +543,87 @@
 <ul>
 <li>应用程序写入的数据大于套接字缓冲区大小，这将会发生拆包。</li>
 <li>应用程序写入数据小于套接字缓冲区大小，网卡将应用多次写入的数据发送到网络上，这将会发生粘包。</li>
+<li>进行MSS（最大报文长度）大小的TCP分段，当TCP报文长度-TCP头部长度&gt;MSS的时候将会发生拆包。</li>
+<li>接收方法不及时读取套接字缓冲区数据，这将发生粘包。</li>
 </ul>
+<h3 id="HTTP创建过程"><a href="#HTTP创建过程" class="headerlink" title="HTTP创建过程"></a>HTTP创建过程</h3><h4 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h4><p>主要结构体：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> ServeMux <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	mu    sync<span class="token punctuation">.</span>RWMutex
+	m     <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span>muxEntry
+	es    <span class="token punctuation">[</span><span class="token punctuation">]</span>muxEntry <span class="token comment">// slice of entries sorted from longest to shortest.</span>
+	hosts <span class="token builtin">bool</span>       <span class="token comment">// whether any patterns contain hostnames</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> muxEntry <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	h       Handler
+	pattern <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> Handler <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">ServeHTTP</span><span class="token punctuation">(</span>ResponseWriter<span class="token punctuation">,</span> <span class="token operator">*</span>Request<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>步骤：</p>
+<ol>
+<li>创建路由器 http.NewServeMux</li>
+<li>设置路由规则 http.HandleFunc-&gt;http.Handle</li>
+<li>创建服务器 http.Server</li>
+<li>监听端口并提供服务 http.Server.ListenAndServe-&gt;http.server.Serve-&gt;http.Accept()-&gt;http.newConn-&gt;go c.serve-&gt;mux.ServeHTTP0&gt;mux.Handler(r)-&gt;mux.handler(r.host,r.URL.Path)-&gt;mux.match(path)-&gt;v,ok:=mux.m[path]</li>
+</ol>
+<h4 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h4><p>主要结构体：<br>http.Client-&gt;Timeout &amp;&amp; Transport<br>type RoundTripper interface</p>
+<p>步骤：</p>
+<ol>
+<li>创建连接池 http.Transport</li>
+<li>创建客户端 http.Client</li>
+<li>请求数据 func(c *Client) Get(url string)-&gt;c.DO(req)-&gt;c.do(req)-&gt;c.send(req,deadline)-&gt;send(req,c.transport(),deadline)-&gt;resq,err=rt.RoundTrip(req)&amp;&amp;func(t *Transport)roundTrip(req *Request)</li>
+<li>读取数据</li>
+</ol>
+<h5 id="Transport"><a href="#Transport" class="headerlink" title="Transport"></a>Transport</h5><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> Transport <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	idleMu       sync<span class="token punctuation">.</span>Mutex
+	closeIdle    <span class="token builtin">bool</span>                                <span class="token comment">// user has requested to close all idle conns</span>
+	idleConn     <span class="token keyword">map</span><span class="token punctuation">[</span>connectMethodKey<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">*</span>persistConn <span class="token comment">// most recently used at end</span>
+	idleConnWait <span class="token keyword">map</span><span class="token punctuation">[</span>connectMethodKey<span class="token punctuation">]</span>wantConnQueue  <span class="token comment">// waiting getConns</span>
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> connectMethodKey <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	proxy<span class="token punctuation">,</span> scheme<span class="token punctuation">,</span> addr <span class="token builtin">string</span>
+	onlyH1              <span class="token builtin">bool</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="persistConn"><a href="#persistConn" class="headerlink" title="persistConn"></a>persistConn</h5><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> persistConn <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	br        <span class="token operator">*</span>bufio<span class="token punctuation">.</span>Reader       <span class="token comment">// from conn</span>
+	bw        <span class="token operator">*</span>bufio<span class="token punctuation">.</span>Writer       <span class="token comment">// to conn</span>
+	reqch     <span class="token keyword">chan</span> requestAndChan <span class="token comment">// written by roundTrip; read by readLoop</span>
+	writech   <span class="token keyword">chan</span> writeRequest   <span class="token comment">// written by roundTrip; read by writeLoop</span>
+	<span class="token operator">...</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="RoundTrip流程"><a href="#RoundTrip流程" class="headerlink" title="RoundTrip流程"></a>RoundTrip流程</h5><p>func(t *Transport)roundTrip(req * Request)-&gt;pconn, err := t.getConn(treq, cm)</p>
+<ol>
+<li><h3 id="UDP创建过程"><a href="#UDP创建过程" class="headerlink" title="UDP创建过程"></a>UDP创建过程</h3></li>
+</ol>
+<h4 id="Server-1"><a href="#Server-1" class="headerlink" title="Server"></a>Server</h4><p>步骤：</p>
+<ol>
+<li>监听服务器</li>
+<li>循环读取消息（不创建socket）</li>
+<li>回复数据</li>
+</ol>
+<h4 id="Client-1"><a href="#Client-1" class="headerlink" title="Client"></a>Client</h4><p>步骤：</p>
+<ol>
+<li>连接服务器</li>
+<li>发送数据</li>
+<li>接收数据</li>
+</ol>
+<h3 id="TCP创建过程"><a href="#TCP创建过程" class="headerlink" title="TCP创建过程"></a>TCP创建过程</h3><h4 id="Server-2"><a href="#Server-2" class="headerlink" title="Server"></a>Server</h4><p>步骤：</p>
+<ol>
+<li>监听端口</li>
+<li>接受请求，创建套接字连接</li>
+<li>创建独立协程</li>
+<li>数据解码</li>
+</ol>
+<h4 id="Client-2"><a href="#Client-2" class="headerlink" title="Client"></a>Client</h4><p>步骤：</p>
+<ol>
+<li>连接服务器</li>
+<li>将信息写入套接字，数据编码</li>
+</ol>
 
                 
             </div>
@@ -1112,7 +1192,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">176.3k</span>&nbsp;字
+                class="white-color">176.8k</span>&nbsp;字
             
             
             
