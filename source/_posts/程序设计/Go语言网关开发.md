@@ -8,7 +8,6 @@ tags:
 img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/go.png
 categories: 程序设计
 ---
-
 ## 网络基础
 
 ### 协议模型
@@ -61,3 +60,120 @@ TIME-WAIT等待2MSL是保证TCP协议的全双工连接能够可靠关闭。保�
 
 - 应用程序写入的数据大于套接字缓冲区大小，这将会发生拆包。
 - 应用程序写入数据小于套接字缓冲区大小，网卡将应用多次写入的数据发送到网络上，这将会发生粘包。
+- 进行MSS（最大报文长度）大小的TCP分段，当TCP报文长度-TCP头部长度>MSS的时候将会发生拆包。
+- 接收方法不及时读取套接字缓冲区数据，这将发生粘包。
+
+### HTTP创建过程
+
+#### Server
+
+主要结构体：
+
+```go
+type ServeMux struct {
+	mu    sync.RWMutex
+	m     map[string]muxEntry
+	es    []muxEntry // slice of entries sorted from longest to shortest.
+	hosts bool       // whether any patterns contain hostnames
+}
+
+type muxEntry struct {
+	h       Handler
+	pattern string
+}
+
+type Handler interface {
+	ServeHTTP(ResponseWriter, *Request)
+}
+```
+
+步骤：
+
+1. 创建路由器 http.NewServeMux
+2. 设置路由规则 http.HandleFunc->http.Handle
+3. 创建服务器 http.Server
+4. 监听端口并提供服务 http.Server.ListenAndServe->http.server.Serve->http.Accept()->http.newConn->go c.serve->mux.ServeHTTP0>mux.Handler(r)->mux.handler(r.host,r.URL.Path)->mux.match(path)->v,ok:=mux.m[path]
+
+#### Client
+
+主要结构体：
+http.Client->Timeout && Transport
+type RoundTripper interface
+
+步骤：
+
+1. 创建连接池 http.Transport
+2. 创建客户端 http.Client
+3. 请求数据 func(c *Client) Get(url string)->c.DO(req)->c.do(req)->c.send(req,deadline)->send(req,c.transport(),deadline)->resq,err=rt.RoundTrip(req)&&func(t *Transport)roundTrip(req *Request)
+4. 读取数据
+
+##### Transport
+
+```go
+type Transport struct {
+	idleMu       sync.Mutex
+	closeIdle    bool                                // user has requested to close all idle conns
+	idleConn     map[connectMethodKey][]*persistConn // most recently used at end
+	idleConnWait map[connectMethodKey]wantConnQueue  // waiting getConns
+    ...
+}
+
+type connectMethodKey struct {
+	proxy, scheme, addr string
+	onlyH1              bool
+}
+```
+
+##### persistConn
+
+```go
+type persistConn struct {
+	br        *bufio.Reader       // from conn
+	bw        *bufio.Writer       // to conn
+	reqch     chan requestAndChan // written by roundTrip; read by readLoop
+	writech   chan writeRequest   // written by roundTrip; read by writeLoop
+	...
+}
+```
+
+##### RoundTrip流程
+
+func(t *Transport)roundTrip(req * Request)->pconn, err := t.getConn(treq, cm)
+
+1. 
+
+### UDP创建过程
+
+#### Server
+
+步骤：
+
+1. 监听服务器
+2. 循环读取消息（不创建socket）
+3. 回复数据
+
+#### Client
+
+步骤：
+
+1. 连接服务器
+2. 发送数据
+3. 接收数据
+
+### TCP创建过程
+
+#### Server
+
+步骤：
+
+1. 监听端口
+2. 接受请求，创建套接字连接
+3. 创建独立协程
+4. 数据解码
+
+#### Client
+
+步骤：
+
+1. 连接服务器
+2. 将信息写入套接字，数据编码

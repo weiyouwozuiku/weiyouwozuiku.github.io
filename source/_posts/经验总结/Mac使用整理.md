@@ -75,6 +75,7 @@ categories: 经验总结
 - MonitorControl
 - NeatDownloadManager
 - Swish
+- App Cleaner & Uninstaller Pro
 
 ## 终端
 
