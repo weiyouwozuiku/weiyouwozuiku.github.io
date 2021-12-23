@@ -49,6 +49,16 @@ from 班级表
 
 ![专业窗口函数.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/SQL之窗口函数/专业窗口函数.jpg)
 
+总结一下：
+
+- rank函数：如果有并列名次的行，会占用下一名次的位置。
+- dense_rank函数：如果有并列名次的行，不占用下一名次的位置。
+- row_number函数：不考虑并列名次的情况。
+
+**在上述的这三个专用窗口函数中，函数后面的括号不需要任何参数，保持()空着就可以。**
+
+
+
 ## 参考资料
 
 1. 知乎，[通俗易懂的学会：SQL窗口函数](https://zhuanlan.zhihu.com/p/92654574)，2021
