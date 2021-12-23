@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-23
+                    2021-12-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    391
+                    580
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -546,6 +546,9 @@
 <li>row_number函数：不考虑并列名次的情况。</li>
 </ul>
 <p><strong>在上述的这三个专用窗口函数中，函数后面的括号不需要任何参数，保持()空着就可以。</strong></p>
+<h2 id="聚合函数作为窗口函数"><a href="#聚合函数作为窗口函数" class="headerlink" title="聚合函数作为窗口函数"></a>聚合函数作为窗口函数</h2><p>聚和窗口函数和上面提到的专用窗口函数用法完全相同，只需要把聚合函数写在窗口函数的位置即可，<strong>但是函数后面括号里面不能为空，需要指定聚合的列名。</strong></p>
+<p>不仅是sum求和，平均、计数、最大最小值，也是同理，<strong>都是针对自身记录、以及自身记录之上的所有数据进行计算。</strong></p>
+<p>用处：聚合函数作为窗口函数，可以在每一行的数据里直观的看到，截止到本行数据，统计数据是多少（最大值、最小值等）。同时可以看出每一行数据，对整体统计数据的影响。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
 <li>知乎，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/92654574">通俗易懂的学会：SQL窗口函数</a>，2021</li>
 </ol>
@@ -1111,7 +1114,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">177.3k</span>&nbsp;字
+                class="white-color">177.4k</span>&nbsp;字
             
             
             
