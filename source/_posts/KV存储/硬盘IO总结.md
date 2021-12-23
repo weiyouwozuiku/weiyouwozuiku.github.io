@@ -263,5 +263,5 @@ HDFS建立在一次写多次读的模型之上。在HDFS中就是采用了追加
 7. CSDN博客频道，[Linux块设备的IO调度算法和回写机制](http://blog.csdn.net/hustyangju/article/details/40507647)，2014。
 8. Apache，[Kafka](http://kafka.apache.org/)。
 9. Taobao，[Taobao File System](http://tfs.taobao.org/)。
-10. 美团技术团队，[磁盘I/O那些事](https://tech.meituan.com/2017/05/19/about-desk-io.html),2017
-11. CSDN博客频道，[存储基础知识：扇区与块/簇](https://www.cnblogs.com/kerrycode/p/12701772.html),2020
+10. 美团技术团队，[磁盘I/O那些事](https://tech.meituan.com/2017/05/19/about-desk-io.html)，2017。
+11. CSDN博客频道，[存储基础知识：扇区与块/簇](https://www.cnblogs.com/kerrycode/p/12701772.html)，2020。

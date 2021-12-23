@@ -246,6 +246,35 @@ export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:u
 export FZF_COMPLETION_TRIGGER='\'
 ```
 
+### ohmyzsh本地化
+
+#### 安装ohmyzsh
+
+下载 
+
+```shell
+wget https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh
+```
+
+编辑
+
+```json
+# Default settings
+ZSH=${ZSH:-~/.oh-my-zsh}
+REPO=${REPO:-mirrors/oh-my-zsh}
+REMOTE=${REMOTE:-https://gitee.com/${REPO}.git}
+BRANCH=${BRANCH:-master}
+```
+
+#### 修改仓库地址
+
+```json
+d ~/.oh-my-zsh
+git remote set-url origin https://gitee.com/mirrors/oh-my-zsh.git
+git pull
+omz update //oh my zsh 更新
+```
+
 ### powerline10k
 
 ## Mac内置键盘屏蔽
