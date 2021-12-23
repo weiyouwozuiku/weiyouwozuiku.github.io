@@ -29,9 +29,25 @@ categories: 经验总结
 
 ## 窗口函数的好处
 
+窗口函数中的窗口表示的是范围的意思。
+
 窗口函数实现的功能类似group by和order by。但是group by分组汇总会改变了表的行数，一行只有一个类别。而partition by和rank函数不会减少原表中的行数。
 
 ![group_by与partition_by的区别.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/SQL之窗口函数/group_by与partition_by的区别.jpg)
+
+## 专业窗口函数
+
+专业窗口函数主要为`rank,dense_rank,row_number`，其区别如下case所示：
+
+```sql
+select *,
+   rank() over (order by 成绩 desc) as ranking,
+   dense_rank() over (order by 成绩 desc) as dese_rank,
+   row_number() over (order by 成绩 desc) as row_num
+from 班级表
+```
+
+![专业窗口函数.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/SQL之窗口函数/专业窗口函数.jpg)
 
 ## 参考资料
 
