@@ -35,6 +35,8 @@ categories: 经验总结
 
 ![group_by与partition_by的区别.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/SQL之窗口函数/group_by与partition_by的区别.jpg)
 
+窗口函数中的order by只是决定窗口内的数据按什么顺序进行排序或计算，对最后返回结果的排列顺序并没有影响。
+
 ## 专业窗口函数
 
 专业窗口函数主要为`rank,dense_rank,row_number`，其区别如下case所示：
@@ -65,6 +67,15 @@ from 班级表
 
 用处：聚合函数作为窗口函数，可以在每一行的数据里直观的看到，截止到本行数据，统计数据是多少（最大值、最小值等）。同时可以看出每一行数据，对整体统计数据的影响。
 
+另外，在聚合窗口可以指定汇总范围，这个功能称之为框架。
+
+自身+上1条记录：`SUM(sale_price) over(order by product_id rows 1 preceding)`
+
+自身+下1条记录：`SUM(sale_price) over(order by product_id rows 1 following) `
+
+自身+上1条记录+下2条记录：`SUM(sale_price) over(order by product_id rows between 1 preceding and 2 following) `
+
 ## 参考资料
 
 1. 知乎，[通俗易懂的学会：SQL窗口函数](https://zhuanlan.zhihu.com/p/92654574)，2021
+2. 知乎，[精益SQL —— “窗口函数”的正确食用方式](https://zhuanlan.zhihu.com/p/60226935)，2019
