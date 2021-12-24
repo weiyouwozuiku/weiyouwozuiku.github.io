@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>SQL之CASE WHEN</title>
+      <link href="2021/12/24/jing-yan-zong-jie/sql-zhi-case-when/"/>
+      <url>2021/12/24/jing-yan-zong-jie/sql-zhi-case-when/</url>
+      
+        <content type="html"><![CDATA[<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p><strong>case函数只返回第一个符合条件的值，剩下的case部分将会被自动忽略。如果省略了ELSE子句，则返回NULL。</strong></p><h3 id="简单case函数"><a href="#简单case函数" class="headerlink" title="简单case函数"></a>简单case函数</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">--简单case函数</span><span class="token keyword">case</span> sex  <span class="token keyword">when</span> <span class="token string">'1'</span> <span class="token keyword">then</span> <span class="token string">'男'</span>  <span class="token keyword">when</span> <span class="token string">'2'</span> <span class="token keyword">then</span> <span class="token string">'女’  else '</span>其他' <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="case搜索函数"><a href="#case搜索函数" class="headerlink" title="case搜索函数"></a>case搜索函数</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">case</span> <span class="token keyword">when</span> sex <span class="token operator">=</span> <span class="token string">'1'</span> <span class="token keyword">then</span> <span class="token string">'男'</span>     <span class="token keyword">when</span> sex <span class="token operator">=</span> <span class="token string">'2'</span> <span class="token keyword">then</span> <span class="token string">'女'</span>     <span class="token keyword">else</span> <span class="token string">'其他'</span> <span class="token keyword">end</span>       <span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> score <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token keyword">THEN</span> <span class="token string">'缺席考试'</span> <span class="token keyword">ELSE</span> <span class="token string">'正常'</span> <span class="token keyword">END</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="sum和case结合使用"><a href="#sum和case结合使用" class="headerlink" title="sum和case结合使用"></a>sum和case结合使用</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>  <span class="token number">2</span>    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> u<span class="token punctuation">.</span>sex <span class="token keyword">when</span> <span class="token number">1</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span>男性<span class="token punctuation">,</span>  <span class="token number">3</span>    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> u<span class="token punctuation">.</span>sex <span class="token keyword">when</span> <span class="token number">2</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span>女性<span class="token punctuation">,</span>  <span class="token number">4</span>    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> u<span class="token punctuation">.</span>sex <span class="token operator">&lt;&gt;</span><span class="token number">1</span> <span class="token operator">and</span> u<span class="token punctuation">.</span>sex<span class="token operator">&lt;&gt;</span><span class="token number">2</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span>性别为空  <span class="token number">5</span>  <span class="token keyword">from</span> users u<span class="token punctuation">;</span>         男性         女性       性别为空<span class="token comment">---------- ---------- ----------</span>         <span class="token number">3</span>          <span class="token number">2</span>          <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol><li>博客园，<a href="https://www.cnblogs.com/Richardzhu/p/3571670.html">SQL之case when then用法</a>，2014</li><li>知乎，<a href="https://zhuanlan.zhihu.com/p/63333847">SQL之CASE WHEN用法详解</a>，2019</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 经验总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL之窗口函数</title>
       <link href="2021/12/21/jing-yan-zong-jie/sql-zhi-chuang-kou-han-shu/"/>
       <url>2021/12/21/jing-yan-zong-jie/sql-zhi-chuang-kou-han-shu/</url>
