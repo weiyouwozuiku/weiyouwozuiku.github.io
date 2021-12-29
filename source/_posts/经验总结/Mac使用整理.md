@@ -532,7 +532,34 @@ else
 fi
 ```
 
+### 授予执行权限
 
+```shell
+sudo chmod +x /usr/local/bin/iterm2-*
+```
+
+### 设置iterm的trigger
+
+设置Iterm2的Tirgger特性，`Preferences->Profiles->Default->Advanced->Trigged->Edit`
+
+```shell
+Regular expression: rz waiting to receive.\*\*B0100
+Action: Run Silent Coprocess
+Parameters: /usr/local/bin/iterm2-send-zmodem.sh
+Instant: checked
+
+Regular expression: \*\*B00000000000000
+Action: Run Silent Coprocess
+Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
+Instant: checked
+```
+
+![lrzsz设置iterm的trigger.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/Mac使用整理/lrzsz设置iterm的trigger.png)
+
+### 使用
+
+- 上传文件：rz
+- 下载文件：sz + filename
 
 ## 参考资料
 
