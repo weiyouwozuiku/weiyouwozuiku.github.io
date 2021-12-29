@@ -457,6 +457,84 @@ export FZF_COMPLETION_TRIGGER='\'
 export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
 ```
 
+## lrzsz
+
+### 安装
+
+```shell
+brew install lrzsz
+```
+
+### 安装执行脚本
+
+将[iterm2-send-zmodem.sh](https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-send-zmodem.sh)和[iterm2-recv-zmodem.sh](https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-recv-zmodem.sh)保存到`/usr/local/bin`目录下。
+
+`iterm2-send-zmodem.sh`
+
+```shell
+#!/bin/bash
+# Author: Matt Mastracci (matthew@mastracci.com)
+# AppleScript from http://stackoverflow.com/questions/4309087/cancel-button-on-osascript-in-a-bash-script
+# licensed under cc-wiki with attribution required
+# Remainder of script public domain
+
+osascript -e 'tell application "iTerm2" to version' > /dev/null 2>&1 && NAME=iTerm2 || NAME=iTerm
+if [[ $NAME = "iTerm" ]]; then
+    FILE=$(osascript -e 'tell application "iTerm" to activate' -e 'tell application "iTerm" to set thefile to choose file with prompt "Choose a file to send"' -e "do shell script (\"echo \"&(quoted form of POSIX path of thefile as Unicode
+else
+    FILE=$(osascript -e 'tell application "iTerm2" to activate' -e 'tell application "iTerm2" to set thefile to choose file with prompt "Choose a file to send"' -e "do shell script (\"echo \"&(quoted form of POSIX path of thefile as Unico
+fi
+if [[ $FILE = "" ]]; then
+    echo Cancelled.
+    # Send ZModem cancel
+    echo -e \\x18\\x18\\x18\\x18\\x18
+    sleep 1
+    echo
+    echo \# Cancelled transfer
+else
+    /opt/homebrew/bin/sz "$FILE" --escape --binary --bufsize 4096
+    sleep 1
+    echo
+    echo \# Received "$FILE"
+fi
+```
+
+`iterm2-recv-zmodem.sh`
+
+```shell
+#!/bin/bash
+# Author: Matt Mastracci (matthew@mastracci.com)
+# AppleScript from http://stackoverflow.com/questions/4309087/cancel-button-on-osascript-in-a-bash-script
+# licensed under cc-wiki with attribution required
+# Remainder of script public domain
+
+osascript -e 'tell application "iTerm2" to version' > /dev/null 2>&1 && NAME=iTerm2 || NAME=iTerm
+if [[ $NAME = "iTerm" ]]; then
+    FILE=$(osascript -e 'tell application "iTerm" to activate' -e 'tell application "iTerm" to set thefile to choose folder with prompt "Choose a folder to place received files in"' -e "do shell script (\"echo \"&(quoted form of POSIX pat
+else
+    FILE=$(osascript -e 'tell application "iTerm2" to activate' -e 'tell application "iTerm2" to set thefile to choose folder with prompt "Choose a folder to place received files in"' -e "do shell script (\"echo \"&(quoted form of POSIX p
+fi
+
+if [[ $FILE = "" ]]; then
+    echo Cancelled.
+    # Send ZModem cancel
+    echo -e \\x18\\x18\\x18\\x18\\x18
+    sleep 1
+    echo
+    echo \# Cancelled transfer
+else
+    cd "$FILE"
+    /opt/homebrew/bin/rz --rename --escape --binary --bufsize 4096
+    sleep 1
+    echo
+    echo
+    echo \# Sent \-\> $FILE
+fi
+```
+
+
+
 ## 参考资料
 
 1. [Fuzzy finder(fzf+vim) 使用全指南](https://keelii.com/2018/08/12/fuzzy-finder-full-guide/),2018
+1. [iterm2 rz与sz的功能](https://www.huweihuang.com/linux-notes/keymap/iterm2-rzsz.html),2019
