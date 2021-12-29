@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-21
+                    2021-12-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    11 分
                 </div>
                 
 
@@ -886,8 +886,82 @@ $(brew --prefix)/opt/fzf/install<span aria-hidden="true" class="line-numbers-row
 export FZF_COMPLETION_TRIGGER='\'
 # 修改fzf默认展示
 export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2&gt; /dev/null | head -500'"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="lrzsz"><a href="#lrzsz" class="headerlink" title="lrzsz"></a>lrzsz</h2><h3 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install lrzsz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装执行脚本"><a href="#安装执行脚本" class="headerlink" title="安装执行脚本"></a>安装执行脚本</h3><p>将<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-send-zmodem.sh">iterm2-send-zmodem.sh</a>和<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-recv-zmodem.sh">iterm2-recv-zmodem.sh</a>保存到<code>/usr/local/bin</code>目录下。</p>
+<p><code>iterm2-send-zmodem.sh</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash
+# Author: Matt Mastracci (matthew@mastracci.com)
+# AppleScript from http://stackoverflow.com/questions/4309087/cancel-button-on-osascript-in-a-bash-script
+# licensed under cc-wiki with attribution required
+# Remainder of script public domain
+
+osascript -e 'tell application "iTerm2" to version' &gt; /dev/null 2&gt;&amp;1 &amp;&amp; NAME=iTerm2 || NAME=iTerm
+if [[ $NAME = "iTerm" ]]; then
+    FILE=$(osascript -e 'tell application "iTerm" to activate' -e 'tell application "iTerm" to set thefile to choose file with prompt "Choose a file to send"' -e "do shell script (\"echo \"&amp;(quoted form of POSIX path of thefile as Unicode
+else
+    FILE=$(osascript -e 'tell application "iTerm2" to activate' -e 'tell application "iTerm2" to set thefile to choose file with prompt "Choose a file to send"' -e "do shell script (\"echo \"&amp;(quoted form of POSIX path of thefile as Unico
+fi
+if [[ $FILE = "" ]]; then
+    echo Cancelled.
+    # Send ZModem cancel
+    echo -e \\x18\\x18\\x18\\x18\\x18
+    sleep 1
+    echo
+    echo \# Cancelled transfer
+else
+    /opt/homebrew/bin/sz "$FILE" --escape --binary --bufsize 4096
+    sleep 1
+    echo
+    echo \# Received "$FILE"
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>iterm2-recv-zmodem.sh</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash
+# Author: Matt Mastracci (matthew@mastracci.com)
+# AppleScript from http://stackoverflow.com/questions/4309087/cancel-button-on-osascript-in-a-bash-script
+# licensed under cc-wiki with attribution required
+# Remainder of script public domain
+
+osascript -e 'tell application "iTerm2" to version' &gt; /dev/null 2&gt;&amp;1 &amp;&amp; NAME=iTerm2 || NAME=iTerm
+if [[ $NAME = "iTerm" ]]; then
+    FILE=$(osascript -e 'tell application "iTerm" to activate' -e 'tell application "iTerm" to set thefile to choose folder with prompt "Choose a folder to place received files in"' -e "do shell script (\"echo \"&amp;(quoted form of POSIX pat
+else
+    FILE=$(osascript -e 'tell application "iTerm2" to activate' -e 'tell application "iTerm2" to set thefile to choose folder with prompt "Choose a folder to place received files in"' -e "do shell script (\"echo \"&amp;(quoted form of POSIX p
+fi
+
+if [[ $FILE = "" ]]; then
+    echo Cancelled.
+    # Send ZModem cancel
+    echo -e \\x18\\x18\\x18\\x18\\x18
+    sleep 1
+    echo
+    echo \# Cancelled transfer
+else
+    cd "$FILE"
+    /opt/homebrew/bin/rz --rename --escape --binary --bufsize 4096
+    sleep 1
+    echo
+    echo
+    echo \# Sent \-\&gt; $FILE
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="授予执行权限"><a href="#授予执行权限" class="headerlink" title="授予执行权限"></a>授予执行权限</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo chmod +x /usr/local/bin/iterm2-*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="设置iterm的trigger"><a href="#设置iterm的trigger" class="headerlink" title="设置iterm的trigger"></a>设置iterm的trigger</h3><p>设置Iterm2的Tirgger特性，<code>Preferences-&gt;Profiles-&gt;Default-&gt;Advanced-&gt;Trigged-&gt;Edit</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Regular expression: rz waiting to receive.\*\*B0100
+Action: Run Silent Coprocess
+Parameters: /usr/local/bin/iterm2-send-zmodem.sh
+Instant: checked
+
+Regular expression: \*\*B00000000000000
+Action: Run Silent Coprocess
+Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
+Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/Mac%E4%BD%BF%E7%94%A8%E6%95%B4%E7%90%86/lrzsz%E8%AE%BE%E7%BD%AEiterm%E7%9A%84trigger.png" alt="lrzsz设置iterm的trigger.png"></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>上传文件：rz</li>
+<li>下载文件：sz + filename</li>
+</ul>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://keelii.com/2018/08/12/fuzzy-finder-full-guide/">Fuzzy finder(fzf+vim) 使用全指南</a>,2018</li>
+<li><a target="_blank" rel="noopener" href="https://www.huweihuang.com/linux-notes/keymap/iterm2-rzsz.html">iterm2 rz与sz的功能</a>,2019</li>
 </ol>
 
                 
@@ -1461,7 +1535,7 @@ export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --preview '(highlight -O 
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">178k</span>&nbsp;字
+                class="white-color">178.5k</span>&nbsp;字
             
             
             
