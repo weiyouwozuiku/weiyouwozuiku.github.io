@@ -474,14 +474,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-30
+                    2021-12-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    691
+                    726
                 </div>
                 
 
@@ -539,7 +539,7 @@
 <li>介绍填表的方法，因为这个方法的确很巧妙。</li>
 <li>类型转换，这里不能使用传统的强制转换，而是先取地址再转换成对应的指针类型。也是常用的类型转换方法。</li>
 </ol>
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">BitCount1</span><span class="token punctuation">(</span>a <span class="token builtin">uint32</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>num <span class="token builtin">uint8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">BitCount</span><span class="token punctuation">(</span>a <span class="token builtin">uint32</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>num <span class="token builtin">uint8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 	<span class="token comment">//建表</span>
 	BitSetTable <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span>
 	<span class="token comment">//init</span>
@@ -547,9 +547,11 @@
 		BitSetTable<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">byte</span><span class="token punctuation">(</span>i<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> BitSetTable<span class="token punctuation">[</span>i<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">]</span>
 	<span class="token punctuation">}</span>
 	<span class="token comment">//查表</span>
-
+	b <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+	b <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> <span class="token function">byte</span><span class="token punctuation">(</span>a<span class="token operator">&gt;&gt;</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">byte</span><span class="token punctuation">(</span>a<span class="token operator">&gt;&gt;</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">byte</span><span class="token punctuation">(</span>a<span class="token operator">&gt;&gt;</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">byte</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span>
+	num <span class="token operator">=</span> BitSetTable<span class="token punctuation">[</span>b<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> BitSetTable<span class="token punctuation">[</span>b<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> BitSetTable<span class="token punctuation">[</span>b<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> BitSetTable<span class="token punctuation">[</span>b<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
 	<span class="token keyword">return</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>先说一下填表的原理，根据奇偶性来分析，对于任意一个正整数n</p>
 <p>1.如果它是偶数，那么n的二进制中1的个数与n/2中1的个数是相同的，比如4和2的二进制中都有一个1，6和3的二进制中都有两个1。为啥？因为n是由n/2左移一位而来，而移位并不会增加1的个数。</p>
 <p>2.如果n是奇数，那么n的二进制中1的个数是n/2中1的个数+1，比如7的二进制中有三个1，7/2 = 3的二进制中有两个1。为啥？因为当n是奇数时，n相当于n/2左移一位再加1。</p>
