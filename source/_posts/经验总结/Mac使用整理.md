@@ -561,6 +561,18 @@ Instant: checked
 - 上传文件：rz
 - 下载文件：sz + filename
 
+## Alfred
+
+[YoudaoTranslate](https://github.com/wensonsmith/YoudaoTranslator)
+
+[Alfred-codezm-workflows-timestamp-convert](https://github.com/codezm/Alfred-codezm-workflows-timestamp-convert)
+
+[alfred-terminalfinder](https://github.com/LeEnno/alfred-terminalfinder)
+
+[coversion](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/Mac使用整理/coversion.alfredworkflow)
+
+[IP Address](https://github.com/zenorocha/alfred-workflows/raw/master/ip-address/ip-address.alfredworkflow)
+
 ## 参考资料
 
 1. [Fuzzy finder(fzf+vim) 使用全指南](https://keelii.com/2018/08/12/fuzzy-finder-full-guide/),2018
