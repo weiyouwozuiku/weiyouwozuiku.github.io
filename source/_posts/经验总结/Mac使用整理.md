@@ -573,6 +573,19 @@ Instant: checked
 
 [IP Address](https://github.com/zenorocha/alfred-workflows/raw/master/ip-address/ip-address.alfredworkflow)
 
+## gh-md-toc
+
+这是一个生成README文件目录的工具，https://github.com/ekalinin/github-markdown-toc。
+
+在想要增加目录的地方加上如下标志符
+
+```
+<!--ts-->
+<!--te-->
+```
+
+使用命令`gh-md-toc --insert <文件名>`即可。
+
 ## 参考资料
 
 1. [Fuzzy finder(fzf+vim) 使用全指南](https://keelii.com/2018/08/12/fuzzy-finder-full-guide/),2018
