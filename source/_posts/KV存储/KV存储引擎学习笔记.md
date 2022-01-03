@@ -6,7 +6,7 @@ img: >-
 mathjax: true
 date: 2021-09-09 10:35:08
 tags: 
-- GO
+- Go
 categories: 
 - KV存储
 ---
