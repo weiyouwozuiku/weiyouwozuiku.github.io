@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-02
+                    2022-01-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    11 分
                 </div>
                 
 
@@ -583,6 +583,7 @@
 <li>NeatDownloadManager</li>
 <li>Swish</li>
 <li>App Cleaner &amp; Uninstaller Pro</li>
+<li>licecap</li>
 </ul>
 <h2 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h2><ul>
 <li>brew</li>
@@ -618,7 +619,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/didi/.oh-my-zsh"
+export ZSH="/Users/robertwang/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -639,14 +640,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -661,8 +661,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh &lt; 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -686,8 +687,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    git
+plugins=(git
     z
     extract
     hitokoto
@@ -731,19 +731,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias setproxy="export ALL_PROXY=socks5://47.93.63.224:20170"
-alias axel64='axel -n 64 -a '
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export FZF_COMPLETION_TRIGGER='\'
 
 [ -f ~/.fzf.zsh ] &amp;&amp; source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" -E ".idea" . /Users/didi'
-#export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "[[ $(file --mime {}) =~ binary ]] &amp;&amp; echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2&gt; /dev/null | head -500" --preview-windows=down'
-#export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border  --preview "[[ $(file --mime {}) =~ binary ]] &amp;&amp; echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2&gt; /dev/null | head -500" --preview-window=down'
-export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "echo {} | ~/.config/file_preview.py" --preview-window=down'
-export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2&gt; /dev/null | head -500'"
+alias setproxy='export https_proxy=http://192.168.50.77:20171 http_proxy=http://192.168.50.77:20171 all_proxy=socks5://192.168.50.77:20170'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="ohmyzsh本地化"><a href="#ohmyzsh本地化" class="headerlink" title="ohmyzsh本地化"></a>ohmyzsh本地化</h3><h4 id="安装ohmyzsh"><a href="#安装ohmyzsh" class="headerlink" title="安装ohmyzsh"></a>安装ohmyzsh</h4><p>下载 </p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>编辑</p>
@@ -964,6 +959,7 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <p><a target="_blank" rel="noopener" href="https://github.com/LeEnno/alfred-terminalfinder">alfred-terminalfinder</a></p>
 <p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/Mac%E4%BD%BF%E7%94%A8%E6%95%B4%E7%90%86/coversion.alfredworkflow">coversion</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/zenorocha/alfred-workflows/raw/master/ip-address/ip-address.alfredworkflow">IP Address</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/weiyouwozuiku/ToolBox/blob/main/Alfred-BaseConversion/Base%20Conversion.alfredworkflow">Alfred-BaseConversion</a></p>
 <h2 id="gh-md-toc"><a href="#gh-md-toc" class="headerlink" title="gh-md-toc"></a>gh-md-toc</h2><p>这是一个生成README文件目录的工具，<a target="_blank" rel="noopener" href="https://github.com/ekalinin/github-markdown-toc%E3%80%82">https://github.com/ekalinin/github-markdown-toc。</a></p>
 <p>在想要增加目录的地方加上如下标志符</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;!--ts--&gt;
@@ -1545,7 +1541,7 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">179.2k</span>&nbsp;字
+                class="white-color">179.1k</span>&nbsp;字
             
             
             
