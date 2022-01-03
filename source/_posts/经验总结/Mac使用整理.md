@@ -570,6 +570,8 @@ Instant: checked
 
 [Alfred-BaseConversion](https://github.com/weiyouwozuiku/ToolBox/blob/main/Alfred-BaseConversion/Base%20Conversion.alfredworkflow)
 
+[Alfred-Workflow](https://github.com/noogel/Alfred-Workflow)
+
 ## gh-md-toc
 
 这是一个生成README文件目录的工具，https://github.com/ekalinin/github-markdown-toc。
