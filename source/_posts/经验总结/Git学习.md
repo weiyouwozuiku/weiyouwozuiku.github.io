@@ -18,7 +18,7 @@ Git区别于其他版本控制系统的主要差别在于**Git对待数据的方
 
 Git 不按照以上方式对待或保存数据。反之，Git 更像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个**快照流**。
 
-![Git](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Git学习/经验总结/snapshots.png)
+![Git](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/Git学习/snapshots.png)
 
 Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。
 
@@ -50,11 +50,21 @@ Git使用配置工具实现控制Git外观与行为。一共有三种配置位�
  git cinfug --globel user.email "email@example.com"
 ```
 
+上面的命令还可以使用`--local`和`--global`参数以区分不同的作用域。
+
+`--local`表示只对某个仓库有效
+
+`--global`表示对当前用户所有仓库有效
+
+`--system`表示对系统所有登录的用户有效
+
 查看当前所有配置：
 
 ```shell
-git config --list
+git config --list [--local]
 ```
+
+这个命令同样可以设置上述三种不同的作用域。
 
 设置常用的文本编辑器：
 
@@ -64,11 +74,21 @@ git config --global core.editor {编辑器名字}
 
 ### 操作命令
 
-创建仓库：
+#### 创建仓库
 
- ```shell
- git init
- ```
+- 已有的项目代码纳入Git管理
+
+  ```shell
+  cd 项目路径
+  git init
+  ```
+
+- 新建的项目直接用Git管理
+
+  ```shell
+  git init 项目名 #会在当前路径下创建和项目名称相同的文件夹
+  cd 项目名 
+  ```
 
 添加文件到Git仓库：
 
@@ -78,6 +98,8 @@ git config --global core.editor {编辑器名字}
  ```
 
  **`git add`即为精确的将内容添加到下一次提交中**
+
+针对之前就Git跟踪过的文件直接使用`git add -u`即可。
 
 工作区状态：
 
@@ -107,17 +129,31 @@ M  lib/simplegit.rb # 已修改且已暂存
 
  **git diff 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动.**
 
+从暂存区和工作区删除文件:
+
+```shell
+git rm <file>
+```
+
 版本回退：
 
  ```shell
  git reset --hard commit_id(可以用HEAD~选择前第几个版本)
  ```
 
+移动或重命名一个文件、目录或软连接：
+
+```shell
+git mv [file] [newfile]
+```
+
 查看现在的提交历史：
 
  ```shell
- git log [--pretty=oneline]
+ git log [--pretty=oneline] [--all] [--graph]
  ```
+
+可以使用`-n 2`查看前两条log，比如：`git log -n2 --oneline`
 
 查看以往的所有提交历史：
 
@@ -178,6 +214,12 @@ M  lib/simplegit.rb # 已修改且已暂存
 
 ```shell
  git checkout -b <branch-name>(可以拆分为 git branch <branch-name> 和 git checkout <branch-name>)
+```
+
+使用指定分支创建分支：
+
+```shell
+git checkout -b <分支名> <指定分支名>
 ```
 
 查看分支：
@@ -393,10 +435,4 @@ git log -stat -l
 
 ```shell
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-```
-
-修改`git commit`默认的编辑器：
-
-```shell
-git config --global core.editor
 ```
