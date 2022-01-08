@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-06
+                    2022-01-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -526,6 +526,16 @@
 <p>Git 不按照以上方式对待或保存数据。反之，Git 更像是把数据看作是对小型文件系统的一系列快照。 在 Git 中，每当你提交更新或保存项目状态时，它基本上就会对当时的全部文件创建一个快照并保存这个快照的索引。 为了效率，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git对待数据更像是一个<strong>快照流</strong>。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/Git%E5%AD%A6%E4%B9%A0/snapshots.png" alt="Git"></p>
 <p>Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。</p>
+<p>Git存放文件的方式如图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/Git%E5%AD%A6%E4%B9%A0/Git%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86.png" alt="Git存储原理.png"></p>
+<h3 id="git解密"><a href="#git解密" class="headerlink" title=".git解密"></a>.git解密</h3><p><code>.git</code>文件夹中存放着实现git的根本文件。以下来介绍其中主要的文件及其功能。</p>
+<h4 id="HEAD文件"><a href="#HEAD文件" class="headerlink" title="HEAD文件"></a>HEAD文件</h4><p>这个文本文件中存放着当前指向的分支信息。</p>
+<h4 id="refs文件夹"><a href="#refs文件夹" class="headerlink" title="refs文件夹"></a>refs文件夹</h4><p>refs文件夹中主要存放三个文件夹：heads、remotes、tags，分别标记本地的分支heads、远端分支remotes以及tags标记。</p>
+<p>其中存放着相应分支的哈希值。</p>
+<p>针对每个文件中的哈希值可以使用命令<code>git cat-file -t &lt;哈希值&gt;</code>来查看对应哈希类型。</p>
+<h4 id="config"><a href="#config" class="headerlink" title="config"></a>config</h4><p>config文件中存放的是当前git仓库的基础信息。</p>
+<h4 id="object"><a href="#object" class="headerlink" title="object"></a>object</h4><p>object文件夹中存放提交的记录，文件夹名称加上文件夹中文本的名称即为完成的哈希值。</p>
+<p>查看哈希对应的文件使用命令<code>git cat-file -p &lt;哈希值&gt;</code>。</p>
 <h3 id="三种状态"><a href="#三种状态" class="headerlink" title="三种状态"></a>三种状态</h3><ul>
 <li>已修改表示修改了文件，但还没保存到数据库中。</li>
 <li>已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</li>
@@ -1273,7 +1283,7 @@ doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">179.3k</span>&nbsp;字
+                class="white-color">179.6k</span>&nbsp;字
             
             
             
