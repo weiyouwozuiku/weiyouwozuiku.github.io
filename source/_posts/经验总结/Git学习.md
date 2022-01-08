@@ -22,6 +22,36 @@ Git 不按照以上方式对待或保存数据。反之，Git 更像是把数据
 
 Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。
 
+Git存放文件的方式如图所示：
+
+![Git存储原理.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/Git学习/Git存储原理.png)
+
+### .git解密
+
+`.git`文件夹中存放着实现git的根本文件。以下来介绍其中主要的文件及其功能。
+
+#### HEAD文件
+
+这个文本文件中存放着当前指向的分支信息。
+
+#### refs文件夹
+
+refs文件夹中主要存放三个文件夹：heads、remotes、tags，分别标记本地的分支heads、远端分支remotes以及tags标记。
+
+其中存放着相应分支的哈希值。
+
+针对每个文件中的哈希值可以使用命令`git cat-file -t <哈希值>`来查看对应哈希类型。
+
+#### config
+
+config文件中存放的是当前git仓库的基础信息。
+
+#### object
+
+object文件夹中存放提交的记录，文件夹名称加上文件夹中文本的名称即为完成的哈希值。
+
+查看哈希对应的文件使用命令`git cat-file -p <哈希值>`。
+
 ### 三种状态
 
 - 已修改表示修改了文件，但还没保存到数据库中。

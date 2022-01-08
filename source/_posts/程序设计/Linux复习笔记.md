@@ -104,5 +104,10 @@ nohup 命令，在默认情况下（非重定向时），会输出一个名叫 n
 - 1 – stdout (standard output，标准输出)
 - 2 – stderr (standard error，标准错误输出)
 
+
+### 查看文件夹之间的不同文件
+
+直接使用过diff可能会导致差异文件过多，导致的不可查。可以使用`vimdiff <(cd 文件夹1; find . | sort) <(cd 文件夹2; find . | sort)`
+
 ## Shell编写
 
