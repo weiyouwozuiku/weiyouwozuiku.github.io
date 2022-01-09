@@ -478,14 +478,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-09
+                    2022-01-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.1k
                 </div>
                 
 
@@ -627,7 +627,7 @@ git rebase -i &lt;需修改的commit上一次提交的哈希值&gt;
 <p>查看以往的所有提交历史：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reflog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看工作区与暂存区的不同：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff [-- 文件名 ] # 不写指定的文件默认查看所有不同的文件，指定的话可以写多个文件名，用空格做分割<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看暂存区与HEAD之间的差异：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff --cached<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看工作区与版本库中版本之间的区别：</p>
@@ -636,8 +636,9 @@ git rebase -i &lt;需修改的commit上一次提交的哈希值&gt;
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff &lt;commit哈希&gt; &lt;commit哈希&gt; #这里可以使用HEAD进行标识，HEAD^1或者HEAD~1表示上一次提交 HEAD^^可以表示倒数第二次提交<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>将工作区文件恢复成最近一次git commit或者git add的状态:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git checkout -- &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>将暂存区的修改撤销，重新放回工作区：</p>
- <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reset HEAD &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>将暂存区的修改撤销：</p>
+ <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reset HEAD [-- &lt;file&gt;] # 不指定文件默认撤销所有文件在暂存区的修改<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>checkout影响工作区，reset影响暂存区</strong></p>
 <p>创建ssh key：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -C "youremail@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>关联仓库：</p>
@@ -1307,7 +1308,7 @@ doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">180.2k</span>&nbsp;字
+                class="white-color">180.3k</span>&nbsp;字
             
             
             
