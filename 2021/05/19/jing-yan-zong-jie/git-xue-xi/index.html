@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-08
+                    2022-01-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    11 分
                 </div>
                 
 
@@ -543,13 +543,11 @@
 </ul>
 <h2 id="Git配置"><a href="#Git配置" class="headerlink" title="Git配置"></a>Git配置</h2><p>Git使用配置工具实现控制Git外观与行为。一共有三种配置位置：</p>
 <ul>
-<li><p>/etc/gitconfig 文件: 包含系统上每一个用户及他们仓库的通用配置。 如果在执行 git config 时带上 –system 选项，那么它就会读写该文件中的配置变量。 （由于它是系统配置文件，因此你需要管理员或超级用户权限来修改它。）</p>
-</li>
-<li><p>~/.gitconfig 或 ~/.config/git/config 文件：只针对当前用户。 你可以传递 –global 选项让 Git 读写此文件，这会对你系统上 所有 的仓库生效。</p>
-</li>
-<li><p>当前使用仓库的 Git 目录中的 config 文件（即 .git/config）：针对该仓库。 你可以传递 –local 选项让 Git 强制读写此文件，虽然默认情况下用的就是它。。 （当然，你需要进入某个 Git 仓库中才能让该选项生效。）</p>
-</li>
+<li>/etc/gitconfig 文件: 包含系统上每一个用户及他们仓库的通用配置。 如果在执行 git config 时带上 –system 选项，那么它就会读写该文件中的配置变量。 （由于它是系统配置文件，因此你需要管理员或超级用户权限来修改它。）</li>
+<li>~/.gitconfig 或 ~/.config/git/config 文件：只针对当前用户。 你可以传递 –global 选项让 Git 读写此文件，这会对你系统上 所有 的仓库生效。</li>
+<li>当前使用仓库的 Git 目录中的 config 文件（即 .git/config）：针对该仓库。 你可以传递 –local 选项让 Git 强制读写此文件，虽然默认情况下用的就是它。。 （当然，你需要进入某个 Git 仓库中才能让该选项生效。）</li>
 </ul>
+<h2 id="分离头指针"><a href="#分离头指针" class="headerlink" title="分离头指针"></a>分离头指针</h2><p>Git允许将头指针移动到非head的节点，此时即为分离头指针的状态。在此之上的修改若是不绑定到某一分支上Git会默认理解为这是不重要的修改，Git本身并不会去记录。换句话说就是当进行切换分支的操作时，将会导致之前的修改丢失。因此，<strong>当进行分离头指针的修改时需要记得绑定某一分支</strong>。</p>
 <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="配置命令"><a href="#配置命令" class="headerlink" title="配置命令"></a>配置命令</h3><p>配置用户信息：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global user.name "Your name"
 # github设置了email隐藏的话，需要将这里的邮箱设置成github的邮箱
@@ -595,6 +593,28 @@ git diff --staged
 # 下面的命令效果同上
 git diff --cached<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p> <strong>git diff 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动.</strong></p>
+<p>修改最近一次commit messgae：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git commit --amend<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>修改指定的commit message：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 首先rabase到需要修改commit的上一个版本
+git rebase -i &lt;需修改的commit上一次提交的哈希值&gt;
+# 在跳出的界面中将需要修改的commit记录前面的pick之类的命令修改成r
+# r 即reword 表示使用原本的提交，但修改commit message
+# 在再一次弹出的界面中修改commit message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>修改完成之后原本的commit id 会发生改变</strong>，因为messgae也是git结构体中的一员。</p>
+<p>合并多次连续commit到一次commit中：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git rebase -i &lt;需合并commit的前一次commit哈希&gt;
+# 在跳出的界面中将多次需要合并的commit前面的命令更改为s
+# s 即squash 表示使用commit，但注册到上一次commit中
+# 在再一次弹出的界面中修改总体的commit message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>合并多次非连续commit到一次commit中：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git rebase -i &lt;需合并commit的前一次commit哈希&gt;
+# 在跳出的界面中将多次需要合并的commit前面的命令更改为s
+# s 即squash 表示使用commit，但注册到上一次commit中
+# 修改commit之间的顺序，将被合并的commit挂在第一行commit之下
+# 第一行的commit需要是一次被合并进的commit
+# 如果是需要合并进第一次commit，可以自己写一行commit，拿第一次提交的commit的哈希作为标记
+# 在再一次弹出的界面中修改总体的commit message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>从暂存区和工作区删除文件:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git rm &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>版本回退：</p>
@@ -606,14 +626,18 @@ git diff --cached<span aria-hidden="true" class="line-numbers-rows"><span></span
 <p>可以使用<code>-n 2</code>查看前两条log，比如：<code>git log -n2 --oneline</code></p>
 <p>查看以往的所有提交历史：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reflog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>查看工作区与暂存区的不同：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>查看暂存区与HEAD之间的差异：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff --cached<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看工作区与版本库中版本之间的区别：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff HEAD -- &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>查看不同版本之间的diff</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff &lt;commit哈希&gt; &lt;commit哈希&gt; #这里可以使用HEAD进行标识，HEAD^1或者HEAD~1表示上一次提交 HEAD^^可以表示倒数第二次提交<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>将工作区文件恢复成最近一次git commit或者git add的状态:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git checkout -- &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>将暂存区的修改撤销，重新放回工作区：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reset HEAD &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>创建新分支：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git checkout -b &lt;分支名&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>创建ssh key：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -C "youremail@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>关联仓库：</p>
@@ -633,7 +657,7 @@ git clone &lt;git仓库名&gt; 自定义仓库名<span aria-hidden="true" class=
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git checkout &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>合并指定分支到当前分支：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git merge &lt;branch-name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>删除分支：</p>
+<p>删除分支（强制删除使用-D）：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git branch -d &lt;branch-name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看分支情况：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git log --graph --pretty=oneline --abbrev-commit(有分支合并图)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1283,7 +1307,7 @@ doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">179.6k</span>&nbsp;字
+                class="white-color">180.2k</span>&nbsp;字
             
             
             
