@@ -235,7 +235,7 @@ git mv [file] [newfile]
 查看工作区与暂存区的不同：
 
 ```shell
-git diff
+git diff [-- 文件名 ] # 不写指定的文件默认查看所有不同的文件，指定的话可以写多个文件名，用空格做分割
 ```
 
 查看暂存区与HEAD之间的差异：
@@ -262,11 +262,13 @@ git diff <commit哈希> <commit哈希> #这里可以使用HEAD进行标识，HEA
  git checkout -- <file>
 ```
 
-将暂存区的修改撤销，重新放回工作区：
+将暂存区的修改撤销：
 
  ```shell
- git reset HEAD <file>
+ git reset HEAD [-- <file>] # 不指定文件默认撤销所有文件在暂存区的修改
  ```
+
+**checkout影响工作区，reset影响暂存区**
 
 创建ssh key：
 
