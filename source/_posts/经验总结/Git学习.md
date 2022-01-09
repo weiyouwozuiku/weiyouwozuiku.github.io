@@ -63,10 +63,12 @@ object文件夹中存放提交的记录，文件夹名称加上文件夹中文�
 Git使用配置工具实现控制Git外观与行为。一共有三种配置位置：
 
 - /etc/gitconfig 文件: 包含系统上每一个用户及他们仓库的通用配置。 如果在执行 git config 时带上 --system 选项，那么它就会读写该文件中的配置变量。 （由于它是系统配置文件，因此你需要管理员或超级用户权限来修改它。）
-
 - ~/.gitconfig 或 ~/.config/git/config 文件：只针对当前用户。 你可以传递 --global 选项让 Git 读写此文件，这会对你系统上 所有 的仓库生效。
-
 - 当前使用仓库的 Git 目录中的 config 文件（即 .git/config）：针对该仓库。 你可以传递 --local 选项让 Git 强制读写此文件，虽然默认情况下用的就是它。。 （当然，你需要进入某个 Git 仓库中才能让该选项生效。）
+
+## 分离头指针
+
+Git允许将头指针移动到非head的节点，此时即为分离头指针的状态。在此之上的修改若是不绑定到某一分支上Git会默认理解为这是不重要的修改，Git本身并不会去记录。换句话说就是当进行切换分支的操作时，将会导致之前的修改丢失。因此，**当进行分离头指针的修改时需要记得绑定某一分支**。
 
 ## 常用命令
 
@@ -159,6 +161,45 @@ M  lib/simplegit.rb # 已修改且已暂存
 
  **git diff 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动.**
 
+修改最近一次commit messgae：
+
+```shell
+git commit --amend
+```
+
+修改指定的commit message：
+
+```shell
+# 首先rabase到需要修改commit的上一个版本
+git rebase -i <需修改的commit上一次提交的哈希值>
+# 在跳出的界面中将需要修改的commit记录前面的pick之类的命令修改成r
+# r 即reword 表示使用原本的提交，但修改commit message
+# 在再一次弹出的界面中修改commit message
+```
+
+**修改完成之后原本的commit id 会发生改变**，因为messgae也是git结构体中的一员。
+
+合并多次连续commit到一次commit中：
+
+```shell
+git rebase -i <需合并commit的前一次commit哈希>
+# 在跳出的界面中将多次需要合并的commit前面的命令更改为s
+# s 即squash 表示使用commit，但注册到上一次commit中
+# 在再一次弹出的界面中修改总体的commit message
+```
+
+合并多次非连续commit到一次commit中：
+
+```shell
+git rebase -i <需合并commit的前一次commit哈希>
+# 在跳出的界面中将多次需要合并的commit前面的命令更改为s
+# s 即squash 表示使用commit，但注册到上一次commit中
+# 修改commit之间的顺序，将被合并的commit挂在第一行commit之下
+# 第一行的commit需要是一次被合并进的commit
+# 如果是需要合并进第一次commit，可以自己写一行commit，拿第一次提交的commit的哈希作为标记
+# 在再一次弹出的界面中修改总体的commit message
+```
+
 从暂存区和工作区删除文件:
 
 ```shell
@@ -191,11 +232,29 @@ git mv [file] [newfile]
  git reflog
 ```
 
+查看工作区与暂存区的不同：
+
+```shell
+git diff
+```
+
+查看暂存区与HEAD之间的差异：
+
+```shell
+git diff --cached
+```
+
 查看工作区与版本库中版本之间的区别：
 
  ```shell
  git diff HEAD -- <file>
  ```
+
+查看不同版本之间的diff
+
+```shell
+git diff <commit哈希> <commit哈希> #这里可以使用HEAD进行标识，HEAD^1或者HEAD~1表示上一次提交 HEAD^^可以表示倒数第二次提交
+```
 
 将工作区文件恢复成最近一次git commit或者git add的状态:
 
@@ -208,12 +267,6 @@ git mv [file] [newfile]
  ```shell
  git reset HEAD <file>
  ```
-
-创建新分支：
-
-```shell
- git checkout -b <分支名>
-```
 
 创建ssh key：
 
@@ -270,7 +323,7 @@ git checkout -b <分支名> <指定分支名>
  git merge <branch-name>
  ```
 
-删除分支：
+删除分支（强制删除使用-D）：
 
 ```shell
  git branch -d <branch-name>
