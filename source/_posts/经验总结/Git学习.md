@@ -212,6 +212,12 @@ git rm <file>
  git reset --hard commit_id(可以用HEAD~选择前第几个版本)
  ```
 
+将存入暂存区中的指定文件撤销暂存：
+
+```shell
+git reset HEAD <-- file1 file2>
+```
+
 移动或重命名一个文件、目录或软连接：
 
 ```shell
@@ -250,10 +256,16 @@ git diff --cached
  git diff HEAD -- <file>
  ```
 
-查看不同版本之间的diff
+查看不同版本之间的diff：
 
 ```shell
 git diff <commit哈希> <commit哈希> #这里可以使用HEAD进行标识，HEAD^1或者HEAD~1表示上一次提交 HEAD^^可以表示倒数第二次提交
+```
+
+查看不同分支之间的diff：
+
+```shell 
+git diff <分支1> <分支2> [-- <文件名>]# 可以通过指定文件名来查看不同分支两个文件的区别
 ```
 
 将工作区文件恢复成最近一次git commit或者git add的状态:
@@ -267,6 +279,12 @@ git diff <commit哈希> <commit哈希> #这里可以使用HEAD进行标识，HEA
  ```shell
  git reset HEAD [-- <file>] # 不指定文件默认撤销所有文件在暂存区的修改
  ```
+
+删除之前的commit内容：（**危险，小心使用！暂存区和工作区都丢失**）
+
+```shell 
+git reset --hard <需要恢复到的commit哈希值>
+```
 
 **checkout影响工作区，reset影响暂存区**
 

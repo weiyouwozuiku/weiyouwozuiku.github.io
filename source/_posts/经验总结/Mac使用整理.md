@@ -272,6 +272,10 @@ omz update //oh my zsh 更新
 
 ### powerline10k
 
+## 修改iTerm样式
+
+`iterm->preferences->Profiles->Session->Status bar enabled->Configure Status Bar`可以设置Iterm上方展示系统信息等内容。
+
 ## Mac内置键盘屏蔽
 
 借助Karabiner可以实现在检测到外置键盘或鼠标存在的时候，底层屏蔽内置键盘的输入。
