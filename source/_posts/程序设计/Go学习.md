@@ -805,6 +805,8 @@ m:=map[string]string {
 
 `map`是无序的。
 
+map中的value不可以通过取地址获取，以避免因为map扩容导致的地址迁移。
+
 `map`中没有的key对应的value是value类型的初始值。相应取值返回的第二个参数是false，如果有返回true。
 
 `delete(map名，key值)`删除元素。

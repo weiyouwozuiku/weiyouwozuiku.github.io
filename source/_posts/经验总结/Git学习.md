@@ -58,13 +58,28 @@ object文件夹中存放提交的记录，文件夹名称加上文件夹中文�
 - 已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。
 - 已提交表示数据已经安全地保存在本地数据库中。
 
+## 常见的传输协议
+
+| 常用协议       | 语法格式                                     | 说明     |
+| -------------- | -------------------------------------------- | -------- |
+| 本地协议       | /path/to/repo.git                            | 哑协议   |
+| 本地协议       | file:///path/to/repo.git                     | 智能协议 |
+| http/https协议 | https://git-server.com:port/path/to/repo.git | 智能协议 |
+| ssh协议        | user@git-server.com:path/to/repo.git         | 智能协议 |
+
+哑协议传输速度不可见；智能协议传输可见。
+
+智能协议比哑协议传输速度快。
+
+
+
 ## Git配置
 
 Git使用配置工具实现控制Git外观与行为。一共有三种配置位置：
 
 - /etc/gitconfig 文件: 包含系统上每一个用户及他们仓库的通用配置。 如果在执行 git config 时带上 --system 选项，那么它就会读写该文件中的配置变量。 （由于它是系统配置文件，因此你需要管理员或超级用户权限来修改它。）
 - ~/.gitconfig 或 ~/.config/git/config 文件：只针对当前用户。 你可以传递 --global 选项让 Git 读写此文件，这会对你系统上 所有 的仓库生效。
-- 当前使用仓库的 Git 目录中的 config 文件（即 .git/config）：针对该仓库。 你可以传递 --local 选项让 Git 强制读写此文件，虽然默认情况下用的就是它。。 （当然，你需要进入某个 Git 仓库中才能让该选项生效。）
+- 当前使用仓库的 Git 目录中的 config 文件（即 .git/config）：针对该仓库。 你可以传递 --local 选项让 Git 强制读写此文件，虽然默认情况下用的就是它。 （当然，你需要进入某个 Git 仓库中才能让该选项生效。）
 
 ## 分离头指针
 
@@ -294,10 +309,16 @@ git reset --hard <需要恢复到的commit哈希值>
  ssh-keygen -t rsa -C "youremail@example.com"
 ```
 
+查看远端地址：
+
+```shell
+git remote -v
+```
+
 关联仓库：
 
  ```shell
- git remote add origin git@server-name:path/repo-name.git
+ git remote add origin git@server-name:path/repo-name.git # 这里的origin只是给后面的地址起别名
  ```
 
 第一次推送分支内容：
@@ -376,7 +397,7 @@ git checkout -b <分支名> <指定分支名>
 恢复现场：
 
 ```shell
- git stash apply 和 git stash drop或 git stash pop
+ git stash apply 和 git stash drop或 git stash pop # 使用apply还会在stash中记录，但是使用pop会将这次修改直接从stash中清除
 ```
 
 指定恢复现场：
@@ -400,7 +421,7 @@ git checkout -b <分支名> <指定分支名>
 抓取版本库：
 
 ```shell
- git pull
+ git pull #这个命令包含了两步
 ```
 
 本地分支与远程分支链接：
