@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-11
+                    2022-01-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    3.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    13 分
                 </div>
                 
 
@@ -541,11 +541,42 @@
 <li>已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</li>
 <li>已提交表示数据已经安全地保存在本地数据库中。</li>
 </ul>
+<h2 id="常见的传输协议"><a href="#常见的传输协议" class="headerlink" title="常见的传输协议"></a>常见的传输协议</h2><table>
+<thead>
+<tr>
+<th>常用协议</th>
+<th>语法格式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本地协议</td>
+<td>/path/to/repo.git</td>
+<td>哑协议</td>
+</tr>
+<tr>
+<td>本地协议</td>
+<td>file:///path/to/repo.git</td>
+<td>智能协议</td>
+</tr>
+<tr>
+<td>http/https协议</td>
+<td><a href="https://git-server.com:port/path/to/repo.git">https://git-server.com:port/path/to/repo.git</a></td>
+<td>智能协议</td>
+</tr>
+<tr>
+<td>ssh协议</td>
+<td><a href="mailto:user@git-server.com">user@git-server.com</a>:path/to/repo.git</td>
+<td>智能协议</td>
+</tr>
+</tbody></table>
+<p>哑协议传输速度不可见；智能协议传输可见。</p>
+<p>智能协议比哑协议传输速度快。</p>
 <h2 id="Git配置"><a href="#Git配置" class="headerlink" title="Git配置"></a>Git配置</h2><p>Git使用配置工具实现控制Git外观与行为。一共有三种配置位置：</p>
 <ul>
 <li>/etc/gitconfig 文件: 包含系统上每一个用户及他们仓库的通用配置。 如果在执行 git config 时带上 –system 选项，那么它就会读写该文件中的配置变量。 （由于它是系统配置文件，因此你需要管理员或超级用户权限来修改它。）</li>
 <li>~/.gitconfig 或 ~/.config/git/config 文件：只针对当前用户。 你可以传递 –global 选项让 Git 读写此文件，这会对你系统上 所有 的仓库生效。</li>
-<li>当前使用仓库的 Git 目录中的 config 文件（即 .git/config）：针对该仓库。 你可以传递 –local 选项让 Git 强制读写此文件，虽然默认情况下用的就是它。。 （当然，你需要进入某个 Git 仓库中才能让该选项生效。）</li>
+<li>当前使用仓库的 Git 目录中的 config 文件（即 .git/config）：针对该仓库。 你可以传递 –local 选项让 Git 强制读写此文件，虽然默认情况下用的就是它。 （当然，你需要进入某个 Git 仓库中才能让该选项生效。）</li>
 </ul>
 <h2 id="分离头指针"><a href="#分离头指针" class="headerlink" title="分离头指针"></a>分离头指针</h2><p>Git允许将头指针移动到非head的节点，此时即为分离头指针的状态。在此之上的修改若是不绑定到某一分支上Git会默认理解为这是不重要的修改，Git本身并不会去记录。换句话说就是当进行切换分支的操作时，将会导致之前的修改丢失。因此，<strong>当进行分离头指针的修改时需要记得绑定某一分支</strong>。</p>
 <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="配置命令"><a href="#配置命令" class="headerlink" title="配置命令"></a>配置命令</h3><p>配置用户信息：</p>
@@ -647,8 +678,10 @@ git rebase -i &lt;需修改的commit上一次提交的哈希值&gt;
 <p><strong>checkout影响工作区，reset影响暂存区</strong></p>
 <p>创建ssh key：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -C "youremail@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>查看远端地址：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git remote -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>关联仓库：</p>
- <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git remote add origin git@server-name:path/repo-name.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git remote add origin git@server-name:path/repo-name.git # 这里的origin只是给后面的地址起别名，但origin是默认名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>第一次推送分支内容：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git push -u origin master(以后不用加-u参数)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>克隆一个本地库：</p>
@@ -663,7 +696,8 @@ git clone &lt;git仓库名&gt; 自定义仓库名<span aria-hidden="true" class=
 <p>切换分支：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git checkout &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>合并指定分支到当前分支：</p>
- <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git merge &lt;branch-name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git merge &lt;branch-name&gt;
+#如果分支是none first-forward的commit，使用--allow-unrelated-histories，即git merge --allow-unrelated-histories 分支名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>删除分支（强制删除使用-D）：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git branch -d &lt;branch-name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看分支情况：</p>
@@ -675,7 +709,7 @@ git clone &lt;git仓库名&gt; 自定义仓库名<span aria-hidden="true" class=
 <p>查看现场存储列表：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git stash list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>恢复现场：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git stash apply 和 git stash drop或 git stash pop<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git stash apply 和 git stash drop或 git stash pop # 使用apply还会在stash中记录，但是使用pop会将这次修改直接从stash中清除<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>指定恢复现场：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git stash apply stash@{&lt;stash_list&gt;}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>丢弃未合并的分支：</p>
@@ -683,7 +717,7 @@ git clone &lt;git仓库名&gt; 自定义仓库名<span aria-hidden="true" class=
 <p>查看远程库信息：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git remote &lt;-v&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>抓取版本库：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git pull<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git pull #这个命令包含了两步1. git fetch拉取代码 2. git merge将有上下游关系的分支做合并<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>本地分支与远程分支链接：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git branch --set-upstream branch-name origin/branch-name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>推送修改：</p>
@@ -1314,7 +1348,7 @@ doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">180.4k</span>&nbsp;字
+                class="white-color">180.7k</span>&nbsp;字
             
             
             

@@ -482,7 +482,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-25
+                    2022-01-13
                 </div>
                 
 
@@ -1053,7 +1053,9 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
     <span class="token string">"hello"</span><span class="token punctuation">:</span><span class="token string">"world"</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><code>map</code>是无序的。</p>
-<p><code>map</code>中没有的key对应的value是value类型的初始值。相应取值返回的第二个参数是false，如果有返回true。</p>
+<p><code>map</code>中的value不可以通过取地址获取，以避免因为map扩容导致的地址迁移。</p>
+<p><code>map</code>中数据的返回是无序的，如果需要按照某种顺序输出，只能在外层将key进行排序后进行输出。</p>
+<p><strong><code>map</code>中没有的key对应的value是value类型的初始值。相应取值返回的第二个参数是false，如果有返回true。</strong></p>
 <p><code>delete(map名，key值)</code>删除元素。</p>
 <p><code>map</code>使用哈希表，key必须可以比较。除了<code>slice,map,function的内建类型</code>都可以作为key。<code>stuct</code>不包含上述字段也可作为key。</p>
 <h3 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h3><p>go的结构体没有构造函数，一般可以直接生成。如果一定要用函数进行构造，可以自己定义一个工厂函数，返回一个局部地址，但是不会出错。</p>
@@ -1747,7 +1749,7 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">180.4k</span>&nbsp;字
+                class="white-color">180.7k</span>&nbsp;字
             
             
             
