@@ -2,11 +2,11 @@
 title: SQL之CASE WHEN
 author: 不二
 img: >-
-  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/SQL之CASE-WHEN.jpg
+  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/SQL之CASE-WHEN.jpg
 mathjax: true
 date: 2021-12-24 09:28:38
 tags: SQL
-categories: 经验总结
+categories: 程序设计
 ---
 
 ## 用法

@@ -318,7 +318,7 @@ git remote -v
 关联仓库：
 
  ```shell
- git remote add origin git@server-name:path/repo-name.git # 这里的origin只是给后面的地址起别名
+ git remote add origin git@server-name:path/repo-name.git # 这里的origin只是给后面的地址起别名，但origin是默认名
  ```
 
 第一次推送分支内容：
@@ -362,6 +362,7 @@ git checkout -b <分支名> <指定分支名>
 
  ```shell
  git merge <branch-name>
+ #如果分支是none first-forward的commit，使用--allow-unrelated-histories，即git merge --allow-unrelated-histories 分支名
  ```
 
 删除分支（强制删除使用-D）：
@@ -421,7 +422,7 @@ git checkout -b <分支名> <指定分支名>
 抓取版本库：
 
 ```shell
- git pull #这个命令包含了两步
+ git pull #这个命令包含了两步1. git fetch拉取代码 2. git merge将有上下游关系的分支做合并
 ```
 
 本地分支与远程分支链接：

@@ -2,12 +2,12 @@
 title: SQL之窗口函数
 author: 不二
 img: >-
-  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/SQL之窗口函数.jpg
+  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/SQL之窗口函数.jpg
 mathjax: true
 date: 2021-12-21 21:04:24
 tags:
 - SQL
-categories: 经验总结
+categories: 程序设计
 ---
 
 ## 什么是窗口函数
@@ -33,7 +33,7 @@ categories: 经验总结
 
 窗口函数实现的功能类似group by和order by。但是group by分组汇总会改变了表的行数，一行只有一个类别。而partition by和rank函数不会减少原表中的行数。
 
-![group_by与partition_by的区别.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/SQL之窗口函数/group_by与partition_by的区别.jpg)
+![group_by与partition_by的区别.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/SQL之窗口函数/group_by与partition_by的区别.jpg)
 
 窗口函数中的order by只是决定窗口内的数据按什么顺序进行排序或计算，对最后返回结果的排列顺序并没有影响。
 
@@ -49,7 +49,7 @@ select *,
 from 班级表
 ```
 
-![专业窗口函数.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/SQL之窗口函数/专业窗口函数.jpg)
+![专业窗口函数.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/SQL之窗口函数/专业窗口函数.jpg)
 
 总结一下：
 

@@ -805,9 +805,11 @@ m:=map[string]string {
 
 `map`是无序的。
 
-map中的value不可以通过取地址获取，以避免因为map扩容导致的地址迁移。
+`map`中的value不可以通过取地址获取，以避免因为map扩容导致的地址迁移。
 
-`map`中没有的key对应的value是value类型的初始值。相应取值返回的第二个参数是false，如果有返回true。
+`map`中数据的返回是无序的，如果需要按照某种顺序输出，只能在外层将key进行排序后进行输出。
+
+**`map`中没有的key对应的value是value类型的初始值。相应取值返回的第二个参数是false，如果有返回true。**
 
 `delete(map名，key值)`删除元素。
 
