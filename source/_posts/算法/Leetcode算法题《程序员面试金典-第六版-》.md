@@ -9,6 +9,22 @@ tags: Cpp
 categories: 算法
 ---
 
+#### [面试题 05.01. 插入](https://leetcode-cn.com/problems/insert-into-bits-lcci/)
+
+```cpp
+class Solution {
+public:
+    int insertBits(int N, int M, int i, int j) {
+        for (int k = i; k <= j; k++) {
+            //这里用longlong是为了防止出现越界
+            //与0相与将i到j的二进制全部变成0
+            N &= ~((long long) 1 << k);
+        }
+        return N | (M << i);
+    }
+};
+```
+
 #### [面试题 16.01. 交换数字](https://leetcode-cn.com/problems/swap-numbers-lcci/)
 
 本题使用了位运算的性质：
@@ -35,4 +51,6 @@ public:
     }
 };
 ```
+
+
 

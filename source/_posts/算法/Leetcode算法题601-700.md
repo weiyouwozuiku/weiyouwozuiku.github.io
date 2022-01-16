@@ -8,3 +8,23 @@ date: 2022-01-16 17:42:05
 tags: Cpp
 categories: 算法
 ---
+
+#### [693. 交替位二进制数](https://leetcode-cn.com/problems/binary-number-with-alternating-bits/)
+
+相邻两位不同，可以通过二进制11去检测，如果是00或者11则会与运算出00或11，即0或3。
+
+```cpp
+class Solution {
+public:
+    bool hasAlternatingBits(int n) {
+        while (n) {
+            if ((n & 3) == 3 || (n & 3) == 0) {
+                return false;
+            }
+            n >>= 1;
+        }
+        return true;
+    }
+};
+```
+

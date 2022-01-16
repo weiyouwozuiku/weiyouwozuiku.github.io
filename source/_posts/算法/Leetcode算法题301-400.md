@@ -9,7 +9,7 @@ tags: Cpp
 categories: 算法
 ---
 
-[341. 扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator/)
+#### [341. 扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator/)
 
 递归写法：
 
@@ -39,6 +39,24 @@ public:
 private:
     vector<int> q;
     int k;
+};
+```
+
+#### [371. 两整数之和](https://leetcode-cn.com/problems/sum-of-two-integers/)
+
+加法可以分为两步：
+
+1. 使用a^b计算出不带进位的加法
+2. 使用\(a&b\)<<1计算出进位
+
+针对每一位二进制，递归上述流程。
+
+```cpp
+class Solution {
+public:
+    int getSum(int a, int b) {
+        return b==0? a:getSum(a^b,(unsigned int)(a&b)<<1);
+    }
 };
 ```
 

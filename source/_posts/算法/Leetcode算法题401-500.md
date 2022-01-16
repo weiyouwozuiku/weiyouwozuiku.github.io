@@ -8,3 +8,23 @@ date: 2022-01-16 17:40:46
 tags: Cpp
 categories: 算法
 ---
+
+#### [461. 汉明距离](https://leetcode-cn.com/problems/hamming-distance/)
+
+本题属于位运算的组合题。先使用异或的性质去除所有二进制不同位的位，再使用与计算二进制中1的个数。
+
+```cpp
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        x ^= y;
+        int n = 0;
+        while (x) {
+            x &= (x - 1);
+            ++n;
+        }
+        return n;
+    }
+};
+```
+

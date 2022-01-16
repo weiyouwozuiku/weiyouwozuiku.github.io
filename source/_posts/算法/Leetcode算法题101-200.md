@@ -9,7 +9,24 @@ tags: Cpp
 categories: 算法
 ---
 
-[173. 二叉搜索树迭代器](https://leetcode-cn.com/problems/binary-search-tree-iterator/)
+#### [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/)
+
+本题利用位运算中异或的性质。
+
+```cpp
+class Solution {
+public:
+    int singleNumber(vector<int> &nums) {
+        int n = 0;
+        for (const auto &item: nums) {
+            n ^= item;
+        }
+        return n;
+    }
+};
+```
+
+#### [173. 二叉搜索树迭代器](https://leetcode-cn.com/problems/binary-search-tree-iterator/)
 
 ```cpp
 class BSTIterator {
@@ -46,7 +63,7 @@ private:
 };
 ```
 
-[190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/)
+#### [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/)
 
 这题最好的解法是分治算法，但是局限性很大。故本题给出基于循环处理位运算的解法。
 
@@ -66,7 +83,7 @@ public:
 };
 ```
 
-[191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)
+#### [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)
 
  函数`lowbit(x)`可以返回当前数字x二进制下最后1位1在第几位，实现方法为x&-x，在Cpp中-x=~x+1。本题解法就是这样的思路。
 

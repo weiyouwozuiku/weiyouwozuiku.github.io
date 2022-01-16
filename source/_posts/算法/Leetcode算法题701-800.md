@@ -9,7 +9,7 @@ tags: Cpp
 categories: 算法
 ---
 
-[781. 森林中的兔子](https://leetcode-cn.com/problems/rabbits-in-forest/)
+#### [781. 森林中的兔子](https://leetcode-cn.com/problems/rabbits-in-forest/)
 
 这题的难点在于分析兔子的种类数量与同一种类中兔子的数量。因此分为两步计算：
 
