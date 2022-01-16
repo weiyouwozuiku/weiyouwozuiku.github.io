@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://buerlog.top/2022/01/14/cheng-xu-she-ji/hql-xue-xi/</loc>
+    
+    <lastmod>2022-01-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-cheng-xu-yuan-mian-shi-jin-dian-di-liu-ban/</loc>
     
     <lastmod>2022-01-16</lastmod>
@@ -187,13 +194,6 @@
     <loc>http://buerlog.top/2021/05/19/jing-yan-zong-jie/git-xue-xi/</loc>
     
     <lastmod>2022-01-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2022/01/14/cheng-xu-she-ji/hql-xue-xi/</loc>
-    
-    <lastmod>2022-01-14</lastmod>
     
   </url>
   
@@ -1393,13 +1393,6 @@
   
   <url>
     <loc>http://buerlog.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/</loc>
-    <lastmod>2022-01-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/categories/SQL/</loc>
     <lastmod>2022-01-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
