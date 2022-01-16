@@ -362,7 +362,7 @@ git checkout -b <分支名> <指定分支名>
 
  ```shell
  git merge <branch-name>
- #如果分支是none first-forward的commit，使用--allow-unrelated-histories，即git merge --allow-unrelated-histories 分支名
+ #如果分支是none fast-forward的commit，使用--allow-unrelated-histories，即git merge --allow-unrelated-histories 分支名
  ```
 
 删除分支（强制删除使用-D）：
