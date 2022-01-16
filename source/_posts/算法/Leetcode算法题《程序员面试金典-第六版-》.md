@@ -8,3 +8,31 @@ date: 2022-01-16 17:48:14
 tags: Cpp
 categories: 算法
 ---
+
+#### [面试题 16.01. 交换数字](https://leetcode-cn.com/problems/swap-numbers-lcci/)
+
+本题使用了位运算的性质：
+
+- a^a=0
+- a^0=a
+
+因此本题解析为：
+
+a=a^b;
+
+b=a\^b=\(a\^b\)\^b=a\^\(b\^b\)=a\^0=a
+
+a=a\^b=a\^b\^a=0\^b=b
+
+```cpp
+class Solution {
+public:
+    vector<int> swapNumbers(vector<int> &numbers) {
+        numbers[0] = numbers[0] ^ numbers[1];
+        numbers[1] = numbers[0] ^ numbers[1];
+        numbers[0] = numbers[0] ^ numbers[1];
+        return numbers;
+    }
+};
+```
+
