@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-31
+                    2022-01-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    4.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    19 分
                 </div>
                 
 
@@ -520,8 +520,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录本人刷Leetcode过程的收获和代码。语言选择C++。</p>
-<h2 id="1～1000"><a href="#1～1000" class="headerlink" title="1～1000"></a>1～1000</h2><h3 id="1～500"><a href="#1～500" class="headerlink" title="1～500"></a>1～500</h3><h4 id="1～100"><a href="#1～100" class="headerlink" title="1～100"></a>1～100</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a></p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文记录本人刷Leetcode过程的收获和代码。</p>
+<h3 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h3><ul>
+<li>算法题：Cpp</li>
+<li>SQL题：MySQL</li>
+<li>面试题：Cpp</li>
+</ul>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="方案选型"><a href="#方案选型" class="headerlink" title="方案选型"></a>方案选型</h3><ol>
+<li><del>选择一个文本存储所有笔记</del></li>
+<li>选择细粒度的存储，采用目录和总分的结构存储</li>
+</ol>
+<p>由于Markdown文本编辑器对长文本载入机制的问题以及网页展示效果的综合考虑，采用第二种方案。粒度选择为100题基础粒度进行划分。基于Leetcode现存题量的分析，无需依据题目类型分类来做二级索引。</p>
+<p>文章标题中的题号只表示区间，不同类型的题目会在不同类型的总结笔记区间内。</p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><h3 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h3><h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><h2 id="1～1000"><a href="#1～1000" class="headerlink" title="1～1000"></a>1～1000</h2><h3 id="1～500"><a href="#1～500" class="headerlink" title="1～500"></a>1～500</h3><h4 id="1～100"><a href="#1～100" class="headerlink" title="1～100"></a>1～100</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1041,7 +1052,16 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4 id="201-300"><a href="#201-300" class="headerlink" title="201~300"></a>201~300</h4><h4 id="301-400"><a href="#301-400" class="headerlink" title="301~400"></a>301~400</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/">341. 扁平化嵌套列表迭代器</a></p>
+<h4 id="201-300"><a href="#201-300" class="headerlink" title="201~300"></a>201~300</h4><h4 id="231-2-的幂"><a href="#231-2-的幂" class="headerlink" title="231.2 的幂"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/power-of-two/">231.2 的幂</a></h4><p>符合2的幂的数在二进制中表示为首位为1，其余位为0。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">bool</span> <span class="token function">isPowerOfTwo</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>n <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>n <span class="token operator">&amp;</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="301-400"><a href="#301-400" class="headerlink" title="301~400"></a>301~400</h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/">341. 扁平化嵌套列表迭代器</a></p>
 <p>递归写法：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">NestedIterator</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
@@ -1664,7 +1684,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">180.7k</span>&nbsp;字
+                class="white-color">180.9k</span>&nbsp;字
             
             
             
