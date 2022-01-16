@@ -485,7 +485,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    191
                 </div>
                 
 
@@ -520,7 +520,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rabbits-in-forest/">781. 森林中的兔子</a></p>
+<p>这题的难点在于分析兔子的种类数量与同一种类中兔子的数量。因此分为两步计算：</p>
+<p>假设有x只兔子说有y只兔子同色。</p>
+<ol>
+<li>计算兔子种类：$\lceil\frac{x}{y+1}\rceil$</li>
+<li>计算同一种类兔子的数量：$y+1$</li>
+<li>二者相乘就是本题答案</li>
+</ol>
+<p>注意代码中公式的顺序，因为整数除法涉及小数舍去。</p>
+<p>代码中$\lceil\frac{x}{y+1}\rceil*(y+1)$通过$\frac{x+y}{y+1}*(y+1)$实现。</p>
+<p>下面证明 $\lceil\frac{n}{x+1}\rceil = \frac{n +x}{x+1}$ 。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%AE%97%E6%B3%95/Leetcode%E7%AE%97%E6%B3%95%E9%A2%98701-800/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95_781.png" alt="Leetcode刷题记录_781.png"></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">numRabbits</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> answers<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">&gt;</span> cnt<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> itor <span class="token operator">:</span> answers<span class="token punctuation">)</span> cnt<span class="token punctuation">[</span>itor<span class="token punctuation">]</span><span class="token operator">+=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> res<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token punctuation">[</span>k<span class="token punctuation">,</span>v<span class="token punctuation">]</span><span class="token operator">:</span>cnt<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            res<span class="token operator">+=</span><span class="token punctuation">(</span>v<span class="token operator">+</span>k<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -1088,7 +1112,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">180.9k</span>&nbsp;字
+                class="white-color">181k</span>&nbsp;字
             
             
             

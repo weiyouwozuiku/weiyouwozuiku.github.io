@@ -485,7 +485,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    353
                 </div>
                 
 
@@ -520,7 +520,68 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-search-tree-iterator/">173. 二叉搜索树迭代器</a></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">BSTIterator</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token comment">//构造栈，将根节点的左节点循环加入栈中，以此寻找相应子树的节点</span>
+    <span class="token function">BSTIterator</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            stk<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            root<span class="token operator">=</span>root<span class="token operator">-&gt;</span>left<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//获取当前节点的信息。如果该节点存在右节点将右节点下的左节点压入栈中</span>
+    <span class="token keyword">int</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">auto</span> p<span class="token operator">=</span>stk<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        stk<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> val<span class="token operator">=</span>p<span class="token operator">-&gt;</span>val<span class="token punctuation">;</span>
+        p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            stk<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            p<span class="token operator">=</span>p<span class="token operator">-&gt;</span>left<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">//检测是否还有元素没有遍历只需检测栈中是否还有节点</span>
+    <span class="token keyword">bool</span> <span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> stk<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token comment">//使用栈存储节点信息</span>
+    stack<span class="token operator">&lt;</span>TreeNode<span class="token operator">*</span><span class="token operator">&gt;</span> stk<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-bits/">190. 颠倒二进制位</a></p>
+<p>这题最好的解法是分治算法，但是局限性很大。故本题给出基于循环处理位运算的解法。</p>
+<p>本题可以分解为两个部分：</p>
+<ol>
+<li>首先获取当前位二进制值，n&gt;&gt;i&amp;1</li>
+<li>将二进制数组装进结果，res&lt;&lt;1+当前位二进制值</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">uint32_t</span> <span class="token function">reverseBits</span><span class="token punctuation">(</span><span class="token keyword">uint32_t</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">uint32_t</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">32</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> res <span class="token operator">=</span> <span class="token punctuation">(</span>res <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>n <span class="token operator">&gt;&gt;</span> i <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-1-bits/">191. 位1的个数</a></p>
+<p> 函数<code>lowbit(x)</code>可以返回当前数字x二进制下最后1位1在第几位，实现方法为x&amp;-x，在Cpp中-x=~x+1。本题解法就是这样的思路。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">hammingWeight</span><span class="token punctuation">(</span><span class="token keyword">uint32_t</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> num<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            n<span class="token operator">-=</span>n<span class="token operator">&amp;</span><span class="token operator">-</span>n<span class="token punctuation">;</span>
+            num<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> num<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -1088,7 +1149,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">180.9k</span>&nbsp;字
+                class="white-color">181k</span>&nbsp;字
             
             
             
