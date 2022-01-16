@@ -478,14 +478,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-16
+                    2022-01-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    75
+                    154
                 </div>
                 
 
@@ -520,8 +520,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/">341. 扁平化嵌套列表迭代器</a></p>
-<p>递归写法：</p>
+                <h4 id="341-扁平化嵌套列表迭代器"><a href="#341-扁平化嵌套列表迭代器" class="headerlink" title="341. 扁平化嵌套列表迭代器"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/">341. 扁平化嵌套列表迭代器</a></h4><p>递归写法：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">NestedIterator</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">NestedIterator</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>NestedInteger<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>nestedList<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -548,6 +547,18 @@
     vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> q<span class="token punctuation">;</span>
     <span class="token keyword">int</span> k<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="371-两整数之和"><a href="#371-两整数之和" class="headerlink" title="371. 两整数之和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sum-of-two-integers/">371. 两整数之和</a></h4><p>加法可以分为两步：</p>
+<ol>
+<li>使用a^b计算出不带进位的加法</li>
+<li>使用(a&amp;b)&lt;&lt;1计算出进位</li>
+</ol>
+<p>针对每一位二进制，递归上述流程。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">getSum</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> b<span class="token operator">==</span><span class="token number">0</span><span class="token operator">?</span> a<span class="token operator">:</span><span class="token function">getSum</span><span class="token punctuation">(</span>a<span class="token operator">^</span>b<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>a<span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1116,7 +1127,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">181.1k</span>&nbsp;字
+                class="white-color">181.6k</span>&nbsp;字
             
             
             

@@ -478,14 +478,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-16
+                    2022-01-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    91
+                    160
                 </div>
                 
 
@@ -520,7 +520,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="面试题-16-01-交换数字"><a href="#面试题-16-01-交换数字" class="headerlink" title="面试题 16.01. 交换数字"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/swap-numbers-lcci/">面试题 16.01. 交换数字</a></h4><p>本题使用了位运算的性质：</p>
+                <h4 id="面试题-05-01-插入"><a href="#面试题-05-01-插入" class="headerlink" title="面试题 05.01. 插入"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/insert-into-bits-lcci/">面试题 05.01. 插入</a></h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">insertBits</span><span class="token punctuation">(</span><span class="token keyword">int</span> N<span class="token punctuation">,</span> <span class="token keyword">int</span> M<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> i<span class="token punctuation">;</span> k <span class="token operator">&lt;=</span> j<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">//这里用longlong是为了防止出现越界</span>
+            <span class="token comment">//与0相与将i到j的二进制全部变成0</span>
+            N <span class="token operator">&amp;=</span> <span class="token operator">~</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">long</span> <span class="token keyword">long</span><span class="token punctuation">)</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> N <span class="token operator">|</span> <span class="token punctuation">(</span>M <span class="token operator">&lt;&lt;</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="面试题-16-01-交换数字"><a href="#面试题-16-01-交换数字" class="headerlink" title="面试题 16.01. 交换数字"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/swap-numbers-lcci/">面试题 16.01. 交换数字</a></h4><p>本题使用了位运算的性质：</p>
 <ul>
 <li>a^a=0</li>
 <li>a^0=a</li>
@@ -538,6 +549,8 @@
         <span class="token keyword">return</span> numbers<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
                 
             </div>
@@ -773,17 +786,16 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/01/16/suan-fa/leetcode-suan-fa-ti-cheng-xu-yuan-mian-shi-jin-dian-di-liu-ban/">
+                <a href="/2022/01/16/suan-fa/leetcode-suan-fa-ti-1001-1100/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/Leetcode算法题《程序员面试金典-第六版-》.png" class="responsive-img" alt="Leetcode算法题《程序员面试金典(第六版)》">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/" class="responsive-img" alt="Leetcode算法题1001-1100">
                         
-                        <span class="card-title">Leetcode算法题《程序员面试金典(第六版)》</span>
+                        <span class="card-title">Leetcode算法题1001-1100</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -793,9 +805,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -808,7 +820,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1108,7 +1119,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">181.1k</span>&nbsp;字
+                class="white-color">181.6k</span>&nbsp;字
             
             
             
