@@ -6,5 +6,5 @@ img: >-
 mathjax: true
 date: 2022-01-14 10:51:41
 tags: HQL
-categories: SQL
+categories: 程序设计
 ---
