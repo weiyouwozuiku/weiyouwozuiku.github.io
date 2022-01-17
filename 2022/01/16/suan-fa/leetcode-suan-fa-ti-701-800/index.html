@@ -485,7 +485,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    191
+                    248
                 </div>
                 
 
@@ -520,7 +520,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="781-森林中的兔子"><a href="#781-森林中的兔子" class="headerlink" title="781. 森林中的兔子"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rabbits-in-forest/">781. 森林中的兔子</a></h4><p>这题的难点在于分析兔子的种类数量与同一种类中兔子的数量。因此分为两步计算：</p>
+                <h4 id="704-二分查找"><a href="#704-二分查找" class="headerlink" title="704. 二分查找"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-search/">704. 二分查找</a></h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">search</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> r <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> mid<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>l <span class="token operator">&lt;</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            mid <span class="token operator">=</span> l <span class="token operator">+</span> r <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                l <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                r <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> l<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="781-森林中的兔子"><a href="#781-森林中的兔子" class="headerlink" title="781. 森林中的兔子"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rabbits-in-forest/">781. 森林中的兔子</a></h4><p>这题的难点在于分析兔子的种类数量与同一种类中兔子的数量。因此分为两步计算：</p>
 <p>假设有x只兔子说有y只兔子同色。</p>
 <ol>
 <li>计算兔子种类：$\lceil\frac{x}{y+1}\rceil$</li>
@@ -1111,7 +1129,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">181.6k</span>&nbsp;字
+                class="white-color">181.7k</span>&nbsp;字
             
             
             

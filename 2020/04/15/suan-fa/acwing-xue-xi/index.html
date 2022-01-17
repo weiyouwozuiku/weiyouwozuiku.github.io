@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-18
+                    2022-01-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.9k
+                    8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    35 分
+                    36 分
                 </div>
                 
 
@@ -626,7 +626,7 @@
     <span class="token comment">//for(int i=0;i &lt; n;i++) printf("%d ",q[i]);</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%ld"</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h3><p><strong>二分的本质不是单调性，有单调性一定可以二分，但是没单调性也不一定不能使用二分。</strong></p>
+<h3 id="二分搜索"><a href="#二分搜索" class="headerlink" title="二分搜索"></a>二分搜索</h3><p><strong>二分的本质不是单调性，有单调性一定可以二分，但是没单调性也不一定不能使用二分。对于整数二分而言，是边界，即一侧区间满足某种性质，另一侧不满足某种性质。</strong></p>
 <h4 id="整数二分"><a href="#整数二分" class="headerlink" title="整数二分"></a>整数二分</h4><p>将一个域划分为两个相反区间。</p>
 <p>整数二分中没有交点。</p>
 <ul>
@@ -642,6 +642,7 @@
 </li>
 </ul>
 <p>**这里的mid是否加一,取决于当为true时是l=mid还是r=mid.如果是l=mid,默认的除法是下取整,在l和r之间只相差一个的时候导致一直是l=l,进而导致死循环.**写程序的时候先写成<code>l+r&gt;&gt;1</code>，之后再根据l和r，选择是否+1。</p>
+<p>需要考虑如果找不到的情况，二分出来的结果就是最靠近的那个元素。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">check</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">/* ... */</span><span class="token punctuation">}</span> <span class="token comment">// 检查x是否满足某种性质</span>
 <span class="token comment">//区间[l,r]被划分为[l,mid]和[mid+1,l]时使用</span>
 <span class="token keyword">int</span> <span class="token function">bsearch_1</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -1891,7 +1892,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">181.6k</span>&nbsp;字
+                class="white-color">181.7k</span>&nbsp;字
             
             
             
