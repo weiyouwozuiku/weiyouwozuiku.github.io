@@ -9,6 +9,29 @@ tags: Cpp
 categories: 算法
 ---
 
+#### [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
+
+```cpp
+class Solution {
+public:
+    int search(vector<int> &nums, int target) {
+        int r = nums.size() - 1, l = 0, mid;
+        while (l < r) {
+            mid = l + r + 1 >> 1;
+            if (nums[mid] <= target) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        if (nums[l] == target) return l;
+        else return -1;
+    }
+};
+```
+
+
+
 #### [781. 森林中的兔子](https://leetcode-cn.com/problems/rabbits-in-forest/)
 
 这题的难点在于分析兔子的种类数量与同一种类中兔子的数量。因此分为两步计算：
