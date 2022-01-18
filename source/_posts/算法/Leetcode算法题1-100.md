@@ -416,6 +416,41 @@ public:
 
 ## 41-50
 
+#### [43. 字符串相乘](https://leetcode-cn.com/problems/multiply-strings/)
+
+```cpp
+class Solution {
+public:
+    string multiply(string num1, string num2) {
+        vector<int> A, B;
+        int n = num1.size(), m = num2.size();
+        vector<int> C(n + m);
+        for (int i = n - 1; i >= 0; i--) A.push_back(num1[i] - '0');
+        for (int i = m - 1; i >= 0; i--) B.push_back(num2[i] - '0');
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                C[i + j] += A[i] * B[j];
+            }
+        }
+
+        //将结果集中数据进行进位与取模
+        for (int i = 0, t = 0; i < C.size(); i++) {
+            t += C[i];
+            C[i] = t % 10;
+            t /= 10;
+        }
+        //去前导0
+        int k = C.size() - 1;
+        while (k > 0 && !C[k]) k--;
+        string res = "";
+        while (k >= 0) res += C[k--] + '0';
+        return res;
+    }
+};
+```
+
+
+
 ## 51-60
 
 #### [51.N皇后](https://leetcode-cn.com/problems/n-queens)
@@ -460,6 +495,31 @@ public:
             p->next=NULL;
         }
         return head;
+    }
+};
+```
+
+#### [69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
+
+```cpp
+class Solution {
+public:
+    int mySqrt(int x) {
+        if (x == 0) return 0;
+        if (x == 1) return 1;
+        int l = 1, r = x, mid;
+        while (l < r) {
+            // 这里直接写l+r可能会越界，但是这里将1替换成1ll会变成long long类型，避免越界
+            // 或者写成l+(r-l)/2
+            mid = l + 1ll + r >> 1;
+            // 这里之所以写成这样是为了防止越界
+            if (mid <= x / mid) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return l;
     }
 };
 ```
