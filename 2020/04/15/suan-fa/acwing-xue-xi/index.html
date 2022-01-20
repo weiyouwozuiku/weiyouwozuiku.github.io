@@ -478,21 +478,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-17
+                    2022-01-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8k
+                    8.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    36 分
+                    37 分
                 </div>
                 
 
@@ -1320,6 +1320,37 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 <li>$n \leq 10^{1000} \rightarrow O((logn)^2)$，高精度加减乘除</li>
 <li>$n \leq 10^{100000} \rightarrow O(logk * loglogk)$，k表示位数，高精度加减，FFT/NTT</li>
 </ol>
+<h4 id="accumulate函数"><a href="#accumulate函数" class="headerlink" title="accumulate函数"></a>accumulate函数</h4><p>accumulate定义在#include<numeric>中，作用有两个，一个是累加求和，另一个是自定义类型数据的处理。</numeric></p>
+<h5 id="累加求和"><a href="#累加求和" class="headerlink" title="累加求和"></a>累加求和</h5><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> total <span class="token operator">=</span> <span class="token function">accumulate</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>accumulate带有三个形参：头两个形参指定要累加的元素范围，第三个形参则是累加的初值。</p>
+<p>可以实现将<code>vector&lt;string&gt;</code>类型的元素链接起来。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">string sum <span class="token operator">=</span> <span class="token function">accumulate</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">,</span> v<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token function">string</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这个函数调用的效果是：从空字符串开始，把vec里的每个元素连接成一个字符串。</p>
+<h5 id="自定义数据类型的处理"><a href="#自定义数据类型的处理" class="headerlink" title="自定义数据类型的处理"></a>自定义数据类型的处理</h5><p>对于自定义数据类型，我们就需要自己动手写一个回调函数来实现自定义数据的处理，然后让它作为accumulate()的第四个参数，accumulate()的原型为</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">template<span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token class-name">_InIt</span><span class="token punctuation">,</span> <span class="token keyword">class</span> <span class="token class-name">_Ty</span><span class="token punctuation">,</span>  <span class="token keyword">class</span> <span class="token class-name">_Fn2</span><span class="token operator">&gt;</span> 
+inline _Ty <span class="token function">_Accumulate</span><span class="token punctuation">(</span><span class="token parameter">_InIt _First<span class="token punctuation">,</span> _InIt _Last<span class="token punctuation">,</span> _Ty _Val<span class="token punctuation">,</span> _Fn2 _Func</span><span class="token punctuation">)</span>  
+<span class="token punctuation">{</span>   <span class="token comment">// return sum of _Val and all in [_First, _Last), using _Func  </span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> _First <span class="token operator">!=</span> _Last<span class="token punctuation">;</span> <span class="token operator">++</span>_First<span class="token punctuation">)</span>  
+        _Val <span class="token operator">=</span> <span class="token function">_Func</span><span class="token punctuation">(</span>_Val<span class="token punctuation">,</span> <span class="token operator">*</span>_First<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>_Val<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>例如：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">struct</span> <span class="token class-name">Grade</span>  
+<span class="token punctuation">{</span>  
+    string name<span class="token punctuation">;</span>  
+    <span class="token keyword">int</span> grade<span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span>  
+  
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token punctuation">{</span>  
+    Grade subject<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>  
+        <span class="token punctuation">{</span> <span class="token string">"English"</span><span class="token punctuation">,</span> <span class="token number">80</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>  
+        <span class="token punctuation">{</span> <span class="token string">"Biology"</span><span class="token punctuation">,</span> <span class="token number">70</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>  
+        <span class="token punctuation">{</span> <span class="token string">"History"</span><span class="token punctuation">,</span> <span class="token number">90</span> <span class="token punctuation">}</span>  
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>  
+  
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token function">accumulate</span><span class="token punctuation">(</span>subject<span class="token punctuation">,</span> subject <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> Grade b<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">.</span>grade<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1892,7 +1923,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">182.2k</span>&nbsp;字
+                class="white-color">182.5k</span>&nbsp;字
             
             
             
