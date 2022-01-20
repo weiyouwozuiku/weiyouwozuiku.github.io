@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-18
+                    2022-01-19
                 </div>
                 
 
@@ -866,6 +866,7 @@
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> m <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> B<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>num2<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token comment">// 注意这里的是+=，因为这里C[i+j]的值可能需要被多次计算</span>
                 C<span class="token punctuation">[</span>i <span class="token operator">+</span> j<span class="token punctuation">]</span> <span class="token operator">+=</span> A<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> B<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
@@ -883,7 +884,7 @@
         <span class="token keyword">while</span> <span class="token punctuation">(</span>k <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> res <span class="token operator">+=</span> C<span class="token punctuation">[</span>k<span class="token operator">--</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">'0'</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h2 id="51-60"><a href="#51-60" class="headerlink" title="51-60"></a>51-60</h2><h4 id="51-N皇后"><a href="#51-N皇后" class="headerlink" title="51.N皇后"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/n-queens">51.N皇后</a></h4><h4 id="52-N皇后II"><a href="#52-N皇后II" class="headerlink" title="52.N皇后II"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/n-queens-ii">52.N皇后II</a></h4><h4 id="53"><a href="#53" class="headerlink" title="53."></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-subarray">53.</a></h4><h2 id="61-70"><a href="#61-70" class="headerlink" title="61-70"></a>61-70</h2><h4 id="61-旋转链表"><a href="#61-旋转链表" class="headerlink" title="61. 旋转链表"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rotate-list/">61. 旋转链表</a></h4><p>本题的移动位置k会给的很大，需要进行取余操作。</p>
@@ -1572,7 +1573,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">182k</span>&nbsp;字
+                class="white-color">182.2k</span>&nbsp;字
             
             
             
