@@ -429,6 +429,7 @@ public:
         for (int i = m - 1; i >= 0; i--) B.push_back(num2[i] - '0');
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
+              // 注意这里的是+=，因为这里C[i+j]的值可能需要被多次计算
                 C[i + j] += A[i] * B[j];
             }
         }

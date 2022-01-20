@@ -30,6 +30,24 @@ public:
 };
 ```
 
+#### [724. 寻找数组的中心下标](https://leetcode-cn.com/problems/find-pivot-index/)
+
+本题将题目抽象出来就是解题的代码。
+
+```cpp
+class Solution {
+public:
+    int pivotIndex(vector<int> &nums) {
+        int total=accumulate(nums.begin(),nums.end(),0);
+        for(int i=0,s=0;i<nums.size();i++){
+            if(s==total-nums[i]-s) return i;
+            else s+=nums[i];
+        }
+        return -1;
+    }
+};
+```
+
 
 
 #### [781. 森林中的兔子](https://leetcode-cn.com/problems/rabbits-in-forest/)

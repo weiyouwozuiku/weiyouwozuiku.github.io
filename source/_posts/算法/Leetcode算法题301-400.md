@@ -9,6 +9,30 @@ tags: Cpp
 categories: 算法
 ---
 
+#### [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable/)
+
+前缀和模板题，注意下下标是从0开始的，适当的将前缀和数组右移一位。
+
+```cpp
+class NumArray {
+public:
+    vector<int> ans;
+
+    NumArray(vector<int> &nums) {
+        int n = nums.size();
+      // 只有声明了容量才能直接使用下标
+        ans.resize(n + 1);
+        for (int i = 0; i < n; i++) ans[i + 1] = ans[i] + nums[i];
+    }
+
+    int sumRange(int left, int right) {
+        return ans[right + 1] - ans[left];
+    }
+};
+```
+
+
+
 #### [341. 扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator/)
 
 递归写法：
