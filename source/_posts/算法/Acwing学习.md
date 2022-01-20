@@ -1127,3 +1127,59 @@ readLine()方法返回的是字符串，因此要使用BufferReader输入一些�
 9. $n \leq 10^{18} \rightarrow O(logn)$，最大公约数，快速幂
 10. $n \leq 10^{1000} \rightarrow O((logn)^2)$，高精度加减乘除
 11. $n \leq 10^{100000} \rightarrow O(logk * loglogk)$，k表示位数，高精度加减，FFT/NTT
+
+#### accumulate函数
+
+accumulate定义在#include<numeric>中，作用有两个，一个是累加求和，另一个是自定义类型数据的处理。
+
+##### 累加求和
+
+```cpp
+int total = accumulate(nums.begin(), nums.end(), 0);
+```
+
+accumulate带有三个形参：头两个形参指定要累加的元素范围，第三个形参则是累加的初值。
+
+可以实现将`vector<string>`类型的元素链接起来。
+
+```cpp
+string sum = accumulate(v.begin() , v.end() , string(" "));  
+```
+
+这个函数调用的效果是：从空字符串开始，把vec里的每个元素连接成一个字符串。
+
+##### 自定义数据类型的处理
+
+对于自定义数据类型，我们就需要自己动手写一个回调函数来实现自定义数据的处理，然后让它作为accumulate()的第四个参数，accumulate()的原型为
+
+```javascript
+template<class _InIt, class _Ty,  class _Fn2> 
+inline _Ty _Accumulate(_InIt _First, _InIt _Last, _Ty _Val, _Fn2 _Func)  
+{   // return sum of _Val and all in [_First, _Last), using _Func  
+    for (; _First != _Last; ++_First)  
+        _Val = _Func(_Val, *_First);  
+    return (_Val);  
+} 
+```
+
+例如：
+
+```cpp
+struct Grade  
+{  
+    string name;  
+    int grade;  
+};  
+  
+int main()  
+{  
+    Grade subject[3] = {  
+        { "English", 80 },  
+        { "Biology", 70 },  
+        { "History", 90 }  
+    };  
+  
+    int sum = accumulate(subject, subject + 3, 0, [](int a, Grade b){return a + b.grade; });  
+}
+```
+
