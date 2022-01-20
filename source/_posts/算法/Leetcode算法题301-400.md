@@ -9,6 +9,8 @@ tags: Cpp
 categories: 算法
 ---
 
+## 301-310
+
 #### [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable/)
 
 前缀和模板题，注意下下标是从0开始的，适当的将前缀和数组右移一位。
@@ -32,6 +34,11 @@ public:
 ```
 
 
+
+## 311-320
+## 321-330
+## 331-340
+## 341-350
 
 #### [341. 扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator/)
 
@@ -66,6 +73,12 @@ private:
 };
 ```
 
+#### 
+
+## 351-360
+## 361-370
+## 371-380
+
 #### [371. 两整数之和](https://leetcode-cn.com/problems/sum-of-two-integers/)
 
 加法可以分为两步：
@@ -83,4 +96,11 @@ public:
     }
 };
 ```
+
+
+
+## 381-390
+## 391-400
+
+
 

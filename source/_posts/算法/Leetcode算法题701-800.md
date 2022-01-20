@@ -9,6 +9,8 @@ tags: Cpp
 categories: 算法
 ---
 
+## 701-710
+
 #### [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
 
 ```cpp
@@ -30,25 +32,35 @@ public:
 };
 ```
 
+#### 
+
+## 711-720
+## 721-730
+
 #### [724. 寻找数组的中心下标](https://leetcode-cn.com/problems/find-pivot-index/)
 
 本题将题目抽象出来就是解题的代码。
 
 ```cpp
-class Solution {
-public:
-    int pivotIndex(vector<int> &nums) {
-        int total=accumulate(nums.begin(),nums.end(),0);
-        for(int i=0,s=0;i<nums.size();i++){
-            if(s==total-nums[i]-s) return i;
-            else s+=nums[i];
-        }
-        return -1;
-    }
-};
+ class Solution {
+ public:
+     int pivotIndex(vector<int> &nums) {
+         int total=accumulate(nums.begin(),nums.end(),0);
+         for(int i=0,s=0;i<nums.size();i++){
+             if(s==total-nums[i]-s) return i;
+             else s+=nums[i];
+         }
+         return -1;
+     }
+ };
 ```
 
-
+## 731-740
+## 741-750
+## 751-760
+## 761-770
+## 771-780
+## 781-790
 
 #### [781. 森林中的兔子](https://leetcode-cn.com/problems/rabbits-in-forest/)
 
@@ -82,4 +94,10 @@ public:
     }
 };
 ```
+
+
+
+## 791-800
+
+
 
