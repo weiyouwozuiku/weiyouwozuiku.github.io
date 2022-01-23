@@ -485,7 +485,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    612
+                    619
                 </div>
                 
 
@@ -555,7 +555,7 @@
         <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>数学法</p>
-<p>时间复杂度为$O(n)$</p>
+<p>时间复杂度为$O(n)$，空间复杂度$O(1)$</p>
 <p>从数学的角度考虑，可以将本题转换为统计任意值<code>arr[i]</code>在奇数子数组中出现次数。</p>
 <p>对于原数组而言，其左边有$leftCount=i$个数，右边有$rightCount=n-i-1$个数。</p>
 <p>形式化表达为：<code>arr[i]</code>作为某个奇数子数组的成员的充要条件为：其所在奇数子数组左右两边的元素奇偶性相同。即，左侧元素奇数个，右侧元素一定也是奇数个，从而保证加上arr[i]本身总体的奇数个。偶数的情况同样如此。</p>
