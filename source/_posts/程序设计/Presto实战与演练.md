@@ -19,5 +19,6 @@ Facebook的数据仓库存储在少量大型Hadoop/HDFS集群。Hive是Facebook�
 
 1. [Presto官方文档](http://prestodb.io/)
 2. [Facebook Presto团队介绍Presto的文章](https://www.facebook.com/notes/facebook-engineering/presto-interacting-with-petabytes-of-data-at-facebook/10151786197628920)
-3. [SlideShare两个分享Presto 的PPT](http://www.slideshare.net/zhusx/presto-overview?from_search=1 http://www.slideshare.net/frsyuki/hadoop-source-code-reading-15-in-japan-presto)
+3. [SlideShare两个分享Presto的PPT](http://www.slideshare.net/zhusx/presto-overview?from_search=1&&http://www.slideshare.net/frsyuki/hadoop-source-code-reading-15-in-japan-presto)
 4. 美团技术团队，[Presto实现原理和美团的使用实践](https://tech.meituan.com/2014/06/16/presto.html)，2014
+
