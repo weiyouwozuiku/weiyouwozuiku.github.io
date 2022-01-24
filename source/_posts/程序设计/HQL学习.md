@@ -31,6 +31,14 @@ HQL 查询包括以下步骤:
 4. 如果HQL语句包含参数，则调用Query的setXxx方法为参数赋值。
 5. 调用Query对象的list()或uniqueResult()方法返回查询结果列表（持久化实体集）
 
+Qurey 接口支持方法链编程风格, 它的 setXxx() 方法返回自身实例, 而不是 void 类型，因此可以写类似于`.setXxx().setXxx().setXxx()...`样式的语句。
+
+## HQL VS SQL
+
+HQL 查询语句是面向对象的, Hibernate 负责解析 HQL 查询语句, 然后根据对象-关系映射文件中的映射信息, 把 HQL 查询语句翻译成相应的 SQL 语句。HQL 查询语句中的主体是域模型中的类及类的属性。
+
+SQL 查询语句是与关系数据库绑定在一起的。SQL 查询语句中的主体是数据库表及表的字段。
+
 ## 参考文献
 
 1. CSDN，[深入HQL学习以及HQL和SQL的区别](https://blog.csdn.net/qq_28633249/article/details/77884062)，2017
