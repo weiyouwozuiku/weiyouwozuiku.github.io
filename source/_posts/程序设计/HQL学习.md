@@ -39,6 +39,21 @@ HQL 查询语句是面向对象的, Hibernate 负责解析 HQL 查询语句, 然
 
 SQL 查询语句是与关系数据库绑定在一起的。SQL 查询语句中的主体是数据库表及表的字段。
 
+HQL与SQL基本一致，在用法上：
+
+1. HQL不支持行级别的增删改，所有数据在加载时就已经确定好了，不可更改，只能整个分区覆盖写
+2. 不支持事务
+3. 支持分区存储
+
+HQL有以下特点：
+
+1. 不支持等值连接，一般使用left join、right join、或者inner join替代
+2. 不能智能识别`concat(';',key')`，只会将分号作为SQL结束符
+3. 不支持insert into、update、delete等操作
+4. HQL中String类型的字段若是空(empty)字符串, 即长度为0, 那么对它进行IS NULL的判断结果是False，使用left join可以进行筛选行
+5. 不支持 ‘< dt <’这种格式的范围查找，可以用dt in(”,”)或者between替代
+
 ## 参考文献
 
 1. CSDN，[深入HQL学习以及HQL和SQL的区别](https://blog.csdn.net/qq_28633249/article/details/77884062)，2017
+2. 简书，[【数据库】HIVE SQL与SQL的区别](https://www.jianshu.com/p/0696a52226bb)，2019
