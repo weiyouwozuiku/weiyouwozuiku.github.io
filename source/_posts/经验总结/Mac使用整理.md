@@ -97,6 +97,7 @@ categories: 经验总结
 - ncdu
 - axel
 - glow或mdv，终端markdown文本阅读器
+- ipython
 
 ## zsh配置
 
