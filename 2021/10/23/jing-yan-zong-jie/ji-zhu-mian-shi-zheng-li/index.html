@@ -1,4 +1,317 @@
-<!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="utf-8"><meta name="keywords" content="技术面试整理, 博客"><meta name="description" content="个人学习储备知识与经验的秘密基地"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta name="renderer" content="webkit|ie-stand|ie-comp"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>技术面试整理 | 不二博客</title><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/favicon.png"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/awesome/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/materialize/materialize.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aos/aos.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/animate/animate.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/lightGallery/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/css/matery.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/css/my.css"><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/jquery/jquery.min.js"></script><meta name="generator" content="Hexo 5.4.1"><style>.github-emoji{position:relative;display:inline-block;width:1.2em;min-height:1.2em;overflow:hidden;vertical-align:top;color:transparent}.github-emoji>span{position:relative;z-index:10}.github-emoji .fancybox,.github-emoji img{margin:0!important;padding:0!important;border:none!important;outline:0!important;text-decoration:none!important;user-select:none!important;cursor:auto!important}.github-emoji img{height:1.2em!important;width:1.2em!important;position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;user-select:none!important;cursor:auto!important}.github-emoji-fallback{color:inherit}.github-emoji-fallback img{opacity:0!important}</style></head><body><header class="navbar-fixed"><nav id="headNav" class="bg-color nav-transparent"><div id="navContainer" class="nav-wrapper container"><div class="brand-logo"><a href="/" class="waves-effect waves-light"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/logo.png" class="logo-img" alt="LOGO"> <span class="logo-span">不二博客</span></a></div><a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a><ul class="right nav-menu"><li class="hide-on-med-and-down nav-item"><a href="/" class="waves-effect waves-light"><i class="fas fa-home" style="zoom:.6"></i> <span>首页</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fas fa-tags" style="zoom:.6"></i> <span>标签</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fas fa-bookmark" style="zoom:.6"></i> <span>分类</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fas fa-archive" style="zoom:.6"></i> <span>归档</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/about" class="waves-effect waves-light"><i class="fas fa-user-circle" style="zoom:.6"></i> <span>关于</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fas fa-comments" style="zoom:.6"></i> <span>留言板</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fas fa-address-book" style="zoom:.6"></i> <span>友情链接</span></a></li><li><a href="#searchModal" class="modal-trigger waves-effect waves-light"><i id="searchIcon" class="fas fa-search" title="搜索" style="zoom:.85"></i></a></li></ul><div id="mobile-nav" class="side-nav sidenav"><div class="mobile-head bg-color"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/logo.png" class="logo-img circle responsive-img"><div class="logo-name">不二博客</div><div class="logo-desc">个人学习储备知识与经验的秘密基地</div></div><ul class="menu-list mobile-menu-list"><li class="m-nav-item"><a href="/" class="waves-effect waves-light"><i class="fa-fw fas fa-home"></i> 首页</a></li><li class="m-nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fa-fw fas fa-tags"></i> 标签</a></li><li class="m-nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fa-fw fas fa-bookmark"></i> 分类</a></li><li class="m-nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fa-fw fas fa-archive"></i> 归档</a></li><li class="m-nav-item"><a href="/about" class="waves-effect waves-light"><i class="fa-fw fas fa-user-circle"></i> 关于</a></li><li class="m-nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fa-fw fas fa-comments"></i> 留言板</a></li><li class="m-nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fa-fw fas fa-address-book"></i> 友情链接</a></li><li><div class="divider"></div></li><li><a href="https://github.com/weiyouwozuiku" class="waves-effect waves-light" target="_blank"><i class="fab fa-github-square fa-fw"></i> Fork Me</a></li></ul></div></div><style>.nav-transparent .github-corner{display:none!important}.github-corner{position:absolute;z-index:10;top:0;right:0;border:0;transform:scale(1.1)}.github-corner svg{color:#0f9d58;fill:#fff;height:64px;width:64px}.github-corner:hover .octo-arm{animation:a .56s ease-in-out}.github-corner .octo-arm{animation:none}@keyframes a{0%,to{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}</style><a href="https://github.com/weiyouwozuiku" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"></path><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"></path></svg></a></nav></header><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/cryptojs/crypto-js.min.js"></script><script>(function() {
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="技术面试整理, 博客">
+    <meta name="description" content="个人学习储备知识与经验的秘密基地">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>技术面试整理 | 不二博客</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">不二博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">不二博客</div>
+        <div class="logo-desc">
+            
+            个人学习储备知识与经验的秘密基地
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/weiyouwozuiku" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/weiyouwozuiku" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
         let pwd = '15f294caf38ec6e12e7337656884934872ee726ee3b9bf8ba9573bedbc611d6b';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
@@ -6,14 +319,888 @@
                 location.href = '/';
             }
         }
-    })();</script><div class="bg-cover pd-header post-cover" style="background-image:url(https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/技术面试整理.jpg)"><div class="container" style="right:0;left:0"><div class="row"><div class="col s12 m12 l12"><div class="brand"><h1 class="description center-align post-title">技术面试整理</h1></div></div></div></div></div><main class="post-container content"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/tocbot/tocbot.css"><style>#articleContent h1::before,#articleContent h2::before,#articleContent h3::before,#articleContent h4::before,#articleContent h5::before,#articleContent h6::before{display:block;content:" ";height:100px;margin-top:-100px;visibility:hidden}#articleContent :focus{outline:0}.toc-fixed{position:fixed;top:64px}.toc-widget{width:345px;padding-left:20px}.toc-widget .toc-title{padding:35px 0 15px 17px;font-size:1.5rem;font-weight:700;line-height:1.5rem}.toc-widget ol{padding:0;list-style:none}#toc-content{padding-bottom:30px;overflow:auto}#toc-content ol{padding-left:10px}#toc-content ol li{padding-left:10px}#toc-content .toc-link:hover{color:#42b983;font-weight:700;text-decoration:underline}#toc-content .toc-link::before{background-color:transparent;max-height:25px;position:absolute;right:23.5vw;display:block}#toc-content .is-active-link{color:#42b983}#floating-toc-btn{position:fixed;right:15px;bottom:76px;padding-top:15px;margin-bottom:0;z-index:998}#floating-toc-btn .btn-floating{width:48px;height:48px}#floating-toc-btn .btn-floating i{line-height:48px;font-size:1.4rem}</style><div class="row"><div id="main-content" class="col s12 m12 l9"><div id="artDetail"><div class="card"><div class="card-content article-info"><div class="row tag-cate"><div class="col s7"><div class="article-tag"><a href="/tags/%E9%9D%A2%E8%AF%95/"><span class="chip bg-color">面试</span></a></div></div><div class="col s5 right-align"><div class="post-cate"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">经验总结</a></div></div></div><div class="post-info"><div class="post-date info-break-policy"><i class="far fa-calendar-minus fa-fw"></i> 发布日期:&nbsp;&nbsp; 2021-10-23</div><div class="post-date info-break-policy"><i class="far fa-calendar-check fa-fw"></i> 更新日期:&nbsp;&nbsp; 2021-10-31</div><div class="info-break-policy"><i class="far fa-file-word fa-fw"></i> 文章字数:&nbsp;&nbsp; 4k</div><div class="info-break-policy"><i class="far fa-clock fa-fw"></i> 阅读时长:&nbsp;&nbsp; 13 分</div><div id="busuanzi_container_page_pv" class="info-break-policy"><i class="far fa-eye fa-fw"></i> 阅读次数:&nbsp;&nbsp;<span id="busuanzi_value_page_pv"></span></div></div></div><hr class="clearfix"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/prism/prism.css"><style>code[class*=language-],pre[class*=language-]{white-space:pre-wrap!important}</style><div class="card-content article-card-content"><div id="articleContent"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>首先作为一个有技术追求的人来说，面试绝对不等于跳槽。面试本身对于我们来说应该是一个自我检验与学习的方向性的指南。面试在刨除其找工作的原始目的之后，它更像是一个对于自身的考试与回顾。既然面试如此的重要，那我们如何全面的准备面试就显得尤为重要了。本文针对的都是技术性面试，其他类型的面试本文意义不大。另外本文主要关注技术，至于面试找工作中的一些面试技巧不会进行过多阐述。</p><h2 id="面试时间的选择"><a href="#面试时间的选择" class="headerlink" title="面试时间的选择"></a>面试时间的选择</h2><ol><li>永远把自己暴露在招聘市场上</li><li>入职时就要开始面试</li></ol><p>这不是为了跳槽，而是为了了解现在公司需要什么样的人才以及现在行业发展趋势以及对自己技术的检验。再加上现在越来越多倒挂现象的出现，我们需要更多的面试来让自己在真正跳槽的时候实现利益最大化。在入职时就准备面试是基于将面试作为自己学习目标制定与检验的环节。那么自然而然的就引入面试的第一步，如何写一个简历。</p><h2 id="如何写简历"><a href="#如何写简历" class="headerlink" title="如何写简历"></a>如何写简历</h2><blockquote><p>简历对于 自己是一份学习计划，对于HR是一份筛选条件，对于面试官是一个引导提问的工具。<br>本质上是对你职业生涯的发展规划！<br>简历是面向未来的，而不仅仅是复盘的！</p></blockquote><p>自己：在入职的时候就可以写一份简历作为自己的OKR。采用一种<strong>以终为始</strong>的思想，明确自己在工作中需要学到什么，用到什么，做到什么成效，有什么产出，是否便于知识迁移，以此产生一个学习计划，并一步步<strong>落地</strong>。</p><p>HR：在简历中需要有HR对应岗位的关键词。</p><p>面试官：突出自己的优势或者实现上的困难点，让面试官对此感兴趣。</p><h3 id="基本注意点"><a href="#基本注意点" class="headerlink" title="基本注意点"></a>基本注意点</h3><ol><li>不要造假。</li><li>使用PDF，避免文件格式导致的问题，简洁工整即可。</li><li>简历要倒叙，最新的经历放在前面。</li><li>姓名，手机号，邮箱，博客，开源贡献，技术分享等放在最前面。</li><li>工作十年以下不要超过两页，最多做多两页半。</li></ol><h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><ol><li>准确，简单，通过博客与code展示自己</li><li>符合职业的一句话自我评价会让人印象深刻，这个远比放一个头像重要</li></ol><p>没人在乎你长什么样子，做技术主要考虑的只是这个人以后想不想一起共事。<strong>有一个明确的自我介绍非常重要，突出自己在职场上的价值</strong>。可以显示一个心理暗示的作用。</p><h3 id="项目经历"><a href="#项目经历" class="headerlink" title="项目经历"></a>项目经历</h3><h4 id="挖掘项目亮点"><a href="#挖掘项目亮点" class="headerlink" title="挖掘项目亮点"></a>挖掘项目亮点</h4><ol><li>思考和积累<ol><li>领域定位：明确自己的定位，并将视野放开，不要局限于现在自己所处的模块或者单一的工作性质，而是以一个更高维度的角度思考自己工作的意义，并以此思考和解决问题。<strong>提高自己的视野与格局</strong>。</li><li>请教牛人：在明确自己的领域定位之后，去主动了解前沿的知识与技术，请教牛人。</li><li>技术分享：参与一些技术分享与技术论坛，不要寄希望于其有很多细节或者价值，但是依旧能有一些收获。多看一些大厂的技术分享。推荐一下大厂技术分享途径：<ul><li><a target="_blank" rel="noopener" href="https://tech.meituan.com/">美团技术团队</a></li><li>阿里技术（公众号）</li><li>阿里巴巴中间件（公众号）</li><li><a target="_blank" rel="noopener" href="http://mysql.taobao.org/monthly/">阿里数据库内核月报</a></li><li><a target="_blank" rel="noopener" href="https://insights.thoughtworks.cn/">ThoughtWorks 洞见</a></li><li><a target="_blank" rel="noopener" href="https://xiaomi-info.github.io/">小米信息部技术团队</a></li><li><a target="_blank" rel="noopener" href="https://blogs.360.cn/">360 核心安全技术博客</a></li><li><a target="_blank" rel="noopener" href="https://tech.ipalfish.com/blog/">伴鱼技术团队</a></li><li><a target="_blank" rel="noopener" href="https://juejin.cn/user/1838039172387262/posts">字节跳动技术团队</a></li><li>滴滴技术（公众号）</li></ul></li></ol></li><li>以终为始<ol><li>从<strong>效率，效果，质量，成本</strong>四个方向反推技术亮点</li><li>如果系统最终的演进是这个样子，那么<strong>我做了什么可以使其推进？</strong>，反向push自己持续进化。或者自己想要转型，将自己想学的知识落地到项目中或者工作中，优化某个环节或者实现某种功能。</li></ol></li><li>融合目标岗位的招聘要求<ol><li>对招聘JD分析，从中找到与自身项目结合点</li><li><strong>不是简历去找匹配的JD，而是让简历匹配JD</strong></li></ol></li></ol><h4 id="使用STAR原则描述项目"><a href="#使用STAR原则描述项目" class="headerlink" title="使用STAR原则描述项目"></a>使用STAR原则描述项目</h4><table><thead><tr><th align="center">背景</th><th align="center">任务</th><th align="center">行动</th><th align="center">结果（效率，效果，质量，成本）</th></tr></thead><tbody><tr><td align="center">简练描述(几个字说明这是什么业务)</td><td align="center">在这个业务中主要负责什么，不要写自己没做过的，因为简历是引导面试官提问的工具</td><td align="center">做了什么事，适当写一些技术点，不要写怎么做和为什么做，适当留白给面试官</td><td align="center">先有基数后有比例，用绝对值而不是相对值，将数值转化为钱</td></tr><tr><td align="center">直播系统</td><td align="center">营收接口开发</td><td align="center">优化接口性能</td><td align="center">延迟从400ms降低到200ms，单位时间内可以刷更多礼物，增加约一倍收入</td></tr><tr><td align="center">测试平台</td><td align="center">测试效率工程</td><td align="center">编写测试用例</td><td align="center">编写500个测试用例，自动化测试比例从20%提高到80%，节省800测试人日</td></tr><tr><td align="center">信息流推荐</td><td align="center">算法工程</td><td align="center">XXX策略上线</td><td align="center">升了用户留存率，每月200w新用户留存率从20%提高到35%，相当于节省推广费580w</td></tr><tr><td align="center">存储系统</td><td align="center">redis集群运维开发</td><td align="center">空间压缩算法优化</td><td align="center">每日写入1亿条数据，占用内存1T缩减到800G，减少20%</td></tr></tbody></table><h2 id="面向简历工作"><a href="#面向简历工作" class="headerlink" title="面向简历工作"></a>面向简历工作</h2><blockquote><p>积极主动的去做事，带领团队推进架构演进成为 tech leader</p></blockquote><p>面试的根本目的不是跳槽，其主要作用是晋升。面试只是一种晋升的手段，检验能力的一个手段。使用晋升来解决倒挂，只要我晋升的足够快，倒挂就追不上我。</p><p>管理的晋升是有限的，而技术的晋升是无限的。但是<strong>技术的晋升必须要做到把技术引进入，做到真正的突破才行</strong>。技术本身具有创新性。</p><p>不要投当前等级的面试，例如现在是D5，那就去投对应D6的岗位，而不要找D5对应的职级岗位。</p><p>使用面向简历工作，推进架构的演进，实现自驱进步。最终的目标是将自己变成一个技术领导者的身份，带领团队去解决技术问题，<strong>成为团队的核心人物</strong>。</p><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/%E9%9D%A2%E8%AF%95%E5%B7%A5%E4%BD%9C%E6%B5%81.png" alt="面试工作流.png"></p><h2 id="如何投递简历"><a href="#如何投递简历" class="headerlink" title="如何投递简历"></a>如何投递简历</h2><p>现在我们已经有了一份像样的简历，那么如何投递就成了最直接的问题。以下给出表格进行分析：</p><table><thead><tr><th align="center"></th><th align="center">熟人内推</th><th align="center">半熟人内推</th><th align="center">猎头</th><th align="center">招聘网站</th></tr></thead><tbody><tr><td align="center">机会</td><td align="center">少</td><td align="center">中</td><td align="center">多</td><td align="center">最多</td></tr><tr><td align="center">信息</td><td align="center">多</td><td align="center">中</td><td align="center">少</td><td align="center">最少</td></tr></tbody></table><p>在对以上表格建立共识的基础之上，给出一些相应的建议：<strong>扩大半熟人交友圈，交流群水群，技术论坛，开源社区，参加公司社团</strong>。</p><h2 id="如何准备后端技术面试"><a href="#如何准备后端技术面试" class="headerlink" title="如何准备后端技术面试"></a>如何准备后端技术面试</h2><p>在知道了所有面试的前置知识之后，自然而然的就诞生了一个新的问题。那就是，如何准备后端技术面试。以下分点进行阐述：</p><h3 id="计算机科学"><a href="#计算机科学" class="headerlink" title="计算机科学"></a>计算机科学</h3><p>首先计算机不能简单的理解为一个工程，而应该是一门科学。虽然大家戏称计算机科学家，但是基础的计算机科学都不了解万万不行。</p><p>首先<strong>写在书上的知识都属于常识</strong>，不要认为看了书就万事大吉。这才是学习的第一步，构建我们学习的基础而已。</p><p>以下两本书帮助我们构建对计算机世界的基本世界观，列出的章节可以作为面试时应急看的章节，这只是鉴于书本内容较多。<strong>有时间的时候，必须读完</strong>。</p><ul><li>深入理解计算机系统（原书第三版）<ul><li>第一章：计算机系统漫游</li><li>第二章：信息的表达和处理</li><li>第四章：处理器的体系结构</li><li>第五章：优化程序性能</li><li>第六章：存储器层次结构</li><li>第九章：虚拟内存</li><li>第十二章：并发编程</li></ul></li><li>计算机程序的构造与解释（原书第二版）<ul><li>全书</li></ul></li><li>计算机网络自顶向下（原书第七版）<ul><li>第一章：计算机网络和因特网</li><li>第二章：应用层</li><li>第三章：运输层</li><li>第四章：网络层</li><li>第五章：链路层</li></ul></li><li>理解了实现在谈网络性能（全书）</li><li><a target="_blank" rel="noopener" href="https://cs144.github.io/">CS144-LAB</a> 实现一个TCP协议栈</li><li>现代操作系统：原理与实现（银杏书）（全书）</li><li><a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.S081/2020/">6.S081-LAB</a></li><li>数据库系统实现（全书）</li><li><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2021/">15445-LAB</a></li><li><a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.824/">MIT6824课程</a></li></ul><h3 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h3><blockquote><p>面试的时间有限，因此不会考察过难的算法。<br>主要针对编码能力的考察，主要是看思路与预编是否正确，代码风格是否良好等。<br>就算遇到了自己刷过的题目，也要假装思考一下，不然可以让面试官觉得你是背过得，需要重新换一题。</p></blockquote><ol><li>先看 leetcode 简单和中等难度的前500题的最优解，能用自然语言描述清楚。</li><li>在大脑中训练出一个决策树。</li><li>训练自己估算空间和时间复杂度的能力。</li><li>对每类题随机抽取两道题，限时编写(要求15分钟AC)，统计成绩。</li><li>反复上述练习，直到所有类型题目都可以在15分钟内AC通过。</li></ol><h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3><p>多关注和积累一些大厂的设计分享。比如IM系统设计，秒杀系统。怎么做思考，怎么去权衡。</p><h3 id="开源技术"><a href="#开源技术" class="headerlink" title="开源技术"></a>开源技术</h3><blockquote><p>编程语言，redis，mysql，kafka，zookeeper/etcd，rpc，HBase，es等等</p></blockquote><ol><li>深入语言的底层源码，看sdk</li><li><a target="_blank" rel="noopener" href="http://redisbook.com/">Redis 设计与实现</a></li><li>MySQL是怎样运行的</li><li>深入理解Kafka：核心设计与实践原理</li><li><a target="_blank" rel="noopener" href="https://juejin.cn/book/6844733722936377351">深入理解 RPC : 基于 Python 自建分布式高并发 RPC 服务</a></li><li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CK4y127Lj/">Raft 分布式一致性(共识)算法 论文精读与ETCD源码分析</a></li><li><a target="_blank" rel="noopener" href="https://zookeeper.apache.org/">Zookeeper/etcd 官方文档</a></li></ol><h3 id="专业领域"><a href="#专业领域" class="headerlink" title="专业领域"></a>专业领域</h3><ol><li>深挖项目经历中所运用的技术（开源组件，理论知识），绘制思维导图的方式，逐步深入。</li><li>融合目标岗位中的招聘要求</li><li>逐一完成知识的学习，制定计划（书，视频，源码，论文）。</li><li>输出博客 -&gt; <strong>展示你在本专业领域的权威性</strong></li></ol><h2 id="面试表现"><a href="#面试表现" class="headerlink" title="面试表现"></a>面试表现</h2><h3 id="简历挖掘"><a href="#简历挖掘" class="headerlink" title="简历挖掘"></a>简历挖掘</h3><ol><li>对涉及的知识点深度学习，录音进行模拟面试。</li><li>绘制思维导图，对简历中可能被问的知识点建立一个DFS遍历的知识点树。</li><li>想象面试官可能关心的问题，并向自己提问，回放自己的录音，找到改进点。</li></ol><h3 id="场景分析"><a href="#场景分析" class="headerlink" title="场景分析"></a>场景分析</h3><blockquote><p>好的面试是涉及出来的。</p></blockquote><h4 id="编码考察"><a href="#编码考察" class="headerlink" title="编码考察"></a>编码考察</h4><ol><li>提前沟通思路，<strong>题意不明及时询问</strong>，不要上来就写代码</li><li>写代码要仔细，自己没有推敲完善时，不要着急邀请面试官review，<strong>自己需要加入一些bad case进行边界判断</strong>。一旦请面试官review代码，发现bug会严重影响面试。</li><li>自己的代码要能讲明白，也要经得住挑战</li><li>如果不能写出代码，也至少明确给出思路或合理猜测，<strong>甚至可以请面试官换一个题目</strong></li></ol><p>最简单的bad case比如输入int，考虑负数，0，1是不是都可以；如果是字符串，空字符串可不可以，特别长的字符串可不可以。</p><h4 id="专业领域-1"><a href="#专业领域-1" class="headerlink" title="专业领域"></a>专业领域</h4><ol><li>速不要太快，讲明白技术亮点(<strong>为什么，有什么价值，怎么做，原理是什么，还能怎么改进</strong>)</li><li>遵循金字塔结构，采用总-分结构，<strong>先讲业务背景，再说技术架构，再说组件接口交互，再细化到具体数据结构和算法</strong>。</li><li>业务背景，和技术架构如果面试官没有多问，应该快速介绍完毕，并重点突出你自己在这个项目中的技术亮点与成长(<strong>性能优化，排查问题，架构决策能力</strong>)，<strong>用一些技术指标来衡量自己的实现效果</strong></li><li>如果是资深研发面试，可以将更多精力放在，前沿技术的落地过程讲解(<strong>如何推进架构升级</strong>)</li></ol><h4 id="系统设计-1"><a href="#系统设计-1" class="headerlink" title="系统设计"></a>系统设计</h4><p>注意平时积累，观察日常使用的app，去思考这些app是如何设计的？然后去找资料印证。</p><ol><li>描述题目，确定问题边界，问题的约束条件。</li><li>容量预估，DAU * 每人平均使用接口次数 / 86400 -&gt; qps ，ptc99，存储空间，cdn消耗，平均值，峰值预估等等。</li><li><strong>寻找一般解</strong>， 一台服务器，一台数据库，实现基本功能的逻辑交互</li><li><strong>寻找更优解</strong>，逐步考虑约束条件，改进设计方案。注意具体问题具体分析，不要上来给一个庞大的系统架构设计。根据约束条件进行特性化分析。</li></ol><h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><ol><li>适当扩展，而不是问一句说一句。</li><li>说的<strong>越深越好</strong>，越多越好，直到面试官打断。</li><li><strong>认识到，基础知识的考察，是对程序员综合素质的考察，会说明一个人的潜力</strong>。</li></ol><h4 id="品质考察"><a href="#品质考察" class="headerlink" title="品质考察"></a>品质考察</h4><ol><li><strong>抗压</strong> 非自己一点也不会，否则绝对不能放弃，要努力给出方案，识别出这是压力测试。至少想十分钟，尽量想的全面，<strong>不要想到那里说到那里，给出的方案一定要靠谱</strong></li><li><strong>沟通</strong> 准确的表达出观点，需要不断练习，在准备阶段想清楚所有可能的提问</li><li><strong>情绪</strong> 编码，设计方案时一定要想清楚，不要反复找面试官review，<strong>避免做事急躁</strong></li><li><strong>稳定性</strong> 提前准备好，为什么跳槽，以及未来职业发展规划的说辞</li><li><strong>积极性</strong> 对这份职业的看法与态度，一定要有一个积极乐观的说辞。</li></ol><h2 id="如何谈薪"><a href="#如何谈薪" class="headerlink" title="如何谈薪"></a>如何谈薪</h2><ol><li>你这次跳槽是为了啥？ <strong>钱不到位 OR （工作没有挑战，换城市，职业发展）</strong>。立足于要么钱没到位要么职级没到位。涨薪超过百分之50才算突破。</li><li>手里有哪些offer? 不要交出offer，只是口头沟通。<strong>不要交薪资截图，因为offer的法律效益就是你泄露出去就失效了。</strong></li><li>期望薪资是多少？ 利用锚定效应，超出JD上限30%。不然就被倒挂。</li></ol><h2 id="如何养鱼与拒绝offer"><a href="#如何养鱼与拒绝offer" class="headerlink" title="如何养鱼与拒绝offer"></a>如何养鱼与拒绝offer</h2><ol><li>不要说太多offer，只说几个关键竞品公司offer。</li><li>不要截图等任何形式交出offer原件，这样才有回旋余地。</li><li>在没有offer的时候，可以空手套白狼。</li><li>管理预期，那就是我很热爱技术，但是现实情况必须要向钱看</li></ol><h2 id="结束也是开始"><a href="#结束也是开始" class="headerlink" title="结束也是开始"></a>结束也是开始</h2><ol><li>开始写更高职级的简历</li><li>在当前岗位，把简历上的规划一一实现</li><li>结合业务发展不断调整</li><li>去面更高级别的岗位</li><li>做上一职级的事情，可能会让你在本岗位晋升，那就直接把简历改成晋升PPT</li><li>时刻让自己暴露在招聘市场中，只有晋升才是王道。</li></ol><h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><h3 id="费曼学习法"><a href="#费曼学习法" class="headerlink" title="费曼学习法"></a>费曼学习法</h3><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/%E8%B4%B9%E6%9B%BC%E5%AD%A6%E4%B9%A0%E6%B3%95.jpg" alt="费曼学习法.jpg"></p><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol><li>飞书，<a target="_blank" rel="noopener" href="https://nxwz51a5wp.feishu.cn/docs/doccnRKVA5WoHZTlxNH5BcXO2og">如何准备一场服务端的技术面试</a>，2021</li><li>MBA智库百科，<a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/%E8%B4%B9%E6%9B%BC%E5%AD%A6%E4%B9%A0%E6%B3%95">费曼学习法</a></li></ol></div><hr><div class="reprint" id="reprint-statement"><div class="reprint__author"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-user">文章作者:</i></span> <span class="reprint-info"><a href="/about" rel="external nofollow noreferrer">不二</a></span></div><div class="reprint__type"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-link">文章链接:</i></span> <span class="reprint-info"><a href="http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/">http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/</a></span></div><div class="reprint__notice"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-copyright">版权声明:</i></span> <span class="reprint-info">本博客所有文章除特別声明外，均采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a> 许可协议。转载请注明来源 <a href="/about" target="_blank">不二</a> !</span></div></div><script async defer>document.addEventListener("copy", function (e) {
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/技术面试整理.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">技术面试整理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                <span class="chip bg-color">面试</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">
+                                经验总结
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-10-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-10-31
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    13 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>首先作为一个有技术追求的人来说，面试绝对不等于跳槽。面试本身对于我们来说应该是一个自我检验与学习的方向性的指南。面试在刨除其找工作的原始目的之后，它更像是一个对于自身的考试与回顾。既然面试如此的重要，那我们如何全面的准备面试就显得尤为重要了。本文针对的都是技术性面试，其他类型的面试本文意义不大。另外本文主要关注技术，至于面试找工作中的一些面试技巧不会进行过多阐述。</p>
+<h2 id="面试时间的选择"><a href="#面试时间的选择" class="headerlink" title="面试时间的选择"></a>面试时间的选择</h2><ol>
+<li>永远把自己暴露在招聘市场上</li>
+<li>入职时就要开始面试</li>
+</ol>
+<p>这不是为了跳槽，而是为了了解现在公司需要什么样的人才以及现在行业发展趋势以及对自己技术的检验。再加上现在越来越多倒挂现象的出现，我们需要更多的面试来让自己在真正跳槽的时候实现利益最大化。在入职时就准备面试是基于将面试作为自己学习目标制定与检验的环节。那么自然而然的就引入面试的第一步，如何写一个简历。</p>
+<h2 id="如何写简历"><a href="#如何写简历" class="headerlink" title="如何写简历"></a>如何写简历</h2><blockquote>
+<p>简历对于 自己是一份学习计划，对于HR是一份筛选条件，对于面试官是一个引导提问的工具。<br>本质上是对你职业生涯的发展规划！<br>简历是面向未来的，而不仅仅是复盘的！</p>
+</blockquote>
+<p>自己：在入职的时候就可以写一份简历作为自己的OKR。采用一种<strong>以终为始</strong>的思想，明确自己在工作中需要学到什么，用到什么，做到什么成效，有什么产出，是否便于知识迁移，以此产生一个学习计划，并一步步<strong>落地</strong>。</p>
+<p>HR：在简历中需要有HR对应岗位的关键词。</p>
+<p>面试官：突出自己的优势或者实现上的困难点，让面试官对此感兴趣。</p>
+<h3 id="基本注意点"><a href="#基本注意点" class="headerlink" title="基本注意点"></a>基本注意点</h3><ol>
+<li>不要造假。</li>
+<li>使用PDF，避免文件格式导致的问题，简洁工整即可。</li>
+<li>简历要倒叙，最新的经历放在前面。</li>
+<li>姓名，手机号，邮箱，博客，开源贡献，技术分享等放在最前面。</li>
+<li>工作十年以下不要超过两页，最多做多两页半。</li>
+</ol>
+<h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><ol>
+<li>准确，简单，通过博客与code展示自己</li>
+<li>符合职业的一句话自我评价会让人印象深刻，这个远比放一个头像重要</li>
+</ol>
+<p>没人在乎你长什么样子，做技术主要考虑的只是这个人以后想不想一起共事。<strong>有一个明确的自我介绍非常重要，突出自己在职场上的价值</strong>。可以显示一个心理暗示的作用。</p>
+<h3 id="项目经历"><a href="#项目经历" class="headerlink" title="项目经历"></a>项目经历</h3><h4 id="挖掘项目亮点"><a href="#挖掘项目亮点" class="headerlink" title="挖掘项目亮点"></a>挖掘项目亮点</h4><ol>
+<li>思考和积累<ol>
+<li>领域定位：明确自己的定位，并将视野放开，不要局限于现在自己所处的模块或者单一的工作性质，而是以一个更高维度的角度思考自己工作的意义，并以此思考和解决问题。<strong>提高自己的视野与格局</strong>。</li>
+<li>请教牛人：在明确自己的领域定位之后，去主动了解前沿的知识与技术，请教牛人。</li>
+<li>技术分享：参与一些技术分享与技术论坛，不要寄希望于其有很多细节或者价值，但是依旧能有一些收获。多看一些大厂的技术分享。推荐一下大厂技术分享途径：<ul>
+<li><a target="_blank" rel="noopener" href="https://tech.meituan.com/">美团技术团队</a></li>
+<li>阿里技术（公众号）</li>
+<li>阿里巴巴中间件（公众号）</li>
+<li><a target="_blank" rel="noopener" href="http://mysql.taobao.org/monthly/">阿里数据库内核月报</a></li>
+<li><a target="_blank" rel="noopener" href="https://insights.thoughtworks.cn/">ThoughtWorks 洞见</a></li>
+<li><a target="_blank" rel="noopener" href="https://xiaomi-info.github.io/">小米信息部技术团队</a></li>
+<li><a target="_blank" rel="noopener" href="https://blogs.360.cn/">360 核心安全技术博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://tech.ipalfish.com/blog/">伴鱼技术团队</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/user/1838039172387262/posts">字节跳动技术团队</a></li>
+<li>滴滴技术（公众号）</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>以终为始<ol>
+<li>从<strong>效率，效果，质量，成本</strong>四个方向反推技术亮点</li>
+<li>如果系统最终的演进是这个样子，那么<strong>我做了什么可以使其推进？</strong>，反向push自己持续进化。或者自己想要转型，将自己想学的知识落地到项目中或者工作中，优化某个环节或者实现某种功能。</li>
+</ol>
+</li>
+<li>融合目标岗位的招聘要求<ol>
+<li>对招聘JD分析，从中找到与自身项目结合点</li>
+<li><strong>不是简历去找匹配的JD，而是让简历匹配JD</strong></li>
+</ol>
+</li>
+</ol>
+<h4 id="使用STAR原则描述项目"><a href="#使用STAR原则描述项目" class="headerlink" title="使用STAR原则描述项目"></a>使用STAR原则描述项目</h4><table>
+<thead>
+<tr>
+<th align="center">背景</th>
+<th align="center">任务</th>
+<th align="center">行动</th>
+<th align="center">结果（效率，效果，质量，成本）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">简练描述(几个字说明这是什么业务)</td>
+<td align="center">在这个业务中主要负责什么，不要写自己没做过的，因为简历是引导面试官提问的工具</td>
+<td align="center">做了什么事，适当写一些技术点，不要写怎么做和为什么做，适当留白给面试官</td>
+<td align="center">先有基数后有比例，用绝对值而不是相对值，将数值转化为钱</td>
+</tr>
+<tr>
+<td align="center">直播系统</td>
+<td align="center">营收接口开发</td>
+<td align="center">优化接口性能</td>
+<td align="center">延迟从400ms降低到200ms，单位时间内可以刷更多礼物，增加约一倍收入</td>
+</tr>
+<tr>
+<td align="center">测试平台</td>
+<td align="center">测试效率工程</td>
+<td align="center">编写测试用例</td>
+<td align="center">编写500个测试用例，自动化测试比例从20%提高到80%，节省800测试人日</td>
+</tr>
+<tr>
+<td align="center">信息流推荐</td>
+<td align="center">算法工程</td>
+<td align="center">XXX策略上线</td>
+<td align="center">升了用户留存率，每月200w新用户留存率从20%提高到35%，相当于节省推广费580w</td>
+</tr>
+<tr>
+<td align="center">存储系统</td>
+<td align="center">redis集群运维开发</td>
+<td align="center">空间压缩算法优化</td>
+<td align="center">每日写入1亿条数据，占用内存1T缩减到800G，减少20%</td>
+</tr>
+</tbody></table>
+<h2 id="面向简历工作"><a href="#面向简历工作" class="headerlink" title="面向简历工作"></a>面向简历工作</h2><blockquote>
+<p>积极主动的去做事，带领团队推进架构演进成为 tech leader</p>
+</blockquote>
+<p>面试的根本目的不是跳槽，其主要作用是晋升。面试只是一种晋升的手段，检验能力的一个手段。使用晋升来解决倒挂，只要我晋升的足够快，倒挂就追不上我。</p>
+<p>管理的晋升是有限的，而技术的晋升是无限的。但是<strong>技术的晋升必须要做到把技术引进入，做到真正的突破才行</strong>。技术本身具有创新性。</p>
+<p>不要投当前等级的面试，例如现在是D5，那就去投对应D6的岗位，而不要找D5对应的职级岗位。</p>
+<p>使用面向简历工作，推进架构的演进，实现自驱进步。最终的目标是将自己变成一个技术领导者的身份，带领团队去解决技术问题，<strong>成为团队的核心人物</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/%E9%9D%A2%E8%AF%95%E5%B7%A5%E4%BD%9C%E6%B5%81.png" alt="面试工作流.png"></p>
+<h2 id="如何投递简历"><a href="#如何投递简历" class="headerlink" title="如何投递简历"></a>如何投递简历</h2><p>现在我们已经有了一份像样的简历，那么如何投递就成了最直接的问题。以下给出表格进行分析：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">熟人内推</th>
+<th align="center">半熟人内推</th>
+<th align="center">猎头</th>
+<th align="center">招聘网站</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">机会</td>
+<td align="center">少</td>
+<td align="center">中</td>
+<td align="center">多</td>
+<td align="center">最多</td>
+</tr>
+<tr>
+<td align="center">信息</td>
+<td align="center">多</td>
+<td align="center">中</td>
+<td align="center">少</td>
+<td align="center">最少</td>
+</tr>
+</tbody></table>
+<p>在对以上表格建立共识的基础之上，给出一些相应的建议：<strong>扩大半熟人交友圈，交流群水群，技术论坛，开源社区，参加公司社团</strong>。</p>
+<h2 id="如何准备后端技术面试"><a href="#如何准备后端技术面试" class="headerlink" title="如何准备后端技术面试"></a>如何准备后端技术面试</h2><p>在知道了所有面试的前置知识之后，自然而然的就诞生了一个新的问题。那就是，如何准备后端技术面试。以下分点进行阐述：</p>
+<h3 id="计算机科学"><a href="#计算机科学" class="headerlink" title="计算机科学"></a>计算机科学</h3><p>首先计算机不能简单的理解为一个工程，而应该是一门科学。虽然大家戏称计算机科学家，但是基础的计算机科学都不了解万万不行。</p>
+<p>首先<strong>写在书上的知识都属于常识</strong>，不要认为看了书就万事大吉。这才是学习的第一步，构建我们学习的基础而已。</p>
+<p>以下两本书帮助我们构建对计算机世界的基本世界观，列出的章节可以作为面试时应急看的章节，这只是鉴于书本内容较多。<strong>有时间的时候，必须读完</strong>。</p>
+<ul>
+<li>深入理解计算机系统（原书第三版）<ul>
+<li>第一章：计算机系统漫游</li>
+<li>第二章：信息的表达和处理</li>
+<li>第四章：处理器的体系结构</li>
+<li>第五章：优化程序性能</li>
+<li>第六章：存储器层次结构</li>
+<li>第九章：虚拟内存</li>
+<li>第十二章：并发编程</li>
+</ul>
+</li>
+<li>计算机程序的构造与解释（原书第二版）<ul>
+<li>全书</li>
+</ul>
+</li>
+<li>计算机网络自顶向下（原书第七版）<ul>
+<li>第一章：计算机网络和因特网</li>
+<li>第二章：应用层</li>
+<li>第三章：运输层</li>
+<li>第四章：网络层</li>
+<li>第五章：链路层</li>
+</ul>
+</li>
+<li>理解了实现在谈网络性能（全书）</li>
+<li><a target="_blank" rel="noopener" href="https://cs144.github.io/">CS144-LAB</a> 实现一个TCP协议栈</li>
+<li>现代操作系统：原理与实现（银杏书）（全书）</li>
+<li><a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.S081/2020/">6.S081-LAB</a></li>
+<li>数据库系统实现（全书）</li>
+<li><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2021/">15445-LAB</a></li>
+<li><a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.824/">MIT6824课程</a></li>
+</ul>
+<h3 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h3><blockquote>
+<p>面试的时间有限，因此不会考察过难的算法。<br>主要针对编码能力的考察，主要是看思路与预编是否正确，代码风格是否良好等。<br>就算遇到了自己刷过的题目，也要假装思考一下，不然可以让面试官觉得你是背过得，需要重新换一题。</p>
+</blockquote>
+<ol>
+<li>先看 leetcode 简单和中等难度的前500题的最优解，能用自然语言描述清楚。</li>
+<li>在大脑中训练出一个决策树。</li>
+<li>训练自己估算空间和时间复杂度的能力。</li>
+<li>对每类题随机抽取两道题，限时编写(要求15分钟AC)，统计成绩。</li>
+<li>反复上述练习，直到所有类型题目都可以在15分钟内AC通过。</li>
+</ol>
+<h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3><p>多关注和积累一些大厂的设计分享。比如IM系统设计，秒杀系统。怎么做思考，怎么去权衡。</p>
+<h3 id="开源技术"><a href="#开源技术" class="headerlink" title="开源技术"></a>开源技术</h3><blockquote>
+<p>编程语言，redis，mysql，kafka，zookeeper/etcd，rpc，HBase，es等等</p>
+</blockquote>
+<ol>
+<li>深入语言的底层源码，看sdk</li>
+<li><a target="_blank" rel="noopener" href="http://redisbook.com/">Redis 设计与实现</a></li>
+<li>MySQL是怎样运行的</li>
+<li>深入理解Kafka：核心设计与实践原理</li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/book/6844733722936377351">深入理解 RPC : 基于 Python 自建分布式高并发 RPC 服务</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CK4y127Lj/">Raft 分布式一致性(共识)算法 论文精读与ETCD源码分析</a></li>
+<li><a target="_blank" rel="noopener" href="https://zookeeper.apache.org/">Zookeeper/etcd 官方文档</a></li>
+</ol>
+<h3 id="专业领域"><a href="#专业领域" class="headerlink" title="专业领域"></a>专业领域</h3><ol>
+<li>深挖项目经历中所运用的技术（开源组件，理论知识），绘制思维导图的方式，逐步深入。</li>
+<li>融合目标岗位中的招聘要求</li>
+<li>逐一完成知识的学习，制定计划（书，视频，源码，论文）。</li>
+<li>输出博客 -&gt; <strong>展示你在本专业领域的权威性</strong></li>
+</ol>
+<h2 id="面试表现"><a href="#面试表现" class="headerlink" title="面试表现"></a>面试表现</h2><h3 id="简历挖掘"><a href="#简历挖掘" class="headerlink" title="简历挖掘"></a>简历挖掘</h3><ol>
+<li>对涉及的知识点深度学习，录音进行模拟面试。</li>
+<li>绘制思维导图，对简历中可能被问的知识点建立一个DFS遍历的知识点树。</li>
+<li>想象面试官可能关心的问题，并向自己提问，回放自己的录音，找到改进点。</li>
+</ol>
+<h3 id="场景分析"><a href="#场景分析" class="headerlink" title="场景分析"></a>场景分析</h3><blockquote>
+<p>好的面试是涉及出来的。</p>
+</blockquote>
+<h4 id="编码考察"><a href="#编码考察" class="headerlink" title="编码考察"></a>编码考察</h4><ol>
+<li>提前沟通思路，<strong>题意不明及时询问</strong>，不要上来就写代码</li>
+<li>写代码要仔细，自己没有推敲完善时，不要着急邀请面试官review，<strong>自己需要加入一些bad case进行边界判断</strong>。一旦请面试官review代码，发现bug会严重影响面试。</li>
+<li>自己的代码要能讲明白，也要经得住挑战</li>
+<li>如果不能写出代码，也至少明确给出思路或合理猜测，<strong>甚至可以请面试官换一个题目</strong></li>
+</ol>
+<p>最简单的bad case比如输入int，考虑负数，0，1是不是都可以；如果是字符串，空字符串可不可以，特别长的字符串可不可以。</p>
+<h4 id="专业领域-1"><a href="#专业领域-1" class="headerlink" title="专业领域"></a>专业领域</h4><ol>
+<li>速不要太快，讲明白技术亮点(<strong>为什么，有什么价值，怎么做，原理是什么，还能怎么改进</strong>)</li>
+<li>遵循金字塔结构，采用总-分结构，<strong>先讲业务背景，再说技术架构，再说组件接口交互，再细化到具体数据结构和算法</strong>。</li>
+<li>业务背景，和技术架构如果面试官没有多问，应该快速介绍完毕，并重点突出你自己在这个项目中的技术亮点与成长(<strong>性能优化，排查问题，架构决策能力</strong>)，<strong>用一些技术指标来衡量自己的实现效果</strong></li>
+<li>如果是资深研发面试，可以将更多精力放在，前沿技术的落地过程讲解(<strong>如何推进架构升级</strong>)</li>
+</ol>
+<h4 id="系统设计-1"><a href="#系统设计-1" class="headerlink" title="系统设计"></a>系统设计</h4><p>注意平时积累，观察日常使用的app，去思考这些app是如何设计的？然后去找资料印证。</p>
+<ol>
+<li>描述题目，确定问题边界，问题的约束条件。</li>
+<li>容量预估，DAU * 每人平均使用接口次数 / 86400 -&gt; qps ，ptc99，存储空间，cdn消耗，平均值，峰值预估等等。</li>
+<li><strong>寻找一般解</strong>， 一台服务器，一台数据库，实现基本功能的逻辑交互</li>
+<li><strong>寻找更优解</strong>，逐步考虑约束条件，改进设计方案。注意具体问题具体分析，不要上来给一个庞大的系统架构设计。根据约束条件进行特性化分析。</li>
+</ol>
+<h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><ol>
+<li>适当扩展，而不是问一句说一句。</li>
+<li>说的<strong>越深越好</strong>，越多越好，直到面试官打断。</li>
+<li><strong>认识到，基础知识的考察，是对程序员综合素质的考察，会说明一个人的潜力</strong>。</li>
+</ol>
+<h4 id="品质考察"><a href="#品质考察" class="headerlink" title="品质考察"></a>品质考察</h4><ol>
+<li><strong>抗压</strong>  非自己一点也不会，否则绝对不能放弃，要努力给出方案，识别出这是压力测试。至少想十分钟，尽量想的全面，<strong>不要想到那里说到那里，给出的方案一定要靠谱</strong></li>
+<li><strong>沟通</strong>  准确的表达出观点，需要不断练习，在准备阶段想清楚所有可能的提问</li>
+<li><strong>情绪</strong>  编码，设计方案时一定要想清楚，不要反复找面试官review，<strong>避免做事急躁</strong></li>
+<li><strong>稳定性</strong> 提前准备好，为什么跳槽，以及未来职业发展规划的说辞</li>
+<li><strong>积极性</strong>  对这份职业的看法与态度，一定要有一个积极乐观的说辞。</li>
+</ol>
+<h2 id="如何谈薪"><a href="#如何谈薪" class="headerlink" title="如何谈薪"></a>如何谈薪</h2><ol>
+<li>你这次跳槽是为了啥？ <strong>钱不到位 OR （工作没有挑战，换城市，职业发展）</strong>。立足于要么钱没到位要么职级没到位。涨薪超过百分之50才算突破。</li>
+<li>手里有哪些offer? 不要交出offer，只是口头沟通。<strong>不要交薪资截图，因为offer的法律效益就是你泄露出去就失效了。</strong></li>
+<li>期望薪资是多少？ 利用锚定效应，超出JD上限30%。不然就被倒挂。</li>
+</ol>
+<h2 id="如何养鱼与拒绝offer"><a href="#如何养鱼与拒绝offer" class="headerlink" title="如何养鱼与拒绝offer"></a>如何养鱼与拒绝offer</h2><ol>
+<li>不要说太多offer，只说几个关键竞品公司offer。</li>
+<li>不要截图等任何形式交出offer原件，这样才有回旋余地。</li>
+<li>在没有offer的时候，可以空手套白狼。</li>
+<li>管理预期，那就是我很热爱技术，但是现实情况必须要向钱看</li>
+</ol>
+<h2 id="结束也是开始"><a href="#结束也是开始" class="headerlink" title="结束也是开始"></a>结束也是开始</h2><ol>
+<li>开始写更高职级的简历</li>
+<li>在当前岗位，把简历上的规划一一实现</li>
+<li>结合业务发展不断调整</li>
+<li>去面更高级别的岗位</li>
+<li>做上一职级的事情，可能会让你在本岗位晋升，那就直接把简历改成晋升PPT</li>
+<li>时刻让自己暴露在招聘市场中，只有晋升才是王道。</li>
+</ol>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><h3 id="费曼学习法"><a href="#费曼学习法" class="headerlink" title="费曼学习法"></a>费曼学习法</h3><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/%E6%8A%80%E6%9C%AF%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/%E8%B4%B9%E6%9B%BC%E5%AD%A6%E4%B9%A0%E6%B3%95.jpg" alt="费曼学习法.jpg"></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>飞书，<a target="_blank" rel="noopener" href="https://nxwz51a5wp.feishu.cn/docs/doccnRKVA5WoHZTlxNH5BcXO2og">如何准备一场服务端的技术面试</a>，2021</li>
+<li>MBA智库百科，<a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/%E8%B4%B9%E6%9B%BC%E5%AD%A6%E4%B9%A0%E6%B3%95">费曼学习法</a></li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">不二</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/">http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">不二</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
         let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
         M.toast({html: toastHTML})
       });
 
       function navToReprintStatement() {
         $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }</script><div class="tag_share" style="display:block"><div class="post-meta__tag-list" style="display:inline-block"><div class="article-tag"><a href="/tags/%E9%9D%A2%E8%AF%95/"><span class="chip bg-color">面试</span></a></div></div><div class="post_share" style="zoom:80%;width:fit-content;display:inline-block;float:right;margin:-.15rem 0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/share/css/share.min.css"><div id="article-share"><div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/share/js/social-share.min.js"></script></div></div></div><style>#reward{margin:40px 0;text-align:center}#reward .reward-link{font-size:1.4rem;line-height:38px}#reward .btn-floating:hover{box-shadow:0 6px 12px rgba(0,0,0,.2),0 5px 15px rgba(0,0,0,.2)}#rewardModal{width:320px;height:350px}#rewardModal .reward-title{margin:15px auto;padding-bottom:5px}#rewardModal .modal-content{padding:10px}#rewardModal .close{position:absolute;right:15px;top:15px;color:rgba(0,0,0,.5);font-size:1.3rem;line-height:20px;cursor:pointer}#rewardModal .close:hover{color:#ef5350;transform:scale(1.3);-moz-transform:scale(1.3);-webkit-transform:scale(1.3);-o-transform:scale(1.3)}#rewardModal .reward-tabs{margin:0 auto;width:210px}.reward-tabs .tabs{height:38px;margin:10px auto;padding-left:0}.reward-content ul{padding-left:0!important}.reward-tabs .tabs .tab{height:38px;line-height:38px}.reward-tabs .tab a{color:#fff;background-color:#ccc}.reward-tabs .tab a:hover{background-color:#ccc;color:#fff}.reward-tabs .wechat-tab .active{color:#fff!important;background-color:#22ab38!important}.reward-tabs .alipay-tab .active{color:#fff!important;background-color:#019fe8!important}.reward-tabs .reward-img{width:210px;height:210px}</style><div id="reward"><a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a><div id="rewardModal" class="modal"><div class="modal-content"><a class="close modal-close"><i class="fas fa-times"></i></a><h4 class="reward-title">你的赏识是我前进的动力</h4><div class="reward-content"><div class="reward-tabs"><ul class="tabs row"><li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li><li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li></ul><div id="alipay"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码"></div><div id="wechat"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码"></div></div></div></div></div></div><script>$(function(){$(".tabs").tabs()})</script></div></div><article id="prenext-posts" class="prev-next articles"><div class="row article-row"><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge left-badge text-color"><i class="fas fa-chevron-left"></i> &nbsp;上一篇</div><div class="card"><a href="/2021/10/26/cheng-xu-she-ji/rpc-li-jie-hui-gu/"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/RPC.png" class="responsive-img" alt="RPC理解回顾"> <span class="card-title">RPC理解回顾</span></div></a><div class="card-content article-content"><div class="summary block-with-text"></div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i> 2021-10-26</span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">程序设计</a></span></div></div><div class="card-action article-tags"><a href="/tags/Python/"><span class="chip bg-color">Python</span></a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"><span class="chip bg-color">分布式</span></a> <a href="/tags/gRPC/"><span class="chip bg-color">gRPC</span></a> <a href="/tags/Thrift/"><span class="chip bg-color">Thrift</span></a></div></div></div><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge right-badge text-color">下一篇&nbsp;<i class="fas fa-chevron-right"></i></div><div class="card"><a href="/2021/10/19/kv-cun-chu/leveldb-yuan-ma-fen-xi/"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/KV存储/leveldb.jpg" class="responsive-img" alt="LevelDB源码分析"> <span class="card-title">LevelDB源码分析</span></div></a><div class="card-content article-content"><div class="summary block-with-text"></div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i> 2021-10-19</span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/KV%E5%AD%98%E5%82%A8/" class="post-category">KV存储</a></span></div></div><div class="card-action article-tags"><a href="/tags/LevelDB/"><span class="chip bg-color">LevelDB</span></a></div></div></div></div></article></div><script>$("#articleContent").on("copy",function(e){if(void 0!==window.getSelection){var n=window.getSelection();if(!((""+n).length<Number.parseInt("120"))){var t=document.getElementsByTagName("body")[0],o=document.createElement("div");o.style.position="absolute",o.style.left="-99999px",t.appendChild(o),o.appendChild(n.getRangeAt(0).cloneContents()),"PRE"===n.getRangeAt(0).commonAncestorContainer.nodeName&&(o.innerHTML="<pre>"+o.innerHTML+"</pre>");var i=document.location.href;o.innerHTML+='<br />来源: 不二博客<br />文章作者: 不二<br />文章链接: <a href="'+i+'">'+i+"</a><br />本文章著作权归作者所有，任何形式的转载都请注明出处。",n.selectAllChildren(o),window.setTimeout(function(){t.removeChild(o)},200)}}})</script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeBlockFuction.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeLang.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeCopy.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeShrink.js"></script></div><div id="toc-aside" class="expanded col l3"><div class="toc-widget card" style="background-color:#fff"><div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div><div id="toc-content"></div></div></div></div><div id="floating-toc-btn"><a class="btn-floating btn-large bg-color"><i class="fas fa-list-ul"></i></a></div><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/tocbot/tocbot.min.js"></script><script>$(function () {
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                    <span class="chip bg-color">面试</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/10/26/cheng-xu-she-ji/rpc-li-jie-hui-gu/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/RPC.png" class="responsive-img" alt="RPC理解回顾">
+                        
+                        <span class="card-title">RPC理解回顾</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    程序设计
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">
+                        <span class="chip bg-color">分布式</span>
+                    </a>
+                    
+                    <a href="/tags/gRPC/">
+                        <span class="chip bg-color">gRPC</span>
+                    </a>
+                    
+                    <a href="/tags/Thrift/">
+                        <span class="chip bg-color">Thrift</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/10/19/kv-cun-chu/leveldb-yuan-ma-fen-xi/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/KV存储/leveldb.jpg" class="responsive-img" alt="LevelDB源码分析">
+                        
+                        <span class="card-title">LevelDB源码分析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/KV%E5%AD%98%E5%82%A8/" class="post-category">
+                                    KV存储
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/LevelDB/">
+                        <span class="chip bg-color">LevelDB</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 不二博客<br />'
+            + '文章作者: 不二<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 ">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
         tocbot.init({
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
@@ -84,4 +1271,373 @@
             fixPostCardWidth('artDetail', 'prenext-posts');
         });
         
-    });</script></main><script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script>MathJax.Hub.Config({tex2jax:{inlineMath:[["$","$"],["(",")"]]}})</script><footer class="page-footer bg-color"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aplayer/APlayer.min.css"><style>.aplayer .aplayer-lrc p{display:none;font-size:12px;font-weight:700;line-height:16px!important}.aplayer .aplayer-lrc p.aplayer-lrc-current{display:none;font-size:15px;color:#42b983}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{left:-66px!important}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover{left:0!important}</style><div><div class="row"><meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="503838841" fixed="true" autoplay theme="#42b983" loop order="random" preload="auto" volume="0.7" list-folded="true"></meting-js></div></div><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aplayer/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><div class="container row center-align" style="margin-bottom:15px!important"><div class="col s12 m8 l8 copy-right">Copyright&nbsp;&copy; <span id="year">2018-2022</span> <span id="year">2018</span> <a href="/about" target="_blank">不二</a> |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a><br>&nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">186k</span>&nbsp;字 <span id="busuanzi_container_site_pv">|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次</span> <span id="busuanzi_container_site_uv">|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人</span><br><span id="sitetime">载入运行时间...</span><script>function siteTime(){var e=36e5,t=24*e,n=new Date,o="2018",r=n.getFullYear(),a=n.getMonth()+1,i=n.getDate(),l=n.getHours(),m=n.getMinutes(),M=n.getSeconds(),g=Date.UTC(o,"5","25","17","20","53"),d=Date.UTC(r,a,i,l,m,M)-g,s=Math.floor(d/31536e6),u=Math.floor(d/t-365*s),T=Math.floor((d-(365*s+u)*t)/e),c=Math.floor((d-(365*s+u)*t-T*e)/6e4),f=Math.floor((d-(365*s+u)*t-T*e-6e4*c)/1e3);o==r?(document.getElementById("year").innerHTML=r,document.getElementById("sitetime").innerHTML="本站已安全运行 "+u+" 天 "+T+" 小时 "+c+" 分钟 "+f+" 秒"):(document.getElementById("year").innerHTML=o+" - "+r,document.getElementById("sitetime").innerHTML="本站已安全运行 "+s+" 年 "+u+" 天 "+T+" 小时 "+c+" 分钟 "+f+" 秒")}setInterval(siteTime,1e3)</script><br></div><div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/weiyouwozuiku" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50"><i class="fab fa-github"></i></a><a href="mailto:weiyouwozuiku@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50"><i class="fas fa-envelope-open"></i></a><a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1104891151" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1104891151" data-position="top" data-delay="50"><i class="fab fa-qq"></i></a> <a href="https://www.zhihu.com/people/he-he-9-35-47" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/he-he-9-35-47" data-position="top" data-delay="50"><i class="fab fa-zhihu1">知</i></a></div></div></footer><div class="progress-bar"></div><script src="https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js"></script><script>window.mermaid&&mermaid.initialize({theme:"forest"})</script><div id="searchModal" class="modal"><div class="modal-content"><div class="search-header"><span class="title"><i class="fas fa-search"></i> &nbsp;&nbsp;搜索</span> <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input"></div><div id="searchResult"></div></div></div><script>$(function(){!function(t,a,s){"use strict";$.ajax({url:t,dataType:"xml",success:function(t){var e=$("entry",t).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()}}).get(),r=document.getElementById(a),n=document.getElementById(s);r.addEventListener("input",function(){var f='<ul class="search-result-list">',m=this.value.trim().toLowerCase().split(/[\s\-]+/);n.innerHTML="",this.value.trim().length<=0||(e.forEach(function(t){var r=!0,n=t.title.trim().toLowerCase(),a=t.content.trim().replace(/<[^>]+>/g,"").toLowerCase(),e=t.url;e=0===e.indexOf("/")?t.url:"/"+e;var s=-1,i=-1,l=-1;if(""!==n&&""!==a&&m.forEach(function(t,e){s=n.indexOf(t),i=a.indexOf(t),s<0&&i<0?r=!1:(i<0&&(i=0),0===e&&(l=i))}),r){f+="<li><a href='"+e+"' class='search-result-title'>"+n+"</a>";var c=t.content.trim().replace(/<[^>]+>/g,"");if(0<=l){var u=l-20,o=l+80;u<0&&(u=0),0===u&&(o=100),o>c.length&&(o=c.length);var h=c.substr(u,o);m.forEach(function(t){var e=new RegExp(t,"gi");h=h.replace(e,'<em class="search-keyword">'+t+"</em>")}),f+='<p class="search-result">'+h+"...</p>"}f+="</li>"}}),f+="</ul>",n.innerHTML=f)})}})}("/search.xml","searchInput","searchResult")})</script><div id="backTop" class="top-scroll"><a class="btn-floating btn-large waves-effect waves-light" href="#!"><i class="fas fa-arrow-up"></i></a></div><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/materialize/materialize.min.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/masonry/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aos/aos.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/scrollprogress/scrollProgress.min.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/js/matery.js"></script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script async src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/others/busuanzi.pure.mini.js"></script><script color="0,0,255" pointcolor="0,0,255" opacity="0.7" zindex="-1" count="150" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/canvas-nest.js"></script><script size="150" alpha="0.6" zindex="-1" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/ribbon-refresh.min.js" async></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/ribbon-dynamic.js" async></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/instantpage/instantpage.js" type="module"></script></body></html>
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2022</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">不二</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">186.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "5";
+                    var startDate = "25";
+                    var startHour = "17";
+                    var startMinute = "20";
+                    var startSecond = "53";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/weiyouwozuiku" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:weiyouwozuiku@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1104891151" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1104891151" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/he-he-9-35-47" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/he-he-9-35-47" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <script src='https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js'></script>
+    <script>
+      if (window.mermaid) {
+        mermaid.initialize({theme: 'forest'});
+      }
+    </script>
+  
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="150"
+        src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

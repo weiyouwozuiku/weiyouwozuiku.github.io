@@ -1,4 +1,317 @@
-<!DOCTYPE HTML><html lang="zh-CN"><head><meta charset="utf-8"><meta name="keywords" content="Manjaro系统配置, 博客"><meta name="description" content="个人学习储备知识与经验的秘密基地"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta name="renderer" content="webkit|ie-stand|ie-comp"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>Manjaro系统配置 | 不二博客</title><link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/favicon.png"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/awesome/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/materialize/materialize.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aos/aos.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/animate/animate.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/lightGallery/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/css/matery.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/css/my.css"><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/jquery/jquery.min.js"></script><meta name="generator" content="Hexo 5.4.1"><style>.github-emoji{position:relative;display:inline-block;width:1.2em;min-height:1.2em;overflow:hidden;vertical-align:top;color:transparent}.github-emoji>span{position:relative;z-index:10}.github-emoji .fancybox,.github-emoji img{margin:0!important;padding:0!important;border:none!important;outline:0!important;text-decoration:none!important;user-select:none!important;cursor:auto!important}.github-emoji img{height:1.2em!important;width:1.2em!important;position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;user-select:none!important;cursor:auto!important}.github-emoji-fallback{color:inherit}.github-emoji-fallback img{opacity:0!important}</style></head><body><header class="navbar-fixed"><nav id="headNav" class="bg-color nav-transparent"><div id="navContainer" class="nav-wrapper container"><div class="brand-logo"><a href="/" class="waves-effect waves-light"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/logo.png" class="logo-img" alt="LOGO"> <span class="logo-span">不二博客</span></a></div><a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a><ul class="right nav-menu"><li class="hide-on-med-and-down nav-item"><a href="/" class="waves-effect waves-light"><i class="fas fa-home" style="zoom:.6"></i> <span>首页</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fas fa-tags" style="zoom:.6"></i> <span>标签</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fas fa-bookmark" style="zoom:.6"></i> <span>分类</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fas fa-archive" style="zoom:.6"></i> <span>归档</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/about" class="waves-effect waves-light"><i class="fas fa-user-circle" style="zoom:.6"></i> <span>关于</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fas fa-comments" style="zoom:.6"></i> <span>留言板</span></a></li><li class="hide-on-med-and-down nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fas fa-address-book" style="zoom:.6"></i> <span>友情链接</span></a></li><li><a href="#searchModal" class="modal-trigger waves-effect waves-light"><i id="searchIcon" class="fas fa-search" title="搜索" style="zoom:.85"></i></a></li></ul><div id="mobile-nav" class="side-nav sidenav"><div class="mobile-head bg-color"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/logo.png" class="logo-img circle responsive-img"><div class="logo-name">不二博客</div><div class="logo-desc">个人学习储备知识与经验的秘密基地</div></div><ul class="menu-list mobile-menu-list"><li class="m-nav-item"><a href="/" class="waves-effect waves-light"><i class="fa-fw fas fa-home"></i> 首页</a></li><li class="m-nav-item"><a href="/tags" class="waves-effect waves-light"><i class="fa-fw fas fa-tags"></i> 标签</a></li><li class="m-nav-item"><a href="/categories" class="waves-effect waves-light"><i class="fa-fw fas fa-bookmark"></i> 分类</a></li><li class="m-nav-item"><a href="/archives" class="waves-effect waves-light"><i class="fa-fw fas fa-archive"></i> 归档</a></li><li class="m-nav-item"><a href="/about" class="waves-effect waves-light"><i class="fa-fw fas fa-user-circle"></i> 关于</a></li><li class="m-nav-item"><a href="/contact" class="waves-effect waves-light"><i class="fa-fw fas fa-comments"></i> 留言板</a></li><li class="m-nav-item"><a href="/friends" class="waves-effect waves-light"><i class="fa-fw fas fa-address-book"></i> 友情链接</a></li><li><div class="divider"></div></li><li><a href="https://github.com/weiyouwozuiku" class="waves-effect waves-light" target="_blank"><i class="fab fa-github-square fa-fw"></i> Fork Me</a></li></ul></div></div><style>.nav-transparent .github-corner{display:none!important}.github-corner{position:absolute;z-index:10;top:0;right:0;border:0;transform:scale(1.1)}.github-corner svg{color:#0f9d58;fill:#fff;height:64px;width:64px}.github-corner:hover .octo-arm{animation:a .56s ease-in-out}.github-corner .octo-arm{animation:none}@keyframes a{0%,to{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}</style><a href="https://github.com/weiyouwozuiku" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"></path><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"></path></svg></a></nav></header><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/cryptojs/crypto-js.min.js"></script><script>(function() {
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Manjaro系统配置, 博客">
+    <meta name="description" content="个人学习储备知识与经验的秘密基地">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Manjaro系统配置 | 不二博客</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">不二博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">不二博客</div>
+        <div class="logo-desc">
+            
+            个人学习储备知识与经验的秘密基地
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/weiyouwozuiku" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/weiyouwozuiku" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
         let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
@@ -6,11 +319,315 @@
                 location.href = '/';
             }
         }
-    })();</script><div class="bg-cover pd-header post-cover" style="background-image:url(https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/manjaro.jpg)"><div class="container" style="right:0;left:0"><div class="row"><div class="col s12 m12 l12"><div class="brand"><h1 class="description center-align post-title">Manjaro系统配置</h1></div></div></div></div></div><main class="post-container content"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/tocbot/tocbot.css"><style>#articleContent h1::before,#articleContent h2::before,#articleContent h3::before,#articleContent h4::before,#articleContent h5::before,#articleContent h6::before{display:block;content:" ";height:100px;margin-top:-100px;visibility:hidden}#articleContent :focus{outline:0}.toc-fixed{position:fixed;top:64px}.toc-widget{width:345px;padding-left:20px}.toc-widget .toc-title{padding:35px 0 15px 17px;font-size:1.5rem;font-weight:700;line-height:1.5rem}.toc-widget ol{padding:0;list-style:none}#toc-content{padding-bottom:30px;overflow:auto}#toc-content ol{padding-left:10px}#toc-content ol li{padding-left:10px}#toc-content .toc-link:hover{color:#42b983;font-weight:700;text-decoration:underline}#toc-content .toc-link::before{background-color:transparent;max-height:25px;position:absolute;right:23.5vw;display:block}#toc-content .is-active-link{color:#42b983}#floating-toc-btn{position:fixed;right:15px;bottom:76px;padding-top:15px;margin-bottom:0;z-index:998}#floating-toc-btn .btn-floating{width:48px;height:48px}#floating-toc-btn .btn-floating i{line-height:48px;font-size:1.4rem}</style><div class="row"><div id="main-content" class="col s12 m12 l9"><div id="artDetail"><div class="card"><div class="card-content article-info"><div class="row tag-cate"><div class="col s7"><div class="article-tag"><a href="/tags/%E8%A3%85%E6%9C%BA/"><span class="chip bg-color">装机</span></a> <a href="/tags/Ranger/"><span class="chip bg-color">Ranger</span></a> <a href="/tags/Manjaro/"><span class="chip bg-color">Manjaro</span></a></div></div><div class="col s5 right-align"><div class="post-cate"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">经验总结</a></div></div></div><div class="post-info"><div class="post-date info-break-policy"><i class="far fa-calendar-minus fa-fw"></i> 发布日期:&nbsp;&nbsp; 2019-12-12</div><div class="post-date info-break-policy"><i class="far fa-calendar-check fa-fw"></i> 更新日期:&nbsp;&nbsp; 2021-10-31</div><div class="info-break-policy"><i class="far fa-file-word fa-fw"></i> 文章字数:&nbsp;&nbsp; 12.4k</div><div class="info-break-policy"><i class="far fa-clock fa-fw"></i> 阅读时长:&nbsp;&nbsp; 71 分</div><div id="busuanzi_container_page_pv" class="info-break-policy"><i class="far fa-eye fa-fw"></i> 阅读次数:&nbsp;&nbsp;<span id="busuanzi_value_page_pv"></span></div></div></div><hr class="clearfix"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/prism/prism.css"><style>code[class*=language-],pre[class*=language-]{white-space:pre-wrap!important}</style><div class="card-content article-card-content"><div id="articleContent"><h2 id="Manjaro安装及其配置"><a href="#Manjaro安装及其配置" class="headerlink" title="Manjaro安装及其配置"></a>Manjaro安装及其配置</h2><h3 id="Win与Manjaro并存"><a href="#Win与Manjaro并存" class="headerlink" title="Win与Manjaro并存"></a>Win与Manjaro并存</h3><p>在安装时，需要注意分配<code>/</code>和<code>/home</code>路径。将挂载点<code>/boot/efi</code>放置在windows启动盘的fat32格式的区分中。</p><p>若是Windows更新或其他原因导致Manjaro引导消失，请执行一下步骤：</p><ol><li>首先关闭Windows快速启动</li><li>用DG打开EFI分区，检查其中的文件是否有相应linux的启动引导，名称应该是<code>grubx64.efi</code>。Windows的引导文件为<code>bootmgfw.efi</code>。</li><li><code>win+x</code>+<code>a</code>进入管理员命令行</li><li>输入<code>bcdedit /set '{bootmgr}' path \EFI\Manjaro\grubx64.efi</code></li></ol><p>Win和Manjaro同时存在时会导致时间不同。原因在于电脑时间有两个:</p><ul><li>硬件时间：保存在主板中，信息少没有时区。</li><li>系统时间：独立于硬件时间，拥有时区、时令等信息。</li></ul><p>系统时间又因为系统不同，管理时间采用两种方法。</p><ul><li>localtime：本地时间，目前只有Windows使用。</li><li>UTC：是一种世界标准时间，Linux和Unix使用。UTC加减时区就是本地时间。</li></ul><p>Windows认为硬件时间就是UTC时间，而Linux会加减时区。使用<code>sudo timedatectl set-local-rtc true</code>即可。</p><hr><h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><h4 id="Pacman安装"><a href="#Pacman安装" class="headerlink" title="Pacman安装"></a>Pacman安装</h4><p>vim：文本软件，配合<a target="_blank" rel="noopener" href="https://github.com/chxuan/vimplus">vimplus</a>更佳（若默认编辑器不是vim可以在<code>/etc/profile</code>中添加<code>export EDITOR=/usr/bin/vim</code>）</p><p>yay：优秀的社区包管理工具</p><p>gcc和base-devel可以方便的准备C++环境</p><p>go：go语言包</p><p>nodejs：nodejs</p><p>npm</p><p>nvm</p><p>jq：提供json解析功能</p><p>wireshark：wireshark-qt，分析网络之用</p><p>axel：多线程下载</p><p>wiznote：为知笔记</p><p>bmon：命令行查看网络情况</p><p>net-tools：查看网络，安装后可以使用ifconfig</p><p>wps-office ttf-wps-fonts：WPS</p><p>latte-dock：类MacOS的应用启动器</p><p>unzip：解压工具</p><p>visual-studio-code-bin：vscode</p><p>v2ray qv2ray：v2ray工具链</p><p>baidunetworkdisk-bin：百度网盘</p><p>annie：A fast, simple and clean video downloader written in Go</p><p>arduino：Arduino prototyping platform SDK</p><p>Gimp：Linux中的PS</p><p>cloc：Count lines of code</p><p>cool-retro-term：A good looking terminal emulator which mimics the old cathode display</p><p>evtest：Input device event monitor and query tool</p><p>fzf：Command-line fuzzy finder</p><p>feh：Fast and light imlib2-based image viewer</p><p>telegram-desktop：Official Telegram Desktop client</p><p>highlight：Fast and flexible source code highlighter (CLI version)</p><p>iease-music：Elegant neteaseMusic desktop app, Rock with NeteaseMusic.</p><p>kate： Advanced Text Editor</p><p>ncdu：Disk usage analyzer with an ncurses interface</p><p>neofecth：A CLI system information tool written in BASH that supports displaying images</p><p>netease-cloud-music：网易云</p><p>netease-musicbox：网易云命令行版</p><p>nmap：nmap</p><p>postman：Build, test, and document your APIs faster</p><p>rclone：Sync files to and from Google Drive, S3, Swift, Cloudfiles, Dropbox and Google Cloud Storage</p><p>simplescreenrecorder：优秀的录屏软件</p><p>smplayer：播放器</p><p>teamviewer：远程软件</p><p>tig：Text-mode interface for Git.</p><p>translate-shell：A command-line interface and interactive shell for Google Translate</p><p>typora：Markdown编辑器</p><p>flameshot：截图工具</p><p>zmap：快速的互联网那个扫描仪</p><p>mycli：支持自动补全和语法高亮的Mysql客户端</p><p>kvantum-qt5：主题美化工具</p><p>filezilla：sftp/ftp图形化软件</p><p>motrix：磁力下载器</p><p>zathura：vim风格的pdf阅读器</p><p>inkscape：适量图形编辑器</p><p>fd：搜索软件</p><p>ripgrep-all：搜索软件</p><p>bat：预览文件程序</p><p>unrar：解压软件爱</p><p>atool</p><p>xdman：下载软件</p><p>lolcat：终端文本渐变色</p><p>strace:追踪进程进行时的系统调用和接收的信号</p><p>downgrade：指定软件版本降级</p><h5 id="Goldendict"><a href="#Goldendict" class="headerlink" title="Goldendict"></a>Goldendict</h5><p>Feature-rich dictionary lookup program</p><p>可以添加自己的词库</p><p>设置程序翻译：</p><ol><li><p>sudo pacman -S translate-shell</p></li><li><p>编辑-&gt;词典-&gt;词典来源-&gt;程序-&gt;添加</p><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">#  Trans-2-Chinese
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/manjaro.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Manjaro系统配置</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%A3%85%E6%9C%BA/">
+                                <span class="chip bg-color">装机</span>
+                            </a>
+                        
+                            <a href="/tags/Ranger/">
+                                <span class="chip bg-color">Ranger</span>
+                            </a>
+                        
+                            <a href="/tags/Manjaro/">
+                                <span class="chip bg-color">Manjaro</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">
+                                经验总结
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-12-12
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-10-31
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    12.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    71 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Manjaro安装及其配置"><a href="#Manjaro安装及其配置" class="headerlink" title="Manjaro安装及其配置"></a>Manjaro安装及其配置</h2><h3 id="Win与Manjaro并存"><a href="#Win与Manjaro并存" class="headerlink" title="Win与Manjaro并存"></a>Win与Manjaro并存</h3><p>在安装时，需要注意分配<code>/</code>和<code>/home</code>路径。将挂载点<code>/boot/efi</code>放置在windows启动盘的fat32格式的区分中。</p>
+<p>若是Windows更新或其他原因导致Manjaro引导消失，请执行一下步骤：</p>
+<ol>
+<li>首先关闭Windows快速启动</li>
+<li>用DG打开EFI分区，检查其中的文件是否有相应linux的启动引导，名称应该是<code>grubx64.efi</code>。Windows的引导文件为<code>bootmgfw.efi</code>。</li>
+<li><code>win+x</code>+<code>a</code>进入管理员命令行</li>
+<li>输入<code>bcdedit /set '{bootmgr}' path \EFI\Manjaro\grubx64.efi</code></li>
+</ol>
+<p>Win和Manjaro同时存在时会导致时间不同。原因在于电脑时间有两个:</p>
+<ul>
+<li>硬件时间：保存在主板中，信息少没有时区。</li>
+<li>系统时间：独立于硬件时间，拥有时区、时令等信息。</li>
+</ul>
+<p>系统时间又因为系统不同，管理时间采用两种方法。</p>
+<ul>
+<li>localtime：本地时间，目前只有Windows使用。</li>
+<li>UTC：是一种世界标准时间，Linux和Unix使用。UTC加减时区就是本地时间。</li>
+</ul>
+<p>Windows认为硬件时间就是UTC时间，而Linux会加减时区。使用<code>sudo timedatectl set-local-rtc true</code>即可。</p>
+<hr>
+<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><h4 id="Pacman安装"><a href="#Pacman安装" class="headerlink" title="Pacman安装"></a>Pacman安装</h4><p>vim：文本软件，配合<a target="_blank" rel="noopener" href="https://github.com/chxuan/vimplus">vimplus</a>更佳（若默认编辑器不是vim可以在<code>/etc/profile</code>中添加<code>export EDITOR=/usr/bin/vim</code>）</p>
+<p>yay：优秀的社区包管理工具</p>
+<p>gcc和base-devel可以方便的准备C++环境</p>
+<p>go：go语言包</p>
+<p>nodejs：nodejs</p>
+<p>npm</p>
+<p>nvm</p>
+<p>jq：提供json解析功能</p>
+<p>wireshark：wireshark-qt，分析网络之用</p>
+<p>axel：多线程下载</p>
+<p>wiznote：为知笔记</p>
+<p>bmon：命令行查看网络情况</p>
+<p>net-tools：查看网络，安装后可以使用ifconfig</p>
+<p>wps-office ttf-wps-fonts：WPS</p>
+<p>latte-dock：类MacOS的应用启动器</p>
+<p>unzip：解压工具</p>
+<p>visual-studio-code-bin：vscode</p>
+<p>v2ray qv2ray：v2ray工具链</p>
+<p>baidunetworkdisk-bin：百度网盘</p>
+<p>annie：A fast, simple and clean video downloader written in Go</p>
+<p>arduino：Arduino prototyping platform SDK</p>
+<p>Gimp：Linux中的PS</p>
+<p>cloc：Count lines of code</p>
+<p>cool-retro-term：A good looking terminal emulator which mimics the old cathode display</p>
+<p>evtest：Input device event monitor and query tool</p>
+<p>fzf：Command-line fuzzy finder</p>
+<p>feh：Fast and light imlib2-based image viewer</p>
+<p>telegram-desktop：Official Telegram Desktop client </p>
+<p>highlight：Fast and flexible source code highlighter (CLI version)</p>
+<p>iease-music：Elegant neteaseMusic desktop app, Rock with NeteaseMusic.</p>
+<p>kate： Advanced Text Editor</p>
+<p>ncdu：Disk usage analyzer with an ncurses interface</p>
+<p>neofecth：A CLI system information tool written in BASH that supports displaying images</p>
+<p>netease-cloud-music：网易云</p>
+<p>netease-musicbox：网易云命令行版</p>
+<p>nmap：nmap</p>
+<p>postman：Build, test, and document your APIs faster</p>
+<p>rclone：Sync files to and from Google Drive, S3, Swift, Cloudfiles, Dropbox and Google Cloud Storage</p>
+<p>simplescreenrecorder：优秀的录屏软件</p>
+<p>smplayer：播放器</p>
+<p>teamviewer：远程软件</p>
+<p>tig：Text-mode interface for Git.</p>
+<p>translate-shell：A command-line interface and interactive shell for Google Translate</p>
+<p>typora：Markdown编辑器</p>
+<p>flameshot：截图工具</p>
+<p>zmap：快速的互联网那个扫描仪</p>
+<p>mycli：支持自动补全和语法高亮的Mysql客户端</p>
+<p>kvantum-qt5：主题美化工具</p>
+<p>filezilla：sftp/ftp图形化软件</p>
+<p>motrix：磁力下载器</p>
+<p>zathura：vim风格的pdf阅读器</p>
+<p>inkscape：适量图形编辑器</p>
+<p>fd：搜索软件</p>
+<p>ripgrep-all：搜索软件</p>
+<p>bat：预览文件程序</p>
+<p>unrar：解压软件爱</p>
+<p>atool</p>
+<p>xdman：下载软件</p>
+<p>lolcat：终端文本渐变色</p>
+<p>strace:追踪进程进行时的系统调用和接收的信号</p>
+<p>downgrade：指定软件版本降级</p>
+<h5 id="Goldendict"><a href="#Goldendict" class="headerlink" title="Goldendict"></a>Goldendict</h5><p>Feature-rich dictionary lookup program</p>
+<p>可以添加自己的词库</p>
+<p>设置程序翻译：</p>
+<ol>
+<li><p>sudo pacman -S translate-shell</p>
+</li>
+<li><p>编辑-&gt;词典-&gt;词典来源-&gt;程序-&gt;添加</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">#  Trans-2-Chinese
 trans -e google -s auto -t zh-CN -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n “%GDWORD%”
 
 # Trans-2-English
-trans -e google -s auto -t en-US -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n “%GDWORD%”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h5 id="Alacritty"><a href="#Alacritty" class="headerlink" title="Alacritty"></a>Alacritty</h5></li></ol><p>一款GPU实时渲染的终端</p><p>配置文件在<code>.config/alacritty/alacritty.yml</code>。</p><p>可以使用<code>fc-list</code>查看已安装的字体。</p><p>修改如下字段：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">background_opacity: 0.7
+trans -e google -s auto -t en-US -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n “%GDWORD%”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="Alacritty"><a href="#Alacritty" class="headerlink" title="Alacritty"></a>Alacritty</h5></li>
+</ol>
+<p>一款GPU实时渲染的终端</p>
+<p>配置文件在<code>.config/alacritty/alacritty.yml</code>。</p>
+<p>可以使用<code>fc-list</code>查看已安装的字体。</p>
+<p>修改如下字段：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">background_opacity: 0.7
 # Font configuration
 font:
   size: 11  
@@ -25,10 +642,31 @@ font:
     family: JetBrainsMono Nerd Font Mono
     #family: JetBrains Mono Regular Nerd Font Complete Mono
     # The `style` can be specified to pick a specific face.
-    style: Regular<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h5 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h5><p>安装<code>sudo pacman -S tmux</code></p><p>配置基于<a target="_blank" rel="noopener" href="https://github.com/gpakosz/.tmux">github</a></p><h5 id="Barrier"><a href="#Barrier" class="headerlink" title="Barrier"></a>Barrier</h5><p>多台主机之间共享键鼠，使用<code>sudo pacman -S barrier</code>或<code>sudo apt install barrier</code>。</p><p>配置时在服务端的屏幕和联结中创建新的屏幕并设置名称，此名称需要和连接的设备的barrier中的名称一致。</p><h5 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h5><p>推荐使用<code>fcitx5</code>。搜狗输入法每次启动都会花费大量时间。</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-im<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>修改<code>~/.pam_environment</code></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">INPUT_METHOD  DEFAULT=fcitx5
+    style: Regular<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h5 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h5><p>安装<code>sudo pacman -S tmux</code></p>
+<p>配置基于<a target="_blank" rel="noopener" href="https://github.com/gpakosz/.tmux">github</a></p>
+<h5 id="Barrier"><a href="#Barrier" class="headerlink" title="Barrier"></a>Barrier</h5><p>多台主机之间共享键鼠，使用<code>sudo pacman -S barrier</code>或<code>sudo apt install barrier</code>。</p>
+<p>配置时在服务端的屏幕和联结中创建新的屏幕并设置名称，此名称需要和连接的设备的barrier中的名称一致。</p>
+<h5 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h5><p>推荐使用<code>fcitx5</code>。搜狗输入法每次启动都会花费大量时间。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-im<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>修改<code>~/.pam_environment</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">INPUT_METHOD  DEFAULT=fcitx5
 GTK_IM_MODULE DEFAULT=fcitx5
 QT_IM_MODULE  DEFAULT=fcitx5
-XMODIFIERS    DEFAULT=\@im=fcitx5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>将<code>/usr/share/applications/fcitx5.desktop</code>复制到<code>~/.config/autostart</code> ，实现开机自启。</p><p>添加对中文支持</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-chinese-addons<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>添加输入法模块</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-qt fcitx5-gtk <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>添加词库</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>安装输入法皮肤</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-material-color<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>​ 然后修改配置文件 <code>~/.config/fcitx5/conf/classicui.conf</code></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 垂直候选列表
+XMODIFIERS    DEFAULT=\@im=fcitx5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>将<code>/usr/share/applications/fcitx5.desktop</code>复制到<code>~/.config/autostart  </code>，实现开机自启。</p>
+<p>添加对中文支持</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-chinese-addons<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>添加输入法模块</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-qt fcitx5-gtk <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>添加词库</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装输入法皮肤</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-material-color<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>​    然后修改配置文件 <code>~/.config/fcitx5/conf/classicui.conf</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 垂直候选列表
 Vertical Candidate List=False
 
 # 按屏幕 DPI 使用
@@ -38,9 +676,30 @@ PerScreenDPI=False
 Font="思源黑体 CN Medium 13"
 
 # 主题 (自定义)
-Theme=Material-Color-Pink<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>主题名称：</p><ul><li>Material-Color-Pink</li><li>Material-Color-Blue</li><li>Material-Color-Brown</li><li>Material-Color-DeepPurple</li><li>Material-Color-Indigo</li><li>Material-Color-Red</li><li>Material-Color-Teal(不错)</li></ul><p>​ 更新皮肤</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd ~/.local/share/fcitx5/themes/Material-Color
-git pull<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>​ 单行模式</p><ul><li>对于 fcitx5 自带的 pinyin，请修改 <code>~/.config/fcitx5/conf/pinyin.conf</code></li><li>对于 fcitx5-rime，请新建/修改 <code>~/.config/fcitx5/conf/rime.conf</code></li></ul><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 可用时在应用程序中显示预编辑文本
-PreeditInApplication=True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h5 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h5><p>终端显示，能智能的显示一些信息，高定制性。</p><h6 id="Oh-My-Zsh"><a href="#Oh-My-Zsh" class="headerlink" title="Oh-My-Zsh"></a>Oh-My-Zsh</h6><p><code>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></p><h6 id="相应插件"><a href="#相应插件" class="headerlink" title="相应插件"></a>相应插件</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">plugins=( 
+Theme=Material-Color-Pink<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>主题名称：</p>
+<ul>
+<li>Material-Color-Pink</li>
+<li>Material-Color-Blue</li>
+<li>Material-Color-Brown</li>
+<li>Material-Color-DeepPurple</li>
+<li>Material-Color-Indigo</li>
+<li>Material-Color-Red</li>
+<li>Material-Color-Teal(不错)</li>
+</ul>
+<p>​    更新皮肤  </p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd ~/.local/share/fcitx5/themes/Material-Color
+git pull<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>​    单行模式</p>
+<ul>
+<li>对于 fcitx5 自带的 pinyin，请修改 <code>~/.config/fcitx5/conf/pinyin.conf</code></li>
+<li>对于 fcitx5-rime，请新建/修改 <code>~/.config/fcitx5/conf/rime.conf</code></li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 可用时在应用程序中显示预编辑文本
+PreeditInApplication=True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h5 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h5><p>终端显示，能智能的显示一些信息，高定制性。</p>
+<h6 id="Oh-My-Zsh"><a href="#Oh-My-Zsh" class="headerlink" title="Oh-My-Zsh"></a>Oh-My-Zsh</h6><p><code>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></p>
+<h6 id="相应插件"><a href="#相应插件" class="headerlink" title="相应插件"></a>相应插件</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">plugins=( 
    git 
    z 
    extract 
@@ -55,11 +714,16 @@ PreeditInApplication=True<span aria-hidden="true" class="line-numbers-rows"><spa
    history 
    tmuxinator 
    tmux 
-   )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>如果相关插件提示无法使用，需要去寻找相应github仓库。将所需项目克隆至本地。</p><p>添加fzf设置：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" -E ".idea" . /home'
+   )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果相关插件提示无法使用，需要去寻找相应github仓库。将所需项目克隆至本地。</p>
+<p>添加fzf设置：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" -E ".idea" . /home'
 #export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "[[ $(file --mime {}) =~ binary ]] &amp;&amp; echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2&gt; /dev/null | head -500" --preview-windows=down'
 #export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border  --preview "[[ $(file --mime {}) =~ binary ]] &amp;&amp; echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2&gt; /dev/null | head -500" --preview-window=down'
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "echo {} | ~/.config/file_preview.py" --preview-window=down'
-export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><code>file_preview.py</code></p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/env python</span>
+export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>file_preview.py</code></p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/env python</span>
 <span class="token comment"># coding=utf-8</span>
 
 <span class="token comment"># 在使用这个插件之前你需要先安装以下程序</span>
@@ -108,7 +772,10 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
             preview_nameandline<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token keyword">else</span><span class="token punctuation">:</span>
         os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'echo {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>添加执行权限。</p><p>设置power10k:</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Generated by Powerlevel10k configuration wizard on 2020-02-16 at 19:30 CST.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>添加执行权限。</p>
+<p>设置power10k:</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Generated by Powerlevel10k configuration wizard on 2020-02-16 at 19:30 CST.
 # Based on romkatv/powerlevel10k/config/p10k-classic.zsh, checksum 02588.
 # Wizard options: nerdfont-complete + powerline, large icons, classic, dark, time,
 # angled separators, blurred heads, sharp tails, 2 lines, dotted, right frame, compact,
@@ -1603,9 +2270,21 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
 }
 
 (( ${#p10k_config_opts} )) &amp;&amp; setopt ${p10k_config_opts[@]}
-'builtin' 'unset' 'p10k_config_opts'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h5 id="终端音乐"><a href="#终端音乐" class="headerlink" title="终端音乐"></a>终端音乐</h5><p>推荐使用<code>ncmpcpp</code>作为前端，<code>mpd</code>作为后端，<code>mpc</code>作为控制端。</p><h6 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a><del>全局配置</del></h6><p>打开mpd的配置文件<code>/etc/mpd.conf</code></p><p>添加音乐目录</p><p>​ 将<code>/etc/mpd.conf</code>中添加字段<code>music_directory "/path/to/music"</code>。这里的路径就是音乐存放的绝对路径。</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># gpasswd -a mpd &lt;your login group&gt;
+'builtin' 'unset' 'p10k_config_opts'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h5 id="终端音乐"><a href="#终端音乐" class="headerlink" title="终端音乐"></a>终端音乐</h5><p>推荐使用<code>ncmpcpp</code>作为前端，<code>mpd</code>作为后端，<code>mpc</code>作为控制端。</p>
+<h6 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a><del>全局配置</del></h6><p>打开mpd的配置文件<code>/etc/mpd.conf</code></p>
+<p>添加音乐目录</p>
+<p>​    将<code>/etc/mpd.conf</code>中添加字段<code>music_directory "/path/to/music"</code>。这里的路径就是音乐存放的绝对路径。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># gpasswd -a mpd &lt;your login group&gt;
 $ chmod 710 /home/&lt;your home dir&gt;
-gpasswd -a mpd audio<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h6 id="单用户配置"><a href="#单用户配置" class="headerlink" title="单用户配置"></a>单用户配置</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ cp /usr/share/doc/mpd/mpdconf.example ~/.config/mpd/mpd.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>编辑 <code>~/.config/mpd/mpd.conf</code> 并且指定所需文件：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Required files
+gpasswd -a mpd audio<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+<h6 id="单用户配置"><a href="#单用户配置" class="headerlink" title="单用户配置"></a>单用户配置</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ cp /usr/share/doc/mpd/mpdconf.example ~/.config/mpd/mpd.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>编辑 <code>~/.config/mpd/mpd.conf</code> 并且指定所需文件：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Required files
 db_file            "~/.config/mpd/database"
 log_file           "~/.config/mpd/log"
 
@@ -1614,8 +2293,12 @@ music_directory    "~/Music"
 playlist_directory "~/.config/mpd/playlists"
 pid_file           "~/.config/mpd/pid"
 state_file         "~/.config/mpd/state"
-sticker_file       "~/.config/mpd/sticker.sql"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>创建所有上述配置中提及的文件和目录：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ mkdir ~/.config/mpd/playlists
-$ touch ~/.config/mpd/{database,log,pid,state,sticker.sql}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>添加如下</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">audio_output {
+sticker_file       "~/.config/mpd/sticker.sql"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>创建所有上述配置中提及的文件和目录：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ mkdir ~/.config/mpd/playlists
+$ touch ~/.config/mpd/{database,log,pid,state,sticker.sql}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>添加如下</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">audio_output {
     type        "alsa"
     name        "My ALSA Device"
     device      "hw:0,0"    # optional
@@ -1623,17 +2306,42 @@ $ touch ~/.config/mpd/{database,log,pid,state,sticker.sql}<span aria-hidden="tru
     mixer_device    "default"   # optional
     mixer_control   "Master"        # optional
     mixer_index "0"     # optional
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这里的mixer控制mpd的音量调节。如果不知使用哪一个mixer,可以用<code>amixer</code>进行查看。</p><p>ncmpcpp实现可视化需要如下字段：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">audio_output {
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里的mixer控制mpd的音量调节。如果不知使用哪一个mixer,可以用<code>amixer</code>进行查看。</p>
+<p>ncmpcpp实现可视化需要如下字段：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">audio_output {
     type                    "fifo"
     name                    "my_fifo"
     path                    "/tmp/mpd.fifo"
     format                  "44100:16:2"
-}     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>创建ncmpcpp的配置文件<code>~/.ncmpcpp/config</code>。从<code>/usr/share/doc/ncmpcpp/config</code>复制过来。</p><p>创建ncmpcpp的自定义按键的配置文件<code>~/.ncmpcpp/bindings</code>。从<code>/usr/share/doc/ncmpcpp/bindings</code> 复制过来。</p><hr><h5 id="Ranger"><a href="#Ranger" class="headerlink" title="Ranger"></a>Ranger</h5><h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S ranger  #或者
-pip install ranger-fm --user<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h6 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h6><h6 id="开启自定义选项"><a href="#开启自定义选项" class="headerlink" title="开启自定义选项"></a>开启自定义选项</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ranger --copy-config=all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>在环境变量中添加<code>export RANGER_LOAD_DEFAULT_RC=FALSE</code></p><h6 id="设置文件图标"><a href="#设置文件图标" class="headerlink" title="设置文件图标"></a>设置文件图标</h6><p>首先安装nerd-font,详见下面的字体配置。</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>添加<code>default_linemode devicons</code> 到 <code>rc.conf</code>。即执行<code>echo "default_linemode devicons" &gt;&gt; $HOME/.config/ranger/rc.conf</code></p><p><del>若是不行，就在这个插件的文件夹下面<code>make install</code>。</del></p><h6 id="开启图片预览"><a href="#开启图片预览" class="headerlink" title="开启图片预览"></a>开启图片预览</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S w3m #提供显示图像的组件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>在<code>rc.conf</code>中添加：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set preview_images true 
+}     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>创建ncmpcpp的配置文件<code>~/.ncmpcpp/config</code>。从<code>/usr/share/doc/ncmpcpp/config</code>复制过来。</p>
+<p>创建ncmpcpp的自定义按键的配置文件<code>~/.ncmpcpp/bindings</code>。从<code>/usr/share/doc/ncmpcpp/bindings </code>复制过来。</p>
+<hr>
+<h5 id="Ranger"><a href="#Ranger" class="headerlink" title="Ranger"></a>Ranger</h5><h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S ranger  #或者
+pip install ranger-fm --user<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h6 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h6><h6 id="开启自定义选项"><a href="#开启自定义选项" class="headerlink" title="开启自定义选项"></a>开启自定义选项</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ranger --copy-config=all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在环境变量中添加<code>export RANGER_LOAD_DEFAULT_RC=FALSE </code></p>
+<h6 id="设置文件图标"><a href="#设置文件图标" class="headerlink" title="设置文件图标"></a>设置文件图标</h6><p>首先安装nerd-font,详见下面的字体配置。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>添加<code>default_linemode devicons</code> 到 <code>rc.conf</code>。即执行<code>echo "default_linemode devicons" &gt;&gt; $HOME/.config/ranger/rc.conf</code></p>
+<p><del>若是不行，就在这个插件的文件夹下面<code>make install</code>。</del></p>
+<h6 id="开启图片预览"><a href="#开启图片预览" class="headerlink" title="开启图片预览"></a>开启图片预览</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S w3m #提供显示图像的组件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在<code>rc.conf</code>中添加：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set preview_images true 
 # Be aware of version control systems and display information.将这里改成true,可以显示github目录的状态
-set vcs_aware true  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>查看图片：</p><p><code>sudo pacman -S w3m</code></p><p>编辑配置文件<code>~/.config/ranger/rc.conf</code></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Use one of the supported image preview protocols
+set vcs_aware true  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>查看图片：</p>
+<p><code>sudo pacman -S w3m</code></p>
+<p>编辑配置文件<code>~/.config/ranger/rc.conf</code></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Use one of the supported image preview protocols
 set preview_images true 
-set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>在<code>～/.config/ranger/scope.sh</code>中，将相关格式代码的注释取消。</p><p>视频预览需要安装ffmpegthumbnailer。</p><p>docx预览需要安装pandoc。</p><h6 id="设置自定义的命令（压缩，mkcd，解压，fzf）"><a href="#设置自定义的命令（压缩，mkcd，解压，fzf）" class="headerlink" title="设置自定义的命令（压缩，mkcd，解压，fzf）"></a>设置自定义的命令（压缩，mkcd，解压，fzf）</h6><p>在<code>commands.py</code>文件中添加如下代码：</p><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> ranger<span class="token punctuation">.</span>core<span class="token punctuation">.</span>loader <span class="token keyword">import</span> CommandLoader
+set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>在<code>～/.config/ranger/scope.sh</code>中，将相关格式代码的注释取消。</p>
+<p>视频预览需要安装ffmpegthumbnailer。</p>
+<p>docx预览需要安装pandoc。</p>
+<h6 id="设置自定义的命令（压缩，mkcd，解压，fzf）"><a href="#设置自定义的命令（压缩，mkcd，解压，fzf）" class="headerlink" title="设置自定义的命令（压缩，mkcd，解压，fzf）"></a>设置自定义的命令（压缩，mkcd，解压，fzf）</h6><p>在<code>commands.py</code>文件中添加如下代码：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> ranger<span class="token punctuation">.</span>core<span class="token punctuation">.</span>loader <span class="token keyword">import</span> CommandLoader
 <span class="token keyword">class</span> <span class="token class-name">mkcd</span><span class="token punctuation">(</span>Command<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token triple-quoted-string string">"""
     :mkcd &lt;dirname&gt;
@@ -1755,9 +2463,12 @@ set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows">
                 <span class="token operator">+</span> <span class="token punctuation">[</span>f<span class="token punctuation">.</span>path <span class="token keyword">for</span> f <span class="token keyword">in</span> copied_files<span class="token punctuation">]</span><span class="token punctuation">,</span> descr<span class="token operator">=</span>descr<span class="token punctuation">,</span> read<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 
         obj<span class="token punctuation">.</span>signal_bind<span class="token punctuation">(</span><span class="token string">'after'</span><span class="token punctuation">,</span> refresh<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>loader<span class="token punctuation">.</span>add<span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h5 id="Latex"><a href="#Latex" class="headerlink" title="Latex"></a>Latex</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S texstudio
+        self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>loader<span class="token punctuation">.</span>add<span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="Latex"><a href="#Latex" class="headerlink" title="Latex"></a>Latex</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S texstudio
 sudo pacman -S texlive-core  texlive-bin texlive-langcjk texlive-latex3 texlive-latexextra texlive-langchinese
-sudo pacman -S texlive-most<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>中文latex最简化模板</p><pre class="line-numbers language-latex" data-language="latex"><code class="language-latex"><span class="token comment">%!TEX program = xelatex</span>
+sudo pacman -S texlive-most<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>中文latex最简化模板</p>
+<pre class="line-numbers language-latex" data-language="latex"><code class="language-latex"><span class="token comment">%!TEX program = xelatex</span>
 <span class="token function selector">\documentclass</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>article<span class="token punctuation">}</span>
 <span class="token function selector">\usepackage</span><span class="token punctuation">{</span><span class="token keyword">ctex</span><span class="token punctuation">}</span>
 <span class="token function selector">\title</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
@@ -1776,12 +2487,43 @@ sudo pacman -S texlive-most<span aria-hidden="true" class="line-numbers-rows"><s
 <span class="token function selector">\section</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
 
 <span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">document</span><span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><hr><h4 id="yay安装"><a href="#yay安装" class="headerlink" title="yay安装"></a>yay安装</h4><h5 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h5><p>yay jdk15 和yay jdk8</p><p>若是需要安装jdk8，则先下载相应版本的jdk包到默认的下载文件夹。然后执行<code>yay jdk8</code>即可。</p><p><code>archlinux-java status</code>查看当前使用的JDK版本</p><p>easyconnect: yay easyconnect</p><p>burpsuite: yay burpsuite</p><p>gotop：一款命令行查看系统使用状况</p><p>bashtop:同上</p><p>termius：多平台终端软件</p><p>yay -S picgo-appimage:picgo图片上传工具</p><p><a target="_blank" rel="noopener" href="https://www.archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/">zathura-pdf-mupdf</a>：zathura的pdf支持插件</p><p>the_silver_searcher：</p><p>touchegg：触控板程序，创建开机自启可以使用”/usr/bin/touchegg –daemon &amp; /usr/bin/touchegg –client”</p><p>logiops：罗技MX系列鼠标在linux下的驱动</p><h4 id="Appimage形式存在的软件"><a href="#Appimage形式存在的软件" class="headerlink" title="Appimage形式存在的软件"></a>Appimage形式存在的软件</h4><p>pdman：数据库设计软件</p><hr><h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><h4 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h4><p><strong>Http代理</strong></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export http_proxy="http://localhost:port"
-export https_proxy="http://localhost:port"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><strong>Socket5</strong></p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export http_proxy="socks5://127.0.0.1:1080"
-export https_proxy="socks5://127.0.0.1:1080"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="ArchLinuxCN源"><a href="#ArchLinuxCN源" class="headerlink" title="ArchLinuxCN源"></a>ArchLinuxCN源</h4><p>在/etc/pacman.conf文件中添加以下两行</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[archlinuxcn]
-Server = https://repo.archlinuxcn.org/$arch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>或者去<a target="_blank" rel="noopener" href="https://github.com/archlinuxcn/mirrorlist-repo">官方</a>获取镜像站点。</p><h4 id="BlackArch源"><a href="#BlackArch源" class="headerlink" title="BlackArch源"></a>BlackArch源</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[blackarch]
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<hr>
+<h4 id="yay安装"><a href="#yay安装" class="headerlink" title="yay安装"></a>yay安装</h4><h5 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h5><p>yay jdk15 和yay jdk8</p>
+<p>若是需要安装jdk8，则先下载相应版本的jdk包到默认的下载文件夹。然后执行<code>yay jdk8</code>即可。</p>
+<p><code>archlinux-java status</code>查看当前使用的JDK版本</p>
+<p>easyconnect: yay easyconnect</p>
+<p>burpsuite: yay burpsuite</p>
+<p>gotop：一款命令行查看系统使用状况</p>
+<p>bashtop:同上</p>
+<p>termius：多平台终端软件</p>
+<p>yay -S picgo-appimage:picgo图片上传工具</p>
+<p><a target="_blank" rel="noopener" href="https://www.archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/"> zathura-pdf-mupdf</a>：zathura的pdf支持插件</p>
+<p>the_silver_searcher：</p>
+<p>touchegg：触控板程序，创建开机自启可以使用”/usr/bin/touchegg –daemon &amp; /usr/bin/touchegg –client”</p>
+<p>logiops：罗技MX系列鼠标在linux下的驱动</p>
+<h4 id="Appimage形式存在的软件"><a href="#Appimage形式存在的软件" class="headerlink" title="Appimage形式存在的软件"></a>Appimage形式存在的软件</h4><p>pdman：数据库设计软件</p>
+<hr>
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><h4 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h4><p><strong>Http代理</strong></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export http_proxy="http://localhost:port"
+export https_proxy="http://localhost:port"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Socket5</strong></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export http_proxy="socks5://127.0.0.1:1080"
+export https_proxy="socks5://127.0.0.1:1080"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="ArchLinuxCN源"><a href="#ArchLinuxCN源" class="headerlink" title="ArchLinuxCN源"></a>ArchLinuxCN源</h4><p>在/etc/pacman.conf文件中添加以下两行</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[archlinuxcn]
+Server = https://repo.archlinuxcn.org/$arch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>或者去<a target="_blank" rel="noopener" href="https://github.com/archlinuxcn/mirrorlist-repo">官方</a>获取镜像站点。</p>
+<h4 id="BlackArch源"><a href="#BlackArch源" class="headerlink" title="BlackArch源"></a>BlackArch源</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[blackarch]
 SigLevel = Optional TrustAll
-Server = https://mirrors.ustc.edu.cn/blackarch/$repo/os/$arch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="桌面毛玻璃"><a href="#桌面毛玻璃" class="headerlink" title="桌面毛玻璃"></a>桌面毛玻璃</h4><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=86ro5Q0Fi34">主题配置</a></p><h6 id="终端模糊"><a href="#终端模糊" class="headerlink" title="终端模糊"></a>终端模糊</h6><p>修改<code>.config/yakuakerc</code>，修改成:</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[Appearance]
+Server = https://mirrors.ustc.edu.cn/blackarch/$repo/os/$arch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="桌面毛玻璃"><a href="#桌面毛玻璃" class="headerlink" title="桌面毛玻璃"></a>桌面毛玻璃</h4><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=86ro5Q0Fi34">主题配置</a></p>
+<h6 id="终端模糊"><a href="#终端模糊" class="headerlink" title="终端模糊"></a>终端模糊</h6><p>修改<code>.config/yakuakerc</code>，修改成:</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[Appearance]
 Blur=true
 Translucency=true                                                                                                                                                            
 
@@ -1791,7 +2533,12 @@ Favorites=
 [Window]
 Height=100
 KeepOpen=false
-Width=100<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>konsole的毛玻璃特效在外观-&gt;配色方法和字体中的背景透明度。</p><h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>nerd-fonts-hack ttf-meslo-nerd-font-powerlevel10k nerd-fonts-jetbrains-mono ttf-nerd-fonts-hack-complete-git</p><p>重点推荐<code>nerd-fonts-jetbrains-mono</code>。挺好的。</p><p>中文字体：<strong>yay</strong> -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei adobe-source-han-mono-cn-fonts adobe-source<br>-han-sans-cn-fonts adobe-source-han-serif-cn-fonts</p><h4 id="安全软件"><a href="#安全软件" class="headerlink" title="安全软件"></a>安全软件</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S john
+Width=100<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>konsole的毛玻璃特效在外观-&gt;配色方法和字体中的背景透明度。</p>
+<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>nerd-fonts-hack ttf-meslo-nerd-font-powerlevel10k nerd-fonts-jetbrains-mono ttf-nerd-fonts-hack-complete-git</p>
+<p>重点推荐<code>nerd-fonts-jetbrains-mono</code>。挺好的。</p>
+<p>中文字体：<strong>yay</strong> -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei adobe-source-han-mono-cn-fonts adobe-source<br>-han-sans-cn-fonts adobe-source-han-serif-cn-fonts</p>
+<h4 id="安全软件"><a href="#安全软件" class="headerlink" title="安全软件"></a>安全软件</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S john
 <span class="token function">sudo</span> pacman -S hydra
 <span class="token function">sudo</span> pacman -S nmap
 <span class="token function">sudo</span> pacman -S bettercap
@@ -1804,8 +2551,24 @@ yay -S dirb
 yay -S edb-debugger
 yay -S halcyon
 yay -S charles
-yay -S maltego<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="开机蓝牙自启"><a href="#开机蓝牙自启" class="headerlink" title="开机蓝牙自启"></a>开机蓝牙自启</h4><p>实现登陆前可以使用蓝牙键盘。</p><p>修改<code>/etc/bluetooth/main.conf</code>，修改如下字段：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>Policy<span class="token punctuation">]</span>
-AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="更新错误"><a href="#更新错误" class="headerlink" title="更新错误"></a>更新错误</h3><h4 id="下载出现依赖关系的错误"><a href="#下载出现依赖关系的错误" class="headerlink" title="下载出现依赖关系的错误"></a>下载出现依赖关系的错误</h4><p>推荐去官网的公告区查看最新信息。</p><p><a target="_blank" rel="noopener" href="https://forum.manjaro.org/c/announcements/11">https://forum.manjaro.org/c/announcements/11</a></p><h4 id="包错误或损坏"><a href="#包错误或损坏" class="headerlink" title="包错误或损坏"></a>包错误或损坏</h4><p>首先自然是重新下载。但是顺利下载下来的内容依旧是损坏或错误，此时推荐使用<code>sudo pacman -S archlinuxcn-keyring</code>。</p><h3 id="罗技驱动"><a href="#罗技驱动" class="headerlink" title="罗技驱动"></a>罗技驱动</h3><p>罗技的MX系列鼠标没有板载内存，只能通过读取软件中设置的方式来实现按键自定义。因此，需要在Linux下也安装相应的驱动才能正常使用。详情见<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Logitech_MX_Master">https://wiki.archlinux.org/title/Logitech_MX_Master</a></p><ol><li><p><code>yay -s logiops</code>安装驱动。</p></li><li><p>启动服务<code>systemctl start logid</code></p></li><li><p>使用命令<code>sudo logid -v</code>获取设备的名称。</p></li><li><p>编写配置文件<code>/etc/logid.cfg</code></p><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">devices: (
+yay -S maltego<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="开机蓝牙自启"><a href="#开机蓝牙自启" class="headerlink" title="开机蓝牙自启"></a>开机蓝牙自启</h4><p>实现登陆前可以使用蓝牙键盘。</p>
+<p>修改<code>/etc/bluetooth/main.conf</code>，修改如下字段：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>Policy<span class="token punctuation">]</span>
+AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="更新错误"><a href="#更新错误" class="headerlink" title="更新错误"></a>更新错误</h3><h4 id="下载出现依赖关系的错误"><a href="#下载出现依赖关系的错误" class="headerlink" title="下载出现依赖关系的错误"></a>下载出现依赖关系的错误</h4><p>推荐去官网的公告区查看最新信息。</p>
+<p><a target="_blank" rel="noopener" href="https://forum.manjaro.org/c/announcements/11">https://forum.manjaro.org/c/announcements/11</a></p>
+<h4 id="包错误或损坏"><a href="#包错误或损坏" class="headerlink" title="包错误或损坏"></a>包错误或损坏</h4><p>首先自然是重新下载。但是顺利下载下来的内容依旧是损坏或错误，此时推荐使用<code>sudo pacman -S archlinuxcn-keyring</code>。</p>
+<h3 id="罗技驱动"><a href="#罗技驱动" class="headerlink" title="罗技驱动"></a>罗技驱动</h3><p>罗技的MX系列鼠标没有板载内存，只能通过读取软件中设置的方式来实现按键自定义。因此，需要在Linux下也安装相应的驱动才能正常使用。详情见<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Logitech_MX_Master">https://wiki.archlinux.org/title/Logitech_MX_Master</a></p>
+<ol>
+<li><p><code>yay -s logiops</code>安装驱动。</p>
+</li>
+<li><p>启动服务<code>systemctl start logid</code></p>
+</li>
+<li><p>使用命令<code>sudo logid -v</code>获取设备的名称。</p>
+</li>
+<li><p>编写配置文件<code>/etc/logid.cfg</code></p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">devices: (
 {
     name: "Wireless Mouse MX Master 3";
     buttons: (
@@ -1829,25 +2592,494 @@ AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><
         }
     );
 }
-);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="Navicat15"><a href="#Navicat15" class="headerlink" title="Navicat15"></a>Navicat15</h3></li><li><p>首先下载navicat15的软件包。<code>wget https://github.com/HeQuanX/navicat-keygen-tools/releases/download/recommended/navicat15-premium-cs.zip</code></p></li><li><p>提取Appimage文件中的内容到指定文件夹中</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> navicat15-premium-cs
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Navicat15"><a href="#Navicat15" class="headerlink" title="Navicat15"></a>Navicat15</h3></li>
+<li><p>首先下载navicat15的软件包。<code>wget https://github.com/HeQuanX/navicat-keygen-tools/releases/download/recommended/navicat15-premium-cs.zip</code></p>
+</li>
+<li><p>提取Appimage文件中的内容到指定文件夹中</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> navicat15-premium-cs
 <span class="token function">sudo</span> <span class="token function">mount</span> -o loop navicat15-premium-cs.AppImage navicat15-premium-cs
 <span class="token function">sudo</span> <span class="token function">cp</span> -r navicat15-premium-cs navicat
 <span class="token function">sudo</span> <span class="token function">umount</span> navicat15-premium-cs
-<span class="token function">rm</span> -rf navicat15-premium-cs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>安装编译依赖软件</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yay -S capstone keystone rapidjson openssl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>编译生成补丁文件</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">git</span> clone -b linux --single-branch https://github.com/Orginly/navicat-keygen.git
+<span class="token function">rm</span> -rf navicat15-premium-cs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>安装编译依赖软件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yay -S capstone keystone rapidjson openssl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>编译生成补丁文件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">git</span> clone -b linux --single-branch https://github.com/Orginly/navicat-keygen.git
 <span class="token builtin class-name">cd</span> navicat-keygen
-<span class="token function">make</span> all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><strong>生成完成后，你会在 <code>./bin</code> 文件夹下看到编译后的keygen/patcher。</strong></p></li><li><p>navicat-patcher 替换官方公钥</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> ./bin/navicat-patcher <span class="token punctuation">..</span>/navicat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>重新打包成AppImage文件</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yay -S appimagetool
+<span class="token function">make</span> all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>生成完成后，你会在 <code>./bin</code> 文件夹下看到编译后的keygen/patcher。</strong></p>
+</li>
+<li><p>navicat-patcher 替换官方公钥</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> ./bin/navicat-patcher <span class="token punctuation">..</span>/navicat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>重新打包成AppImage文件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yay -S appimagetool
 appimagetool navicat navicat15.AppImage
-./navicat15.AppImage<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li><li><p>激活</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> navicat-keygen
-./bin/navicat-keygen --text ./RegPrivateKey.pem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>在这里输入请求码，并复制生成的激活码。此过程中记得断网，使用手动激活的方式。</p></li><li><p>清理</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat15-premium-cs
+./navicat15.AppImage<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>激活</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> navicat-keygen
+./bin/navicat-keygen --text ./RegPrivateKey.pem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在这里输入请求码，并复制生成的激活码。此过程中记得断网，使用手动激活的方式。</p>
+</li>
+<li><p>清理</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat15-premium-cs
 <span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat15-premium-cs.AppImage
-<span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="Manjaro与Win双系统蓝牙"><a href="#Manjaro与Win双系统蓝牙" class="headerlink" title="Manjaro与Win双系统蓝牙"></a>Manjaro与Win双系统蓝牙</h3></li></ol><h4 id="普通蓝牙设备"><a href="#普通蓝牙设备" class="headerlink" title="普通蓝牙设备"></a>普通蓝牙设备</h4><ol><li><p>在win10下建立与蓝牙设备的连接，以保证win中的系统注册表中有该设备配置项。</p></li><li><p>切换到Manjaro下，再次设备配对。</p></li><li><p>获取Manjaro系统下蓝牙设备的linkkey或设备认证码。路径在<code>/var/lib/bluetooth</code>下。里面的第一层文件夹是本机蓝牙的mac地址，再里面的文件夹就是每个与电脑配对的蓝牙设备的mac地址。找到相应设备的mac地址文件夹，其中info文件就记录着设备的linkkey。</p><p><img src="http://www.linuxdiyf.com/linux/uploads/allimg/170311/2-1F311100530443.png"></p></li><li><p>切换到win系统下，通过<a target="_blank" rel="noopener" href="https://technet.microsoft.com/en-us/sysinternals/bb897553">微软官网</a>下载PSTools工具修改系统注册表中的蓝牙linkkey。在命令行程序中执行<code>PsExec.exe -s -i regedit</code>。</p></li><li><p>找到<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\BTHPORT\Parameters\Keys\</code>。将Manjaro下获取的key输入进去。重启电脑即可。</p><p><img src="http://www.linuxdiyf.com/linux/uploads/allimg/170311/2-1F311100555c6.png" alt="win10和ubuntu16共用蓝牙鼠标"></p></li></ol><h4 id="罗技Master3"><a href="#罗技Master3" class="headerlink" title="罗技Master3"></a>罗技Master3</h4><p>罗技的Master3不同于一般的蓝牙设备。**每次配对都会导致鼠标自身的mac地址自增(即+2)**，因此在修改时需要将Manjaro下的mac地址文件夹名字进行修改。</p><ol><li>将鼠标在Manjaro系统下进行配对。完成后可以在<code>/var/lib/bluetooth/主机蓝牙设备地址/鼠标蓝牙设备地址</code> 下看到配对信息，在 info 中就存有配对验证使用的 <code>IdentityResolvingKey</code> 和 <code>SlaveLongTermKey</code> 。</li><li>同普通蓝牙设备，在win系统中配对设备并通过PSTools工具获取设备当前的<code>Address(设备地址)</code>、<code>IRK(IdentityResolvingKey)</code> 和 <code>LTK(SlaveLongTermKey)</code>。</li><li>进入Manjaro系统，将设备mac文件夹修改成现在自增后的mac地址，并将info中的<code>IdentityResolvingKey和SlaveLongTermKey</code>修改成和win下一致的数据。</li><li>重启系统即可。</li></ol></div><hr><div class="reprint" id="reprint-statement"><div class="reprint__author"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-user">文章作者:</i></span> <span class="reprint-info"><a href="/about" rel="external nofollow noreferrer">不二</a></span></div><div class="reprint__type"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-link">文章链接:</i></span> <span class="reprint-info"><a href="http://buerlog.top/2019/12/12/jing-yan-zong-jie/manjaro-an-zhuang-ji-qi-pei-zhi/">http://buerlog.top/2019/12/12/jing-yan-zong-jie/manjaro-an-zhuang-ji-qi-pei-zhi/</a></span></div><div class="reprint__notice"><span class="reprint-meta" style="font-weight:700"><i class="fas fa-copyright">版权声明:</i></span> <span class="reprint-info">本博客所有文章除特別声明外，均采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a> 许可协议。转载请注明来源 <a href="/about" target="_blank">不二</a> !</span></div></div><script async defer>document.addEventListener("copy", function (e) {
+<span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="Manjaro与Win双系统蓝牙"><a href="#Manjaro与Win双系统蓝牙" class="headerlink" title="Manjaro与Win双系统蓝牙"></a>Manjaro与Win双系统蓝牙</h3></li>
+</ol>
+<h4 id="普通蓝牙设备"><a href="#普通蓝牙设备" class="headerlink" title="普通蓝牙设备"></a>普通蓝牙设备</h4><ol>
+<li><p>在win10下建立与蓝牙设备的连接，以保证win中的系统注册表中有该设备配置项。</p>
+</li>
+<li><p>切换到Manjaro下，再次设备配对。</p>
+</li>
+<li><p>获取Manjaro系统下蓝牙设备的linkkey或设备认证码。路径在<code>/var/lib/bluetooth</code>下。里面的第一层文件夹是本机蓝牙的mac地址，再里面的文件夹就是每个与电脑配对的蓝牙设备的mac地址。找到相应设备的mac地址文件夹，其中info文件就记录着设备的linkkey。</p>
+<p><img src="http://www.linuxdiyf.com/linux/uploads/allimg/170311/2-1F311100530443.png"></p>
+</li>
+<li><p>切换到win系统下，通过<a target="_blank" rel="noopener" href="https://technet.microsoft.com/en-us/sysinternals/bb897553">微软官网</a>下载PSTools工具修改系统注册表中的蓝牙linkkey。在命令行程序中执行<code>PsExec.exe -s -i regedit</code>。</p>
+</li>
+<li><p>找到<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\BTHPORT\Parameters\Keys\</code>。将Manjaro下获取的key输入进去。重启电脑即可。</p>
+<p><img src="http://www.linuxdiyf.com/linux/uploads/allimg/170311/2-1F311100555c6.png" alt="win10和ubuntu16共用蓝牙鼠标"></p>
+</li>
+</ol>
+<h4 id="罗技Master3"><a href="#罗技Master3" class="headerlink" title="罗技Master3"></a>罗技Master3</h4><p>罗技的Master3不同于一般的蓝牙设备。**每次配对都会导致鼠标自身的mac地址自增(即+2)**，因此在修改时需要将Manjaro下的mac地址文件夹名字进行修改。</p>
+<ol>
+<li>将鼠标在Manjaro系统下进行配对。完成后可以在<code>/var/lib/bluetooth/主机蓝牙设备地址/鼠标蓝牙设备地址</code> 下看到配对信息，在 info 中就存有配对验证使用的 <code>IdentityResolvingKey</code> 和 <code>SlaveLongTermKey</code> 。</li>
+<li>同普通蓝牙设备，在win系统中配对设备并通过PSTools工具获取设备当前的<code>Address(设备地址)</code>、<code>IRK(IdentityResolvingKey)</code> 和 <code>LTK(SlaveLongTermKey)</code>。</li>
+<li>进入Manjaro系统，将设备mac文件夹修改成现在自增后的mac地址，并将info中的<code>IdentityResolvingKey和SlaveLongTermKey</code>修改成和win下一致的数据。</li>
+<li>重启系统即可。</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">不二</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://buerlog.top/2019/12/12/jing-yan-zong-jie/manjaro-an-zhuang-ji-qi-pei-zhi/">http://buerlog.top/2019/12/12/jing-yan-zong-jie/manjaro-an-zhuang-ji-qi-pei-zhi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">不二</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
         let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
         M.toast({html: toastHTML})
       });
 
       function navToReprintStatement() {
         $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }</script><div class="tag_share" style="display:block"><div class="post-meta__tag-list" style="display:inline-block"><div class="article-tag"><a href="/tags/%E8%A3%85%E6%9C%BA/"><span class="chip bg-color">装机</span></a> <a href="/tags/Ranger/"><span class="chip bg-color">Ranger</span></a> <a href="/tags/Manjaro/"><span class="chip bg-color">Manjaro</span></a></div></div><div class="post_share" style="zoom:80%;width:fit-content;display:inline-block;float:right;margin:-.15rem 0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/share/css/share.min.css"><div id="article-share"><div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/share/js/social-share.min.js"></script></div></div></div><style>#reward{margin:40px 0;text-align:center}#reward .reward-link{font-size:1.4rem;line-height:38px}#reward .btn-floating:hover{box-shadow:0 6px 12px rgba(0,0,0,.2),0 5px 15px rgba(0,0,0,.2)}#rewardModal{width:320px;height:350px}#rewardModal .reward-title{margin:15px auto;padding-bottom:5px}#rewardModal .modal-content{padding:10px}#rewardModal .close{position:absolute;right:15px;top:15px;color:rgba(0,0,0,.5);font-size:1.3rem;line-height:20px;cursor:pointer}#rewardModal .close:hover{color:#ef5350;transform:scale(1.3);-moz-transform:scale(1.3);-webkit-transform:scale(1.3);-o-transform:scale(1.3)}#rewardModal .reward-tabs{margin:0 auto;width:210px}.reward-tabs .tabs{height:38px;margin:10px auto;padding-left:0}.reward-content ul{padding-left:0!important}.reward-tabs .tabs .tab{height:38px;line-height:38px}.reward-tabs .tab a{color:#fff;background-color:#ccc}.reward-tabs .tab a:hover{background-color:#ccc;color:#fff}.reward-tabs .wechat-tab .active{color:#fff!important;background-color:#22ab38!important}.reward-tabs .alipay-tab .active{color:#fff!important;background-color:#019fe8!important}.reward-tabs .reward-img{width:210px;height:210px}</style><div id="reward"><a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a><div id="rewardModal" class="modal"><div class="modal-content"><a class="close modal-close"><i class="fas fa-times"></i></a><h4 class="reward-title">你的赏识是我前进的动力</h4><div class="reward-content"><div class="reward-tabs"><ul class="tabs row"><li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li><li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li></ul><div id="alipay"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码"></div><div id="wechat"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码"></div></div></div></div></div></div><script>$(function(){$(".tabs").tabs()})</script></div></div><article id="prenext-posts" class="prev-next articles"><div class="row article-row"><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge left-badge text-color"><i class="fas fa-chevron-left"></i> &nbsp;上一篇</div><div class="card"><a href="/2019/12/22/yun-ji-suan/shen-ru-qian-chu-docker-bi-ji/"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/云计算/docker.jpeg" class="responsive-img" alt="深入浅出Docker笔记"> <span class="card-title">深入浅出Docker笔记</span></div></a><div class="card-content article-content"><div class="summary block-with-text"></div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i> 2019-12-22</span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">云计算</a></span></div></div><div class="card-action article-tags"><a href="/tags/Book/"><span class="chip bg-color">Book</span></a> <a href="/tags/Docker/"><span class="chip bg-color">Docker</span></a></div></div></div><div class="article col s12 m6" data-aos="fade-up"><div class="article-badge right-badge text-color">下一篇&nbsp;<i class="fas fa-chevron-right"></i></div><div class="card"><a href="/2019/12/08/jing-yan-zong-jie/centos7-chu-shi-hua-an-zhuang-bu-zou/"><div class="card-image"><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/centos.png" class="responsive-img" alt="CentOS7初始化安装步骤"> <span class="card-title">CentOS7初始化安装步骤</span></div></a><div class="card-content article-content"><div class="summary block-with-text"></div><div class="publish-info"><span class="publish-date"><i class="far fa-clock fa-fw icon-date"></i> 2019-12-08</span><span class="publish-author"><i class="fas fa-bookmark fa-fw icon-category"></i> <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">经验总结</a></span></div></div><div class="card-action article-tags"><a href="/tags/Python/"><span class="chip bg-color">Python</span></a> <a href="/tags/CentOS/"><span class="chip bg-color">CentOS</span></a> <a href="/tags/Linux/"><span class="chip bg-color">Linux</span></a></div></div></div></div></article></div><script>$("#articleContent").on("copy",function(e){if(void 0!==window.getSelection){var n=window.getSelection();if(!((""+n).length<Number.parseInt("120"))){var t=document.getElementsByTagName("body")[0],o=document.createElement("div");o.style.position="absolute",o.style.left="-99999px",t.appendChild(o),o.appendChild(n.getRangeAt(0).cloneContents()),"PRE"===n.getRangeAt(0).commonAncestorContainer.nodeName&&(o.innerHTML="<pre>"+o.innerHTML+"</pre>");var i=document.location.href;o.innerHTML+='<br />来源: 不二博客<br />文章作者: 不二<br />文章链接: <a href="'+i+'">'+i+"</a><br />本文章著作权归作者所有，任何形式的转载都请注明出处。",n.selectAllChildren(o),window.setTimeout(function(){t.removeChild(o)},200)}}})</script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeBlockFuction.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeLang.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeCopy.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeShrink.js"></script></div><div id="toc-aside" class="expanded col l3"><div class="toc-widget card" style="background-color:#fff"><div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div><div id="toc-content"></div></div></div></div><div id="floating-toc-btn"><a class="btn-floating btn-large bg-color"><i class="fas fa-list-ul"></i></a></div><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/tocbot/tocbot.min.js"></script><script>$(function () {
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%A3%85%E6%9C%BA/">
+                                    <span class="chip bg-color">装机</span>
+                                </a>
+                            
+                                <a href="/tags/Ranger/">
+                                    <span class="chip bg-color">Ranger</span>
+                                </a>
+                            
+                                <a href="/tags/Manjaro/">
+                                    <span class="chip bg-color">Manjaro</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/12/22/yun-ji-suan/shen-ru-qian-chu-docker-bi-ji/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/云计算/docker.jpeg" class="responsive-img" alt="深入浅出Docker笔记">
+                        
+                        <span class="card-title">深入浅出Docker笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">
+                                    云计算
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Book/">
+                        <span class="chip bg-color">Book</span>
+                    </a>
+                    
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/08/jing-yan-zong-jie/centos7-chu-shi-hua-an-zhuang-bu-zou/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/centos.png" class="responsive-img" alt="CentOS7初始化安装步骤">
+                        
+                        <span class="card-title">CentOS7初始化安装步骤</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">
+                                    经验总结
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/CentOS/">
+                        <span class="chip bg-color">CentOS</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 不二博客<br />'
+            + '文章作者: 不二<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 ">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
         tocbot.init({
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
@@ -1918,4 +3150,373 @@ appimagetool navicat navicat15.AppImage
             fixPostCardWidth('artDetail', 'prenext-posts');
         });
         
-    });</script></main><script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script>MathJax.Hub.Config({tex2jax:{inlineMath:[["$","$"],["(",")"]]}})</script><footer class="page-footer bg-color"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aplayer/APlayer.min.css"><style>.aplayer .aplayer-lrc p{display:none;font-size:12px;font-weight:700;line-height:16px!important}.aplayer .aplayer-lrc p.aplayer-lrc-current{display:none;font-size:15px;color:#42b983}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{left:-66px!important}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover{left:0!important}</style><div><div class="row"><meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="503838841" fixed="true" autoplay theme="#42b983" loop order="random" preload="auto" volume="0.7" list-folded="true"></meting-js></div></div><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aplayer/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><div class="container row center-align" style="margin-bottom:15px!important"><div class="col s12 m8 l8 copy-right">Copyright&nbsp;&copy; <span id="year">2018-2022</span> <span id="year">2018</span> <a href="/about" target="_blank">不二</a> |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a><br>&nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">186k</span>&nbsp;字 <span id="busuanzi_container_site_pv">|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次</span> <span id="busuanzi_container_site_uv">|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人</span><br><span id="sitetime">载入运行时间...</span><script>function siteTime(){var e=36e5,t=24*e,n=new Date,o="2018",r=n.getFullYear(),a=n.getMonth()+1,i=n.getDate(),l=n.getHours(),m=n.getMinutes(),M=n.getSeconds(),g=Date.UTC(o,"5","25","17","20","53"),d=Date.UTC(r,a,i,l,m,M)-g,s=Math.floor(d/31536e6),u=Math.floor(d/t-365*s),T=Math.floor((d-(365*s+u)*t)/e),c=Math.floor((d-(365*s+u)*t-T*e)/6e4),f=Math.floor((d-(365*s+u)*t-T*e-6e4*c)/1e3);o==r?(document.getElementById("year").innerHTML=r,document.getElementById("sitetime").innerHTML="本站已安全运行 "+u+" 天 "+T+" 小时 "+c+" 分钟 "+f+" 秒"):(document.getElementById("year").innerHTML=o+" - "+r,document.getElementById("sitetime").innerHTML="本站已安全运行 "+s+" 年 "+u+" 天 "+T+" 小时 "+c+" 分钟 "+f+" 秒")}setInterval(siteTime,1e3)</script><br></div><div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/weiyouwozuiku" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50"><i class="fab fa-github"></i></a><a href="mailto:weiyouwozuiku@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50"><i class="fas fa-envelope-open"></i></a><a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1104891151" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1104891151" data-position="top" data-delay="50"><i class="fab fa-qq"></i></a> <a href="https://www.zhihu.com/people/he-he-9-35-47" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/he-he-9-35-47" data-position="top" data-delay="50"><i class="fab fa-zhihu1">知</i></a></div></div></footer><div class="progress-bar"></div><script src="https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js"></script><script>window.mermaid&&mermaid.initialize({theme:"forest"})</script><div id="searchModal" class="modal"><div class="modal-content"><div class="search-header"><span class="title"><i class="fas fa-search"></i> &nbsp;&nbsp;搜索</span> <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input"></div><div id="searchResult"></div></div></div><script>$(function(){!function(t,a,s){"use strict";$.ajax({url:t,dataType:"xml",success:function(t){var e=$("entry",t).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()}}).get(),r=document.getElementById(a),n=document.getElementById(s);r.addEventListener("input",function(){var f='<ul class="search-result-list">',m=this.value.trim().toLowerCase().split(/[\s\-]+/);n.innerHTML="",this.value.trim().length<=0||(e.forEach(function(t){var r=!0,n=t.title.trim().toLowerCase(),a=t.content.trim().replace(/<[^>]+>/g,"").toLowerCase(),e=t.url;e=0===e.indexOf("/")?t.url:"/"+e;var s=-1,i=-1,l=-1;if(""!==n&&""!==a&&m.forEach(function(t,e){s=n.indexOf(t),i=a.indexOf(t),s<0&&i<0?r=!1:(i<0&&(i=0),0===e&&(l=i))}),r){f+="<li><a href='"+e+"' class='search-result-title'>"+n+"</a>";var c=t.content.trim().replace(/<[^>]+>/g,"");if(0<=l){var u=l-20,o=l+80;u<0&&(u=0),0===u&&(o=100),o>c.length&&(o=c.length);var h=c.substr(u,o);m.forEach(function(t){var e=new RegExp(t,"gi");h=h.replace(e,'<em class="search-keyword">'+t+"</em>")}),f+='<p class="search-result">'+h+"...</p>"}f+="</li>"}}),f+="</ul>",n.innerHTML=f)})}})}("/search.xml","searchInput","searchResult")})</script><div id="backTop" class="top-scroll"><a class="btn-floating btn-large waves-effect waves-light" href="#!"><i class="fas fa-arrow-up"></i></a></div><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/materialize/materialize.min.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/masonry/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aos/aos.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/scrollprogress/scrollProgress.min.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/js/matery.js"></script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script async src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/others/busuanzi.pure.mini.js"></script><script color="0,0,255" pointcolor="0,0,255" opacity="0.7" zindex="-1" count="150" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/canvas-nest.js"></script><script size="150" alpha="0.6" zindex="-1" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/ribbon-refresh.min.js" async></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/ribbon-dynamic.js" async></script><script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/instantpage/instantpage.js" type="module"></script></body></html>
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2022</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">不二</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">186.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "5";
+                    var startDate = "25";
+                    var startHour = "17";
+                    var startMinute = "20";
+                    var startSecond = "53";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/weiyouwozuiku" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:weiyouwozuiku@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1104891151" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1104891151" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/he-he-9-35-47" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/he-he-9-35-47" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <script src='https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js'></script>
+    <script>
+      if (window.mermaid) {
+        mermaid.initialize({theme: 'forest'});
+      }
+    </script>
+  
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="150"
+        src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
