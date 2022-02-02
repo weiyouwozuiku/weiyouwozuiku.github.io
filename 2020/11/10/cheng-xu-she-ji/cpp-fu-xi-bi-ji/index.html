@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-31
+                    2022-02-02
                 </div>
                 
 
@@ -625,6 +625,7 @@
 <h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><p>获得字符串长度：<code>s.length</code>或<code>s.size()</code>二者等价。<code>s.capacity()</code>查看字符串总空间。</p>
 <p>转换为C风格的字符串使用如下代码：</p>
 <pre class="line-numbers language-Cpp" data-language="Cpp"><code class="language-Cpp">const char *c_str = s1.c_str();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><code>c_str()</code>生成一个const char*指针，指向以空字符终止的数组。</p>
 <hr>
 <h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p><code>const</code>和<code>*</code>修饰的部分：1.先看左侧最近的部分;2.如果左侧没有，则看右侧。</p>
@@ -747,6 +748,7 @@
 <p>枚举类型enum(enumeration)的声明和定义：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">enum</span> <span class="token class-name">wT</span><span class="token punctuation">{</span>Monday<span class="token punctuation">,</span>Tuesday<span class="token punctuation">,</span>Wednesday<span class="token punctuation">,</span>Thursday<span class="token punctuation">,</span>Friday<span class="token punctuation">,</span>Saturday<span class="token punctuation">,</span>Sunday<span class="token punctuation">}</span><span class="token punctuation">;</span>
 wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h4 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h4><p>使用<code>struct</code>定义</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">strcut Student<span class="token punctuation">{</span>
     <span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -762,6 +764,7 @@ wT weekday<span class="token punctuation">;</span><span aria-hidden="true" class
 Display<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//打印1</span>
 <span class="token comment">//或者</span>
 <span class="token function">for_each</span><span class="token punctuation">(</span>begin<span class="token punctuation">,</span>end<span class="token punctuation">,</span><span class="token function">Display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>结构体的内存布局需要综合考虑CPU的位数和当前结构体中最大的类型所占空间。不同的结构体中数据的排序也会导致结构体占用空间的不同。结构体所占的空间必然是最大元素所占空间的整数倍。</strong></p>
 <p>结构体中数据——缺省对齐原则</p>
 <p>针对32位CPU：</p>
@@ -788,6 +791,7 @@ Display<span class="token punctuation">{</span><span class="token punctuation">}
     <span class="token keyword">double</span> sc<span class="token punctuation">;</span>
     <span class="token keyword">char</span> level<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>联合体的空间按照最大元素所占空间决定。</strong></p>
 <h4 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h4><p>宏定义版min函数：<code>#define MIN(a,b) (((a)&gt;=(b))?(b):(a))</code>，这里的a或b可能是式子，所以加上括号。</p>
 <hr>
@@ -812,10 +816,11 @@ T <span class="token function">max</span><span class="token punctuation">(</span
 <span class="token keyword">void</span> <span class="token function">for_each</span><span class="token punctuation">(</span>T<span class="token operator">*</span> begin<span class="token punctuation">,</span>T<span class="token operator">*</span> end<span class="token punctuation">,</span><span class="token keyword">const</span> Func<span class="token operator">&amp;</span> f<span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span>begin<span class="token operator">!=</span>end<span class="token punctuation">)</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token operator">*</span>begin<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="模板元编程"><a href="#模板元编程" class="headerlink" title="模板元编程"></a>模板元编程</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token keyword">int</span> n<span class="token operator">&gt;</span>
 <span class="token keyword">struct</span> <span class="token class-name">Sum</span> <span class="token punctuation">{</span>
     <span class="token keyword">enum</span> <span class="token class-name">Value</span> <span class="token punctuation">{</span>
-        N <span class="token operator">=</span> Sum<span class="token operator">&lt;</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token operator">&gt;</span><span class="token operator">::</span>N <span class="token operator">+</span> n
+        N <span class="token operator">=</span> Sum<span class="token operator">&lt;</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span>N <span class="token operator">+</span> n
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">template</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span>
@@ -825,9 +830,10 @@ T <span class="token function">max</span><span class="token punctuation">(</span
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    cout <span class="token operator">&lt;&lt;</span> Sum<span class="token operator">&lt;</span><span class="token number">100</span><span class="token operator">&gt;</span><span class="token operator">::</span>N<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> Sum<span class="token operator">&lt;</span><span class="token number">100</span><span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span>N<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>这个函数的整个计算过程不是在运行时完成，而是在编译期完成。</p>
 <hr>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>函数名与参数列表一起构成了函数签名。</p>
@@ -861,6 +867,7 @@ T <span class="token function">max</span><span class="token punctuation">(</span
 <span class="token keyword">namespace</span> <span class="token operator">&lt;</span>自定义空间名<span class="token operator">&gt;</span><span class="token punctuation">{</span>
     <span class="token comment">//实现函数 </span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h4><p>内联函数在编译时，编译器会把该函数的代码副本放置在每个调用该函数的地方。</p>
 <p>引入内联函数的目的是解决程序中函数调用的效率问题。<strong>内联函数内部不能有太复杂的逻辑，编译器有时会有自己的优化策略，所以内联不一定起作用。</strong></p>
 <p>用法：<code>inline &lt;函数定义&gt;</code></p>
@@ -883,7 +890,7 @@ T <span class="token function">max</span><span class="token punctuation">(</span
 <p>类定义和实现的简单展示：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//Complex.h</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">ACWING_COMPLEX_H</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">ACWING_COMPLEX_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ACWING_COMPLEX_H</span></span>
 
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 
@@ -928,9 +935,9 @@ T <span class="token function">max</span><span class="token punctuation">(</span
 
 <span class="token keyword">protected</span><span class="token operator">:</span>
     <span class="token comment">//输入输出运算符</span>
-    <span class="token keyword">friend</span> std<span class="token operator">::</span>ostream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span>std<span class="token operator">::</span>ostream <span class="token operator">&amp;</span>os<span class="token punctuation">,</span> <span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">friend</span> std<span class="token double-colon punctuation">::</span>ostream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>ostream <span class="token operator">&amp;</span>os<span class="token punctuation">,</span> <span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">friend</span> std<span class="token operator">::</span>istream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">&gt;&gt;</span><span class="token punctuation">(</span>std<span class="token operator">::</span>istream <span class="token operator">&amp;</span>is<span class="token punctuation">,</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">friend</span> std<span class="token double-colon punctuation">::</span>istream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">&gt;&gt;</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>istream <span class="token operator">&amp;</span>is<span class="token punctuation">,</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">private</span><span class="token operator">:</span>
     <span class="token keyword">double</span> _real<span class="token punctuation">;</span>
@@ -944,36 +951,36 @@ T <span class="token function">max</span><span class="token punctuation">(</span
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Complex.h"</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 
-<span class="token class-name">Complex</span><span class="token operator">::</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">_real</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">_image</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token class-name">Complex</span><span class="token double-colon punctuation">::</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">_real</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">_image</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 
-<span class="token class-name">Complex</span><span class="token operator">::</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token keyword">double</span> real<span class="token punctuation">,</span> <span class="token keyword">double</span> image<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">_real</span><span class="token punctuation">(</span>real<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">_image</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token class-name">Complex</span><span class="token double-colon punctuation">::</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token keyword">double</span> real<span class="token punctuation">,</span> <span class="token keyword">double</span> image<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">_real</span><span class="token punctuation">(</span>real<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">_image</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 
-<span class="token class-name">Complex</span><span class="token operator">::</span><span class="token operator">~</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token class-name">Complex</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
 <span class="token punctuation">}</span>
 
-<span class="token keyword">double</span> <span class="token class-name">Complex</span><span class="token operator">::</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+<span class="token keyword">double</span> <span class="token class-name">Complex</span><span class="token double-colon punctuation">::</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> _real<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">double</span> <span class="token class-name">Complex</span><span class="token operator">::</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+<span class="token keyword">double</span> <span class="token class-name">Complex</span><span class="token double-colon punctuation">::</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> _image<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token class-name">Complex</span><span class="token operator">::</span><span class="token function">setReal</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token class-name">Complex</span><span class="token double-colon punctuation">::</span><span class="token function">setReal</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _real <span class="token operator">=</span> r<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token class-name">Complex</span><span class="token operator">::</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token keyword">double</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token class-name">Complex</span><span class="token double-colon punctuation">::</span><span class="token function">setImage</span><span class="token punctuation">(</span><span class="token keyword">double</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _image <span class="token operator">=</span> i<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-Complex Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">+</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+Complex Complex<span class="token double-colon punctuation">::</span><span class="token keyword">operator</span><span class="token operator">+</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
     <span class="token comment">//避免临时对象的产生，因为定义一个新的临时对象在返回的时候会触发拷贝构造函数</span>
     <span class="token keyword">return</span> <span class="token function">Complex</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> _real<span class="token punctuation">,</span> x<span class="token punctuation">.</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> _image<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-Complex <span class="token operator">&amp;</span>Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">+=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+Complex <span class="token operator">&amp;</span>Complex<span class="token double-colon punctuation">::</span><span class="token keyword">operator</span><span class="token operator">+=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _real <span class="token operator">+=</span> x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     _image <span class="token operator">+=</span> x<span class="token punctuation">.</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">/**
@@ -986,7 +993,7 @@ Complex <span class="token operator">&amp;</span>Complex<span class="token opera
     <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-Complex <span class="token operator">&amp;</span>Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+Complex <span class="token operator">&amp;</span>Complex<span class="token double-colon punctuation">::</span><span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">//检查自赋值</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token operator">!=</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         _real <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -995,49 +1002,50 @@ Complex <span class="token operator">&amp;</span>Complex<span class="token opera
     <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token class-name">Complex</span><span class="token operator">::</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token class-name">Complex</span><span class="token double-colon punctuation">::</span><span class="token function">Complex</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _real <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     _image <span class="token operator">=</span> x<span class="token punctuation">.</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-Complex <span class="token operator">&amp;</span>Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">++</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+Complex <span class="token operator">&amp;</span>Complex<span class="token double-colon punctuation">::</span><span class="token keyword">operator</span><span class="token operator">++</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _real<span class="token operator">++</span><span class="token punctuation">;</span>
     _image<span class="token operator">++</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-Complex Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">++</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+Complex Complex<span class="token double-colon punctuation">::</span><span class="token keyword">operator</span><span class="token operator">++</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token function">Complex</span><span class="token punctuation">(</span>_real<span class="token operator">++</span><span class="token punctuation">,</span> _image<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-Complex <span class="token operator">&amp;</span>Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">--</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+Complex <span class="token operator">&amp;</span>Complex<span class="token double-colon punctuation">::</span><span class="token keyword">operator</span><span class="token operator">--</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _real<span class="token operator">--</span><span class="token punctuation">;</span>
     _image<span class="token operator">--</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-Complex Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">--</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+Complex Complex<span class="token double-colon punctuation">::</span><span class="token keyword">operator</span><span class="token operator">--</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token function">Complex</span><span class="token punctuation">(</span>_real<span class="token operator">--</span><span class="token punctuation">,</span> _image<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">bool</span> Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">==</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">bool</span> Complex<span class="token double-colon punctuation">::</span><span class="token keyword">operator</span><span class="token operator">==</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> _real<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> _image<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">bool</span> Complex<span class="token operator">::</span><span class="token keyword">operator</span><span class="token operator">!=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">bool</span> Complex<span class="token double-colon punctuation">::</span><span class="token keyword">operator</span><span class="token operator">!=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token operator">!</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">getReal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> _real<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">getImage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> _image<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-std<span class="token operator">::</span>ostream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span>std<span class="token operator">::</span>ostream <span class="token operator">&amp;</span>os<span class="token punctuation">,</span> <span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+std<span class="token double-colon punctuation">::</span>ostream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>ostream <span class="token operator">&amp;</span>os<span class="token punctuation">,</span> <span class="token keyword">const</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     os <span class="token operator">&lt;&lt;</span> <span class="token string">"real value is "</span> <span class="token operator">&lt;&lt;</span> x<span class="token punctuation">.</span>_real <span class="token operator">&lt;&lt;</span> <span class="token string">",image value is "</span> <span class="token operator">&lt;&lt;</span> x<span class="token punctuation">.</span>_image<span class="token punctuation">;</span>
     <span class="token keyword">return</span> os<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-std<span class="token operator">::</span>istream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">&gt;&gt;</span><span class="token punctuation">(</span>std<span class="token operator">::</span>istream <span class="token operator">&amp;</span>is<span class="token punctuation">,</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+std<span class="token double-colon punctuation">::</span>istream <span class="token operator">&amp;</span><span class="token keyword">operator</span><span class="token operator">&gt;&gt;</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>istream <span class="token operator">&amp;</span>is<span class="token punctuation">,</span> Complex <span class="token operator">&amp;</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     is <span class="token operator">&gt;&gt;</span> x<span class="token punctuation">.</span>_real <span class="token operator">&gt;&gt;</span> x<span class="token punctuation">.</span>_image<span class="token punctuation">;</span>
     <span class="token keyword">return</span> is<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>成员函数的最后加上<code>const</code>表示该函数的权限为只读</strong>。</p>
 <p>当自定义了有参的构造函数时，默认的构造函数会消失，需要自己手动添加。</p>
 <p><strong>尽量减少函数中临时对象的使用。如果可以在函数返回时利用新的数据直接返回对象，这样可以有效的避免系统调用拷贝构造函数。</strong></p>
@@ -1049,7 +1057,7 @@ std<span class="token operator">::</span>istream <span class="token operator">&a
 <p>优点：可移植性好。</p>
 <p>缺点：无法防止宏名重复，难以派错。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">_SOMEFILE_H_</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">_SOMEFILE_H_</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">_SOMEFILE_H_</span></span>
 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
@@ -1110,13 +1118,14 @@ streambuf--&gt;strstreambuf &amp; filebuf</pre>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;fstream&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    std<span class="token operator">::</span>fstream fout<span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>fstream fout<span class="token punctuation">;</span>
     fout<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"&lt;文件路径&gt;"</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>操作模式<span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>fout<span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"failed!"</span><span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+        std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"failed!"</span><span class="token operator">&lt;&lt;</span>std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    fout<span class="token operator">&lt;&lt;</span><span class="token string">"&lt;文字&gt;"</span><span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    fout<span class="token operator">&lt;&lt;</span><span class="token string">"&lt;文字&gt;"</span><span class="token operator">&lt;&lt;</span>std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
 
 <p>文件的方法方式：</p>
@@ -1160,10 +1169,10 @@ streambuf--&gt;strstreambuf &amp; filebuf</pre>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;fstream&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token keyword">static</span> <span class="token keyword">const</span> <span class="token keyword">int</span> BUFFERLEN<span class="token operator">=</span><span class="token number">2048</span><span class="token punctuation">;</span>
-<span class="token keyword">bool</span> <span class="token function">copyFile</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token operator">::</span>string <span class="token operator">&amp;</span>src<span class="token punctuation">,</span> <span class="token keyword">const</span> std<span class="token operator">::</span>string <span class="token operator">&amp;</span>dst<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">bool</span> <span class="token function">copyFile</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token double-colon punctuation">::</span>string <span class="token operator">&amp;</span>src<span class="token punctuation">,</span> <span class="token keyword">const</span> std<span class="token double-colon punctuation">::</span>string <span class="token operator">&amp;</span>dst<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">//打开源文件和目标文件</span>
-    std<span class="token operator">::</span>ifstream <span class="token function">in</span><span class="token punctuation">(</span>src<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> std<span class="token operator">::</span>ios<span class="token operator">::</span>in <span class="token operator">|</span> std<span class="token operator">::</span>ios<span class="token operator">::</span>binary<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    std<span class="token operator">::</span>ofstream <span class="token function">out</span><span class="token punctuation">(</span>dst<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> std<span class="token operator">::</span>ios<span class="token operator">::</span>out <span class="token operator">|</span> std<span class="token operator">::</span>ios<span class="token operator">::</span>trunc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>ifstream <span class="token function">in</span><span class="token punctuation">(</span>src<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>ios<span class="token double-colon punctuation">::</span>in <span class="token operator">|</span> std<span class="token double-colon punctuation">::</span>ios<span class="token double-colon punctuation">::</span>binary<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>ofstream <span class="token function">out</span><span class="token punctuation">(</span>dst<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>ios<span class="token double-colon punctuation">::</span>out <span class="token operator">|</span> std<span class="token double-colon punctuation">::</span>ios<span class="token double-colon punctuation">::</span>trunc<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">//判断文件打开是否成功</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>in<span class="token operator">||</span><span class="token operator">!</span>out<span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
@@ -1173,13 +1182,14 @@ streambuf--&gt;strstreambuf &amp; filebuf</pre>
     <span class="token keyword">char</span> temp<span class="token punctuation">[</span>BUFFERLEN<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>in<span class="token punctuation">.</span><span class="token function">eof</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         in<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>temp<span class="token punctuation">,</span>BUFFERLEN<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        std<span class="token operator">::</span>streamsize count<span class="token operator">=</span>in<span class="token punctuation">.</span><span class="token function">gcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        std<span class="token double-colon punctuation">::</span>streamsize count<span class="token operator">=</span>in<span class="token punctuation">.</span><span class="token function">gcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         out<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>temp<span class="token punctuation">,</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token comment">//关闭源文件与目标文件</span>
     in<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     out<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h3 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h3><ul>
 <li>STL(Standard Template Library)算法是泛型的(generic)，不与任何特定的数据结构和对象绑定，不必在环境类似的情况下重写代码；</li>
@@ -1214,6 +1224,7 @@ STL标准库六大组件--&gt;空间配置器 &amp; 容器 &amp; 适配器 &amp;
         <span class="token keyword">return</span> a<span class="token operator">&lt;</span>b<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p>STL中的算法大致分为四类：包含<code>&lt;algorithm&gt;,&lt;numeric&gt;,&lt;functional&gt;</code></p>
 <ol>
 <li>非可变排序算法：指不直接修改其所操作的容器内容的算法；</li>
@@ -1223,6 +1234,7 @@ STL标准库六大组件--&gt;空间配置器 &amp; 容器 &amp; 适配器 &amp;
 </ol>
 <h5 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h5><p>Lambda表达式完整的声明格式如下：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token punctuation">[</span>capture list<span class="token punctuation">]</span> <span class="token punctuation">(</span>params list<span class="token punctuation">)</span> <span class="token keyword">mutable</span> exception<span class="token operator">-&gt;</span> <span class="token keyword">return</span> type <span class="token punctuation">{</span> function body <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>各项具体含义如下：</p>
 <ul>
 <li>capture list：捕获外部变量列表</li>
@@ -1276,7 +1288,7 @@ STL标准库六大组件--&gt;空间配置器 &amp; 容器 &amp; 适配器 &amp;
 </ol>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//Singleton.h</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">ACWING_SINGLETON_H</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">ACWING_SINGLETON_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ACWING_SINGLETON_H</span></span>
 
 
 <span class="token keyword">class</span> <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>
@@ -1298,26 +1310,27 @@ STL标准库六大组件--&gt;空间配置器 &amp; 容器 &amp; 适配器 &amp;
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> <span class="token comment">//ACWING_SINGLETON_H</span></span>
 <span class="token comment">//Singleton.cpp</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Singleton.h"</span></span>
-Singleton<span class="token operator">*</span> Singleton<span class="token operator">::</span>This<span class="token operator">=</span><span class="token keyword">new</span> <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> Singleton <span class="token operator">*</span><span class="token class-name">Singleton</span><span class="token operator">::</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+Singleton<span class="token operator">*</span> Singleton<span class="token double-colon punctuation">::</span>This<span class="token operator">=</span><span class="token keyword">new</span> <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> Singleton <span class="token operator">*</span><span class="token class-name">Singleton</span><span class="token double-colon punctuation">::</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token class-name">Singleton</span><span class="token operator">::</span><span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token class-name">Singleton</span><span class="token double-colon punctuation">::</span><span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
 <span class="token punctuation">}</span>
 
-<span class="token class-name">Singleton</span><span class="token operator">::</span><span class="token operator">~</span><span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token class-name">Singleton</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="观察者模式-Observer"><a href="#观察者模式-Observer" class="headerlink" title="观察者模式(Observer)"></a>观察者模式(Observer)</h4><p>实现思路：</p>
 <ol>
 <li>将问题的指责解耦合，将Observable和Observer抽象开，分清抽象和实体。</li>
 </ol>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//Observer.h</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">ACWING_OBSERVER_H</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">ACWING_OBSERVER_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ACWING_OBSERVER_H</span></span>
 
 <span class="token keyword">class</span> <span class="token class-name">Observer</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
@@ -1331,7 +1344,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 
 <span class="token comment">//Observable.h</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">ACWING_OBSERVABLE_H</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">ACWING_OBSERVABLE_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ACWING_OBSERVABLE_H</span></span>
 
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;list&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
@@ -1355,15 +1368,15 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
         _Obs<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">GetSomeNews</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">GetSomeNews</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token function">SetChange</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
 <span class="token keyword">protected</span><span class="token operator">:</span>
-    <span class="token keyword">void</span> <span class="token function">SetChange</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">SetChange</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">private</span><span class="token operator">:</span>
-    std<span class="token operator">::</span>list<span class="token operator">&lt;</span>Observer <span class="token operator">*</span><span class="token operator">&gt;</span> _Obs<span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>list<span class="token operator">&lt;</span>Observer <span class="token operator">*</span><span class="token operator">&gt;</span> _Obs<span class="token punctuation">;</span>
     <span class="token keyword">bool</span> _bChange<span class="token punctuation">;</span>
     <span class="token comment">//通知函数</span>
     <span class="token keyword">void</span> <span class="token function">Notify</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>pArg<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1374,9 +1387,9 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 <span class="token comment">//Observable.cpp</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"Observable.h"</span></span>
 
-<span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">Observable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">_bChange</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token class-name">Observable</span><span class="token double-colon punctuation">::</span><span class="token function">Observable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">_bChange</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">Attach</span><span class="token punctuation">(</span>Observer <span class="token operator">*</span>pOb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token double-colon punctuation">::</span><span class="token function">Attach</span><span class="token punctuation">(</span>Observer <span class="token operator">*</span>pOb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>pOb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -1389,18 +1402,18 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
     _Obs<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>pOb<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">Detach</span><span class="token punctuation">(</span>Observer <span class="token operator">*</span>pOb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token double-colon punctuation">::</span><span class="token function">Detach</span><span class="token punctuation">(</span>Observer <span class="token operator">*</span>pOb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>pOb <span class="token operator">||</span> _Obs<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     _Obs<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>pOb<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">int</span> <span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">GetObserverCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+<span class="token keyword">int</span> <span class="token class-name">Observable</span><span class="token double-colon punctuation">::</span><span class="token function">GetObserverCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> _Obs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">Notify</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>pArg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token double-colon punctuation">::</span><span class="token function">Notify</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>pArg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>_bChange<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
@@ -1411,7 +1424,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
     _bChange <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token operator">::</span><span class="token function">SetChange</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token class-name">Observable</span><span class="token double-colon punctuation">::</span><span class="token function">SetChange</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _bChange <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token function">Notify</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> str<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -1423,17 +1436,17 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span class="token keyword">class</span> <span class="token class-name">News</span><span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Observable</span></span><span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">GetSomeNews</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">GetSomeNews</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">{</span>
         <span class="token function">SetChange</span><span class="token punctuation">(</span><span class="token string">"News: "</span><span class="token operator">+</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">class</span> <span class="token class-name">User1</span><span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Observer</span></span><span class="token punctuation">{</span>
-    <span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> pArg<span class="token punctuation">)</span> override<span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> pArg<span class="token punctuation">)</span> <span class="token keyword">override</span><span class="token punctuation">{</span>
         cout<span class="token operator">&lt;&lt;</span><span class="token string">"User1 Got News"</span><span class="token operator">&lt;&lt;</span><span class="token string">", "</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>pArg<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">class</span> <span class="token class-name">User2</span><span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Observer</span></span><span class="token punctuation">{</span>
-    <span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> pArg<span class="token punctuation">)</span> override<span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">Update</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token operator">*</span> pArg<span class="token punctuation">)</span> <span class="token keyword">override</span><span class="token punctuation">{</span>
         cout<span class="token operator">&lt;&lt;</span><span class="token string">"User2 Got News"</span><span class="token operator">&lt;&lt;</span><span class="token string">", "</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>pArg<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -1454,6 +1467,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
     cout<span class="token operator">&lt;&lt;</span>n1<span class="token punctuation">.</span><span class="token function">GetObserverCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="适配器模式-Adapter"><a href="#适配器模式-Adapter" class="headerlink" title="适配器模式(Adapter)"></a>适配器模式(Adapter)</h4><ul>
 <li>适配器将类接口转换为客户端期望的另一个接口</li>
 <li>使用适配器可防止类由于接口不兼容而不工作</li>
@@ -1461,7 +1475,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 </ul>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//LegacyRectanle.h</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">ACWING_LEGACYRECTANLE_H</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">ACWING_LEGACYRECTANLE_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ACWING_LEGACYRECTANLE_H</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token comment">//原始数据类</span>
 <span class="token keyword">class</span> <span class="token class-name">LegacyRectanle</span> <span class="token punctuation">{</span>
@@ -1475,21 +1489,21 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 <span class="token comment">//接口调用类</span>
 <span class="token keyword">class</span> <span class="token class-name">Rectangle</span><span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>string str<span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment">//第一种适配方式：使用多重继承</span>
 <span class="token keyword">class</span> <span class="token class-name">RectangleAdapter</span><span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Rectangle</span><span class="token punctuation">,</span> <span class="token keyword">public</span> <span class="token class-name">LegacyRectanle</span></span><span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">RectangleAdapter</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">,</span><span class="token keyword">double</span> y<span class="token punctuation">,</span><span class="token keyword">double</span> w<span class="token punctuation">,</span><span class="token keyword">double</span> h<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">LegacyRectanle</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>x<span class="token operator">+</span>w<span class="token punctuation">,</span>y<span class="token operator">+</span>h<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment">//第二种适配方式：使用组合</span>
 <span class="token keyword">class</span> <span class="token class-name">RectangleAdapter2</span><span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Rectangle</span></span><span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">RectangleAdapter2</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">,</span><span class="token keyword">double</span> y<span class="token punctuation">,</span><span class="token keyword">double</span> w<span class="token punctuation">,</span><span class="token keyword">double</span> h<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">_legacyRectanle</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>x<span class="token operator">+</span>w<span class="token punctuation">,</span>y<span class="token operator">+</span>h<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">void</span> <span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>string str<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">private</span><span class="token operator">:</span>
     LegacyRectanle _legacyRectanle<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -1497,27 +1511,28 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 
 <span class="token comment">//LegacyRectanle.cpp</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"LegacyRectanle.h"</span></span>
-<span class="token keyword">void</span> <span class="token class-name">LegacyRectanle</span><span class="token operator">::</span><span class="token function">LagacyRectangleDraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span>_x1<span class="token operator">&lt;&lt;</span>_y1<span class="token operator">&lt;&lt;</span>_x2<span class="token operator">&lt;&lt;</span>_y2<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token class-name">LegacyRectanle</span><span class="token double-colon punctuation">::</span><span class="token function">LagacyRectangleDraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span>_x1<span class="token operator">&lt;&lt;</span>_y1<span class="token operator">&lt;&lt;</span>_x2<span class="token operator">&lt;&lt;</span>_y2<span class="token operator">&lt;&lt;</span>std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token class-name">RectangleAdapter</span><span class="token operator">::</span><span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token class-name">RectangleAdapter</span><span class="token double-colon punctuation">::</span><span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">LagacyRectangleDraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span>str<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span>str<span class="token operator">&lt;&lt;</span>std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token class-name">RectangleAdapter2</span><span class="token operator">::</span><span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token operator">::</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token class-name">RectangleAdapter2</span><span class="token double-colon punctuation">::</span><span class="token function">Draw</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>string str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     _legacyRectanle<span class="token punctuation">.</span><span class="token function">LagacyRectangleDraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    std<span class="token operator">::</span>cout<span class="token operator">&lt;&lt;</span>str<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span>str<span class="token operator">&lt;&lt;</span>std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"LegacyRectanle.h"</span></span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">double</span> x<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>w<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>h<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
-    Rectangle<span class="token operator">*</span> a<span class="token operator">=</span><span class="token keyword">dynamic_cast</span><span class="token operator">&lt;</span>Rectangle<span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">RectangleAdapter</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Rectangle<span class="token operator">*</span> a<span class="token operator">=</span><span class="token generic-function"><span class="token function">dynamic_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span>Rectangle<span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">RectangleAdapter</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     a<span class="token operator">-&gt;</span><span class="token function">Draw</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    Rectangle<span class="token operator">*</span> b<span class="token operator">=</span><span class="token keyword">dynamic_cast</span><span class="token operator">&lt;</span>Rectangle<span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">RectangleAdapter2</span><span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Rectangle<span class="token operator">*</span> b<span class="token operator">=</span><span class="token generic-function"><span class="token function">dynamic_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span>Rectangle<span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">RectangleAdapter2</span><span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     b<span class="token operator">-&gt;</span><span class="token function">Draw</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h3 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h3><p><code>sizeof(char str[])</code>为字面值+1。</p>
 <h4 id="浅拷贝与深拷贝"><a href="#浅拷贝与深拷贝" class="headerlink" title="浅拷贝与深拷贝"></a>浅拷贝与深拷贝</h4><p>浅拷贝：只拷贝指针地址，C++默认拷贝构造函数与赋值运算符重载都是浅拷贝；节省空间，但是容易引发多次释放。</p>
@@ -1543,10 +1558,12 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
 <span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span>Type<span class="token operator">&amp;</span> x<span class="token punctuation">,</span>Type<span class="token operator">&amp;</span> y<span class="token punctuation">)</span> <span class="token keyword">noexcept</span><span class="token punctuation">{</span>
     x<span class="token punctuation">.</span><span class="token function">swap</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>更加灵活的使用<code>noexcept</code>：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span>Type<span class="token operator">&amp;</span> x<span class="token punctuation">,</span> Type<span class="token operator">&amp;</span> y<span class="token punctuation">)</span> <span class="token keyword">noexcept</span><span class="token punctuation">(</span><span class="token keyword">noexcept</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span><span class="token function">swap</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
         x<span class="token punctuation">.</span><span class="token function">swap</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>它表示，如果操作<code>x.swap(y)</code>不发生异常，那么函数<code>swap(Type&amp; x, Type&amp; y)</code>一定不发生异常。</p>
 <p>并不是加上<code>noexcept</code>就能提高效率，以下场景鼓励使用<code>noexcept</code>：</p>
 <ul>
@@ -1706,15 +1723,16 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
     <span class="token function">C</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token keyword">default</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    cout<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>is_trivial<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span><span class="token operator">::</span>value<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>is_trivial<span class="token operator">&lt;</span>B<span class="token operator">&gt;</span><span class="token operator">::</span>value<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span>std<span class="token operator">::</span>is_trivial<span class="token operator">&lt;</span>C<span class="token operator">&gt;</span><span class="token operator">::</span>value<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>std<span class="token double-colon punctuation">::</span>is_trivial<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span>value<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>std<span class="token double-colon punctuation">::</span>is_trivial<span class="token operator">&lt;</span>B<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span>value<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>std<span class="token double-colon punctuation">::</span>is_trivial<span class="token operator">&lt;</span>C<span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span>value<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token comment">// 输出</span>
 <span class="token number">0</span>
 <span class="token number">1</span>
-<span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p><strong>布局有序，普通成员有相同的访问级别。注意是普通成员。静态成员之类的不在此考虑范围。</strong></p>
 </li>
 <li><p><strong>类中的第一个非静态成员的类型不能与其基类相同，不然就不是标准布局的类型。</strong></p>
@@ -1736,17 +1754,19 @@ Singleton<span class="token operator">*</span> Singleton<span class="token opera
     <span class="token keyword">char</span><span class="token operator">*</span> p<span class="token operator">=</span><span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token function">memcpy</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span><span class="token operator">&amp;</span>a1<span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">//将p强制转换成A*</span>
-    A<span class="token operator">*</span> a2<span class="token operator">=</span><span class="token keyword">reinterpret_cast</span><span class="token operator">&lt;</span>A<span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    A<span class="token operator">*</span> a2<span class="token operator">=</span><span class="token generic-function"><span class="token function">reinterpret_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span>A<span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="void-NULL-nullptr"><a href="#void-NULL-nullptr" class="headerlink" title="void*,NULL,nullptr"></a>void*,NULL,nullptr</h4><p>在C中<code>#define NULL ((void *)0)</code>，其中<code>void *</code>可以表示所有指针。</p>
 <p>在C++中定义如下：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression"><span class="token constant">NULL</span></span></span>
 	<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">__cplusplus</span></span>
-		<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression"><span class="token constant">NULL</span> <span class="token number">0</span></span></span>
+		<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">NULL</span> <span class="token expression"><span class="token number">0</span></span></span>
 	<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span></span>
-		<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression"><span class="token constant">NULL</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token number">0</span><span class="token punctuation">)</span></span></span>
+		<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">NULL</span> <span class="token expression"><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token number">0</span><span class="token punctuation">)</span></span></span>
 	<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span> </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>在C++11中，nullptr用来代表(void *)0,NULL则表示为0；</p>
 <h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p>提供给开发者用来进行指针和引用的转换。</p>
 <ul>
