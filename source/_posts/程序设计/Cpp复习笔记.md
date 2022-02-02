@@ -5,7 +5,7 @@ mathjax: false
 date: 2020-11-10 12:14:19
 tags: Cpp
 cover: true
-coverImg: @src/source/_posts/PageImg/程序设计/cpp.png
+coverImg: "@src/source/_posts/PageImg/程序设计/cpp.png"
 img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/cpp.png
 categories: 程序设计
 ---
