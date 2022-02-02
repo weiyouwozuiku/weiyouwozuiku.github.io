@@ -77,6 +77,7 @@ categories: 经验总结
 - Swish
 - App Cleaner & Uninstaller Pro
 - licecap
+- Clearview X
 
 ## 终端
 
