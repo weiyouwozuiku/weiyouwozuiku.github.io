@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-31
+                    2022-02-02
                 </div>
                 
 
@@ -570,11 +570,13 @@
     <span class="token property">"hexo-wordcount"</span><span class="token operator">:</span> <span class="token string">"^6.0.1"</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h4><h5 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h5><p>Manjaro：<code>sudo pacman -S git</code></p>
 <p>Windows：下载安装一直下一步</p>
 <h5 id="配置信息"><a href="#配置信息" class="headerlink" title="配置信息"></a>配置信息</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ git config --global user.name "Your Name"
 $ git config --global user.email "email@example.com"
 $ ssh-keygen -t rsa -C "youremail@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>将<code>id_rsa.pub</code>文件中的信息添加到Github-&gt;Account settings-&gt;SSH Keys页面。</p>
 <p>如果想同时长传至coding,也是去coding添加上述信息。</p>
 <p>测试是否成功使用<code>ssh -T git@github.com</code>。</p>
@@ -594,6 +596,7 @@ hexo server -s #静态模式
 hexo server -p 5000 #更改端口
 hexo server -i 192.168.1.1 #自定义 IP
 hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="部署至Github"><a href="#部署至Github" class="headerlink" title="部署至Github"></a>部署至Github</h4><ol>
 <li><p>创建一个公开项目，名称是自己用户名+.github.io。</p>
 </li>
@@ -612,6 +615,7 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<s
   <span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> git
     <span class="token key atrule">repository</span><span class="token punctuation">:</span> &lt;另选的项目地址<span class="token punctuation">&gt;</span>
     <span class="token key atrule">branch</span><span class="token punctuation">:</span> master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>这里注意，必须是master分支，Github page只能是master分支。</strong></p>
 </li>
 <li><p>使用<code>hexo d -g</code>将渲染好的网页上传至Github。此时就可以使用<code>&lt;用户名&gt;.github.io</code>进行访问了。</p>
@@ -625,6 +629,7 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<s
 	<span class="token key atrule">per_page</span><span class="token punctuation">:</span> <span class="token number">18</span>
 	<span class="token comment">#默认是-date 符号表示顺序还是逆序</span>
 	<span class="token key atrule">order_by</span><span class="token punctuation">:</span> <span class="token punctuation">-</span>updated<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="主题选择与优化"><a href="#主题选择与优化" class="headerlink" title="主题选择与优化"></a>主题选择与优化</h2><p>我使用的主题是</p>
 <h3 id="首页添加Github状态"><a href="#首页添加Github状态" class="headerlink" title="首页添加Github状态"></a>首页添加Github状态</h3><h3 id="可选插件"><a href="#可选插件" class="headerlink" title="可选插件"></a>可选插件</h3><h3 id="主题的个性化"><a href="#主题的个性化" class="headerlink" title="主题的个性化"></a>主题的个性化</h3><h2 id="访问加速"><a href="#访问加速" class="headerlink" title="访问加速"></a>访问加速</h2><h2 id="分支存储源码"><a href="#分支存储源码" class="headerlink" title="分支存储源码"></a>分支存储源码</h2><p>首先在Github的仓库中创建一个新的分支，因为Github Page默认是master分支，所以随便创建一个分支名即可。</p>
 <p>在Hexo博客的顶层文件夹中执行如下命令：</p>
@@ -638,7 +643,8 @@ db.json
 <span class="token punctuation">*</span>.log
 node_modules/
 public/
-.deploy*/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+.deploy*/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>创建本地分支并切换到该分支：<code>git checkout -b 分支名</code></p>
 </li>
 <li><p>添加文件：<code>git add .</code></p>
@@ -653,12 +659,14 @@ public/
 <h2 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h2><p>站点地图即 sitemap，是一个页面，上面放置了网站上需要搜索引擎抓取的所有页面的链接。站点地图可以告诉搜索引擎网站上有哪些可供抓取的网页，以便搜索引擎可以更加智能地抓取网站。</p>
 <h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo-generator-baidu-sitemap --save
 npm install hexo-generator-sitemap --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在<code>_config.yml</code>中添加如下字段：</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"># 自动生成sitemap
 sitemap<span class="token operator">:</span>
   path<span class="token operator">:</span> sitemap.xml
 baidusitemap<span class="token operator">:</span>
   path<span class="token operator">:</span> baidusitemap.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h3><p>执行<code>hexo g</code>。该命令会在public目录中生成<code>sitemap.xml</code>和<code>baidusitemap.xml</code>，这是生成的站点地图，里面包含了网站上所有页面的链接，搜索引擎通过这两个文件来抓取网站页面。</p>
 <ul>
 <li>sitemap.xml — 用来提交给 Google</li>

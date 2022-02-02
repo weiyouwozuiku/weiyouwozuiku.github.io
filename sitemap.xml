@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://buerlog.top/2020/12/27/jing-yan-zong-jie/hexo-bo-ke-da-jian-ji-lu/</loc>
+    
+    <lastmod>2022-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2020/11/18/qian-ru-shi/esp32-zhi-wen-lan-ya-jian-pan-kai-fa/</loc>
+    
+    <lastmod>2022-02-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/2020/11/10/cheng-xu-she-ji/cpp-fu-xi-bi-ji/</loc>
     
     <lastmod>2022-02-02</lastmod>
@@ -542,15 +560,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2020/11/18/qian-ru-shi/esp32-zhi-wen-lan-ya-jian-pan-kai-fa/</loc>
-    
-    <lastmod>2021-10-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/2019/12/01/qian-ru-shi/sg90-duo-ji-kong-zhi/</loc>
     
     <lastmod>2021-10-31</lastmod>
@@ -1020,15 +1029,6 @@
   
   <url>
     <loc>http://buerlog.top/2021/08/05/fen-bu-shi/fen-bu-shi-xi-tong-gai-nian/</loc>
-    
-    <lastmod>2021-10-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2020/12/27/jing-yan-zong-jie/hexo-bo-ke-da-jian-ji-lu/</loc>
     
     <lastmod>2021-10-31</lastmod>
     
