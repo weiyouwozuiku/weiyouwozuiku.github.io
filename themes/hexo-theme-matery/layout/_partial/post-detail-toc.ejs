@@ -94,7 +94,7 @@
     <div id="main-content" class="col s12 m12 l9">
         <%- partial('_partial/post-detail.ejs') %>
     </div>
-    <div id="toc-aside" class="expanded col l3 ">
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
         <div class="toc-widget card" style="background-color: white;">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;<%- __('toc') %></div>
             <div id="toc-content"></div>
@@ -104,7 +104,7 @@
 
 <!-- TOC 悬浮按钮. -->
 <% if (theme.toc.enable && theme.toc.showToggleBtn) { %>
-<div id="floating-toc-btn" class="">
+<div id="floating-toc-btn" class="hide-on-med-and-down">
     <a class="btn-floating btn-large bg-color">
         <i class="fas fa-list-ul"></i>
     </a>
