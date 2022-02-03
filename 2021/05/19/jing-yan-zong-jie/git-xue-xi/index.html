@@ -583,28 +583,34 @@
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global user.name "Your name"
 # github设置了email隐藏的话，需要将这里的邮箱设置成github的邮箱
 git cinfug --globel user.email "email@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>上面的命令还可以使用<code>--local</code>和<code>--global</code>参数以区分不同的作用域。</p>
 <p><code>--local</code>表示只对某个仓库有效</p>
 <p><code>--global</code>表示对当前用户所有仓库有效</p>
 <p><code>--system</code>表示对系统所有登录的用户有效</p>
 <p>查看当前所有配置：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --list [--local]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>这个命令同样可以设置上述三种不同的作用域。</p>
 <p>设置常用的文本编辑器：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global core.editor {编辑器名字}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="操作命令"><a href="#操作命令" class="headerlink" title="操作命令"></a>操作命令</h3><h4 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h4><ul>
 <li><p>已有的项目代码纳入Git管理</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd 项目路径
-git init<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+git init<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 <li><p>新建的项目直接用Git管理</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git init 项目名 #会在当前路径下创建和项目名称相同的文件夹
 cd 项目名 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>添加文件到Git仓库：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git add &lt;file&gt;
-git commit -m "message"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong><code>git add</code>即为精确的将内容添加到下一次提交中</strong></p>
+
 </li>
 </ul>
+<p>添加文件到Git仓库：</p>
+ <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git add &lt;file&gt;
+git commit -m "message"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p> <strong><code>git add</code>即为精确的将内容添加到下一次提交中</strong></p>
 <p>针对之前就Git跟踪过的文件直接使用<code>git add -u</code>即可。</p>
 <p>工作区状态：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"> git status
@@ -615,6 +621,7 @@ MM Rakefile # 文件已修，暂存后又作了修改
 A  lib/git.rb # 新添加到暂存区中的文件前面有 A 标记
 M  lib/simplegit.rb # 已修改且已暂存
 ?? LICENSE.txt # 新添加到暂存区中的文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>修改过的文件前面有 M 标记。 输出中有两栏，左栏指明了暂存区的状态，右栏指明了工作区的状态。</strong></p>
 <p>查看修改：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 查看工作目录中当前文件和暂存区域快照之间的差异
@@ -623,21 +630,25 @@ git diff &lt;file&gt;
 git diff --staged
 # 下面的命令效果同上
 git diff --cached<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p> <strong>git diff 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动.</strong></p>
 <p>修改最近一次commit messgae：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git commit --amend<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>修改指定的commit message：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 首先rabase到需要修改commit的上一个版本
 git rebase -i &lt;需修改的commit上一次提交的哈希值&gt;
 # 在跳出的界面中将需要修改的commit记录前面的pick之类的命令修改成r
 # r 即reword 表示使用原本的提交，但修改commit message
 # 在再一次弹出的界面中修改commit message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>修改完成之后原本的commit id 会发生改变</strong>，因为messgae也是git结构体中的一员。</p>
 <p>合并多次连续commit到一次commit中：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git rebase -i &lt;需合并commit的前一次commit哈希&gt;
 # 在跳出的界面中将多次需要合并的commit前面的命令更改为s
 # s 即squash 表示使用commit，但注册到上一次commit中
 # 在再一次弹出的界面中修改总体的commit message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>合并多次非连续commit到一次commit中：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git rebase -i &lt;需合并commit的前一次commit哈希&gt;
 # 在跳出的界面中将多次需要合并的commit前面的命令更改为s
@@ -646,100 +657,146 @@ git rebase -i &lt;需修改的commit上一次提交的哈希值&gt;
 # 第一行的commit需要是一次被合并进的commit
 # 如果是需要合并进第一次commit，可以自己写一行commit，拿第一次提交的commit的哈希作为标记
 # 在再一次弹出的界面中修改总体的commit message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>从暂存区和工作区删除文件:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git rm &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>版本回退：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reset --hard commit_id(可以用HEAD~选择前第几个版本)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>将存入暂存区中的指定文件撤销暂存：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reset HEAD &lt;-- file1 file2&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>移动或重命名一个文件、目录或软连接：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git mv [file] [newfile]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看现在的提交历史：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git log [--pretty=oneline] [--all] [--graph]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>可以使用<code>-n 2</code>查看前两条log，比如：<code>git log -n2 --oneline</code></p>
 <p>查看以往的所有提交历史：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reflog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看工作区与暂存区的不同：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff [-- 文件名 ] # 不写指定的文件默认查看所有不同的文件，指定的话可以写多个文件名，用空格做分割<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看暂存区与HEAD之间的差异：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff --cached<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看工作区与版本库中版本之间的区别：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff HEAD -- &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看不同版本之间的diff：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff &lt;commit哈希&gt; &lt;commit哈希&gt; #这里可以使用HEAD进行标识，HEAD^1或者HEAD~1表示上一次提交 HEAD^^可以表示倒数第二次提交<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看不同分支之间的diff：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git diff &lt;分支1&gt; &lt;分支2&gt; [-- &lt;文件名&gt;]# 可以通过指定文件名来查看不同分支两个文件的区别<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>将工作区文件恢复成最近一次git commit或者git add的状态:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git checkout -- &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>将暂存区的修改撤销：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reset HEAD [-- &lt;file&gt;] # 不指定文件默认撤销所有文件在暂存区的修改<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>删除之前的commit内容：（<strong>危险，小心使用！暂存区和工作区都丢失</strong>）</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reset --hard &lt;需要恢复到的commit哈希值&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>checkout影响工作区，reset影响暂存区</strong></p>
 <p>创建ssh key：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -t rsa -C "youremail@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看远端地址：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git remote -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>关联仓库：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git remote add origin git@server-name:path/repo-name.git # 这里的origin只是给后面的地址起别名，但origin是默认名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>第一次推送分支内容：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git push -u origin master(以后不用加-u参数)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>克隆一个本地库：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来
 git clone &lt;git仓库名&gt; 自定义仓库名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>创建分支：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git checkout -b &lt;branch-name&gt;(可以拆分为 git branch &lt;branch-name&gt; 和 git checkout &lt;branch-name&gt;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>使用指定分支创建分支：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git checkout -b &lt;分支名&gt; &lt;指定分支名&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看分支：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git branch(当前分支前会有*作为标记)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>切换分支：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git checkout &lt;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>合并指定分支到当前分支：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git merge &lt;branch-name&gt;
 #如果分支是none fast-forward的commit，使用--allow-unrelated-histories，即git merge --allow-unrelated-histories 分支名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>删除分支（强制删除使用-D）：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git branch -d &lt;branch-name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看分支情况：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git log --graph --pretty=oneline --abbrev-commit(有分支合并图)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>强制禁用Fast forward模式：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git merge --no-ff -m "merge with no-ff" &lt;branch-name&gt;(会创建一个新的commit)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>现场存储：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git stash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看现场存储列表：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git stash list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>恢复现场：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git stash apply 和 git stash drop或 git stash pop # 使用apply还会在stash中记录，但是使用pop会将这次修改直接从stash中清除<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>指定恢复现场：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git stash apply stash@{&lt;stash_list&gt;}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>丢弃未合并的分支：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git branch -D &lt;name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看远程库信息：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git remote &lt;-v&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>抓取版本库：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git pull #这个命令包含了两步1. git fetch拉取代码 2. git merge将有上下游关系的分支做合并<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>本地分支与远程分支链接：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git branch --set-upstream branch-name origin/branch-name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>推送修改：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git push origin branch-name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>创建标签：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git tag &lt;name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看标签：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git tag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看标签信息：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git show &lt;tagname&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>用私钥给标签签名：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git tag -s tag-name -m "message" commit-id<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>删除标签：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git tag -d tag-name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>推送某个标签到远程：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git push origin &lt;tagname&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>推送所有标签：</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git push origin --tags<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>远程删除标签：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git push origin :refs/tags/&lt;tagname&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>git 显示颜色：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global color.ui true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>不想提交的文件放在文件夹下面的.gitignore目录中</p>
 <p><code>.gitignore</code>文件中可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。</p>
 <p>其中glob的模式匹配是指shell所用的简化了的正则表达式。</p>
@@ -762,21 +819,29 @@ build/
 doc/*.txt
 # 忽略 doc/ 目录及其所有子目录下的 .pdf 文件
 doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>在最简单的情况下，一个仓库可能只根目录下有一个 .gitignore 文件，它递归地应用到整个仓库中。 然而，子目录下也可以有额外的 .gitignore 文件。子目录中的 .gitignore 文件中的规则只作用于它所在的目录中。</p>
 <p>强制添加文件：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git add -f &lt;file-name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看.gitignore的问题：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git check-ignore -v &lt;file-name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>命名别名：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global alias.&lt;缩写&gt; &lt;全称&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看提交信息：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git log -stat -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>检查提交散列值：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git fsck<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p> 将文件移出暂存区</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git reset head &lt;filename&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>无敌配置：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -1318,8 +1383,8 @@ doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

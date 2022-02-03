@@ -539,6 +539,7 @@
 <span class="token keyword">protected</span> <span class="token keyword">final</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> <span class="token function">defineClass</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> b<span class="token punctuation">,</span><span class="token keyword">int</span> off<span class="token punctuation">,</span><span class="token keyword">int</span> len<span class="token punctuation">)</span><span class="token keyword">throws</span> <span class="token class-name">ClassFormatError</span><span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token function">defineClass</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span>b<span class="token punctuation">,</span>off<span class="token punctuation">,</span>len<span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>例子：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//MyClassLoader.java</span>
 <span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">ByteArrayOutputStream</span><span class="token punctuation">;</span>
@@ -601,6 +602,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h4><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE.png" alt="Java复习笔记_双亲委派.png"></p>
 <p>采用双亲委派机制可以避免多份同样的字节码的加载。</p>
 <h3 id="类的加载方式"><a href="#类的加载方式" class="headerlink" title="类的加载方式"></a>类的加载方式</h3><ul>
@@ -715,6 +717,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h2><h2 id="多线程与并发"><a href="#多线程与并发" class="headerlink" title="多线程与并发"></a>多线程与并发</h2><h3 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h3><p>进程：进程独占内存空间，保存各自运行状态，相互间不干扰且可以互相切换，为并发处理任务提供了可能。</p>
 <p>线程：共享进程的内存资源，互相间切换更快捷，支持更细粒度的任务控制，使进程内的子任务的一并发执行。</p>
 <p>进程是资源分配的最小单位，线程是CPU调度的最小单位。</p>
@@ -882,6 +885,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>FutureTask的isDone方法表示线程执行完成，get方法获取返回值，get方法能设定最长等待时间，直接传参即可。</p>
 <h4 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//MyCallable.java</span>
 <span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">Callable</span><span class="token punctuation">;</span>
@@ -921,6 +925,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>通过<code>Executors.newCachedThreadPool</code>创建<code>ExecutorService</code>对象。通过对象的submit方法包裹继承Callable接口的自定义类，注意这里的返回值使用Future去接收。最后记得关闭线程池，使用ExecutorService的shutdown方法。</p>
 <h3 id="线程的状态"><a href="#线程的状态" class="headerlink" title="线程的状态"></a>线程的状态</h3><p>六个状态：</p>
 <ul>
@@ -1173,6 +1178,7 @@
 <h4 id="final-static"><a href="#final-static" class="headerlink" title="final static"></a>final static</h4><p><strong>static修饰的属性强调它们只有一个，final修饰的属性强调是一个常数</strong>。</p>
 <h3 id="不同JDK版本之间的intern-方法的区别"><a href="#不同JDK版本之间的intern-方法的区别" class="headerlink" title="不同JDK版本之间的intern()方法的区别"></a>不同JDK版本之间的intern()方法的区别</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 s<span class="token punctuation">.</span><span class="token function">intern</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>JDK6：当调用intern方法时，如果字符串常量池先前已创建出该字符串对象，则返回池中的该字符串的引用。否则，将此字符串对象添加到字符串常量池中，并且返回该字符串对象的引用。</p>
 <p>JDK6+：当调用intern方式时，如果字符串常量池先前已创建出该字符串对象，则返回池中的该字符串的引用。否则，如果该字符串对象已经存在于Java堆中，则将堆中对此对象的引用添加到字符串常量池中，并且返回该引用。如果堆中不存在，则在池中创建该字符串并返回其引用。</p>
 <h3 id="getBean方法的代码逻辑"><a href="#getBean方法的代码逻辑" class="headerlink" title="getBean方法的代码逻辑"></a>getBean方法的代码逻辑</h3><ol>
@@ -1714,8 +1720,8 @@ s<span class="token punctuation">.</span><span class="token function">intern</sp
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

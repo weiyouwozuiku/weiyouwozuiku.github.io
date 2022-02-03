@@ -544,7 +544,8 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-logging<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.1.11.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">&gt;</span></span>compile<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>引入spring-boot-starter，会自动引入spring-boot-starter-logging</p>
 </li>
 <li><p>引入spring-boot-starter-web,会自动引入spring-boot-starter</p>
@@ -567,9 +568,10 @@
     logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"Hello world."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">//获取根Logger，使用场景比较少</span>
-    <span class="token class-name">Logger</span> rootLogger <span class="token operator">=</span> <span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span>org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span><span class="token class-name">Logger</span><span class="token punctuation">.</span>ROOT_LOGGER_NAME<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Logger</span> rootLogger <span class="token operator">=</span> <span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span>Logger</span><span class="token punctuation">.</span>ROOT_LOGGER_NAME<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h3><p>Logback中每一个Logger都有对应的日志级别，该日志级别可以是Logger自己定义的，也可以是从父Logger上继承下来的。Logback一共支持5个日志级别，从高到低分别是ERROR，WARN，INFO，DEBUG，TRACE。Logger的日志级别决定了哪些级别的日志可以被输出。只有大于等于该Logger级别的日志才会被打印出来。比如假设上文中获取的名为”chapters.introduction.HelloWorld2”的Logger日志级别为INFO，则调用logger.debug(“xxx”)不会输出日志内容，因为DEBUG日志级别低于INFO日志级别。</p>
 <p>日志级别可以帮助我们控制日志打印的粒度，比如在开发环境可以将日志级别设置到DEBUG帮助排查问题，而在生产环境则可以将日志级别设置到INFO，从而减少不必要的打印日志带来的性能影响。</p>
 <h3 id="参数化输出"><a href="#参数化输出" class="headerlink" title="参数化输出"></a>参数化输出</h3><p>有时候我们往往并不只是打印出一条完整的日志，而是希望在日志中附带一些运行中参数。这就会带来字符串拼接的问题。虽然JVM对String字符串的拼接已经进行了优化，但是假如当前的日志级别为INFO，那么这段代码所执行字符串拼接操作就是完全不必要的。因此，建议在代码加上一行日志级别的判断进行优化，如下：</p>
@@ -577,9 +579,11 @@
 <span class="token keyword">if</span><span class="token punctuation">(</span>logger<span class="token punctuation">.</span><span class="token function">isDebugEnabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
     logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"Hello World To "</span> <span class="token operator">+</span> username<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>但是，logback并不推荐在系统中使用字符串拼接的方式来输出日志，而是提倡使用参数传递的方式，由logback自己来执行日志的序列化。如下：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//logger方法会判断是否为debug级别，再决定将entry序列化拼接如字符串</span>
 logger<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"The entry is {}."</span><span class="token punctuation">,</span> entry<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>这种日志输出方式就无需额外包一层日志级别的判断，因为logger.debug方法内部自己会判断一次日志级别，再去执行日志内容转码的操作。注意，<strong>传入的参数必须实现了toString方法</strong>，不然日志在对对象进行转码时，只会打印出对象的内存地址，而不是对象中的具体内容。</p>
 <h3 id="配置文件结构"><a href="#配置文件结构" class="headerlink" title="配置文件结构"></a>配置文件结构</h3><p>配置文件以<code>&lt;configuration&gt;</code>作为根元素，其下包含1个<code>&lt;root&gt;</code>元素用于定义根日志的配置信息，还有0到多个<code>&lt;logger&gt;</code>元素以及0到多个<code>&lt;appender&gt;</code>元素。其中<code>&lt;logger&gt;</code>元素对应了应用中通过LoggerFactory.getLogger()获取到的日志工具，<code>&lt;appender&gt;</code>元素定义了日志的输出目的地，一个<code>&lt;logger&gt;</code>可以关联多个<code>&lt;appender&gt;</code>，即允许将同样的一行日志输出到多个目的地。</p>
 <h4 id="configuration标签"><a href="#configuration标签" class="headerlink" title="configuration标签"></a>configuration标签</h4><p>作为配置文件的根标签，configuration更多的是对整个Logback配置读取的模式进行定义，configuration标签汇中可以定义的属性如下：</p>
@@ -598,6 +602,7 @@ logger<span class="token punctuation">.</span><span class="token function">debug
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>integration<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>common-error<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>logger</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>一个logger下可以包含多个appender-ref标签，该标签声明了该logger的日志会打印到这些输出流中。这里还有一个比较特殊的属性additivity，它是用来约束appender继承行为的</strong>。在默认情况下，aditicity的值为true，即logger除了会打印到当前显式声明的appender-ref中，还会打印到所有从父Logger中继承的appender中。例如假设root中声明了<code>&lt;appender-ref ref="common"&gt;</code>，则integration会同时向这三个输出流中打印日志。如果父logger和子logger中存在相同的appender，该日志也会向该appender打印两遍。因此，通过additivity设置为false，可以减少因为意料之外的appender继承导致日志的过量输出。</p>
 <h4 id="appender标签"><a href="#appender标签" class="headerlink" title="appender标签"></a>appender标签</h4><p>一个appender对应一个日志输出流。同一个appender可以绑定在多个logger上，即多个logger均可以向该appender输出日志。因此appender的实现内部进行了并发控制，防止日志乱码。</p>
 <p>appender支持的输出端很多，包括控制台，文件，远程Socket服务器，MySQL，PostgreSQL等数据库，远程UNIX日志进程，JMS等。</p>
@@ -615,6 +620,7 @@ logger<span class="token punctuation">.</span><span class="token function">debug
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>level</span><span class="token punctuation">&gt;</span></span>ERROR<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>level</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>这里声明了一个文件输出流，并且用file标签定义了输出文件的位置，用encoder定义了日志打印的格式。这里通过引用变量的形式来定义，变量将在后面property标签中详细介绍。接着绑定了一个filter，并且使用该filter定义了appender只会打印出日志级别大于等于ERROR级别的日志。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- info级别日志会输出到test-info.log日志文件中 --&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info-log<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.RollingFileAppender<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -642,6 +648,7 @@ logger<span class="token punctuation">.</span><span class="token function">debug
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>onMismatch</span><span class="token punctuation">&gt;</span></span>DENY<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>onMismatch</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filter</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="root标签"><a href="#root标签" class="headerlink" title="root标签"></a>root标签</h4><p>root标签要求在配置中必须声明一次，root标签其实定义的是root logger的配置信息，它的默认的日志级别为debug。所有的logger的最终的父logger一定是root logger。可以多个root标签来分别声明不同级别的日志等级输出的日志输出流。</p>
 <h4 id="property标签"><a href="#property标签" class="headerlink" title="property标签"></a>property标签</h4><p>property标签支持在配置文件中声明变量。配置文件的变量有四种来源，分别是通过JVM COMMAND，JAVA COMMAND，Classpth以及当前的配置文件。举个例子，JAVA命令传入变量的格式如下<code>java -DUSER_HOME="/home/sebastien" MyApp2</code>。<code>&lt;property&gt;</code>标签支持configuration文件中声明成员变量，它支持三种类型：KV，文件相对路径，Classpth下的文件。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!--键值型声明--&gt;</span>
@@ -652,6 +659,7 @@ logger<span class="token punctuation">.</span><span class="token function">debug
 
 <span class="token comment">&lt;!--Classpath资源--&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>resource1.properties<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>对于这些变量的引用采用标准Linux变量引用方法，通过<code>${变量名称}</code>即可以引用变量的值。同样也支持为这些变量声明默认值，通过<code>${变量名称:-默认值}</code>的语法结构。</p>
 <p>一个简单的声明配置并使用的例子如下：</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
@@ -667,6 +675,7 @@ logger<span class="token punctuation">.</span><span class="token function">debug
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>FILE<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>root</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="define标签"><a href="#define标签" class="headerlink" title="define标签"></a>define标签</h4><p><strong>define标签也是用来声明变量的，但是和上面的property的不同点在于，define声明的是动态变量</strong>，即这些变量的值是在程序运行起来后才能得到的。比如配置文件中默认存在的<code>${HOSTNAME}</code>变量，就是通过define标签实现的，它会在程序运行后动态的获取当前所处容器的主机名，并且赋值给HOSTNAME变量。</p>
 <p>一个典型的define标签用法如下，要求define的class中填入的类必须是PropertyDefiner接口的实现。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
@@ -679,6 +688,7 @@ logger<span class="token punctuation">.</span><span class="token function">debug
  
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>${rootLevel}<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>logback提供了几个基础的Definer的实现，如<code>FileExistsPropertyDefiner</code>就是用来判断path中声明的文件是否存在的一个definer。</p>
 <h4 id="include标签"><a href="#include标签" class="headerlink" title="include标签"></a>include标签</h4><p>include标签允许引入另一个路径下存储的logback配置，示例如下：</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">&gt;</span></span>
@@ -689,6 +699,7 @@ logger<span class="token punctuation">.</span><span class="token function">debug
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>root</span><span class="token punctuation">&gt;</span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><code>src/main/java/chapters/configuration/includedConfig.xml</code>文件的内容如下：</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>included</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>includedConsole<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.ConsoleAppender<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -697,6 +708,7 @@ logger<span class="token punctuation">.</span><span class="token function">debug
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>included</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>要求被include进来的文件的内容必须包含在included标签内，且语法满足logback配置文件的语法。这里就是引入了includeConfig.xml中声明的一个appender。</p>
 <h4 id="rollingPolicy标签"><a href="#rollingPolicy标签" class="headerlink" title="rollingPolicy标签"></a>rollingPolicy标签</h4><p>用来设置日志的滚动策略。当达到条件后会自动将条件前的日志生成一份备份日志文件，条件后的日志输出到最新的日志文件中。常用的是按照时间来滚动（使用类<code>TimeBaseRollingPolicy</code>）还有一种就是基于索引来实现的（使用类<code>FixedWindowRollingPolicy</code>）。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- 
@@ -708,6 +720,7 @@ maxHistory属性设定最大的文件数，比如按天滚动，这里设置了3
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fileNamePattern</span><span class="token punctuation">&gt;</span></span>/logback/log/test-%d{yyyy-MM-dd}.log<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fileNamePattern</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maxHistory</span><span class="token punctuation">&gt;</span></span>30<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maxHistory</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rollingPolicy</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>说明：<code>fileNamePattern</code>是要格外说明的。如上我设置按天来滚动，前一天日志打印到23点59分，然后就一直没有请求日志，直到次日的1点才有新的日志进入。在0点到1点这个时间段，日志文件是不会滚动生成新的日志文件。因为<strong>滚动的动作是需要日志写入动作来触发</strong>。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- 设置为按照索引的方式滚动，定义文件名称的时候使用%i作为占位符，滚动后会会用角标替换 --&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rollingPolicy</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.FixedWindowRollingPolicy<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -719,6 +732,7 @@ maxHistory属性设定最大的文件数，比如按天滚动，这里设置了3
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>triggeringPolicy</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maxFileSize</span><span class="token punctuation">&gt;</span></span>1MB<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maxFileSize</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>triggeringPolicy</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>说明：</p>
 <ul>
 <li>maxIndex不可设置为过大，过大后会自动被置为默认值12，这个过大的值具体是多少没测试过。</li>
@@ -734,6 +748,7 @@ maxHistory属性设定最大的文件数，比如按天滚动，这里设置了3
     	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maxFileSize</span><span class="token punctuation">&gt;</span></span>1MB<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maxFileSize</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>timeBasedFileNamingAndTriggeringPolicy</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rollingPolicy</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>说明：按照时间滚动的单位是天，按照文件大小的滚动是1M，当今天产生的日志大小是5M，就会生成5个日志文件，每个文件对应的大小是1M，对应生成日期是一天，对应的编号不同，也就是<code>%i</code>占位符替换后的编号(从0开始)。</p>
 <h4 id="triggerPolicy标签"><a href="#triggerPolicy标签" class="headerlink" title="triggerPolicy标签"></a>triggerPolicy标签</h4><p>该标签用来设置日志触发器策略，常用的是日志大小的控制。当日志达到对应的大小的时候，就会触发。进而生成新的日志文件。日志大小的控制配合<code>rollingPolicy</code>使用的时候，不同的<code>rollingPolicy</code>会有所不同。</p>
 
@@ -1278,8 +1293,8 @@ maxHistory属性设定最大的文件数，比如按天滚动，这里设置了3
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

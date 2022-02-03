@@ -529,9 +529,9 @@
 </li>
 </ol>
 <ul>
-<li><p>流量标记与控制技术：它根据报文的CoS（Class of Service，服务等级）域、ToS域（对于IP报文是指IP优先级或者DSCP）、IP报文的五元组（协议、源地址、目的地址、源端口号、目的端口号）等信息进行报文分类，完成报文的标记和流量监管。目前实现流量监管技术多采用令牌桶机制。</p>
-</li>
-<li><p>拥塞管理与拥塞避免技术：WRED、PQ、CQ、WFQ、CBQ等队列技术对拥塞的报文进行缓存和调度，实现拥塞管理与拥塞避免。</p>
+<li>流量标记与控制技术：它根据报文的CoS（Class of Service，服务等级）域、ToS域（对于IP报文是指IP优先级或者DSCP）、IP报文的五元组（协议、源地址、目的地址、源端口号、目的端口号）等信息进行报文分类，完成报文的标记和流量监管。目前实现流量监管技术多采用令牌桶机制。</li>
+<li>拥塞管理与拥塞避免技术：WRED、PQ、CQ、WFQ、CBQ等队列技术对拥塞的报文进行缓存和调度，实现拥塞管理与拥塞避免。</li>
+</ul>
 <ol start="3">
 <li><p>IntServ</p>
 <p>Integrated Service，综合服务。在这种模型中，节点在发送报文前，需要向网络申请资源预留，确保网络能够满足数据流的特定服务要求。</p>
@@ -540,8 +540,6 @@
 <p>保证服务要求为单个流预先保留所有连接路径上的网络资源，而当前在Internet主干网络上有着成千上万条应用流，保证服务如果要为每一条流提供QoS服务就变得不可想象了。因此，IntServ模型很难独立应用于大规模的网络，目前主要与MPLS TE（Traffic Engineering，流量工程）结合使用。</p>
 </li>
 </ol>
-</li>
-</ul>
 <h3 id="3-QoS基本原理"><a href="#3-QoS基本原理" class="headerlink" title="3. QoS基本原理"></a>3. QoS基本原理</h3><ol>
 <li><p>流量分类与标记</p>
 <p>将流量划分成多个优先级或多个服务类。如使用以太网帧中802.1Q头保留的User Priority(用户优先级)字段标记服务级别，可以将以太网帧最多分成23 = 8类；使用IP报文头的ToS（Type of service，服务类型）字段的前三位（即IP优先级）来标记报文，可以将报文最多分成23 = 8类；使用DSCP（Differentiated Services Codepoint，区分服务编码点，ToS域的前6位），则最多可分成26 = 64类。在报文分类后，就可以将其它的QoS特性应用到不同的分类，实现基于类的拥塞管理、流量整形等。</p>
@@ -628,15 +626,15 @@
 <p>LR的处理过程仍然采用令牌桶进行流量控制。如果用户在路由器的某个接口上配置了LR，规定了流量特性，则所有经由该接口发送的报文首先要经过LR的令牌桶进行处理。如果令牌桶中有足够的令牌可以用来发送报文，则报文可以发送。如果令牌桶中的令牌不满足报文的发送条件，则报文入QoS队列进行拥塞管理。这样，就可以对通过该物理接口的报文流量进行控制。</p>
 <p>LR的基本处理过程如下图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/QoS%E7%9F%A5%E8%AF%86/QoS%E7%9F%A5%E8%AF%86_LR.png"></p>
-<h3 id="4-其他提高QoS的技术"><a href="#4-其他提高QoS的技术" class="headerlink" title="4. 其他提高QoS的技术"></a>4. 其他提高QoS的技术</h3><ol>
+<h3 id="4-其他提高QoS的技术"><a href="#4-其他提高QoS的技术" class="headerlink" title="4. 其他提高QoS的技术"></a>4. 其他提高QoS的技术</h3></li>
 <li><p>链路效率机制</p>
-<p>链路效率机制，用于改善链路的性能，间接提高网络的QoS，如降低链路发包的时延（针对特定业务）、调整有效带宽。链路效率机制有很多种，下面介绍两种比较典型的链路效率机制及其基本原理。</p>
+<p> 链路效率机制，用于改善链路的性能，间接提高网络的QoS，如降低链路发包的时延（针对特定业务）、调整有效带宽。链路效率机制有很多种，下面介绍两种比较典型的链路效率机制及其基本原理。</p>
 <ol>
 <li><p>链路分片与交叉（Link Fragment &amp; Interleave，LFI）</p>
-<p> 对于低速链路，即使为语音等实时业务报文配置了高优先级队列（如RTP优先队列或LLQ），也不能够保证其时延与抖动，原因在于接口在发送其他数据报文的瞬间，语音业务报文只能等待，而对于低速接口发送较大的数据报文要花费相当长的时间。采用LFI以后，数据报文（非RTP实时队列和LLQ中的报文）在发送前被分片、逐一发送，而此时如果有语音报文到达则被优先发送，从而保证了语音等实时业务的时延与抖动。LFI主要用于低速链路。</p>
-<p> 链路效率机制的工作原理图如下所示：</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/QoS%E7%9F%A5%E8%AF%86/QoS%E7%9F%A5%E8%AF%86_LFI.png"></p>
-<p> 如上图所示，应用LFI技术，在大报文出队的时候，可以将其分为定制长度的小片报文，这就使RTP优先队列或LLQ中的报文不必等到大片报文发完后再得到调度，它等候的时间只是其中小片报文的发送时间，这样就很大程度的降低了低速链路因为发送大片报文造成的时延。</p>
+<p>  对于低速链路，即使为语音等实时业务报文配置了高优先级队列（如RTP优先队列或LLQ），也不能够保证其时延与抖动，原因在于接口在发送其他数据报文的瞬间，语音业务报文只能等待，而对于低速接口发送较大的数据报文要花费相当长的时间。采用LFI以后，数据报文（非RTP实时队列和LLQ中的报文）在发送前被分片、逐一发送，而此时如果有语音报文到达则被优先发送，从而保证了语音等实时业务的时延与抖动。LFI主要用于低速链路。</p>
+<p>  链路效率机制的工作原理图如下所示：</p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/QoS%E7%9F%A5%E8%AF%86/QoS%E7%9F%A5%E8%AF%86_LFI.png"></p>
+<p>  如上图所示，应用LFI技术，在大报文出队的时候，可以将其分为定制长度的小片报文，这就使RTP优先队列或LLQ中的报文不必等到大片报文发完后再得到调度，它等候的时间只是其中小片报文的发送时间，这样就很大程度的降低了低速链路因为发送大片报文造成的时延。</p>
 </li>
 <li><p>RTP报文头压缩（RTP Header Compression，CRTP）</p>
 <p> CRTP用于RTP（Real-time Transport Protocol）协议，对IP头、UDP头和RTP头进行压缩，通常在低速链路上使用。可将40字节的IP/UDP/RTP头压缩到2~4个字节（不使用UDP校验和可到2字节），提高链路带宽的利用率。CRTP主要得益于同一会话的语音分组头和语音分组头之间的差别往往是不变的，因此只需传递增量。</p>
@@ -647,7 +645,7 @@
 </ol>
 </li>
 <li><p>链路层QoS技术</p>
-<p>链路层QoS技术主要针对ATM（Asynchronous Transfer Mode，异步传输模式）、帧中继等链路层协议支持QoS。ATM作为一种面向连接的技术，提供对QoS最强有力的支持，而且可以基于每个连接提供特定的QoS保证；帧中继网络确保连接的CIR（Committed Information Rate，承诺信息速率）最小，即在网络拥塞时，传输速度不能小于这个值。</p>
+<p> 链路层QoS技术主要针对ATM（Asynchronous Transfer Mode，异步传输模式）、帧中继等链路层协议支持QoS。ATM作为一种面向连接的技术，提供对QoS最强有力的支持，而且可以基于每个连接提供特定的QoS保证；帧中继网络确保连接的CIR（Committed Information Rate，承诺信息速率）最小，即在网络拥塞时，传输速度不能小于这个值。</p>
 <ol>
 <li><p>ATM QoS</p>
 <p> ATM是异步传输模式（Asynchronous Transfer Mode）的简称，以信元为基本单位进行信息传输、复接和交换。ATM信元具有53字节的固定长度，其中5个字节构成信元头部，主要用来标识虚连接，另外也完成了一些功能有限的流量控制，拥塞控制，差错控制等功能，其余48个字节是有效载荷。ATM是面向连接的交换，其连接是逻辑连接，即虚电路。每条虚电路（Virtual Circuit，VC）用虚路径标识符（Virtual Path Identifier，VPI）和虚通道标识符（Virtual Channel Identifier，VCI）来标识。一个VPI/VCI值对只具有本地意义，不具有全局有效性。它在ATM节点上被翻译。当一个连接被释放时，与此相关的VPI/VCI值对也被释放，它被放回资源表，供其它连接使用。</p>
@@ -660,8 +658,6 @@
 <p> 帧中继采用VC（Virtual Circuit）虚电路技术，即帧中继传送数据使用的传输链路是逻辑连接，而不是物理连接。虚电路是面向连接的，可以保证用户帧按顺序传送至目的地。根据虚电路建立方式的不同，将帧中继虚电路分为两种类型：永久虚电路（PVC，Permanent Virtual Circuit）和交换虚电路（SVC，Switched Virtual Circuit）。PVC是手工设置产生的虚电路，而SVC是通过协议协商自动创建和删除的虚电路。</p>
 <p> 帧中继报头中的3个位提供了帧中继网络中的拥塞控制机制，这3个位分别叫做向前显式拥塞通知（FECN，Forward Explicit Congestion Notification）位、向后显式拥塞通知（BECN，Backward Explicit Congestion Notification）位和丢弃合格（DE，Discard Eligible）位。可以通过帧中继交换机将FECN位置1来告知诸如路由器等目标数据终端设备（DTE，Data Terminal Equipment），在帧从源传送到目的地的方向发生了拥塞。帧中继交换机将BECN位置1则告知目标路由器，在帧从源传送到目的地的反方向上发生了拥塞。DE位由路由器或其他DTE设备设置，指出被标记的帧没有传输的其他帧那么重要，它在帧中继网络中提供了一种基本的优先级机制，如果发生拥塞时，DE位置位的帧会被优先丢弃。</p>
 <p> 帧中继流量整形（FRTS，Frame Relay Traffic Shaping）对从帧中继VC输出的通信进行整形，使之与配置速率一致，它将超出平均速率的分组放到缓冲区来使突发通信变得平滑。根据配置的排队机制，当有足够的可用资源时，这些缓冲的分组出队并等候被传输。排队算法是基于单个VC配置的，它只能针对接口的出站通信进行设置。FRTS可对每个VC的流量进行整形，将其峰值速率整形为承诺信息速率（CIR，Committed Information Rate）或其他定义的值，如超额信息速率（EIR，Excess Information Rate）。自适应模式的FRTS还能够根据收到的网络BECN拥塞指示符降低帧中继VC的输出量，将PVC的输出流量整形为与网络的可用带宽一致。</p>
-</li>
-</ol>
 </li>
 </ol>
 </li>
@@ -1211,8 +1207,8 @@ int(参数)将参数转换成整数，其他类型也用类似的函数进行转
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

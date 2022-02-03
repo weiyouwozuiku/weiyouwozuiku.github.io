@@ -536,11 +536,14 @@
   -v /PATH_TO_YOUR_CONFIG:/config \
   --network=host \
   ghcr.io/home-assistant/raspberrypi3-homeassistant:stable<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>更新容器</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># if this returns "Image is up to date" then you can stop here
 docker pull ghcr.io/home-assistant/raspberrypi3-homeassistant<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># stop the running container
 docker stop homeassistant<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># finally, start a new one
 docker run --init -d \
   --name homeassistant \
@@ -549,7 +552,8 @@ docker run --init -d \
   -v /PATH_TO_YOUR_CONFIG:/config \
   -v /etc/localtime:/etc/localtime:ro \
   --network=host \
-  ghcr.io/home-assistant/raspberrypi3-homeassistant:stable<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  ghcr.io/home-assistant/raspberrypi3-homeassistant:stable<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>此时本机上已经安装好了装有Home Assistant的容器，并且已经运行。访问该设备的<code>IP:8123</code>即可访问。</p>
 </li>
 <li><p>为了能在离家后控制设备，需要做内网穿透。这里我采用闲置的云服务器，借助<code>NPS</code>实现TCP映射。</p>
@@ -1105,8 +1109,8 @@ docker run --init -d \
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

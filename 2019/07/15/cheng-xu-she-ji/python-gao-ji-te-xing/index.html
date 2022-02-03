@@ -525,7 +525,7 @@
 <li><p>对于取制定索引范围的操作，Python提供了切片(Slice)实现。例如：<code>L[0:3]</code>，这里表示的是从索引0开始取，知道索引3为止，<strong>左闭右开的区间</strong>。<em>如果第一个数是0，还可以省略</em>。<code>[:10:2]</code>其中的2表示每两位取一个。<code>[:]</code>表示原样复制一个list。</p>
 </li>
 <li><p>默认情况下，dict迭代的是key。如果要迭代value，可以使用<code>for value ind.values()</code>。如果需要同事迭代key和value，可以使用<code>for k,v in d.items()</code>。</p>
-<a id="more"></a>
+<span id="more"></span>
 </li>
 <li><p>通过collections模块的Iterable类型判断是否是一个可迭代对象。<code>isinstance(变量,Iterable)</code>，这会返回一个布尔值。</p>
 </li>
@@ -534,12 +534,15 @@
 <li><p>使用列表生成器来生成有一定复杂度的list。</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">&gt;&gt;&gt; [x * x for x in range(1, 11)]
 [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>其中还可以加入if判断</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">&gt;&gt;&gt; [x * x for x in range(1, 11) if x % 2 == 0]
 [4, 16, 36, 64, 100]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>还可以嵌套使用</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">&gt;&gt;&gt; [m + n for m in 'ABC' for n in 'XYZ']
-['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 <li><p>要善于使用生成器，避免存有大量有规律的数组存在。启用方法就是将列表生成器的<code>[]</code>替换成<code>()</code>。可以通过<code>next()</code>函数来获取生成器的下一个返回值。generator是一个可迭代对象。直接调用返回的是一个生成器对象。</p>
 </li>
 <li><p>可以使用<code>yield</code>定义generation。每次调用<code>next()</code>时执行generation，遇到<code>yield</code>语句返回，再次执行从上次返回<code>yield</code>处继续执行。</p>
@@ -1100,8 +1103,8 @@ map()函数
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

@@ -530,18 +530,20 @@
 <li><p>函数定义</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> 函数名（参数列表）：
 	函数逻辑
-	<span class="token keyword">return</span> 返回值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+	<span class="token keyword">return</span> 返回值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>没有返回值的函数，其实也会返回结果，是None。返回return None可以简写为return。</p>
 </li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <ul>
 <li><p>未实现的函数可以将函数体先写成<code>pass</code>。<code>pass</code>表示什么都不做，只有起占位符的作用。</p>
 </li>
 <li><p>定义函数时可以进行数据类型检查，使用<code>isinstance()</code>实现。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>需校验参数<span class="token punctuation">,</span><span class="token punctuation">(</span>数据类型集合或单一数据类型<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">raise</span> TypeError<span class="token punctuation">(</span><span class="token string">'bad operand type'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+    <span class="token keyword">raise</span> TypeError<span class="token punctuation">(</span><span class="token string">'bad operand type'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 <li><p>函数return多个值，本质上是返回了一个tuple</p>
 </li>
 <li><p>默认参数同java。必选参数在前，默认参数在后。</p>
@@ -556,6 +558,7 @@
 </li>
 <li><p>命名关键字参数，可以限制关键字参数中只接收需要的关键字参数。</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">def 函数名(参数1,参数2,*,参数三,参数四)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>上面那个例子的参数三、参数四就是命名关键字，传入时必须要传入参数名。可以有缺省值。</p>
 </li>
 <li><p>通过尾递归来优化递归造成的栈溢出。尾递归是指，在函数返回的时候，调用自身本身，并且，<code>return</code>语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。重点是把每一步计算的值传递到函数中去。如下所示：</p>
@@ -564,7 +567,8 @@
   <span class="token keyword">def</span> <span class="token function">fact_iter</span><span class="token punctuation">(</span>num<span class="token punctuation">,</span> product<span class="token punctuation">)</span><span class="token punctuation">:</span>
       <span class="token keyword">if</span> num <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
           <span class="token keyword">return</span> product
-      <span class="token keyword">return</span> fact_iter<span class="token punctuation">(</span>num <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> num <span class="token operator">*</span> product<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+      <span class="token keyword">return</span> fact_iter<span class="token punctuation">(</span>num <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> num <span class="token operator">*</span> product<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 
                 
@@ -1104,8 +1108,8 @@
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

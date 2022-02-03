@@ -446,12 +446,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Book/">
-                                <span class="chip bg-color">Book</span>
-                            </a>
-                        
                             <a href="/tags/Docker/">
                                 <span class="chip bg-color">Docker</span>
+                            </a>
+                        
+                            <a href="/tags/Book/">
+                                <span class="chip bg-color">Book</span>
                             </a>
                         
                     </div>
@@ -552,16 +552,21 @@
 sudo usermod -aG docker your-name
 # 查看是否添加到docker组成功，执行完毕需要重新登录，组权限才能生效
 cat /etc/group | grep docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>查看docker版本：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>查看docker信息：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker system info<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>设置docker开机自启：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo systemctl enable docker
 sudo systemctl is-enabled docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>检查确保docker的容器和服务都已经重启成功：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker container ls
 docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h4 id="升级Docker引擎"><a href="#升级Docker引擎" class="headerlink" title="升级Docker引擎"></a>升级Docker引擎</h4><p>升级关键步骤：</p>
 <ol>
 <li>确保容器配置了正确的重启策略；在Swarm Mode模式下使用服务时，需要正确配置了draining node。</li>
@@ -581,6 +586,7 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 	"storage-driver":"overlay2"
 }
 # 如果配置所在行不是最后一行，则需要在行尾添加逗号。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>如果修改了正在运行的docker主机的存储引擎类型，则现有的镜像和容器在重启之后将不可用，因为每种存储驱动在主机上存储镜像层的位置不一样(通常在/var/lib/<storage-driver>/…目录下)。</storage-driver></p>
 <p>修改了存储驱动的类型，docker就无法找到原有的镜像和容器。切换回原本的存储驱动能继续使用之前的镜像和容器。如果在切换存储引擎之后，还想使用之前的镜像和容器，则需要将镜像保存为Docker格式，上传到某个镜像仓库，修改本地Docker引擎并重启，之后从镜像仓库将镜像拉取到本地，最后重启容器。</p>
 <p>检查Docker当前的存储驱动类型：<code>docker system info</code>。</p>
@@ -608,7 +614,8 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 	"dm.thinp_autoextend_percent=20",# 当触发精简池自动扩容机制的时候，扩容大小应当占现有空间的比例
 	"dm.directlvm_device_force=false"# 是否将块设备格式化为新的文件系统
 ]
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>重启Docker。</p>
 </li>
 <li><p>确认Docker已成功运行，并块设备配置被成功加载。</p>
@@ -781,12 +788,12 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Book/">
-                                    <span class="chip bg-color">Book</span>
-                                </a>
-                            
                                 <a href="/tags/Docker/">
                                     <span class="chip bg-color">Docker</span>
+                                </a>
+                            
+                                <a href="/tags/Book/">
+                                    <span class="chip bg-color">Book</span>
                                 </a>
                             
                         </div>
@@ -1271,8 +1278,8 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

@@ -557,6 +557,7 @@
     peList<span class="token punctuation">,</span>
     <span class="token keyword">new</span> <span class="token class-name">VmSchedulerTimeShared</span><span class="token punctuation">(</span>peList<span class="token punctuation">)</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h2 id="数据中心的创建"><a href="#数据中心的创建" class="headerlink" title="数据中心的创建"></a>数据中心的创建</h2><p>首先创建数据中心特性：<br>需要的参数 @parameter :</p>
 <ol>
@@ -572,6 +573,7 @@
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">DatacenterCharacteristics</span><span class="token punctuation">(</span>
          arch<span class="token punctuation">,</span> os<span class="token punctuation">,</span> vmm<span class="token punctuation">,</span> hostList<span class="token punctuation">,</span> time_zone<span class="token punctuation">,</span> cost<span class="token punctuation">,</span> costPerMem<span class="token punctuation">,</span>costPerStorage<span class="token punctuation">,</span> costPerBw
          <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>创建数据中心：</p>
 <ol>
 <li>数据中心的名字</li>
@@ -580,6 +582,7 @@
 <li>存储设备列表</li>
 </ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">Datacenter</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> characteristics<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">VmAllocationPolicySimple</span><span class="token punctuation">(</span>hostList<span class="token punctuation">)</span><span class="token punctuation">,</span> storageList<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <hr>
 <h2 id="虚拟机的创建"><a href="#虚拟机的创建" class="headerlink" title="虚拟机的创建"></a>虚拟机的创建</h2><p>需要的参数 @parameter:</p>
 <ol>
@@ -594,6 +597,7 @@
 <li>应用调度策略（虚拟机上的）</li>
 </ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">Vm</span><span class="token punctuation">(</span>vmid<span class="token punctuation">,</span> brokerId<span class="token punctuation">,</span> mips<span class="token punctuation">,</span> pesNumber<span class="token punctuation">,</span> ram<span class="token punctuation">,</span> bw<span class="token punctuation">,</span> size<span class="token punctuation">,</span> vmm<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">CloudletSchedulerTimeShared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <hr>
 <h2 id="应用的创建"><a href="#应用的创建" class="headerlink" title="应用的创建"></a>应用的创建</h2><p>需要的参数 @parameter ：</p>
 <ol>
@@ -607,6 +611,7 @@
 <li>网络带宽的使用模型/策略</li>
 </ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">Cloudlet</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> length<span class="token punctuation">,</span> pesNumber<span class="token punctuation">,</span> fileSize<span class="token punctuation">,</span> outputSize<span class="token punctuation">,</span> utilizationModel<span class="token punctuation">,</span> utilizationModel<span class="token punctuation">,</span> utilizationModel<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <hr>
 <h2 id="用户的创建"><a href="#用户的创建" class="headerlink" title="用户的创建"></a>用户的创建</h2><p>一般情况下，Broker的创建需要自定义以适应不同的用户策略.</p>
 <h2 id="暂停仿真"><a href="#暂停仿真" class="headerlink" title="暂停仿真"></a>暂停仿真</h2><ul>
@@ -666,6 +671,7 @@
 					<span class="token class-name">CloudSim</span><span class="token punctuation">.</span><span class="token function">resumeSimulation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 				<span class="token punctuation">}</span>
 			<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="改写仿真事件"><a href="#改写仿真事件" class="headerlink" title="改写仿真事件"></a>改写仿真事件</h2><h4 id="processEvent"><a href="#processEvent" class="headerlink" title="processEvent"></a>processEvent</h4><ul>
 <li>继承SimEntity类</li>
 <li>创建代理</li>
@@ -695,6 +701,7 @@
 			<span class="token comment">//Broker will correspond to BRITE node 3</span>
 			briteNode<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
 			<span class="token class-name">NetworkTopology</span><span class="token punctuation">.</span><span class="token function">mapNode</span><span class="token punctuation">(</span>broker<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>briteNode<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>在brite文件中,程序寻找标记<code>Nodes</code>和<code>Edges</code>.从其下一行开始执行.</p>
 <p>Node的格式(列)为:NodeID,xpos,ypos,indegree,outdegree,ASid(AS应用服务器,如果分层,节点属于的ASid),type(router/AS)</p>
 <p>Edge的格式(列)为:边序号,始节点序号,终节点序号,边长度,边时延,边带宽.</p>
@@ -1239,8 +1246,8 @@
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

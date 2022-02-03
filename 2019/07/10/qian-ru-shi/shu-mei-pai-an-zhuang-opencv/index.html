@@ -527,17 +527,26 @@
                 <h2 id="树莓派安装OpenCV"><a href="#树莓派安装OpenCV" class="headerlink" title="树莓派安装OpenCV"></a>树莓派安装OpenCV</h2><h3 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt update
 sudo apt upgrade
 sudo rpi-update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="安装一些OpenCV相关工具"><a href="#安装一些OpenCV相关工具" class="headerlink" title="安装一些OpenCV相关工具"></a>安装一些OpenCV相关工具</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install git cmake build-essential pkg-config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<a id="more"></a>
+
+<span id="more"></span>
 
 <h3 id="安装四个常用的图像工具包"><a href="#安装四个常用的图像工具包" class="headerlink" title="安装四个常用的图像工具包"></a>安装四个常用的图像工具包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="安装视频IO包"><a href="#安装视频IO包" class="headerlink" title="安装视频IO包"></a>安装视频IO包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="安装gtk2-0"><a href="#安装gtk2-0" class="headerlink" title="安装gtk2.0"></a>安装gtk2.0</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libgtk2.0-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="安装优化函数包"><a href="#安装优化函数包" class="headerlink" title="安装优化函数包"></a>安装优化函数包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libatlas-base-dev gfortran<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="安装Python开发包"><a href="#安装Python开发包" class="headerlink" title="安装Python开发包"></a>安装Python开发包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install python-dev python3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><em>这一步在新版的树莓派上不需要</em></p>
 <h3 id="下载OpenCV源码"><a href="#下载OpenCV源码" class="headerlink" title="下载OpenCV源码"></a>下载OpenCV源码</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget -O opencv-3.4.6.zip https://github.com/opencv/opencv/archive/3.4.6.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="下载OpenCV-contrib包"><a href="#下载OpenCV-contrib包" class="headerlink" title="下载OpenCV_contrib包"></a>下载OpenCV_contrib包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget -O opencv_contrib.3.4.6.tar.gz https://github.com/opencv/opencv_contrib/archive/3.4.6.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>将上面下载的两个OpenCV文件压缩包进行解压，并在OpenCV的主文件夹中新建一个release文件夹。进入release文件夹中，执行一下命令。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D CMAKE_INSTALL_PREFIX=/usr/local \
@@ -546,9 +555,11 @@ sudo rpi-update<span aria-hidden="true" class="line-numbers-rows"><span></span><
 	-D BUILD_EXAMPLES=ON ..
 screen -S opencv
 sudo make<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="安装OpenCV"><a href="#安装OpenCV" class="headerlink" title="安装OpenCV"></a>安装OpenCV</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo make install
 // 更新动态链接库
 sudo ldconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 
 
 <h3 id="树莓派连接隐藏网络"><a href="#树莓派连接隐藏网络" class="headerlink" title="树莓派连接隐藏网络"></a>树莓派连接隐藏网络</h3><p>修改/etc/wpa_supplicant/wpa_supplicant.conf，在相应的wifi设置中添加上scan_ssid=1即可。</p>
@@ -1094,8 +1105,8 @@ sudo ldconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

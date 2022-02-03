@@ -446,12 +446,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Book/">
-                                <span class="chip bg-color">Book</span>
-                            </a>
-                        
                             <a href="/tags/Go/">
                                 <span class="chip bg-color">Go</span>
+                            </a>
+                        
+                            <a href="/tags/Book/">
+                                <span class="chip bg-color">Book</span>
                             </a>
                         
                     </div>
@@ -592,16 +592,19 @@
 <p>Go中的指针类似C。但是不能对指针进行加减操作。<code>*p++</code>只改变变量的值，不改变指针值。</p>
 <p>使用<code>godoc</code>工具可以在本地命令行阅读标准库中的文档。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">go doc package<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><code>golang.org/x/tools/cmd/goimports</code>导入工具，它可以根据需要自动添加或删除导入的包。</p>
 <p>函数的右小括弧，即函数传参数是的参数列表的最后一位的右括号，可以另起一行缩进，并在最后一个参数的后面加上一个逗号，防止编译器在行尾自动插入分号而导致编译错误。例如：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">函数名<span class="token punctuation">(</span>
     变量<span class="token number">1</span>，变量<span class="token number">2</span>，
     变量<span class="token number">3</span>，
 <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>自增自减是语句，不能像C++中那样使用。且符号只能放在最后。</strong><code>x=i++</code>这样的语法是错误的。</p>
 <h3 id="定义变量和结构"><a href="#定义变量和结构" class="headerlink" title="定义变量和结构"></a>定义变量和结构</h3><p>变量没有显示初始化，则隐式初始化。数值为0，字符串为空。</p>
 <p>var变量的时候，支持不同类型赋值，其赋值顺序为从左到右。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> b<span class="token punctuation">,</span> f<span class="token punctuation">,</span> s <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token number">2.3</span><span class="token punctuation">,</span> <span class="token string">"four"</span> <span class="token comment">// bool, float64, string</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h4 id="定义、创建变量"><a href="#定义、创建变量" class="headerlink" title="定义、创建变量"></a>定义、创建变量</h4><p><code>var 变量名1,变量名2 变量类型</code></p>
 <p>变量定义的几种等价方式</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">s <span class="token operator">:=</span> <span class="token string">""</span>  <span class="token comment">//只能用在函数内部，不能用于包变量</span>
@@ -612,6 +615,7 @@
  a<span class="token operator">=</span><span class="token string">""</span>
  b<span class="token operator">=</span><span class="token string">""</span>
 <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>简短变量声明对于已经在相同语法域中声明过的变量，简短变量声明只进行赋值操作。</p>
 <p><strong>简短变量声明语句中必须至少要声明一个新的变量</strong>。</p>
 <p><strong>简短变量声明语句只有对已经在同级词法域声明过的变量才和赋值操作语句等价，如果变量是在外部词法域声明的，那么简短变量声明语句将会在当前词法域重新声明一个新的变量</strong>。</p>
@@ -620,6 +624,7 @@
     数据元素 类型
 <span class="token punctuation">}</span>
 <span class="token keyword">var</span> 变量名 类型名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>命名：一个名字以一个字母或者下划线开头。后面跟任意数量的字母、数字或下划线。大小写敏感。</p>
 <p>在函数外部定义的包级名字，是以首字母大写命名的，则它将是导出的，可以被外部的包访问。包本身的名字一般总是用小写字母。</p>
 <p>让一些聚合类型的零值具有意义，保证不管任何类型的变量总是有一个合理有效的零值状态。</p>
@@ -635,9 +640,11 @@
 <h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go">input <span class="token operator">:=</span> bufio<span class="token punctuation">.</span><span class="token function">NewScanner</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>stdin<span class="token punctuation">)</span>
 input<span class="token punctuation">.</span><span class="token function">Scan</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//读入一行，并移除行末的换行符。读入一行返回true，否则false</span>
 input<span class="token punctuation">.</span><span class="token function">Text</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//获取一行输入。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p><code>fmt</code>package包含格式化输出、接收输入的函数。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//格式化输出</span>
 fmt<span class="token punctuation">.</span><span class="token function">PrintIn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//输出完后换行</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <table>
 <thead>
 <tr>
@@ -704,10 +711,12 @@ fmt<span class="token punctuation">.</span><span class="token function">PrintIn<
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">for</span> i<span class="token operator">:=</span>初始值<span class="token punctuation">;</span>条件<span class="token punctuation">;</span>post <span class="token punctuation">{</span>
     <span class="token comment">//todo</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="range遍历"><a href="#range遍历" class="headerlink" title="range遍历"></a>range遍历</h4><p><strong>python中的range是函数，而go中的range是关键词。</strong></p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">for</span> a<span class="token punctuation">,</span>b<span class="token operator">:=</span><span class="token keyword">range</span> 数组<span class="token punctuation">{</span>
     <span class="token comment">//todo</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>range每次返回两个数值：索引和相应元素值，并强制处理。</p>
 <h3 id="选择判断"><a href="#选择判断" class="headerlink" title="选择判断"></a>选择判断</h3><p><code>if</code>可以在比较的时候进行简单语句的赋值行为，以下代码等价：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">if</span> err<span class="token operator">:=</span>r<span class="token punctuation">.</span><span class="token function">ParseForm</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>err<span class="token operator">!=</span><span class="token boolean">nil</span><span class="token punctuation">{</span>
@@ -718,6 +727,7 @@ err <span class="token operator">:=</span> r<span class="token punctuation">.</s
 <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
 log<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>Go语言中条件语句不需要圆括号，但是分支中必须有大括号。</strong></p>
 <p>Go语言不需要显式的在每一个<code>case</code>后写<code>break</code>，语言默认执行完<code>case</code>后的逻辑语句自动退出。如果需要<em>相邻几个<code>case</code>都执行同一逻辑时，需要自己显式的写上<code>fallthrough</code>来覆盖这种默认行为。</em></p>
 <p>switch不带操作对象时称为无tag switch，默认用true值代替， 然后将每个case的表达式和true值进行比较。等价switch true。</p>
@@ -740,11 +750,13 @@ log<span class="token punctuation">.</span><span class="token function">Print</s
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token punctuation">(</span>x 自定义类型<span class="token punctuation">)</span>函数名<span class="token punctuation">(</span><span class="token punctuation">)</span> 返回类型<span class="token punctuation">{</span>
     <span class="token comment">//pass</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>作用域不同于生命周期。声明语句的作用域对应的是一个源代码的文本区域；它是一个编译时的属性。一个变量的生命周期是指程序运行时变量存在的有效时间段，在此时间区域内它可以被程序的其他部分引用；是一个运行时概念。</p>
 <h3 id="一些常用的函数介绍"><a href="#一些常用的函数介绍" class="headerlink" title="一些常用的函数介绍"></a>一些常用的函数介绍</h3><p>os包提供一些与操作系统交互的函数和变量。程序的命令行参数可以通过os包的Args变量获得，即：<code>os.Args</code>，返回字符串切片，语法类似python，区间左闭右开。<code>os.Args[0]</code>为命令本身名字。省略默认传入0或len()。<strong>os.Args因为第一个参数为命令本身，因此其长度会在给定参数的数量上加一</strong></p>
 <p><code>gofmt</code>按照字母顺序对包名进行排列，从而格式化。</p>
 <p><strong>在进行大量字符串拼接的时候使用运算符+会导致执行的代价高昂，推荐使用strings包的Join函数。</strong></p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">strings<span class="token punctuation">.</span><span class="token function">Join</span><span class="token punctuation">(</span>字符串数组<span class="token punctuation">,</span>字符串拼接时的间隔符<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><code>map</code>存储了键值对的集合，对集合元素，提供常数时间的存取操作。键的选择只要能用<code>==</code>比较就行。值也可以是任意类型。例如:<code>map[键类型]值类型</code>。<code>make</code>函数创建空map，形如：<code>make(map[string]int)</code>。</p>
 <p>map的迭代顺序不确定。</p>
 <p>系统文件的指针：<code>*os.File</code>。</p>
@@ -837,6 +849,7 @@ log<span class="token punctuation">.</span><span class="token function">Print</s
 <p><strong>通常优先使用float64，float32的累计计算误差易扩散，且能表示的正整数不是很大，当整数大于23bit能表示的范围时，float32的表示将出现误差。</strong>例如：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> f <span class="token builtin">float32</span><span class="token operator">=</span><span class="token number">16777216</span>
 fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span>f<span class="token operator">==</span>f<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">//"true"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>小数点前后的数字都有可能被省略。所以<strong>很大很小的数最好使用科学计数法，通过e或者E来指定指数部分。</strong></p>
 <p>math包中提供IEEE754浮点数标准中定义的特殊值：正无穷和负无穷以及NaN。</p>
 <p><code>math.IsInf(检测数,int值)</code>：检查是否是无穷数，int值Wie正数，表示检测其是否是一个正无穷，同理负数，0表示是否是无穷，不论正负。</p>
@@ -851,17 +864,19 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> result<span class="token punctuation">,</span><span class="token boolean">true</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="复数"><a href="#复数" class="headerlink" title="复数"></a>复数</h3><p>Go语言提供两种精度的复数类型：<code>complex64</code>和<code>complex128</code>。对应float。内建的real和imag函数分别返回复数的实部和虚部。</p>
 <p>复数的创建方法：<code>complex(实部,虚部)</code>。</p>
 <p>如果一个浮点数或一个十进制整数后面有一个i，则构成一个实部为0的虚数。</p>
 <h3 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h3><p>两种值：true和false。</p>
 <p>&amp;&amp;的优先级高于ll。(&amp;&amp;对应逻辑乘法，||对应逻辑加法)。</p>
 <p>字符的检验代码可以如下编写：</p>
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">if</span> <span class="token string">'a'</span><span class="token operator">&lt;=</span>c <span class="token operator">&amp;&amp;</span> c<span class="token operator">&lt;=</span><span class="token string">'z'</span><span class="token operator">||</span>
-<span class="token string">'A'</span><span class="token operator">&lt;=</span>c<span class="token operator">&amp;&amp;</span>c<span class="token operator">&lt;=</span><span class="token string">'Z'</span><span class="token operator">||</span>
-<span class="token string">'0'</span><span class="token operator">&lt;=</span>c<span class="token operator">&amp;&amp;</span>c<span class="token operator">&lt;=</span><span class="token string">'9'</span><span class="token punctuation">{</span>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">if</span> <span class="token char">'a'</span><span class="token operator">&lt;=</span>c <span class="token operator">&amp;&amp;</span> c<span class="token operator">&lt;=</span><span class="token char">'z'</span><span class="token operator">||</span>
+<span class="token char">'A'</span><span class="token operator">&lt;=</span>c<span class="token operator">&amp;&amp;</span>c<span class="token operator">&lt;=</span><span class="token char">'Z'</span><span class="token operator">||</span>
+<span class="token char">'0'</span><span class="token operator">&lt;=</span>c<span class="token operator">&amp;&amp;</span>c<span class="token operator">&lt;=</span><span class="token char">'9'</span><span class="token punctuation">{</span>
     <span class="token comment">//todo</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>布尔值不会隐式转换为数字值0或者1，反之亦然。必须使用一个显式的if语句辅助转换。或者自己包装成一个函数，如下：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">btoi</span><span class="token punctuation">(</span>b <span class="token builtin">bool</span><span class="token punctuation">)</span><span class="token builtin">int</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span> b<span class="token punctuation">{</span>
@@ -872,6 +887,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <span class="token keyword">func</span> <span class="token function">itob</span><span class="token punctuation">(</span>i <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> i<span class="token operator">!=</span><span class="token number">0</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>一个字符串是一个<strong>不可改变</strong>的字节序列。</p>
 <p>字符串可以包含任意数据，包括byte值0。</p>
 <p>文本字符串通常被解释为采用UTF8编码的Unicode码点(rune)序列。</p>
@@ -953,6 +969,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <span class="token keyword">func</span> <span class="token function">HasSuffix</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span>suffic <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token function">len</span><span class="token punctuation">(</span>suffic<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">[</span><span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token operator">-</span><span class="token function">len</span><span class="token punctuation">(</span>suffic<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token operator">==</span>suffic
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>包含子串测试：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">Contains</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span>substr <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
     <span class="token keyword">for</span> i<span class="token operator">:=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">{</span>
@@ -962,6 +979,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token boolean">false</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Go语言的range循环在处理字符串的时候，会自动隐式解码UTF8字符串。</p>
 <p>如果遇到一个错误的UTF8编码输入，将会生成一个特殊的Unicode字符<code>\uFFFD</code>，即�。</p>
 <p>UTF8作为交换格式方便，rune序列支持数组索引且方便切割，rune的大小一致。rune序列的长度就是字符的数量，string类型的数量是字符占用的字节空间大小。</p>
@@ -979,19 +997,20 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 
 <span class="token keyword">func</span> <span class="token function">intsToString</span><span class="token punctuation">(</span>values <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span><span class="token builtin">string</span><span class="token punctuation">{</span>
 	<span class="token keyword">var</span> buf bytes<span class="token punctuation">.</span>Buffer
-	buf<span class="token punctuation">.</span><span class="token function">WriteByte</span><span class="token punctuation">(</span><span class="token string">'['</span><span class="token punctuation">)</span>
+	buf<span class="token punctuation">.</span><span class="token function">WriteByte</span><span class="token punctuation">(</span><span class="token char">'['</span><span class="token punctuation">)</span>
 	<span class="token keyword">for</span> i<span class="token punctuation">,</span>v<span class="token operator">:=</span><span class="token keyword">range</span> values<span class="token punctuation">{</span>
 		<span class="token keyword">if</span> i<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">{</span>
-			buf<span class="token punctuation">.</span><span class="token function">WriteByte</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span>
+			buf<span class="token punctuation">.</span><span class="token function">WriteByte</span><span class="token punctuation">(</span><span class="token char">','</span><span class="token punctuation">)</span>
 		<span class="token punctuation">}</span>
 		fmt<span class="token punctuation">.</span><span class="token function">Fprintf</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>buf<span class="token punctuation">,</span><span class="token string">"%d"</span><span class="token punctuation">,</span>v<span class="token punctuation">)</span>
 	<span class="token punctuation">}</span>
-	buf<span class="token punctuation">.</span><span class="token function">WriteByte</span><span class="token punctuation">(</span><span class="token string">']'</span><span class="token punctuation">)</span>
+	buf<span class="token punctuation">.</span><span class="token function">WriteByte</span><span class="token punctuation">(</span><span class="token char">']'</span><span class="token punctuation">)</span>
 	<span class="token keyword">return</span> buf<span class="token punctuation">.</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">intsToString</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>向bytes.Buffer添加任意字符的UTF8编码时，最好使用bytes.Buffer的WriteRune方法，如果仅仅是写入ASCII字符则可以使用WriteByte方法。</p>
 <h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>常量表达式的值在编译期计算。每种常量的潜在类型都是基础类型。</p>
 <p>形式是：<code>const</code></p>
@@ -1011,12 +1030,14 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <h2 id="复合数据类型"><a href="#复合数据类型" class="headerlink" title="复合数据类型"></a>复合数据类型</h2><p>数组是由同构的元素组成。结构体是由异构元素构成。都有着固定内存大小的数据结构。slice和map是动态数据结构，能根据需要进行增长。</p>
 <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>int类型的数组声明：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> a <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token builtin">int</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>默认情况下，数组的每个元素都被初始化为元素类型对应的零值。</p>
 <p>可以用索引位置和值来初始化数组<code>var a [3]int =[3]int {1:2}</code>，此时a有三个元素，a[1]为2,其他为0。</p>
 <p>当数组的长度位置是<code>...</code>时，表明数组的长度是依据初始值的个数来计算的。例如<code>q:=[...]int{1,2,3}</code>。</p>
 <p><strong>数组的长度是数组类型的一部分，不同长度的数组是不同的数组类型。</strong></p>
 <p>可以指定数组中参数的初始化：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">r <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">99</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span> <span class="token comment">//定义了一个包含100个元素的r数组，并将第100位元素初始化位-1，其他元素均为0</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>参数传递数组时，go传递的是数组的复本。当数组较大时，效率低下且无法修改到数组上。此时可以传入指针。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">zreo</span><span class="token punctuation">(</span>ptr <span class="token operator">*</span><span class="token punctuation">[</span><span class="token number">32</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token comment">//下面的代码可以简化为*ptr=[32]byte{}</span>
@@ -1024,6 +1045,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
         ptr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="Slice"><a href="#Slice" class="headerlink" title="Slice"></a>Slice</h3><p>$slice\begin{cases}指针:指向第一个slice元素对应的底层数组元素的地址，slice的第一个元素不一定是数组的第一个元素\长度:slice中的元素数目，可以用len函数获取\容量:从slice开始位置到底层数据的结尾位置，可以用cap函数获取\end{cases}$</p>
 <p>多个slice可以共享底层数据，引用的数组部分区间可能重叠。</p>
 <p>slice支持切片<code>s[i:j]</code>，$0\leq i\leq j \leq cap(s)$，引用s的从第i个元素开始到第j-1个元素的子序列。i省略的话，默认为0。j省略为len(s)代替。</p>
@@ -1034,6 +1056,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
         s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>s<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>s<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>一种将slice元素循环向左旋转n个元素的方法是三次调用reverse反转函数， 第一次是反转开头的n个元素， 然后是反转剩下的元素， 最后是反转整个slice的元素。 （ 如果是向右循环旋转，则将第三个函数调用移到第一个调用位置就可以了。 ）</p>
 <p>数组能比较，slice不能比较。slice和数组在申明上的区别在于没有指明数组长度。</p>
 <p>标准库提供了高度优化的bytes.Equal函数来判断两个字节型slice是否相等（ []byte）</p>
@@ -1044,6 +1067,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <p><code>make</code>函数创建一个指定元素类型、长度和容量的slice。容量可以省略，默认等于长度。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>T<span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">)</span>
 <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>T<span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">,</span><span class="token builtin">cap</span><span class="token punctuation">)</span><span class="token comment">//same as make([]T,cap)[:len]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p><code>append(slice名，需要添加的值)</code>向slice中添加元素。添加元素时如果超越cap，系统会重新分配更大的底层数组。</p>
 <p>由于值传递的关系，必须接收append的返回值。</p>
 <p><code>copy(slice名，拷贝源)</code></p>
@@ -1052,6 +1076,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">m<span class="token operator">:=</span><span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token builtin">string</span> <span class="token punctuation">{</span>
     <span class="token string">"hello"</span><span class="token punctuation">:</span><span class="token string">"world"</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p><code>map</code>是无序的。</p>
 <p><code>map</code>中的value不可以通过取地址获取，以避免因为map扩容导致的地址迁移。</p>
 <p><code>map</code>中数据的返回是无序的，如果需要按照某种顺序输出，只能在外层将key进行排序后进行输出。</p>
@@ -1063,6 +1088,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token punctuation">(</span>node <span class="token operator">*</span>TreeNode<span class="token punctuation">)</span> <span class="token function">setValue</span><span class="token punctuation">(</span>value <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 
 
 <p><strong>go中的函数传递都是值传递，所以想对结构体中的数据进行写操作数时，需要传入的指针，而不能是值。</strong>只有使用指针才可以改变结构内容。</p>
@@ -1085,6 +1111,7 @@ gopm get -u -g -v 包的地址
 go install 包地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
+
 <h2 id="Goroutines和Channels"><a href="#Goroutines和Channels" class="headerlink" title="Goroutines和Channels"></a>Goroutines和Channels</h2><p><code>goroutine</code>是一种函数的并发执行方式，<code>channel</code>在<code>goroutine</code>之间进行参数传递。</p>
 <p><code>main</code>函数本身运行在一个<code>goroutine</code>中。</p>
 <p><code>go 函数名(参数)</code>表示创建一个新的<code>goroutine</code>，并在新的<code>goroutine</code>中运行这个函数。</p>
@@ -1095,6 +1122,7 @@ go install 包地址<span aria-hidden="true" class="line-numbers-rows"><span></s
 mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token comment">//操作</span>
 mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="基于共享变量的并发"><a href="#基于共享变量的并发" class="headerlink" title="基于共享变量的并发"></a>基于共享变量的并发</h2><h2 id="包和工具-1"><a href="#包和工具-1" class="headerlink" title="包和工具"></a>包和工具</h2><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><h2 id="底层编程"><a href="#底层编程" class="headerlink" title="底层编程"></a>底层编程</h2><h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><p>Go语言很特别，没有对象，没有继承多态，没有泛型，没有try/catch。相反，有接口，函数式编程，CSP并发模型(goroutine+channel)。</p>
 <p><code>go</code>语言仅支持封装，不支持继承和多态。没有<code>class</code>只有<code>struct</code>。面向对象使用接口来实现。</p>
 <p><code>GOROOT</code>表示源码包所在路径。</p>
@@ -1102,6 +1130,7 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
 <h3 id="依赖包下载网络配置"><a href="#依赖包下载网络配置" class="headerlink" title="依赖包下载网络配置"></a>依赖包下载网络配置</h3><p>由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">go env -w GO111MODULE=on
 go env -w GOPROXY=https://goproxy.cn,direct<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>或者基于系统的环境变量</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 一次性
 $ export GO111MODULE=on
@@ -1110,6 +1139,7 @@ $ export GOPROXY=https://goproxy.cn
 $ echo "export GO111MODULE=on" &gt;&gt; ~/.profile
 $ echo "export GOPROXY=https://goproxy.cn" &gt;&gt; ~/.profile
 $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>这里的<code>.profile</code>文件可以改成<code>.zshrc</code>。</p>
 <h3 id="Linux安装Go"><a href="#Linux安装Go" class="headerlink" title="Linux安装Go"></a>Linux安装Go</h3><ol>
 <li><p>去<a target="_blank" rel="noopener" href="https://golang.org/dl/">官网</a>下载最新的Go安装包。</p>
@@ -1122,7 +1152,8 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># sudo vi /etc/profile
  export GOROOT=/usr/local/go
  export GOPATH=/usr/local/gopath
- export PATH=$GOPATH/bin:$GOROOT/bin:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p><code>source /etc/profile</code>生效配置</p>
 </li>
 </ol>
@@ -1229,12 +1260,12 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Book/">
-                                    <span class="chip bg-color">Book</span>
-                                </a>
-                            
                                 <a href="/tags/Go/">
                                     <span class="chip bg-color">Go</span>
+                                </a>
+                            
+                                <a href="/tags/Book/">
+                                    <span class="chip bg-color">Book</span>
                                 </a>
                             
                         </div>
@@ -1447,12 +1478,12 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
                         <span class="chip bg-color">Python</span>
                     </a>
                     
-                    <a href="/tags/CentOS/">
-                        <span class="chip bg-color">CentOS</span>
-                    </a>
-                    
                     <a href="/tags/Linux/">
                         <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/CentOS/">
+                        <span class="chip bg-color">CentOS</span>
                     </a>
                     
                 </div>
@@ -1719,8 +1750,8 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

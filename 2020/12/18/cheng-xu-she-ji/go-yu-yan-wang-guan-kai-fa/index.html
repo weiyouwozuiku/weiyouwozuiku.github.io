@@ -478,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-18
+                    2021-12-15
                 </div>
                 
 
@@ -562,6 +562,7 @@
 <span class="token keyword">type</span> Handler <span class="token keyword">interface</span> <span class="token punctuation">{</span>
 	<span class="token function">ServeHTTP</span><span class="token punctuation">(</span>ResponseWriter<span class="token punctuation">,</span> <span class="token operator">*</span>Request<span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>步骤：</p>
 <ol>
 <li>创建路由器 http.NewServeMux</li>
@@ -589,6 +590,7 @@
 	proxy<span class="token punctuation">,</span> scheme<span class="token punctuation">,</span> addr <span class="token builtin">string</span>
 	onlyH1              <span class="token builtin">bool</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h5 id="persistConn"><a href="#persistConn" class="headerlink" title="persistConn"></a>persistConn</h5><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> persistConn <span class="token keyword">struct</span> <span class="token punctuation">{</span>
 	br        <span class="token operator">*</span>bufio<span class="token punctuation">.</span>Reader       <span class="token comment">// from conn</span>
 	bw        <span class="token operator">*</span>bufio<span class="token punctuation">.</span>Writer       <span class="token comment">// to conn</span>
@@ -596,6 +598,7 @@
 	writech   <span class="token keyword">chan</span> writeRequest   <span class="token comment">// written by roundTrip; read by writeLoop</span>
 	<span class="token operator">...</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h5 id="RoundTrip流程"><a href="#RoundTrip流程" class="headerlink" title="RoundTrip流程"></a>RoundTrip流程</h5><p>func(t *Transport)roundTrip(req * Request)-&gt;pconn, err := t.getConn(treq, cm)</p>
 <ol>
 <li><h3 id="UDP创建过程"><a href="#UDP创建过程" class="headerlink" title="UDP创建过程"></a>UDP创建过程</h3></li>
@@ -1162,8 +1165,8 @@
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

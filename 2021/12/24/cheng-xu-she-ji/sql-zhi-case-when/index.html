@@ -526,11 +526,13 @@
   <span class="token keyword">when</span> <span class="token string">'1'</span> <span class="token keyword">then</span> <span class="token string">'男'</span>
   <span class="token keyword">when</span> <span class="token string">'2'</span> <span class="token keyword">then</span> <span class="token string">'女’
   else '</span>其他' <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="case搜索函数"><a href="#case搜索函数" class="headerlink" title="case搜索函数"></a>case搜索函数</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">case</span> <span class="token keyword">when</span> sex <span class="token operator">=</span> <span class="token string">'1'</span> <span class="token keyword">then</span> <span class="token string">'男'</span>
      <span class="token keyword">when</span> sex <span class="token operator">=</span> <span class="token string">'2'</span> <span class="token keyword">then</span> <span class="token string">'女'</span>
      <span class="token keyword">else</span> <span class="token string">'其他'</span> <span class="token keyword">end</span>  
      
 <span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> score <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token keyword">THEN</span> <span class="token string">'缺席考试'</span> <span class="token keyword">ELSE</span> <span class="token string">'正常'</span> <span class="token keyword">END</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="sum和case结合使用"><a href="#sum和case结合使用" class="headerlink" title="sum和case结合使用"></a>sum和case结合使用</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>
   <span class="token number">2</span>    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> u<span class="token punctuation">.</span>sex <span class="token keyword">when</span> <span class="token number">1</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span>男性<span class="token punctuation">,</span>
   <span class="token number">3</span>    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> u<span class="token punctuation">.</span>sex <span class="token keyword">when</span> <span class="token number">2</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span>女性<span class="token punctuation">,</span>
@@ -540,6 +542,7 @@
         男性         女性       性别为空
 <span class="token comment">---------- ---------- ----------</span>
          <span class="token number">3</span>          <span class="token number">2</span>          <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
 
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
@@ -1084,8 +1087,8 @@
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="playlist"
-                   id="503838841"
+                   type="song"
+                   id="1901371647"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'
