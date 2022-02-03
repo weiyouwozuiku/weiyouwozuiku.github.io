@@ -156,3 +156,14 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+
+# RSS
+feed:
+  type: atom
+  path: atom.xml
+  limit: 100
+  hub:
+  content:
+  content_limit: 200
+  content_limit_delim: ' '
+  order_by: -date
