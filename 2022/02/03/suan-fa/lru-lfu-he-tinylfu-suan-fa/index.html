@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="大数据去重方案, 博客">
+    <meta name="keywords" content="LRU、LFU和TinyLFU算法, 博客">
     <meta name="description" content="个人学习储备知识与经验的秘密基地">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>大数据去重方案 | 不二博客</title>
+    <title>LRU、LFU和TinyLFU算法 | 不二博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/awesome/css/all.css">
@@ -325,12 +325,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/大数据去重方案.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/LRU、LFU和TinyLFU算法.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">大数据去重方案</h1>
+                    <h1 class="description center-align post-title">LRU、LFU和TinyLFU算法</h1>
                 </div>
             </div>
         </div>
@@ -446,8 +446,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8E%BB%E9%87%8D/">
-                                <span class="chip bg-color">去重</span>
+                            <a href="/tags/LRU/">
+                                <span class="chip bg-color">LRU</span>
+                            </a>
+                        
+                            <a href="/tags/LFU/">
+                                <span class="chip bg-color">LFU</span>
+                            </a>
+                        
+                            <a href="/tags/TinyLFU/">
+                                <span class="chip bg-color">TinyLFU</span>
                             </a>
                         
                     </div>
@@ -471,21 +479,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-24
+                    2022-02-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-02
+                    2022-02-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    169
+                    0
                 </div>
                 
 
@@ -520,12 +528,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>所谓的海量数据是指海量数据的存储、处理和操作。正是因为数据量太大，所以导致要么无法在短时间迅速完成，要么无法一次性载入内存。数据去重（data deduplication）是大数据领域司空见惯的问题了。除了统计UV等传统用法之外，去重的意义更在于消除不可靠数据源产生的脏数据——即重复上报数据或重复投递数据的影响，使计算产生的结果更加准确。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
-<li>博客园，<a target="_blank" rel="noopener" href="https://www.cnblogs.com/luxiaoxun/p/14392375.html">大数据去重（data deduplication）方案</a>，2021</li>
-<li>GitBook，<a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/the-art-of-programming-by-july/content/ch6.html">第六章 海量数据处理</a></li>
-</ol>
-
+                
                 
             </div>
             <hr/>
@@ -551,7 +554,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://buerlog.top/2022/01/24/suan-fa/da-shu-ju-qu-chong-fang-an/">http://buerlog.top/2022/01/24/suan-fa/da-shu-ju-qu-chong-fang-an/</a>
+                    <a href="http://buerlog.top/2022/02/03/suan-fa/lru-lfu-he-tinylfu-suan-fa/">http://buerlog.top/2022/02/03/suan-fa/lru-lfu-he-tinylfu-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -589,8 +592,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8E%BB%E9%87%8D/">
-                                    <span class="chip bg-color">去重</span>
+                                <a href="/tags/LRU/">
+                                    <span class="chip bg-color">LRU</span>
+                                </a>
+                            
+                                <a href="/tags/LFU/">
+                                    <span class="chip bg-color">LFU</span>
+                                </a>
+                            
+                                <a href="/tags/TinyLFU/">
+                                    <span class="chip bg-color">TinyLFU</span>
                                 </a>
                             
                         </div>
@@ -762,16 +773,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/01/28/suan-fa/a-b/">
+                <a href="/2022/02/03/suan-fa/lru-lfu-he-tinylfu-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/A-B.png" class="responsive-img" alt="A+B">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/LRU、LFU和TinyLFU算法.png" class="responsive-img" alt="LRU、LFU和TinyLFU算法">
                         
-                        <span class="card-title">A+B</span>
+                        <span class="card-title">LRU、LFU和TinyLFU算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -781,9 +793,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -796,11 +808,20 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Cpp/">
-                        <span class="chip bg-color">Cpp</span>
+                    <a href="/tags/LRU/">
+                        <span class="chip bg-color">LRU</span>
+                    </a>
+                    
+                    <a href="/tags/LFU/">
+                        <span class="chip bg-color">LFU</span>
+                    </a>
+                    
+                    <a href="/tags/TinyLFU/">
+                        <span class="chip bg-color">TinyLFU</span>
                     </a>
                     
                 </div>
@@ -814,12 +835,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/23/suan-fa/shu-suan-fa-zheng-li/">
+                <a href="/2022/02/02/suan-fa/shu-ju-ya-suo-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/树算法整理.jpeg" class="responsive-img" alt="树算法整理">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/数据压缩算法.jpeg" class="responsive-img" alt="数据压缩算法">
                         
-                        <span class="card-title">树算法整理</span>
+                        <span class="card-title">数据压缩算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -830,7 +851,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-02
                             </span>
                         <span class="publish-author">
                             
@@ -847,8 +868,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%A0%91/">
-                        <span class="chip bg-color">树</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9/">
+                        <span class="chip bg-color">数据压缩</span>
                     </a>
                     
                 </div>
@@ -1095,7 +1116,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">186.5k</span>&nbsp;字
+                class="white-color">190.2k</span>&nbsp;字
             
             
             
