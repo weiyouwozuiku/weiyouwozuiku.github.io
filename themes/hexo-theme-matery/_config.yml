@@ -278,9 +278,10 @@ mySkills:
 # 在“关于”页面配置"我的相册"图片，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myGallery:
   enable: true
-    - /medias/featureimages/code.jpg
-    - /medias/featureimages/git.jpg
-    - /medias/featureimages/code1.jpg
+  data: 
+    - https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/%E5%B5%8C%E5%85%A5%E5%BC%8F/nnn.jpg
+    - https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/%E7%AE%97%E6%B3%95/A-B.png
+    - https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/%E7%AE%97%E6%B3%95/Leetcode%E7%AE%97%E6%B3%95%E9%A2%981701-1800.jpeg
 
 # Whether to display post-calender in the `archive` page
 # 设置在归档页面中是否显示'文章日历'控件
