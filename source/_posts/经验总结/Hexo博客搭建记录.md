@@ -221,9 +221,124 @@ index_generator:
 
 ### 创建Action所需的环境变量
 
+创建Action提交代码的秘钥。
+
+```shell
+ssh-keygen -f hexo-deploy-key -C "<博客网址>" #仅作为区分
+```
+
+上面的命令会在当前文件夹下生成名为`hexo-deploy-key`的私钥和`hexo-deploy-key.pub`的公钥。
+
+将公钥设置进对应仓库的`setting->Deploy keys`，同时赋予写权限。
+
+将私钥设置进对应仓库的`setting->Secrets->Actions`，对应的key名设置为`DEPLOY_KEY`，value就是私钥。
+
 ### 编写Action脚本
 
+```yaml
+name: Hexo Generate And Deploy
 
+# 只监听 source 分支的改动
+on:
+  push:
+    branches:
+      - src
+
+# 自定义环境变量
+env:
+  GIT_USER: weiyouwozuiku
+  GIT_EMAIL: 19681022+weiyouwozuiku@users.noreply.github.com 
+  DEPLOY_REPO: weiyouwozuiku/weiyouwozuiku.github.io
+  DEPLOY_BRANCH: master
+  NODE_VERSION: 17
+
+jobs:
+  Hexo-Generate-And-Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Checkout deploy branch
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ env.DEPLOY_REPO }}
+          ref: ${{ env.DEPLOY_BRANCH }}
+          path: .deploy_git
+          fetch-depth: 0
+
+      - name: Restore file modification time
+        run: |
+          find source/_posts -name '*.md' | while read file; do touch -d "$(git log -1 --format="@%ct" "$file")" "$file"; done
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Set up environment
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          sudo timedatectl set-timezone "Asia/Shanghai"
+          mkdir -p ~/.ssh
+          echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.name $GIT_USER
+          git config --global user.email $GIT_EMAIL
+      
+      - name: Install dependencies
+        run: |
+          npm install -g hexo-cli
+          npm install
+
+      - name: Deploy
+        run: |
+          hexo deploy --generate
+
+```
+
+### Github Action过程中的一些坑
+
+直接使用`Github Action`部署代码的时候，Github会在容器中拉下该仓库的代码。此时文件的创建时间和修改时间都是拉取时的时间。这会导致按照`updated`字段排序的博客在读取不到`.md`文件中的`updated`字段从而读取文件的修改时间变成统一的代码拉取时间。博客的文章展示就会变得混乱无章。
+
+因此，需要在`Github Action`中单独进行一步操作，即修改文件的修改时间。
+
+代码实现在上一节yaml文件的第35-37行。
+
+实际上，`clone` 下来的文件的时间还是克隆时的时间，然后通过上面的命令，它将 `clone` 下来的文件的时间改成了该文件最近一次变动的推送时间（也即文件最后一次修改的 `push` 时间）。
+
+> **注**：如果`github actions`中使用`actions/checkout@v2`，请设定它的参数`fetch-depth: 0`，因为`0`表示获取所有分支和标签的所有历史记录。默认值为`1`
+
+小知识：
+
+```shell
+# 获取 git 仓库中所有文件的最新修改时间
+git ls-tree -r --name-only HEAD | while read filename; do
+  echo "$(git log -1 --format="%ad" -- $filename) $filename"
+done
+# 获取 git 仓库中所有文件的最初创建时间
+git ls-tree -r --name-only HEAD | while read filename; do
+	echo "$(git log --format="%ad" -- $filename | tail -1) $filename"
+done
+```
 
 ## 访问加速
 
