@@ -34,6 +34,8 @@ jobs:
 
       - name: Restore file modification time
         run: |
+          pwd
+          ls -al
           "find source/_posts -name '*.md' | while read file; do touch -d "$(git log -1 --format="@%ct" "$file")" "$file"; done"
 
       - name: Set up Node.js
