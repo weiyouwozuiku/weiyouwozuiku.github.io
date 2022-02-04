@@ -56,7 +56,6 @@ jobs:
           echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          cp .github/workflows/ssh_config ~/.ssh/config
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
       
