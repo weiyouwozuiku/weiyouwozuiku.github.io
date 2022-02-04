@@ -497,14 +497,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -643,7 +643,13 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<s
 	<span class="token key atrule">order_by</span><span class="token punctuation">:</span> <span class="token punctuation">-</span>updated<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="主题选择与优化"><a href="#主题选择与优化" class="headerlink" title="主题选择与优化"></a>主题选择与优化</h2><p>我使用的主题是</p>
-<h3 id="首页添加Github状态"><a href="#首页添加Github状态" class="headerlink" title="首页添加Github状态"></a>首页添加Github状态</h3><h3 id="可选插件"><a href="#可选插件" class="headerlink" title="可选插件"></a>可选插件</h3><h3 id="主题的个性化"><a href="#主题的个性化" class="headerlink" title="主题的个性化"></a>主题的个性化</h3><h2 id="访问加速"><a href="#访问加速" class="headerlink" title="访问加速"></a>访问加速</h2><h2 id="分支存储源码"><a href="#分支存储源码" class="headerlink" title="分支存储源码"></a>分支存储源码</h2><p>首先在Github的仓库中创建一个新的分支，因为Github Page默认是master分支，所以随便创建一个分支名即可。</p>
+<h3 id="首页添加Github状态"><a href="#首页添加Github状态" class="headerlink" title="首页添加Github状态"></a>首页添加Github状态</h3><h3 id="可选插件"><a href="#可选插件" class="headerlink" title="可选插件"></a>可选插件</h3><h3 id="主题的个性化"><a href="#主题的个性化" class="headerlink" title="主题的个性化"></a>主题的个性化</h3><h2 id="自动化部署"><a href="#自动化部署" class="headerlink" title="自动化部署"></a>自动化部署</h2><p>借助<code>Github Action</code>可以实现当我们在本地向Github提交代码的时候，自动创建并生成相应的静态网页代码，进而联动后面的<code>vercel</code>的部署任务。</p>
+<p>目录结构如下：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">.github
+└── workflows
+    └── deploy.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="创建Action所需的环境变量"><a href="#创建Action所需的环境变量" class="headerlink" title="创建Action所需的环境变量"></a>创建Action所需的环境变量</h3><h3 id="编写Action脚本"><a href="#编写Action脚本" class="headerlink" title="编写Action脚本"></a>编写Action脚本</h3><h2 id="访问加速"><a href="#访问加速" class="headerlink" title="访问加速"></a>访问加速</h2><h2 id="分支存储源码"><a href="#分支存储源码" class="headerlink" title="分支存储源码"></a>分支存储源码</h2><p>首先在Github的仓库中创建一个新的分支，因为Github Page默认是master分支，所以随便创建一个分支名即可。</p>
 <p>在Hexo博客的顶层文件夹中执行如下命令：</p>
 <ol>
 <li><p>克隆Github中的当前项目，将克隆下载的文件夹中的.git文件夹移动到hexo博客的顶层目录。</p>
@@ -1259,7 +1265,7 @@ baidusitemap<span class="token operator">:</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">190.2k</span>&nbsp;字
+                class="white-color">190.3k</span>&nbsp;字
             
             
             
