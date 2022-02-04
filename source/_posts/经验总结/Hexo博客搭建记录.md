@@ -207,6 +207,24 @@ index_generator:
 
 ### 主题的个性化
 
+## 自动化部署
+
+借助`Github Action`可以实现当我们在本地向Github提交代码的时候，自动创建并生成相应的静态网页代码，进而联动后面的`vercel`的部署任务。
+
+目录结构如下：
+
+```shell
+.github
+└── workflows
+    └── deploy.yml
+```
+
+### 创建Action所需的环境变量
+
+### 编写Action脚本
+
+
+
 ## 访问加速
 
 
