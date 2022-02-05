@@ -73,5 +73,33 @@ public:
 ## 481-490
 ## 491-500
 
+#### [496. 下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i/)
+
+本题本质上是一个单调栈的模板题，唯一不同的地方就是使用了两个vector存放数据，因此，在找到num2所有元素的下一个更大元素存入哈希表。再将num1中的元素通过哈希表查出对应的答案。
+
+```cpp
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int> &nums1, vector<int> &nums2) {
+        // key为nums2中的值，value为对应值下一个更大的元素
+        unordered_map<int, int> heap;
+        // 存放单调栈
+        int stack[1001], top = 0, x;
+        vector<int> res;
+        for (int i = nums2.size() - 1; i >= 0; i--) {
+            x = nums2[i];
+            while (top && stack[top] < x) --top;
+            if (top) heap[x] = stack[top];
+            else heap[x] = -1;
+            stack[++top] = x;
+        }
+        for (int item:nums1){
+            res.push_back(heap[item]);
+        }
+        return res;
+    }
+};
+```
+
 
 
