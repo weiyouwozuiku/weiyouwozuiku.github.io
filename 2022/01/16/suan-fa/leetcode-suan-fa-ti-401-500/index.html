@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-21
+                    2022-02-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    188
+                    377
                 </div>
                 
 
@@ -574,7 +574,32 @@
 
 
 
-<h2 id="471-480"><a href="#471-480" class="headerlink" title="471-480"></a>471-480</h2><h2 id="481-490"><a href="#481-490" class="headerlink" title="481-490"></a>481-490</h2><h2 id="491-500"><a href="#491-500" class="headerlink" title="491-500"></a>491-500</h2>
+<h2 id="471-480"><a href="#471-480" class="headerlink" title="471-480"></a>471-480</h2><h2 id="481-490"><a href="#481-490" class="headerlink" title="481-490"></a>481-490</h2><h2 id="491-500"><a href="#491-500" class="headerlink" title="491-500"></a>491-500</h2><h4 id="496-下一个更大元素-I"><a href="#496-下一个更大元素-I" class="headerlink" title="496. 下一个更大元素 I"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/next-greater-element-i/">496. 下一个更大元素 I</a></h4><p>本题本质上是一个单调栈的模板题，唯一不同的地方就是使用了两个vector存放数据，因此，在找到num2所有元素的下一个更大元素存入哈希表。再将num1中的元素通过哈希表查出对应的答案。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">nextGreaterElement</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>nums1<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>nums2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// key为nums2中的值，value为对应值下一个更大的元素</span>
+        unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> heap<span class="token punctuation">;</span>
+        <span class="token comment">// 存放单调栈</span>
+        <span class="token keyword">int</span> stack<span class="token punctuation">[</span><span class="token number">1001</span><span class="token punctuation">]</span><span class="token punctuation">,</span> top <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> x<span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> res<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> nums2<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            x <span class="token operator">=</span> nums2<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>top <span class="token operator">&amp;&amp;</span> stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span> <span class="token operator">&lt;</span> x<span class="token punctuation">)</span> <span class="token operator">--</span>top<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>top<span class="token punctuation">)</span> heap<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> stack<span class="token punctuation">[</span>top<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> heap<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+            stack<span class="token punctuation">[</span><span class="token operator">++</span>top<span class="token punctuation">]</span> <span class="token operator">=</span> x<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> item<span class="token operator">:</span>nums1<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>heap<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
                 
             </div>
             <hr/>
@@ -1144,7 +1169,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">191.3k</span>&nbsp;字
+                class="white-color">191.6k</span>&nbsp;字
             
             
             
