@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-05
+                    2022-02-07
                 </div>
                 
 
@@ -504,7 +504,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    38 分
+                    39 分
                 </div>
                 
 
@@ -1309,8 +1309,9 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">while</span><span class="token punctuation">(</span>hh<span class="token operator">&lt;=</span>tt<span class="token operator">&amp;&amp;</span><span class="token function">check_out</span><span class="token punctuation">(</span>q<span class="token punctuation">[</span>hh<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> hh<span class="token operator">++</span><span class="token punctuation">;</span><span class="token comment">//判断队头是否滑出窗口</span>
     <span class="token keyword">while</span><span class="token punctuation">(</span>hh<span class="token operator">&lt;=</span>tt<span class="token operator">&amp;&amp;</span><span class="token function">check</span><span class="token punctuation">(</span>q<span class="token punctuation">[</span>tt<span class="token punctuation">]</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> tt<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token comment">// 注意这里的新元素存放，可能新入队的元素满足条件，需要放在结果集操作前面</span>
     q<span class="token punctuation">[</span><span class="token operator">++</span>tt<span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Trie"><a href="#Trie" class="headerlink" title="Trie"></a>Trie</h3><p>Trie可以实现高效的存储和查找字符串集合。其本质上采用树的结构。除根节点之外的所有节点来存储字符串的每个字符信息。依据字符串来创建Trie树，并记录每个节点作为字符串结尾的次数。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
