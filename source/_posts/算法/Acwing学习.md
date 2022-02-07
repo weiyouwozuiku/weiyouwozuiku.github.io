@@ -950,6 +950,7 @@ int hh=0,tt=-1;
 for(int i=0;i<n;i++){
     while(hh<=tt&&check_out(q[hh])) hh++;//判断队头是否滑出窗口
     while(hh<=tt&&check(q[tt],i)) tt--;
+    // 注意这里的新元素存放，可能新入队的元素满足条件，需要放在结果集操作前面
     q[++tt]=i;
 }
 ```
