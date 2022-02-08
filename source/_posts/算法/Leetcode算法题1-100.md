@@ -412,6 +412,44 @@ public:
 };
 ```
 
+#### [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+
+```cpp
+class Solution {
+public:
+    vector<int> ne;
+
+    void build(const string &needle) {
+        int n = needle.length();
+        // 这里最后多出来的元素用来标记匹配成功的情况
+        ne.resize(n + 1);
+        for (int i = 0, j = ne[0] = -1; i < n; ne[++i] = ++j) {
+            // ~j表示j为-1的情况
+            while (~j && needle[i] != needle[j]) j = ne[j];
+        }
+    }
+
+    int strStr(string haystack, string needle) {
+        if (!needle.length()) return 0;
+        int res = -1, m = haystack.length(), n = needle.length();
+        build(needle);
+        for (int i = 0, j = 0; i < m; ++i) {
+            while (j > 0 && haystack[i] != needle[j]) j = ne[j];
+            if (haystack[i] == needle[j]) ++j;
+            if (j == n) {
+                res = i - n + 1;
+                break;
+                // 如果是查找多个
+                // 只需要j=ne[j];即可，ne[n]==0，即从匹配串的第0位开始重新匹配
+            }
+        }
+        return res;
+    }
+};
+```
+
+
+
 ## 31-40
 
 ## 41-50
