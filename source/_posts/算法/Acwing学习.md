@@ -1045,6 +1045,7 @@ KMP算法中定义可用重复性使用的是`Partial Match`数组，`PM[i]`表�
 ```cpp
 // KMP算法
 // 复杂度为O(m+n)
+vector<char> ne;
 void build(const char *pattern) {
     int len = strlen(pattern);
     ne.resize(len + 1);
