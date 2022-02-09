@@ -78,6 +78,7 @@ categories: 经验总结
 - App Cleaner & Uninstaller Pro
 - licecap
 - Clearview X
+- [balenaEtcher](https://github.com/balena-io/etcher)
 
 ## 终端
 

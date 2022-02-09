@@ -957,7 +957,11 @@ for(int i=0;i<n;i++){
 
 ### Trie
 
-Trie可以实现高效的存储和查找字符串集合。其本质上采用树的结构。除根节点之外的所有节点来存储字符串的每个字符信息。依据字符串来创建Trie树，并记录每个节点作为字符串结尾的次数。
+**Trie可以实现高效的存储和查找字符串集合**。其本质上采用树的结构。除根节点之外的所有节点来存储字符串的每个字符信息。依据字符串来创建Trie树，并记录每个节点作为字符串结尾的次数。
+
+Trie树示意图：
+
+![Trie.jpeg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Acwing学习/Trie.jpeg)
 
 ```cpp
 const int N = 1e5 + 1;
