@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-09
+                    2022-02-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.6k
+                    9.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    39 分
+                    40 分
                 </div>
                 
 
@@ -1371,6 +1371,14 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
 <h3 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h3><p>KMP算法的核心思想就是如何利用字符串对比中的信息，简化循环的次数，利用可用的重复性。朴素算法采用两个for循环对每个字符串的元素进行比较，KMP先针对模式串进行处理，获取其next数组。其next[i]表示当前元素从右往左与从模板起始处相同子串的最大长度。这样当出现不匹配的情况时，可以一次性向后移动多个位置，而不是一个个移动，将算法的复杂度降至O(m+n)。KMP算法利用了模式串内部的重复性在失配的时候将模式串向后移动与匹配指针对齐，减少无意义的匹配。</p>
 <p>KMP算法中定义可用重复性使用的是<code>Partial Match</code>数组，<code>PM[i]</code>表示字符串长度为i+1的前缀里（除本身外）最长相等前后缀的长度。为了方便使用，<code>Next</code>数组。<code>Next[i]</code>表示匹配模式串i位置失配模式串向后滑动对其匹配指针的位置。Next数组的构建方式为将PM数组整体向后移动一位，并在第一个位置出补上-1。此时，Next数组的前两位就固定为Next[0]=-1,Next[1]=0。因为本身不计算，其只能是0。</p>
 <p>在书写代码的时候<code>next</code>这个名字可能被使用了，可以使用<code>ne</code>作为名字。<code>next[i]</code>表示使子串s[0…i]的前缀s[0…k]等于后缀s[i-k…i]的最大的k（<strong>注意前缀跟后缀可以部分重叠，但不能是s[0…i]本身</strong>）。如果找不到相等的前后缀，则令next[i]=-1。显然，next[i]就是所求最长相等前后缀中前缀最后一位的下标。</p>
+<p>为了提升 KMP 算法的易用性，我们定义 Next 数组为 <code>-1</code> 接上删去最后一位的PM数组，这样有一个好处就是在<code>T[x]</code>处失配，我们可以直接通过 <code>Next[x]</code> 跳转，而不是复杂地还要去找 <code>pm[x-1]</code> 然后再移动字符串再从下一位开始继续匹配。</p>
+<p>这里在赘述以下 Next 数组的使用方法：我们先暴力匹配的过程将模式串与目标串进行匹配，当失配的时候，我们比较$ S[p]\neq =T[q]$ 的时候失配，分两种情况：</p>
+<ul>
+<li>q = 0，下一步目标串下一位和模式串从头比较，也就是<code>S[p+1]</code>与<code>T[0]</code> 进行比较。</li>
+<li>q &gt; 0，我们将模式串向后移动，使<code>T[Next[q]]</code>对齐<code>S[p]</code>，下一步比较这两位。</li>
+</ul>
+<p>我们可以通过证明使用 Next 数组与使用 PM 数组等价，证明 Next 数组的正确性。</p>
+<p>紧接着看如何计算 Next 数组，其实从意义上理解我们是在计算 PM 数组。<code>Next[i]</code> 就是算$T[0\cdots i-1]$ 的最长前后缀长度是多少，这有两种情况：<br>* 如果 <code>T[i – 1] = T[Next[i-1]]</code>，那么<code>Next[i] = Next[i – 1] + 1</code>。因为<code>Next[i-1]</code>存储的是$T[0\cdots i-2]$的最长前后缀，如果能在这个基础上增加 1 个得到<code>Next[i]</code>，那一定是最长的。<br>* 如果$T[i – 1] \neq T[Next[i – 1]]$，那么我们可以把它看作是 T 的前缀和$ T[0\cdots i-1]$ 的匹配问题且在这一步失配了，那么我们可以使用上述的 KMP 算法跳 Next 数组比较<code>T[i-1]</code>与<code> T[Next[Next[i-1]]]</code>，再分成现在说的这两种情况考虑。（或者确认模式串此前缀的最长前后缀长度为 0 为止）</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// KMP算法</span>
 <span class="token comment">// 复杂度为O(m+n)</span>
 vector<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token operator">&gt;</span> ne<span class="token punctuation">;</span>
@@ -2040,7 +2048,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">188.3k</span>&nbsp;字
+                class="white-color">188.8k</span>&nbsp;字
             
             
             
