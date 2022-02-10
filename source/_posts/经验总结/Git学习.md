@@ -119,6 +119,18 @@ git config --list [--local]
 git config --global core.editor {编辑器名字}
 ```
 
+避免中文乱码：
+
+在默认设置下，中文文件名在工作区状态输出，中文名不能正确显示，而是显示为八进制的字符编码。
+
+将git配置文件 `core.quotepath`项设置为`false`。`quotepath`表示引用路径，加上`--global`表示全局配置。
+
+```shell
+git config --global core.quotepath false
+```
+
+
+
 ### 操作命令
 
 #### 创建仓库
