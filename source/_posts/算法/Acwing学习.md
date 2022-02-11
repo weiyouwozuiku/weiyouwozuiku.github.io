@@ -959,12 +959,20 @@ for(int i=0;i<n;i++){
 
 **Trie可以实现高效的存储和查找字符串集合**。其本质上采用树的结构。除根节点之外的所有节点来存储字符串的每个字符信息。依据字符串来创建Trie树，并记录每个节点作为字符串结尾的次数。
 
+**能算法题中能使用Trie数的题目，必然限制了字符的范围，一般在26到52之间**。
+
+汉字这种字符特别多的情况，可以将其转化为二进制数，范围就成了01之间。
+
 Trie树示意图：
 
 ![Trie.jpeg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Acwing学习/Trie.jpeg)
 
 ```cpp
 const int N = 1e5 + 1;
+// s存放的trie数，横坐标为所有字符串个数，纵坐标为每个字符串的字符，同一层级元素在不同行
+// s[i][j]==0既可能是根节点也可能是叶子结点
+// cnt[x]存放以x为结尾的单词个数
+// idx记录当前处理的s数组行数
 int s[N][26], cnt[N], idx;
 char op, str[N];
 
