@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-10
+                    2022-02-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.1k
+                    9.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    40 分
+                    41 分
                 </div>
                 
 
@@ -1314,9 +1314,15 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Trie"><a href="#Trie" class="headerlink" title="Trie"></a>Trie</h3><p><strong>Trie可以实现高效的存储和查找字符串集合</strong>。其本质上采用树的结构。除根节点之外的所有节点来存储字符串的每个字符信息。依据字符串来创建Trie树，并记录每个节点作为字符串结尾的次数。</p>
+<p><strong>能算法题中能使用Trie数的题目，必然限制了字符的范围，一般在26到52之间</strong>。</p>
+<p>汉字这种字符特别多的情况，可以将其转化为二进制数，范围就成了01之间。</p>
 <p>Trie树示意图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%AE%97%E6%B3%95/Acwing%E5%AD%A6%E4%B9%A0/Trie.jpeg" alt="Trie.jpeg"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment">// s存放的trie数，横坐标为所有字符串个数，纵坐标为每个字符串的字符，同一层级元素在不同行</span>
+<span class="token comment">// s[i][j]==0既可能是根节点也可能是叶子结点</span>
+<span class="token comment">// cnt[x]存放以x为结尾的单词个数</span>
+<span class="token comment">// idx记录当前处理的s数组行数</span>
 <span class="token keyword">int</span> s<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">26</span><span class="token punctuation">]</span><span class="token punctuation">,</span> cnt<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
 <span class="token keyword">char</span> op<span class="token punctuation">,</span> str<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
@@ -1338,7 +1344,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
         p <span class="token operator">=</span> s<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> cnt<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><p>通常将两个集合合并或查询两个元素是否在一个集合当中，朴素算法的时间复杂度为$O(n)$，而并查集的优点在于进行上述两种操作时，时间复杂度近乎$O(1)$。</p>
 <p>基本原理为：每个集合用一棵树来表示。树根的编号就是整个集合的编号。每个节点存储它的父节点。，<code>p[x]</code>表示x的父节点。</p>
@@ -2048,7 +2054,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">188.8k</span>&nbsp;字
+                class="white-color">189.7k</span>&nbsp;字
             
             
             
