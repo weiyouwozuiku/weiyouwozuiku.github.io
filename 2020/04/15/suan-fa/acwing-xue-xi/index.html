@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-11
+                    2022-02-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.2k
+                    9.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    41 分
+                    42 分
                 </div>
                 
 
@@ -1346,17 +1346,49 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
     <span class="token keyword">return</span> cnt<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><p>通常将两个集合合并或查询两个元素是否在一个集合当中，朴素算法的时间复杂度为$O(n)$，而并查集的优点在于进行上述两种操作时，时间复杂度近乎$O(1)$。</p>
-<p>基本原理为：每个集合用一棵树来表示。树根的编号就是整个集合的编号。每个节点存储它的父节点。，<code>p[x]</code>表示x的父节点。</p>
+<h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><p>通常将<strong>两个集合合并或查询两个元素是否在一个集合当中</strong>，朴素算法的时间复杂度为$O(n)$，而并查集的优点在于进行上述两种操作时，时间复杂度**近乎$O(1)$**，并不是完全$O(1)$。</p>
+<p>基本原理为：<strong>每个集合用一棵树来表示。树根的编号就是整个集合的编号。每个节点存储它的父节点</strong>。<code>p[x]</code>表示x的父节点。</p>
 <ul>
 <li>如何判断树根：<code>if(p[x]==x)</code></li>
-<li>求x的集合编号：<code>while(p[x]!=x) x=p[x];</code></li>
+<li>  求x的集合编号：<code>while(p[x]!=x) x=p[x];</code></li>
 <li>如何合并两个集合：设立任意一条边属于另一个树</li>
 <li>如何优化并查集寻找父节点的过程：使用路径压缩，即在寻找的过程中，将所有子节点的父指针直接指向树根。一般不用大枝合并。</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> s<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><h3 id="Hash表"><a href="#Hash表" class="headerlink" title="Hash表"></a>Hash表</h3><h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h3 id="暴力算法"><a href="#暴力算法" class="headerlink" title="暴力算法"></a>暴力算法</h3><p>对于字符串匹配问题，暴力算法的时间复杂度为O(n*m)。只要枚举文本串的起始位置i，然后从改位开始逐位与模式串进行匹配。如果匹配过程中每一位都相同，则匹配成功。否则，只要出现某位不同，就让文本串的起始位置变成i+1，并从头开始模式串的匹配。字符串比较过程中，必然会每个字符之间进行大量重复比较，其很难优化。暴力算法其时间复杂度最差的情况为每次扫描在模式串最后处才匹配失败。其实现算法如下。</p>
+<span class="token comment">// 返回idx的根节点+路径压缩</span>
+<span class="token keyword">int</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">int</span> idx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>idx <span class="token operator">!=</span> s<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span> s<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> s<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">,</span> <span class="token operator">&amp;</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> op<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>m<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>op<span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>op<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'M'</span><span class="token punctuation">)</span> s<span class="token punctuation">[</span><span class="token function">find</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">find</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token function">find</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Yes\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"No\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>堆这种数据结构本身支持以上五种操作，前三种在STL中有之间实现，后两种可以间接实现。</p>
+<ul>
+<li>插入一个元素</li>
+<li>求集合中最小元素的值</li>
+<li>删除最小元素</li>
+<li>删除任意元素</li>
+<li>修改任意元素</li>
+</ul>
+<h3 id="Hash表"><a href="#Hash表" class="headerlink" title="Hash表"></a>Hash表</h3><h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h3 id="暴力算法"><a href="#暴力算法" class="headerlink" title="暴力算法"></a>暴力算法</h3><p>对于字符串匹配问题，暴力算法的时间复杂度为O(n*m)。只要枚举文本串的起始位置i，然后从改位开始逐位与模式串进行匹配。如果匹配过程中每一位都相同，则匹配成功。否则，只要出现某位不同，就让文本串的起始位置变成i+1，并从头开始模式串的匹配。字符串比较过程中，必然会每个字符之间进行大量重复比较，其很难优化。暴力算法其时间复杂度最差的情况为每次扫描在模式串最后处才匹配失败。其实现算法如下。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// brute force暴力枚举算法</span>
 <span class="token comment">// 复杂度为O(n*m)。当n和m为1e5数量级时，算法完全不可用。</span>
 <span class="token keyword">void</span> <span class="token function">bruteForce</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>S<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>P<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1480,6 +1512,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
     <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token function">accumulate</span><span class="token punctuation">(</span>subject<span class="token punctuation">,</span> subject <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> Grade b<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">.</span>grade<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="题解技巧"><a href="#题解技巧" class="headerlink" title="题解技巧"></a>题解技巧</h3><h4 id="字符读取"><a href="#字符读取" class="headerlink" title="字符读取"></a>字符读取</h4><p>有点时候需要去读表示操作的单字符串，为了避免<code>scanf("%c")</code>中可能读取到换行或者空格，推荐直接<code>scanf("%s")</code>，读取字符串会忽略换行之类的操作。然后获取<code>op[0]</code>获取操作。</p>
 
                 
             </div>
@@ -2054,7 +2087,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">189.7k</span>&nbsp;字
+                class="white-color">190.3k</span>&nbsp;字
             
             
             
@@ -2162,7 +2195,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
 
 <div class="progress-bar"></div>
 
-    <script src='https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js'></script>
+    <script src='https://unpkg.com/mermaid@8.14.0/dist/mermaid.min.js'></script>
     <script>
       if (window.mermaid) {
         mermaid.initialize({theme: 'forest'});
