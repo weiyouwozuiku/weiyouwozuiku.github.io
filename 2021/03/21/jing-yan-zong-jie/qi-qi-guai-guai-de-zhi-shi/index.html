@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-31
+                    2022-02-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    377
+                    572
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -560,6 +560,20 @@ Host centos8
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86/%E6%96%87%E4%BB%B6%E5%8D%95%E8%A1%8C.png" alt="文件单行.png"></p>
 <p>可以通过设置进行更改，设置中勾选<code>workbench.editor.wrapTabs</code>标签即可实现如下效果。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86/%E6%96%87%E4%BB%B6%E5%A4%9A%E8%A1%8C.png" alt="文件多行.png"></p>
+<h2 id="获取B站支链"><a href="#获取B站支链" class="headerlink" title="获取B站支链"></a>获取B站支链</h2><p>在终端输入下面的代码就可以获取到B站直链。等开源研究下实现。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">str<span class="token operator">=</span><span class="token string">"https://video-direct-link.vercel.app/bili.mp4?aid="</span><span class="token operator">+</span>aid<span class="token operator">+</span><span class="token string">"&amp;bvid="</span><span class="token operator">+</span>bvid<span class="token operator">+</span><span class="token string">"&amp;cid="</span><span class="token operator">+</span>cid<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="gh-md-toc"><a href="#gh-md-toc" class="headerlink" title="gh-md-toc"></a>gh-md-toc</h2><p>这是一个生成README文件目录的工具，<a target="_blank" rel="noopener" href="https://github.com/ekalinin/github-markdown-toc%E3%80%82">https://github.com/ekalinin/github-markdown-toc。</a></p>
+<p>在想要增加目录的地方加上如下标志符</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--ts--&gt;
+&lt;!--te--&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>使用命令<code>gh-md-toc --insert &lt;文件名&gt;</code>即可。</p>
+<h2 id="Git乱码"><a href="#Git乱码" class="headerlink" title="Git乱码"></a>Git乱码</h2><p>避免中文乱码：</p>
+<p>在默认设置下，中文文件名在工作区状态输出，中文名不能正确显示，而是显示为八进制的字符编码。</p>
+<p>将git配置文件 <code>core.quotepath</code>项设置为<code>false</code>。<code>quotepath</code>表示引用路径，加上<code>--global</code>表示全局配置。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">git</span> config --global core.quotepath <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1123,7 +1137,7 @@ Host centos8
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">190.3k</span>&nbsp;字
+                class="white-color">190.8k</span>&nbsp;字
             
             
             
