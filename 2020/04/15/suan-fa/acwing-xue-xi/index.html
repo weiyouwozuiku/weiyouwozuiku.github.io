@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-13
+                    2022-02-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.9k
+                    11.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    44 分
+                    51 分
                 </div>
                 
 
@@ -532,7 +532,143 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>基本流程：</p>
+                <h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><pre class="mermaid">graph LR
+  data[数据结构与算法]
+  data--&gt;CA[复杂度分析]
+  data--&gt;BA[基础算法]
+  data--&gt;Sort[排序]
+  data--&gt;Search[搜索]
+  data--&gt;Find[查找]
+  data--&gt;Match[字符串匹配]
+  data--&gt;Other[其他]
+  data--&gt;Link[线性表]
+  data--&gt;Hash[散列表]
+  data--&gt;Tree[树]
+  data--&gt;Graph[图]
+
+  CA--&gt;空间复杂度
+  CA--&gt;时间复杂度
+  时间复杂度--&gt;最好
+  时间复杂度--&gt;最坏
+  时间复杂度--&gt;平均
+  时间复杂度--&gt;均摊
+
+  BA--&gt;贪心
+  BA--&gt;分治
+  BA--&gt;动态规划
+  BA--&gt;回溯
+  BA--&gt;枚举
+
+  Sort--&gt;n2[O(n^2)]
+  Sort--&gt;nlogn[O(nlogn)]
+  Sort--&gt;n[O(n)]
+  
+  n2--&gt;冒泡排序
+  n2--&gt;插入排序
+  n2--&gt;选择排序
+  n2--&gt;希尔排序
+  
+  nlogn--&gt;归并排序
+  nlogn--&gt;快速排序
+  nlogn--&gt;堆排序
+  
+  n--&gt;计数排序
+  n--&gt;基数排序
+  n--&gt;桶排序
+  
+  Search--&gt;深度优先搜索
+  Search--&gt;广度优先搜索
+  Search--&gt;A*启发式搜索
+  
+  Find--&gt;线性表查找
+  Find--&gt;树结构查找
+  Find--&gt;散列表查找
+  
+  Match--&gt;朴素
+  Match--&gt;KMP
+  Match--&gt;Robin-Karp
+  Match--&gt;Boyer-Moore
+  Match--&gt;AC自动机
+  Match--&gt;Trie
+  Match--&gt;后缀数组
+  
+  Other--&gt;数论
+  Other--&gt;计算几何
+  Other--&gt;概率分析
+  Other--&gt;并查集
+  Other--&gt;拓扑网络
+  Other--&gt;矩阵运算
+  Other--&gt;线性规划
+  
+  Link--&gt;数组
+  Link--&gt;链表
+  Link--&gt;栈
+  Link--&gt;队列
+  
+  链表--&gt;单链表
+  链表--&gt;双向链表
+  链表--&gt;循环链表
+  链表--&gt;双向循环链表
+  链表--&gt;静态链表
+  
+  栈--&gt;顺序栈
+  栈--&gt;链式栈
+  
+  队列--&gt;普通队列
+  队列--&gt;双端队列
+  队列--&gt;阻塞队列
+  队列--&gt;并发队列
+  队列--&gt;阻塞并发队列
+  
+  Hash--&gt;散列表
+  Hash--&gt;冲突解决
+  Hash--&gt;动态扩容
+  Hash--&gt;位图
+  
+  冲突解决--&gt;链表法
+  冲突解决--&gt;开放寻址
+  冲突解决--&gt;1[其他]
+  
+  Tree--&gt;二叉树
+  Tree--&gt;多路查找树
+  Tree--&gt;堆
+  Tree--&gt;2[其他]
+  
+  二叉树--&gt;平衡二叉树
+  二叉树--&gt;二叉查找树
+  二叉树--&gt;平衡二叉查找树
+  二叉树--&gt;完全二叉树
+  二叉树--&gt;满二叉树
+  
+  平衡二叉查找树--&gt;AVL树
+  平衡二叉查找树--&gt;红黑树
+  
+  多路查找树--&gt;B树
+  多路查找树--&gt;B+树
+  多路查找树--&gt;2-3树
+  多路查找树--&gt;2-3-4树
+  
+  堆--&gt;大顶堆
+  堆--&gt;小顶堆
+  堆--&gt;优先级队列
+  堆--&gt;斐波那契堆
+  堆--&gt;二项堆
+  
+  2--&gt;树状数组
+  2--&gt;线段树
+  
+  Graph--&gt;图的存储
+  Graph--&gt;拓扑排序
+  Graph--&gt;最短路径
+  Graph--&gt;关键路径
+  Graph--&gt;最小生成树
+  Graph--&gt;二分图
+  Graph--&gt;最大流
+  
+  图的存储--&gt;邻接矩阵
+  图的存储--&gt;邻接表</pre>
+
+<h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>基本流程：</p>
 <ol>
 <li>确定分界点：通常随机选取q[l],q[(l+r)/2],q[r]</li>
 <li><strong>调整区间，左边区间$\leq x$，右边区间$\geq x$。</strong></li>
@@ -1388,8 +1524,64 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
 <li>删除任意元素</li>
 <li>修改任意元素</li>
 </ul>
-<p>小根堆的定义就是其节点小于等于其左右子节点的值。其根节点就是整个数的最小值。</p>
-<h4 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h4><p>采用一维数组的方式存储整个堆。从下标1 开始存储，索引x的左节点索引为2x，其右节点索引为2x+1。</p>
+<p>小根堆的定义就是其节点小于等于其左右子节点的值。其根节点就是整个数的最小值。在小根堆中上述五种的实现可以用伪代码表示：</p>
+<ul>
+<li><code>heap[++size]=x;up(size);</code></li>
+<li><code>heap[1]</code></li>
+<li><code>heap[1]=heap[size--];down(1);</code></li>
+<li><code>heap[k]=heap[size--];down(k);up(k);</code></li>
+<li><code>heap[k]=x;down(k);up(k);</code></li>
+</ul>
+<p>上述表达中的<code>size</code>表示当前占用到的索引，这里的索引从1开始，这样<code>x</code>的左子节点就可以方便的设置为<code>2x</code>，右子节点为<code>2x+1</code>。down操作表示将对应索引的向底层下降，up操作表示将对应索引向根节点靠近。</p>
+<p>针对修改任意一个元素或删除任意一个元素，其实都是只有三种情况：down、up或者不变。如果需要down，则up实则不会执行。需要up同理。因此上述两种直接写上down和up操作即可。</p>
+<h4 id="建堆"><a href="#建堆" class="headerlink" title="建堆"></a>建堆</h4><p>堆的建立不推荐使用插入的方式解决，效率太低是<code>O(nlogn)</code>。这里阐述一个<code>O(n)</code>复杂度的建堆方式，并给出复杂度分析。</p>
+<p>思想就是<strong>直接从$\lfloor n/2 \rfloor$下标开始执行down操作直至1下标</strong>。</p>
+<p>之所以这么做是基于下标之间的关系及其完全二叉树的性质。由于完全二叉树的性质，我们可以知道在某一节点之后的所有节点都是叶子节点。再结合下标之间的关系可以知道，最后一个非叶子节点就是$\lfloor n/2 \rfloor$的位置。因此之后的所有叶子节点不需要进行调整位置，因为其父节点调整时会调整符合条件的叶子结点，而起本身没有子节点。</p>
+<p>原本的插入方式来建堆，其复杂性依赖于树的深度其复杂度为$O(logn)$，建堆中有n个元素，因此总时间复杂度为$O(nlogn)$。</p>
+<p>但是采用上述方法创建堆，其时间复杂度大大较少。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%AE%97%E6%B3%95/Acwing%E5%AD%A6%E4%B9%A0/%E5%BB%BA%E5%A0%86%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90.jpeg" alt="建堆复杂度分析.jpeg"></p>
+<p>可以分析出其是一个等差数列求和，可以使用错位相减获得和的计算公式，再借助极限就可以发现其复杂度无限接近$O(n)$。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> s<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> len<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">down</span><span class="token punctuation">(</span><span class="token keyword">int</span> idx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> min <span class="token operator">=</span> idx<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> idx <span class="token operator">&lt;=</span> len <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">[</span><span class="token number">2</span> <span class="token operator">*</span> idx<span class="token punctuation">]</span> <span class="token operator">&lt;</span> s<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">)</span> min <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> idx<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> idx <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&lt;=</span> len <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">[</span><span class="token number">2</span> <span class="token operator">*</span> idx <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> s<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">)</span> min <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> idx <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>idx <span class="token operator">!=</span> min<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">swap</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">,</span> s<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">down</span><span class="token punctuation">(</span>min<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">,</span> <span class="token operator">&amp;</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    len <span class="token operator">=</span> n<span class="token punctuation">;</span>
+    <span class="token comment">// 建堆</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token function">down</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>m<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> s<span class="token punctuation">[</span>len<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">down</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="堆排序分析"><a href="#堆排序分析" class="headerlink" title="堆排序分析"></a>堆排序分析</h4><h5 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h5><p>整个堆排序的过程，都只需要极个别临时存储空间，所以堆排序是原地排序算法。堆排序包括建堆和排序两个操作，建堆过程的时间复杂度是$O(n)$，排序过程的时间复杂度是$O(nlogn)$。所以，堆排序整体的时间复杂度是$O(nlog⁡n)$。</p>
+<h5 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h5><p>堆排序不是稳定的排序算法，因为在排序的过程，存在将堆的最后一个节点跟堆顶节点互换的操作，所以就有可能改变值相同数据的原始相对顺序。</p>
+<h5 id="索引为0开始"><a href="#索引为0开始" class="headerlink" title="索引为0开始"></a>索引为0开始</h5><p>如果节点的下标是$i$，那左子节点的下标就是$2*i+1$，右子节点的下标就是$2(i+1)$，父节点的下标就是$\frac{i-1}{2}$。</p>
+<h5 id="为何不如快速排序"><a href="#为何不如快速排序" class="headerlink" title="为何不如快速排序"></a>为何不如快速排序</h5><ul>
+<li><p><strong>堆排序数据访问的方式没有快速排序友好。</strong></p>
+<p>对于快速排序来说，数据是顺序访问的。而对于堆排序来说，数据是跳着访问的。 而不是像快速排序那样，局部顺序访问，所以，这样对 CPU 缓存是不友好的。</p>
+</li>
+<li><p><strong>对于同样的数据，在排序过程中，堆排序算法的数据交换次数要多于快速排序。</strong></p>
+<p>我们在讲排序的时候，提过两个概念，有序度和逆序度。对于基于比较的排序算法来说，整个排序过程就是由两个基本的操作组成的，比较和交换（或移动）。快速排序数据交换的次数不会比逆序度多。</p>
+<p>但是堆排序的第一步是建堆，建堆的过程会打乱数据原有的相对先后顺序，导致原数据的有序度降低。比如，对于一组已经有序的数据来说，经过建堆之后，数据反而变得更无序了。</p>
+</li>
+</ul>
 <h3 id="Hash表"><a href="#Hash表" class="headerlink" title="Hash表"></a>Hash表</h3><h3 id="Splay"><a href="#Splay" class="headerlink" title="Splay"></a>Splay</h3><h3 id="树套树"><a href="#树套树" class="headerlink" title="树套树"></a>树套树</h3><h3 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h3><h3 id="树链剖分"><a href="#树链剖分" class="headerlink" title="树链剖分"></a>树链剖分</h3><h3 id="动态树"><a href="#动态树" class="headerlink" title="动态树"></a>动态树</h3><h3 id="Dancing-Links"><a href="#Dancing-Links" class="headerlink" title="Dancing Links"></a>Dancing Links</h3><h3 id="左偏树"><a href="#左偏树" class="headerlink" title="左偏树"></a>左偏树</h3><h3 id="后缀树组"><a href="#后缀树组" class="headerlink" title="后缀树组"></a>后缀树组</h3><h3 id="后缀自动机"><a href="#后缀自动机" class="headerlink" title="后缀自动机"></a>后缀自动机</h3><h3 id="点分治和点分树"><a href="#点分治和点分树" class="headerlink" title="点分治和点分树"></a>点分治和点分树</h3><h3 id="CDQ分治"><a href="#CDQ分治" class="headerlink" title="CDQ分治"></a>CDQ分治</h3><h3 id="仙人掌"><a href="#仙人掌" class="headerlink" title="仙人掌"></a>仙人掌</h3><h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h3 id="暴力算法"><a href="#暴力算法" class="headerlink" title="暴力算法"></a>暴力算法</h3><p>对于字符串匹配问题，暴力算法的时间复杂度为O(n*m)。只要枚举文本串的起始位置i，然后从改位开始逐位与模式串进行匹配。如果匹配过程中每一位都相同，则匹配成功。否则，只要出现某位不同，就让文本串的起始位置变成i+1，并从头开始模式串的匹配。字符串比较过程中，必然会每个字符之间进行大量重复比较，其很难优化。暴力算法其时间复杂度最差的情况为每次扫描在模式串最后处才匹配失败。其实现算法如下。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// brute force暴力枚举算法</span>
 <span class="token comment">// 复杂度为O(n*m)。当n和m为1e5数量级时，算法完全不可用。</span>
@@ -1450,9 +1642,9 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 </blockquote>
 <h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p>完全二叉树是在满二叉树的基础上引申出来的。对于深度为k，有n个节点的二叉树，当且仅当每个节点都与深度为k的满二叉树中编号从1至n的节点一一对应就是完全二叉树。</p>
 <blockquote>
-<p>定义：</p>
+<p>定义：若设二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。</p>
 </blockquote>
-<h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><h3 id="树与图的遍历：拓朴排序"><a href="#树与图的遍历：拓朴排序" class="headerlink" title="树与图的遍历：拓朴排序"></a>树与图的遍历：拓朴排序</h3><h3 id="最短路"><a href="#最短路" class="headerlink" title="最短路"></a>最短路</h3><h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><h3 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h3><h4 id="染色法"><a href="#染色法" class="headerlink" title="染色法"></a>染色法</h4><h4 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h4><h3 id="网络流"><a href="#网络流" class="headerlink" title="网络流"></a>网络流</h3><h4 id="最大流"><a href="#最大流" class="headerlink" title="最大流"></a>最大流</h4><h4 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h4><h4 id="费用流"><a href="#费用流" class="headerlink" title="费用流"></a>费用流</h4><h3 id="2-SAT"><a href="#2-SAT" class="headerlink" title="2-SAT"></a>2-SAT</h3><h3 id="朱流算法"><a href="#朱流算法" class="headerlink" title="朱流算法"></a>朱流算法</h3><h3 id="Prufer编码"><a href="#Prufer编码" class="headerlink" title="Prufer编码"></a>Prufer编码</h3><h3 id="模拟退火"><a href="#模拟退火" class="headerlink" title="模拟退火"></a>模拟退火</h3><h3 id="爬山法"><a href="#爬山法" class="headerlink" title="爬山法"></a>爬山法</h3><h2 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h2><h3 id="质数"><a href="#质数" class="headerlink" title="质数"></a>质数</h3><h3 id="约数"><a href="#约数" class="headerlink" title="约数"></a>约数</h3><h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><h3 id="扩展欧几里德算法"><a href="#扩展欧几里德算法" class="headerlink" title="扩展欧几里德算法"></a>扩展欧几里德算法</h3><h3 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h3><h3 id="高斯消元"><a href="#高斯消元" class="headerlink" title="高斯消元"></a>高斯消元</h3><h3 id="组合计数"><a href="#组合计数" class="headerlink" title="组合计数"></a>组合计数</h3><h3 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h3><h3 id="简单博弈论"><a href="#简单博弈论" class="headerlink" title="简单博弈论"></a>简单博弈论</h3><h3 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h3><h3 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h3><h3 id="BSGS"><a href="#BSGS" class="headerlink" title="BSGS"></a>BSGS</h3><h3 id="FFT"><a href="#FFT" class="headerlink" title="FFT"></a>FFT</h3><h3 id="生成函数"><a href="#生成函数" class="headerlink" title="生成函数"></a>生成函数</h3><h3 id="Burnside引理和Polya定理"><a href="#Burnside引理和Polya定理" class="headerlink" title="Burnside引理和Polya定理"></a>Burnside引理和Polya定理</h3><h3 id="斯特林数"><a href="#斯特林数" class="headerlink" title="斯特林数"></a>斯特林数</h3><h3 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h3><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h3><h3 id="线性DP"><a href="#线性DP" class="headerlink" title="线性DP"></a>线性DP</h3><h3 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h3><h3 id="计数类DP"><a href="#计数类DP" class="headerlink" title="计数类DP"></a>计数类DP</h3><h3 id="数位统计DP"><a href="#数位统计DP" class="headerlink" title="数位统计DP"></a>数位统计DP</h3><h3 id="状态压缩DP"><a href="#状态压缩DP" class="headerlink" title="状态压缩DP"></a>状态压缩DP</h3><h3 id="树状DP"><a href="#树状DP" class="headerlink" title="树状DP"></a>树状DP</h3><h3 id="记忆化搜索"><a href="#记忆化搜索" class="headerlink" title="记忆化搜索"></a>记忆化搜索</h3><h3 id="基环树"><a href="#基环树" class="headerlink" title="基环树"></a>基环树</h3><h3 id="四边形不等式优化"><a href="#四边形不等式优化" class="headerlink" title="四边形不等式优化"></a>四边形不等式优化</h3><h3 id="插头DP"><a href="#插头DP" class="headerlink" title="插头DP"></a>插头DP</h3><h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><h2 id="计算几何"><a href="#计算几何" class="headerlink" title="计算几何"></a>计算几何</h2><h3 id="二维计算几何基础"><a href="#二维计算几何基础" class="headerlink" title="二维计算几何基础"></a>二维计算几何基础</h3><h3 id="凸包"><a href="#凸包" class="headerlink" title="凸包"></a>凸包</h3><h3 id="半平面交"><a href="#半平面交" class="headerlink" title="半平面交"></a>半平面交</h3><h3 id="最小圆覆盖"><a href="#最小圆覆盖" class="headerlink" title="最小圆覆盖"></a>最小圆覆盖</h3><h3 id="三维计算几何基础"><a href="#三维计算几何基础" class="headerlink" title="三维计算几何基础"></a>三维计算几何基础</h3><h3 id="三维凸包"><a href="#三维凸包" class="headerlink" title="三维凸包"></a>三维凸包</h3><h3 id="旋转卡壳"><a href="#旋转卡壳" class="headerlink" title="旋转卡壳"></a>旋转卡壳</h3><h3 id="三角剖分"><a href="#三角剖分" class="headerlink" title="三角剖分"></a>三角剖分</h3><h3 id="扫描线"><a href="#扫描线" class="headerlink" title="扫描线"></a>扫描线</h3><h3 id="自适应辛普森积分"><a href="#自适应辛普森积分" class="headerlink" title="自适应辛普森积分"></a>自适应辛普森积分</h3><h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="c-的io"><a href="#c-的io" class="headerlink" title="c++的io"></a>c++的io</h3><h4 id="cin和scanf速度"><a href="#cin和scanf速度" class="headerlink" title="cin和scanf速度"></a>cin和scanf速度</h4><p>cin、cout之所以效率低是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而<code>std::ios::sync_with_stdio(false);</code>可以来打消iostream的输入输出缓存，可以节省许多时间，使效率与scanf与printf相差无几。这样做了之后要注意不要同时混用cout和printf 之类。</p>
+<h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><h3 id="拓朴排序"><a href="#拓朴排序" class="headerlink" title="拓朴排序"></a>拓朴排序</h3><h3 id="最短路"><a href="#最短路" class="headerlink" title="最短路"></a>最短路</h3><h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><h3 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h3><h4 id="染色法"><a href="#染色法" class="headerlink" title="染色法"></a>染色法</h4><h4 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h4><h3 id="网络流"><a href="#网络流" class="headerlink" title="网络流"></a>网络流</h3><h4 id="最大流"><a href="#最大流" class="headerlink" title="最大流"></a>最大流</h4><h4 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h4><h4 id="费用流"><a href="#费用流" class="headerlink" title="费用流"></a>费用流</h4><h3 id="2-SAT"><a href="#2-SAT" class="headerlink" title="2-SAT"></a>2-SAT</h3><h3 id="朱流算法"><a href="#朱流算法" class="headerlink" title="朱流算法"></a>朱流算法</h3><h3 id="Prufer编码"><a href="#Prufer编码" class="headerlink" title="Prufer编码"></a>Prufer编码</h3><h3 id="模拟退火"><a href="#模拟退火" class="headerlink" title="模拟退火"></a>模拟退火</h3><h3 id="爬山法"><a href="#爬山法" class="headerlink" title="爬山法"></a>爬山法</h3><h2 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h2><h3 id="质数"><a href="#质数" class="headerlink" title="质数"></a>质数</h3><h3 id="约数"><a href="#约数" class="headerlink" title="约数"></a>约数</h3><h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><h3 id="扩展欧几里德算法"><a href="#扩展欧几里德算法" class="headerlink" title="扩展欧几里德算法"></a>扩展欧几里德算法</h3><h3 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h3><h3 id="高斯消元"><a href="#高斯消元" class="headerlink" title="高斯消元"></a>高斯消元</h3><h3 id="组合计数"><a href="#组合计数" class="headerlink" title="组合计数"></a>组合计数</h3><h3 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h3><h3 id="简单博弈论"><a href="#简单博弈论" class="headerlink" title="简单博弈论"></a>简单博弈论</h3><h3 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h3><h3 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h3><h3 id="BSGS"><a href="#BSGS" class="headerlink" title="BSGS"></a>BSGS</h3><h3 id="FFT"><a href="#FFT" class="headerlink" title="FFT"></a>FFT</h3><h3 id="生成函数"><a href="#生成函数" class="headerlink" title="生成函数"></a>生成函数</h3><h3 id="Burnside引理和Polya定理"><a href="#Burnside引理和Polya定理" class="headerlink" title="Burnside引理和Polya定理"></a>Burnside引理和Polya定理</h3><h3 id="斯特林数"><a href="#斯特林数" class="headerlink" title="斯特林数"></a>斯特林数</h3><h3 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h3><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h3><h3 id="线性DP"><a href="#线性DP" class="headerlink" title="线性DP"></a>线性DP</h3><h3 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h3><h3 id="计数类DP"><a href="#计数类DP" class="headerlink" title="计数类DP"></a>计数类DP</h3><h3 id="数位统计DP"><a href="#数位统计DP" class="headerlink" title="数位统计DP"></a>数位统计DP</h3><h3 id="状态压缩DP"><a href="#状态压缩DP" class="headerlink" title="状态压缩DP"></a>状态压缩DP</h3><h3 id="树状DP"><a href="#树状DP" class="headerlink" title="树状DP"></a>树状DP</h3><h3 id="记忆化搜索"><a href="#记忆化搜索" class="headerlink" title="记忆化搜索"></a>记忆化搜索</h3><h3 id="基环树"><a href="#基环树" class="headerlink" title="基环树"></a>基环树</h3><h3 id="四边形不等式优化"><a href="#四边形不等式优化" class="headerlink" title="四边形不等式优化"></a>四边形不等式优化</h3><h3 id="插头DP"><a href="#插头DP" class="headerlink" title="插头DP"></a>插头DP</h3><h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><h2 id="计算几何"><a href="#计算几何" class="headerlink" title="计算几何"></a>计算几何</h2><h3 id="二维计算几何基础"><a href="#二维计算几何基础" class="headerlink" title="二维计算几何基础"></a>二维计算几何基础</h3><h3 id="凸包"><a href="#凸包" class="headerlink" title="凸包"></a>凸包</h3><h3 id="半平面交"><a href="#半平面交" class="headerlink" title="半平面交"></a>半平面交</h3><h3 id="最小圆覆盖"><a href="#最小圆覆盖" class="headerlink" title="最小圆覆盖"></a>最小圆覆盖</h3><h3 id="三维计算几何基础"><a href="#三维计算几何基础" class="headerlink" title="三维计算几何基础"></a>三维计算几何基础</h3><h3 id="三维凸包"><a href="#三维凸包" class="headerlink" title="三维凸包"></a>三维凸包</h3><h3 id="旋转卡壳"><a href="#旋转卡壳" class="headerlink" title="旋转卡壳"></a>旋转卡壳</h3><h3 id="三角剖分"><a href="#三角剖分" class="headerlink" title="三角剖分"></a>三角剖分</h3><h3 id="扫描线"><a href="#扫描线" class="headerlink" title="扫描线"></a>扫描线</h3><h3 id="自适应辛普森积分"><a href="#自适应辛普森积分" class="headerlink" title="自适应辛普森积分"></a>自适应辛普森积分</h3><h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="c-的io"><a href="#c-的io" class="headerlink" title="c++的io"></a>c++的io</h3><h4 id="cin和scanf速度"><a href="#cin和scanf速度" class="headerlink" title="cin和scanf速度"></a>cin和scanf速度</h4><p>cin、cout之所以效率低是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而<code>std::ios::sync_with_stdio(false);</code>可以来打消iostream的输入输出缓存，可以节省许多时间，使效率与scanf与printf相差无几。这样做了之后要注意不要同时混用cout和printf 之类。</p>
 <p>应注意的是scanf与printf使用的头文件应是stdio.h而不是 iostream。</p>
 <p>在默认的情况下cin绑定的是cout，每次执行 &lt;&lt; 操作符的时候都要调用flush，这样会增加IO负担。可以通过tie(0)（0表示NULL）来解除cin与cout的绑定，进一步加快执行效率。</p>
 <h4 id="sync-with-stdio"><a href="#sync-with-stdio" class="headerlink" title="sync_with_stdio"></a>sync_with_stdio</h4><p>这个函数是一个“是否兼容stdio”的开关，C++为了兼容C，保证程序在使用了std::printf和std::cout的时候不发生混乱，将输出流绑到了一起。</p>
@@ -1469,7 +1661,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
 <li>Scanner和BufferedReader都设置了缓冲区，Scanner有很少的缓冲区(1KB字符缓冲)相对于BufferedReader(8KB字节缓冲)，但是这是绰绰有余的。</li>
 <li>Scanner输入的一个问题：在Scanner类中如果我们在任何7个nextXXX()方法之后调用nextLine()方法，这nextLine()方法不能够从控制台读取任何内容，并且，这游标不会进入控制台，它将跳过这一步。nextXXX()方法包括nextInt()，nextFloat()， nextByte()，nextShort()，nextDouble()，nextLong()，next()。在BufferReader类中就没有那种问题。这种问题仅仅出现在Scanner类中，由于nextXXX()方法忽略换行符，但是nextLine()并不忽略它。如果我们在nextXXX()方法和nextLine()方法之间使用超过一个以上的nextLine()方法，这个问题将不会出现了；因为nextLine()把换行符消耗了。</li>
 </ul>
-<h3 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h3><p>通俗地讲就是能保证排序前两个相等的数据其在序列中的先后位置顺序与排序后它们两个先后位置顺序相同。即：如，如果$A_i==A_j$，$A_i$原来在$A_j$位置前，排序后$A_i$仍然是在$A_j$位置前。</p>
+<h3 id="稳定性-1"><a href="#稳定性-1" class="headerlink" title="稳定性"></a>稳定性</h3><p>通俗地讲就是能保证排序前两个相等的数据其在序列中的先后位置顺序与排序后它们两个先后位置顺序相同。即：如，如果$A_i==A_j$，$A_i$原来在$A_j$位置前，排序后$A_i$仍然是在$A_j$位置前。</p>
 <h3 id="短码"><a href="#短码" class="headerlink" title="短码"></a>短码</h3><p>判断i不等于-1：<code>if (~i)</code></p>
 <p>判断i不能0：<code>if(i)</code></p>
 <h3 id="反推算法复杂度"><a href="#反推算法复杂度" class="headerlink" title="反推算法复杂度"></a>反推算法复杂度</h3><p>一般ACM或者笔试题的时间限制是1秒或2秒。在这种情况下，C++代码中的操作次数控制在$10^710^8$为最佳。</p>
@@ -2097,7 +2289,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">190.8k</span>&nbsp;字
+                class="white-color">192.8k</span>&nbsp;字
             
             
             

@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-13
+                    2022-02-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    572
+                    636
                 </div>
                 
 
@@ -573,6 +573,11 @@ Host centos8
 <p>在默认设置下，中文文件名在工作区状态输出，中文名不能正确显示，而是显示为八进制的字符编码。</p>
 <p>将git配置文件 <code>core.quotepath</code>项设置为<code>false</code>。<code>quotepath</code>表示引用路径，加上<code>--global</code>表示全局配置。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">git</span> config --global core.quotepath <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="查找相应文件数量"><a href="#查找相应文件数量" class="headerlink" title="查找相应文件数量"></a>查找相应文件数量</h2><p>获取当前文件夹及其子文件夹中md文件的数量。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ls</span> -lR <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">".md"</span> <span class="token operator">|</span> <span class="token function">wc</span> -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="统计相应文件中代码行数之和"><a href="#统计相应文件中代码行数之和" class="headerlink" title="统计相应文件中代码行数之和"></a>统计相应文件中代码行数之和</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">find</span> ./* -name <span class="token string">"*.md"</span> <span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">cat</span><span class="token operator">|</span><span class="token function">grep</span> -v ^$<span class="token operator">|</span><span class="token function">wc</span> -l <span class="token comment">#这里过滤掉了空行</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
                 
@@ -1137,7 +1142,7 @@ Host centos8
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">190.8k</span>&nbsp;字
+                class="white-color">192.8k</span>&nbsp;字
             
             
             
