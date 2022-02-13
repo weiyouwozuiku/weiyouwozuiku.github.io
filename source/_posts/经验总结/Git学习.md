@@ -129,8 +129,6 @@ git config --global core.editor {编辑器名字}
 git config --global core.quotepath false
 ```
 
-
-
 ### 操作命令
 
 #### 创建仓库
