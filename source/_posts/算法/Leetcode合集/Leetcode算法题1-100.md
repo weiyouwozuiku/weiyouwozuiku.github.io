@@ -313,7 +313,7 @@ public:
 
 #### [10.正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/)
 
-![Leetcode刷题记录_10.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Leetcode算法题1-100/Leetcode刷题记录_10.png)
+![Leetcode刷题记录_10.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Leetcode合集/Leetcode算法题1-100/Leetcode刷题记录_10.png)
 
 ```cpp
 /**
