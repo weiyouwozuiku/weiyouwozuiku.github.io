@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-02-03T15:25:55.000Z</updated>
+  <updated>2022-02-16T14:54:47.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>生日碰撞和哈希函数</title>
+    <link href="http://buerlog.top/2022/02/16/suan-fa/sheng-ri-peng-zhuang-he-ha-xi-han-shu/"/>
+    <id>http://buerlog.top/2022/02/16/suan-fa/sheng-ri-peng-zhuang-he-ha-xi-han-shu/</id>
+    <published>2022-02-16T09:15:56.000Z</published>
+    <updated>2022-02-16T14:54:47.000Z</updated>
+    
+    
+    
+    
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="哈希" scheme="http://buerlog.top/tags/%E5%93%88%E5%B8%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>LRU、LFU和TinyLFU算法</title>
@@ -2276,11 +2293,11 @@
   </entry>
   
   <entry>
-    <title>Acwing学习</title>
+    <title></title>
     <link href="http://buerlog.top/2020/04/15/suan-fa/acwing-xue-xi/"/>
     <id>http://buerlog.top/2020/04/15/suan-fa/acwing-xue-xi/</id>
     <published>2020-04-15T14:41:17.000Z</published>
-    <updated>2022-02-15T01:42:10.000Z</updated>
+    <updated>2022-02-16T14:54:47.000Z</updated>
     
     
       
@@ -2554,35 +2571,6 @@
     <category term="Linux" scheme="http://buerlog.top/tags/Linux/"/>
     
     <category term="CentOS" scheme="http://buerlog.top/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go学习</title>
-    <link href="http://buerlog.top/2019/12/01/cheng-xu-she-ji/go-xue-xi/"/>
-    <id>http://buerlog.top/2019/12/01/cheng-xu-she-ji/go-xue-xi/</id>
-    <published>2019-12-01T15:20:34.000Z</published>
-    <updated>2022-01-14T04:01:26.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;基本介绍&quot;&gt;&lt;a href=&quot;#基本介绍&quot; class=&quot;headerlink&quot; title=&quot;基本介绍&quot;&gt;&lt;/a&gt;基本介绍&lt;/h2&gt;&lt;p&gt;Go语言之父为罗伯特·格瑞史莫、罗伯·派克和肯·汤普逊.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Rob Pike（罗伯·派克），早期贝尔实验室成员，参与了 Plan9 操作系统、C 编译器以及多种语言编译器的设计和实现，UTF-8</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
-    
-    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
     
   </entry>
   

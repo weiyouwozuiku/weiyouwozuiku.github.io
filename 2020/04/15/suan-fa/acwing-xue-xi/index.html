@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Acwing学习, 博客">
+    <meta name="keywords" content="博客">
     <meta name="description" content="个人学习储备知识与经验的秘密基地">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>Acwing学习 | 不二博客</title>
+    <title>不二博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/awesome/css/all.css">
@@ -342,7 +342,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Acwing学习</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-15
+                    2022-02-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12.2k
+                    12.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    53 分
+                    54 分
                 </div>
                 
 
@@ -1655,7 +1655,39 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
 <p>但是堆排序的第一步是建堆，建堆的过程会打乱数据原有的相对先后顺序，导致原数据的有序度降低。比如，对于一组已经有序的数据来说，经过建堆之后，数据反而变得更无序了。</p>
 </li>
 </ul>
-<h3 id="Hash表"><a href="#Hash表" class="headerlink" title="Hash表"></a>Hash表</h3><h3 id="Splay"><a href="#Splay" class="headerlink" title="Splay"></a>Splay</h3><h3 id="树套树"><a href="#树套树" class="headerlink" title="树套树"></a>树套树</h3><h3 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h3><h3 id="树链剖分"><a href="#树链剖分" class="headerlink" title="树链剖分"></a>树链剖分</h3><h3 id="动态树"><a href="#动态树" class="headerlink" title="动态树"></a>动态树</h3><h3 id="Dancing-Links"><a href="#Dancing-Links" class="headerlink" title="Dancing Links"></a>Dancing Links</h3><h3 id="左偏树"><a href="#左偏树" class="headerlink" title="左偏树"></a>左偏树</h3><h3 id="后缀树组"><a href="#后缀树组" class="headerlink" title="后缀树组"></a>后缀树组</h3><h3 id="后缀自动机"><a href="#后缀自动机" class="headerlink" title="后缀自动机"></a>后缀自动机</h3><h3 id="点分治和点分树"><a href="#点分治和点分树" class="headerlink" title="点分治和点分树"></a>点分治和点分树</h3><h3 id="CDQ分治"><a href="#CDQ分治" class="headerlink" title="CDQ分治"></a>CDQ分治</h3><h3 id="仙人掌"><a href="#仙人掌" class="headerlink" title="仙人掌"></a>仙人掌</h3><h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h3 id="暴力算法"><a href="#暴力算法" class="headerlink" title="暴力算法"></a>暴力算法</h3><p>对于字符串匹配问题，暴力算法的时间复杂度为O(n*m)。只要枚举文本串的起始位置i，然后从改位开始逐位与模式串进行匹配。如果匹配过程中每一位都相同，则匹配成功。否则，只要出现某位不同，就让文本串的起始位置变成i+1，并从头开始模式串的匹配。字符串比较过程中，必然会每个字符之间进行大量重复比较，其很难优化。暴力算法其时间复杂度最差的情况为每次扫描在模式串最后处才匹配失败。其实现算法如下。</p>
+<h3 id="Hash表"><a href="#Hash表" class="headerlink" title="Hash表"></a>Hash表</h3><p>哈希算法是一种期望算法。在平均情况下来看，每个节点对应的数可以认为是常数级别的。因此时间复杂度近似可以看成$O(1)$。</p>
+<pre class="mermaid">graph LR
+哈希表--&gt;存储结构
+哈希表--&gt;字符串哈希方式
+存储结构--&gt;开放寻址法
+存储结构--&gt;拉链法</pre>
+
+<p>离散化可以理解为一种特殊的哈希方式，其需要保序。</p>
+<p>哈希函数：</p>
+<ul>
+<li><p>将x映射进一个范围，一般用取余的操作。x mod 范围</p>
+</li>
+<li><p>冲突解决。针对冲突解决有两种方法：</p>
+<ul>
+<li><p>开放寻址法</p>
+<ul>
+<li><p>线性寻址：出现散列冲突之后，就去寻找下一个空的散列地址；线性寻址步长是1</p>
+</li>
+<li><p>二次探测：步长是线性寻址步长的2次方</p>
+</li>
+<li></li>
+<li><p>随机探测</p>
+</li>
+</ul>
+</li>
+<li><p>拉链法：在计算出的位置索引出链上一个链表，其中存放在这个位置的所有元素。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>算法题中一般只涉及插入和查找操作，不涉及删除。如果一定要实现删除，可以选择将对应节点做上标识的方式，而不是真的去删除。</p>
+<p><strong>取模的数一般推荐选择采用质数且离2的整次幂尽可能的远，这样冲突的概率较小，可以通过数学证明</strong>。</p>
+<h3 id="Splay"><a href="#Splay" class="headerlink" title="Splay"></a>Splay</h3><h3 id="树套树"><a href="#树套树" class="headerlink" title="树套树"></a>树套树</h3><h3 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h3><h3 id="树链剖分"><a href="#树链剖分" class="headerlink" title="树链剖分"></a>树链剖分</h3><h3 id="动态树"><a href="#动态树" class="headerlink" title="动态树"></a>动态树</h3><h3 id="Dancing-Links"><a href="#Dancing-Links" class="headerlink" title="Dancing Links"></a>Dancing Links</h3><h3 id="左偏树"><a href="#左偏树" class="headerlink" title="左偏树"></a>左偏树</h3><h3 id="后缀树组"><a href="#后缀树组" class="headerlink" title="后缀树组"></a>后缀树组</h3><h3 id="后缀自动机"><a href="#后缀自动机" class="headerlink" title="后缀自动机"></a>后缀自动机</h3><h3 id="点分治和点分树"><a href="#点分治和点分树" class="headerlink" title="点分治和点分树"></a>点分治和点分树</h3><h3 id="CDQ分治"><a href="#CDQ分治" class="headerlink" title="CDQ分治"></a>CDQ分治</h3><h3 id="仙人掌"><a href="#仙人掌" class="headerlink" title="仙人掌"></a>仙人掌</h3><h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2><h3 id="暴力算法"><a href="#暴力算法" class="headerlink" title="暴力算法"></a>暴力算法</h3><p>对于字符串匹配问题，暴力算法的时间复杂度为O(n*m)。只要枚举文本串的起始位置i，然后从改位开始逐位与模式串进行匹配。如果匹配过程中每一位都相同，则匹配成功。否则，只要出现某位不同，就让文本串的起始位置变成i+1，并从头开始模式串的匹配。字符串比较过程中，必然会每个字符之间进行大量重复比较，其很难优化。暴力算法其时间复杂度最差的情况为每次扫描在模式串最后处才匹配失败。其实现算法如下。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// brute force暴力枚举算法</span>
 <span class="token comment">// 复杂度为O(n*m)。当n和m为1e5数量级时，算法完全不可用。</span>
 <span class="token keyword">void</span> <span class="token function">bruteForce</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>S<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>P<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -2369,7 +2401,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">193.6k</span>&nbsp;字
+                class="white-color">193.9k</span>&nbsp;字
             
             
             
