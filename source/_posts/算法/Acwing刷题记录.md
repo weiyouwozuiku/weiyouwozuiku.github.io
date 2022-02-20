@@ -1424,6 +1424,135 @@ int main() {
 
 ```
 
+[840. 模拟散列表](https://www.acwing.com/problem/content/842/)
+
+拉链法：
+
+```cpp
+#include<iostream>
+#include<cstring>
+
+using namespace std;
+const int N = 1e5 + 3;
+int h[N], e[N], ne[N], idx;
+
+void insert(int value) {
+    int k = (value % N + N) % N;
+    e[idx] = value;
+    ne[idx] = h[k];
+    h[k] = idx++;
+}
+
+bool find(int value) {
+    int k = (value % N + N) % N;
+    for (int i = h[k]; i != -1; i = ne[i]) {
+        if (e[i] == value) return true;
+    }
+    return false;
+}
+
+int main() {
+    memset(h, -1, sizeof h);
+    int n, x;
+    scanf("%d", &n);
+    char op[2];
+    while (n--) {
+        scanf("%s%d", op, &x);
+        if (op[0] == 'I') {
+            insert(x);
+        } else {
+            if (find(x)) printf("Yes\n");
+            else printf("No\n");
+        }
+    }
+    return 0;
+}
+```
+
+开放寻址法：
+
+```cpp
+#include<iostream>
+#include<cstring>
+
+using namespace std;
+const int N = 2e5 + 3;
+const int Max = 0x3f3f3f3f;
+// h是存放数据对应的key
+int h[N];
+
+// 如果x在哈希表中，返回x的下标；如果x不在哈希表中，返回x应该插入的位置
+int find(int value) {
+    // 保证获取的余数是整数，如果直接计算或者直接+N计算都会导致余数为负数
+    int k = (value % N + N) % N;
+    while (h[k] != Max && h[k] != value) {
+        ++k;
+        if (k == N) k = 0;
+    }
+    return k;
+}
+
+int main() {
+    memset(h, 0x3f, sizeof h);
+    int n, x;
+    scanf("%d", &n);
+    char op[2];
+    while (n--) {
+        scanf("%s%d", op, &x);
+        if (op[0] == 'I') {
+            h[find(x)] = x;
+        } else {
+            if (h[find(x)] != Max) printf("Yes\n");
+            else printf("No\n");
+        }
+    }
+    return 0;
+}
+```
+
+[841. 字符串哈希](https://www.acwing.com/problem/content/description/843/)
+
+```cpp
+#include <iostream>
+
+using namespace std;
+const int N = 1e5 + 3, P = 131;
+// unsigned long long 天然维护了一个64位的2进制数组
+typedef unsigned long long ULL;
+// p数组表示的是p进制每一位对应的数
+// h数组表示对应子串的ASCII码在p进制下对应的数值
+// op存放字符串
+int h[N], p[N];
+char op[N];
+
+ULL find(int l, int r) {
+    return h[r] - h[l - 1] * p[r - l + 1];
+}
+
+int main() {
+    int n, m;
+    // 这里存op+1的位置存放字符串
+    scanf("%d%d%s", &n, &m, op + 1);
+    // 表示p进制的0次方
+    p[0] = 1;
+    for (int i = 1; i <= n; i++) {
+        p[i] = p[i - 1] * P;
+        h[i] = h[i - 1] * P + op[i];
+    }
+    int a, b, c, d;
+    while (m--) {
+        scanf("%d%d%d%d", &a, &b, &c, &d);
+        if (find(a, b) == find(c, d)) printf("Yes\n");
+        else printf("No\n");
+    }
+    return 0;
+}
+```
+
+
+
+##### 851~900
+
 
 
 #### 901~1000

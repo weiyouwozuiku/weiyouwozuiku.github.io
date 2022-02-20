@@ -1358,7 +1358,7 @@ int main() {
 
   但是堆排序的第一步是建堆，建堆的过程会打乱数据原有的相对先后顺序，导致原数据的有序度降低。比如，对于一组已经有序的数据来说，经过建堆之后，数据反而变得更无序了。
 
-### Hash表
+### 整数Hash
 
 哈希算法是一种期望算法。在平均情况下来看，每个节点对应的数可以认为是常数级别的。因此时间复杂度近似可以看成$O(1)$。
 
@@ -1387,7 +1387,53 @@ graph LR
 
 算法题中一般只涉及插入和查找操作，不涉及删除。如果一定要实现删除，可以选择将对应节点做上标识的方式，而不是真的去删除。
 
-**取模的数一般推荐选择采用质数且离2的整次幂尽可能的远，这样冲突的概率较小，可以通过数学证明**。
+**取模的数一般推荐选择采用质数且离2的整次幂尽可能的远，这样冲突的概率较小，可以通过[数学证明](https://buerlog.top/2022/02/16/suan-fa/sheng-ri-peng-zhuang-he-ha-xi-han-shu/)**。
+
+#### 拉链法
+
+```cpp
+int h[N], e[N], ne[N], idx;
+    // 向哈希表中插入一个数
+    void insert(int x)
+    {
+        int k = (x % N + N) % N;
+        e[idx] = x;
+        ne[idx] = h[k];
+        h[k] = idx ++ ;
+    }
+
+    // 在哈希表中查询某个数是否存在
+    bool find(int x)
+    {
+        int k = (x % N + N) % N;
+        for (int i = h[k]; i != -1; i = ne[i])
+            if (e[i] == x)
+                return true;
+
+        return false;
+    }
+```
+
+#### 开放寻址法
+
+注意这里h的空间一般需要放到题目元素数组元素的2到3倍。因为开放寻址法在每个元素都有的情况下，会陷入死循环。
+
+这里的选择的0x3f3f3f3f标记没有元素。因此可以直接是用`memset(h,0x3f,sizeof h)`,因为int是4字节，memset会每个字节塞0x3f。
+
+```cpp
+int h[N];
+    // 如果x在哈希表中，返回x的下标；如果x不在哈希表中，返回x应该插入的位置
+    int find(int x)
+    {
+        int t = (x % N + N) % N;
+        while (h[t] != null && h[t] != x)
+        {
+            t ++ ;
+            if (t == N) t = 0;
+        }
+        return t;
+    }
+```
 
 
 
@@ -1472,6 +1518,7 @@ KMP算法中定义可用重复性使用的是`Partial Match`数组，`PM[i]`表�
 vector<char> ne;
 void build(const char *pattern) {
     int len = strlen(pattern);
+  // 这里多放的一位表示完成匹配
     ne.resize(len + 1);
     for (int i = 0, j = ne[0] = -1; i < len; ne[++i] = ++j) {
         while (~j && pattern[j] != pattern[i]) j = ne[j];
@@ -1488,6 +1535,32 @@ vector<int> match(const char *text, const char *pattern) {
         if (j == lenp) res.push_back(i - lenp + 1), j = ne[j];
     }
     return res;
+}
+```
+
+### 字符串前缀哈希
+
+核心思想：**将字符串看成P进制数**，P的经验值是131或13331，取这两个值的冲突概率低
+小技巧：取模的数用$2^{64}$，这样直接用`unsigned long long`存储，溢出的结果就是取模的结果。
+
+**注意这里不能从0开始映射，这样会导致0和00、000之类的都没有区别。所以必须从非0开始。**
+
+```cpp
+typedef unsigned long long ULL;
+ULL h[N], p[N]; // h[k]存储字符串前k个字母的哈希值, p[k]存储 P^k mod 2^64
+
+// 初始化
+p[0] = 1;
+for (int i = 1; i <= n; i ++ )
+{
+    h[i] = h[i - 1] * P + str[i];
+    p[i] = p[i - 1] * P;
+}
+
+// 计算子串 str[l ~ r] 的哈希值
+ULL get(int l, int r)
+{
+    return h[r] - h[l - 1] * p[r - l + 1];
 }
 ```
 
@@ -1626,6 +1699,53 @@ vector<int> match(const char *text, const char *pattern) {
 ### 扫描线
 
 ### 自适应辛普森积分
+
+## 常用STL
+
+所有容器中都有`size()和empty()`函数时间复杂度为$O(1)$。
+
+### vector
+
+变长数组，倍增思想。
+
+系统中为某一程序分配空间时所需时间时间，与空间大小无关，与申请次数有关。vector插入的平均性能可以理解为是$O(1)$。
+
+```cpp
+    vector<int> a(10); //a中10个元素
+		vector<int> a(10,3); //a中10个元素，都是3
+    clear()  清空
+    front()/back()
+    push_back()/pop_back()
+    begin()/end()
+    [] // 随机寻址
+    支持比较运算，按字典序
+    for (vector<int>::iterator i=a.begin();i!=a.end();i++) // 迭代器可以看做是指针，用*获取
+```
+
+### pair
+
+```cpp
+pair<int, int>
+    first, 第一个元素
+    second, 第二个元素
+    支持比较运算，以first为第一关键字，以second为第二关键字（字典序）
+```
+
+### string
+
+### queue
+
+### priority_queue
+
+### stack
+
+### deque
+
+### set map multiset multimap
+
+### unordered_set unordered_map unordered_multiset unordered_multimap
+
+### bitset
 
 ## Tip
 
