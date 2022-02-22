@@ -1580,9 +1580,57 @@ ULL get(int l, int r)
 
 > 定义：若设二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。
 
-### DFS
+### DFS与BFS
 
-### BFS
+|      | 数据结构 | 空间 （h是树的高度） |       特性       |
+| :--: | :------: | :------------------: | :--------------: |
+| DFS  |  stack   |        $O(h)$        |   不具有最短性   |
+| BFS  |  queue   |       $O(2^h)$       | 可以计算最短路径 |
+
+时间复杂度$O(n+m)$， $n$表示点数，$m$表示边数。
+
+- 深度优先遍历
+
+  ```cpp
+  int dfs(int u)
+  {
+      st[u] = true; // st[u] 表示点u已经被遍历过
+  
+      for (int i = h[u]; i != -1; i = ne[i])
+      {
+          int j = e[i];
+          if (!st[j]) dfs(j);
+      }
+  }
+  ```
+
+- 广度优先遍历
+
+  ```cpp
+  queue<int> q;
+  st[1] = true; // 表示1号点已经被遍历过
+  q.push(1);
+  
+  while (q.size())
+  {
+      int t = q.front();
+      q.pop();
+  
+      for (int i = h[t]; i != -1; i = ne[i])
+      {
+          int j = e[i];
+          if (!st[j])
+          {
+              st[j] = true; // 表示点j已经被遍历过
+              q.push(j);
+          }
+      }
+  }
+  ```
+
+  
+
+
 
 ### 拓朴排序
 
@@ -1711,60 +1759,67 @@ ULL get(int l, int r)
 系统中为某一程序分配空间时所需时间时间，与空间大小无关，与申请次数有关。vector插入的平均性能可以理解为是$O(1)$。
 
 ```cpp
-    vector<int> a(10); //a中10个元素
-	  vector<int> a(10,3); //a中10个元素，都是3
-    size()
-    empty()
-    clear()  清空
-    front()/back()
-    push_back()/pop_back()
-    begin()/end()
-    [] // 随机寻址
-    支持比较运算，按字典序
-    for (vector<int>::iterator i=a.begin();i!=a.end();i++) // 迭代器可以看做是指针，用*获取
+	vector<int> a(10); //a中10个元素
+	vector<int> a(10,3); //a中10个元素，都是3
+	size()
+  empty()
+  clear()  清空
+  front()/back()
+  push_back()/pop_back()
+  begin()/end()
+  [] // 随机寻址
+  支持比较运算，按字典序
+  for (vector<int>::iterator i=a.begin();i!=a.end();i++) // 迭代器可以看做是指针，用*获取
 ```
 
 ### pair
 
 ```cpp
-pair<int, int>
-    first, 第一个元素
-    second, 第二个元素
-    支持比较运算，以first为第一关键字，以second为第二关键字（字典序）
+	pair<int, int> // 两个元素不要求相同类型
+  实例化：p=make_pair(11,"wang");
+	p={20,"abc"}
+	first, 第一个元素
+  second, 第二个元素
+  支持比较运算，以first为第一关键字，以second为第二关键字（字典序）
 ```
 
 ### string
 
 ```cpp
-    size()/length()  返回字符串长度
-    empty()
-    clear()
-    substr(起始下标，(子串长度))  返回子串
-    c_str()  返回字符串所在字符数组的起始地址
+	size()/length()  返回字符串长度
+  empty()
+  clear()
+  substr(起始下标，(子串长度))  返回子串
+  c_str()  返回字符串所在字符数组的起始地址
 ```
 
 ### queue
 
 队列
 
-    size()
-    empty()
-    push()  向队尾插入一个元素
-    front()  返回队头元素
-    back()  返回队尾元素
-    pop()  弹出队头元素
+      size()
+      empty()
+      push()  向队尾插入一个元素
+      front()  返回队头元素
+      back()  返回队尾元素
+      pop()  弹出队头元素
 
 ### priority_queue
 
-优先队列，默认是大根堆
+优先队列，默认是大根堆。
+
+如果想要小顶堆有两种方式：
+
+- 可以存放-x，即在数值前加上负号
+- `priority_queue<int, vector<int>, greater<int>> q;`
 
 ```cpp
-    size()
-    empty()
-    push()  插入一个元素
-    top()  返回堆顶元素
-    pop()  弹出堆顶元素
-    定义成小根堆的方式：priority_queue<int, vector<int>, greater<int>> q;
+	size()
+  empty()
+  push()  插入一个元素
+  top()  返回堆顶元素
+  pop()  弹出堆顶元素
+  定义成小根堆的方式：priority_queue<int, vector<int>, greater<int>> q;
 ```
 
 ### stack
@@ -1772,55 +1827,57 @@ pair<int, int>
 栈
 
 ```cpp
-size()
-empty()
-push()  向栈顶插入一个元素
-top()  返回栈顶元素
-pop()  弹出栈顶元素
+	size()
+  empty()
+  push()  向栈顶插入一个元素
+  top()  返回栈顶元素
+  pop()  弹出栈顶元素
 ```
 
 ### deque
 
-双端队列
+双端队列，效率较差。
 
 ```cpp
-    size()
-    empty()
-    clear()
-    front()/back()
-    push_back()/pop_back()
-    push_front()/pop_front()
-    begin()/end()
-    []
+	size()
+  empty()
+  clear()
+  front()/back()
+  push_back()/pop_back()
+  push_front()/pop_front()
+  begin()/end()
+  []
 ```
 
 ### set map multiset multimap
 
+multiset支持重复元素，set不支持重复元素。
+
 基于平衡二叉树（红黑树），动态维护有序序列
 
 ```cpp
-size()
-    empty()
-    clear()
-    begin()/end()
-    ++, -- 返回前驱和后继，时间复杂度 O(logn)
+	size()
+  empty()
+  clear()
+  begin()/end()
+  ++, -- 返回前驱和后继，时间复杂度 O(logn)
 
-    set/multiset
-        insert()  插入一个数
-        find()  查找一个数
-        count()  返回某一个数的个数
-        erase()
-            (1) 输入是一个数x，删除所有x   O(k + logn)
-            (2) 输入一个迭代器，删除这个迭代器
-        lower_bound()/upper_bound()
-            lower_bound(x)  返回大于等于x的最小的数的迭代器
-            upper_bound(x)  返回大于x的最小的数的迭代器
-    map/multimap
-        insert()  插入的数是一个pair
-        erase()  输入的参数是pair或者迭代器
-        find()
-        []  注意multimap不支持此操作。 时间复杂度是 O(logn)
-        lower_bound()/upper_bound()
+  set/multiset
+    insert()  插入一个数
+    find()  查找一个数
+    count()  返回某一个数的个数
+    erase()
+      (1) 输入是一个数x，删除所有x   O(k + logn) // k是x的个数
+      (2) 输入一个迭代器，删除这个迭代器
+    lower_bound()/upper_bound()
+      lower_bound(x)  返回大于等于x的最小的数的迭代器，不存在返回end迭代器
+      upper_bound(x)  返回大于x的最小的数的迭代器，不存在返回end迭代器
+  map/multimap
+    insert()  插入的数是一个pair
+    erase()  输入的参数是pair或者迭代器
+    find()
+  	[]  注意multimap不支持此操作。 时间复杂度是 O(logn)
+  	lower_bound()/upper_bound()
 ```
 
 ### unordered_set unordered_map unordered_multiset unordered_multimap
@@ -1836,17 +1893,14 @@ size()
 压位
 
 ```cpp
-		bitset<10000> s;
+		bitset<10000> s;// 此处的10000为长度
     ~, &, |, ^
     >>, <<
     ==, !=
     []
-
     count()  返回有多少个1
-
     any()  判断是否至少有一个1
     none()  判断是否全为0
-
     set()  把所有位置成1
     set(k, v)  将第k位变成v
     reset()  把所有位变成0
