@@ -580,6 +580,10 @@ Instant: checked
 
 [Alfred-Workflow](https://github.com/noogel/Alfred-Workflow)
 
+## 查看Mac整体信息
+
+打开`系统信息.app`就可以查看具体信息以及电脑中安装的所有软件的版本。
+
 ## 参考资料
 
 1. [Fuzzy finder(fzf+vim) 使用全指南](https://keelii.com/2018/08/12/fuzzy-finder-full-guide/),2018
