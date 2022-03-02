@@ -1,19 +1,19 @@
 ---
-title: Mysql整理与总结
+title: MySQL整理与总结
 author: 不二
 img: >-
-  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/Mysql整理与总结.jpeg
+  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/MySQL整理与总结.jpeg
 mathjax: true
 date: 2022-03-01 21:06:10
-tags: Mysql
+tags: MySQL
 categories: 程序设计
 ---
 
-## Mysql基础架构
+## MySQL基础架构
 
-![Mysql逻辑架构图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Mysql整理与总结/Mysql逻辑架构图.png)
+![MySQL逻辑架构图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/MySQL整理与总结/MySQL逻辑架构图.png)
 
-Mysql大致可以分成Server层和存储引擎层。
+MySQL大致可以分成Server层和存储引擎层。
 
 ### 连接器
 
@@ -25,18 +25,18 @@ Mysql大致可以分成Server层和存储引擎层。
 
 客户端通过参数`wait_timeout`来控制没有动静的连接，默认一般是8小时。
 
-使用长链接可能导致Mysql占用内存上涨很快。因为Mysql在执行过程中临时使用的内存是管理在连接对象里面的。这些资源只有在连接断开时才释放。长期积累可能导致内存占用过大，被系统强行OOM，从现象看就是Mysql异常重启。
+使用长链接可能导致MySQL占用内存上涨很快。因为MySQL在执行过程中临时使用的内存是管理在连接对象里面的。这些资源只有在连接断开时才释放。长期积累可能导致内存占用过大，被系统强行OOM，从现象看就是MySQL异常重启。
 
 对此解决方案：
 
 - 定期断开长连接
-- 如果是Mysql5.7之后的版本，可以在执行一个较大内存的操作时，通过执行`mysql_reset_connection`来重新初始化连接资源。此时连接会恢复成刚创建完时的状态
+- 如果是MySQL5.7之后的版本，可以在执行一个较大内存的操作时，通过执行`MySQL_reset_connection`来重新初始化连接资源。此时连接会恢复成刚创建完时的状态
 
 ### 查询缓存
 
-Mysql拿到一个查询请求后，在老版本会先去查询缓存。之前执行的语句及其结果可能会以kv对的形式存在内存中。key是查询语句，value是查询结果。
+MySQL拿到一个查询请求后，在老版本会先去查询缓存。之前执行的语句及其结果可能会以kv对的形式存在内存中。key是查询语句，value是查询结果。
 
-但是不推荐使用缓存。因为**通常情况下Mysql的缓存利大于弊。**
+但是不推荐使用缓存。因为**通常情况下MySQL的缓存利大于弊。**
 
 查询缓存的失效非常频繁。只要对一个表的更新，这个表上的所有查询缓存就会被清空。对于更新压力较大的数据库来说，查询缓存的命中率很低。**除非你的业务是一个静态表，很长时间才更新一次。**
 
@@ -46,7 +46,7 @@ Mysql拿到一个查询请求后，在老版本会先去查询缓存。之前执
 select SQL_cache * from T where ID=...;
 ```
 
-Mysql8.0之后没有查询缓存这个功能了。
+MySQL8.0之后没有查询缓存这个功能了。
 
 ### 分析器
 
@@ -58,7 +58,7 @@ Mysql8.0之后没有查询缓存这个功能了。
 
 #### 预处理器
 
-预处理器进一步检查解析树的合法。比如：数据表和数据列是否存在，别名是否有歧义。如果通过则生成新的解析树，再交给优化器。详见《高性能mysql》6.4.3查询优化处理。
+预处理器进一步检查解析树的合法。比如：数据表和数据列是否存在，别名是否有歧义。如果通过则生成新的解析树，再交给优化器。详见《高性能MySQL》6.4.3查询优化处理。
 
 ### 优化器
 
@@ -74,10 +74,28 @@ Mysql8.0之后没有查询缓存这个功能了。
 
 在有些场景下，执行器调用一次，在引擎内部则扫描了多行，因此**引擎扫描行数在rows_examined并不是完全相同**。
 
-### redo log
+### 日志
 
-Mysql利用WAL（Write-Ahead Logging）技术，先写日志再落磁盘。具体来说就是当一条记录需要更新时，InnoDB引擎就会先把记录写在redo log中，并更新内存，此时更新算完成。等到InnoDB在恰当的时间会将这个更新操作写入磁盘。
+#### redo log
+
+redo log是属于InnoDB特有的日志，属于存储引擎层。
+
+MySQL利用WAL（Write-Ahead Logging）技术，先写日志再落磁盘。具体来说就是当一条记录需要更新时，InnoDB引擎就会先把记录写在redo log中，并更新内存，此时更新算完成。等到InnoDB在恰当的时间会将这个更新操作写入磁盘。
 
 InnoDB的redo log大小是固定的。
 
-![redo_log示意图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Mysql整理与总结/redo_log示意图.png)
+![redo_log示意图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/MySQL整理与总结/redo_log示意图.png)
+
+`write pos` 是当前记录的位置，一边写一边后移，写到第 3 号文件末尾后就回到 0 号文件开头。`checkpoint` 是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件。
+
+`wirte pos`与`checkpoint`之间的空间就是还可以存放的容量。
+
+有了 redo log，InnoDB 就可以保证即使数据库发生异常重启，之前提交的记录都不会丢失，这个能力称为`crash-safe`。
+
+#### binlog
+
+binlog属于Sever层，binlog不具备`crash-safe`的能力。
+
+#### 二者对比
+
+1. redo log是InnoDB引擎特有的；binlog是MySQL
