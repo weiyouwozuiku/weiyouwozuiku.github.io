@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-03-02T10:17:16.000Z</updated>
+  <updated>2022-03-02T10:43:28.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -17,18 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Mysql整理与总结</title>
+    <title>MySQL整理与总结</title>
     <link href="http://buerlog.top/2022/03/01/cheng-xu-she-ji/mysql-zheng-li-yu-zong-jie/"/>
     <id>http://buerlog.top/2022/03/01/cheng-xu-she-ji/mysql-zheng-li-yu-zong-jie/</id>
     <published>2022-03-01T13:06:10.000Z</published>
-    <updated>2022-03-02T10:17:16.000Z</updated>
+    <updated>2022-03-02T10:43:28.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Mysql基础架构&quot;&gt;&lt;a href=&quot;#Mysql基础架构&quot; class=&quot;headerlink&quot; title=&quot;Mysql基础架构&quot;&gt;&lt;/a&gt;Mysql基础架构&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+    <summary type="html">&lt;h2 id=&quot;MySQL基础架构&quot;&gt;&lt;a href=&quot;#MySQL基础架构&quot; class=&quot;headerlink&quot; title=&quot;MySQL基础架构&quot;&gt;&lt;/a&gt;MySQL基础架构&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
         
       
     
@@ -37,7 +37,7 @@
     <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
     
-    <category term="Mysql" scheme="http://buerlog.top/tags/Mysql/"/>
+    <category term="MySQL" scheme="http://buerlog.top/tags/MySQL/"/>
     
   </entry>
   
