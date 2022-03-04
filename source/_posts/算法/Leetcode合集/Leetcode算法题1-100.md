@@ -414,6 +414,39 @@ public:
 };
 ```
 
+#### [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
+
+```cpp
+class Solution {
+public:
+    ListNode *reverseKGroup(ListNode *head, int k) {
+        // 保存整个链表的头指针
+        auto dummy = new ListNode(-1);
+        dummy->next = head;
+
+        for (auto p = dummy;;) {
+            // 检查是否存在k个元素，不存在则退出循环
+            auto q = p;
+            for (int i = 0; i < k && q; i++) q = q->next;
+            if (!q) break;
+
+            // 交换中间元素的next
+            auto a = p->next, b = a->next;
+            for (int i = 0; i < k - 1; i++) {
+                auto c = b->next;
+                b->next = a;
+                a = b, b = c;
+            }
+            // 前后元素旋转
+            auto c = p->next;
+            p->next = a, c->next = b;
+            p = c;
+        }
+        return dummy->next;
+    }
+};
+```
+
 #### [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
 
 ```cpp
