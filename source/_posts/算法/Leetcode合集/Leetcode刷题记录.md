@@ -64,7 +64,11 @@ categories: 算法
 
 ### Shell
 
+- [ ] [LeetcodeShell题](https://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcodeshell-ti/)
+
 ### 多线程
+
+- [ ] [Leetcode多线程题](https://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcode-duo-xian-cheng-ti/)
 
 ## Tip
 
