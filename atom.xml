@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-03-04T04:43:09.000Z</updated>
+  <updated>2022-03-04T11:01:38.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pytest教程</title>
+    <link href="http://buerlog.top/2022/03/04/cheng-xu-she-ji/pytest-jiao-cheng/"/>
+    <id>http://buerlog.top/2022/03/04/cheng-xu-she-ji/pytest-jiao-cheng/</id>
+    <published>2022-03-04T10:48:02.000Z</published>
+    <updated>2022-03-04T11:01:38.000Z</updated>
+    
+    
+    
+    
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="Python" scheme="http://buerlog.top/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode多线程题</title>
@@ -936,7 +953,7 @@
     <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1-100/"/>
     <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1-100/</id>
     <published>2022-01-16T09:40:00.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
+    <updated>2022-03-04T11:01:38.000Z</updated>
     
     
       
@@ -2582,33 +2599,6 @@
     <category term="树莓派" scheme="http://buerlog.top/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
     
     <category term="Arduino" scheme="http://buerlog.top/tags/Arduino/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派开发记录</title>
-    <link href="http://buerlog.top/2019/12/27/qian-ru-shi/shu-mei-pai-kai-fa-ji-lu/"/>
-    <id>http://buerlog.top/2019/12/27/qian-ru-shi/shu-mei-pai-kai-fa-ji-lu/</id>
-    <published>2019-12-27T10:59:52.000Z</published>
-    <updated>2022-01-14T04:01:26.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;无线计划&quot;&gt;&lt;a href=&quot;#无线计划&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="嵌入式" scheme="http://buerlog.top/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
-    
-    
-    <category term="树莓派" scheme="http://buerlog.top/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-    
-    <category term="开发" scheme="http://buerlog.top/tags/%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
