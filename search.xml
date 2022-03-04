@@ -4,9 +4,9 @@
   
     
     <entry>
-      <title>pytest教程</title>
-      <link href="/2022/03/04/cheng-xu-she-ji/pytest-jiao-cheng/"/>
-      <url>/2022/03/04/cheng-xu-she-ji/pytest-jiao-cheng/</url>
+      <title>《流畅的Python》整理</title>
+      <link href="/2022/03/04/cheng-xu-she-ji/liu-chang-de-python-zheng-li/"/>
+      <url>/2022/03/04/cheng-xu-she-ji/liu-chang-de-python-zheng-li/</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -21,6 +21,33 @@
         <tags>
             
             <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pytest教程</title>
+      <link href="/2022/03/04/cheng-xu-she-ji/pytest-jiao-cheng/"/>
+      <url>/2022/03/04/cheng-xu-she-ji/pytest-jiao-cheng/</url>
+      
+        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>pytest是动态编程语言Python专用的测试框架，它具有易于上手、功能强大、第三方插件丰富、效率高、可扩展性好、兼容性强等特点。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 程序设计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> 测试开发 </tag>
             
         </tags>
       
