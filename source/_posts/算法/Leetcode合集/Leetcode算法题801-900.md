@@ -5,7 +5,9 @@ img: >-
   https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/Leetcode算法题801-900.jpeg
 mathjax: true
 date: 2022-01-16 17:42:30
-tags: Cpp
+tags: 
+- Cpp
+- Leetcode
 categories: 算法
 ---
 
@@ -15,6 +17,7 @@ categories: 算法
 ## 831-840
 ## 841-850
 ## 851-860
+
 ## 861-870
 ## 871-880
 ## 881-890
