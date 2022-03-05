@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://buerlog.top/about/index.html</loc>
-    
-    <lastmod>2022-03-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/categories/index.html</loc>
     
     <lastmod>2022-03-05</lastmod>
@@ -39,6 +30,15 @@
   
   <url>
     <loc>http://buerlog.top/tags/index.html</loc>
+    
+    <lastmod>2022-03-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/about/index.html</loc>
     
     <lastmod>2022-03-05</lastmod>
     
@@ -1136,6 +1136,15 @@
   </url>
   
   <url>
+    <loc>http://buerlog.top/2021/09/20/jing-yan-zong-jie/jian-shen-li-lun-zheng-li/</loc>
+    
+    <lastmod>2021-10-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/</loc>
     
     <lastmod>2021-10-31</lastmod>
@@ -1146,15 +1155,6 @@
   
   <url>
     <loc>http://buerlog.top/2021/04/09/ji-suan-ji-ji-chu/csapp-15-213/</loc>
-    
-    <lastmod>2021-10-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2021/09/20/jing-yan-zong-jie/jian-shen-li-lun-zheng-li/</loc>
     
     <lastmod>2021-10-31</lastmod>
     
@@ -1719,6 +1719,13 @@
   </url>
   
   <url>
+    <loc>http://buerlog.top/tags/%E5%81%A5%E8%BA%AB/</loc>
+    <lastmod>2022-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/tags/%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2022-03-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -1734,13 +1741,6 @@
   
   <url>
     <loc>http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2022-03-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/tags/%E5%81%A5%E8%BA%AB/</loc>
     <lastmod>2022-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
