@@ -591,6 +591,8 @@ public:
 
 #### [51.N皇后](https://leetcode-cn.com/problems/n-queens)
 
+![n皇后截距.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Leetcode合集/Leetcode算法题1-100/n皇后截距.jpg)
+
 #### [52.N皇后II](https://leetcode-cn.com/problems/n-queens-ii)
 
 #### [53.](https://leetcode-cn.com/problems/maximum-subarray)
