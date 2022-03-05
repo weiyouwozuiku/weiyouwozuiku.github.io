@@ -355,6 +355,68 @@ public:
 
 ## 11-20
 
+#### [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
+
+本题优化在用一个双指针优化了两层循环，将其从$O(n^2)$降低到$O(2n)$，因此整体时间复杂度为$O(n^2)$。
+
+基于单调性，可以使用试探法，先判断下一个是否满足，满足直接去下一个数，不然用上一个数检验。
+
+针对重复情况，使用形如`j > i + 1 && nums[j] == nums[j - 1]`这样的方式，避免相同位上相同的元素。	
+
+```cpp
+class Solution {
+public:
+    vector <vector<int>> threeSum(vector<int> &nums) {
+        vector <vector<int>> res;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size(); ++i) {
+            // 如果起始为就大于0，则之后的数字必然超过0，非题目解
+            if (nums[i] > 0) break;
+            // 排除重复情况
+            if (i && nums[i] == nums[i - 1]) continue;
+            for (int j = i + 1, k = nums.size() - 1; j < k; ++j) {
+                // 排除重复情况
+                if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+                // 试探法，如果下一个数满足就用下一个数
+                while (j < k - 1 && nums[i] + nums[j] + nums[k - 1] >= 0) --k;
+                if (nums[i] + nums[j] + nums[k] == 0) res.push_back({nums[i], nums[j], nums[k]});
+            }
+        }
+        return res;
+    }
+};
+```
+
+#### [18. 四数之和](https://leetcode-cn.com/problems/4sum/)
+
+另外需要注意虽然排序完成后整体为单调递增，但是target为负数时，不能通过`nums[i]>target`进行常数级优化。
+
+```cpp
+class Solution {
+public:
+    vector <vector<int>> fourSum(vector<int> &nums, int target) {
+        vector <vector<int>> res;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size(); ++i) {
+            if (i && nums[i] == nums[i - 1]) continue;
+            for (int j = i + 1; j < nums.size(); ++j) {
+                if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+                for (int k = j + 1, l = nums.size() - 1; k < l; ++k) {
+                    if (k > j + 1 && nums[k] == nums[k - 1]) continue;
+                    while (k < l - 1 && nums[i] + nums[j] >= target - nums[l - 1] - nums[k]) --l;
+                    if (nums[i] + nums[j] - target == -nums[k] - nums[l]) {
+                        res.push_back({nums[i], nums[j], nums[k], nums[l]});
+                    }
+                }
+            }
+        }
+        return res;
+    }
+};
+```
+
+
+
 ## 21-30
 
 #### [21.合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
