@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-03-05T11:44:28.000Z</updated>
+  <updated>2022-03-07T09:19:05.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《MySQL是怎样运行的》整理</title>
+    <link href="http://buerlog.top/2022/03/07/kv-cun-chu/mysql-shi-zen-yang-yun-xing-de-zheng-li/"/>
+    <id>http://buerlog.top/2022/03/07/kv-cun-chu/mysql-shi-zen-yang-yun-xing-de-zheng-li/</id>
+    <published>2022-03-07T09:09:33.000Z</published>
+    <updated>2022-03-07T09:19:05.000Z</updated>
+    
+    
+    
+    
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    
+    
+    <category term="数据库" scheme="http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="http://buerlog.top/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《MySQL技术内幕：InnoDB存储引擎》整理</title>
+    <link href="http://buerlog.top/2022/03/07/kv-cun-chu/mysql-ji-zhu-nei-mu-innodb-cun-chu-yin-qing-zheng-li/"/>
+    <id>http://buerlog.top/2022/03/07/kv-cun-chu/mysql-ji-zhu-nei-mu-innodb-cun-chu-yin-qing-zheng-li/</id>
+    <published>2022-03-07T09:09:02.000Z</published>
+    <updated>2022-03-07T09:19:05.000Z</updated>
+    
+    
+    
+    
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    
+    
+    <category term="数据库" scheme="http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="http://buerlog.top/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>CMU-15445</title>
@@ -2526,62 +2564,6 @@
     <category term="算法" scheme="http://buerlog.top/tags/%E7%AE%97%E6%B3%95/"/>
     
     <category term="Paper" scheme="http://buerlog.top/tags/Paper/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>V2ray</title>
-    <link href="http://buerlog.top/2020/02/15/jing-yan-zong-jie/v2ray/"/>
-    <id>http://buerlog.top/2020/02/15/jing-yan-zong-jie/v2ray/</id>
-    <published>2020-02-15T13:10:31.000Z</published>
-    <updated>2022-01-14T04:01:26.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;V2ray&quot;&gt;&lt;a href=&quot;#V2ray&quot; class=&quot;headerlink&quot; title=&quot;V2ray&quot;&gt;&lt;/a&gt;V2ray&lt;/h2&gt;&lt;p&gt;多入口多出口: 一个 V2Ray 进程可并发支持多个入站和出站协议，每个协议可独立工作。&lt;br&gt;可定制化路由: 入站流量可按配置由不同的出口发出。轻松实现按区域或按域名分流，以达到最优的网络性能。&lt;br&gt;多协议支持: V2Ray</summary>
-        
-      
-    
-    
-    
-    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="Linux" scheme="http://buerlog.top/tags/Linux/"/>
-    
-    <category term="V2ray" scheme="http://buerlog.top/tags/V2ray/"/>
-    
-    <category term="IOS" scheme="http://buerlog.top/tags/IOS/"/>
-    
-    <category term="Windows" scheme="http://buerlog.top/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>powerlevel10k设置及客制化</title>
-    <link href="http://buerlog.top/2020/02/15/jing-yan-zong-jie/powerlevel10k-she-zhi-ji-ke-zhi-hua/"/>
-    <id>http://buerlog.top/2020/02/15/jing-yan-zong-jie/powerlevel10k-she-zhi-ji-ke-zhi-hua/</id>
-    <published>2020-02-15T12:32:48.000Z</published>
-    <updated>2022-01-14T04:01:26.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Powerlevel10k&quot;&gt;&lt;a href=&quot;#Powerlevel10k&quot; class=&quot;headerlink&quot; title=&quot;Powerlevel10k&quot;&gt;&lt;/a&gt;Powerlevel10k&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Powerlevel10k is a theme for Zsh. It emphasizes speed, flexibility and</summary>
-        
-      
-    
-    
-    
-    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="Linux" scheme="http://buerlog.top/tags/Linux/"/>
     
   </entry>
   
