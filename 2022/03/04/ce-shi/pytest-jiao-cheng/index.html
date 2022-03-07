@@ -462,6 +462,10 @@
                                 <span class="chip bg-color">Python</span>
                             </a>
                         
+                            <a href="/tags/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/">
+                                <span class="chip bg-color">测试开发</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -497,14 +501,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    7 分
                 </div>
                 
 
@@ -606,8 +610,9 @@
 </ul>
 <h3 id="批量测试"><a href="#批量测试" class="headerlink" title="批量测试"></a>批量测试</h3><p>使用<code>@pytest.mark.parametrize(argnames,argvalues)</code></p>
 <p>可以使用完整的测试标识来重新指定需要的测试，形如<code>pytest -v "test_add_variety.py::test_add_3[eat eggs-BrIaN-False]"</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/pytest%E6%95%99%E7%A8%8B/%E5%8F%82%E6%95%B0%E5%8C%96kv.png" alt="参数化kv.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/pytest%E6%95%99%E7%A8%8B/%E5%8F%82%E6%95%B0%E5%8C%96%E8%BF%90%E8%A1%8C.png" alt="参数化运行.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%B5%8B%E8%AF%95/pytest%E6%95%99%E7%A8%8B/%E5%8F%82%E6%95%B0%E5%8C%96kv.png" alt="参数化kv.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%B5%8B%E8%AF%95/pytest%E6%95%99%E7%A8%8B/%E5%8F%82%E6%95%B0%E5%8C%96%E8%BF%90%E8%A1%8C.png" alt="参数化运行.png"></p>
+<p>在给<code>@pytest.mark.parametrize()</code>装饰器传入列表参数时，还可以在参数旁定义一个id来作为标识，语法<code>pytest.param(&lt;value&gt;,id="something")</code></p>
 <h3 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h3><ul>
 <li>单个测试用例：可以使用<code>pytest ****.py::test_name</code>执行</li>
 <li>单个目录：以目录作为pytest参数</li>
@@ -615,7 +620,25 @@
 <li>单个测试类：可以将测试一个接口的测试用例放在一个类中，运行时在文件名后加上::以及类名</li>
 <li>单个测试类中的方法：文件名后加上::以及类名加上::加上方法名</li>
 </ul>
-<h2 id="pytest-Fixture"><a href="#pytest-Fixture" class="headerlink" title="pytest Fixture"></a>pytest Fixture</h2><h2 id="内置Fixtrue"><a href="#内置Fixtrue" class="headerlink" title="内置Fixtrue"></a>内置Fixtrue</h2><h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h2 id="pytest与其他工具的搭配使用"><a href="#pytest与其他工具的搭配使用" class="headerlink" title="pytest与其他工具的搭配使用"></a>pytest与其他工具的搭配使用</h2><h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><p>[^1]:在Linux系统中，一切设备都看作文件。而每打开一个文件，就有一个代表该打开文件的文件描述符。程序启动时默认打开三个I/O设备文件：标准输入文件stdin，标准输出文件stdout，标准错误输出文件stderr，分别得到文件描述符 0, 1, 2。</p>
+<h2 id="pytest-Fixture"><a href="#pytest-Fixture" class="headerlink" title="pytest Fixture"></a>pytest Fixture</h2><p><code>pytest</code>是在测试函数运行前后，由pytest执行的外壳函数。</p>
+<p><code>@pytest.fixture()</code>装饰器用于声明函数是一个<code>fixture</code>。如果测试函数的参数列表包含<code>fixture</code>名，那么pytest会检测到，并在测试函数执行之前执行该<code>fixture</code>。</p>
+<p>pytest优先搜索该测试所在模块，然后搜索<code>conftest.py</code>。</p>
+<p>在外层目录编写<code>conftest.py</code>可以让内层测试用例使用。</p>
+<p><code>conftest.py</code>不能被import引入，对于pytest来说只是一个插件库。</p>
+<p>可以借助<code>yield</code>的用法特性，在执行完<code>fixture</code>中前置逻辑后到达yield，等测试函数执行完毕，执行fixture的后续逻辑。</p>
+<p>使用<code>--setup-show</code>回溯fixture的执行过程。 回溯信息中的F和S标识fixture的作用域分别是函数级别以及会话级别。</p>
+<p>fixture中<code>scope</code>为可选参数，其有四个待选值，默认为function，：</p>
+<ul>
+<li>function：每个测试函数运行一遍</li>
+<li>class：每个测试类运行一遍，测试类中的所有类方法共享这个fixture</li>
+<li>module：模块级别的fixture运行一遍，无论模块中有多少测试函数、类方法或其他fixture都共享这个fixture</li>
+<li>session：每个会话运行一次</li>
+</ul>
+<p>scope参数是在定义fixture定义的，而不是在调用fixture时定义的。因此使用fixture的测试函数是无法改变fixture的作用范围的。</p>
+<p><strong>fixture只能使用同级别或比自己级别更好的fixture</strong>。</p>
+<p>单个函数使用fixture是在传参中用fixture定义的名字，类使用fixture需要用装饰器实现<code>@pytest.mark.usefixtures(&lt;fixture名字&gt;)</code>。</p>
+<p><code>tmpdir_factory</code>的作用范围是会话级别，<code>tmpdir</code>的作用范围是函数级别。</p>
+<h2 id="内置Fixtrue"><a href="#内置Fixtrue" class="headerlink" title="内置Fixtrue"></a>内置Fixtrue</h2><h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h2 id="pytest与其他工具的搭配使用"><a href="#pytest与其他工具的搭配使用" class="headerlink" title="pytest与其他工具的搭配使用"></a>pytest与其他工具的搭配使用</h2><h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><p>[^1]:在Linux系统中，一切设备都看作文件。而每打开一个文件，就有一个代表该打开文件的文件描述符。程序启动时默认打开三个I/O设备文件：标准输入文件stdin，标准输出文件stdout，标准错误输出文件stderr，分别得到文件描述符 0, 1, 2。</p>
 
                 
             </div>
@@ -682,6 +705,10 @@
                             
                                 <a href="/tags/Python/">
                                     <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/">
+                                    <span class="chip bg-color">测试开发</span>
                                 </a>
                             
                         </div>
@@ -1186,7 +1213,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">201.8k</span>&nbsp;字
+                class="white-color">202.2k</span>&nbsp;字
             
             
             
