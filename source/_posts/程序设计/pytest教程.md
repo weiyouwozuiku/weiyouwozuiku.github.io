@@ -131,7 +131,11 @@ pytest内置了一些标记：
 
 使用`@pytest.mark.parametrize(argnames,argvalues)`
 
+可以使用完整的测试标识来重新指定需要的测试，形如`pytest -v "test_add_variety.py::test_add_3[eat eggs-BrIaN-False]"`
 
+![参数化kv.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/pytest教程/参数化kv.png)
+
+![参数化运行.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/pytest教程/参数化运行.png)
 
 ### 测试方法
 
