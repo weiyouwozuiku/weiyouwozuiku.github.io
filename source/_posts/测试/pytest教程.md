@@ -7,6 +7,7 @@ mathjax: true
 date: 2022-03-04 18:48:02
 tags:
 - Python
+- 测试开发
 categories: 测试
 ---
 
@@ -132,9 +133,11 @@ pytest内置了一些标记：
 
 可以使用完整的测试标识来重新指定需要的测试，形如`pytest -v "test_add_variety.py::test_add_3[eat eggs-BrIaN-False]"`
 
-![参数化kv.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/pytest教程/参数化kv.png)
+![参数化kv.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/测试/pytest教程/参数化kv.png)
 
-![参数化运行.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/pytest教程/参数化运行.png)
+![参数化运行.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/测试/pytest教程/参数化运行.png)
+
+在给`@pytest.mark.parametrize()`装饰器传入列表参数时，还可以在参数旁定义一个id来作为标识，语法`pytest.param(<value>,id="something")`
 
 ### 测试方法
 
@@ -146,7 +149,38 @@ pytest内置了一些标记：
 
 ## pytest Fixture
 
+`pytest`是在测试函数运行前后，由pytest执行的外壳函数。
+
+`@pytest.fixture()`装饰器用于声明函数是一个`fixture`。如果测试函数的参数列表包含`fixture`名，那么pytest会检测到，并在测试函数执行之前执行该`fixture`。
+
+pytest优先搜索该测试所在模块，然后搜索`conftest.py`。
+
+在外层目录编写`conftest.py`可以让内层测试用例使用。
+
+`conftest.py`不能被import引入，对于pytest来说只是一个插件库。
+
+可以借助`yield`的用法特性，在执行完`fixture`中前置逻辑后到达yield，等测试函数执行完毕，执行fixture的后续逻辑。
+
+使用`--setup-show`回溯fixture的执行过程。 回溯信息中的F和S标识fixture的作用域分别是函数级别以及会话级别。
+
+fixture中`scope`为可选参数，其有四个待选值，默认为function，：
+
+- function：每个测试函数运行一遍
+- class：每个测试类运行一遍，测试类中的所有类方法共享这个fixture
+- module：模块级别的fixture运行一遍，无论模块中有多少测试函数、类方法或其他fixture都共享这个fixture
+- session：每个会话运行一次
+
+scope参数是在定义fixture定义的，而不是在调用fixture时定义的。因此使用fixture的测试函数是无法改变fixture的作用范围的。
+
+**fixture只能使用同级别或比自己级别更好的fixture**。
+
+单个函数使用fixture是在传参中用fixture定义的名字，类使用fixture需要用装饰器实现`@pytest.mark.usefixtures(<fixture名字>)`。
+
+`tmpdir_factory`的作用范围是会话级别，`tmpdir`的作用范围是函数级别。
+
 ## 内置Fixtrue
+
+
 
 ## 插件
 
