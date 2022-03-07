@@ -1773,12 +1773,14 @@ ULL get(int l, int r)
 
 队列
 
-      size()
-      empty()
-      push()  向队尾插入一个元素
-      front()  返回队头元素
-      back()  返回队尾元素
-      pop()  弹出队头元素
+```cpp
+  size()
+  empty()
+  push()  向队尾插入一个元素
+  front()  返回队头元素
+  back()  返回队尾元素
+  pop()  弹出队头元素
+```
 
 ### priority_queue
 
@@ -1803,7 +1805,7 @@ ULL get(int l, int r)
 栈
 
 ```cpp
-	size()
+  size()
   empty()
   push()  向栈顶插入一个元素
   top()  返回栈顶元素
@@ -1815,7 +1817,7 @@ ULL get(int l, int r)
 双端队列，效率较差。
 
 ```cpp
-	size()
+  size()
   empty()
   clear()
   front()/back()
@@ -1832,7 +1834,7 @@ multiset支持重复元素，set不支持重复元素。
 基于平衡二叉树（红黑树），动态维护有序序列
 
 ```cpp
-	size()
+  size()
   empty()
   clear()
   begin()/end()
@@ -1869,7 +1871,7 @@ multiset支持重复元素，set不支持重复元素。
 压位
 
 ```cpp
-		bitset<10000> s;// 此处的10000为长度
+	bitset<10000> s;// 此处的10000为长度
     ~, &, |, ^
     >>, <<
     ==, !=

@@ -24,6 +24,7 @@ pytest是动态编程语言Python专用的测试框架，它具有易于上手�
 - 系统测试：检查整个系统的测试，通常要求测试环境竟可能接近最终用户的使用环境。
 - 功能测试：检查单个系统功能的测试。
 - 皮下测试：不针对最终用户界面，而是针对用户界面以下的接口的测试。
+- 冒烟测试：可以了解当前系统中是否存在大的缺陷。通常冒烟测试不会包含全套测试，只选择可以快速出结果的测试子集 。
 
 ## 基础
 
@@ -37,8 +38,6 @@ pip3 install pytest
 
 可以在pytest命令后加上`-v`和`--verbose`查看更加详细的测试信息。
 
-单个测试用例可以使用`pytest ****.py::test_name`执行。
-
 `--collect-only`选项展示哪些测试用例会被运行。
 
 `-k`选项允许使用表达式来指定运行的测试用例，如`pytest -k "fun1 or fun2"`
@@ -51,9 +50,39 @@ pip3 install pytest
 
 `–-tb=no`选项表示关系错误堆栈回溯。
 
-`-s`表示允许终端在测试运行时输出某些结果。
+`-s`表示允许终端在测试运行时输出某些结果。-s  shortcut for --capture=no.
 
-`--capture=method`
+`--capture=method` per-test capturing method: one of fd|sys|no|tee-sys. 
+
+`--capture=fd`表示若文件描述符为1或2[^1]，则会被输出至临时文件中。
+
+`–capture==sys`表示`sys.stdout/stderr`输出至内存。
+
+`-l`或`--showlocals`表示在测试失败时打印局部变量名和其值。
+
+`--lf, --last-failed `执行上次失败的case。
+
+`--ff, --failed-first`表示先执行最后一次失败的case再执行其他case。
+
+`-v, --verbose  `表示详细输出信息，每个文件中的每个测试用例都占一行（默认每个文件占一行）。
+
+`-q, --quiet `表示简化输出信息，与上一个命令相反。
+
+`--tb=style`   traceback print mode (auto/long/short/line/native/no).
+
+- `short`表示进输出assert这一行以及系统判定内容（不显示上下文）
+- `line`模式只使用一行输出所有的错误信息 
+- `no`则直接屏蔽全部回溯信息
+- `long`输出最为详尽的回溯信息
+- `auto`默认值，如果多个测试用例失败，仅打印最后一个和第一个测试用例的回溯信息，long格式展示
+- `native`只输出Python标准库的回溯信息
+
+`--durations=N`  show N slowest setup/test durations (N=0 for all).
+
+`-rs`显示跳过原因，需要之前设置了跳过原因
+
+-r chars              show extra test summary info as specified by chars:
+                        (p/P), or (A)ll. (w)arnings are enabled by default (see
 
 ### 命名规则
 
@@ -76,11 +105,41 @@ pip3 install pytest
 - `x`表示xfail（预期失败，并且确实失败），使用`@pytest.mark.xfail()`指定你认为会失败的用例
 - `X`表示xpass（预期失败但通过，不符合预期）
 
-
-
-
-
 ## 编写测试函数
+
+推荐将test目录放在src文件夹下，其中存放所有与pytest相关的代码。
+
+`assert`语法会判断后面的表达式，将其值转变为布尔值。
+
+`with pytest.raises(TypeError):`表示无论with中的内容是什么都发生了预期中的`TypeError`异常。
+
+`with pytest.raises(ValueError) as a:`表示with中执行后返回TypeError异常后，这里捕获并将参数传递给a变量。通过a变量判断。
+
+marker机制是支持一对多或多对一。
+
+marker的装饰器是`@pytest.mark.<marker名称>`
+
+pytest内置了一些标记：
+
+- `skip`和`skipif`允许跳过不希望运行的测试。
+  - `@pytest.mark.skip(reason='...')`
+  - `@pytest.mark.skipif(task.__version__<'0.2.0',reason='..')`当task版本小于0.2.0时跳过测试，这里支持任意表达式
+  - 上述两种跳过方式都支持reason传递
+- `sfail`表示运行此测试，预期其失败
+
+### 批量测试
+
+使用`@pytest.mark.parametrize(argnames,argvalues)`
+
+
+
+### 测试方法
+
+- 单个测试用例：可以使用`pytest ****.py::test_name`执行
+- 单个目录：以目录作为pytest参数
+- 单个文件/模块：pytest后跟路径+文件名
+- 单个测试类：可以将测试一个接口的测试用例放在一个类中，运行时在文件名后加上::以及类名
+- 单个测试类中的方法：文件名后加上::以及类名加上::加上方法名
 
 ## pytest Fixture
 
@@ -91,3 +150,7 @@ pip3 install pytest
 ## 配置
 
 ## pytest与其他工具的搭配使用
+
+## Tip
+
+[^1]:在Linux系统中，一切设备都看作文件。而每打开一个文件，就有一个代表该打开文件的文件描述符。程序启动时默认打开三个I/O设备文件：标准输入文件stdin，标准输出文件stdout，标准错误输出文件stderr，分别得到文件描述符 0, 1, 2。

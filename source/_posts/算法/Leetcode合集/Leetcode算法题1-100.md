@@ -591,9 +591,77 @@ public:
 
 #### [51.N皇后](https://leetcode-cn.com/problems/n-queens)
 
-![n皇后截距.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Leetcode合集/Leetcode算法题1-100/n皇后截距.jpg)
+![n皇后截距计算.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Leetcode合集/Leetcode算法题1-100/n皇后截距计算.jpg)
+
+由图可知，当y=x+b是存在截距为负数的情况，而数组下表不存在负数。因此+n，保证其为正数。
+
+```cpp
+class Solution {
+public:
+    int n;
+    vector<bool> col, dg, udg;
+    vector <string> path;
+    vector <vector<string>> ans;
+
+    vector <vector<string>> solveNQueens(int _n) {
+        n = _n;
+        col = vector<bool>(n);
+        dg = udg = vector<bool>(2 * n);
+        path = vector<string>(n, string(n, '.'));
+        dfs(0);
+        return ans;
+    }
+
+    void dfs(int u) {
+        if (u == n) ans.push_back(path);
+        else {
+            for (int i = 0; i < n; i++) {
+                if (!col[i] && !dg[u - i + n] && !udg[u + i]) {
+                    col[i] = dg[u - i + n] = udg[u + i] = true;
+                    path[u][i] = 'Q';
+                    dfs(u + 1);
+                    path[u][i] = '.';
+                    col[i] = dg[u - i + n] = udg[u + i] = false;
+                }
+            }
+        }
+    }
+};
+```
 
 #### [52.N皇后II](https://leetcode-cn.com/problems/n-queens-ii)
+
+```cpp
+class Solution {
+public:
+    int n;
+    vector<bool> col, dg, udg;
+    int res;
+
+    int totalNQueens(int _n) {
+        n = _n;
+        res = 0;
+        col = vector<bool>(n);
+        dg = udg = vector<bool>(2 * n);
+        dfs(0);
+        return res;
+    }
+
+    void dfs(int u) {
+        if (u == n) {
+            ++res;
+        } else {
+            for (int i = 0; i < n; ++i) {
+                if (!col[i] && !dg[u - i + n] && !udg[u + i]) {
+                    col[i] = dg[u - i + n] = udg[u + i] = true;
+                    dfs(u + 1);
+                    col[i] = dg[u - i + n] = udg[u + i] = false;
+                }
+            }
+        }
+    }
+};
+```
 
 #### [53.](https://leetcode-cn.com/problems/maximum-subarray)
 
