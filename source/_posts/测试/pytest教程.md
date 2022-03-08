@@ -84,6 +84,12 @@ pip3 install pytest
 -r chars              show extra test summary info as specified by chars:
                         (p/P), or (A)ll. (w)arnings are enabled by default (see
 
+--lf, --last-failed   rerun only the tests that failed at the last run (or all，仅运行上次未通过的测试用例。
+
+--ff, --failed-first  run all tests, but run the last failures first.之前运行未通过的测试用例会首先执行，然后才是其他用例。
+
+`-s`参数可以在测试仍在执行期间就把输出直接发送到stdout。
+
 ### 命名规则
 
 只要遵循pytest的命名规则就可以自动搜索所有待执行的测试用例。主要的命名规则如下：
@@ -174,13 +180,148 @@ scope参数是在定义fixture定义的，而不是在调用fixture时定义的�
 
 **fixture只能使用同级别或比自己级别更好的fixture**。
 
-单个函数使用fixture是在传参中用fixture定义的名字，类使用fixture需要用装饰器实现`@pytest.mark.usefixtures(<fixture名字>)`。
+单个函数使用fixture是在传参中用fixture定义的名字，可以使用fixture的返回值。
+
+类使用fixture需要用装饰器实现`@pytest.mark.usefixtures(<fixture名字>)`。
 
 `tmpdir_factory`的作用范围是会话级别，`tmpdir`的作用范围是函数级别。
 
+使用`autouse=true`选项，使得作用域内的测试函数都运行该fixture。
+
+`@pytest.fixture(name="<new name>")`对fixture名称进行重命名。
+
+`pytest --fixture <测试函数名称>`可以列举所有可供测试的fixture。
+
+在fixture函数的下面第一行用`"""`包裹下写fixture的功能描述。
+
+fixture参数化可以在原本的fixture代码上使用`@pytest.fixture(params=<队列名>)`，并在下面的参数中设置传参`request`，通过`request.param`返回其中一个对象。这个fixture将会被调用`len(<队列名>)`的次数。同样支持用字符串列表指定id，`ids=`，这里也可以指定为一个函数，·供pytest生成task标识。
+
 ## 内置Fixtrue
 
+### tmpdir和tmpdir_factory
 
+内置的tmpdir和tmpdir_factory负责在测试开始运行前创建临时目录，并在测试结束后删除。
+
+tmpdir的返回值是`py.path.local`类型的一个对象。**tmpdir的作用范围是函数级别，只能针对测试函数使用tmpdir创建文件或目录。如果需要fixture作用范围高于函数级别（如类、模块、会话级别），则应使用tmpdir_factory**。
+
+```python
+def test_tmpdir(tmpdir):
+    # 在临时路径下创建somthing.txt
+    a_file = tmpdir.join('something.txt')
+    # 在临时路径下创建anything文件夹
+    a_sub_dir = tmpdir.mkdir('anything')
+    # 在angthing文件夹下创建文件
+    another_file = a_sub_dir.join('something_else.txt')
+    # 向文件中写文件
+    a_file.write('contents may settle during shipping')
+    # 从文件中读文件
+    a_file.read()
+    
+def test_tmpdir_factory(tmpdir_factory):
+    # 创建以mydir为前缀的文件夹
+    a_dir = tmpdir_factory.mktemp('mydir')
+    # 返回临时路径的根目录
+    base_temp = tmpdir_factory.getbasetemp()
+```
+
+可以使用`pytest --basetemp=mydir`指定所在的根目录。
+
+### pytestconfig
+
+内置的pytestconfig可以通过命令行参数、选项、配置文件、插件、运行目录等方式来控制pytest。
+
+```python
+def pytest_addoption(parser):
+    parser.addoption("--myopt", action="store_true",
+                     help="some boolean option")
+    parser.addoption("--foo", action="store", default="bar",
+                     help="foo: bar or baz")
+```
+
+```shell
+❯ pytest -s -q --foo hhh --myopt  test_config.py::test_option
+"foo" set to: hhh
+"myopt" set to: True
+```
+
+pytestconfig是一个fixture，它可以被其他fixture使用，形如：
+
+```python
+@pytest.fixture()
+def foo(pytestconfig):
+    return pytestconfig.option.foo
+
+
+@pytest.fixture()
+def myopt(pytestconfig):
+    return pytestconfig.option.myopt
+
+
+def test_fixtures_for_options(foo, myopt):
+    print('"foo" set to:', foo)
+    print('"myopt" set to:', myopt)
+```
+
+一些pytestcinfig的使用方式：
+
+```python
+def test_pytestconfig(pytestconfig):
+    print('args            :', pytestconfig.args)
+    print('inifile         :', pytestconfig.inifile)
+    print('invocation_dir  :', pytestconfig.invocation_dir)
+    print('rootdir         :', pytestconfig.rootdir)
+    print('-k EXPRESSION   :', pytestconfig.getoption('keyword'))
+    print('-v, --verbose   :', pytestconfig.getoption('verbose'))
+    print('-q, --quiet     :', pytestconfig.getoption('quiet'))
+    print('-l, --showlocals:', pytestconfig.getoption('showlocals'))
+    print('--tb=style      :', pytestconfig.getoption('tbstyle'))
+```
+
+### cache
+
+cache的作用是存储一段测试会话的信息，在下一段测试会话中使用。
+
+### capsys
+
+capsys有两个功能：
+
+- 允许使用代码读取stdout和stderr
+- 可以临时抓取日志输出
+
+```python
+def greeting(name):
+    print('Hi, {}'.format(name))
+    
+def test_greeting(capsys):
+    greeting('Earthling')
+    out, err = capsys.readouterr()
+    assert out == 'Hi, Earthling\n'
+    assert err == ''
+
+def yikes(problem):
+    print('YIKES! {}'.format(problem), file=sys.stderr)
+
+def test_yikes(capsys):
+    yikes('Out of coffee!')
+    out, err = capsys.readouterr()
+    assert out == ''
+    assert 'Out of coffee!' in err
+```
+
+`capsys.disabled()`检测是否关闭输出捕获。
+
+### monkeypatch
+
+monkeypatch可以在运行期间对类或模块进行动态修改，提供以下函数：
+
+- `setattr(target,name,value=<notset>,rasing=True)`：设置一个属性
+- `delattr(target,name=<notset>,raising=True)`：删除一个属性
+- `setitem(dic,name,value)`：设置字典中的一条记录
+- `delitem(dic,name,raising=True)`：删除字典中的一条记录
+- `setenv(name,value,prepend=None)`：设置一个环境变量
+- `delenv(name,raising=True)`：删除一个环境变量
+- `syspath_prepend(path)`：将路径path加入sys.path并放在最前，sys.path是Python导入的系统路径列表
+- `chdir(path)`
 
 ## 插件
 
