@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-07
+                    2022-03-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    11 分
                 </div>
                 
 
@@ -576,6 +576,9 @@
 <p><code>--durations=N</code>  show N slowest setup/test durations (N=0 for all).</p>
 <p><code>-rs</code>显示跳过原因，需要之前设置了跳过原因</p>
 <p>-r chars              show extra test summary info as specified by chars:<br>                        (p/P), or (A)ll. (w)arnings are enabled by default (see</p>
+<p>–lf, –last-failed   rerun only the tests that failed at the last run (or all，仅运行上次未通过的测试用例。</p>
+<p>–ff, –failed-first  run all tests, but run the last failures first.之前运行未通过的测试用例会首先执行，然后才是其他用例。</p>
+<p><code>-s</code>参数可以在测试仍在执行期间就把输出直接发送到stdout。</p>
 <h3 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h3><p>只要遵循pytest的命名规则就可以自动搜索所有待执行的测试用例。主要的命名规则如下：</p>
 <ul>
 <li>测试文件应当命名为<code>test_&lt;something&gt;.py</code>或者<code>&lt;something&gt;_test.py</code></li>
@@ -636,9 +639,110 @@
 </ul>
 <p>scope参数是在定义fixture定义的，而不是在调用fixture时定义的。因此使用fixture的测试函数是无法改变fixture的作用范围的。</p>
 <p><strong>fixture只能使用同级别或比自己级别更好的fixture</strong>。</p>
-<p>单个函数使用fixture是在传参中用fixture定义的名字，类使用fixture需要用装饰器实现<code>@pytest.mark.usefixtures(&lt;fixture名字&gt;)</code>。</p>
+<p>单个函数使用fixture是在传参中用fixture定义的名字，可以使用fixture的返回值。</p>
+<p>类使用fixture需要用装饰器实现<code>@pytest.mark.usefixtures(&lt;fixture名字&gt;)</code>。</p>
 <p><code>tmpdir_factory</code>的作用范围是会话级别，<code>tmpdir</code>的作用范围是函数级别。</p>
-<h2 id="内置Fixtrue"><a href="#内置Fixtrue" class="headerlink" title="内置Fixtrue"></a>内置Fixtrue</h2><h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h2 id="pytest与其他工具的搭配使用"><a href="#pytest与其他工具的搭配使用" class="headerlink" title="pytest与其他工具的搭配使用"></a>pytest与其他工具的搭配使用</h2><h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><p>[^1]:在Linux系统中，一切设备都看作文件。而每打开一个文件，就有一个代表该打开文件的文件描述符。程序启动时默认打开三个I/O设备文件：标准输入文件stdin，标准输出文件stdout，标准错误输出文件stderr，分别得到文件描述符 0, 1, 2。</p>
+<p>使用<code>autouse=true</code>选项，使得作用域内的测试函数都运行该fixture。</p>
+<p><code>@pytest.fixture(name="&lt;new name&gt;")</code>对fixture名称进行重命名。</p>
+<p><code>pytest --fixture &lt;测试函数名称&gt;</code>可以列举所有可供测试的fixture。</p>
+<p>在fixture函数的下面第一行用<code>"""</code>包裹下写fixture的功能描述。</p>
+<p>fixture参数化可以在原本的fixture代码上使用<code>@pytest.fixture(params=&lt;队列名&gt;)</code>，并在下面的参数中设置传参<code>request</code>，通过<code>request.param</code>返回其中一个对象。这个fixture将会被调用<code>len(&lt;队列名&gt;)</code>的次数。同样支持用字符串列表指定id，<code>ids=</code>，这里也可以指定为一个函数，·供pytest生成task标识。</p>
+<h2 id="内置Fixtrue"><a href="#内置Fixtrue" class="headerlink" title="内置Fixtrue"></a>内置Fixtrue</h2><h3 id="tmpdir和tmpdir-factory"><a href="#tmpdir和tmpdir-factory" class="headerlink" title="tmpdir和tmpdir_factory"></a>tmpdir和tmpdir_factory</h3><p>内置的tmpdir和tmpdir_factory负责在测试开始运行前创建临时目录，并在测试结束后删除。</p>
+<p>tmpdir的返回值是<code>py.path.local</code>类型的一个对象。<strong>tmpdir的作用范围是函数级别，只能针对测试函数使用tmpdir创建文件或目录。如果需要fixture作用范围高于函数级别（如类、模块、会话级别），则应使用tmpdir_factory</strong>。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test_tmpdir</span><span class="token punctuation">(</span>tmpdir<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># 在临时路径下创建somthing.txt</span>
+    a_file <span class="token operator">=</span> tmpdir<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">'something.txt'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 在临时路径下创建anything文件夹</span>
+    a_sub_dir <span class="token operator">=</span> tmpdir<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span><span class="token string">'anything'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 在angthing文件夹下创建文件</span>
+    another_file <span class="token operator">=</span> a_sub_dir<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">'something_else.txt'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 向文件中写文件</span>
+    a_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'contents may settle during shipping'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 从文件中读文件</span>
+    a_file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+<span class="token keyword">def</span> <span class="token function">test_tmpdir_factory</span><span class="token punctuation">(</span>tmpdir_factory<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># 创建以mydir为前缀的文件夹</span>
+    a_dir <span class="token operator">=</span> tmpdir_factory<span class="token punctuation">.</span>mktemp<span class="token punctuation">(</span><span class="token string">'mydir'</span><span class="token punctuation">)</span>
+    <span class="token comment"># 返回临时路径的根目录</span>
+    base_temp <span class="token operator">=</span> tmpdir_factory<span class="token punctuation">.</span>getbasetemp<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以使用<code>pytest --basetemp=mydir</code>指定所在的根目录。</p>
+<h3 id="pytestconfig"><a href="#pytestconfig" class="headerlink" title="pytestconfig"></a>pytestconfig</h3><p>内置的pytestconfig可以通过命令行参数、选项、配置文件、插件、运行目录等方式来控制pytest。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">pytest_addoption</span><span class="token punctuation">(</span>parser<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    parser<span class="token punctuation">.</span>addoption<span class="token punctuation">(</span><span class="token string">"--myopt"</span><span class="token punctuation">,</span> action<span class="token operator">=</span><span class="token string">"store_true"</span><span class="token punctuation">,</span>
+                     <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"some boolean option"</span><span class="token punctuation">)</span>
+    parser<span class="token punctuation">.</span>addoption<span class="token punctuation">(</span><span class="token string">"--foo"</span><span class="token punctuation">,</span> action<span class="token operator">=</span><span class="token string">"store"</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token string">"bar"</span><span class="token punctuation">,</span>
+                     <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"foo: bar or baz"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">❯ pytest -s -q --foo hhh --myopt  test_config.py::test_option
+"foo" set to: hhh
+"myopt" set to: True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>pytestconfig是一个fixture，它可以被其他fixture使用，形如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@pytest<span class="token punctuation">.</span>fixture</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">foo</span><span class="token punctuation">(</span>pytestconfig<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> pytestconfig<span class="token punctuation">.</span>option<span class="token punctuation">.</span>foo
+
+
+<span class="token decorator annotation punctuation">@pytest<span class="token punctuation">.</span>fixture</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">myopt</span><span class="token punctuation">(</span>pytestconfig<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> pytestconfig<span class="token punctuation">.</span>option<span class="token punctuation">.</span>myopt
+
+
+<span class="token keyword">def</span> <span class="token function">test_fixtures_for_options</span><span class="token punctuation">(</span>foo<span class="token punctuation">,</span> myopt<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'"foo" set to:'</span><span class="token punctuation">,</span> foo<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'"myopt" set to:'</span><span class="token punctuation">,</span> myopt<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>一些pytestcinfig的使用方式：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test_pytestconfig</span><span class="token punctuation">(</span>pytestconfig<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'args            :'</span><span class="token punctuation">,</span> pytestconfig<span class="token punctuation">.</span>args<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'inifile         :'</span><span class="token punctuation">,</span> pytestconfig<span class="token punctuation">.</span>inifile<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'invocation_dir  :'</span><span class="token punctuation">,</span> pytestconfig<span class="token punctuation">.</span>invocation_dir<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'rootdir         :'</span><span class="token punctuation">,</span> pytestconfig<span class="token punctuation">.</span>rootdir<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-k EXPRESSION   :'</span><span class="token punctuation">,</span> pytestconfig<span class="token punctuation">.</span>getoption<span class="token punctuation">(</span><span class="token string">'keyword'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-v, --verbose   :'</span><span class="token punctuation">,</span> pytestconfig<span class="token punctuation">.</span>getoption<span class="token punctuation">(</span><span class="token string">'verbose'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-q, --quiet     :'</span><span class="token punctuation">,</span> pytestconfig<span class="token punctuation">.</span>getoption<span class="token punctuation">(</span><span class="token string">'quiet'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-l, --showlocals:'</span><span class="token punctuation">,</span> pytestconfig<span class="token punctuation">.</span>getoption<span class="token punctuation">(</span><span class="token string">'showlocals'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'--tb=style      :'</span><span class="token punctuation">,</span> pytestconfig<span class="token punctuation">.</span>getoption<span class="token punctuation">(</span><span class="token string">'tbstyle'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h3><p>cache的作用是存储一段测试会话的信息，在下一段测试会话中使用。</p>
+<h3 id="capsys"><a href="#capsys" class="headerlink" title="capsys"></a>capsys</h3><p>capsys有两个功能：</p>
+<ul>
+<li>允许使用代码读取stdout和stderr</li>
+<li>可以临时抓取日志输出</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">greeting</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Hi, {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    
+<span class="token keyword">def</span> <span class="token function">test_greeting</span><span class="token punctuation">(</span>capsys<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    greeting<span class="token punctuation">(</span><span class="token string">'Earthling'</span><span class="token punctuation">)</span>
+    out<span class="token punctuation">,</span> err <span class="token operator">=</span> capsys<span class="token punctuation">.</span>readouterr<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">assert</span> out <span class="token operator">==</span> <span class="token string">'Hi, Earthling\n'</span>
+    <span class="token keyword">assert</span> err <span class="token operator">==</span> <span class="token string">''</span>
+
+<span class="token keyword">def</span> <span class="token function">yikes</span><span class="token punctuation">(</span>problem<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'YIKES! {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>problem<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">test_yikes</span><span class="token punctuation">(</span>capsys<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    yikes<span class="token punctuation">(</span><span class="token string">'Out of coffee!'</span><span class="token punctuation">)</span>
+    out<span class="token punctuation">,</span> err <span class="token operator">=</span> capsys<span class="token punctuation">.</span>readouterr<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">assert</span> out <span class="token operator">==</span> <span class="token string">''</span>
+    <span class="token keyword">assert</span> <span class="token string">'Out of coffee!'</span> <span class="token keyword">in</span> err<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>capsys.disabled()</code>检测是否关闭输出捕获。</p>
+<h3 id="monkeypatch"><a href="#monkeypatch" class="headerlink" title="monkeypatch"></a>monkeypatch</h3><p>monkeypatch可以在运行期间对类或模块进行动态修改，提供以下函数：</p>
+<ul>
+<li><code>setattr(target,name,value=&lt;notset&gt;,rasing=True)</code>：设置一个属性</li>
+<li><code>delattr(target,name=&lt;notset&gt;,raising=True)</code>：删除一个属性</li>
+<li><code>setitem(dic,name,value)</code>：设置字典中的一条记录</li>
+<li><code>delitem(dic,name,raising=True)</code>：删除字典中的一条记录</li>
+<li><code>setenv(name,value,prepend=None)</code>：设置一个环境变量</li>
+<li><code>delenv(name,raising=True)</code>：删除一个环境变量</li>
+<li><code>syspath_prepend(path)</code>：将路径path加入sys.path并放在最前，sys.path是Python导入的系统路径列表</li>
+<li><code>chdir(path)</code></li>
+</ul>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h2 id="pytest与其他工具的搭配使用"><a href="#pytest与其他工具的搭配使用" class="headerlink" title="pytest与其他工具的搭配使用"></a>pytest与其他工具的搭配使用</h2><h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><p>[^1]:在Linux系统中，一切设备都看作文件。而每打开一个文件，就有一个代表该打开文件的文件描述符。程序启动时默认打开三个I/O设备文件：标准输入文件stdin，标准输出文件stdout，标准错误输出文件stderr，分别得到文件描述符 0, 1, 2。</p>
 
                 
             </div>
@@ -1213,7 +1317,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">202.2k</span>&nbsp;字
+                class="white-color">203.2k</span>&nbsp;字
             
             
             
