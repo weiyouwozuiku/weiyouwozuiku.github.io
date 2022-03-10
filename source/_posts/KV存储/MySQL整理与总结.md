@@ -2,17 +2,17 @@
 title: MySQL整理与总结
 author: 不二
 img: >-
-  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/MySQL整理与总结.jpeg
+  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/KV存储/MySQL整理与总结.jpeg
 mathjax: true
 top: true
 date: 2022-03-01 21:06:10
 tags: MySQL
-categories: 程序设计
+categories: KV存储
 ---
 
 ## MySQL基础架构
 
-![MySQL逻辑架构图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/MySQL整理与总结/MySQL逻辑架构图.png)
+![MySQL逻辑架构图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/KV存储/MySQL整理与总结/MySQL逻辑架构图.png)
 
 MySQL大致可以分成Server层和存储引擎层。
 
@@ -85,7 +85,7 @@ MySQL利用WAL（Write-Ahead Logging）技术，先写日志再落磁盘。具�
 
 InnoDB的redo log大小是固定的。
 
-![redo_log示意图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/MySQL整理与总结/redo_log示意图.png)
+![redo_log示意图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/KV存储/MySQL整理与总结/redo_log示意图.png)
 
 `write pos` 是当前记录的位置，一边写一边后移，写到第 3 号文件末尾后就回到 0 号文件开头。`checkpoint` 是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件。
 
@@ -111,7 +111,7 @@ binlog有两种模式，statement格式会记录sql语句，row格式会记录�
 
 #### 整体运行逻辑
 
-![update语句执行流程.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/MySQL整理与总结/update语句执行流程.png)
+![update语句执行流程.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/KV存储/MySQL整理与总结/update语句执行流程.png)
 
 有了对这两个日志的概念性理解，我们再来看执行器和 InnoDB 引擎在执行简单的 update 语句`update table T set c=c+1 where ID=2`时的内部流程。
 
