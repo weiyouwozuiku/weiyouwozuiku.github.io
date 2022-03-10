@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-07
+                    2022-03-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    14.1k
+                    14.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    61 分
+                    62 分
                 </div>
                 
 
@@ -1767,17 +1767,7 @@ ULL <span class="token function">get</span><span class="token punctuation">(</sp
     <span class="token keyword">return</span> h<span class="token punctuation">[</span>r<span class="token punctuation">]</span> <span class="token operator">-</span> h<span class="token punctuation">[</span>l <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> p<span class="token punctuation">[</span>r <span class="token operator">-</span> l <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h2 id="搜索与图论"><a href="#搜索与图论" class="headerlink" title="搜索与图论"></a>搜索与图论</h2><h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><p>除最后一层无任何子节点外，每一层上的所有节点都有两个子节点二叉树。</p>
-<blockquote>
-<p>定义：一个二叉树，如果每一层的节点数都达到最大值，则这个树就是满二叉树。即，如果一个二叉树的层数为K，且节点总数为$2^K-1$，则它是满二叉树。</p>
-</blockquote>
-<h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p>完全二叉树是在满二叉树的基础上引申出来的。对于深度为k，有n个节点的二叉树，当且仅当每个节点都与深度为k的满二叉树中编号从1至n的节点一一对应就是完全二叉树。</p>
-<blockquote>
-<p>定义：若设二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。</p>
-</blockquote>
-<h3 id="DFS与BFS"><a href="#DFS与BFS" class="headerlink" title="DFS与BFS"></a>DFS与BFS</h3><table>
+<h2 id="搜索与图论"><a href="#搜索与图论" class="headerlink" title="搜索与图论"></a>搜索与图论</h2><h3 id="DFS与BFS"><a href="#DFS与BFS" class="headerlink" title="DFS与BFS"></a>DFS与BFS</h3><table>
 <thead>
 <tr>
 <th align="center"></th>
@@ -1799,6 +1789,28 @@ ULL <span class="token function">get</span><span class="token punctuation">(</sp
 <td align="center">可以计算最短路径</td>
 </tr>
 </tbody></table>
+<p>DFS具体应用可以去看下<a target="_blank" rel="noopener" href="https://github.com/weiyouwozuiku/AlgorithmSolution/blob/master/Cpp/acwing/%5B843%5Dn-%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98.cpp">n皇后</a>。</p>
+<p>BFS具体应用可以看下<a target="_blank" rel="noopener" href="https://github.com/weiyouwozuiku/AlgorithmSolution/blob/master/Cpp/acwing/%5B844%5D%E8%B5%B0%E8%BF%B7%E5%AE%AB.cpp">走迷宫</a>。</p>
+<h3 id="图和树的存储"><a href="#图和树的存储" class="headerlink" title="图和树的存储"></a>图和树的存储</h3><p>树可以理解为一种特殊的图，与图的存储方式相同。</p>
+<p>对于无向图就是一种特殊的有向图，因此只需要考虑有向图的存储。</p>
+<pre class="mermaid">graph LR;
+有向图存储--&gt;邻接矩阵
+有向图存储--&gt;邻接表</pre>
+
+<h4 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h4><p><code>g[a][b]</code>存储边a-&gt;b。如果只是连通，可以用bool表示；如果包含权重信息，可以用int类型。</p>
+<h4 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 对于每个点k，开一个单链表，存储k所有可以走到的点。h[k]存储这个单链表的头结点</span>
+<span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
+
+<span class="token comment">// 添加一条边a-&gt;b</span>
+<span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> b<span class="token punctuation">,</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">,</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> idx <span class="token operator">++</span> <span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 初始化</span>
+idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token function">memset</span><span class="token punctuation">(</span>h<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>时间复杂度$O(n+m)$， $n$表示点数，$m$表示边数。</p>
 <ul>
 <li><p>深度优先遍历</p>
@@ -1812,6 +1824,8 @@ ULL <span class="token function">get</span><span class="token punctuation">(</sp
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 </li>
 <li><p>广度优先遍历</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> q<span class="token punctuation">;</span>
@@ -1836,10 +1850,16 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 
 
 
-
-
 </li>
 </ul>
+<h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><p>除最后一层无任何子节点外，每一层上的所有节点都有两个子节点二叉树。</p>
+<blockquote>
+<p>定义：一个二叉树，如果每一层的节点数都达到最大值，则这个树就是满二叉树。即，如果一个二叉树的层数为K，且节点总数为$2^K-1$，则它是满二叉树。</p>
+</blockquote>
+<h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p>完全二叉树是在满二叉树的基础上引申出来的。对于深度为k，有n个节点的二叉树，当且仅当每个节点都与深度为k的满二叉树中编号从1至n的节点一一对应就是完全二叉树。</p>
+<blockquote>
+<p>定义：若设二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。</p>
+</blockquote>
 <h3 id="拓朴排序"><a href="#拓朴排序" class="headerlink" title="拓朴排序"></a>拓朴排序</h3><h3 id="最短路"><a href="#最短路" class="headerlink" title="最短路"></a>最短路</h3><h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><h3 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h3><h4 id="染色法"><a href="#染色法" class="headerlink" title="染色法"></a>染色法</h4><h4 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h4><h3 id="网络流"><a href="#网络流" class="headerlink" title="网络流"></a>网络流</h3><h4 id="最大流"><a href="#最大流" class="headerlink" title="最大流"></a>最大流</h4><h4 id="最小割"><a href="#最小割" class="headerlink" title="最小割"></a>最小割</h4><h4 id="费用流"><a href="#费用流" class="headerlink" title="费用流"></a>费用流</h4><h3 id="2-SAT"><a href="#2-SAT" class="headerlink" title="2-SAT"></a>2-SAT</h3><h3 id="朱流算法"><a href="#朱流算法" class="headerlink" title="朱流算法"></a>朱流算法</h3><h3 id="Prufer编码"><a href="#Prufer编码" class="headerlink" title="Prufer编码"></a>Prufer编码</h3><h3 id="模拟退火"><a href="#模拟退火" class="headerlink" title="模拟退火"></a>模拟退火</h3><h3 id="爬山法"><a href="#爬山法" class="headerlink" title="爬山法"></a>爬山法</h3><h2 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h2><h3 id="质数"><a href="#质数" class="headerlink" title="质数"></a>质数</h3><h3 id="约数"><a href="#约数" class="headerlink" title="约数"></a>约数</h3><h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><h3 id="扩展欧几里德算法"><a href="#扩展欧几里德算法" class="headerlink" title="扩展欧几里德算法"></a>扩展欧几里德算法</h3><h3 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h3><h3 id="高斯消元"><a href="#高斯消元" class="headerlink" title="高斯消元"></a>高斯消元</h3><h3 id="组合计数"><a href="#组合计数" class="headerlink" title="组合计数"></a>组合计数</h3><h3 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h3><h3 id="简单博弈论"><a href="#简单博弈论" class="headerlink" title="简单博弈论"></a>简单博弈论</h3><h3 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h3><h3 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h3><h3 id="BSGS"><a href="#BSGS" class="headerlink" title="BSGS"></a>BSGS</h3><h3 id="FFT"><a href="#FFT" class="headerlink" title="FFT"></a>FFT</h3><h3 id="生成函数"><a href="#生成函数" class="headerlink" title="生成函数"></a>生成函数</h3><h3 id="Burnside引理和Polya定理"><a href="#Burnside引理和Polya定理" class="headerlink" title="Burnside引理和Polya定理"></a>Burnside引理和Polya定理</h3><h3 id="斯特林数"><a href="#斯特林数" class="headerlink" title="斯特林数"></a>斯特林数</h3><h3 id="线性基"><a href="#线性基" class="headerlink" title="线性基"></a>线性基</h3><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h3><h3 id="线性DP"><a href="#线性DP" class="headerlink" title="线性DP"></a>线性DP</h3><h3 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h3><h3 id="计数类DP"><a href="#计数类DP" class="headerlink" title="计数类DP"></a>计数类DP</h3><h3 id="数位统计DP"><a href="#数位统计DP" class="headerlink" title="数位统计DP"></a>数位统计DP</h3><h3 id="状态压缩DP"><a href="#状态压缩DP" class="headerlink" title="状态压缩DP"></a>状态压缩DP</h3><h3 id="树状DP"><a href="#树状DP" class="headerlink" title="树状DP"></a>树状DP</h3><h3 id="记忆化搜索"><a href="#记忆化搜索" class="headerlink" title="记忆化搜索"></a>记忆化搜索</h3><h3 id="基环树"><a href="#基环树" class="headerlink" title="基环树"></a>基环树</h3><h3 id="四边形不等式优化"><a href="#四边形不等式优化" class="headerlink" title="四边形不等式优化"></a>四边形不等式优化</h3><h3 id="插头DP"><a href="#插头DP" class="headerlink" title="插头DP"></a>插头DP</h3><h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><h2 id="计算几何"><a href="#计算几何" class="headerlink" title="计算几何"></a>计算几何</h2><h3 id="二维计算几何基础"><a href="#二维计算几何基础" class="headerlink" title="二维计算几何基础"></a>二维计算几何基础</h3><h3 id="凸包"><a href="#凸包" class="headerlink" title="凸包"></a>凸包</h3><h3 id="半平面交"><a href="#半平面交" class="headerlink" title="半平面交"></a>半平面交</h3><h3 id="最小圆覆盖"><a href="#最小圆覆盖" class="headerlink" title="最小圆覆盖"></a>最小圆覆盖</h3><h3 id="三维计算几何基础"><a href="#三维计算几何基础" class="headerlink" title="三维计算几何基础"></a>三维计算几何基础</h3><h3 id="三维凸包"><a href="#三维凸包" class="headerlink" title="三维凸包"></a>三维凸包</h3><h3 id="旋转卡壳"><a href="#旋转卡壳" class="headerlink" title="旋转卡壳"></a>旋转卡壳</h3><h3 id="三角剖分"><a href="#三角剖分" class="headerlink" title="三角剖分"></a>三角剖分</h3><h3 id="扫描线"><a href="#扫描线" class="headerlink" title="扫描线"></a>扫描线</h3><h3 id="自适应辛普森积分"><a href="#自适应辛普森积分" class="headerlink" title="自适应辛普森积分"></a>自适应辛普森积分</h3><h2 id="常用STL"><a href="#常用STL" class="headerlink" title="常用STL"></a>常用STL</h2><p>所有容器中都有<code>size()和empty()</code>函数时间复杂度为$O(1)$。</p>
 <h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>变长数组，倍增思想。</p>
 <p>系统中为某一程序分配空间时所需时间时间，与空间大小无关，与申请次数有关。vector插入的平均性能可以理解为是$O(1)$。</p>
@@ -1952,6 +1972,7 @@ map<span class="token operator">/</span>multimap
 <h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="c-的io"><a href="#c-的io" class="headerlink" title="c++的io"></a>c++的io</h3><h4 id="cin和scanf速度"><a href="#cin和scanf速度" class="headerlink" title="cin和scanf速度"></a>cin和scanf速度</h4><p>cin、cout之所以效率低是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而<code>std::ios::sync_with_stdio(false);</code>可以来打消iostream的输入输出缓存，可以节省许多时间，使效率与scanf与printf相差无几。这样做了之后要注意不要同时混用cout和printf 之类。</p>
 <p>应注意的是scanf与printf使用的头文件应是stdio.h而不是 iostream。</p>
 <p>在默认的情况下cin绑定的是cout，每次执行 &lt;&lt; 操作符的时候都要调用flush，这样会增加IO负担。可以通过tie(0)（0表示NULL）来解除cin与cout的绑定，进一步加快执行效率。</p>
+<p><code>cin</code>和<code>scanf</code>的效率差距在一百万量级下比较明显，少于这个量级这二者没明显区别，随便用。</p>
 <h4 id="sync-with-stdio"><a href="#sync-with-stdio" class="headerlink" title="sync_with_stdio"></a>sync_with_stdio</h4><p>这个函数是一个“是否兼容stdio”的开关，C++为了兼容C，保证程序在使用了std::printf和std::cout的时候不发生混乱，将输出流绑到了一起。</p>
 <h4 id="tie"><a href="#tie" class="headerlink" title="tie"></a>tie</h4><p>tie是将两个stream绑定的函数，空参数的话返回当前的输出流指针。如<code>std::cin.tie()</code>，默认返回cout，数据类型为std::ostream。</p>
 <h3 id="java的io"><a href="#java的io" class="headerlink" title="java的io"></a>java的io</h3><p> java.util.Scanner类是一个简单的文本扫描类，它可以解析基本数据类型和字符串。它本质上是使用正则表达式去读取不同的数据类型。</p>
@@ -2602,7 +2623,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">203.5k</span>&nbsp;字
+                class="white-color">203.8k</span>&nbsp;字
             
             
             
