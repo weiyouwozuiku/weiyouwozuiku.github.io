@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-03-07T09:19:05.000Z</updated>
+  <updated>2022-03-12T14:19:50.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>消息队列学习</title>
+    <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/xiao-xi-dui-lie-xue-xi/"/>
+    <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/xiao-xi-dui-lie-xue-xi/</id>
+    <published>2022-03-12T14:07:51.000Z</published>
+    <updated>2022-03-12T14:19:50.000Z</updated>
+    
+    
+    
+    
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="消息队列" scheme="http://buerlog.top/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis学习</title>
+    <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/redis-xue-xi/"/>
+    <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/redis-xue-xi/</id>
+    <published>2022-03-12T14:07:36.000Z</published>
+    <updated>2022-03-12T14:19:50.000Z</updated>
+    
+    
+    
+    
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="Redis" scheme="http://buerlog.top/tags/Redis/"/>
+    
+  </entry>
   
   <entry>
     <title>《MySQL是怎样运行的》整理</title>
@@ -156,7 +190,7 @@
     <link href="http://buerlog.top/2022/03/01/kv-cun-chu/mysql-zheng-li-yu-zong-jie/"/>
     <id>http://buerlog.top/2022/03/01/kv-cun-chu/mysql-zheng-li-yu-zong-jie/</id>
     <published>2022-03-01T13:06:10.000Z</published>
-    <updated>2022-03-10T17:27:33.000Z</updated>
+    <updated>2022-03-12T14:19:50.000Z</updated>
     
     
       
@@ -2510,59 +2544,6 @@
     
     
     <category term="马尔可夫" scheme="http://buerlog.top/tags/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Acwing学习</title>
-    <link href="http://buerlog.top/2020/04/15/suan-fa/acwing-xue-xi/"/>
-    <id>http://buerlog.top/2020/04/15/suan-fa/acwing-xue-xi/</id>
-    <published>2020-04-15T14:41:17.000Z</published>
-    <updated>2022-03-10T01:46:48.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;总览&quot;&gt;&lt;a href=&quot;#总览&quot; class=&quot;headerlink&quot; title=&quot;总览&quot;&gt;&lt;/a&gt;总览&lt;/h2&gt;&lt;pre class=&quot;mermaid&quot;&gt;graph</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文总结</title>
-    <link href="http://buerlog.top/2020/02/24/yun-ji-suan/lun-wen-zong-jie/"/>
-    <id>http://buerlog.top/2020/02/24/yun-ji-suan/lun-wen-zong-jie/</id>
-    <published>2020-02-24T03:22:22.000Z</published>
-    <updated>2022-01-23T14:19:25.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;这篇博客作为自身阅读论文的一个备忘。记录自己看过的论文中的所见、所思、所感。&lt;/p&gt;
-&lt;h2 id=&quot;前置知识&quot;&gt;&lt;a href=&quot;#前置知识&quot; class=&quot;headerlink&quot; title=&quot;前置知识&quot;&gt;&lt;/a&gt;前置知识&lt;/h2&gt;&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="云计算" scheme="http://buerlog.top/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
-    
-    
-    <category term="算法" scheme="http://buerlog.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="Paper" scheme="http://buerlog.top/tags/Paper/"/>
     
   </entry>
   
