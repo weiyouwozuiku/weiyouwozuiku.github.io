@@ -542,6 +542,51 @@ Mutex 不能容忍这种事情发生。所以，2016 年 Go 1.9 中 Mutex 增加
 
 当超过饥饿模式的最大等待时间阈值，优先让等待goroutine获得锁。通过加入饥饿模式，可以避免把机会全都留给新来的 goroutine，保证了请求锁的 goroutine 获取锁的公平性，对于我们使用锁的业务代码来说，不会有业务一直等待锁不被处理。
 
+#### Mutex使用中常见bug
+
+#####  Lock/Unlock 不是成对出现
+
+Lock/Unlock 没有成对出现，就意味着会出现死锁的情况，或者是因为 Unlock 一个未加锁的 Mutex 而导致 panic。
+
+常见情况：
+
+- 代码中有太多的 if-else 分支，可能在某个分支中漏写了 Unlock
+- 在重构的时候把 Unlock 给删除了
+- Unlock 误写成了 Lock
+- Unlock 一个未加锁的 Mutex
+
+##### Copy 已使用的 Mutex
+
+ Package sync 的同步原语在使用后是不能复制的。
+
+**Mutex不能复制**。因为Mutex是一个有状态的对象，其中的state字段记录了这个锁的状态。**关键在并发的环境下，state状态是完全不确定的。**
+
+可以使用 **vet 工具**在编译时检测是否存在复制Mutex现象，把检查写在 Makefile 文件中，在持续集成的时候跑一跑，这样可以及时发现问题，及时修复。
+
+检查是通过[copylock](https://github.com/golang/tools/blob/master/go/analysis/passes/copylock/copylock.go)分析器静态分析实现的。这个分析器会分析函数调用、range 遍历、复制、声明、函数返回值等位置，有没有锁的值 copy 的情景，以此来判断有没有问题。可以说，**只要是实现了 Locker 接口，就会被分析**。我们看到，下面的代码就是确定什么类型会被分析，其实就是实现了 Lock/Unlock 两个方法的 Locker 接口：
+
+```go
+var lockerType *types.Interface
+  
+  // Construct a sync.Locker interface type.
+  func init() {
+    nullary := types.NewSignature(nil, nil, nil, false) // func()
+    methods := []*types.Func{
+      types.NewFunc(token.NoPos, nil, "Lock", nullary),
+      types.NewFunc(token.NoPos, nil, "Unlock", nullary),
+    }
+    lockerType = types.NewInterface(methods, nil).Complete()
+  }
+```
+
+其实，有些没有实现 Locker 接口的同步原语（比如 WaitGroup），也能被分析。
+
+Go 在运行时，有**死锁的检查机制**（[checkdead()](https://go.dev/src/runtime/proc.go?h=checkdead#L4345) 方法），它能够发现死锁的 goroutine。程序运行的时候，死锁检查机制能够发现这种死锁情况并输出错误信息，但是需要在运行时才能发现。
+
+##### 重入
+
+##### 死锁
+
 ### 饥饿模式和正常模式
 
 ```mermaid
@@ -549,6 +594,63 @@ graph LR;
 Mutex-->饥饿模式
 Mutex-->正常模式
 ```
+
+首先分析一下 Mutex 对饥饿模式和正常模式的处理。
+
+请求锁时调用的 Lock 方法中一开始是 fast path，这是一个幸运的场景，当前的 goroutine 幸运地获得了锁，没有竞争，直接返回，否则就进入了 lockSlow 方法。这样的设计，方便编译器对 Lock 方法进行内联，你也可以在程序开发中应用这个技巧。
+
+正常模式下，waiter 都是进入先入先出队列，被唤醒的 waiter 并不会直接持有锁，而是要和新来的 goroutine 进行竞争。新来的 goroutine 有先天的优势，它们正在 CPU 中运行，可能它们的数量还不少，所以，在高并发情况下，被唤醒的 waiter 可能比较悲剧地获取不到锁，这时，它会被插入到队列的前面。如果 waiter 获取不到锁的时间超过阈值 1 毫秒，那么，这个 Mutex 就进入到了饥饿模式。
+
+在饥饿模式下，Mutex 的拥有者将直接把锁交给队列最前面的 waiter。新来的 goroutine 不会尝试获取锁，即使看起来锁没有被持有，它也不会去抢，也不会 spin，它会乖乖地加入到等待队列的尾部。
+
+如果拥有 Mutex 的 waiter 发现下面两种情况的其中之一，它就会把这个 Mutex 转换成正常模式:
+
+- 此 waiter 已经是队列中的最后一个 waiter 了，没有其它的等待锁的 goroutine 了；
+- 此 waiter 的等待时间小于 1 毫秒。
+
+正常模式拥有更好的性能，因为即使有等待抢锁的 waiter，goroutine 也可以连续多次获取到锁。
+
+饥饿模式是对公平性和性能的一种平衡，它避免了某些 goroutine 长时间的等待锁。在饥饿模式下，优先对待的是那些一直在等待的 waiter。
+
+代码分析：
+
+第 9 行对 state 字段又分出了一位，用来标记锁是否处于饥饿状态。现在一个 state 的字段被划分成了阻塞等待的 waiter 数量、饥饿标记、唤醒标记和持有锁的标记四个部分。
+
+第 25 行记录此 goroutine 请求锁的初始时间，第 26 行标记是否处于饥饿状态，第 27 行标记是否是唤醒的，第 28 行记录 spin 的次数。
+
+第 31 行到第 40 行和以前的逻辑类似，只不过加了一个不能是饥饿状态的逻辑。它会对正常状态抢夺锁的 goroutine 尝试 spin，和以前的目的一样，就是在临界区耗时很短的情况下提高性能。
+
+第 42 行到第 44 行，非饥饿状态下抢锁。怎么抢？就是要把 state 的锁的那一位，置为加锁状态，后续 CAS 如果成功就可能获取到了锁。
+
+第 46 行到第 48 行，如果锁已经被持有或者锁处于饥饿状态，我们最好的归宿就是等待，所以 waiter 的数量加 1。
+
+第 49 行到第 51 行，如果此 goroutine 已经处在饥饿状态，并且锁还被持有，那么，我们需要把此 Mutex 设置为饥饿状态。
+
+第 52 行到第 57 行，是清除 mutexWoken 标记，因为不管是获得了锁还是进入休眠，我们都需要清除 mutexWoken 标记。
+
+第 59 行就是尝试使用 CAS 设置 state。如果成功，第 61 行到第 63 行是检查原来的锁的状态是未加锁状态，并且也不是饥饿状态的话就成功获取了锁，返回。
+
+第 67 行判断是否第一次加入到 waiter 队列。到这里，你应该就能明白第 25 行为什么不对 waitStartTime 进行初始化了，我们需要利用它在这里进行条件判断。
+
+第 72 行将此 waiter 加入到队列，如果是首次，加入到队尾，先进先出。如果不是首次，那么加入到队首，这样等待最久的 goroutine 优先能够获取到锁。此 goroutine 会进行休眠。
+
+第 74 行判断此 goroutine 是否处于饥饿状态。注意，执行这一句的时候，它已经被唤醒了。
+
+第 77 行到第 88 行是对锁处于饥饿状态下的一些处理。
+
+第 82 行设置一个标志，这个标志稍后会用来加锁，而且还会将 waiter 数减 1。
+
+第 84 行，设置标志，在没有其它的 waiter 或者此 goroutine 等待还没超过 1 毫秒，则会将 Mutex 转为正常状态。
+
+第 86 行则是将这个标识应用到 state 字段上。
+
+释放锁（Unlock）时调用的 Unlock 的 fast path 不用多少，所以我们主要看 unlockSlow 方法就行。
+
+如果 Mutex 处于饥饿状态，第 123 行直接唤醒等待队列中的 waiter。
+
+如果 Mutex 处于正常状态，如果没有 waiter，或者已经有在处理的情况了，那么释放就好，不做额外的处理（第 112 行到第 114 行）。
+
+否则，waiter 数减 1，mutexWoken 标志设置上，通过 CAS 更新 state 的值（第 115 行到第 119 行）。
 
 
 
