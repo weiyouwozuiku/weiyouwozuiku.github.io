@@ -497,14 +497,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.7k
+                    7.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    22 分
+                    28 分
                 </div>
                 
 
@@ -954,12 +954,67 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>当超过饥饿模式的最大等待时间阈值，优先让等待goroutine获得锁。通过加入饥饿模式，可以避免把机会全都留给新来的 goroutine，保证了请求锁的 goroutine 获取锁的公平性，对于我们使用锁的业务代码来说，不会有业务一直等待锁不被处理。</p>
-<h3 id="饥饿模式和正常模式"><a href="#饥饿模式和正常模式" class="headerlink" title="饥饿模式和正常模式"></a>饥饿模式和正常模式</h3><pre class="mermaid">graph LR;
+<h4 id="Mutex使用中常见bug"><a href="#Mutex使用中常见bug" class="headerlink" title="Mutex使用中常见bug"></a>Mutex使用中常见bug</h4><h5 id="Lock-Unlock-不是成对出现"><a href="#Lock-Unlock-不是成对出现" class="headerlink" title="Lock/Unlock 不是成对出现"></a>Lock/Unlock 不是成对出现</h5><p>Lock/Unlock 没有成对出现，就意味着会出现死锁的情况，或者是因为 Unlock 一个未加锁的 Mutex 而导致 panic。</p>
+<p>常见情况：</p>
+<ul>
+<li>代码中有太多的 if-else 分支，可能在某个分支中漏写了 Unlock</li>
+<li>在重构的时候把 Unlock 给删除了</li>
+<li>Unlock 误写成了 Lock</li>
+<li>Unlock 一个未加锁的 Mutex</li>
+</ul>
+<h5 id="Copy-已使用的-Mutex"><a href="#Copy-已使用的-Mutex" class="headerlink" title="Copy 已使用的 Mutex"></a>Copy 已使用的 Mutex</h5><p> Package sync 的同步原语在使用后是不能复制的。</p>
+<p><strong>Mutex不能复制</strong>。因为Mutex是一个有状态的对象，其中的state字段记录了这个锁的状态。<strong>关键在并发的环境下，state状态是完全不确定的。</strong></p>
+<p>可以使用 <strong>vet 工具</strong>在编译时检测是否存在复制Mutex现象，把检查写在 Makefile 文件中，在持续集成的时候跑一跑，这样可以及时发现问题，及时修复。</p>
+<p>检查是通过<a target="_blank" rel="noopener" href="https://github.com/golang/tools/blob/master/go/analysis/passes/copylock/copylock.go">copylock</a>分析器静态分析实现的。这个分析器会分析函数调用、range 遍历、复制、声明、函数返回值等位置，有没有锁的值 copy 的情景，以此来判断有没有问题。可以说，<strong>只要是实现了 Locker 接口，就会被分析</strong>。我们看到，下面的代码就是确定什么类型会被分析，其实就是实现了 Lock/Unlock 两个方法的 Locker 接口：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> lockerType <span class="token operator">*</span>types<span class="token punctuation">.</span>Interface
+  
+  <span class="token comment">// Construct a sync.Locker interface type.</span>
+  <span class="token keyword">func</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    nullary <span class="token operator">:=</span> types<span class="token punctuation">.</span><span class="token function">NewSignature</span><span class="token punctuation">(</span><span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token comment">// func()</span>
+    methods <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">*</span>types<span class="token punctuation">.</span>Func<span class="token punctuation">{</span>
+      types<span class="token punctuation">.</span><span class="token function">NewFunc</span><span class="token punctuation">(</span>token<span class="token punctuation">.</span>NoPos<span class="token punctuation">,</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token string">"Lock"</span><span class="token punctuation">,</span> nullary<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      types<span class="token punctuation">.</span><span class="token function">NewFunc</span><span class="token punctuation">(</span>token<span class="token punctuation">.</span>NoPos<span class="token punctuation">,</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> <span class="token string">"Unlock"</span><span class="token punctuation">,</span> nullary<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    lockerType <span class="token operator">=</span> types<span class="token punctuation">.</span><span class="token function">NewInterface</span><span class="token punctuation">(</span>methods<span class="token punctuation">,</span> <span class="token boolean">nil</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Complete</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其实，有些没有实现 Locker 接口的同步原语（比如 WaitGroup），也能被分析。</p>
+<p>Go 在运行时，有<strong>死锁的检查机制</strong>（<a target="_blank" rel="noopener" href="https://go.dev/src/runtime/proc.go?h=checkdead#L4345">checkdead()</a> 方法），它能够发现死锁的 goroutine。程序运行的时候，死锁检查机制能够发现这种死锁情况并输出错误信息，但是需要在运行时才能发现。</p>
+<h5 id="重入"><a href="#重入" class="headerlink" title="重入"></a>重入</h5><h5 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h5><h3 id="饥饿模式和正常模式"><a href="#饥饿模式和正常模式" class="headerlink" title="饥饿模式和正常模式"></a>饥饿模式和正常模式</h3><pre class="mermaid">graph LR;
 Mutex--&gt;饥饿模式
 Mutex--&gt;正常模式</pre>
 
-
-
+<p>首先分析一下 Mutex 对饥饿模式和正常模式的处理。</p>
+<p>请求锁时调用的 Lock 方法中一开始是 fast path，这是一个幸运的场景，当前的 goroutine 幸运地获得了锁，没有竞争，直接返回，否则就进入了 lockSlow 方法。这样的设计，方便编译器对 Lock 方法进行内联，你也可以在程序开发中应用这个技巧。</p>
+<p>正常模式下，waiter 都是进入先入先出队列，被唤醒的 waiter 并不会直接持有锁，而是要和新来的 goroutine 进行竞争。新来的 goroutine 有先天的优势，它们正在 CPU 中运行，可能它们的数量还不少，所以，在高并发情况下，被唤醒的 waiter 可能比较悲剧地获取不到锁，这时，它会被插入到队列的前面。如果 waiter 获取不到锁的时间超过阈值 1 毫秒，那么，这个 Mutex 就进入到了饥饿模式。</p>
+<p>在饥饿模式下，Mutex 的拥有者将直接把锁交给队列最前面的 waiter。新来的 goroutine 不会尝试获取锁，即使看起来锁没有被持有，它也不会去抢，也不会 spin，它会乖乖地加入到等待队列的尾部。</p>
+<p>如果拥有 Mutex 的 waiter 发现下面两种情况的其中之一，它就会把这个 Mutex 转换成正常模式:</p>
+<ul>
+<li>此 waiter 已经是队列中的最后一个 waiter 了，没有其它的等待锁的 goroutine 了；</li>
+<li>此 waiter 的等待时间小于 1 毫秒。</li>
+</ul>
+<p>正常模式拥有更好的性能，因为即使有等待抢锁的 waiter，goroutine 也可以连续多次获取到锁。</p>
+<p>饥饿模式是对公平性和性能的一种平衡，它避免了某些 goroutine 长时间的等待锁。在饥饿模式下，优先对待的是那些一直在等待的 waiter。</p>
+<p>代码分析：</p>
+<p>第 9 行对 state 字段又分出了一位，用来标记锁是否处于饥饿状态。现在一个 state 的字段被划分成了阻塞等待的 waiter 数量、饥饿标记、唤醒标记和持有锁的标记四个部分。</p>
+<p>第 25 行记录此 goroutine 请求锁的初始时间，第 26 行标记是否处于饥饿状态，第 27 行标记是否是唤醒的，第 28 行记录 spin 的次数。</p>
+<p>第 31 行到第 40 行和以前的逻辑类似，只不过加了一个不能是饥饿状态的逻辑。它会对正常状态抢夺锁的 goroutine 尝试 spin，和以前的目的一样，就是在临界区耗时很短的情况下提高性能。</p>
+<p>第 42 行到第 44 行，非饥饿状态下抢锁。怎么抢？就是要把 state 的锁的那一位，置为加锁状态，后续 CAS 如果成功就可能获取到了锁。</p>
+<p>第 46 行到第 48 行，如果锁已经被持有或者锁处于饥饿状态，我们最好的归宿就是等待，所以 waiter 的数量加 1。</p>
+<p>第 49 行到第 51 行，如果此 goroutine 已经处在饥饿状态，并且锁还被持有，那么，我们需要把此 Mutex 设置为饥饿状态。</p>
+<p>第 52 行到第 57 行，是清除 mutexWoken 标记，因为不管是获得了锁还是进入休眠，我们都需要清除 mutexWoken 标记。</p>
+<p>第 59 行就是尝试使用 CAS 设置 state。如果成功，第 61 行到第 63 行是检查原来的锁的状态是未加锁状态，并且也不是饥饿状态的话就成功获取了锁，返回。</p>
+<p>第 67 行判断是否第一次加入到 waiter 队列。到这里，你应该就能明白第 25 行为什么不对 waitStartTime 进行初始化了，我们需要利用它在这里进行条件判断。</p>
+<p>第 72 行将此 waiter 加入到队列，如果是首次，加入到队尾，先进先出。如果不是首次，那么加入到队首，这样等待最久的 goroutine 优先能够获取到锁。此 goroutine 会进行休眠。</p>
+<p>第 74 行判断此 goroutine 是否处于饥饿状态。注意，执行这一句的时候，它已经被唤醒了。</p>
+<p>第 77 行到第 88 行是对锁处于饥饿状态下的一些处理。</p>
+<p>第 82 行设置一个标志，这个标志稍后会用来加锁，而且还会将 waiter 数减 1。</p>
+<p>第 84 行，设置标志，在没有其它的 waiter 或者此 goroutine 等待还没超过 1 毫秒，则会将 Mutex 转为正常状态。</p>
+<p>第 86 行则是将这个标识应用到 state 字段上。</p>
+<p>释放锁（Unlock）时调用的 Unlock 的 fast path 不用多少，所以我们主要看 unlockSlow 方法就行。</p>
+<p>如果 Mutex 处于饥饿状态，第 123 行直接唤醒等待队列中的 waiter。</p>
+<p>如果 Mutex 处于正常状态，如果没有 waiter，或者已经有在处理的情况了，那么释放就好，不做额外的处理（第 112 行到第 114 行）。</p>
+<p>否则，waiter 数减 1，mutexWoken 标志设置上，通过 CAS 更新 state 的值（第 115 行到第 119 行）。</p>
 <h2 id="原子操作"><a href="#原子操作" class="headerlink" title="原子操作"></a>原子操作</h2><h2 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h2><h2 id="拓展并发原语"><a href="#拓展并发原语" class="headerlink" title="拓展并发原语"></a>拓展并发原语</h2><h2 id="分布式并发原语"><a href="#分布式并发原语" class="headerlink" title="分布式并发原语"></a>分布式并发原语</h2><h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="race-detector"><a href="#race-detector" class="headerlink" title="race detector"></a>race detector</h3><p><a target="_blank" rel="noopener" href="https://go.dev/blog/race-detector">race detector</a>：一个检测并发访问资源是否有资源共享问题。<a target="_blank" rel="noopener" href="https://github.com/google/sanitizers">Go race detector</a> 是基于 Google 的 C/C++ sanitizers 技术实现的，编译器通过探测所有的内存访问，加入代码能监视对这些内存地址的访问（读还是写）。在代码运行的时候，race detector 就能监控到对共享变量的非同步访问，出现 race 的时候，就会打印出警告信息。</p>
 <p>使用方式只需要在命令行参数后面加上<code>-race</code>即可。</p>
 <p>缺点：</p>
@@ -1562,7 +1617,7 @@ Mutex--&gt;正常模式</pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">212.5k</span>&nbsp;字
+                class="white-color">214.7k</span>&nbsp;字
             
             
             

@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-03-13T17:25:40.000Z</updated>
+  <updated>2022-03-14T01:56:46.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -17,12 +17,46 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>效应整理</title>
+    <link href="http://buerlog.top/2022/03/14/jing-yan-zong-jie/xiao-ying-zheng-li/"/>
+    <id>http://buerlog.top/2022/03/14/jing-yan-zong-jie/xiao-ying-zheng-li/</id>
+    <published>2022-03-14T01:24:38.000Z</published>
+    <updated>2022-03-14T01:56:46.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;本文归纳整理学习生活过程中遇到的效应或问题，以便查阅。&lt;/p&gt;
+&lt;h2 id=&quot;惊群效应-1&quot;&gt;&lt;a href=&quot;#惊群效应-1&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    
+    
+    <category term="效应" scheme="http://buerlog.top/tags/%E6%95%88%E5%BA%94/"/>
+    
+  </entry>
+  
+  <entry>
     <title>咖啡学习笔记</title>
     <link href="http://buerlog.top/2022/03/14/jing-yan-zong-jie/ka-pei-xue-xi-bi-ji/"/>
     <id>http://buerlog.top/2022/03/14/jing-yan-zong-jie/ka-pei-xue-xi-bi-ji/</id>
     <published>2022-03-13T17:05:45.000Z</published>
-    <updated>2022-03-13T17:25:40.000Z</updated>
+    <updated>2022-03-14T01:56:46.000Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;认识咖啡&quot;&gt;&lt;a href=&quot;#认识咖啡&quot; class=&quot;headerlink&quot; title=&quot;认识咖啡&quot;&gt;&lt;/a&gt;认识咖啡&lt;/h2&gt;&lt;h3 id=&quot;阿拉卡比与罗布斯塔&quot;&gt;&lt;a href=&quot;#阿拉卡比与罗布斯塔&quot; class=&quot;headerlink&quot; title=&quot;阿拉卡比与罗布斯塔&quot;&gt;&lt;/a&gt;阿拉卡比与罗布斯塔&lt;/h3&gt;&lt;p&gt;我们通常所说的咖啡树主要就是阿拉比卡（Coffea</summary>
+        
+      
     
     
     
@@ -38,7 +72,7 @@
     <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/go-bing-fa-bian-cheng-zheng-li/"/>
     <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/go-bing-fa-bian-cheng-zheng-li/</id>
     <published>2022-03-12T14:51:56.000Z</published>
-    <updated>2022-03-13T17:25:40.000Z</updated>
+    <updated>2022-03-14T01:56:46.000Z</updated>
     
     
       
@@ -2513,34 +2547,6 @@
     
     
     <category term="Java" scheme="http://buerlog.top/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试开发知识</title>
-    <link href="http://buerlog.top/2020/09/01/ce-shi/ce-shi-kai-fa-zhi-shi/"/>
-    <id>http://buerlog.top/2020/09/01/ce-shi/ce-shi-kai-fa-zhi-shi/</id>
-    <published>2020-09-01T14:22:23.000Z</published>
-    <updated>2022-01-14T04:01:26.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;作为测试工程师，目标是要保证系统在各种应用场景下的功能是符合设计要求的。需要考虑的测试用例需要更多、更全面。&lt;/p&gt;
-&lt;p&gt;黑盒测试方法:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;等价类划分方法，将所有可能的输入数据划分为若干个子集。在每个子集中，如果任意一个输入数据对于揭露程序中潜在的错误都具有同等的效果，那么这样的子集就构成了一个等价类。后续只要从每个等价类中任意选取一个值进行测试，就可以用少量具有代</summary>
-        
-      
-    
-    
-    
-    <category term="测试" scheme="http://buerlog.top/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-    <category term="测试开发" scheme="http://buerlog.top/tags/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
