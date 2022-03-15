@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://buerlog.top/about/index.html</loc>
-    
-    <lastmod>2022-03-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/categories/index.html</loc>
     
     <lastmod>2022-03-15</lastmod>
@@ -47,6 +38,15 @@
   </url>
   
   <url>
+    <loc>http://buerlog.top/about/index.html</loc>
+    
+    <lastmod>2022-03-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/404/index.html</loc>
     
     <lastmod>2022-03-15</lastmod>
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2019/12/01/cheng-xu-she-ji/go-xue-xi/</loc>
+    <loc>http://buerlog.top/2022/03/12/cheng-xu-she-ji/go-bing-fa-bian-cheng-zheng-li/</loc>
     
     <lastmod>2022-03-15</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2022/03/12/cheng-xu-she-ji/go-bing-fa-bian-cheng-zheng-li/</loc>
+    <loc>http://buerlog.top/2019/12/01/cheng-xu-she-ji/go-xue-xi/</loc>
     
     <lastmod>2022-03-15</lastmod>
     

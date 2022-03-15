@@ -497,7 +497,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.9k
+                    8k
                 </div>
                 
 
@@ -1012,8 +1012,10 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
 <ul>
 <li>通过 hacker 的方式获取到 goroutine id，记录下获取锁的 goroutine id，它可以实现 Locker 接口。</li>
 <li>调用 Lock/Unlock 方法时，由 goroutine 提供一个 token，用来标识它自己，而不是我们通过 hacker 的方式获取到 goroutine id，但是，这样一来，就不满足 Locker 接口了。</li>
-<li></li>
 </ul>
+<p>如果实现了标记持有锁的goroutine，那么相应也就能实现只有持有锁的goroutine才能unlock这个锁。</p>
+<h6 id="goroutine-id"><a href="#goroutine-id" class="headerlink" title="goroutine id"></a>goroutine id</h6><p>这种方法关键在于获取goroutine id，大致可以分为两种：简单方式和hacker方式。</p>
+<p>简单方式：通过 runtime.Stack 方法获取栈帧信息，栈帧信息。runtime.Stack 方法可以获取当前的goroutine，第二个参数为 true 会输出所有的 goroutine 信息。</p>
 <h5 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h5><h3 id="饥饿模式和正常模式"><a href="#饥饿模式和正常模式" class="headerlink" title="饥饿模式和正常模式"></a>饥饿模式和正常模式</h3><pre class="mermaid">graph LR;
 Mutex--&gt;饥饿模式
 Mutex--&gt;正常模式</pre>
@@ -1651,7 +1653,7 @@ Mutex--&gt;正常模式</pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">215.1k</span>&nbsp;字
+                class="white-color">215.2k</span>&nbsp;字
             
             
             
