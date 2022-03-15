@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-14
+                    2022-03-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.5k
+                    7.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    28 分
+                    30 分
                 </div>
                 
 
@@ -532,7 +532,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="基本并发原语"><a href="#基本并发原语" class="headerlink" title="基本并发原语"></a>基本并发原语</h2><h3 id="互斥锁实现机制"><a href="#互斥锁实现机制" class="headerlink" title="互斥锁实现机制"></a>互斥锁实现机制</h3><p>共享资源在程序中的位置被称之为<strong>临界区</strong>，使用互斥锁可以限定临界区只能同时由一个线程所有。当临界区由一个线程持有的时候，其它线程如果想进入这个临界区，就会返回失败，或者是等待。直到持有的线程退出临界区，这些等待线程中的某一个才有机会接着持有这个临界区。</p>
+                <h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><p>在Go1.7版本引入官方库，可以在API边界之间以及过程之间传递截止时间、取消时间或其他与请求相关的数据。</p>
+<pre class="mermaid">graph TD;
+Context--&gt;emptyCtx
+Context--&gt;cancelCtx
+Context--&gt;timerCtx
+Context--&gt;valueCtx
+Context--&gt;Backgroup
+Context--&gt;TODO
+Context--&gt;WithCancel
+Context--&gt;WithDeadline
+Context--&gt;WithTimeout
+Context--&gt;WithValue</pre>
+
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> Context <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">Deadline</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>deadline time<span class="token punctuation">.</span>Time<span class="token punctuation">,</span> ok <span class="token builtin">bool</span><span class="token punctuation">)</span>
+	<span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;-</span><span class="token keyword">chan</span> <span class="token keyword">struct</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+	<span class="token function">Err</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span>
+	<span class="token function">Value</span><span class="token punctuation">(</span>key <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="基本并发原语"><a href="#基本并发原语" class="headerlink" title="基本并发原语"></a>基本并发原语</h2><h3 id="互斥锁实现机制"><a href="#互斥锁实现机制" class="headerlink" title="互斥锁实现机制"></a>互斥锁实现机制</h3><p>共享资源在程序中的位置被称之为<strong>临界区</strong>，使用互斥锁可以限定临界区只能同时由一个线程所有。当临界区由一个线程持有的时候，其它线程如果想进入这个临界区，就会返回失败，或者是等待。直到持有的线程退出临界区，这些等待线程中的某一个才有机会接着持有这个临界区。</p>
 <h3 id="同步原语"><a href="#同步原语" class="headerlink" title="同步原语"></a>同步原语</h3><p>同步原语就是解决并发问题的一个基础数据结构。</p>
 <p>适用场景：</p>
 <ul>
@@ -980,7 +1004,17 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
 
 <p>其实，有些没有实现 Locker 接口的同步原语（比如 WaitGroup），也能被分析。</p>
 <p>Go 在运行时，有<strong>死锁的检查机制</strong>（<a target="_blank" rel="noopener" href="https://go.dev/src/runtime/proc.go?h=checkdead#L4345">checkdead()</a> 方法），它能够发现死锁的 goroutine。程序运行的时候，死锁检查机制能够发现这种死锁情况并输出错误信息，但是需要在运行时才能发现。</p>
-<h5 id="重入"><a href="#重入" class="headerlink" title="重入"></a>重入</h5><h5 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h5><h3 id="饥饿模式和正常模式"><a href="#饥饿模式和正常模式" class="headerlink" title="饥饿模式和正常模式"></a>饥饿模式和正常模式</h3><pre class="mermaid">graph LR;
+<h5 id="重入"><a href="#重入" class="headerlink" title="重入"></a>重入</h5><p>可重入锁：当一个线程获取锁时，如果没有其它线程拥有这个锁，那么，这个线程就成功获取到这个锁。之后，如果其它线程再请求这个锁，就会处于阻塞等待的状态。但是，如果拥有这把锁的线程再请求这把锁的话，不会阻塞，而是成功返回，所以叫可重入锁（有时候也叫做递归锁）。只要你拥有这把锁，你可以可着劲儿地调用，比如通过递归实现一些算法，调用者不会阻塞或者死锁。</p>
+<p><strong>Mutex不是可重入锁。</strong></p>
+<p>因为 Mutex 的实现中没有记录哪个 goroutine 拥有这把锁。理论上，任何 goroutine 都可以随意地 Unlock 这把锁，所以没办法计算重入条件。</p>
+<p>实现一个可重入锁的关键在于：要记住当前是哪一个goroutine持有锁。</p>
+<p>针对此有两种实现方式解决：</p>
+<ul>
+<li>通过 hacker 的方式获取到 goroutine id，记录下获取锁的 goroutine id，它可以实现 Locker 接口。</li>
+<li>调用 Lock/Unlock 方法时，由 goroutine 提供一个 token，用来标识它自己，而不是我们通过 hacker 的方式获取到 goroutine id，但是，这样一来，就不满足 Locker 接口了。</li>
+<li></li>
+</ul>
+<h5 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h5><h3 id="饥饿模式和正常模式"><a href="#饥饿模式和正常模式" class="headerlink" title="饥饿模式和正常模式"></a>饥饿模式和正常模式</h3><pre class="mermaid">graph LR;
 Mutex--&gt;饥饿模式
 Mutex--&gt;正常模式</pre>
 
@@ -1617,7 +1651,7 @@ Mutex--&gt;正常模式</pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">214.7k</span>&nbsp;字
+                class="white-color">215.1k</span>&nbsp;字
             
             
             

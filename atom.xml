@@ -72,14 +72,15 @@
     <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/go-bing-fa-bian-cheng-zheng-li/"/>
     <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/go-bing-fa-bian-cheng-zheng-li/</id>
     <published>2022-03-12T14:51:56.000Z</published>
-    <updated>2022-03-14T01:56:46.000Z</updated>
+    <updated>2022-03-15T01:48:28.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;基本并发原语&quot;&gt;&lt;a href=&quot;#基本并发原语&quot; class=&quot;headerlink&quot; title=&quot;基本并发原语&quot;&gt;&lt;/a&gt;基本并发原语&lt;/h2&gt;&lt;h3 id=&quot;互斥锁实现机制&quot;&gt;&lt;a href=&quot;#互斥锁实现机制&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;Context&quot;&gt;&lt;a href=&quot;#Context&quot; class=&quot;headerlink&quot; title=&quot;Context&quot;&gt;&lt;/a&gt;Context&lt;/h2&gt;&lt;p&gt;在Go1.7版本引入官方库，可以在API边界之间以及过程之间传递截止时间、取消时间或其他与请求相关的数据。&lt;/p&gt;
+&lt;pre class=&quot;mermaid&quot;&gt;graph</summary>
         
       
     

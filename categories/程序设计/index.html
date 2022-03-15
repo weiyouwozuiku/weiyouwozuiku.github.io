@@ -505,7 +505,11 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                基本并发原语互斥锁实现机制共享资源在程序中的位置被称之为临界区，使用互斥锁可以限定临界区只能同时由一个线程所有。当临界区由一个线程持有的时候，其它线程如果想进入这个临界区，就会返回失败，或者是等待。直到持有的线程退出临界区，这些等待线程中的
+                                Context在Go1.7版本引入官方库，可以在API边界之间以及过程之间传递截止时间、取消时间或其他与请求相关的数据。
+graph TD;
+Context--&gt;emptyCtx
+Context--&gt;cancelCtx
+Cont
                             
                         </div>
                         <div class="publish-info">
@@ -1469,7 +1473,7 @@ config={'host':'','port':3306,'user':"",'password':'','database
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">214.7k</span>&nbsp;字
+                class="white-color">215.1k</span>&nbsp;字
             
             
             
