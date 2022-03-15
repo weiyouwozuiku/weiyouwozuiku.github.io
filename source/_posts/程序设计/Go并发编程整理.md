@@ -628,7 +628,14 @@ Go 在运行时，有**死锁的检查机制**（[checkdead()](https://go.dev/sr
 
 - 通过 hacker 的方式获取到 goroutine id，记录下获取锁的 goroutine id，它可以实现 Locker 接口。
 - 调用 Lock/Unlock 方法时，由 goroutine 提供一个 token，用来标识它自己，而不是我们通过 hacker 的方式获取到 goroutine id，但是，这样一来，就不满足 Locker 接口了。
-- 
+
+如果实现了标记持有锁的goroutine，那么相应也就能实现只有持有锁的goroutine才能unlock这个锁。
+
+###### goroutine id
+
+这种方法关键在于获取goroutine id，大致可以分为两种：简单方式和hacker方式。
+
+简单方式：通过 runtime.Stack 方法获取栈帧信息，栈帧信息。runtime.Stack 方法可以获取当前的goroutine，第二个参数为 true 会输出所有的 goroutine 信息。
 
 ##### 死锁
 
