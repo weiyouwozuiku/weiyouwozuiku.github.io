@@ -9,6 +9,37 @@ tags: Go
 categories: 程序设计
 ---
 
+## Context
+
+在Go1.7版本引入官方库，可以在API边界之间以及过程之间传递截止时间、取消时间或其他与请求相关的数据。
+
+```mermaid
+graph TD;
+Context-->emptyCtx
+Context-->cancelCtx
+Context-->timerCtx
+Context-->valueCtx
+Context-->Backgroup
+Context-->TODO
+Context-->WithCancel
+Context-->WithDeadline
+Context-->WithTimeout
+Context-->WithValue
+```
+
+```go
+type Context interface {
+	Deadline() (deadline time.Time, ok bool)
+	Done() <-chan struct{}
+	Err() error
+	Value(key interface{}) interface{}
+}
+```
+
+
+
+
+
 ## 基本并发原语
 
 ### 互斥锁实现机制
@@ -584,6 +615,20 @@ var lockerType *types.Interface
 Go 在运行时，有**死锁的检查机制**（[checkdead()](https://go.dev/src/runtime/proc.go?h=checkdead#L4345) 方法），它能够发现死锁的 goroutine。程序运行的时候，死锁检查机制能够发现这种死锁情况并输出错误信息，但是需要在运行时才能发现。
 
 ##### 重入
+
+可重入锁：当一个线程获取锁时，如果没有其它线程拥有这个锁，那么，这个线程就成功获取到这个锁。之后，如果其它线程再请求这个锁，就会处于阻塞等待的状态。但是，如果拥有这把锁的线程再请求这把锁的话，不会阻塞，而是成功返回，所以叫可重入锁（有时候也叫做递归锁）。只要你拥有这把锁，你可以可着劲儿地调用，比如通过递归实现一些算法，调用者不会阻塞或者死锁。
+
+**Mutex不是可重入锁。**
+
+因为 Mutex 的实现中没有记录哪个 goroutine 拥有这把锁。理论上，任何 goroutine 都可以随意地 Unlock 这把锁，所以没办法计算重入条件。
+
+实现一个可重入锁的关键在于：要记住当前是哪一个goroutine持有锁。
+
+针对此有两种实现方式解决：
+
+- 通过 hacker 的方式获取到 goroutine id，记录下获取锁的 goroutine id，它可以实现 Locker 接口。
+- 调用 Lock/Unlock 方法时，由 goroutine 提供一个 token，用来标识它自己，而不是我们通过 hacker 的方式获取到 goroutine id，但是，这样一来，就不满足 Locker 接口了。
+- 
 
 ##### 死锁
 

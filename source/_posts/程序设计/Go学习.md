@@ -993,4 +993,7 @@ $ source ~/.profile
 ## 参考文献
 
 1. [《The Go Programming Language》](http://gopl.io/)
+
 2. 维基百科，[SOLID (面向对象设计)](https://zh.wikipedia.org/wiki/SOLID_(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1))，2021
+
+2. [Go 语言设计与实现](https://draveness.me/golang)
