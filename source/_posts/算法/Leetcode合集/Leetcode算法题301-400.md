@@ -38,7 +38,36 @@ public:
 
 
 ## 311-320
+
+#### [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/)
+
+```cpp
+class Solution {
+public:
+    string removeDuplicateLetters(string s) {
+        string stk;
+        // 存放当前字符是否存在stk中
+        unordered_map<char, bool> box;
+        // 存放当前字符在整个人字符串的最后位置
+        unordered_map<char, int> lastIndex;
+        for (int i = 0; i < s.size(); ++i) lastIndex[s[i]] = i;
+        for (int i = 0; i < s.size(); ++i) {
+            if (!box[s[i]]) {
+                while (stk.size() && s[i] < stk.back() && lastIndex[stk.back()] > i) {
+                    box[stk.back()] = false;
+                    stk.pop_back();
+                }
+                stk += s[i];
+                box[s[i]] = true;
+            }
+        }
+        return stk;
+    }
+};
+```
+
 ## 321-330
+
 ## 331-340
 ## 341-350
 
@@ -78,7 +107,11 @@ private:
 #### 
 
 ## 351-360
+
 ## 361-370
+
+
+
 ## 371-380
 
 #### [371. 两整数之和](https://leetcode-cn.com/problems/sum-of-two-integers/)
