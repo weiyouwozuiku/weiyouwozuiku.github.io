@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>基于Go实现分布式对象存储</title>
+      <link href="/2022/03/18/kv-cun-chu/ji-yu-go-shi-xian-fen-bu-shi-dui-xiang-cun-chu/"/>
+      <url>/2022/03/18/kv-cun-chu/ji-yu-go-shi-xian-fen-bu-shi-dui-xiang-cun-chu/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> KV存储 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Go </tag>
+            
+            <tag> 分布式系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>效应整理</title>
       <link href="/2022/03/14/jing-yan-zong-jie/xiao-ying-zheng-li/"/>
       <url>/2022/03/14/jing-yan-zong-jie/xiao-ying-zheng-li/</url>
@@ -1863,9 +1890,9 @@
       
         <tags>
             
-            <tag> Book </tag>
-            
             <tag> 分布式系统 </tag>
+            
+            <tag> Book </tag>
             
         </tags>
       
@@ -1890,9 +1917,9 @@
       
         <tags>
             
-            <tag> Book </tag>
-            
             <tag> 分布式系统 </tag>
+            
+            <tag> Book </tag>
             
         </tags>
       
