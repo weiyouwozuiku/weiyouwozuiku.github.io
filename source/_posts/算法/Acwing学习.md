@@ -13,7 +13,7 @@ categories: 算法
 ## 总览
 
 ```mermaid
-graph LR
+flowchart LR
 data[数据结构与算法]
 data-->CA[复杂度分析]
 data-->BA[基础算法]
