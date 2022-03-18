@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-03-18T14:07:26.000Z</updated>
+  <updated>2022-03-18T14:15:52.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -21,11 +21,15 @@
     <link href="http://buerlog.top/2022/03/18/fen-bu-shi/elasticsearch-he-xin-ji-zhu-zheng-li/"/>
     <id>http://buerlog.top/2022/03/18/fen-bu-shi/elasticsearch-he-xin-ji-zhu-zheng-li/</id>
     <published>2022-03-18T13:09:34.000Z</published>
-    <updated>2022-03-18T14:07:26.000Z</updated>
+    <updated>2022-03-18T14:15:52.000Z</updated>
     
     
     
     
+    <category term="分布式" scheme="http://buerlog.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+    
+    <category term="Elasticsearch" scheme="http://buerlog.top/tags/Elasticsearch/"/>
     
   </entry>
   
