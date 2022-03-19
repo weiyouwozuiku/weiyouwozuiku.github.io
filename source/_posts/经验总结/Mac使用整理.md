@@ -584,6 +584,20 @@ Instant: checked
 
 打开`系统信息.app`就可以查看具体信息以及电脑中安装的所有软件的版本。
 
+## 编译报错
+
+当Mac OS进行更新时，可能会导致更新后的系统中原本在Clion等IDE软件中原本的组件的缓存无法找到相应资源，出现如下错误：
+
+```shell
+#include_next <wchar.h>
+              ^~~~~~~~~
+1 error generated.
+```
+
+此时只需要清空IDE中的缓存即可。
+
+在Clion中就是`文件->清除缓存`。
+
 ## 参考资料
 
 1. [Fuzzy finder(fzf+vim) 使用全指南](https://keelii.com/2018/08/12/fuzzy-finder-full-guide/),2018
