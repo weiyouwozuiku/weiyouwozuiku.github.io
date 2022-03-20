@@ -1655,7 +1655,172 @@ int main() {
 }
 ```
 
- 
+ [846.树的重心](https://www.acwing.com/problem/content/848/)
+
+```cpp
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+int n;
+const int N = 100010, M = N * 2;
+// h记录了图里面所有节点的尾指针
+// idx表示e和ne中当前使用
+int h[N], e[M], ne[M], idx;
+// st记录每条边的情况
+bool st[N];
+int ans = N;
+
+//链表头插法
+void add(int a, int b) {
+    e[idx] = b;
+    ne[idx] = h[a];
+    h[a] = idx++;
+}
+
+// 以u为根的子树大小
+int dfs(int u) {
+    // 表示这条边已经被搜索过了
+    st[u] = true;
+    // sum：当前这个节点及其子树中所有节点的数量
+    // res：当前这个节点之外所有子节点的数量
+    int sum = 1, res = 0;
+    // 遍历这个节点的所有连通节点
+    for (int i = h[u]; i != -1; i = ne[i]) {
+        int j = e[i];
+        if (!st[j]) {
+            int s = dfs(j);
+            res = max(s, res);
+            sum += s;
+        }
+    }
+    res = max(n - sum, res);
+    ans = min(ans, res);
+    return sum;
+}
+
+int main() {
+    memset(h, -1, sizeof h);
+    scanf("%d", &n);
+    int a, b;
+    for (int i = 0; i < n - 1; ++i) {
+        scanf("%d%d", &a, &b);
+        add(a, b), add(b, a);
+    }
+    dfs(1);
+    printf("%d", ans);
+    return 0;
+}
+```
+
+[847.图中点的层次](https://www.acwing.com/problem/content/849/)
+
+```cpp
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+const int N = 1e5 + 10;
+int n, m;
+int e[N], ne[N], h[N], idx;
+// d表示距离，q表示队列
+int d[N], q[N];
+
+void add(int a, int b) {
+    e[idx] = b;
+    ne[idx] = h[a];
+    h[a] = idx++;
+}
+
+int bfs() {
+    memset(d, -1, sizeof d);
+    d[1] = 0;
+    int hh = 0, tt = 0;
+    q[0] = 1;
+    while (hh <= tt) {
+        // t 当前队列中的x
+        int t = q[hh++];
+        // i 当前x的连通节点的idx
+        for (int i = h[t]; i != -1; i = ne[i]) {
+            int j = e[i];
+            if (d[j] == -1) {
+                d[j] = d[t] + 1;
+                q[++tt] = j;
+            }
+        }
+    }
+    return d[n];
+}
+
+int main() {
+    memset(h, -1, sizeof h);
+    idx = 0;
+    scanf("%d%d", &n, &m);
+    int a, b;
+    for (int i = 0; i < m; ++i) {
+        scanf("%d%d", &a, &b);
+        add(a, b);
+    }
+
+    printf("%d", bfs());
+    return 0;
+}
+```
+
+[848.有向图的拓扑排序](https://www.acwing.com/problem/content/850/)
+
+```cpp
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+const int N = 1e6 + 10;
+// 这里就是常见的邻接表表示方式，d表示入度
+int e[N], ne[N], h[N], d[N], q[N], idx, n, m;
+
+void add(int a, int b) {
+    e[idx] = b, ne[idx] = h[a];
+    h[a] = idx++;
+    d[b]++;
+}
+
+bool topsort() {
+    int hh = 0, tt = -1;
+    // 首先找出入度为0的点
+    for (int i = 1; i <= n; ++i) {
+        if (!d[i]) q[++tt] = i;
+    }
+    if (tt == -1) return false;
+    while (hh <= tt) {
+        // 找到其连通节点，去掉之前的入度检查是否为入度0节点
+        int t = q[hh++];
+        for (int i = h[t]; i != -1; i = ne[i]) {
+            int j = e[i];
+            d[j] -= 1;
+            if (!d[j]) q[++tt] = j;
+        }
+    }
+    return tt == n - 1;
+}
+
+int main() {
+    memset(h, -1, sizeof h);
+    scanf("%d%d", &n, &m);
+    int a, b;
+    for (int i = 0; i < m; ++i) {
+        scanf("%d%d", &a, &b);
+        add(a, b);
+    }
+    if (topsort()) {
+        for (int i = 0; i < n; ++i) {
+            printf("%d ", q[i]);
+        }
+    } else printf("-1");
+    return 0;
+}
+```
+
+
 
 ##### 851~900
 

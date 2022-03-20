@@ -1605,7 +1605,7 @@ memset(h, -1, sizeof h);
   }
   ```
 
-  具体实现可以参考[AcWing 846. 树的重心](https://www.acwing.com/problem/content/848/)
+  具体实现可以参考[AcWing 846. 树的重心](https://www.acwing.com/problem/content/848/)，[代码实现](https://github.com/weiyouwozuiku/AlgorithmSolution/blob/master/Cpp/acwing/%5B846%5D%E6%A0%91%E7%9A%84%E9%87%8D%E5%BF%83.cpp)
 
 - 广度优先遍历
 
@@ -1631,7 +1631,7 @@ memset(h, -1, sizeof h);
   }
   ```
 
-  具体实现可以参考[AcWing 847. 图中点的层次](https://www.acwing.com/problem/content/849/)
+  具体实现可以参考[AcWing 847. 图中点的层次](https://www.acwing.com/problem/content/849/)，[代码实现](https://github.com/weiyouwozuiku/AlgorithmSolution/blob/master/Cpp/acwing/%5B847%5D%E5%9B%BE%E4%B8%AD%E7%82%B9%E7%9A%84%E5%B1%82%E6%AC%A1.cpp)
 
 ### 满二叉树
 
@@ -1650,6 +1650,10 @@ memset(h, -1, sizeof h);
 
 
 ### 拓朴排序
+
+有向无环图一定存在拓扑序列，也被成为拓扑图。有环图必然不存在拓扑排序。
+
+**有向无环图至少存在一个入度为0的点**，可以用反证法证明。如果每个点的入度都不为0，当一直回溯是可以回溯到第n+1个节点，但总共为n个节点，所以矛盾。
 
 时间复杂度$O(n+m)$ ,$n$ 表示点数，$m$ 表示边数
 
@@ -1680,9 +1684,27 @@ bool topsort()
 }
 ```
 
-具体实现可以参考[AcWing 848. 有向图的拓扑序列](https://www.acwing.com/problem/content/850/)
+具体实现可以参考[AcWing 848. 有向图的拓扑序列](https://www.acwing.com/problem/content/850/)，[代码实现](https://github.com/weiyouwozuiku/AlgorithmSolution/blob/master/Cpp/acwing/%5B848%5D%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.cpp)
 
-### 朴素dijkstra算法
+### 最短路
+
+```mermaid
+flowchart LR
+最短路-->单源最短路
+单源最短路-->所有边权重都是正数
+所有边权重都是正数-->朴素Dijkstra算法
+所有边权重都是正数-->堆优化版Dijkstra算法
+单源最短路-->存在负权边
+存在负权边-->Bellman-Ford算法
+存在负权边-->SPFA算法
+最短路-->多源汇最短路-->floyd算法
+```
+
+源点：起点
+
+汇点：终点
+
+#### 朴素dijkstra算法
 
 时间复杂是$O(n^2+m)$，$n$表示点数，$m$表示边数
 
@@ -1718,7 +1740,7 @@ int dijkstra()
 
 具体实现可以参考[AcWing 849. Dijkstra求最短路 I](https://www.acwing.com/problem/content/851/)
 
-### 堆优化版dijkstra
+#### 堆优化版dijkstra
 
 时间复杂度$O(mlogn)$, $n$ 表示点数，$m$ 表示边数
 
@@ -1766,7 +1788,7 @@ int dijkstra()
 
 具体实现可以参考[AcWing 850. Dijkstra求最短路 II](https://www.acwing.com/problem/content/852/)
 
-### Bellman-Ford算法
+#### Bellman-Ford算法
 
 时间复杂度$O(nm)$, $n$ 表示点数，$m$表示边数
 
@@ -1805,7 +1827,7 @@ int bellman_ford()
 
 具体实现可以参考[AcWing 853. 有边数限制的最短路](https://www.acwing.com/problem/content/855/)
 
-### spfa 算法（队列优化的Bellman-Ford算法）
+#### SPFA 算法（队列优化的Bellman-Ford算法）
 
 时间复杂度平均情况下$O(m)$，最坏情况下$O(nm)$, $n$表示点数，$m$表示边数
 
@@ -2019,7 +2041,7 @@ int kruskal()
 
 具体实现可以参考[AcWing 859. Kruskal算法求最小生成树](https://www.acwing.com/problem/content/861/)
 
-### 最短路
+
 
 ### 最小生成树
 
