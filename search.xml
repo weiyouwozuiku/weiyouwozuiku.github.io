@@ -197,9 +197,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> 数据库 </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -224,9 +224,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> 数据库 </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -236,15 +236,15 @@
     
     <entry>
       <title>CMU-15445</title>
-      <link href="/2022/03/04/ji-suan-ji-ji-chu/cmu-15445/"/>
-      <url>/2022/03/04/ji-suan-ji-ji-chu/cmu-15445/</url>
+      <link href="/2022/03/04/kv-cun-chu/cmu-15445/"/>
+      <url>/2022/03/04/kv-cun-chu/cmu-15445/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在没有数据库的情况下，我们可以使用简单的csv文件来存储文件，并编写简单的脚本文件来查找数据。但是这种方案会有很多缺陷：</p><ul><li>数据的质量<ul><li>很难保证同一类型记录中相应字段的一致性</li><li>很难阻止用户写入该字段不合法的数据</li><li>很难优雅的处理数据之间的逻辑关系</li></ul></li><li>实现方面<ul><li>查询特定记录的效率低</li><li>当有多个应用使用时<ul><li>查询脚本需要重复读</li><li>多个线程一起写时，如何保证数据一致性</li></ul></li></ul></li><li>数据持久<ul><li>正在写记录时遇到宕机</li><li>如何复制数据到多台机器上保证高可用</li></ul></li></ul><p>针对上面的问题，提出了专业的数据库系统（DBMS）。</p><h2 id="DBMS的提出"><a href="#DBMS的提出" class="headerlink" title="DBMS的提出"></a>DBMS的提出</h2><h3 id="分离逻辑层和物理层"><a href="#分离逻辑层和物理层" class="headerlink" title="分离逻辑层和物理层"></a>分离逻辑层和物理层</h3><p>Ted Codd提出DBMS的抽象：</p><ul><li>用简单的、统一的数据结构存储数据</li><li>通过高级语言操作数据</li><li>逻辑层和物理层分离，系统开发者只关心逻辑层，而DBMS开发者才关系物理层</li></ul><h3 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h3><p>在逻辑层中，我们通常需要对所需存储的数据进行建模。如今，市面上有的数据模型包括：</p><ul><li><strong>Relational</strong> =&gt; 大部分 DBMS 属于关系型，也是本课讨论的重点</li><li>Key/Value</li><li>Graph</li><li>Document</li><li>Column-family</li><li>Array/Matrix</li></ul><h3 id="Relational-Model"><a href="#Relational-Model" class="headerlink" title="Relational Model"></a>Relational Model</h3><h4 id="Relation-amp-Tuple"><a href="#Relation-amp-Tuple" class="headerlink" title="Relation &amp; Tuple"></a>Relation &amp; Tuple</h4><p>每个 Relation 都是一个无序集合（unordered set），集合中的元素称为 tuple，每个 tuple 由一组属性构成，这些属性在逻辑上通常有内在联系。</p><h4 id="Primary-Keys"><a href="#Primary-Keys" class="headerlink" title="Primary Keys"></a>Primary Keys</h4><p>primary key 在一个 Relation 中唯一确定一个 tuple，如果你不指定，有些 DBMSs 会自动帮你生成 primary key。</p><h4 id="Foreign-Keys"><a href="#Foreign-Keys" class="headerlink" title="Foreign Keys"></a>Foreign Keys</h4><p>foreign key 唯一确定另一个 relation 中的一个 tuple</p><h4 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h4><p>Data Manipulation Languages，即DML。</p><p>在 Relational Model 中从数据库中查询数据通常有两种方式：Procedural 与 NonProcedural：</p><ul><li>Procedural：查询命令需要指定 DBMS 执行时的具体查询策略，如 Relational Algebra</li><li>Non-Procedural：查询命令只需要指定想要查询哪些数据，无需关心幕后的故事，如 SQL</li></ul><p>使用哪种方式是具体的实现问题，与 Relational Model 本身无关。Relational Algebra</p><h4 id="Relational-Algebra"><a href="#Relational-Algebra" class="headerlink" title="Relational Algebra"></a>Relational Algebra</h4><p>relational algebra 是基于 set algebra 提出的，从 relation 中查询和修改 tuples 的一些基本操作，它们包括：</p><ul><li>Select ( $\sigma$ )</li><li>Projection ( $\pi$ )</li><li>Union ( $\cup$ )</li><li>Intersection ( $\cap$ )</li><li>Difference ( − )</li><li>Product ( $\times$ )</li><li>Join ( $⨝$ )</li><li>Rename ( $\rho$ )</li><li>Assignment (  $R\leftarrow$ S )</li><li>Duplicate Elimination ($\delta$ )</li><li>Aggregation ( $\gamma$ )</li><li>Sorting ( $\tau$ )</li><li>Division ($R \div S$)</li></ul><p>将这些操作串联起来，我们就能构建更复杂的操作</p><p><strong>注意</strong>：使用 Relation Algebra 时，我们实际上指定了执行策略，如：</p><p>$\sigma _{b_id=102}(R ⨝ S) vs. (R ⨝ (\sigma _{b_id=102}(S))$</p><p>它们所做的事情都是 ”返回 R 和 S Join 后的结果中，b_id 等于 102 的 tuples“。</p><p>虽然 Relational Algebra 只是 Relational Model 的具体实现方式，但在之后的课程将会看到它对查询优化、执行的帮助。</p><h2 id="Advanced-SQL"><a href="#Advanced-SQL" class="headerlink" title="Advanced SQL"></a>Advanced SQL</h2>]]></content>
       
       
       <categories>
           
-          <category> 计算机基础 </category>
+          <category> KV存储 </category>
           
       </categories>
       
