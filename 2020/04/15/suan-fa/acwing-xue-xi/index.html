@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-18
+                    2022-03-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    16.7k
+                    16.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    73 分
+                    74 分
                 </div>
                 
 
@@ -1825,7 +1825,7 @@ idx <span class="token operator">=</span> <span class="token number">0</span><sp
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/848/">AcWing 846. 树的重心</a></p>
+<p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/848/">AcWing 846. 树的重心</a>，<a target="_blank" rel="noopener" href="https://github.com/weiyouwozuiku/AlgorithmSolution/blob/master/Cpp/acwing/%5B846%5D%E6%A0%91%E7%9A%84%E9%87%8D%E5%BF%83.cpp">代码实现</a></p>
 </li>
 <li><p>广度优先遍历</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> q<span class="token punctuation">;</span>
@@ -1848,7 +1848,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/849/">AcWing 847. 图中点的层次</a></p>
+<p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/849/">AcWing 847. 图中点的层次</a>，<a target="_blank" rel="noopener" href="https://github.com/weiyouwozuiku/AlgorithmSolution/blob/master/Cpp/acwing/%5B847%5D%E5%9B%BE%E4%B8%AD%E7%82%B9%E7%9A%84%E5%B1%82%E6%AC%A1.cpp">代码实现</a></p>
 </li>
 </ul>
 <h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><p>除最后一层无任何子节点外，每一层上的所有节点都有两个子节点二叉树。</p>
@@ -1859,7 +1859,9 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <blockquote>
 <p>定义：若设二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。</p>
 </blockquote>
-<h3 id="拓朴排序"><a href="#拓朴排序" class="headerlink" title="拓朴排序"></a>拓朴排序</h3><p>时间复杂度$O(n+m)$ ,$n$ 表示点数，$m$ 表示边数</p>
+<h3 id="拓朴排序"><a href="#拓朴排序" class="headerlink" title="拓朴排序"></a>拓朴排序</h3><p>有向无环图一定存在拓扑序列，也被成为拓扑图。有环图必然不存在拓扑排序。</p>
+<p><strong>有向无环图至少存在一个入度为0的点</strong>，可以用反证法证明。如果每个点的入度都不为0，当一直回溯是可以回溯到第n+1个节点，但总共为n个节点，所以矛盾。</p>
+<p>时间复杂度$O(n+m)$ ,$n$ 表示点数，$m$ 表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">topsort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">int</span> hh <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> tt <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
@@ -1885,8 +1887,20 @@ q<span class="token punctuation">.</span><span class="token function">push</span
     <span class="token keyword">return</span> tt <span class="token operator">==</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/850/">AcWing 848. 有向图的拓扑序列</a></p>
-<h3 id="朴素dijkstra算法"><a href="#朴素dijkstra算法" class="headerlink" title="朴素dijkstra算法"></a>朴素dijkstra算法</h3><p>时间复杂是$O(n^2+m)$，$n$表示点数，$m$表示边数</p>
+<p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/850/">AcWing 848. 有向图的拓扑序列</a>，<a target="_blank" rel="noopener" href="https://github.com/weiyouwozuiku/AlgorithmSolution/blob/master/Cpp/acwing/%5B848%5D%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.cpp">代码实现</a></p>
+<h3 id="最短路"><a href="#最短路" class="headerlink" title="最短路"></a>最短路</h3><pre class="mermaid">flowchart LR
+最短路--&gt;单源最短路
+单源最短路--&gt;所有边权重都是正数
+所有边权重都是正数--&gt;朴素Dijkstra算法
+所有边权重都是正数--&gt;堆优化版Dijkstra算法
+单源最短路--&gt;存在负权边
+存在负权边--&gt;Bellman-Ford算法
+存在负权边--&gt;SPFA算法
+最短路--&gt;多源汇最短路--&gt;floyd算法</pre>
+
+<p>源点：起点</p>
+<p>汇点：终点</p>
+<h4 id="朴素dijkstra算法"><a href="#朴素dijkstra算法" class="headerlink" title="朴素dijkstra算法"></a>朴素dijkstra算法</h4><p>时间复杂是$O(n^2+m)$，$n$表示点数，$m$表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> g<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 存储每条边</span>
 <span class="token keyword">int</span> dist<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 存储1号点到每个点的最短距离</span>
 <span class="token keyword">bool</span> st<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment">// 存储每个点的最短路是否已经确定</span>
@@ -1916,7 +1930,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/851/">AcWing 849. Dijkstra求最短路 I</a></p>
-<h3 id="堆优化版dijkstra"><a href="#堆优化版dijkstra" class="headerlink" title="堆优化版dijkstra"></a>堆优化版dijkstra</h3><p>时间复杂度$O(mlogn)$, $n$ 表示点数，$m$ 表示边数</p>
+<h4 id="堆优化版dijkstra"><a href="#堆优化版dijkstra" class="headerlink" title="堆优化版dijkstra"></a>堆优化版dijkstra</h4><p>时间复杂度$O(mlogn)$, $n$ 表示点数，$m$ 表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> PII<span class="token punctuation">;</span>
 
 <span class="token keyword">int</span> n<span class="token punctuation">;</span>      <span class="token comment">// 点的数量</span>
@@ -1958,7 +1972,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/852/">AcWing 850. Dijkstra求最短路 II</a></p>
-<h3 id="Bellman-Ford算法"><a href="#Bellman-Ford算法" class="headerlink" title="Bellman-Ford算法"></a>Bellman-Ford算法</h3><p>时间复杂度$O(nm)$, $n$ 表示点数，$m$表示边数</p>
+<h4 id="Bellman-Ford算法"><a href="#Bellman-Ford算法" class="headerlink" title="Bellman-Ford算法"></a>Bellman-Ford算法</h4><p>时间复杂度$O(nm)$, $n$ 表示点数，$m$表示边数</p>
 <p>注意在模板题中需要对下面的模板稍作修改，加上备份数组。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>       <span class="token comment">// n表示点数，m表示边数</span>
 <span class="token keyword">int</span> dist<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment">// dist[x]存储1到x的最短路距离</span>
@@ -1990,7 +2004,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/855/">AcWing 853. 有边数限制的最短路</a></p>
-<h3 id="spfa-算法（队列优化的Bellman-Ford算法）"><a href="#spfa-算法（队列优化的Bellman-Ford算法）" class="headerlink" title="spfa 算法（队列优化的Bellman-Ford算法）"></a>spfa 算法（队列优化的Bellman-Ford算法）</h3><p>时间复杂度平均情况下$O(m)$，最坏情况下$O(nm)$, $n$表示点数，$m$表示边数</p>
+<h4 id="SPFA-算法（队列优化的Bellman-Ford算法）"><a href="#SPFA-算法（队列优化的Bellman-Ford算法）" class="headerlink" title="SPFA 算法（队列优化的Bellman-Ford算法）"></a>SPFA 算法（队列优化的Bellman-Ford算法）</h4><p>时间复杂度平均情况下$O(m)$，最坏情况下$O(nm)$, $n$表示点数，$m$表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">;</span>      <span class="token comment">// 总点数</span>
 <span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> w<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>       <span class="token comment">// 邻接表存储所有边</span>
 <span class="token keyword">int</span> dist<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment">// 存储每个点到1号点的最短距离</span>
@@ -2174,7 +2188,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/861/">AcWing 859. Kruskal算法求最小生成树</a></p>
-<h3 id="最短路"><a href="#最短路" class="headerlink" title="最短路"></a>最短路</h3><h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><h3 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h3><h3 id="染色法判别二分图"><a href="#染色法判别二分图" class="headerlink" title="染色法判别二分图"></a>染色法判别二分图</h3><p>时间复杂度是$O(n+m)$, $n$表示点数，$m$表示边数</p>
+<h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><h3 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h3><h3 id="染色法判别二分图"><a href="#染色法判别二分图" class="headerlink" title="染色法判别二分图"></a>染色法判别二分图</h3><p>时间复杂度是$O(n+m)$, $n$表示点数，$m$表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">;</span>      <span class="token comment">// n表示点数</span>
 <span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>     <span class="token comment">// 邻接表存储图</span>
 <span class="token keyword">int</span> color<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token comment">// 表示每个点的颜色，-1表示未染色，0表示白色，1表示黑色</span>
@@ -3008,7 +3022,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">215.7k</span>&nbsp;字
+                class="white-color">216.8k</span>&nbsp;字
             
             
             
