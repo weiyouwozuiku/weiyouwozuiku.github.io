@@ -1706,6 +1706,22 @@ flowchart LR
 
 #### 朴素dijkstra算法
 
+思路：
+
+1. dist[1]=0,dist[i]=+∞
+
+2. for i :1~n
+
+   ​	t<-不在s中的距离最近的点
+
+   ​	s<-t
+
+   用t更新其他点的距离
+
+   if dist[x]>dist[t]+w 更新dist[x]
+
+s：当前已确定最短距离的点
+
 时间复杂是$O(n^2+m)$，$n$表示点数，$m$表示边数
 
 ```cpp

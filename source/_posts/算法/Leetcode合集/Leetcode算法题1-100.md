@@ -355,6 +355,33 @@ public:
 
 ## 11-20
 
+#### [11. 盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
+
+本题思路：
+
+首先遇到这种问题，优先考虑双指针算法，双指针需要寻找其规律性简化计算逻辑。因此难点转化为如何移动指针，基于以下两点共识：
+
+- 相同情况下两边的距离越远越好，因此其实从两个端点开始。
+- 面积受限于较短边。因此当两边中一边较短时移动较短边。
+
+可以使用反证法证明答案的正确性：本题存在最优解的两个边。假设右边已经到达右侧最优解所在边，左侧还需要移动时，左侧的边必然低于右侧的边。因为当左侧最优解还没到时，此时如果左侧边高于左侧最优解，那么就有更大的面积，存在矛盾，可证。
+
+```cpp
+class Solution {
+public:
+    int maxArea(vector<int> &height) {
+        int res = 0;
+        for (int i = 0, j = height.size() - 1; i < j;) {
+            res = max(res, min(height[i], height[j]) * (j - i));
+            height[i] > height[j] ? --j : ++i;
+        }
+        return res;
+    }
+};
+```
+
+
+
 #### [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
 
 本题优化在用一个双指针优化了两层循环，将其从$O(n^2)$降低到$O(2n)$，因此整体时间复杂度为$O(n^2)$。
