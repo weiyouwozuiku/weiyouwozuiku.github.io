@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-07
+                    2022-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    5.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    23 分
+                    24 分
                 </div>
                 
 
@@ -835,7 +835,28 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="11-20"><a href="#11-20" class="headerlink" title="11-20"></a>11-20</h2><h4 id="15-三数之和"><a href="#15-三数之和" class="headerlink" title="15. 三数之和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/3sum/">15. 三数之和</a></h4><p>本题优化在用一个双指针优化了两层循环，将其从$O(n^2)$降低到$O(2n)$，因此整体时间复杂度为$O(n^2)$。</p>
+<h2 id="11-20"><a href="#11-20" class="headerlink" title="11-20"></a>11-20</h2><h4 id="11-盛最多水的容器"><a href="#11-盛最多水的容器" class="headerlink" title="11. 盛最多水的容器"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/container-with-most-water/">11. 盛最多水的容器</a></h4><p>本题思路：</p>
+<p>首先遇到这种问题，优先考虑双指针算法，双指针需要寻找其规律性简化计算逻辑。因此难点转化为如何移动指针，基于以下两点共识：</p>
+<ul>
+<li>相同情况下两边的距离越远越好，因此其实从两个端点开始。</li>
+<li>面积受限于较短边。因此当两边中一边较短时移动较短边。</li>
+</ul>
+<p>可以使用反证法证明答案的正确性：本题存在最优解的两个边。假设右边已经到达右侧最优解所在边，左侧还需要移动时，左侧的边必然低于右侧的边。因为当左侧最优解还没到时，此时如果左侧边高于左侧最优解，那么就有更大的面积，存在矛盾，可证。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">maxArea</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>height<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> j <span class="token operator">=</span> height<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> j<span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            res <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token function">min</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> height<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>j <span class="token operator">-</span> i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            height<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> height<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">?</span> <span class="token operator">--</span>j <span class="token operator">:</span> <span class="token operator">++</span>i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="15-三数之和"><a href="#15-三数之和" class="headerlink" title="15. 三数之和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/3sum/">15. 三数之和</a></h4><p>本题优化在用一个双指针优化了两层循环，将其从$O(n^2)$降低到$O(2n)$，因此整体时间复杂度为$O(n^2)$。</p>
 <p>基于单调性，可以使用试探法，先判断下一个是否满足，满足直接去下一个数，不然用上一个数检验。</p>
 <p>针对重复情况，使用形如<code>j &gt; i + 1 &amp;&amp; nums[j] == nums[j - 1]</code>这样的方式，避免相同位上相同的元素。    </p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
@@ -1823,7 +1844,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">217.5k</span>&nbsp;字
+                class="white-color">217.8k</span>&nbsp;字
             
             
             

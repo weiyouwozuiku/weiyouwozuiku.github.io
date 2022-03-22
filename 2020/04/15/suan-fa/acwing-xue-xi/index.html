@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-20
+                    2022-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    16.9k
+                    17k
                 </div>
                 
 
@@ -1900,7 +1900,19 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 
 <p>源点：起点</p>
 <p>汇点：终点</p>
-<h4 id="朴素dijkstra算法"><a href="#朴素dijkstra算法" class="headerlink" title="朴素dijkstra算法"></a>朴素dijkstra算法</h4><p>时间复杂是$O(n^2+m)$，$n$表示点数，$m$表示边数</p>
+<h4 id="朴素dijkstra算法"><a href="#朴素dijkstra算法" class="headerlink" title="朴素dijkstra算法"></a>朴素dijkstra算法</h4><p>思路：</p>
+<ol>
+<li><p>dist[1]=0,dist[i]=+∞</p>
+</li>
+<li><p>for i :1~n</p>
+<p>​    t&lt;-不在s中的距离最近的点</p>
+<p>​    s&lt;-t</p>
+<p>用t更新其他点的距离</p>
+<p>if dist[x]&gt;dist[t]+w 更新dist[x]</p>
+</li>
+</ol>
+<p>s：当前已确定最短距离的点</p>
+<p>时间复杂是$O(n^2+m)$，$n$表示点数，$m$表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> g<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 存储每条边</span>
 <span class="token keyword">int</span> dist<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 存储1号点到每个点的最短距离</span>
 <span class="token keyword">bool</span> st<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment">// 存储每个点的最短路是否已经确定</span>
@@ -3022,7 +3034,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">217.5k</span>&nbsp;字
+                class="white-color">217.8k</span>&nbsp;字
             
             
             
