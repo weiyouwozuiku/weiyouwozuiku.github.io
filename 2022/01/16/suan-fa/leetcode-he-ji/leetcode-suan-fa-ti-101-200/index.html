@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-04
+                    2022-03-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    409
+                    605
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -550,7 +550,19 @@
 
 
 
-<h2 id="141-150"><a href="#141-150" class="headerlink" title="141-150"></a>141-150</h2><h2 id="151-160"><a href="#151-160" class="headerlink" title="151-160"></a>151-160</h2><h2 id="161-170"><a href="#161-170" class="headerlink" title="161-170"></a>161-170</h2><h2 id="171-180"><a href="#171-180" class="headerlink" title="171-180"></a>171-180</h2><h4 id="173-二叉搜索树迭代器"><a href="#173-二叉搜索树迭代器" class="headerlink" title="173. 二叉搜索树迭代器"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-search-tree-iterator/">173. 二叉搜索树迭代器</a></h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">BSTIterator</span> <span class="token punctuation">{</span>
+<h2 id="141-150"><a href="#141-150" class="headerlink" title="141-150"></a>141-150</h2><h2 id="151-160"><a href="#151-160" class="headerlink" title="151-160"></a>151-160</h2><h2 id="161-170"><a href="#161-170" class="headerlink" title="161-170"></a>161-170</h2><h2 id="171-180"><a href="#171-180" class="headerlink" title="171-180"></a>171-180</h2><h4 id="172-阶乘后的零"><a href="#172-阶乘后的零" class="headerlink" title="172. 阶乘后的零"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/factorial-trailing-zeroes/">172. 阶乘后的零</a></h4><p>本题的难度都在于计算的逻辑，而非代码，属于数论的题目。</p>
+<p>首先判断0会在什么情况下出现，即2和5为1<del>n之间元素的因数时，2与5相乘得10。因此本题可以转化为找到（2，5）对在1 ~ n之间有多少个数含有这两个因数。总所周知，2出现的概率低于5出现的概率，因此本题简化为寻找1</del>n中每个元素中可以分解为多少个5。</p>
+<p>一个元素如果存在5这个因数可以表示为$x=y*5^k$。因此只需要检查1到n中有多少个$5^k$。于是答案如下：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">trailingZeroes</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> res <span class="token operator">+=</span> n <span class="token operator">/</span> <span class="token number">5</span><span class="token punctuation">,</span> n <span class="token operator">/=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="173-二叉搜索树迭代器"><a href="#173-二叉搜索树迭代器" class="headerlink" title="173. 二叉搜索树迭代器"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-search-tree-iterator/">173. 二叉搜索树迭代器</a></h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">BSTIterator</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token comment">//构造栈，将根节点的左节点循环加入栈中，以此寻找相应子树的节点</span>
     <span class="token function">BSTIterator</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1195,7 +1207,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">217.8k</span>&nbsp;字
+                class="white-color">218.6k</span>&nbsp;字
             
             
             

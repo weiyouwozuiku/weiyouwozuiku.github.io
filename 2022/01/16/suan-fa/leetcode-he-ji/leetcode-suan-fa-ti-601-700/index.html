@@ -494,14 +494,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-04
+                    2022-03-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    77
+                    188
                 </div>
                 
 
@@ -536,7 +536,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="601-610"><a href="#601-610" class="headerlink" title="601-610"></a>601-610</h2><h2 id="611-620"><a href="#611-620" class="headerlink" title="611-620"></a>611-620</h2><h2 id="621-630"><a href="#621-630" class="headerlink" title="621-630"></a>621-630</h2><h2 id="631-640"><a href="#631-640" class="headerlink" title="631-640"></a>631-640</h2><h2 id="641-650"><a href="#641-650" class="headerlink" title="641-650"></a>641-650</h2><h2 id="651-660"><a href="#651-660" class="headerlink" title="651-660"></a>651-660</h2><h2 id="661-670"><a href="#661-670" class="headerlink" title="661-670"></a>661-670</h2><h2 id="671-680"><a href="#671-680" class="headerlink" title="671-680"></a>671-680</h2><h2 id="681-690"><a href="#681-690" class="headerlink" title="681-690"></a>681-690</h2><h2 id="691-700"><a href="#691-700" class="headerlink" title="691-700"></a>691-700</h2><h4 id="693-交替位二进制数"><a href="#693-交替位二进制数" class="headerlink" title="693. 交替位二进制数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-number-with-alternating-bits/">693. 交替位二进制数</a></h4><p>相邻两位不同，可以通过二进制11去检测，如果是00或者11则会与运算出00或11，即0或3。</p>
+                <h2 id="601-610"><a href="#601-610" class="headerlink" title="601-610"></a>601-610</h2><h2 id="611-620"><a href="#611-620" class="headerlink" title="611-620"></a>611-620</h2><h2 id="621-630"><a href="#621-630" class="headerlink" title="621-630"></a>621-630</h2><h2 id="631-640"><a href="#631-640" class="headerlink" title="631-640"></a>631-640</h2><h2 id="641-650"><a href="#641-650" class="headerlink" title="641-650"></a>641-650</h2><h2 id="651-660"><a href="#651-660" class="headerlink" title="651-660"></a>651-660</h2><h2 id="661-670"><a href="#661-670" class="headerlink" title="661-670"></a>661-670</h2><h2 id="671-680"><a href="#671-680" class="headerlink" title="671-680"></a>671-680</h2><h2 id="681-690"><a href="#681-690" class="headerlink" title="681-690"></a>681-690</h2><h4 id="682-棒球比赛"><a href="#682-棒球比赛" class="headerlink" title="682. 棒球比赛"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/baseball-game/">682. 棒球比赛</a></h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">calPoints</span><span class="token punctuation">(</span>vector <span class="token operator">&lt;</span>string<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>ops<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> res<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> op<span class="token operator">:</span> ops<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 前一次得分无效</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>op <span class="token operator">==</span> <span class="token string">"C"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                res<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+                <span class="token comment">// 本回合新获得的得分是前一次得分的两倍</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>op <span class="token operator">==</span> <span class="token string">"D"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+                <span class="token comment">// 本回合新获得的得分是前两次得分的总和</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>op <span class="token operator">==</span> <span class="token string">"+"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>res<span class="token punctuation">[</span>res<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> res<span class="token punctuation">[</span>res<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">stoi</span><span class="token punctuation">(</span>op<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> it<span class="token operator">:</span> res<span class="token punctuation">)</span> ans <span class="token operator">+=</span> it<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="691-700"><a href="#691-700" class="headerlink" title="691-700"></a>691-700</h2><h4 id="693-交替位二进制数"><a href="#693-交替位二进制数" class="headerlink" title="693. 交替位二进制数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-number-with-alternating-bits/">693. 交替位二进制数</a></h4><p>相邻两位不同，可以通过二进制11去检测，如果是00或者11则会与运算出00或11，即0或3。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token keyword">bool</span> <span class="token function">hasAlternatingBits</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1132,7 +1158,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">217.8k</span>&nbsp;字
+                class="white-color">218.6k</span>&nbsp;字
             
             
             

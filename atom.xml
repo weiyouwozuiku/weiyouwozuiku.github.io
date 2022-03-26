@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-03-18T14:15:52.000Z</updated>
+  <updated>2022-03-26T18:16:45.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博文收获总结</title>
+    <link href="http://buerlog.top/2022/03/27/si-wei-jin-hua/bo-wen-shou-huo-zong-jie/"/>
+    <id>http://buerlog.top/2022/03/27/si-wei-jin-hua/bo-wen-shou-huo-zong-jie/</id>
+    <published>2022-03-26T17:30:12.000Z</published>
+    <updated>2022-03-26T18:16:45.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="思维进化" scheme="http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/"/>
+    
+    
+    <category term="博文" scheme="http://buerlog.top/tags/%E5%8D%9A%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>Elasticsearch核心技术整理</title>
@@ -1044,7 +1069,7 @@
     <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-601-700/"/>
     <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-601-700/</id>
     <published>2022-01-16T09:42:05.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
+    <updated>2022-03-26T18:16:45.000Z</updated>
     
     
       
@@ -1179,7 +1204,7 @@
     <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-101-200/"/>
     <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-101-200/</id>
     <published>2022-01-16T09:40:08.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
+    <updated>2022-03-26T18:16:45.000Z</updated>
     
     
       
@@ -2518,34 +2543,6 @@
     
     
     <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录</title>
-    <link href="http://buerlog.top/2020/11/10/suan-fa/leetcode-he-ji/leetcode-shua-ti-ji-lu/"/>
-    <id>http://buerlog.top/2020/11/10/suan-fa/leetcode-he-ji/leetcode-shua-ti-ji-lu/</id>
-    <published>2020-11-09T16:14:48.000Z</published>
-    <updated>2022-03-04T13:16:02.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本文记录本人刷Leetcode过程的收获和代码。&lt;/p&gt;
-&lt;h3 id=&quot;语言选择&quot;&gt;&lt;a href=&quot;#语言选择&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
     
   </entry>
   
