@@ -43,6 +43,25 @@ public:
 ## 161-170
 ## 171-180
 
+#### [172. 阶乘后的零](https://leetcode-cn.com/problems/factorial-trailing-zeroes/)
+
+本题的难度都在于计算的逻辑，而非代码，属于数论的题目。
+
+首先判断0会在什么情况下出现，即2和5为1~n之间元素的因数时，2与5相乘得10。因此本题可以转化为找到（2，5）对在1 ~ n之间有多少个数含有这两个因数。总所周知，2出现的概率低于5出现的概率，因此本题简化为寻找1~n中每个元素中可以分解为多少个5。
+
+一个元素如果存在5这个因数可以表示为$x=y*5^k$。因此只需要检查1到n中有多少个$5^k$。于是答案如下：
+
+```cpp
+class Solution {
+public:
+    int trailingZeroes(int n) {
+        int res = 0;
+        while (n) res += n / 5, n /= 5;
+        return res;
+    }
+};
+```
+
 #### [173. 二叉搜索树迭代器](https://leetcode-cn.com/problems/binary-search-tree-iterator/)
 
 ```cpp

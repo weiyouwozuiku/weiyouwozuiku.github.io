@@ -19,7 +19,39 @@ categories: 算法
 ## 651-660
 ## 661-670
 ## 671-680
+
 ## 681-690
+
+#### [682. 棒球比赛](https://leetcode-cn.com/problems/baseball-game/)
+
+```cpp
+class Solution {
+public:
+    int calPoints(vector <string> &ops) {
+        vector<int> res;
+        for (auto op: ops) {
+            // 前一次得分无效
+            if (op == "C") {
+                res.pop_back();
+            }
+                // 本回合新获得的得分是前一次得分的两倍
+            else if (op == "D") {
+                res.push_back(res.back() * 2);
+            }
+                // 本回合新获得的得分是前两次得分的总和
+            else if (op == "+") {
+                res.push_back(res[res.size() - 1] + res[res.size() - 2]);
+            } else {
+                res.push_back(stoi(op));
+            }
+        }
+        int ans = 0;
+        for (auto it: res) ans += it;
+        return ans;
+    }
+};
+```
+
 ## 691-700
 
 #### [693. 交替位二进制数](https://leetcode-cn.com/problems/binary-number-with-alternating-bits/)
