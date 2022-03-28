@@ -494,14 +494,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-04
+                    2022-03-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11
+                    88
                 </div>
                 
 
@@ -536,7 +536,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="2001-2010"><a href="#2001-2010" class="headerlink" title="2001-2010"></a>2001-2010</h2><h2 id="2011-2020"><a href="#2011-2020" class="headerlink" title="2011-2020"></a>2011-2020</h2><h2 id="2021-2030"><a href="#2021-2030" class="headerlink" title="2021-2030"></a>2021-2030</h2><h2 id="2031-2040"><a href="#2031-2040" class="headerlink" title="2031-2040"></a>2031-2040</h2><h2 id="2041-2050"><a href="#2041-2050" class="headerlink" title="2041-2050"></a>2041-2050</h2><h2 id="2051-2060"><a href="#2051-2060" class="headerlink" title="2051-2060"></a>2051-2060</h2><h2 id="2061-2070"><a href="#2061-2070" class="headerlink" title="2061-2070"></a>2061-2070</h2><h2 id="2071-2080"><a href="#2071-2080" class="headerlink" title="2071-2080"></a>2071-2080</h2><h2 id="2081-2090"><a href="#2081-2090" class="headerlink" title="2081-2090"></a>2081-2090</h2><h2 id="2091-2100"><a href="#2091-2100" class="headerlink" title="2091-2100"></a>2091-2100</h2>
+                <h2 id="2001-2010"><a href="#2001-2010" class="headerlink" title="2001-2010"></a>2001-2010</h2><h2 id="2011-2020"><a href="#2011-2020" class="headerlink" title="2011-2020"></a>2011-2020</h2><h2 id="2021-2030"><a href="#2021-2030" class="headerlink" title="2021-2030"></a>2021-2030</h2><h4 id="2028-找出缺失的观测数据"><a href="#2028-找出缺失的观测数据" class="headerlink" title="2028. 找出缺失的观测数据"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-missing-observations/">2028. 找出缺失的观测数据</a></h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">missingRolls</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>rolls<span class="token punctuation">,</span> <span class="token keyword">int</span> mean<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> m <span class="token operator">=</span> rolls<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cnt <span class="token operator">=</span> m <span class="token operator">+</span> n<span class="token punctuation">,</span> sum <span class="token operator">=</span> cnt <span class="token operator">*</span> mean<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> item<span class="token operator">:</span> rolls<span class="token punctuation">)</span> sum <span class="token operator">-=</span> item<span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> ans<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sum <span class="token operator">&gt;</span> n <span class="token operator">*</span> <span class="token number">6</span> <span class="token operator">||</span> sum <span class="token operator">&lt;</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> rem <span class="token operator">=</span> sum <span class="token operator">%</span> n<span class="token punctuation">,</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            ans<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> sum <span class="token operator">/</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>rem<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token operator">++</span>ans<span class="token punctuation">[</span>idx<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2031-2040"><a href="#2031-2040" class="headerlink" title="2031-2040"></a>2031-2040</h2><h2 id="2041-2050"><a href="#2041-2050" class="headerlink" title="2041-2050"></a>2041-2050</h2><h2 id="2051-2060"><a href="#2051-2060" class="headerlink" title="2051-2060"></a>2051-2060</h2><h2 id="2061-2070"><a href="#2061-2070" class="headerlink" title="2061-2070"></a>2061-2070</h2><h2 id="2071-2080"><a href="#2071-2080" class="headerlink" title="2071-2080"></a>2071-2080</h2><h2 id="2081-2090"><a href="#2081-2090" class="headerlink" title="2081-2090"></a>2081-2090</h2><h2 id="2091-2100"><a href="#2091-2100" class="headerlink" title="2091-2100"></a>2091-2100</h2>
                 
             </div>
             <hr/>
@@ -1118,7 +1136,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">222.4k</span>&nbsp;字
+                class="white-color">222.5k</span>&nbsp;字
             
             
             
