@@ -46,6 +46,44 @@ public:
 
 ## 421-430
 ## 431-440
+
+#### [440. 字典序的第K小数字](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/)
+
+```cpp
+class Solution {
+public:
+    int getCnt(int prefix, int n) {
+        long long p = 1;
+        auto A = to_string(n), B = to_string(prefix);
+        int dt = A.size() - B.size();
+        int res = 0;
+        for (int i = 0; i < dt; ++i) {
+            res += p;
+            p *= 10;
+        }
+        A = A.substr(0, B.size());
+        if (A == B) res += n - prefix * p + 1;
+        else if (A > B) res += p;
+        return res;
+    }
+
+    int findKthNumber(int n, int k) {
+        int prefix = 1;
+        while (k > 1) {
+            int cnt = getCnt(prefix, n);
+            if (k > cnt) {
+                k -= cnt;
+                prefix++;
+            } else {
+                prefix *= 10;
+                --k;
+            }
+        }
+        return prefix;
+    }
+};
+```
+
 ## 441-450
 ## 451-460
 ## 461-470
