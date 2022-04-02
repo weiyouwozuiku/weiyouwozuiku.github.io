@@ -532,7 +532,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> pacman -S tmux<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S tmux<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>创建session：tmux new -s <code>session_name</code>。</p>
 <p>直接退出在终端输入<code>exit</code>即可。</p>
@@ -760,7 +760,7 @@
 <h3 id="开启Home和END键"><a href="#开启Home和END键" class="headerlink" title="开启Home和END键"></a>开启Home和END键</h3><p>在.zshrc中添加<code> export TERM="screen-256color"</code>。</p>
 <h3 id="在Tmux中复制"><a href="#在Tmux中复制" class="headerlink" title="在Tmux中复制"></a>在Tmux中复制</h3><p>开启鼠标支持，配置后可以直接<code>Ctrl+a m</code>。</p>
 <p>或者文件配置：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#开启鼠标支持</span>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#开启鼠标支持
 set-option -g mouse on<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>复制 按住<code>shift</code>键,然后拖动鼠标复制要选择的内容，然后按下<code>shift+ctrl+c</code>,复制到系统剪贴板<br> 粘贴 按下<code>shift+ctrl+v</code> 粘贴系统剪贴板中的内容到tmux中<br> 需要注意的是<br> <code>shift+ctrl+v</code>是在终端设置的粘贴快捷键<br> <code>shift+ctrl+c</code>是在终端设置的复制快捷键</p>
