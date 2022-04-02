@@ -55,9 +55,19 @@ Windows：下载安装一直下一步
 
 安装npm-check(全局安装)：`npm install -g npm-check`。
 
+扫描需要更新的包：`npm-check`
+
 npm全局更新包 (全局目录)：`npm-check -u -g`。
 
 npm更新某个项目的包 (项目目录)：`npm-check -u`。
+
+##### npm-upgrade
+
+升级系统中的相关插件。
+
+安装`npm-upgrade`:`npm install -g npm-upgrade`
+
+更新`npm-upgrade`
 
 ##### package.json
 
@@ -73,25 +83,26 @@ npm更新某个项目的包 (项目目录)：`npm-check -u`。
     "server": "hexo server"
   },
   "hexo": {
-    "version": "5.3.0"
+    "version": "6.1.0"
   },
   "dependencies": {
-    "hexo": "^5.3.0",
-    "hexo-deployer-git": "^2.1.0",
+    "hexo": "^6.1.0",
+    "hexo-deployer-git": "^3.0.0",
     "hexo-filter-github-emojis": "^3.0.4",
     "hexo-filter-mermaid-diagrams": "^1.0.5",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-baidu-sitemap": "^0.1.9",
     "hexo-generator-category": "^1.0.0",
+    "hexo-generator-feed": "^3.0.0",
     "hexo-generator-index": "^2.0.0",
-    "hexo-generator-search": "^2.4.1",
-    "hexo-generator-sitemap": "^2.1.0",
+    "hexo-generator-search": "^2.4.3",
+    "hexo-generator-sitemap": "^3.0.1",
     "hexo-generator-tag": "^1.0.0",
     "hexo-permalink-pinyin": "^1.1.0",
-    "hexo-renderer-ejs": "^1.0.0",
-    "hexo-renderer-marked": "^3.0.0",
-    "hexo-renderer-stylus": "^2.0.0",
-    "hexo-server": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^5.0.0",
+    "hexo-renderer-stylus": "^2.0.1",
+    "hexo-server": "^3.0.0",
     "hexo-wordcount": "^6.0.1"
   }
 }
