@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 6.1.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -540,13 +540,15 @@
 <p>与其找一台<code>pc</code>连接<code>wifi</code>再用软件开热点，效果并不好，且稳定性较差。于是想到的解决方案是将树莓派连接wifi,即树莓派的wifi作为wlan口，再将网络数据转发给树莓派的lan口，最后通过路由器做AP将rj45传来的数据做共享wifi。</p>
 <p>步骤：</p>
 <ol>
-<li><p>配置网桥</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install bridge-utils #安装网桥管理工具
+<li>配置网桥</li>
+</ol>
+   <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install bridge-utils #安装网桥管理工具
 brctl addbr br-lan
 brctl addif br-lan eth0
 ifconfig br-lan 192.168.3.1 up #192.168.3.1就是树莓派在整个扩展网络中的地址
 ifconfig eth0 0.0.0.0 up<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+
+<ol start="2">
 <li><p>配置IP转发</p>
 <p>一般的Linux发行版默认都不会开启ip_forward，因为正常的计算机都是作为终端，没有转发数据报的需求，因此需要手动打开。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/sysctl.conf

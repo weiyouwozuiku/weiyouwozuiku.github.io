@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 6.1.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -612,10 +612,8 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="RoundTrip流程"><a href="#RoundTrip流程" class="headerlink" title="RoundTrip流程"></a>RoundTrip流程</h5><p>func(t *Transport)roundTrip(req * Request)-&gt;pconn, err := t.getConn(treq, cm)</p>
-<ol>
-<li><h3 id="UDP创建过程"><a href="#UDP创建过程" class="headerlink" title="UDP创建过程"></a>UDP创建过程</h3></li>
-</ol>
-<h4 id="Server-1"><a href="#Server-1" class="headerlink" title="Server"></a>Server</h4><p>步骤：</p>
+<p>1. </p>
+<h3 id="UDP创建过程"><a href="#UDP创建过程" class="headerlink" title="UDP创建过程"></a>UDP创建过程</h3><h4 id="Server-1"><a href="#Server-1" class="headerlink" title="Server"></a>Server</h4><p>步骤：</p>
 <ol>
 <li>监听服务器</li>
 <li>循环读取消息（不创建socket）</li>

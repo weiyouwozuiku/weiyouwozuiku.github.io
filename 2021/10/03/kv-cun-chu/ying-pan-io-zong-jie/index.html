@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 6.1.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -548,7 +548,7 @@
 <h3 id="物理扇区与逻辑扇区"><a href="#物理扇区与逻辑扇区" class="headerlink" title="物理扇区与逻辑扇区"></a>物理扇区与逻辑扇区</h3><p>关于物理扇区（physical setctor）与逻辑扇区，这个还得扯上扇区大小，由于近年来，随着对硬盘容量的要求不断增加，为了提高数据记录密度，硬盘厂商往往采用增大扇区大小的方法，于是出现了扇区大小为4096字节的硬盘。我们将这样的扇区称之为“物理扇区”。但是这样的大扇区会有兼容性问题，有的系统或软件无法适应。为了解决这个问题，硬盘内部将物理扇区在逻辑上划分为多个扇区片段并将其作为普通的扇区（一般为512字节大小）报告给操作系统及应用软件。这样的扇区片段我们称之为“逻辑扇区”。实际读写时由硬盘内的程序（固件）负责在逻辑扇区与物理扇区之间进行转换，上层程序“感觉”不到物理扇区的存在。</p>
 <p><strong>逻辑扇区是硬盘可以接受读写指令的最小操作单元，是操作系统及应用程序可以访问的扇区</strong>，多数情况下其大小为512字节。我们通常所说的扇区一般就是指的逻辑扇区。<strong>物理扇区是硬盘底层硬件意义上的扇区，是实际执行读写操作的最小单元。是只能由硬盘直接访问的扇区，操作系统及应用程序一般无法直接访问物理扇区</strong>。一个物理扇区可以包含一个或多个逻辑扇区（比如多数硬盘的物理扇区包含了8个逻辑扇区）。当要读写某个逻辑扇区时，硬盘底层在实际操作时都会读写逻辑扇区所在的整个物理扇区。</p>
 <p><strong>同一块硬盘上的扇区大小一定是一致的</strong>，不可能存在多种不同大小的扇区。</p>
-<h2 id="Block-Cluster"><a href="#Block-Cluster" class="headerlink" title="Block/Cluster"></a>Block/Cluster</h2><p>块（Block）/簇（Cluster）是逻辑上的概念，或者说是虚拟出来的概念。 分别对应Linux与Windows操作系统中的概念。注意：有些文章或资料叫做磁盘块/磁盘簇。</p>
+<h2 id="Block-x2F-Cluster"><a href="#Block-x2F-Cluster" class="headerlink" title="Block/Cluster"></a>Block/Cluster</h2><p>块（Block）/簇（Cluster）是逻辑上的概念，或者说是虚拟出来的概念。 分别对应Linux与Windows操作系统中的概念。注意：有些文章或资料叫做磁盘块/磁盘簇。</p>
 <p>Unix与Linux系统中，块（Block）是操作系统中最小的逻辑存储单位。操作系统与磁盘打交道的最小单位是块（Block）。在Windows下如NTFS等文件系统中叫做簇。</p>
 <p>每个簇或者块可以包括2、4、8、16、32、64…2的n次方个扇区。现在电脑一般都是4096大小。</p>
 <p>之所以不直接使用扇区的概念是因为，扇区size太小，数量众多时寻址困难。OS将相邻的扇区进行整合，再进行整体的操作。</p>
@@ -602,7 +602,7 @@
 <p>大多情况下，数据的传输通过DMA方式。旧的磁盘控制器，仅仅支持简单的DMA操作：每次数据传输，只能传输磁盘上相邻的扇区，即数据在内存中也是连续的。这是因为如果传输非连续的扇区，会导致磁盘花费更多的时间在寻址操作上。而现在的磁盘控制器支持“分散/聚合”DMA操作，这种模式下，数据传输可以在多个非连续的内存区域中进行。<strong>为了利用“分散/聚合”DMA操作，块设备驱动必须能处理被称为段（segments）的数据单元。一个段就是一个内存页面或一个页面的部分，它包含磁盘上相邻扇区的数据</strong>。</p>
 <p>通用块层是粘合所有上层和底层的部分，一个页的磁盘数据布局如下图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/KV%E5%AD%98%E5%82%A8/%E7%A3%81%E7%9B%98IO%E6%80%BB%E7%BB%93/%E9%A1%B5%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83.png" alt="页数据分布.png"></p>
-<h3 id="I-O调度层"><a href="#I-O调度层" class="headerlink" title="I/O调度层"></a>I/O调度层</h3><p>I/O调度层的功能是管理块设备的请求队列。即接收通用块层发出的I/O请求，缓存请求并试图合并相邻的请求。并根据设置好的调度算法，回调驱动层提供的请求处理函数，以处理具体的I/O请求。</p>
+<h3 id="I-x2F-O调度层"><a href="#I-x2F-O调度层" class="headerlink" title="I/O调度层"></a>I/O调度层</h3><p>I/O调度层的功能是管理块设备的请求队列。即接收通用块层发出的I/O请求，缓存请求并试图合并相邻的请求。并根据设置好的调度算法，回调驱动层提供的请求处理函数，以处理具体的I/O请求。</p>
 <p>如果简单地以内核产生请求的次序直接将请求发给块设备的话，那么块设备性能肯定让人难以接受，因为磁盘寻址是整个计算机中最慢的操作之一。为了优化寻址操作，内核不会一旦接收到I/O请求后，就按照请求的次序发起块I/O请求。为此Linux实现了几种I/O调度算法，算法基本思想就是通过合并和排序I/O请求队列中的请求，以此大大降低所需的磁盘寻道时间，从而提高整体I/O性能。</p>
 <p>常见的I/O调度算法包括Noop调度算法（No Operation）、CFQ（完全公正排队I/O调度算法）、DeadLine（截止时间调度算法）、AS预测调度算法等。</p>
 <ul>

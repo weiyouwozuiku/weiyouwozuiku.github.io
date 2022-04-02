@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 6.1.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -554,8 +554,8 @@
 <p>优点：其运算次数与输入n的大小无关，只与n中1的个数有关。</p>
 <h2 id="查表法"><a href="#查表法" class="headerlink" title="查表法"></a>查表法</h2><h3 id="动态建表"><a href="#动态建表" class="headerlink" title="动态建表"></a>动态建表</h3><p>由于表示在程序运行时动态创建的，所以速度上肯定会慢一些，把这个版本放在这里，有两个原因</p>
 <ol>
-<li> 介绍填表的方法，因为这个方法的确很巧妙。</li>
-<li> 类型转换，这里使用移位的方式实现切分uint32变成[]byte</li>
+<li>介绍填表的方法，因为这个方法的确很巧妙。</li>
+<li>类型转换，这里使用移位的方式实现切分uint32变成[]byte</li>
 </ol>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">BitCount1</span><span class="token punctuation">(</span>a <span class="token builtin">uint32</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>num <span class="token builtin">uint8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 	<span class="token comment">//建表</span>

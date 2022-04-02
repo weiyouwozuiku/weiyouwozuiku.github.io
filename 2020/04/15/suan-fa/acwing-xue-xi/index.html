@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 6.1.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -1462,7 +1462,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
 <p>基本原理为：<strong>每个集合用一棵树来表示。树根的编号就是整个集合的编号。每个节点存储它的父节点</strong>。<code>p[x]</code>表示x的父节点。</p>
 <ul>
 <li>如何判断树根：<code>if(p[x]==x)</code></li>
-<li>  求x的集合编号：<code>while(p[x]!=x) x=p[x];</code></li>
+<li>求x的集合编号：<code>while(p[x]!=x) x=p[x];</code></li>
 <li>如何合并两个集合：设立任意一条边属于另一个树</li>
 <li>如何优化并查集寻找父节点的过程：使用路径压缩，即在寻找的过程中，将所有子节点的父指针直接指向树根。一般不用大枝合并。</li>
 </ul>

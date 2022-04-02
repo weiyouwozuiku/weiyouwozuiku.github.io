@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 6.1.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -537,7 +537,7 @@
 <li><p>Best Effort<br>应用可以在任何时候，发出任意数量的报文，网络尽最大可能来发送报文，对带宽、时延、抖动和可靠性等不提供任何保证。<br>Best Effort是Internet的缺省服务模型，通过FIFO（First In First Out，先进先出）队列来实现。<br>尽力而为的服务实质上并不属于QoS的范畴，因为在转发尽力而为的通信时，并没有提供任何服务或转发保证。</p>
 </li>
 <li><p>2.DiffServ</p>
-<p>根据服务要求对不同任务的数据进行分类，对报文按类进行优先级标记，然后有差别的提供服务。为重要的应用提供端对端的ＱoS。通过以下技术实现： </p>
+<p>根据服务要求对不同任务的数据进行分类，对报文按类进行优先级标记，然后有差别的提供服务。为重要的应用提供端对端的ＱoS。通过以下技术实现：</p>
 </li>
 </ol>
 <ul>
@@ -580,7 +580,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/QoS%E7%9F%A5%E8%AF%86/QoS%E7%9F%A5%E8%AF%86_PQ.png"></p>
 <p>优先队列是针对关键业务应用设计的。关键业务有一个重要特点，在拥塞发生时根据优先获得服务以减少响应的延迟。PQ可以根据网络协议（如IP、IPX）、数据流入接口、报文长短、IP报文的ToS、五元组（协议ID、源IP地址、目的IP地址、源端口号、目的端口号）等条件进行分类，对于MPLS网络，则根据MPLS报文EXP域值进行分类。最终将所有报文分成最多4类，分别属于PQ的4个队列中的一个，然后，按报文所属类别将报文送入相应的队列。</p>
 <p>$$PQ队列\begin{cases}\text{高优先级队列}\\text{中优先级队列}\\text{正常优先级队列}\\text{低优先级队列}\end{cases}$$</p>
-<p>它们的优先级依次降低。在报文出队的时候，PQ首先让高优先队列中的报文出队并发送，直到高优先队列中的报文发送完，然后发送中优先队列中的报文，同样，直到发送完，然后是正常优先队列和低优先队列。这样，分类时属于较高优先级队列的报文将会得到优先发送，而较低优先级的报文将会在发生拥塞时被较高优先级的报文*<em>抢占**</em>。这样会使得实时业务（如VoIP）的报文能够得到优先处理，非实时业务（如E-Mail）的报文在网络处理完关键业务后的空闲间隙得到处理，既保证了实时业务的优先，又充分利用了网络资源。</p>
+<p>它们的优先级依次降低。在报文出队的时候，PQ首先让高优先队列中的报文出队并发送，直到高优先队列中的报文发送完，然后发送中优先队列中的报文，同样，直到发送完，然后是正常优先队列和低优先队列。这样，分类时属于较高优先级队列的报文将会得到优先发送，而较低优先级的报文将会在发生拥塞时被较高优先级的报文<strong>抢占</strong>*。这样会使得实时业务（如VoIP）的报文能够得到优先处理，非实时业务（如E-Mail）的报文在网络处理完关键业务后的空闲间隙得到处理，既保证了实时业务的优先，又充分利用了网络资源。</p>
 <p>缺点：当较高优先级队列中总有报文存在时，则低优先级队列中的报文将一直得不到服务，出现队列“饿死”现象。</p>
 </li>
 <li><p>CQ(Custom Queuing)</p>
@@ -638,7 +638,9 @@
 <p>LR的处理过程仍然采用令牌桶进行流量控制。如果用户在路由器的某个接口上配置了LR，规定了流量特性，则所有经由该接口发送的报文首先要经过LR的令牌桶进行处理。如果令牌桶中有足够的令牌可以用来发送报文，则报文可以发送。如果令牌桶中的令牌不满足报文的发送条件，则报文入QoS队列进行拥塞管理。这样，就可以对通过该物理接口的报文流量进行控制。</p>
 <p>LR的基本处理过程如下图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/QoS%E7%9F%A5%E8%AF%86/QoS%E7%9F%A5%E8%AF%86_LR.png"></p>
-<h3 id="4-其他提高QoS的技术"><a href="#4-其他提高QoS的技术" class="headerlink" title="4. 其他提高QoS的技术"></a>4. 其他提高QoS的技术</h3></li>
+</li>
+</ol>
+<h3 id="4-其他提高QoS的技术"><a href="#4-其他提高QoS的技术" class="headerlink" title="4. 其他提高QoS的技术"></a>4. 其他提高QoS的技术</h3><ol>
 <li><p>链路效率机制</p>
 <p> 链路效率机制，用于改善链路的性能，间接提高网络的QoS，如降低链路发包的时延（针对特定业务）、调整有效带宽。链路效率机制有很多种，下面介绍两种比较典型的链路效率机制及其基本原理。</p>
 <ol>

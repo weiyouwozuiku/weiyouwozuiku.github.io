@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 6.1.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -1085,7 +1085,7 @@ std<span class="token double-colon punctuation">::</span>istream <span class="to
 <p>抽象类不能被用于实例化对象，它只能作为接口使用，如果试图实例化一个抽象类的对象，会导致编译错误。</p>
 <h5 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h5><p>类的虚函数通过虚表的方式和类的成员变量组合在一起，寄存在类的对象中，但是类的成员函数并不在其中。而是通过this指针与对象相结合。this指针一般存储在<code>ecx</code>寄存器中。</p>
 <hr>
-<h3 id="I-O流"><a href="#I-O流" class="headerlink" title="I/O流"></a>I/O流</h3><p>传统的C中I/O有<code>printf,scanf,getch,gets</code>等函数，它们的问题是：</p>
+<h3 id="I-x2F-O流"><a href="#I-x2F-O流" class="headerlink" title="I/O流"></a>I/O流</h3><p>传统的C中I/O有<code>printf,scanf,getch,gets</code>等函数，它们的问题是：</p>
 <ul>
 <li>不可编程，仅仅能识别固有的数据类型;</li>
 <li>代码的可移植性差;</li>
@@ -1585,7 +1585,7 @@ Singleton<span class="token operator">*</span> Singleton<span class="token doubl
 <li>叶子函数(叶子函数：指在寒回溯内部不分配栈空间，也不调用其他函数，也不存储非易失性寄存器，也不处理异常)</li>
 </ul>
 <p>除此以外，不推荐使用<code>noexcept</code>。</p>
-<h4 id="default和-delete"><a href="#default和-delete" class="headerlink" title="=default和=delete"></a>=default和=delete</h4><p><code>=delete</code>和<code>=default</code>是c++11的新特性，分别是显式删除（告知编译器<strong>不生成</strong>函数默认的缺省版本）和显式缺省（告诉编译器<strong>生成</strong>函数默认的缺省版本），这样可以增强对“类默认函数的控制”。</p>
+<h4 id="x3D-default和-x3D-delete"><a href="#x3D-default和-x3D-delete" class="headerlink" title="=default和=delete"></a>=default和=delete</h4><p><code>=delete</code>和<code>=default</code>是c++11的新特性，分别是显式删除（告知编译器<strong>不生成</strong>函数默认的缺省版本）和显式缺省（告诉编译器<strong>生成</strong>函数默认的缺省版本），这样可以增强对“类默认函数的控制”。</p>
 <h5 id="类与默认函数"><a href="#类与默认函数" class="headerlink" title="类与默认函数"></a>类与默认函数</h5><p>当我们编写一个类的时候，若不显著写明，则类会默认为我们提供几个函数与全局默认操作符：</p>
 <ul>
 <li>构造函数</li>
