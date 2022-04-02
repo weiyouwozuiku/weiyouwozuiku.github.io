@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-04
+                    2022-04-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.5k
                 </div>
                 
 
@@ -547,8 +547,12 @@
 <p>仅显示顶层树：<code>npm list --depth=0</code>。</p>
 <p>要显示需要更新的过期软件包：<code>npm outdated</code>。</p>
 <h5 id="npm-check"><a href="#npm-check" class="headerlink" title="npm-check"></a>npm-check</h5><p>安装npm-check(全局安装)：<code>npm install -g npm-check</code>。</p>
+<p>扫描需要更新的包：<code>npm-check</code></p>
 <p>npm全局更新包 (全局目录)：<code>npm-check -u -g</code>。</p>
 <p>npm更新某个项目的包 (项目目录)：<code>npm-check -u</code>。</p>
+<h5 id="npm-upgrade"><a href="#npm-upgrade" class="headerlink" title="npm-upgrade"></a>npm-upgrade</h5><p>升级系统中的相关插件。</p>
+<p>安装<code>npm-upgrade</code>:<code>npm install -g npm-upgrade</code></p>
+<p>更新<code>npm-upgrade</code></p>
 <h5 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h5><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"hexo-site"</span><span class="token punctuation">,</span>
   <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.0"</span><span class="token punctuation">,</span>
@@ -560,28 +564,29 @@
     <span class="token property">"server"</span><span class="token operator">:</span> <span class="token string">"hexo server"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"hexo"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"5.3.0"</span>
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"6.1.0"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token property">"hexo"</span><span class="token operator">:</span> <span class="token string">"^5.3.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"hexo-deployer-git"</span><span class="token operator">:</span> <span class="token string">"^2.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"hexo"</span><span class="token operator">:</span> <span class="token string">"^6.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"hexo-deployer-git"</span><span class="token operator">:</span> <span class="token string">"^3.0.0"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-filter-github-emojis"</span><span class="token operator">:</span> <span class="token string">"^3.0.4"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-filter-mermaid-diagrams"</span><span class="token operator">:</span> <span class="token string">"^1.0.5"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-generator-archive"</span><span class="token operator">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-generator-baidu-sitemap"</span><span class="token operator">:</span> <span class="token string">"^0.1.9"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-generator-category"</span><span class="token operator">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"hexo-generator-feed"</span><span class="token operator">:</span> <span class="token string">"^3.0.0"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-generator-index"</span><span class="token operator">:</span> <span class="token string">"^2.0.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"hexo-generator-search"</span><span class="token operator">:</span> <span class="token string">"^2.4.1"</span><span class="token punctuation">,</span>
-    <span class="token property">"hexo-generator-sitemap"</span><span class="token operator">:</span> <span class="token string">"^2.1.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"hexo-generator-search"</span><span class="token operator">:</span> <span class="token string">"^2.4.3"</span><span class="token punctuation">,</span>
+    <span class="token property">"hexo-generator-sitemap"</span><span class="token operator">:</span> <span class="token string">"^3.0.1"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-generator-tag"</span><span class="token operator">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-permalink-pinyin"</span><span class="token operator">:</span> <span class="token string">"^1.1.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"hexo-renderer-ejs"</span><span class="token operator">:</span> <span class="token string">"^1.0.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"hexo-renderer-marked"</span><span class="token operator">:</span> <span class="token string">"^3.0.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"hexo-renderer-stylus"</span><span class="token operator">:</span> <span class="token string">"^2.0.0"</span><span class="token punctuation">,</span>
-    <span class="token property">"hexo-server"</span><span class="token operator">:</span> <span class="token string">"^2.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"hexo-renderer-ejs"</span><span class="token operator">:</span> <span class="token string">"^2.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"hexo-renderer-marked"</span><span class="token operator">:</span> <span class="token string">"^5.0.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"hexo-renderer-stylus"</span><span class="token operator">:</span> <span class="token string">"^2.0.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"hexo-server"</span><span class="token operator">:</span> <span class="token string">"^3.0.0"</span><span class="token punctuation">,</span>
     <span class="token property">"hexo-wordcount"</span><span class="token operator">:</span> <span class="token string">"^6.0.1"</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h4><h5 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h5><p>Manjaro：<code>sudo pacman -S git</code></p>
 <p>Windows：下载安装一直下一步</p>
