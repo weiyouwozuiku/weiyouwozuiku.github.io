@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://buerlog.top/2022/04/02/kv-cun-chu/tidb-ji-qi-tikv-xue-xi-ji-lu/</loc>
+    <lastmod>2022-04-02</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-401-500/</loc>
+    <lastmod>2022-04-02</lastmod>
+  </url>
+  <url>
     <loc>http://buerlog.top/2021/12/21/cheng-xu-she-ji/chang-yong-sql-zheng-li/</loc>
     <lastmod>2022-03-29</lastmod>
   </url>
@@ -174,10 +182,6 @@
   </url>
   <url>
     <loc>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2101-2189/</loc>
-    <lastmod>2022-03-04</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-401-500/</loc>
     <lastmod>2022-03-04</lastmod>
   </url>
   <url>
