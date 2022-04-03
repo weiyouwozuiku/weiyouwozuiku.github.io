@@ -37,9 +37,9 @@ BA-->分治
 BA-->动态规划
 BA-->回溯
 BA-->枚举
-Sort-->n2[&#79&#40&#110&#94&#50&#41]
-Sort-->nlogn[&#79&#40&#110&#108&#111&#103&#110&#41]
-Sort-->n[&#79&#40&#110&#41]
+Sort-->n2[O_n^2]
+Sort-->nlogn[O_nlogn]
+Sort-->n[O_n]
 n2-->冒泡排序
 n2-->插入排序
 n2-->选择排序
@@ -274,13 +274,13 @@ int main(){
 
 - $mid={\frac{l+r+1}{2}}$
 
-    $if (check(mid)) \begin{cases} true& \text {[mid,r]=>l=mid} \\ false& \text {[l,mid+1]=>r=mid-1} \end{cases} $
+    $$if (check(mid)) \begin{cases} true& \text {[mid,r]=>l=mid} \\ false& \text {[l,mid+1]=>r=mid-1} \end{cases}$ $$
 
 - 区间[l,r]被划分为[l,mid-1]和[mid,r]
 
 - $mid=\frac{l+r}{2}$
 
-    $if(check(mid))\begin{cases}true \quad[l,mid]=>r=mid \\ false \quad [mid+1,r]=>l=mid+1\end{cases}$
+    $$if(check(mid))\begin{cases}true \quad[l,mid]=>r=mid \\ false \quad [mid+1,r]=>l=mid+1\end{cases}$$
 
 **这里的mid是否加一,取决于当为true时是l=mid还是r=mid.如果是l=mid,默认的除法是下取整,在l和r之间只相差一个的时候导致一直是l=l,进而导致死循环.**写程序的时候先写成`l+r>>1`，之后再根据l和r，选择是否+1。
 

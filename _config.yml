@@ -201,6 +201,10 @@ markdown:
     - markdown-it-mark # https://github.com/markdown-it/markdown-it-mark
     - markdown-it-sub # https://github.com/markdown-it/markdown-it-sub
     - markdown-it-sup # https://github.com/markdown-it/markdown-it-sup
+      #- markdown-it-latex2img # https://github.com/MakerGYT/markdown-it-latex2img#hexo
+    - name: markdown-it-latex2img
+      options:
+        style: 'filter: opacity(95%);transform:scale(0.85);text-align:center;'
 #以下为额外安装插件
 #    - markdown-it-task-lists # https://github.com/revin/markdown-it-task-lists
   anchors: # 锚点的配置
@@ -210,7 +214,7 @@ markdown:
     permalink: true # false # 如果为 true 则创建一个除标题外带有固定地址的的锚点标签.
     permalinkClass: 'anchor' # 定义固定锚点的 class 名.
     permalinkSide: 'right' # 设定为 right 则会在标题后添加固定链接.
-    permalinkSymbol: '·' # 定义固定链接使用的符号
+    permalinkSymbol: '¶' # 定义固定链接使用的符号
     # 标题固定锚点到此结束
     case: 0 # 转换锚点 ID 中的字母为大写或小写 # "0" 不转换, "1" 为小写, "2" 为大写.
     separator: '-' # 用于替换空格的符号. # 默认为 "-"
