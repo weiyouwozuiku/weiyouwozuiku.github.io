@@ -497,7 +497,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    871
+                    872
                 </div>
                 
 
@@ -532,7 +532,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="CloudSim能耗计算模型的不同"><a href="#CloudSim能耗计算模型的不同" class="headerlink" title="CloudSim能耗计算模型的不同"></a>CloudSim能耗计算模型的不同</h2><h3 id="一：CloudSim能耗计算模型综述"><a href="#一：CloudSim能耗计算模型综述" class="headerlink" title="一：CloudSim能耗计算模型综述"></a>一：CloudSim能耗计算模型综述</h3><p>CloudSim定义了一个能耗计算模型接口类<code>PowerModel</code>，分别有5个子类继承，这个五个子类分别为：</p>
+                <h2 id="CloudSim能耗计算模型的不同">CloudSim能耗计算模型的不同<a class="anchor" href="#CloudSim能耗计算模型的不同">¶</a></h2>
+<h3 id="一：CloudSim能耗计算模型综述">一：CloudSim能耗计算模型综述<a class="anchor" href="#一：CloudSim能耗计算模型综述">¶</a></h3>
+<p>CloudSim定义了一个能耗计算模型接口类<code>PowerModel</code>，分别有5个子类继承，这个五个子类分别为：</p>
 <ol>
 <li>：<code>PowerModelLinear</code>，以线性增长的方式计算能耗。</li>
 <li>：<code>PowerModelSquare</code>，以平方增长的方式计算能耗。</li>
@@ -540,46 +542,47 @@
 <li>：<code>PowerModelSqrt</code>，以平方根增长的方式计算能耗。</li>
 <li>：<code>PowerModelSpecPower</code>，以基于SPECpower benchmark计算能耗。</li>
 </ol>
-<h3 id="二：CloudSim能耗计算模型分析"><a href="#二：CloudSim能耗计算模型分析" class="headerlink" title="二：CloudSim能耗计算模型分析"></a>二：CloudSim能耗计算模型分析</h3><p>​    2.1：<code>PowerModelLinear</code>类，其中定义了三个属性：</p>
-<p>​        (1)<code>maxPower</code>：maxpower定义了最大可以消耗的能耗。</p>
-<p>​        (2)<code>constant</code>：constant可以反应每个被使用的资源的能耗消耗。</p>
-<p>​        (3)<code>staticPower</code>：staticpower表示机器不运行任何程序时候的静态能耗。</p>
-<p>​    <code>PowerModelLinear</code>是以线性增长的方式计算能耗，我们可以用一个公式表达，设最后计算的power为y，constant为a，staticpower为b，(utlization*100)为x,其中constant=(maxPower - StaticPower) /100)得出：</p>
-<p>​    y=staticpower+constant*(utlization*100)</p>
-<p>​    抽象可以得出:y=ax+b,可以得出PowerModelLinear类是以线性增长的方式计算能耗。</p>
-<p>​    2.2：<code>PowerModelSquare</code>类，其中定义了三个属性：</p>
-<p>​        (1)<code>maxPower</code>：maxpower定义了最大可以消耗的能耗。</p>
-<p>​        (2)<code>constant</code>：constant可以反应每个被使用的资源的能耗消耗。</p>
-<p>​        (3)<code>staticPower</code>：staticpower表示机器不运行任何程序时候的静态能耗。</p>
-<p>​    <code>PowerModelSquare</code>是以平方增长的方式计算能耗，我们可以用一个公式表达，设最后计算的power为y，constant为a，staticpower为b，(utlization*100)为x,其中constant=(maxPower - StaticPower) /100²)得出：</p>
-<p>​    y=staticpower+constant*(utlization*100)²</p>
-<p>​    抽象可以得出:y=ax²+b,可以得出PowerModelSquare类是以平方增长的方式计算能耗。</p>
-<pre><code> 2.3：`PowerModelCubic`类，其中定义了三个属性：
+<h3 id="二：CloudSim能耗计算模型分析">二：CloudSim能耗计算模型分析<a class="anchor" href="#二：CloudSim能耗计算模型分析">¶</a></h3>
+<p>​	2.1：<code>PowerModelLinear</code>类，其中定义了三个属性：</p>
+<p>​		(1)<code>maxPower</code>：maxpower定义了最大可以消耗的能耗。</p>
+<p>​		(2)<code>constant</code>：constant可以反应每个被使用的资源的能耗消耗。</p>
+<p>​		(3)<code>staticPower</code>：staticpower表示机器不运行任何程序时候的静态能耗。</p>
+<p>​	<code>PowerModelLinear</code>是以线性增长的方式计算能耗，我们可以用一个公式表达，设最后计算的power为y，constant为a，staticpower为b，(utlization*100)为x,其中constant=(maxPower - StaticPower) /100)得出：</p>
+<p>​	y=staticpower+constant*(utlization*100)</p>
+<p>​	抽象可以得出:y=ax+b,可以得出PowerModelLinear类是以线性增长的方式计算能耗。</p>
+<p>​	2.2：<code>PowerModelSquare</code>类，其中定义了三个属性：</p>
+<p>​		(1)<code>maxPower</code>：maxpower定义了最大可以消耗的能耗。</p>
+<p>​		(2)<code>constant</code>：constant可以反应每个被使用的资源的能耗消耗。</p>
+<p>​		(3)<code>staticPower</code>：staticpower表示机器不运行任何程序时候的静态能耗。</p>
+<p>​	<code>PowerModelSquare</code>是以平方增长的方式计算能耗，我们可以用一个公式表达，设最后计算的power为y，constant为a，staticpower为b，(utlization*100)为x,其中constant=(maxPower - StaticPower) /100²)得出：</p>
+<p>​	y=staticpower+constant*(utlization*100)²</p>
+<p>​	抽象可以得出:y=ax²+b,可以得出PowerModelSquare类是以平方增长的方式计算能耗。</p>
+<pre><code>2.3：`PowerModelCubic`类，其中定义了三个属性：
 </code></pre>
-<p>​        (1)<code>maxPower</code>：maxpower定义了最大可以消耗的能耗。</p>
-<p>​        (2)<code>constant</code>：constant可以反应每个被使用的资源的能耗消耗。</p>
-<p>​        (3)<code>staticPower</code>：staticpower表示机器不运行任何程序时候的静态能耗消耗。</p>
-<p>​    <code>PowerModelCubic</code>是以立方增长的方式计算能耗，我们可以用一个公式表达，设最后计算的power为y，constant为a，staticpower为b，(utlization*100)为x,其中constant=(maxPower - StaticPower) /100³)得出：</p>
-<p>​    y=staticpower+constant*(utlization*100)³</p>
-<p>​    抽象可以得出:y=ax³+b,可以得出PowerModelLinear类是以立方增长的方式计算能耗。</p>
-<pre><code> 2.4：`PowerModelSqrt`类，其中定义了三个属性：
+<p>​		(1)<code>maxPower</code>：maxpower定义了最大可以消耗的能耗。</p>
+<p>​		(2)<code>constant</code>：constant可以反应每个被使用的资源的能耗消耗。</p>
+<p>​		(3)<code>staticPower</code>：staticpower表示机器不运行任何程序时候的静态能耗消耗。</p>
+<p>​	<code>PowerModelCubic</code>是以立方增长的方式计算能耗，我们可以用一个公式表达，设最后计算的power为y，constant为a，staticpower为b，(utlization*100)为x,其中constant=(maxPower - StaticPower) /100³)得出：</p>
+<p>​	y=staticpower+constant*(utlization*100)³</p>
+<p>​	抽象可以得出:y=ax³+b,可以得出PowerModelLinear类是以立方增长的方式计算能耗。</p>
+<pre><code>2.4：`PowerModelSqrt`类，其中定义了三个属性：
 </code></pre>
-<p>​        (1)<code>maxPower</code>：maxpower定义了最大可以消耗的能耗。</p>
-<p>​        (2)<code>constant</code>：constant可以反应每个被使用的资源的能耗消耗。</p>
-<p>​        (3)<code>staticPower</code>：staticpower表示机器不运行任何程序时候的静态能耗消耗。</p>
-<p>​    <code>PowerModelSqrt</code>是以平方根增长的方式计算能耗，我们可以用一个公式表达，设最后计算的power为y，constant为a，staticpower为b，(utlization*100)为x,其中constant=(maxPower - StaticPower) /√100)得出：</p>
-<p>​    y=staticpower+constant<em>√(utlization</em>100)</p>
-<p>​    抽象可以得出:y=a√x+b,可以得出PowerModelLinear类是以平方根增长的方式计算能耗</p>
-<pre><code> 2.5：`PowerModelSpecPower`类其中底下还有七个子类分别为：
+<p>​		(1)<code>maxPower</code>：maxpower定义了最大可以消耗的能耗。</p>
+<p>​		(2)<code>constant</code>：constant可以反应每个被使用的资源的能耗消耗。</p>
+<p>​		(3)<code>staticPower</code>：staticpower表示机器不运行任何程序时候的静态能耗消耗。</p>
+<p>​	<code>PowerModelSqrt</code>是以平方根增长的方式计算能耗，我们可以用一个公式表达，设最后计算的power为y，constant为a，staticpower为b，(utlization*100)为x,其中constant=(maxPower - StaticPower) /√100)得出：</p>
+<p>​	y=staticpower+constant<em>√(utlization</em>100)</p>
+<p>​	抽象可以得出:y=a√x+b,可以得出PowerModelLinear类是以平方根增长的方式计算能耗</p>
+<pre><code>2.5：`PowerModelSpecPower`类其中底下还有七个子类分别为：
 </code></pre>
-<p>​        (1)：PowerModelSpecPowerIbmX3550XeonX5675</p>
-<p>​        (2)：PowerModelSpecPowerHpProLiantMl110G4Xeon3040</p>
-<p>​        (3)：PowerModelSpecPowerHpProLiantMl110G3PentiumD930</p>
-<p>​        (4)：PowerModelSpecPowerIbmX3250XeonX3480</p>
-<p>​        (5)：PowerModelSpecPowerIbmX3550XeonX5670</p>
-<p>​        (6)：PowerModelSpecPowerHpProLiantMl110G5Xeon3075</p>
-<p>​        (7)：PowerModelSpecPowerIbmX3250XeonX3470</p>
-<p>​    这七个子类不同的只是自身的powerData数组所存储的数组不同，其他没有区别，PowerModelSpecpower主要实现的过程是，首先传来一个utlization，让后根据utlization在不同的子类数组中选择两个返回值定义为power1和power2，定义一个变量delta=(power1-power2)/10，最终计算出</p>
+<p>​		(1)：PowerModelSpecPowerIbmX3550XeonX5675</p>
+<p>​		(2)：PowerModelSpecPowerHpProLiantMl110G4Xeon3040</p>
+<p>​		(3)：PowerModelSpecPowerHpProLiantMl110G3PentiumD930</p>
+<p>​		(4)：PowerModelSpecPowerIbmX3250XeonX3480</p>
+<p>​		(5)：PowerModelSpecPowerIbmX3550XeonX5670</p>
+<p>​		(6)：PowerModelSpecPowerHpProLiantMl110G5Xeon3075</p>
+<p>​		(7)：PowerModelSpecPowerIbmX3250XeonX3470</p>
+<p>​	这七个子类不同的只是自身的powerData数组所存储的数组不同，其他没有区别，PowerModelSpecpower主要实现的过程是，首先传来一个utlization，让后根据utlization在不同的子类数组中选择两个返回值定义为power1和power2，定义一个变量delta=(power1-power2)/10，最终计算出</p>
 <p>power=power1 + delta * (utilization - utilization1 / 10) * 100即为PowerModelSpecPower策略所测量出来的能耗。</p>
 
                 
@@ -881,11 +884,13 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            树莓派安装OpenCV系统更新sudo apt update
+                            树莓派安装OpenCV¶
+系统更新¶
+sudo apt update
 sudo apt upgrade
 sudo rpi-update
-
-安装一些OpenCV相关工具sudo apt install git cmake build-essentia
+安装一些OpenCV相关工具¶
+sudo apt install git cmake build-ess
                         
                     </div>
                     <div class="publish-info">
@@ -1081,13 +1086,6 @@ sudo rpi-update
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1159,7 +1157,7 @@ sudo rpi-update
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

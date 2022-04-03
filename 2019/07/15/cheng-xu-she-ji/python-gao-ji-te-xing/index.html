@@ -532,40 +532,50 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Python语法糖"><a href="#Python语法糖" class="headerlink" title="Python语法糖"></a>Python语法糖</h2><hr>
+                <h2 id="Python语法糖">Python语法糖<a class="anchor" href="#Python语法糖">¶</a></h2>
+<hr>
 <ul>
-<li><p>对于取制定索引范围的操作，Python提供了切片(Slice)实现。例如：<code>L[0:3]</code>，这里表示的是从索引0开始取，知道索引3为止，<strong>左闭右开的区间</strong>。<em>如果第一个数是0，还可以省略</em>。<code>[:10:2]</code>其中的2表示每两位取一个。<code>[:]</code>表示原样复制一个list。</p>
+<li>
+<p>对于取制定索引范围的操作，Python提供了切片(Slice)实现。例如：<code>L[0:3]</code>，这里表示的是从索引0开始取，知道索引3为止，<strong>左闭右开的区间</strong>。<em>如果第一个数是0，还可以省略</em>。<code>[:10:2]</code>其中的2表示每两位取一个。<code>[:]</code>表示原样复制一个list。</p>
 </li>
-<li><p>默认情况下，dict迭代的是key。如果要迭代value，可以使用<code>for value ind.values()</code>。如果需要同事迭代key和value，可以使用<code>for k,v in d.items()</code>。</p>
+<li>
+<p>默认情况下，dict迭代的是key。如果要迭代value，可以使用<code>for value ind.values()</code>。如果需要同事迭代key和value，可以使用<code>for k,v in d.items()</code>。</p>
 <span id="more"></span>
 </li>
-<li><p>通过collections模块的Iterable类型判断是否是一个可迭代对象。<code>isinstance(变量,Iterable)</code>，这会返回一个布尔值。</p>
+<li>
+<p>通过collections模块的Iterable类型判断是否是一个可迭代对象。<code>isinstance(变量,Iterable)</code>，这会返回一个布尔值。</p>
 </li>
-<li><p><code>enumerate</code>函数可以将一个list变成一个索引-元素树。</p>
+<li>
+<p><code>enumerate</code>函数可以将一个list变成一个索引-元素树。</p>
 </li>
-<li><p>使用列表生成器来生成有一定复杂度的list。</p>
+<li>
+<p>使用列表生成器来生成有一定复杂度的list。</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">&gt;&gt;&gt; [x * x for x in range(1, 11)]
 [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>其中还可以加入if判断</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">&gt;&gt;&gt; [x * x for x in range(1, 11) if x % 2 == 0]
 [4, 16, 36, 64, 100]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>还可以嵌套使用</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">&gt;&gt;&gt; [m + n for m in 'ABC' for n in 'XYZ']
 ['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
-<li><p>要善于使用生成器，避免存有大量有规律的数组存在。启用方法就是将列表生成器的<code>[]</code>替换成<code>()</code>。可以通过<code>next()</code>函数来获取生成器的下一个返回值。generator是一个可迭代对象。直接调用返回的是一个生成器对象。</p>
+<li>
+<p>要善于使用生成器，避免存有大量有规律的数组存在。启用方法就是将列表生成器的<code>[]</code>替换成<code>()</code>。可以通过<code>next()</code>函数来获取生成器的下一个返回值。generator是一个可迭代对象。直接调用返回的是一个生成器对象。</p>
 </li>
-<li><p>可以使用<code>yield</code>定义generation。每次调用<code>next()</code>时执行generation，遇到<code>yield</code>语句返回，再次执行从上次返回<code>yield</code>处继续执行。</p>
+<li>
+<p>可以使用<code>yield</code>定义generation。每次调用<code>next()</code>时执行generation，遇到<code>yield</code>语句返回，再次执行从上次返回<code>yield</code>处继续执行。</p>
 </li>
-<li><p>用<code>for</code>循环调用generator时，发现拿不到generator的<code>return</code>语句的返回值。如果想要拿到返回值，必须捕获<code>StopIteration</code>错误，返回值包含在<code>StopIteration</code>的<code>value</code>中。</p>
+<li>
+<p>用<code>for</code>循环调用generator时，发现拿不到generator的<code>return</code>语句的返回值。如果想要拿到返回值，必须捕获<code>StopIteration</code>错误，返回值包含在<code>StopIteration</code>的<code>value</code>中。</p>
 </li>
-<li><p><code>a, b = b, a + b</code>本质上等于a=b，同时b=a+b。先赋值，后改变a、b值。</p>
+<li>
+<p><code>a, b = b, a + b</code>本质上等于a=b，同时b=a+b。先赋值，后改变a、b值。</p>
 </li>
-<li><p>生成器是<code>Iterator</code>对象，而<code>list</code>、<code>dict</code>、<code>str</code>虽然是<code>Iterable</code>，但不是<code>Iterator</code>。若想将其变成<code>Iterator</code>可以使用<code>iter()</code>函数。本质上**<code>Iterator</code>是一个数据流，可以被<code>next()</code>函数调用并不断返回下一个数据，直至抛出<code>StopIteration</code>错误。期间无法获知序列长度，惰性计算。**凡是可作用于<code>for</code>循环的对象都是<code>Iterable</code>类型，凡是可作用于<code>next()</code>函数的对象都是<code>Iterator</code>类型，它们表示一个惰性计算的序列。</p>
+<li>
+<p>生成器是<code>Iterator</code>对象，而<code>list</code>、<code>dict</code>、<code>str</code>虽然是<code>Iterable</code>，但不是<code>Iterator</code>。若想将其变成<code>Iterator</code>可以使用<code>iter()</code>函数。本质上**<code>Iterator</code>是一个数据流，可以被<code>next()</code>函数调用并不断返回下一个数据，直至抛出<code>StopIteration</code>错误。期间无法获知序列长度，惰性计算。**凡是可作用于<code>for</code>循环的对象都是<code>Iterable</code>类型，凡是可作用于<code>next()</code>函数的对象都是<code>Iterator</code>类型，它们表示一个惰性计算的序列。</p>
 </li>
-<li><p>Python的<code>for</code>循环本质上就是通过不断调用<code>next()</code>函数实现的。</p>
+<li>
+<p>Python的<code>for</code>循环本质上就是通过不断调用<code>next()</code>函数实现的。</p>
 </li>
 </ul>
 
@@ -820,12 +830,16 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Python函数式编程
+                            Python函数式编程¶
+
+
 函数式编程没有变量，在确定输入时，输出就已经确定了，没有因为变量的不确定导致的副作用。允许将番薯本身作为参数传入另一个函数，允许返回一个函数。
+
 
 一个函数可以接收另一个函数作为参数，称之为高阶函数。
 
-map()函数
+
+ma
                         
                     </div>
                     <div class="publish-info">
@@ -1069,13 +1083,6 @@ map()函数
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1147,7 +1154,7 @@ map()函数
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

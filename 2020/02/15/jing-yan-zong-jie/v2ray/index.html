@@ -509,7 +509,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    568
+                    571
                 </div>
                 
 
@@ -544,35 +544,51 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="V2ray"><a href="#V2ray" class="headerlink" title="V2ray"></a>V2ray</h2><p>多入口多出口: 一个 V2Ray 进程可并发支持多个入站和出站协议，每个协议可独立工作。<br>可定制化路由: 入站流量可按配置由不同的出口发出。轻松实现按区域或按域名分流，以达到最优的网络性能。<br>多协议支持: V2Ray 可同时开启多个协议支持，包括 Socks、HTTP、Shadowsocks、VMess 等。每个协议可单独设置传输载体，比如 TCP、mKCP、WebSocket 等。<br>隐蔽性: V2Ray 的节点可以伪装成正常的网站（HTTPS），将其流量与正常的网页流量混淆，以避开第三方干扰。<br>反向代理: 通用的反向代理支持，可实现内网穿透功能。<br>多平台支持: 原生支持所有常见平台，如 Windows、Mac OS、Linux，并已有第三方支持移动平台。</p>
-<h3 id="Linux终端环境"><a href="#Linux终端环境" class="headerlink" title="Linux终端环境"></a>Linux终端环境</h3><ol>
-<li><p>获取安装脚本</p>
+                <h2 id="V2ray">V2ray<a class="anchor" href="#V2ray">¶</a></h2>
+<p>多入口多出口: 一个 V2Ray 进程可并发支持多个入站和出站协议，每个协议可独立工作。可定制化路由: 入站流量可按配置由不同的出口发出。轻松实现按区域或按域名分流，以达到最优的网络性能。多协议支持: V2Ray 可同时开启多个协议支持，包括 Socks、HTTP、Shadowsocks、VMess 等。每个协议可单独设置传输载体，比如 TCP、mKCP、WebSocket 等。隐蔽性: V2Ray 的节点可以伪装成正常的网站（HTTPS），将其流量与正常的网页流量混淆，以避开第三方干扰。反向代理: 通用的反向代理支持，可实现内网穿透功能。多平台支持: 原生支持所有常见平台，如 Windows、Mac OS、Linux，并已有第三方支持移动平台。</p>
+<h3 id="Linux终端环境">Linux终端环境<a class="anchor" href="#Linux终端环境">¶</a></h3>
+<ol>
+<li>
+<p>获取安装脚本</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">curl</span> -L-s https://install.direct/go.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><p>由于该脚本默认执行时，需要访问国外的服务器下载<code>v2ray-linux-64.zip</code>文件，可以提前下载下来，地址<code>https://github.com/v2ray/v2ray-core/releases/download/${NEW_VER}/v2ray-linux-${VDIS}.zip</code>。</p>
+<li>
+<p>由于该脚本默认执行时，需要访问国外的服务器下载<code>v2ray-linux-64.zip</code>文件，可以提前下载下来，地址<code>https://github.com/v2ray/v2ray-core/releases/download/${NEW_VER}/v2ray-linux-${VDIS}.zip</code>。</p>
 </li>
-<li><p>下载完之后，将<code>go.sh</code>和<code>v2ray-linux-64.zip</code>放在同一个文件夹中。</p>
+<li>
+<p>下载完之后，将<code>go.sh</code>和<code>v2ray-linux-64.zip</code>放在同一个文件夹中。</p>
 </li>
-<li><p>使用命令<code>sudo bash go.sh --local ./v2ray-linux-64.zip</code>安装。</p>
+<li>
+<p>使用命令<code>sudo bash go.sh --local ./v2ray-linux-64.zip</code>安装。</p>
 </li>
-<li><p>配置文件在<code>/etc/v2ray/config.json</code>中。可以先用其他平台生成的<code>config.json</code>文件复制覆盖这个文件。</p>
+<li>
+<p>配置文件在<code>/etc/v2ray/config.json</code>中。可以先用其他平台生成的<code>config.json</code>文件复制覆盖这个文件。</p>
 </li>
-<li><p>使用命令<code>sudo service v2ray restart</code>，重启服务。</p>
+<li>
+<p>使用命令<code>sudo service v2ray restart</code>，重启服务。</p>
 </li>
-<li><p>使用命令<code>export http_proxy="socks5://127.0.0.1:1088"</code>，将终端中的流量都走代理。</p>
+<li>
+<p>使用命令<code>export http_proxy="socks5://127.0.0.1:1088"</code>，将终端中的流量都走代理。</p>
 </li>
-<li><p>使用命令<code>curl www.cip.cc </code>查看当前ip所在位置。</p>
+<li>
+<p>使用命令<code>curl www.cip.cc </code>查看当前ip所在位置。</p>
 </li>
-<li><p>可以将以上命令写入<code>.zshrc</code>文件中</p>
+<li>
+<p>可以将以上命令写入<code>.zshrc</code>文件中</p>
  <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">setproxy</span><span class="token operator">=</span><span class="token string">'export http_proxy="socks5://127.0.0.1:1088"'</span>
-<span class="token builtin class-name">alias</span> <span class="token assign-left variable">ipaddr</span><span class="token operator">=</span><span class="token string">'curl www.cip.cc'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">ipaddr</span><span class="token operator">=</span><span class="token string">'curl www.cip.cc'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 </ol>
-<h3 id="Linux桌面环境"><a href="#Linux桌面环境" class="headerlink" title="Linux桌面环境"></a>Linux桌面环境</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> pacman -S qv2ray v2ray v2ray-geoip v2ray-domain-list-community<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h3 id="Linux桌面环境">Linux桌面环境<a class="anchor" href="#Linux桌面环境">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> pacman -S qv2ray v2ray v2ray-geoip v2ray-domain-list-community<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>使用qv2ray即可。</p>
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>去<code>https://github.com/2dust/v2rayN/releases</code>上下载最新的v2rayN程序。</p>
-<h3 id="ios"><a href="#ios" class="headerlink" title="ios"></a>ios</h3><p>去美区APP Store下载Shadowrocket软件。</p>
-<h3 id="树莓派"><a href="#树莓派" class="headerlink" title="树莓派"></a>树莓派</h3><p>树莓派3B的架构是armv7，无法正常使用x86架构下打包的appiamge软件。解决方案是使用<br><a target="_blank" rel="noopener" href="https://github.com/mzz2017/V2RayA%E3%80%82">https://github.com/mzz2017/V2RayA。</a> 这个项目的GUI是由网页提供的。语言是GO。直接在它的arm二进制包。运行。可以写入<code>/etc/rc.local</code>中作为自启服务。作为网关还行。</p>
+<h3 id="Windows">Windows<a class="anchor" href="#Windows">¶</a></h3>
+<p>去<code>https://github.com/2dust/v2rayN/releases</code>上下载最新的v2rayN程序。</p>
+<h3 id="ios">ios<a class="anchor" href="#ios">¶</a></h3>
+<p>去美区APP Store下载Shadowrocket软件。</p>
+<h3 id="树莓派">树莓派<a class="anchor" href="#树莓派">¶</a></h3>
+<p>树莓派3B的架构是armv7，无法正常使用x86架构下打包的appiamge软件。解决方案是使用
+https://github.com/mzz2017/V2RayA。 这个项目的GUI是由网页提供的。语言是GO。直接在它的arm二进制包。运行。可以写入<code>/etc/rc.local</code>中作为自启服务。作为网关还行。</p>
 
                 
             </div>
@@ -1081,13 +1097,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1159,7 +1168,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

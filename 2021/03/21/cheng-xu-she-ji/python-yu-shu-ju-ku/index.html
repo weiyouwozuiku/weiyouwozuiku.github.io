@@ -497,7 +497,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    377
+                    379
                 </div>
                 
 
@@ -532,7 +532,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+                <h2 id="Mysql">Mysql<a class="anchor" href="#Mysql">¶</a></h2>
+<h3 id="使用-3">使用<a class="anchor" href="#使用-3">¶</a></h3>
+<ul>
 <li>安装mysql-connect的包</li>
 </ul>
 <p>代码如下：</p>
@@ -549,27 +551,28 @@ except Exception as e:
 finally:
     if "con" in dir():
         con.close()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="事务控制"><a href="#事务控制" class="headerlink" title="事务控制"></a>事务控制</h3><p><code>Connector</code>提供了简单的事务控制函数</p>
+<h3 id="事务控制">事务控制<a class="anchor" href="#事务控制">¶</a></h3>
+<p><code>Connector</code>提供了简单的事务控制函数</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">con.start_transaction([事务隔离级别])
 #事务的提交需要手动提交，不会自动触发
 con.commit()
 con.rollback()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h3><pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import mysql.connector.pooling
+<h3 id="数据库连接池">数据库连接池<a class="anchor" href="#数据库连接池">¶</a></h3>
+<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import mysql.connector.pooling
 config={....}
 pool=mysql.connector.pooling.MySQLConnetcionPool(**config,pool_size=10)
 con=pool.get_connection()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><p>当大量数据需要插入时，可以使用<code>executemany()</code>方法。其效果可以有效的优化自己每次使用<code>execute()</code>方法所带来的性能损耗，尤其是当数据库中有10万条以上的数据后。</p>
-<h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3><p>由于SQL是解释型语言，存在SQL注入问题。</p>
+<h3 id="性能优化">性能优化<a class="anchor" href="#性能优化">¶</a></h3>
+<p>当大量数据需要插入时，可以使用<code>executemany()</code>方法。其效果可以有效的优化自己每次使用<code>execute()</code>方法所带来的性能损耗，尤其是当数据库中有10万条以上的数据后。</p>
+<h2 id="Tip-7">Tip<a class="anchor" href="#Tip-7">¶</a></h2>
+<h3 id="SQL注入">SQL注入<a class="anchor" href="#SQL注入">¶</a></h3>
+<p>由于SQL是解释型语言，存在SQL注入问题。</p>
 <p>此时可以利用SQL预编译机制抵御注入攻击。</p>
 <p>SQL预编译机制：数据库提前将SQL语句编译成二进制，避免了词法分析，这样反复执行同一条SQL效率提升。</p>
 <p>SQL语句编译的过程中，关键字已经被解析过了，所以向编译后的SQL语句传入参数，都被当作字符串处理，数据库不会解析其中注入的SQL语句。</p>
 <p>使用方式如下：</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">sql="select * from user where username=%s and password=%s"
 cursor.execute(sql,(username,password))#此时两个数作为参数传入已经编译好了的sql语句中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 
                 
             </div>
@@ -1062,13 +1065,6 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1140,7 +1136,7 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

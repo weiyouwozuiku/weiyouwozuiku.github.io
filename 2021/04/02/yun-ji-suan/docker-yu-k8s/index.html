@@ -508,7 +508,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -536,7 +536,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Docker基础"><a href="#Docker基础" class="headerlink" title="Docker基础"></a>Docker基础</h2><p>docker相较于别的paas技术核心优势在于镜像，其是一套操作系统+应用程序，保证了环境的Ç一致性，无需根据不同的开发语言选择不同打包方式。</p>
+                <h2 id="Docker基础">Docker基础<a class="anchor" href="#Docker基础">¶</a></h2>
+<p>docker相较于别的paas技术核心优势在于镜像，其是一套操作系统+应用程序，保证了环境的Ç一致性，无需根据不同的开发语言选择不同打包方式。</p>
 <p>在Docker中打包镜像使用Dockerfile技术，即编写dockerfile即可。这其中有几个重要的参数：</p>
 <ul>
 <li>From：选择操作系统镜像</li>
@@ -554,17 +555,21 @@
 <li>对环境负责的只是宿主机的操作系统本身，而虚拟机的Hypervisor对应用进程的隔离环境负责，docker自己不会创建任何实体的容器</li>
 </ul>
 <p>通过Docker启动的容器本质上和操作系统中运行的进程本质上没有区别。</p>
-<h3 id="Docker架构"><a href="#Docker架构" class="headerlink" title="Docker架构"></a>Docker架构</h3><p>Docker的主要组成部分可以大致分为：</p>
+<h3 id="Docker架构">Docker架构<a class="anchor" href="#Docker架构">¶</a></h3>
+<p>Docker的主要组成部分可以大致分为：</p>
 <ul>
-<li><p>Docker Client：与Docker daemon 进行交互，与用户交互的客户端</p>
+<li>
+<p>Docker Client：与Docker daemon 进行交互，与用户交互的客户端</p>
 </li>
-<li><p>Docker Daemon：docker后台运行的守护进程</p>
+<li>
+<p>Docker Daemon：docker后台运行的守护进程</p>
 <ul>
 <li>启用：<code>service docker start</code>或 <code>systemctl start docker.service</code></li>
 <li>通过 <code>/var/run/docker.sock</code>与client之间连接</li>
 </ul>
 </li>
-<li><p>Docker Registry：用来存储Docker镜像</p>
+<li>
+<p>Docker Registry：用来存储Docker镜像</p>
 <ul>
 <li>拉取镜像：docker pull <code>&lt;image-name&gt;</code></li>
 <li>最底层的镜像为scratch镜像</li>
@@ -576,26 +581,34 @@
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/Docker%E4%B8%8EK8s/Docker%E4%B8%8EK8s_Docker%E6%9E%B6%E6%9E%84.png" alt="Docker与K8s_Docker架构.png"></p>
 <p>docker本身是在多层的只读层上添加了一个read-write层，即container layer。</p>
-<h3 id="Docker镜像"><a href="#Docker镜像" class="headerlink" title="Docker镜像"></a>Docker镜像</h3><p>镜像中包含的操作系统文件最好之后一个精简版的，而非全量。在启动容器之后，容器进程还是去和宿主机的操作系统进行交互。</p>
+<h3 id="Docker镜像">Docker镜像<a class="anchor" href="#Docker镜像">¶</a></h3>
+<p>镜像中包含的操作系统文件最好之后一个精简版的，而非全量。在启动容器之后，容器进程还是去和宿主机的操作系统进行交互。</p>
 <p>对于多个应用使用同一基础镜像，推荐使用官方的镜像或将基础环境配置为镜像，复用基础镜像。</p>
-<h4 id="镜像介绍"><a href="#镜像介绍" class="headerlink" title="镜像介绍"></a>镜像介绍</h4><h5 id="Alpine镜像"><a href="#Alpine镜像" class="headerlink" title="Alpine镜像"></a>Alpine镜像</h5><p>apline linux借助fs的文件格式将整个镜像包的大小压缩到很小，但是存在诸多坑，例如alphine使用的是musl libc,而一般程序使用的都是glibc,会导致找不到运行的动态链接库等问题。且因为使用musl libc使用的人较少，产生的问题也相对难以解决。</p>
-<h5 id="Busybox"><a href="#Busybox" class="headerlink" title="Busybox"></a>Busybox</h5><p>简单来说，busybox是一个集成了一百多个最常用的Linux命令和工具的软件工具箱。</p>
-<h5 id="OpenJDK"><a href="#OpenJDK" class="headerlink" title="OpenJDK"></a>OpenJDK</h5><p>Docker官方提供的openjdk镜像。</p>
-<h4 id="镜像构建"><a href="#镜像构建" class="headerlink" title="镜像构建"></a>镜像构建</h4><p>镜像构建是基于Dockerfile来构建的，具体来说就是只需要按照容器便准写好Dockerfile文件，然后通过创建命令就可以构建出所需镜像了。</p>
+<h4 id="镜像介绍">镜像介绍<a class="anchor" href="#镜像介绍">¶</a></h4>
+<h5 id="Alpine镜像">Alpine镜像<a class="anchor" href="#Alpine镜像">¶</a></h5>
+<p>apline linux借助fs的文件格式将整个镜像包的大小压缩到很小，但是存在诸多坑，例如alphine使用的是musl libc,而一般程序使用的都是glibc,会导致找不到运行的动态链接库等问题。且因为使用musl libc使用的人较少，产生的问题也相对难以解决。</p>
+<h5 id="Busybox">Busybox<a class="anchor" href="#Busybox">¶</a></h5>
+<p>简单来说，busybox是一个集成了一百多个最常用的Linux命令和工具的软件工具箱。</p>
+<h5 id="OpenJDK">OpenJDK<a class="anchor" href="#OpenJDK">¶</a></h5>
+<p>Docker官方提供的openjdk镜像。</p>
+<h4 id="镜像构建">镜像构建<a class="anchor" href="#镜像构建">¶</a></h4>
+<p>镜像构建是基于Dockerfile来构建的，具体来说就是只需要按照容器便准写好Dockerfile文件，然后通过创建命令就可以构建出所需镜像了。</p>
 <ol>
 <li>先将源代码文件编译成可执行文件</li>
 <li>编写Dockerfile</li>
 <li>镜像build：<code>docker build -t &lt;镜像名称&gt;:&lt;版本名称&gt;</code></li>
 <li>启动镜像：<code>docker run -p 8080:8080 &lt;镜像名称&gt;:&lt;版本名称&gt;</code></li>
 </ol>
-<h5 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h5><table>
+<h5 id="Dockerfile">Dockerfile<a class="anchor" href="#Dockerfile">¶</a></h5>
+<table>
 <thead>
 <tr>
 <th>关键字</th>
 <th>含义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>FROM</td>
 <td>表示构建镜像所基于的镜像</td>
 </tr>
@@ -611,8 +624,11 @@
 <td>ENTRYPOINT</td>
 <td>用来指定镜像的默认启动脚本</td>
 </tr>
-</tbody></table>
-<h4 id="容器操作命令"><a href="#容器操作命令" class="headerlink" title="容器操作命令"></a>容器操作命令</h4><h5 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h5><p>例如：<code>docker run -ti centos:latest /bin/bash</code></p>
+</tbody>
+</table>
+<h4 id="容器操作命令">容器操作命令<a class="anchor" href="#容器操作命令">¶</a></h4>
+<h5 id="docker-run">docker run<a class="anchor" href="#docker-run">¶</a></h5>
+<p>例如：<code>docker run -ti centos:latest /bin/bash</code></p>
 <table>
 <thead>
 <tr>
@@ -620,7 +636,8 @@
 <th>含义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>–interactive</td>
 <td>等同于-i，接受stdin的输入</td>
 </tr>
@@ -664,18 +681,35 @@
 <td>–detach(-d)</td>
 <td>后台运行docker                     ｜</td>
 </tr>
-</tbody></table>
-<h5 id="docker-attach"><a href="#docker-attach" class="headerlink" title="docker attach"></a>docker attach</h5><p>通过给一个正在运行的容器分配一个stdin、stdout、stderr，从而使得我们可以进入一个运行着的容器内部。</p>
+</tbody>
+</table>
+<h5 id="docker-attach">docker attach<a class="anchor" href="#docker-attach">¶</a></h5>
+<p>通过给一个正在运行的容器分配一个stdin、stdout、stderr，从而使得我们可以进入一个运行着的容器内部。</p>
 <p><strong>注意：使用 <code>docker attach</code>进入之后，如果使用exit会导致原容器也退出。推荐使用 <code>Ctrl+C</code>退出。</strong></p>
-<h5 id="docker-exec"><a href="#docker-exec" class="headerlink" title="docker exec"></a>docker exec</h5><p>该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层面，相当于fork了一个进程，然后这个进程设置和容器相同的NameSpace。如果在OPTIONS中指定 <code>-ti</code>，则会进入到容器内。因为这是fork出来的进程，可以exit。</p>
-<h5 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h5><p>用来列出所有在运行容器的信息。使用 <code>-a</code>参数展示所有容器包括停止运行的。</p>
-<h5 id="docker-kill"><a href="#docker-kill" class="headerlink" title="docker kill"></a>docker kill</h5><p>杀死一个或一组container。</p>
-<h5 id="docker-log"><a href="#docker-log" class="headerlink" title="docker log"></a>docker log</h5><p>用来获取docker的log信息。</p>
-<h5 id="docker-top"><a href="#docker-top" class="headerlink" title="docker top"></a>docker top</h5><p>查看这个容器在宿主机上的进程，毕竟本质上container只是一个进程。</p>
+<h5 id="docker-exec">docker exec<a class="anchor" href="#docker-exec">¶</a></h5>
+<p>该命令使得一个运行着的容器里面执行一个命令。其原理是在Linux内核层面，相当于fork了一个进程，然后这个进程设置和容器相同的NameSpace。如果在OPTIONS中指定 <code>-ti</code>，则会进入到容器内。因为这是fork出来的进程，可以exit。</p>
+<h5 id="docker-ps">docker ps<a class="anchor" href="#docker-ps">¶</a></h5>
+<p>用来列出所有在运行容器的信息。使用 <code>-a</code>参数展示所有容器包括停止运行的。</p>
+<h5 id="docker-kill">docker kill<a class="anchor" href="#docker-kill">¶</a></h5>
+<p>杀死一个或一组container。</p>
+<h5 id="docker-log">docker log<a class="anchor" href="#docker-log">¶</a></h5>
+<p>用来获取docker的log信息。</p>
+<h5 id="docker-top">docker top<a class="anchor" href="#docker-top">¶</a></h5>
+<p>查看这个容器在宿主机上的进程，毕竟本质上container只是一个进程。</p>
 <p>docker container stop id/name</p>
 <p>一次性关闭所有容器：<code>docker container stop $(docker container ps -aq)</code></p>
-<h4 id="镜像操作命令"><a href="#镜像操作命令" class="headerlink" title="镜像操作命令"></a>镜像操作命令</h4><h5 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h5><p>显示本地所有非隐藏镜像，默认会将中间依赖镜像隐藏</p>
-<h5 id="docker-build"><a href="#docker-build" class="headerlink" title="docker build"></a>docker build</h5><h5 id="docker-commit"><a href="#docker-commit" class="headerlink" title="docker commit"></a>docker commit</h5><h5 id="docker-history"><a href="#docker-history" class="headerlink" title="docker history"></a>docker history</h5><h5 id="docker-save"><a href="#docker-save" class="headerlink" title="docker save"></a>docker save</h5><h5 id="docker-import"><a href="#docker-import" class="headerlink" title="docker import"></a>docker import</h5><h5 id="docker-load"><a href="#docker-load" class="headerlink" title="docker load"></a>docker load</h5><h5 id="docker-rmi"><a href="#docker-rmi" class="headerlink" title="docker rmi"></a>docker rmi</h5><h5 id="docker-tag"><a href="#docker-tag" class="headerlink" title="docker tag"></a>docker tag</h5><p>docker container run 执行步骤</p>
+<h4 id="镜像操作命令">镜像操作命令<a class="anchor" href="#镜像操作命令">¶</a></h4>
+<h5 id="docker-images">docker images<a class="anchor" href="#docker-images">¶</a></h5>
+<p>显示本地所有非隐藏镜像，默认会将中间依赖镜像隐藏</p>
+<h5 id="docker-build">docker build<a class="anchor" href="#docker-build">¶</a></h5>
+<h5 id="docker-commit">docker commit<a class="anchor" href="#docker-commit">¶</a></h5>
+<h5 id="docker-history">docker history<a class="anchor" href="#docker-history">¶</a></h5>
+<h5 id="docker-save">docker save<a class="anchor" href="#docker-save">¶</a></h5>
+<h5 id="docker-import">docker import<a class="anchor" href="#docker-import">¶</a></h5>
+<h5 id="docker-load">docker load<a class="anchor" href="#docker-load">¶</a></h5>
+<h5 id="docker-rmi">docker rmi<a class="anchor" href="#docker-rmi">¶</a></h5>
+<h5 id="docker-tag">docker tag<a class="anchor" href="#docker-tag">¶</a></h5>
+<p>docker container run 执行步骤</p>
 <p>当输入 <code>docker cintainer run -d --pulish 80:80 --name webhost nginx</code></p>
 <ol>
 <li>在本地查找是否有nginx的镜像。如果没有去远程拉取nginx镜像（默认从Docker Hub）</li>
@@ -684,10 +718,14 @@
 <li>在宿主机上打来80端口并将容器的80端口转发到宿主机上</li>
 <li>启动容器，运行指定的命令</li>
 </ol>
-<h2 id="Docker核心技术"><a href="#Docker核心技术" class="headerlink" title="Docker核心技术"></a>Docker核心技术</h2><h2 id="Docker最佳实践"><a href="#Docker最佳实践" class="headerlink" title="Docker最佳实践"></a>Docker最佳实践</h2><h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
+<h2 id="Docker核心技术">Docker核心技术<a class="anchor" href="#Docker核心技术">¶</a></h2>
+<h2 id="Docker最佳实践">Docker最佳实践<a class="anchor" href="#Docker最佳实践">¶</a></h2>
+<h2 id="Kubernetes">Kubernetes<a class="anchor" href="#Kubernetes">¶</a></h2>
+<p>pod是一组容器的集合，类似进程组，是K8s中一个最小调度单位。属于同一个pod的不同容器一定会被调度至同一台机器上，共享NameSpace。</p>
 <p>K8s采用声明式API,而不是命令式API。SQL就是典型的声明式API，其不关心具体实现如何，只在乎我们所需的状态或结果。而命令式API就是告诉他每一步怎么做。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/Docker%E4%B8%8EK8s/Docker%E4%B8%8EK8s_k8s%E6%9E%B6%E6%9E%84.png" alt="Docker与K8s_k8s架构.png"></p>
-<h2 id="云原生监控方案"><a href="#云原生监控方案" class="headerlink" title="云原生监控方案"></a>云原生监控方案</h2>
+<h2 id="云原生监控方案">云原生监控方案<a class="anchor" href="#云原生监控方案">¶</a></h2>
+
                 
             </div>
             <hr/>
@@ -1183,13 +1221,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1261,7 +1292,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

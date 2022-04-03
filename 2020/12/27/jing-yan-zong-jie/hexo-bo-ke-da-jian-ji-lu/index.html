@@ -533,27 +533,37 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>本文记录博客搭建的过程，以便以后进行查阅和分享经验。</p>
-<h2 id="Hexo搭建"><a href="#Hexo搭建" class="headerlink" title="Hexo搭建"></a>Hexo搭建</h2><h3 id="安装组件"><a href="#安装组件" class="headerlink" title="安装组件"></a>安装组件</h3><p>Manjaro：<code>sudo pacman -S nodejs</code></p>
+<h2 id="Hexo搭建">Hexo搭建<a class="anchor" href="#Hexo搭建">¶</a></h2>
+<h3 id="安装组件">安装组件<a class="anchor" href="#安装组件">¶</a></h3>
+<p>Manjaro：<code>sudo pacman -S nodejs</code></p>
 <p>Windows：下载安装一直下一步</p>
-<h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4><h5 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h5><p><code> npm install packageName</code>这个命令会将包安装在当前目录下<code>node_modules</code>目录内，可执行命令（如果有）安装在<code>node_modules/.bin</code>目录下。</p>
+<h4 id="Node">Node<a class="anchor" href="#Node">¶</a></h4>
+<h5 id="安装包">安装包<a class="anchor" href="#安装包">¶</a></h5>
+<p><code> npm install packageName</code>这个命令会将包安装在当前目录下<code>node_modules</code>目录内，可执行命令（如果有）安装在<code>node_modules/.bin</code>目录下。</p>
 <p>作为系统级的全局安装使用 -g 选项:<code>npm -g install packageName</code>，默认情形下这个命令会将包安装至 <code>/usr/lib/node_modules/npm</code>，需要管理员权限。</p>
-<h5 id="更新包"><a href="#更新包" class="headerlink" title="更新包"></a>更新包</h5><p>更新包只需要执行<code> npm update packageName</code>。</p>
+<h5 id="更新包">更新包<a class="anchor" href="#更新包">¶</a></h5>
+<p>更新包只需要执行<code> npm update packageName</code>。</p>
 <p>对于全局环境安装的包 ( -g )<code>npm update -g packageName</code>。</p>
 <p>更新所有包，去掉包名将试图更新所有包：<code>npm update</code>。</p>
 <p>添加 -g 标记更新全局环境安装的包：<code>npm update -g</code>。</p>
-<h5 id="删除包"><a href="#删除包" class="headerlink" title="删除包"></a>删除包</h5><p>删除使用 -g 标记安装的包只须：<code>npm -g uninstall packageName</code>。</p>
+<h5 id="删除包">删除包<a class="anchor" href="#删除包">¶</a></h5>
+<p>删除使用 -g 标记安装的包只须：<code>npm -g uninstall packageName</code>。</p>
 <p>若删除个人用户目录下的包去掉标记执行：<code>npm uninstall packageName</code>。</p>
-<h5 id="列出所有包"><a href="#列出所有包" class="headerlink" title="列出所有包"></a>列出所有包</h5><p>若要显示已安装的包的树形视图执行：<code>npm -g list</code>。</p>
+<h5 id="列出所有包">列出所有包<a class="anchor" href="#列出所有包">¶</a></h5>
+<p>若要显示已安装的包的树形视图执行：<code>npm -g list</code>。</p>
 <p>仅显示顶层树：<code>npm list --depth=0</code>。</p>
 <p>要显示需要更新的过期软件包：<code>npm outdated</code>。</p>
-<h5 id="npm-check"><a href="#npm-check" class="headerlink" title="npm-check"></a>npm-check</h5><p>安装npm-check(全局安装)：<code>npm install -g npm-check</code>。</p>
+<h5 id="npm-check">npm-check<a class="anchor" href="#npm-check">¶</a></h5>
+<p>安装npm-check(全局安装)：<code>npm install -g npm-check</code>。</p>
 <p>扫描需要更新的包：<code>npm-check</code></p>
 <p>npm全局更新包 (全局目录)：<code>npm-check -u -g</code>。</p>
 <p>npm更新某个项目的包 (项目目录)：<code>npm-check -u</code>。</p>
-<h5 id="npm-upgrade"><a href="#npm-upgrade" class="headerlink" title="npm-upgrade"></a>npm-upgrade</h5><p>升级系统中的相关插件。</p>
+<h5 id="npm-upgrade">npm-upgrade<a class="anchor" href="#npm-upgrade">¶</a></h5>
+<p>升级系统中的相关插件。</p>
 <p>安装<code>npm-upgrade</code>:<code>npm install -g npm-upgrade</code></p>
 <p>更新<code>npm-upgrade</code></p>
-<h5 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h5><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
+<h5 id="package-json">package.json<a class="anchor" href="#package-json">¶</a></h5>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"hexo-site"</span><span class="token punctuation">,</span>
   <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.0"</span><span class="token punctuation">,</span>
   <span class="token property">"private"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
@@ -587,21 +597,26 @@
     <span class="token property">"hexo-wordcount"</span><span class="token operator">:</span> <span class="token string">"^6.0.1"</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h4><h5 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h5><p>Manjaro：<code>sudo pacman -S git</code></p>
+<h4 id="Git">Git<a class="anchor" href="#Git">¶</a></h4>
+<h5 id="安装Git">安装Git<a class="anchor" href="#安装Git">¶</a></h5>
+<p>Manjaro：<code>sudo pacman -S git</code></p>
 <p>Windows：下载安装一直下一步</p>
-<h5 id="配置信息"><a href="#配置信息" class="headerlink" title="配置信息"></a>配置信息</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ git config --global user.name "Your Name"
+<h5 id="配置信息">配置信息<a class="anchor" href="#配置信息">¶</a></h5>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ git config --global user.name "Your Name"
 $ git config --global user.email "email@example.com"
 $ ssh-keygen -t rsa -C "youremail@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>将<code>id_rsa.pub</code>文件中的信息添加到Github-&gt;Account settings-&gt;SSH Keys页面。</p>
 <p>如果想同时长传至coding,也是去coding添加上述信息。</p>
 <p>测试是否成功使用<code>ssh -T git@github.com</code>。</p>
-<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><code>npm install -g hexo-cli </code>，安装Hexo主程序。</p>
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p><code>hexo init &lt;博客文件夹名称&gt;</code>，创建博客所在的文件夹并生成最基本的框架文件。</p>
+<h3 id="Hexo">Hexo<a class="anchor" href="#Hexo">¶</a></h3>
+<h4 id="安装-3">安装<a class="anchor" href="#安装-3">¶</a></h4>
+<p><code>npm install -g hexo-cli </code>，安装Hexo主程序。</p>
+<h4 id="初始化">初始化<a class="anchor" href="#初始化">¶</a></h4>
+<p><code>hexo init &lt;博客文件夹名称&gt;</code>，创建博客所在的文件夹并生成最基本的框架文件。</p>
 <p>进入该目录，使用<code>npm install</code>安装所需的node包。</p>
 <p>在本地启动hexo：<code>hexo server</code>或<code>hexo s</code>。</p>
-<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo -g #安装Hexo
+<h4 id="常用命令-3">常用命令<a class="anchor" href="#常用命令-3">¶</a></h4>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo -g #安装Hexo
 npm update hexo -g #升级
 hexo init #初始化博客
 hexo n "我的博客" == hexo new "我的博客" #新建文章
@@ -613,17 +628,22 @@ hexo server -s #静态模式
 hexo server -p 5000 #更改端口
 hexo server -i 192.168.1.1 #自定义 IP
 hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="部署至Github"><a href="#部署至Github" class="headerlink" title="部署至Github"></a>部署至Github</h4><ol>
-<li><p>创建一个公开项目，名称是自己用户名+.github.io。</p>
+<h4 id="部署至Github">部署至Github<a class="anchor" href="#部署至Github">¶</a></h4>
+<ol>
+<li>
+<p>创建一个公开项目，名称是自己用户名+.github.io。</p>
 </li>
-<li><p>选择项目的Settings,选择Github pages，点击Choose a theme选择一个主题。</p>
+<li>
+<p>选择项目的Settings,选择Github pages，点击Choose a theme选择一个主题。</p>
 </li>
-<li><p>使用网址<code>用户名.github.io</code>查看是否能正常打开。</p>
+<li>
+<p>使用网址<code>用户名.github.io</code>查看是否能正常打开。</p>
 </li>
-<li><p>安装node包<code>hexo-deployer-git</code>。</p>
+<li>
+<p>安装node包<code>hexo-deployer-git</code>。</p>
 </li>
-<li><p>在博客根目录下的<code>_config.yml</code>中添加字段：</p>
+<li>
+<p>在博客根目录下的<code>_config.yml</code>中添加字段：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
   <span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> git
     <span class="token key atrule">repository</span><span class="token punctuation">:</span> git@github.com<span class="token punctuation">:</span>&lt;用户名<span class="token punctuation">&gt;</span>/&lt;用户名<span class="token punctuation">&gt;</span>.github.io.git
@@ -632,29 +652,32 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<s
   <span class="token punctuation">-</span> <span class="token key atrule">type</span><span class="token punctuation">:</span> git
     <span class="token key atrule">repository</span><span class="token punctuation">:</span> &lt;另选的项目地址<span class="token punctuation">&gt;</span>
     <span class="token key atrule">branch</span><span class="token punctuation">:</span> master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>这里注意，必须是master分支，Github page只能是master分支。</strong></p>
 </li>
-<li><p>使用<code>hexo d -g</code>将渲染好的网页上传至Github。此时就可以使用<code>&lt;用户名&gt;.github.io</code>进行访问了。</p>
+<li>
+<p>使用<code>hexo d -g</code>将渲染好的网页上传至Github。此时就可以使用<code>&lt;用户名&gt;.github.io</code>进行访问了。</p>
 </li>
 </ol>
-<h4 id="博客基本信息"><a href="#博客基本信息" class="headerlink" title="博客基本信息"></a>博客基本信息</h4><p>博客的基本信息存储在博客根目录下的<code>_config.yml</code>文件中。</p>
-<h4 id="模板设置"><a href="#模板设置" class="headerlink" title="模板设置"></a>模板设置</h4><h4 id="文章排序自定义"><a href="#文章排序自定义" class="headerlink" title="文章排序自定义"></a>文章排序自定义</h4><p>hexo中默认是按照文章的创建时间显示，但是博客不是日记，好多步骤或者笔记需要进行更新记录，所以单纯的按照创建时间会导致自己较早创建但一直更新的笔记被放在最后。</p>
+<h4 id="博客基本信息">博客基本信息<a class="anchor" href="#博客基本信息">¶</a></h4>
+<p>博客的基本信息存储在博客根目录下的<code>_config.yml</code>文件中。</p>
+<h4 id="模板设置">模板设置<a class="anchor" href="#模板设置">¶</a></h4>
+<h4 id="文章排序自定义">文章排序自定义<a class="anchor" href="#文章排序自定义">¶</a></h4>
+<p>hexo中默认是按照文章的创建时间显示，但是博客不是日记，好多步骤或者笔记需要进行更新记录，所以单纯的按照创建时间会导致自己较早创建但一直更新的笔记被放在最后。</p>
 <p>hexo的<code>db.json</code>文件中包含了每篇博客的更新时间，字段是<code>db.json</code>，只需修改博客顶层文件夹中的<code>_config.yml</code>中的如下字段：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">index_generator</span><span class="token punctuation">:</span>
 	<span class="token key atrule">path</span><span class="token punctuation">:</span> <span class="token string">''</span>
 	<span class="token key atrule">per_page</span><span class="token punctuation">:</span> <span class="token number">18</span>
 	<span class="token comment">#默认是-date 符号表示顺序还是逆序</span>
 	<span class="token key atrule">order_by</span><span class="token punctuation">:</span> <span class="token punctuation">-</span>updated<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="更换解析器"><a href="#更换解析器" class="headerlink" title="更换解析器"></a>更换解析器</h3><p>原生使用的是<code>hexo-renderer-marked</code>，可以替换成<code>hexo-renderer-marked-it</code>这个解析器。</p>
-<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>卸载原生解析器</p>
+<h3 id="更换解析器">更换解析器<a class="anchor" href="#更换解析器">¶</a></h3>
+<p>原生使用的是<code>hexo-renderer-marked</code>，可以替换成<code>hexo-renderer-marked-it</code>这个解析器。</p>
+<h4 id="安装-4">安装<a class="anchor" href="#安装-4">¶</a></h4>
+<p>卸载原生解析器</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ npm un hexo-renderer-marked --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>安装解析器</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ npm i hexo-renderer-markdown-it --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>在整个Hexo项目下的<code>_config.yaml</code>文件下添加配置[^1]：</p>
+<h4 id="配置-2">配置<a class="anchor" href="#配置-2">¶</a></h4>
+<p>在整个Hexo项目下的<code>_config.yaml</code>文件下添加配置<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">markdown</span><span class="token punctuation">:</span>
   <span class="token key atrule">preset</span><span class="token punctuation">:</span> <span class="token string">"default"</span> <span class="token comment"># 渲染器默认预设 # "commonmark": 使用严格 CommandMark 规定. # "default": 默认配置, 类似于 GFM # "zero": 禁用所有预设.</span>
 <span class="token comment"># 以下为 render 选项</span>
@@ -700,23 +723,25 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<s
     <span class="token comment"># 标题固定锚点到此结束</span>
     <span class="token key atrule">case</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token comment"># 转换锚点 ID 中的字母为大写或小写 # "0" 不转换, "1" 为小写, "2" 为大写.</span>
     <span class="token key atrule">separator</span><span class="token punctuation">:</span> <span class="token string">'-'</span> <span class="token comment"># 用于替换空格的符号. # 默认为 "-"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="主题选择与优化"><a href="#主题选择与优化" class="headerlink" title="主题选择与优化"></a>主题选择与优化</h2><p>我使用的主题是</p>
-<h3 id="首页添加Github状态"><a href="#首页添加Github状态" class="headerlink" title="首页添加Github状态"></a>首页添加Github状态</h3><h3 id="可选插件"><a href="#可选插件" class="headerlink" title="可选插件"></a>可选插件</h3><h3 id="主题的个性化"><a href="#主题的个性化" class="headerlink" title="主题的个性化"></a>主题的个性化</h3><h2 id="自动化部署"><a href="#自动化部署" class="headerlink" title="自动化部署"></a>自动化部署</h2><p>借助<code>Github Action</code>可以实现当我们在本地向Github提交代码的时候，自动创建并生成相应的静态网页代码，进而联动后面的<code>vercel</code>的部署任务。</p>
+<h2 id="主题选择与优化">主题选择与优化<a class="anchor" href="#主题选择与优化">¶</a></h2>
+<p>我使用的主题是</p>
+<h3 id="首页添加Github状态">首页添加Github状态<a class="anchor" href="#首页添加Github状态">¶</a></h3>
+<h3 id="可选插件">可选插件<a class="anchor" href="#可选插件">¶</a></h3>
+<h3 id="主题的个性化">主题的个性化<a class="anchor" href="#主题的个性化">¶</a></h3>
+<h2 id="自动化部署">自动化部署<a class="anchor" href="#自动化部署">¶</a></h2>
+<p>借助<code>Github Action</code>可以实现当我们在本地向Github提交代码的时候，自动创建并生成相应的静态网页代码，进而联动后面的<code>vercel</code>的部署任务。</p>
 <p>目录结构如下：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">.github
 └── workflows
     └── deploy.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="创建Action所需的环境变量"><a href="#创建Action所需的环境变量" class="headerlink" title="创建Action所需的环境变量"></a>创建Action所需的环境变量</h3><p>创建Action提交代码的秘钥。</p>
+<h3 id="创建Action所需的环境变量">创建Action所需的环境变量<a class="anchor" href="#创建Action所需的环境变量">¶</a></h3>
+<p>创建Action提交代码的秘钥。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -f hexo-deploy-key -C "&lt;博客网址&gt;" #仅作为区分<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>上面的命令会在当前文件夹下生成名为<code>hexo-deploy-key</code>的私钥和<code>hexo-deploy-key.pub</code>的公钥。</p>
 <p>将公钥设置进对应仓库的<code>setting-&gt;Deploy keys</code>，同时赋予写权限。</p>
 <p>将私钥设置进对应仓库的<code>setting-&gt;Secrets-&gt;Actions</code>，对应的key名设置为<code>DEPLOY_KEY</code>，value就是私钥。</p>
-<h3 id="编写Action脚本"><a href="#编写Action脚本" class="headerlink" title="编写Action脚本"></a>编写Action脚本</h3><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> Hexo Generate And Deploy
+<h3 id="编写Action脚本">编写Action脚本<a class="anchor" href="#编写Action脚本">¶</a></h3>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> Hexo Generate And Deploy
 
 <span class="token comment"># 只监听 source 分支的改动</span>
 <span class="token key atrule">on</span><span class="token punctuation">:</span>
@@ -793,8 +818,8 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<s
         <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
           hexo deploy --generate</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="Github-Action过程中的一些坑"><a href="#Github-Action过程中的一些坑" class="headerlink" title="Github Action过程中的一些坑"></a>Github Action过程中的一些坑</h3><p>直接使用<code>Github Action</code>部署代码的时候，Github会在容器中拉下该仓库的代码。此时文件的创建时间和修改时间都是拉取时的时间。这会导致按照<code>updated</code>字段排序的博客在读取不到<code>.md</code>文件中的<code>updated</code>字段从而读取文件的修改时间变成统一的代码拉取时间。博客的文章展示就会变得混乱无章。</p>
+<h3 id="Github-Action过程中的一些坑">Github Action过程中的一些坑<a class="anchor" href="#Github-Action过程中的一些坑">¶</a></h3>
+<p>直接使用<code>Github Action</code>部署代码的时候，Github会在容器中拉下该仓库的代码。此时文件的创建时间和修改时间都是拉取时的时间。这会导致按照<code>updated</code>字段排序的博客在读取不到<code>.md</code>文件中的<code>updated</code>字段从而读取文件的修改时间变成统一的代码拉取时间。博客的文章展示就会变得混乱无章。</p>
 <p>因此，需要在<code>Github Action</code>中单独进行一步操作，即修改文件的修改时间。</p>
 <p>代码实现在上一节yaml文件的第35-37行。</p>
 <p>实际上，<code>clone</code> 下来的文件的时间还是克隆时的时间，然后通过上面的命令，它将 <code>clone</code> 下来的文件的时间改成了该文件最近一次变动的推送时间（也即文件最后一次修改的 <code>push</code> 时间）。</p>
@@ -810,13 +835,16 @@ done
 git ls-tree -r --name-only HEAD | while read filename; do
 	echo "$(git log --format="%ad" -- $filename | tail -1) $filename"
 done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="访问加速"><a href="#访问加速" class="headerlink" title="访问加速"></a>访问加速</h2><h2 id="分支存储源码"><a href="#分支存储源码" class="headerlink" title="分支存储源码"></a>分支存储源码</h2><p>首先在Github的仓库中创建一个新的分支，因为Github Page默认是master分支，所以随便创建一个分支名即可。</p>
+<h2 id="访问加速">访问加速<a class="anchor" href="#访问加速">¶</a></h2>
+<h2 id="分支存储源码">分支存储源码<a class="anchor" href="#分支存储源码">¶</a></h2>
+<p>首先在Github的仓库中创建一个新的分支，因为Github Page默认是master分支，所以随便创建一个分支名即可。</p>
 <p>在Hexo博客的顶层文件夹中执行如下命令：</p>
 <ol>
-<li><p>克隆Github中的当前项目，将克隆下载的文件夹中的.git文件夹移动到hexo博客的顶层目录。</p>
+<li>
+<p>克隆Github中的当前项目，将克隆下载的文件夹中的.git文件夹移动到hexo博客的顶层目录。</p>
 </li>
-<li><p>编写.gitignore：</p>
+<li>
+<p>编写.gitignore：</p>
 <pre class="line-numbers language-wiki" data-language="wiki"><code class="language-wiki">.DS_Store
 Thumbs.db
 db.json
@@ -825,46 +853,62 @@ node_modules/
 public/
 .deploy*/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>创建本地分支并切换到该分支：<code>git checkout -b 分支名</code></p>
+<li>
+<p>创建本地分支并切换到该分支：<code>git checkout -b 分支名</code></p>
 </li>
-<li><p>添加文件：<code>git add .</code></p>
+<li>
+<p>添加文件：<code>git add .</code></p>
 </li>
-<li><p>添加注释信息：<code>git commit -m "hexo src update"</code></p>
+<li>
+<p>添加注释信息：<code>git commit -m "hexo src update"</code></p>
 </li>
-<li><p>提交本地代码：<code>git push --set-upstream origin src</code></p>
+<li>
+<p>提交本地代码：<code>git push --set-upstream origin src</code></p>
 </li>
-<li><p>以后的上传代码则为：<code>git add . &amp;&amp; git commit -m "hexo src update" &amp;&amp; git push origin src &amp;&amp; hexo d -g</code></p>
+<li>
+<p>以后的上传代码则为：<code>git add . &amp;&amp; git commit -m "hexo src update" &amp;&amp; git push origin src &amp;&amp; hexo d -g</code></p>
 </li>
 </ol>
-<h2 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h2><p>站点地图即 sitemap，是一个页面，上面放置了网站上需要搜索引擎抓取的所有页面的链接。站点地图可以告诉搜索引擎网站上有哪些可供抓取的网页，以便搜索引擎可以更加智能地抓取网站。</p>
-<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo-generator-baidu-sitemap --save
+<h2 id="SEO">SEO<a class="anchor" href="#SEO">¶</a></h2>
+<p>站点地图即 sitemap，是一个页面，上面放置了网站上需要搜索引擎抓取的所有页面的链接。站点地图可以告诉搜索引擎网站上有哪些可供抓取的网页，以便搜索引擎可以更加智能地抓取网站。</p>
+<h3 id="安装插件">安装插件<a class="anchor" href="#安装插件">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo-generator-baidu-sitemap --save
 npm install hexo-generator-sitemap --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在<code>_config.yml</code>中添加如下字段：</p>
+<h3 id="修改配置文件">修改配置文件<a class="anchor" href="#修改配置文件">¶</a></h3>
+<p>在<code>_config.yml</code>中添加如下字段：</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"># 自动生成sitemap
 sitemap<span class="token operator">:</span>
   path<span class="token operator">:</span> sitemap.xml
 baidusitemap<span class="token operator">:</span>
   path<span class="token operator">:</span> baidusitemap.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h3><p>执行<code>hexo g</code>。该命令会在public目录中生成<code>sitemap.xml</code>和<code>baidusitemap.xml</code>，这是生成的站点地图，里面包含了网站上所有页面的链接，搜索引擎通过这两个文件来抓取网站页面。</p>
+<h3 id="生成">生成<a class="anchor" href="#生成">¶</a></h3>
+<p>执行<code>hexo g</code>。该命令会在public目录中生成<code>sitemap.xml</code>和<code>baidusitemap.xml</code>，这是生成的站点地图，里面包含了网站上所有页面的链接，搜索引擎通过这两个文件来抓取网站页面。</p>
 <ul>
 <li>sitemap.xml — 用来提交给 Google</li>
 <li>baidusitemap.xml — 用来提交给Baidu</li>
 </ul>
-<h3 id="百度站长平台"><a href="#百度站长平台" class="headerlink" title="百度站长平台"></a>百度站长平台</h3><ul>
-<li>注册并登录百度站长平台：<a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/">https://ziyuan.baidu.com/</a></li>
+<h3 id="百度站长平台">百度站长平台<a class="anchor" href="#百度站长平台">¶</a></h3>
+<ul>
+<li>注册并登录百度站长平台：https://ziyuan.baidu.com/</li>
 <li>验证网站所有权，有三种方式：文件验证、html标签、cname解析验证。推荐使用cname，感觉是最方便的。</li>
 <li>添加sitemap</li>
 </ul>
-<h3 id="Google站长平台"><a href="#Google站长平台" class="headerlink" title="Google站长平台"></a>Google站长平台</h3><ul>
-<li>注册并登录Google站长平台：<a target="_blank" rel="noopener" href="https://www.google.com/webmasters/verification/home">https://www.google.com/webmasters/verification/home</a></li>
+<h3 id="Google站长平台">Google站长平台<a class="anchor" href="#Google站长平台">¶</a></h3>
+<ul>
+<li>注册并登录Google站长平台：https://www.google.com/webmasters/verification/home</li>
 <li>验证网站所有权，还是采用cname。默认是txt,需要选择备用方案。</li>
 <li>添加sitemap</li>
 </ul>
 <p>成功截图如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95_Google%E6%94%B6%E5%BD%95%E6%88%90%E5%8A%9F.png" alt="Hexo博客搭建记录_Google收录成功.png"></p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[^1]:<a target="_blank" rel="noopener" href="https://blog.bugimg.com/works/hexo-renderer-markdown-it_and_plugins_config.html">hexo-renderer-markdown-it 的配置与插件配置</a></p>
+<h2 id="参考文献-13">参考文献<a class="anchor" href="#参考文献-13">¶</a></h2>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a target="_blank" rel="noopener" href="https://blog.bugimg.com/works/hexo-renderer-markdown-it_and_plugins_config.html">hexo-renderer-markdown-it 的配置与插件配置</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
                 
             </div>
@@ -1428,7 +1472,7 @@ baidusitemap<span class="token operator">:</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

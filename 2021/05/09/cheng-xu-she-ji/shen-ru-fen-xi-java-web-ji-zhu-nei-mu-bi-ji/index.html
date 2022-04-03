@@ -501,7 +501,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    168
+                    170
                 </div>
                 
 
@@ -536,9 +536,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="第一章-深入Web请求过程"><a href="#第一章-深入Web请求过程" class="headerlink" title="第一章 深入Web请求过程"></a>第一章 深入Web请求过程</h2><h3 id="HTTP、Socket、TCP三者的区别"><a href="#HTTP、Socket、TCP三者的区别" class="headerlink" title="HTTP、Socket、TCP三者的区别"></a>HTTP、Socket、TCP三者的区别</h3><pre class="mermaid">graph TD;
-    应用层[HTTP TELNET DNS]--&gt;Socket[Socket]--&gt;传输层[TCP UDP]</pre>
-
+                <h2 id="第一章-深入Web请求过程">第一章 深入Web请求过程<a class="anchor" href="#第一章-深入Web请求过程">¶</a></h2>
+<h3 id="HTTP、Socket、TCP三者的区别">HTTP、Socket、TCP三者的区别<a class="anchor" href="#HTTP、Socket、TCP三者的区别">¶</a></h3>
+<pre class="mermaid">graph TD;
+	应用层[HTTP TELNET DNS]--&gt;Socket[Socket]--&gt;传输层[TCP UDP]</pre>
 <p>HTTP是传输层的协议，更加贴近用户端；TCP是传输层的协议；socket是从传输层上抽象出来的一个抽象层，<strong>本质是接口</strong>。</p>
 <p>相应的，发起一个HTTP请求与建立一个Socket连接的区别不大，只不过是<code>outputStream.write</code>写的二进制字节数据格式要符合HTTP。Java可以使用HttpClient发起http请求。</p>
 <p>使用<code>Ctrl+F5</code>请求非缓存页面，其会直接发起http请求，并添加两个属性在请求头中<code>Pragma:no-cache和Cache-Control:no-cache</code></p>
@@ -1042,13 +1043,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1120,7 +1114,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

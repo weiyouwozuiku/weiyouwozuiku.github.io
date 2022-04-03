@@ -505,14 +505,16 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                总体概览整个TiDB体系有三个部分组成：PD Cluster、Storage Cluster、TiDB Server。 
+                                总体概览¶
+整个TiDB体系有三个部分组成：PD Cluster、Storage Cluster、TiDB Server。
 
-TiDB Server主要功能
+TiDB Server¶
+主要功能¶
+
 处理客户端的连接
 SQL语句的解析和编译
 关系型数据与KV的转化
-SQL语句的执行
-
+SQL语
                             
                         </div>
                         <div class="publish-info">
@@ -561,7 +563,8 @@ SQL语句的执行
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                背景对象存储与传统网络存储的区别
+                                背景¶
+对象存储与传统网络存储的区别
 
 
 
@@ -569,6 +572,7 @@ SQL语句的执行
 网络文件系统
 块存储
 对象存储
+
 
 
 
@@ -584,7 +588,7 @@ SQL语句的执行
 通过REST网络服务
 
 
-对象存
+
                             
                         </div>
                         <div class="publish-info">
@@ -731,12 +735,14 @@ SQL语句的执行
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                背景在没有数据库的情况下，我们可以使用简单的csv文件来存储文件，并编写简单的脚本文件来查找数据。但是这种方案会有很多缺陷：
+                                背景¶
+在没有数据库的情况下，我们可以使用简单的csv文件来存储文件，并编写简单的脚本文件来查找数据。但是这种方案会有很多缺陷：
 
 数据的质量
+
 很难保证同一类型记录中相应字段的一致性
 很难阻止用户写入该字段不合法的数据
-很难优雅的处理数据之间的
+很难优雅的处理数据
                             
                         </div>
                         <div class="publish-info">
@@ -781,10 +787,12 @@ SQL语句的执行
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                MySQL基础架构
+                                MySQL基础架构¶
+
 MySQL大致可以分成Server层和存储引擎层。
-连接器连接器负责跟客户端建立链接、获取权限、维持和管理链接。
-一个用户成功创建连接后，即使对该用户修改权限，也不会影响当前存在连接的权限。修改完成之后，只有创建新的连接
+连接器¶
+连接器负责跟客户端建立链接、获取权限、维持和管理链接。
+一个用户成功创建连接后，即使对该用户修改权限，也不会影响当前存在连接的权限。修改完成之后，只有创建
                             
                         </div>
                         <div class="publish-info">
@@ -829,15 +837,15 @@ MySQL大致可以分成Server层和存储引擎层。
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                背景现在主流的数据存储与检索引擎可以大致分为两种:OLTP和OLAP.
+                                背景¶
+现在主流的数据存储与检索引擎可以大致分为两种:OLTP和OLAP.
 OLTP指的是online transaction processing.
 OLAP指的是online analysis processing.
 
 
 
 维度
-OLTP
-
+OLT
                             
                         </div>
                         <div class="publish-info">
@@ -956,7 +964,8 @@ OLTP
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                背景随着计算机硬件在过去10年中遵循摩尔定律的发展，通用计算机的CPU主频早已超过了4GHz，内存已早已进入了DDR4的时代。但是传统机械磁盘的读写性能并没有明显提升，而SSD的价格又过高。因此，探究传统机械硬盘的物理结构与性能优化方式具有
+                                背景¶
+随着计算机硬件在过去10年中遵循摩尔定律的发展，通用计算机的CPU主频早已超过了4GHz，内存已早已进入了DDR4的时代。但是传统机械磁盘的读写性能并没有明显提升，而SSD的价格又过高。因此，探究传统机械硬盘的物理结构与性能优化方式
                             
                         </div>
                         <div class="publish-info">
@@ -1001,8 +1010,10 @@ OLTP
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                SkipList背景
-跳表全称叫做跳跃表，简称跳表。跳表是一个随机化的数据结构，实质就是一种可以进行二分查找的有序链表。跳表在原有的有序链表上面增加了多级索引，通过索引来实现快速查找。跳表不仅能提高搜索性能，同时也可以提高插入和删除操作的性
+                                SkipList¶
+背景¶
+
+跳表全称叫做跳跃表，简称跳表。跳表是一个随机化的数据结构，实质就是一种可以进行二分查找的有序链表。跳表在原有的有序链表上面增加了多级索引，通过索引来实现快速查找。跳表不仅能提高搜索性能，同时也可以提高插入和删除
                             
                         </div>
                         <div class="publish-info">
@@ -1110,7 +1121,7 @@ OLTP
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

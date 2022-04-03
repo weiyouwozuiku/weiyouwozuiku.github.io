@@ -532,8 +532,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本文旨在记录和汇总自己在工作以及学习过程中所使用的软件及其所遇问题的解决方案,以便日后所需.</p>
-<h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><ul>
+                <h2 id="摘要">摘要<a class="anchor" href="#摘要">¶</a></h2>
+<p>本文旨在记录和汇总自己在工作以及学习过程中所使用的软件及其所遇问题的解决方案,以便日后所需.</p>
+<h2 id="可视化">可视化<a class="anchor" href="#可视化">¶</a></h2>
+<ul>
 <li>Cloud Battery</li>
 <li>Charles</li>
 <li>Viusal Studio Code</li>
@@ -581,7 +583,7 @@
 <li>iShot</li>
 <li>Alacritty</li>
 <li><a target="_blank" rel="noopener" href="https://github.com/exelban/stats">stats</a></li>
-<li>One Switch </li>
+<li>One Switch</li>
 <li>Dash</li>
 <li>BetterTouchTool</li>
 <li>Transmit</li>
@@ -599,7 +601,8 @@
 <li>Clearview X</li>
 <li><a target="_blank" rel="noopener" href="https://github.com/balena-io/etcher">balenaEtcher</a></li>
 </ul>
-<h2 id="终端"><a href="#终端" class="headerlink" title="终端"></a>终端</h2><ul>
+<h2 id="终端">终端<a class="anchor" href="#终端">¶</a></h2>
+<ul>
 <li>brew</li>
 <li>ranger</li>
 <li>fzf</li>
@@ -619,12 +622,15 @@
 <li>glow或mdv，终端markdown文本阅读器</li>
 <li>ipython</li>
 </ul>
-<h2 id="zsh配置"><a href="#zsh配置" class="headerlink" title="zsh配置"></a>zsh配置</h2><h3 id="安装zsh插件"><a href="#安装zsh插件" class="headerlink" title="安装zsh插件"></a>安装zsh插件</h3><ul>
-<li>git-open: git clone <a target="_blank" rel="noopener" href="https://github.com/paulirish/git-open.git">https://github.com/paulirish/git-open.git</a> $ZSH_CUSTOM/plugins/git-open</li>
-<li>zsh-syntax-highlighting: git clone <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting.git">https://github.com/zsh-users/zsh-syntax-highlighting.git</a> ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</li>
-<li>zsh-autosuggestions: git clone <a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">https://github.com/zsh-users/zsh-autosuggestions</a> ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</li>
+<h2 id="zsh配置">zsh配置<a class="anchor" href="#zsh配置">¶</a></h2>
+<h3 id="安装zsh插件">安装zsh插件<a class="anchor" href="#安装zsh插件">¶</a></h3>
+<ul>
+<li>git-open: git clone https://github.com/paulirish/git-open.git $ZSH_CUSTOM/plugins/git-open</li>
+<li>zsh-syntax-highlighting: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</li>
+<li>zsh-autosuggestions: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</li>
 </ul>
-<h3 id="zshrc"><a href="#zshrc" class="headerlink" title=".zshrc"></a>.zshrc</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+<h3 id="zshrc">.zshrc<a class="anchor" href="#zshrc">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -755,25 +761,28 @@ export FZF_COMPLETION_TRIGGER='\'
 
 export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2&gt; /dev/null | head -500'"
 alias setproxy='export https_proxy=http://192.168.50.77:20171 http_proxy=http://192.168.50.77:20171 all_proxy=socks5://192.168.50.77:20170'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="ohmyzsh本地化"><a href="#ohmyzsh本地化" class="headerlink" title="ohmyzsh本地化"></a>ohmyzsh本地化</h3><h4 id="安装ohmyzsh"><a href="#安装ohmyzsh" class="headerlink" title="安装ohmyzsh"></a>安装ohmyzsh</h4><p>下载 </p>
+<h3 id="ohmyzsh本地化">ohmyzsh本地化<a class="anchor" href="#ohmyzsh本地化">¶</a></h3>
+<h4 id="安装ohmyzsh">安装ohmyzsh<a class="anchor" href="#安装ohmyzsh">¶</a></h4>
+<p>下载</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>编辑</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"># Default settings
 ZSH=$<span class="token punctuation">{</span>ZSH<span class="token operator">:</span>-~/.oh-my-zsh<span class="token punctuation">}</span>
 REPO=$<span class="token punctuation">{</span>REPO<span class="token operator">:</span>-mirrors/oh-my-zsh<span class="token punctuation">}</span>
 REMOTE=$<span class="token punctuation">{</span>REMOTE<span class="token operator">:</span>-https<span class="token operator">:</span><span class="token comment">//gitee.com/${REPO}.git}</span>
 BRANCH=$<span class="token punctuation">{</span>BRANCH<span class="token operator">:</span>-master<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="修改仓库地址"><a href="#修改仓库地址" class="headerlink" title="修改仓库地址"></a>修改仓库地址</h4><pre class="line-numbers language-json" data-language="json"><code class="language-json">d ~/.oh-my-zsh
+<h4 id="修改仓库地址">修改仓库地址<a class="anchor" href="#修改仓库地址">¶</a></h4>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">d ~/.oh-my-zsh
 git remote set-url origin https<span class="token operator">:</span><span class="token comment">//gitee.com/mirrors/oh-my-zsh.git</span>
 git pull
 omz update <span class="token comment">//oh my zsh 更新</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="powerline10k"><a href="#powerline10k" class="headerlink" title="powerline10k"></a>powerline10k</h3><h2 id="修改iTerm样式"><a href="#修改iTerm样式" class="headerlink" title="修改iTerm样式"></a>修改iTerm样式</h2><p><code>iterm-&gt;preferences-&gt;Profiles-&gt;Session-&gt;Status bar enabled-&gt;Configure Status Bar</code>可以设置Iterm上方展示系统信息等内容。</p>
-<h2 id="Mac内置键盘屏蔽"><a href="#Mac内置键盘屏蔽" class="headerlink" title="Mac内置键盘屏蔽"></a>Mac内置键盘屏蔽</h2><p>借助Karabiner可以实现在检测到外置键盘或鼠标存在的时候，底层屏蔽内置键盘的输入。</p>
-<h2 id="键盘映射"><a href="#键盘映射" class="headerlink" title="键盘映射"></a>键盘映射</h2><p>同样是借助Karabiner实现键盘映射的功能，单个按键简单映射直接在软件本身设置即可。针对组合键的映射，可以通过在<code>.config/karabiner/assets/complex_modifications</code>文件中编写任意文件名的json文件来实现。</p>
+<h3 id="powerline10k">powerline10k<a class="anchor" href="#powerline10k">¶</a></h3>
+<h2 id="修改iTerm样式">修改iTerm样式<a class="anchor" href="#修改iTerm样式">¶</a></h2>
+<p><code>iterm-&gt;preferences-&gt;Profiles-&gt;Session-&gt;Status bar enabled-&gt;Configure Status Bar</code>可以设置Iterm上方展示系统信息等内容。</p>
+<h2 id="Mac内置键盘屏蔽">Mac内置键盘屏蔽<a class="anchor" href="#Mac内置键盘屏蔽">¶</a></h2>
+<p>借助Karabiner可以实现在检测到外置键盘或鼠标存在的时候，底层屏蔽内置键盘的输入。</p>
+<h2 id="键盘映射">键盘映射<a class="anchor" href="#键盘映射">¶</a></h2>
+<p>同样是借助Karabiner实现键盘映射的功能，单个按键简单映射直接在软件本身设置即可。针对组合键的映射，可以通过在<code>.config/karabiner/assets/complex_modifications</code>文件中编写任意文件名的json文件来实现。</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"vim"</span><span class="token punctuation">,</span>
   <span class="token property">"rules"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
@@ -869,50 +878,52 @@ omz update <span class="token comment">//oh my zsh 更新</span><span aria-hidde
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>为了保持会话的长久链接可以在本地通过新增 <code>.ssh/config</code>文件中如下字段：</p>
+<h2 id="SSH">SSH<a class="anchor" href="#SSH">¶</a></h2>
+<p>为了保持会话的长久链接可以在本地通过新增 <code>.ssh/config</code>文件中如下字段：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Host *
   ServerAliveInterval 60<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p>安装 <code>vimplus</code></p>
+<h2 id="vim">vim<a class="anchor" href="#vim">¶</a></h2>
+<p>安装 <code>vimplus</code></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/chxuan/vimplus.git ~/.vimplus
 cd ~/.vimplus
 ./install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>直接安装完成直接会因为apple自研芯片的原因导致安装YouCompleteMe的过程中其实安装失败.可以使用 <code>python3 install.py --all --system-libclang</code>在YouCompleteMe文件夹中安装.</p>
 <p>安装YouCompleteMe中可能出现<code>Python headers are missing in /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.7/Headers.</code>的错误，只需要执行<code>echo 'export PATH="/usr/local/bin:$PATH"' &gt;&gt; ~/.zshrc</code>即可。这个问题的原因可以通过执行<code>brew doctor</code>发现。</p>
-<h2 id="ranger"><a href="#ranger" class="headerlink" title="ranger"></a>ranger</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>brew install ranger</code></p>
-<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><ul>
+<h2 id="ranger">ranger<a class="anchor" href="#ranger">¶</a></h2>
+<h3 id="安装-6">安装<a class="anchor" href="#安装-6">¶</a></h3>
+<p><code>brew install ranger</code></p>
+<h3 id="插件-2">插件<a class="anchor" href="#插件-2">¶</a></h3>
+<ul>
 <li>ranger图标</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 echo "default_linemode devicons" &gt;&gt; $HOME/.config/ranger/rc.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <ul>
 <li>图片预览</li>
 </ul>
 <p>Add the following lines to your ~/.config/ranger/rc.conf:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set preview_images true
 set preview_images_method iterm2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <ul>
 <li>highlight</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install highlight<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="fzf"><a href="#fzf" class="headerlink" title="fzf"></a>fzf</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install fzf
+<h2 id="fzf">fzf<a class="anchor" href="#fzf">¶</a></h2>
+<h3 id="安装-7">安装<a class="anchor" href="#安装-7">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install fzf
 #安装按键绑定与模糊补全
 $(brew --prefix)/opt/fzf/install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>修改<code>.zshrc</code></p>
+<h3 id="配置-3">配置<a class="anchor" href="#配置-3">¶</a></h3>
+<p>修改<code>.zshrc</code></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 修改fzf的触发符号
 export FZF_COMPLETION_TRIGGER='\'
 # 修改fzf默认展示
 export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2&gt; /dev/null | head -500'"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="lrzsz"><a href="#lrzsz" class="headerlink" title="lrzsz"></a>lrzsz</h2><h3 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install lrzsz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="安装执行脚本"><a href="#安装执行脚本" class="headerlink" title="安装执行脚本"></a>安装执行脚本</h3><p>将<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-send-zmodem.sh">iterm2-send-zmodem.sh</a>和<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-recv-zmodem.sh">iterm2-recv-zmodem.sh</a>保存到<code>/usr/local/bin</code>目录下。</p>
+<h2 id="lrzsz">lrzsz<a class="anchor" href="#lrzsz">¶</a></h2>
+<h3 id="安装-8">安装<a class="anchor" href="#安装-8">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install lrzsz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装执行脚本">安装执行脚本<a class="anchor" href="#安装执行脚本">¶</a></h3>
+<p>将<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-send-zmodem.sh">iterm2-send-zmodem.sh</a>和<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-recv-zmodem.sh">iterm2-recv-zmodem.sh</a>保存到<code>/usr/local/bin</code>目录下。</p>
 <p><code>iterm2-send-zmodem.sh</code></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash
 # Author: Matt Mastracci (matthew@mastracci.com)
@@ -939,7 +950,6 @@ else
     echo
     echo \# Received "$FILE"
 fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><code>iterm2-recv-zmodem.sh</code></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash
 # Author: Matt Mastracci (matthew@mastracci.com)
@@ -969,10 +979,10 @@ else
     echo
     echo \# Sent \-\&gt; $FILE
 fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="授予执行权限"><a href="#授予执行权限" class="headerlink" title="授予执行权限"></a>授予执行权限</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo chmod +x /usr/local/bin/iterm2-*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="设置iterm的trigger"><a href="#设置iterm的trigger" class="headerlink" title="设置iterm的trigger"></a>设置iterm的trigger</h3><p>设置Iterm2的Tirgger特性，<code>Preferences-&gt;Profiles-&gt;Default-&gt;Advanced-&gt;Trigged-&gt;Edit</code></p>
+<h3 id="授予执行权限">授予执行权限<a class="anchor" href="#授予执行权限">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo chmod +x /usr/local/bin/iterm2-*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="设置iterm的trigger">设置iterm的trigger<a class="anchor" href="#设置iterm的trigger">¶</a></h3>
+<p>设置Iterm2的Tirgger特性，<code>Preferences-&gt;Profiles-&gt;Default-&gt;Advanced-&gt;Trigged-&gt;Edit</code></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Regular expression: rz waiting to receive.\*\*B0100
 Action: Run Silent Coprocess
 Parameters: /usr/local/bin/iterm2-send-zmodem.sh
@@ -982,28 +992,31 @@ Regular expression: \*\*B00000000000000
 Action: Run Silent Coprocess
 Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
 Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/Mac%E4%BD%BF%E7%94%A8%E6%95%B4%E7%90%86/lrzsz%E8%AE%BE%E7%BD%AEiterm%E7%9A%84trigger.png" alt="lrzsz设置iterm的trigger.png"></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<h3 id="使用-4">使用<a class="anchor" href="#使用-4">¶</a></h3>
+<ul>
 <li>上传文件：rz</li>
 <li>下载文件：sz + filename</li>
 </ul>
-<h2 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h2><p><a target="_blank" rel="noopener" href="https://github.com/wensonsmith/YoudaoTranslator">YoudaoTranslate</a></p>
+<h2 id="Alfred">Alfred<a class="anchor" href="#Alfred">¶</a></h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/wensonsmith/YoudaoTranslator">YoudaoTranslate</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/codezm/Alfred-codezm-workflows-timestamp-convert">Alfred-codezm-workflows-timestamp-convert</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/LeEnno/alfred-terminalfinder">alfred-terminalfinder</a></p>
 <p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/Mac%E4%BD%BF%E7%94%A8%E6%95%B4%E7%90%86/coversion.alfredworkflow">coversion</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/zenorocha/alfred-workflows/raw/master/ip-address/ip-address.alfredworkflow">IP Address</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/weiyouwozuiku/ToolBox/blob/main/Alfred-BaseConversion/Base%20Conversion.alfredworkflow">Alfred-BaseConversion</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/noogel/Alfred-Workflow">Alfred-Workflow</a></p>
-<h2 id="查看Mac整体信息"><a href="#查看Mac整体信息" class="headerlink" title="查看Mac整体信息"></a>查看Mac整体信息</h2><p>打开<code>系统信息.app</code>就可以查看具体信息以及电脑中安装的所有软件的版本。</p>
-<h2 id="编译报错"><a href="#编译报错" class="headerlink" title="编译报错"></a>编译报错</h2><p>当Mac OS进行更新时，可能会导致更新后的系统中原本在Clion等IDE软件中原本的组件的缓存无法找到相应资源，出现如下错误：</p>
+<h2 id="查看Mac整体信息">查看Mac整体信息<a class="anchor" href="#查看Mac整体信息">¶</a></h2>
+<p>打开<code>系统信息.app</code>就可以查看具体信息以及电脑中安装的所有软件的版本。</p>
+<h2 id="编译报错">编译报错<a class="anchor" href="#编译报错">¶</a></h2>
+<p>当Mac OS进行更新时，可能会导致更新后的系统中原本在Clion等IDE软件中原本的组件的缓存无法找到相应资源，出现如下错误：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#include_next &lt;wchar.h&gt;
               ^~~~~~~~~
 1 error generated.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>此时只需要清空IDE中的缓存即可。</p>
 <p>在Clion中就是<code>文件-&gt;清除缓存</code>。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<h2 id="参考资料-3">参考资料<a class="anchor" href="#参考资料-3">¶</a></h2>
+<ol>
 <li><a target="_blank" rel="noopener" href="https://keelii.com/2018/08/12/fuzzy-finder-full-guide/">Fuzzy finder(fzf+vim) 使用全指南</a>,2018</li>
 <li><a target="_blank" rel="noopener" href="https://www.huweihuang.com/linux-notes/keymap/iterm2-rzsz.html">iterm2 rz与sz的功能</a>,2019</li>
 </ol>
@@ -1503,13 +1516,6 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1581,7 +1587,7 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

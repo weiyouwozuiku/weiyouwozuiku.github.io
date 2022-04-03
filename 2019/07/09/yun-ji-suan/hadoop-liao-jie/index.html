@@ -497,7 +497,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    362
+                    342
                 </div>
                 
 
@@ -532,15 +532,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><ol>
-<li>特点<ul>
+                <h2 id="大数据">大数据<a class="anchor" href="#大数据">¶</a></h2>
+<ol>
+<li>特点
+<ul>
 <li>数据大</li>
 <li>价值大</li>
 <li>速度快（时效性）</li>
 <li>多样性</li>
 </ul>
 </li>
-<li>架构<ul>
+<li>架构
+<ul>
 <li>数据采集：Mysql</li>
 <li>数据存储：HDFS、HBase、Hive</li>
 <li>数据计算：Spark、MapReduce</li>
@@ -548,39 +551,48 @@
 </li>
 </ol>
 <hr>
-<h2 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h2><p>Hadoop实现了HDFS分布式存储，下面介绍其中的八个相关部件：</p>
+<h2 id="Hadoop">Hadoop<a class="anchor" href="#Hadoop">¶</a></h2>
+<p>Hadoop实现了HDFS分布式存储，下面介绍其中的八个相关部件：</p>
 <ul>
-<li><p>HDFS中NameNode管理DataNode</p>
+<li>
+<p>HDFS中NameNode管理DataNode</p>
 <p><em>HDFS是分布式存储，具有数据备份和数据容错的优点。</em></p>
 <p><strong>DataNode由block组成，其中的数据平行传递，不通过client，通过心跳检测（监测数据是否正常）。</strong></p>
 <p><strong>每个block数据块大小都是128M，因此不适合小数据的存储。</strong></p>
-<p>$$主从模式<br>\begin{cases}<br>\text{NameNode（master）}\<br>\text{DataNode（slave）}<br>\end{cases}$$</p>
-</li>
-<li><p>Yarn（资源管理器），负责创建RM（资源管理、作业调度）和AM（任务调度）</p>
+<p style="filter: opacity(95%);transform:scale(0.85);text-align:center;"><img src="https://math.now.sh?from=%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%0A%5Cbegin%7Bcases%7D%0A%5Ctext%7BNameNode%EF%BC%88master%EF%BC%89%7D%5C%5C%0A%5Ctext%7BDataNode%EF%BC%88slave%EF%BC%89%7D%0A%5Cend%7Bcases%7D"></p></li>
+<li>
+<p>Yarn（资源管理器），负责创建RM（资源管理、作业调度）和AM（任务调度）</p>
 <p><strong>先启动Hadoop，后启动Yarn。</strong></p>
 </li>
-<li><p>MapReduce，处理大规模数据集的编程模型。</p>
+<li>
+<p>MapReduce，处理大规模数据集的编程模型。</p>
 <p>Map:输入数据格式解析：InputFormat</p>
-<p>​        输入数据处理：Mapper</p>
-<p>​        输入数据分组：Partitioner</p>
+<p>​		输入数据处理：Mapper</p>
+<p>​		输入数据分组：Partitioner</p>
 <p><strong>总的来说，Map负责分割。</strong></p>
 <p>Reduce：数据远程拷贝</p>
-<p>​                数据按Key排序</p>
-<p>​                数据处理：Reducer</p>
-<p>​                数据输出格式：OutFormat</p>
+<p>​				数据按Key排序</p>
+<p>​				数据处理：Reducer</p>
+<p>​				数据输出格式：OutFormat</p>
 <p><strong>总的来说，Reduce负责处理。</strong></p>
 <p><em>其中有一个shuffle，可以打乱分组。</em></p>
 </li>
-<li><p>Hive 数据仓库工具，将SQL转换成MapReduce执行。</p>
+<li>
+<p>Hive 数据仓库工具，将SQL转换成MapReduce执行。</p>
 </li>
-<li><p>HBase 存放结构化的数据。</p>
+<li>
+<p>HBase 存放结构化的数据。</p>
 </li>
-<li><p>ZooKeeper 担任服务生产者和服务消费者的注册中心。</p>
-<p>大致上分成<br>$$<br>\begin{cases} Leader\<br>Follower\<br>Obsever<br>\end{cases}<br>$$<br><strong>推荐使用奇数集群</strong></p>
+<li>
+<p>ZooKeeper 担任服务生产者和服务消费者的注册中心。</p>
+<p>大致上分成</p>
+<p style="filter: opacity(95%);transform:scale(0.85);text-align:center;"><img src="https://math.now.sh?from=%5Cbegin%7Bcases%7D%20Leader%5C%5C%0AFollower%5C%5C%0AObsever%0A%5Cend%7Bcases%7D%0A"></p><p><strong>推荐使用奇数集群</strong></p>
 </li>
-<li><p>Flume 分布式日志收集系统</p>
+<li>
+<p>Flume 分布式日志收集系统</p>
 </li>
-<li><p>Storm 分布式流式计算的架构</p>
+<li>
+<p>Storm 分布式流式计算的架构</p>
 </li>
 </ul>
 
@@ -1075,13 +1087,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1153,7 +1158,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

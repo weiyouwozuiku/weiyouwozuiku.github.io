@@ -497,14 +497,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    547
+                    472
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -532,33 +532,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>所谓哈希（hash），就是将不同的输入映射成独一无二的、固定长度的值（又称”哈希值”）。它是最常见的软件运算之一。</p>
-<p>如果不同的输入得到了同一个哈希值，就发生了”哈希碰撞”（collision）。</p>
+                <h2 id="背景-14">背景<a class="anchor" href="#背景-14">¶</a></h2>
+<p>所谓哈希（hash），就是将不同的输入映射成独一无二的、固定长度的值（又称"哈希值"）。它是最常见的软件运算之一。</p>
+<p>如果不同的输入得到了同一个哈希值，就发生了"哈希碰撞"（collision）。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%AE%97%E6%B3%95/%E7%94%9F%E6%97%A5%E7%A2%B0%E6%92%9E%E5%92%8C%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/hash.png" alt="hash.png"></p>
-<h2 id="生日攻击"><a href="#生日攻击" class="headerlink" title="生日攻击"></a>生日攻击</h2><p>哈希碰撞的概率取决于两个因素（假设哈希函数是可靠的，每个值的生成概率都相同）。</p>
+<h2 id="生日攻击">生日攻击<a class="anchor" href="#生日攻击">¶</a></h2>
+<p>哈希碰撞的概率取决于两个因素（假设哈希函数是可靠的，每个值的生成概率都相同）。</p>
 <ul>
 <li>哈希值的长度</li>
 <li>整个生命周期中，哈希值的计算次数</li>
 </ul>
-<p>这个问题在数学上早有原型，叫做”<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Birthday_problem">生日问题</a>“（birthday problem）：一个班级需要有多少人，才能保证每个同学的生日都不一样？</p>
+<p>这个问题在数学上早有原型，叫做"<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Birthday_problem">生日问题</a>"（birthday problem）：一个班级需要有多少人，才能保证每个同学的生日都不一样？</p>
 <p>答案很出人意料。如果至少两个同学生日相同的概率不超过5%，那么这个班只能有7个人。事实上，一个23人的班级有50%的概率，至少两个同学生日相同；50人班级有97%的概率，70人的班级则是99.9%的概率。</p>
-<p>$\overline{p}(n)=1*(1-\frac{1}{365})*(1-\frac{2}{365}…(1-\frac{n-1}{365})))$=&gt;$p(n)=1-\overline{p}(n)=1-\frac{365!}{365^n(365-n)!}$</p>
+<p><img src="https://math.now.sh?inline=%5Coverline%7Bp%7D%28n%29%3D1*(1-%5Cfrac%7B1%7D%7B365%7D)*(1-%5Cfrac%7B2%7D%7B365%7D...(1-%5Cfrac%7Bn-1%7D%7B365%7D)))" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">=&gt;<img src="https://math.now.sh?inline=p%28n%29%3D1-%5Coverline%7Bp%7D(n)%3D1-%5Cfrac%7B365!%7D%7B365%5En(365-n)!%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
 <p>依据泰勒展开，指数展开可以写成：</p>
-<p>$e^x=\sum^{\infty}_{k=0}\frac{x^k}{k!}=1+x+\frac{x^2}{2}+\frac{x^3}{6}+\frac{x^4}{24}+…$。当x取一个极小数时，上面的公式可以近似转化为$e^x=1+x$。</p>
-<p>这意味着，如果哈希值的取值空间是365，只要计算23个哈希值，就有50%的可能产生碰撞。也就是说，哈希碰撞的可能性，远比想象的高。实际上，有一个近似的公式：$\sqrt{\frac{\pi}{2}N}$</p>
+<p><img src="https://math.now.sh?inline=e%5Ex%3D%5Csum%5E%7B%5Cinfty%7D_%7Bk%3D0%7D%5Cfrac%7Bx%5Ek%7D%7Bk!%7D%3D1%2Bx%2B%5Cfrac%7Bx%5E2%7D%7B2%7D%2B%5Cfrac%7Bx%5E3%7D%7B6%7D%2B%5Cfrac%7Bx%5E4%7D%7B24%7D%2B..." style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。当x取一个极小数时，上面的公式可以近似转化为<img src="https://math.now.sh?inline=e%5Ex%3D1%2Bx" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。</p>
+<p>这意味着，如果哈希值的取值空间是365，只要计算23个哈希值，就有50%的可能产生碰撞。也就是说，哈希碰撞的可能性，远比想象的高。实际上，有一个近似的公式：<img src="https://math.now.sh?inline=%5Csqrt%7B%5Cfrac%7B%5Cpi%7D%7B2%7DN%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
 <p>将其形式化生日问题的概率公式变化为：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%AE%97%E6%B3%95/%E7%94%9F%E6%97%A5%E7%A2%B0%E6%92%9E%E5%92%8C%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/%E7%94%9F%E6%97%A5%E9%97%AE%E9%A2%98.png" alt="生日问题.png"></p>
 <p>将取值空间用d表达，则可以形式化为：</p>
-<p>$p(n,d)\approx 1-e^{\frac{-n(n-1)}{2d}}$</p>
+<p><img src="https://math.now.sh?inline=p%28n%2Cd%29%5Capprox%201-e%5E%7B%5Cfrac%7B-n(n-1)%7D%7B2d%7D%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
 <p>这也就是哈希碰撞概率公式。</p>
 <p>代码化如下：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> calculate <span class="token operator">=</span> <span class="token punctuation">(</span>d<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> exponent <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">-</span>n <span class="token operator">*</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> d<span class="token punctuation">)</span>
   <span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">-</span> Math<span class="token punctuation">.</span>E <span class="token operator">*</span><span class="token operator">*</span> exponent<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>这种利用哈希空间不足够大，而制造碰撞的攻击方法，就被称为生日攻击（birthday attack）。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<h2 id="参考文献-12">参考文献<a class="anchor" href="#参考文献-12">¶</a></h2>
+<ol>
 <li>阮一峰，<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2018/09/hash-collision-and-birthday-attack.html">哈希碰撞与生日攻击</a>，2018</li>
 </ol>
 
@@ -1061,13 +1063,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1139,7 +1134,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

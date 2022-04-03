@@ -497,14 +497,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    12 分
                 </div>
                 
 
@@ -532,165 +532,201 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="马尔可夫"><a href="#马尔可夫" class="headerlink" title="马尔可夫"></a>马尔可夫</h2><p>20世纪初,马尔可夫研究自然界有一类事物变化的过程仅与失误的近期状态有关,与事物过去的状态无关.即马尔可夫性.</p>
+                <h2 id="马尔可夫">马尔可夫<a class="anchor" href="#马尔可夫">¶</a></h2>
+<p>20世纪初,马尔可夫研究自然界有一类事物变化的过程仅与失误的近期状态有关,与事物过去的状态无关.即马尔可夫性.</p>
 <p>一个马尔可夫过程是状态间的转移仅依赖前n个状态的过程.这个过程被称为n阶马尔可夫模型,其中n是影响下一个状态的(前)n个状态.</p>
 <p>马尔可夫假设:假设模型的当前状态仅仅依赖前面的几个状态.</p>
-<h3 id="相关名词"><a href="#相关名词" class="headerlink" title="相关名词"></a>相关名词</h3><ul>
+<h3 id="相关名词">相关名词<a class="anchor" href="#相关名词">¶</a></h3>
+<ul>
 <li>随机过程的本质就是对一系列随机变量的整体描述.</li>
 <li>马尔可夫矩阵的性质,其中每个值大于等于0,且每行或者每列和为1(这取决于是左乘还是右乘).</li>
-<li>马尔可夫的时齐性:从状态i转化到状态j的转义概率$p_{ij}(m)$仅仅依赖于时间的长短,与其他(比如起始状态等)均无关.</li>
+<li>马尔可夫的时齐性:从状态i转化到状态j的转义概率<img src="https://math.now.sh?inline=p_%7Bij%7D%28m%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">仅仅依赖于时间的长短,与其他(比如起始状态等)均无关.</li>
 </ul>
-<h3 id="收敛的必要条件"><a href="#收敛的必要条件" class="headerlink" title="收敛的必要条件"></a>收敛的必要条件</h3><ul>
+<h3 id="收敛的必要条件">收敛的必要条件<a class="anchor" href="#收敛的必要条件">¶</a></h3>
+<ul>
 <li>可能的状态数是有限的</li>
 <li>状态间的转移概率需要固定不变</li>
 <li>从任意状态能够转变到任意状态</li>
 <li>不能是简单的循环</li>
 </ul>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p>T表示时间空间,E表示状态空间.</p>
+<h3 id="区别-2">区别<a class="anchor" href="#区别-2">¶</a></h3>
+<p>T表示时间空间,E表示状态空间.</p>
 <ul>
 <li>T连续,E连续-&gt;连续Markov过程</li>
 <li>T连续,E离散-&gt;离散Markov过程</li>
 <li>T离散,E连续-&gt;Markov序列</li>
 <li>T离散,E离散-&gt;Markov链</li>
 </ul>
-<h3 id="转移概率矩阵"><a href="#转移概率矩阵" class="headerlink" title="转移概率矩阵"></a>转移概率矩阵</h3><p>$P(m)=(p_{ij}(m))$为马尔可夫链的m步转移矩阵.</p>
+<h3 id="转移概率矩阵">转移概率矩阵<a class="anchor" href="#转移概率矩阵">¶</a></h3>
+<p><img src="https://math.now.sh?inline=P%28m%29%3D(p_%7Bij%7D(m))" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">为马尔可夫链的m步转移矩阵.</p>
 <p>马尔可夫预测的核心在于转移概率矩阵的确定,获取方法可以是理论分析亦或实际统计结果给出的,甚至是猜测的.</p>
-<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><ol>
-<li>$0\le p_{ij}(m)\le1$:概率在0~1之间.</li>
-<li>对于任意的$i\in E$,$\sum_{j\in E}p_{ij}(m)$:概率之和为1.</li>
-<li>对于任意的$i,j\in E$,$p_{ij}(0)=\begin{cases}\text{1,i=j}\ 0,i\neq j\end{cases}$:不发生转移的概率.</li>
+<h4 id="性质">性质<a class="anchor" href="#性质">¶</a></h4>
+<ol>
+<li><img src="https://math.now.sh?inline=0%5Cle%20p_%7Bij%7D%28m%29%5Cle1" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">:概率在0~1之间.</li>
+<li>对于任意的<img src="https://math.now.sh?inline=i%5Cin%20E" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,<img src="https://math.now.sh?inline=%5Csum_%7Bj%5Cin%20E%7Dp_%7Bij%7D%28m%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">:概率之和为1.</li>
+<li>对于任意的<img src="https://math.now.sh?inline=i%2Cj%5Cin%20E" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,<img src="https://math.now.sh?inline=p_%7Bij%7D%280%29%3D%5Cbegin%7Bcases%7D%5Ctext%7B1%2Ci%3Dj%7D%5C%5C%200%2Ci%5Cneq%20j%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">:不发生转移的概率.</li>
 </ol>
-<h3 id="柯尔莫格洛夫-切普曼方程-k-c方程"><a href="#柯尔莫格洛夫-切普曼方程-k-c方程" class="headerlink" title="柯尔莫格洛夫-切普曼方程(k-c方程)"></a>柯尔莫格洛夫-切普曼方程(k-c方程)</h3><p>对于任意的$m,n\ge 0$,有$\begin{cases}p_{ij}(n+m)=\sum_{k\in E}p_{ik}(n)p_{kj}(m)\ P(n+m)=(P(1))^{n+m}\end{cases}$</p>
-<h3 id="马尔可夫预测"><a href="#马尔可夫预测" class="headerlink" title="马尔可夫预测"></a>马尔可夫预测</h3><ol>
+<h3 id="柯尔莫格洛夫-切普曼方程-k-c方程">柯尔莫格洛夫-切普曼方程(k-c方程)<a class="anchor" href="#柯尔莫格洛夫-切普曼方程-k-c方程">¶</a></h3>
+<p>对于任意的<img src="https://math.now.sh?inline=m%2Cn%5Cge%200" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,有<img src="https://math.now.sh?inline=%5Cbegin%7Bcases%7Dp_%7Bij%7D%28n%2Bm%29%3D%5Csum_%7Bk%5Cin%20E%7Dp_%7Bik%7D(n)p_%7Bkj%7D(m)%5C%5C%20P(n%2Bm)%3D(P(1))%5E%7Bn%2Bm%7D%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<h3 id="马尔可夫预测">马尔可夫预测<a class="anchor" href="#马尔可夫预测">¶</a></h3>
+<ol>
 <li>对于一个马尔可夫链,其一步转移概率矩阵为P.</li>
-<li>初始状态(初始分布)$\pi _j(0)=P{\xi_0=j}$,反映了马尔可夫链在初始时候的对于各个状态的概率分布情况,可以搁在一起写个向量$\pi(0)=(\pi_1(0),\pi_2(0),…)$.</li>
-<li>同样有$\pi_j(n)=P{\xi_n=j}$,表示经过n步转移后,马尔可夫链对于各个状态的概率分布情况.同样的,把它们搁在一起写成一个向量:$\pi(n)=(\pi_1(n),\pi_2(n),…)$</li>
-<li>预测方法:$\pi(n)=\pi(0)P^n$</li>
-<li>$(\pi_1(n),\pi_2(n),…)$收敛到一个固定的向量,称之为马尔可夫链或转移矩阵P的不变分布(<strong>不是所有的马尔可夫链都有不变分布</strong>).当马尔可夫链有不变分布时,称之为马尔科夫链具有遍历性.</li>
+<li>初始状态(初始分布)<img src="https://math.now.sh?inline=%5Cpi%20_j%280%29%3DP%5C%7B%5Cxi_0%3Dj%5C%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,反映了马尔可夫链在初始时候的对于各个状态的概率分布情况,可以搁在一起写个向量<img src="https://math.now.sh?inline=%5Cpi%280%29%3D(%5Cpi_1(0)%2C%5Cpi_2(0)%2C...)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.</li>
+<li>同样有<img src="https://math.now.sh?inline=%5Cpi_j%28n%29%3DP%5C%7B%5Cxi_n%3Dj%5C%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,表示经过n步转移后,马尔可夫链对于各个状态的概率分布情况.同样的,把它们搁在一起写成一个向量:<img src="https://math.now.sh?inline=%5Cpi%28n%29%3D(%5Cpi_1(n)%2C%5Cpi_2(n)%2C...)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li>预测方法:<img src="https://math.now.sh?inline=%5Cpi%28n%29%3D%5Cpi(0)P%5En" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li><img src="https://math.now.sh?inline=%28%5Cpi_1(n%29%2C%5Cpi_2(n)%2C...)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">收敛到一个固定的向量,称之为马尔可夫链或转移矩阵P的不变分布(<strong>不是所有的马尔可夫链都有不变分布</strong>).当马尔可夫链有不变分布时,称之为马尔科夫链具有遍历性.</li>
 </ol>
-<h3 id="可观测马尔可夫模型"><a href="#可观测马尔可夫模型" class="headerlink" title="可观测马尔可夫模型"></a>可观测马尔可夫模型</h3><p>对于一个问题而言,我们有初始分布$\pi$,转移概率矩阵A,在给定的任意一个时刻t,我们都能有一个状态$q_t$,时间的变化,随一个状态转移到另一个状态,便能得到一个观测序列,即为状态序列$O=[q_1,q_2,q_3,q_4,…,q_m]$.且整个问题中一共有n个观测状态.出现这样的序列的概率是:$P(O|A,\pi)=P(q_1)\prod_{t=2}^mP(q_t|q_{t-1})$,所以一个可观测的马尔可夫模型由一个三元组描述:$(A,\pi,n)$,一般情况下简记为$(A,\pi)$.</p>
+<h3 id="可观测马尔可夫模型">可观测马尔可夫模型<a class="anchor" href="#可观测马尔可夫模型">¶</a></h3>
+<p>对于一个问题而言,我们有初始分布<img src="https://math.now.sh?inline=%5Cpi" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,转移概率矩阵A,在给定的任意一个时刻t,我们都能有一个状态<img src="https://math.now.sh?inline=q_t" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,时间的变化,随一个状态转移到另一个状态,便能得到一个观测序列,即为状态序列<img src="https://math.now.sh?inline=O%3D%5Bq_1%2Cq_2%2Cq_3%2Cq_4%2C...%2Cq_m%5D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.且整个问题中一共有n个观测状态.出现这样的序列的概率是:<img src="https://math.now.sh?inline=P%28O%7CA%2C%5Cpi%29%3DP(q_1)%5Cprod_%7Bt%3D2%7D%5EmP(q_t%7Cq_%7Bt-1%7D)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,所以一个可观测的马尔可夫模型由一个三元组描述:<img src="https://math.now.sh?inline=%28A%2C%5Cpi%2Cn%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,一般情况下简记为<img src="https://math.now.sh?inline=%28A%2C%5Cpi%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.</p>
 <p>如果穷举了所有的观测序列:</p>
-<p>$\pi_i=\frac{以状态i开始的序列的数目}{序列总数}$</p>
-<p>$p_{ij}=\frac{从状态i转移到状态j的序列数目}{从状态i开始转移的序列总数}$</p>
-<h3 id="隐马尔可夫模型"><a href="#隐马尔可夫模型" class="headerlink" title="隐马尔可夫模型"></a>隐马尔可夫模型</h3><h4 id="两个基本假设"><a href="#两个基本假设" class="headerlink" title="两个基本假设"></a>两个基本假设</h4><ul>
-<li>齐次马尔可夫性假设:$P(i_t|i_{t-1},o_{t-1},…,i_1,o_1)=P(i_t|i_{t-1}),t=1,2,…,T$.表示任意时刻t的状态只依赖前一时刻的状态,与其他状态和观测都无关.</li>
-<li>观测独立性假设:$P(o_t|i_T,o_T,i_{T-1},o_{T-1},…,i_{t+1},o_{t+1},i_t,o_t,i_{t-1},o_{t-1},…,i_1,o_1)=P(o_t|i_t)$.对于任意时刻的观测,只依赖该时刻的状态,与其他时刻的观测和状态都无关.</li>
+<p><img src="https://math.now.sh?inline=%5Cpi_i%3D%5Cfrac%7B%E4%BB%A5%E7%8A%B6%E6%80%81i%E5%BC%80%E5%A7%8B%E7%9A%84%E5%BA%8F%E5%88%97%E7%9A%84%E6%95%B0%E7%9B%AE%7D%7B%E5%BA%8F%E5%88%97%E6%80%BB%E6%95%B0%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<p><img src="https://math.now.sh?inline=p_%7Bij%7D%3D%5Cfrac%7B%E4%BB%8E%E7%8A%B6%E6%80%81i%E8%BD%AC%E7%A7%BB%E5%88%B0%E7%8A%B6%E6%80%81j%E7%9A%84%E5%BA%8F%E5%88%97%E6%95%B0%E7%9B%AE%7D%7B%E4%BB%8E%E7%8A%B6%E6%80%81i%E5%BC%80%E5%A7%8B%E8%BD%AC%E7%A7%BB%E7%9A%84%E5%BA%8F%E5%88%97%E6%80%BB%E6%95%B0%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<h3 id="隐马尔可夫模型">隐马尔可夫模型<a class="anchor" href="#隐马尔可夫模型">¶</a></h3>
+<h4 id="两个基本假设">两个基本假设<a class="anchor" href="#两个基本假设">¶</a></h4>
+<ul>
+<li>齐次马尔可夫性假设:<img src="https://math.now.sh?inline=P%28i_t%7Ci_%7Bt-1%7D%2Co_%7Bt-1%7D%2C...%2Ci_1%2Co_1%29%3DP(i_t%7Ci_%7Bt-1%7D)%2Ct%3D1%2C2%2C...%2CT" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.表示任意时刻t的状态只依赖前一时刻的状态,与其他状态和观测都无关.</li>
+<li>观测独立性假设:<img src="https://math.now.sh?inline=P%28o_t%7Ci_T%2Co_T%2Ci_%7BT-1%7D%2Co_%7BT-1%7D%2C...%2Ci_%7Bt%2B1%7D%2Co_%7Bt%2B1%7D%2Ci_t%2Co_t%2Ci_%7Bt-1%7D%2Co_%7Bt-1%7D%2C...%2Ci_1%2Co_1%29%3DP(o_t%7Ci_t)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.对于任意时刻的观测,只依赖该时刻的状态,与其他时刻的观测和状态都无关.</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%AE%97%E6%B3%95/%E4%B8%80%E4%BA%9B%E7%AE%97%E6%B3%95/%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB.png" alt="隐马尔可夫.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%AE%97%E6%B3%95/%E4%B8%80%E4%BA%9B%E7%AE%97%E6%B3%95/%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB_1.png" alt="隐马尔可夫_1.png"></p>
-<h4 id="基本想法"><a href="#基本想法" class="headerlink" title="基本想法"></a>基本想法</h4><p>系统的状态S无法预测,但是可以观测到某个其他和状态相关联的事物,这个事物出现是伴随系统状态而出现的.</p>
-<h4 id="基本假设"><a href="#基本假设" class="headerlink" title="基本假设"></a>基本假设</h4><p>观测概率不依赖时间(马尔可夫过程)</p>
+<h4 id="基本想法">基本想法<a class="anchor" href="#基本想法">¶</a></h4>
+<p>系统的状态S无法预测,但是可以观测到某个其他和状态相关联的事物,这个事物出现是伴随系统状态而出现的.</p>
+<h4 id="基本假设">基本假设<a class="anchor" href="#基本假设">¶</a></h4>
+<p>观测概率不依赖时间(马尔可夫过程)</p>
 <ul>
-<li>观测集合：$R={R_1,R_2,R_3,R_4,…,R_m}$</li>
-<li>观测序列：$O=[o_1,o_2,o_3,o_4,…,o_l]$</li>
-<li>状态集合：$S={S_1,S_2,S_3,S_4,..,S_n}$</li>
-<li>状态序列：$Q=[q_1,q_2,q_3,q_4,…,q_l]$</li>
-<li>观测概率：$P{o_i=R_k|q_t=S_j}=b_j(i)$，记$B=[b_j(i)]$,叫做发射概率矩阵</li>
-<li>隐马尔可夫模型由一个五元组描述$(A,B,\pi,R,S)$，简记为$(A,B,\pi)$.初始分布属于状态集合.</li>
+<li>观测集合：<img src="https://math.now.sh?inline=R%3D%5C%7BR_1%2CR_2%2CR_3%2CR_4%2C...%2CR_m%5C%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li>观测序列：<img src="https://math.now.sh?inline=O%3D%5Bo_1%2Co_2%2Co_3%2Co_4%2C...%2Co_l%5D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li>状态集合：<img src="https://math.now.sh?inline=S%3D%5C%7BS_1%2CS_2%2CS_3%2CS_4%2C..%2CS_n%5C%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li>状态序列：<img src="https://math.now.sh?inline=Q%3D%5Bq_1%2Cq_2%2Cq_3%2Cq_4%2C...%2Cq_l%5D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li>观测概率：<img src="https://math.now.sh?inline=P%5C%7Bo_i%3DR_k%7Cq_t%3DS_j%5C%7D%3Db_j%28i%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，记<img src="https://math.now.sh?inline=B%3D%5Bb_j%28i%29%5D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,叫做发射概率矩阵</li>
+<li>隐马尔可夫模型由一个五元组描述<img src="https://math.now.sh?inline=%28A%2CB%2C%5Cpi%2CR%2CS%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，简记为<img src="https://math.now.sh?inline=%28A%2CB%2C%5Cpi%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.初始分布属于状态集合.</li>
 </ul>
-<h4 id="基本问题"><a href="#基本问题" class="headerlink" title="基本问题"></a>基本问题</h4><ul>
-<li><p><em>估计</em>:已知模型$(A,B,\pi)$,求观测序列出现的概率</p>
-<p>  解决方法:前向后向算法</p>
+<h4 id="基本问题">基本问题<a class="anchor" href="#基本问题">¶</a></h4>
+<ul>
+<li>
+<p><em>估计</em>:已知模型<img src="https://math.now.sh?inline=%28A%2CB%2C%5Cpi%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,求观测序列出现的概率</p>
+<p>解决方法:前向后向算法</p>
 </li>
-<li><p><em>预测</em>:已知模型$(A,B,\pi)$和一个观测序列,求对应的不可观测的状态序列</p>
-<p>  解决方法:Viterbi算法</p>
+<li>
+<p><em>预测</em>:已知模型<img src="https://math.now.sh?inline=%28A%2CB%2C%5Cpi%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">和一个观测序列,求对应的不可观测的状态序列</p>
+<p>解决方法:Viterbi算法</p>
 </li>
-<li><p><em>学习</em>:已知一组观测序列,求模型$(A,B,\pi)$</p>
-<p>  解决方法:Baum-Welch算法</p>
+<li>
+<p><em>学习</em>:已知一组观测序列,求模型<img src="https://math.now.sh?inline=%28A%2CB%2C%5Cpi%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<p>解决方法:Baum-Welch算法</p>
 </li>
 </ul>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ul>
+<h4 id="注意">注意<a class="anchor" href="#注意">¶</a></h4>
+<ul>
 <li>不同的状态序列可以产生相同的观测序列(以不同的概率产生)</li>
 <li>状态转移是随机的,系统在一个状态中产生的观测也随机的</li>
 <li>可观测的马尔可夫模型是特殊的隐马尔可夫模型</li>
 </ul>
-<h3 id="吸收马尔可夫链"><a href="#吸收马尔可夫链" class="headerlink" title="吸收马尔可夫链"></a>吸收马尔可夫链</h3><p>在马尔可夫链中,称$P_{ij}=1$的状态是吸收状态.如果一个马尔可夫链中至少包含一个吸收状态,并且从每一个非吸收状态出发,都能到达某个吸收状态,那么这个马尔科夫链称为吸收马尔可夫链.</p>
+<h3 id="吸收马尔可夫链">吸收马尔可夫链<a class="anchor" href="#吸收马尔可夫链">¶</a></h3>
+<p>在马尔可夫链中,称<img src="https://math.now.sh?inline=P_%7Bij%7D%3D1" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">的状态是吸收状态.如果一个马尔可夫链中至少包含一个吸收状态,并且从每一个非吸收状态出发,都能到达某个吸收状态,那么这个马尔科夫链称为吸收马尔可夫链.</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%AE%97%E6%B3%95/%E4%B8%80%E4%BA%9B%E7%AE%97%E6%B3%95/%E5%90%B8%E6%94%B6%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB.png" alt="吸收马尔可夫.png"></p>
-<p>对于吸收链P<em>的标准形式，矩阵I-Q具有可逆矩阵N，且$N=(I-Q)^{-1}=I+Q+Q^2+···$。N的元素nij是从非吸收状态$s_i$到另一非吸收状态$s_j$的平均转移次数。设c为元素全为1的列向量c=[1,1,···,1]’，则</em>t=Nc的第i个分量是从第i个非吸收态出发，到某个吸收状态的平均转移次数。从非吸收状态i出发终被吸收状态j吸收的概率由B=NR给出。</p>
-<p>详细解释参考:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/guolei/p/3504931.html">https://www.cnblogs.com/guolei/p/3504931.html</a></p>
-<h2 id="排队论"><a href="#排队论" class="headerlink" title="排队论"></a>排队论</h2><h3 id="符号表示"><a href="#符号表示" class="headerlink" title="符号表示"></a>符号表示</h3><table>
-<thead>
-<tr>
-<th align="center">符号</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">X</td>
-<td align="center">顾客到达流或者顾客到达间隔时间的分布</td>
-</tr>
-<tr>
-<td align="center">Y</td>
-<td align="center">服务时间的分布</td>
-</tr>
-<tr>
-<td align="center">Z</td>
-<td align="center">服务台数目</td>
-</tr>
-<tr>
-<td align="center">A</td>
-<td align="center">系统容量限制</td>
-</tr>
-<tr>
-<td align="center">B</td>
-<td align="center">顾客源数目</td>
-</tr>
-<tr>
-<td align="center">C</td>
-<td align="center">服务规则</td>
-</tr>
-</tbody></table>
-<p>例如:银行服务系统为先到先服务,C即为FCFS.一般系统容量与顾客源数目均视为无限.指数分布具备无记忆性,即Markov性(M).在这个问题中服务台为1,问题就可以表述为M/M/1.</p>
-<h3 id="运行指标"><a href="#运行指标" class="headerlink" title="运行指标"></a>运行指标</h3><ul>
-<li>平均队长$L_s$:系统内顾客数的期望(可以理解为在处理的客户和还在等待中的客户)</li>
-<li>平均排序长$L_q$:系统内等待服务的顾客数的期望</li>
-<li>平均逗留时间$W_s$:顾客在系统内逗留时间的期望(可以理解为等待时间+处理时间)</li>
-<li>平均等待时间$W_q$:顾客在排队中等待时间的期望</li>
-</ul>
-<h3 id="记号"><a href="#记号" class="headerlink" title="记号"></a>记号</h3><ul>
-<li>N(t)表示在时间区间[0,t)内到达的顾客数(t&gt;0)</li>
-<li>$P_n(t_1,t_2)$表示在时间区间[$t_1,t_2$)内有n个顾客到达的概率.$P_n(t_1,t_2)=P{N(t_1)-N(t2)}=n$</li>
-</ul>
-<h3 id="输入过程"><a href="#输入过程" class="headerlink" title="输入过程"></a>输入过程</h3><ol>
-<li><p>在不重叠时间区内顾客到达数相互独立;</p>
-</li>
-<li><p>充分小的$\Delta t$时间,在时间区间$[t,t+\Delta t)$内有一个顾客到达的概率与t无关,而大约和区间长$\Delta t$成正比,即:$P_1(t,t+\Delta t)=\lambda \Delta t+\omicron(\Delta t)$.用$\lambda &gt;0$表示单位时间内平均到达的顾客数 </p>
-</li>
-<li><p>对于充分小的,在时间区间内有两个或两个以上顾客到达的概率极小,可以忽略,即$\sum_{n=2}^\infty{P_n(t,t+\Delta t)=\omicron(\Delta t)}$</p>
-<p> 符合以上的条件即服从泊松分布.</p>
-</li>
-</ol>
-<h3 id="服务过程"><a href="#服务过程" class="headerlink" title="服务过程"></a>服务过程</h3><ol>
-<li>充分小的$\Delta t$时间,在时间区间$[t,t+\Delta t)$内有一个顾客服务完的概率与t无关,而 大概与去区间长$\Delta t$成正比,即$P(T\le\Delta t)=\mu\Delta t+\omicron(\Delta t)$,T为服务时间,用$\mu&gt;0$表示单位时间内平均服务的顾客数.</li>
-</ol>
-<h2 id="最大熵"><a href="#最大熵" class="headerlink" title="最大熵"></a>最大熵</h2><p>克劳德 艾尔伍德 香农在1948年提出信息熵,用来描述信息的不确定程度.</p>
-<p>最大熵原理其实就是指包含已知信息(约束条件),不做任何未知假设,把未知事件当成等概率事件处理.</p>
-<p>一个系统的信息熵其实是系统中的每一个事件的概率乘上log概率,然后将所有事件相加取复数.</p>
-<p>$H(P)=-\sum_XP(X)logP(X)$</p>
+<p>对于吸收链P<em>的标准形式，矩阵I-Q具有可逆矩阵N，且<img src="https://math.now.sh?inline=N%3D%28I-Q%29%5E%7B-1%7D%3DI%2BQ%2BQ%5E2%2B%C2%B7%C2%B7%C2%B7" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。N的元素nij是从非吸收状态<img src="https://math.now.sh?inline=s_i" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">到另一非吸收状态<img src="https://math.now.sh?inline=s_j" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">的平均转移次数。设c为元素全为1的列向量c=[1,1,···,1]'，则</em>t=Nc的第i个分量是从第i个非吸收态出发，到某个吸收状态的平均转移次数。从非吸收状态i出发终被吸收状态j吸收的概率由B=NR给出。</p>
+<p>详细解释参考:https://www.cnblogs.com/guolei/p/3504931.html</p>
+<h2 id="排队论">排队论<a class="anchor" href="#排队论">¶</a></h2>
+<h3 id="符号表示">符号表示<a class="anchor" href="#符号表示">¶</a></h3>
 <table>
 <thead>
 <tr>
-<th align="center">log底数的取值</th>
-<th align="center">相应信息熵的单位取值</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">2</td>
-<td align="center">比特(bit)</td>
+<tbody>
+<tr>
+<td style="text-align:center">X</td>
+<td style="text-align:center">顾客到达流或者顾客到达间隔时间的分布</td>
 </tr>
 <tr>
-<td align="center">e</td>
-<td align="center">奈特(nat)</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">服务时间的分布</td>
 </tr>
 <tr>
-<td align="center">10</td>
-<td align="center">哈托特(hat)</td>
+<td style="text-align:center">Z</td>
+<td style="text-align:center">服务台数目</td>
 </tr>
-</tbody></table>
-<p>因为概率总是在0-1之间,log之后小于0,加上负号才是正数.</p>
-<h2 id="任务调度算法"><a href="#任务调度算法" class="headerlink" title="任务调度算法"></a>任务调度算法</h2><h3 id="Conservation-BackFilling算法"><a href="#Conservation-BackFilling算法" class="headerlink" title="Conservation BackFilling算法"></a>Conservation BackFilling算法</h3><p>在等待任务队列中选择任务进行回填，该任务必须保证不能使预约在其前面的任务延迟执行。步骤如下：</p>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">系统容量限制</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">顾客源数目</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">服务规则</td>
+</tr>
+</tbody>
+</table>
+<p>例如:银行服务系统为先到先服务,C即为FCFS.一般系统容量与顾客源数目均视为无限.指数分布具备无记忆性,即Markov性(M).在这个问题中服务台为1,问题就可以表述为M/M/1.</p>
+<h3 id="运行指标">运行指标<a class="anchor" href="#运行指标">¶</a></h3>
+<ul>
+<li>平均队长<img src="https://math.now.sh?inline=L_s" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">:系统内顾客数的期望(可以理解为在处理的客户和还在等待中的客户)</li>
+<li>平均排序长<img src="https://math.now.sh?inline=L_q" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">:系统内等待服务的顾客数的期望</li>
+<li>平均逗留时间<img src="https://math.now.sh?inline=W_s" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">:顾客在系统内逗留时间的期望(可以理解为等待时间+处理时间)</li>
+<li>平均等待时间<img src="https://math.now.sh?inline=W_q" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">:顾客在排队中等待时间的期望</li>
+</ul>
+<h3 id="记号">记号<a class="anchor" href="#记号">¶</a></h3>
+<ul>
+<li>N(t)表示在时间区间[0,t)内到达的顾客数(t&gt;0)</li>
+<li><img src="https://math.now.sh?inline=P_n%28t_1%2Ct_2%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示在时间区间[<img src="https://math.now.sh?inline=t_1%2Ct_2" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">)内有n个顾客到达的概率.<img src="https://math.now.sh?inline=P_n%28t_1%2Ct_2%29%3DP%5C%7BN(t_1)-N(t2)%5C%7D%3Dn" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+</ul>
+<h3 id="输入过程">输入过程<a class="anchor" href="#输入过程">¶</a></h3>
 <ol>
-<li>寻找插入点<ol>
+<li>
+<p>在不重叠时间区内顾客到达数相互独立;</p>
+</li>
+<li>
+<p>充分小的<img src="https://math.now.sh?inline=%5CDelta%20t" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">时间,在时间区间<img src="https://math.now.sh?inline=%5Bt%2Ct%2B%5CDelta%20t%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">内有一个顾客到达的概率与t无关,而大约和区间长<img src="https://math.now.sh?inline=%5CDelta%20t" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">成正比,即:<img src="https://math.now.sh?inline=P_1%28t%2Ct%2B%5CDelta%20t%29%3D%5Clambda%20%5CDelta%20t%2B%5Comicron(%5CDelta%20t)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.用<img src="https://math.now.sh?inline=%5Clambda%20%3E0" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示单位时间内平均到达的顾客数</p>
+</li>
+<li>
+<p>对于充分小的,在时间区间内有两个或两个以上顾客到达的概率极小,可以忽略,即<img src="https://math.now.sh?inline=%5Csum_%7Bn%3D2%7D%5E%5Cinfty%7BP_n%28t%2Ct%2B%5CDelta%20t%29%3D%5Comicron(%5CDelta%20t)%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<p>符合以上的条件即服从泊松分布.</p>
+</li>
+</ol>
+<h3 id="服务过程">服务过程<a class="anchor" href="#服务过程">¶</a></h3>
+<ol>
+<li>充分小的<img src="https://math.now.sh?inline=%5CDelta%20t" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">时间,在时间区间<img src="https://math.now.sh?inline=%5Bt%2Ct%2B%5CDelta%20t%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">内有一个顾客服务完的概率与t无关,而 大概与去区间长<img src="https://math.now.sh?inline=%5CDelta%20t" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">成正比,即<img src="https://math.now.sh?inline=P%28T%5Cle%5CDelta%20t%29%3D%5Cmu%5CDelta%20t%2B%5Comicron(%5CDelta%20t)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,T为服务时间,用<img src="https://math.now.sh?inline=%5Cmu%3E0" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示单位时间内平均服务的顾客数.</li>
+</ol>
+<h2 id="最大熵">最大熵<a class="anchor" href="#最大熵">¶</a></h2>
+<p>克劳德 艾尔伍德 香农在1948年提出信息熵,用来描述信息的不确定程度.</p>
+<p>最大熵原理其实就是指包含已知信息(约束条件),不做任何未知假设,把未知事件当成等概率事件处理.</p>
+<p>一个系统的信息熵其实是系统中的每一个事件的概率乘上log概率,然后将所有事件相加取复数.</p>
+<p><img src="https://math.now.sh?inline=H%28P%29%3D-%5Csum_XP(X)logP(X)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">log底数的取值</th>
+<th style="text-align:center">相应信息熵的单位取值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">比特(bit)</td>
+</tr>
+<tr>
+<td style="text-align:center">e</td>
+<td style="text-align:center">奈特(nat)</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">哈托特(hat)</td>
+</tr>
+</tbody>
+</table>
+<p>因为概率总是在0-1之间,log之后小于0,加上负号才是正数.</p>
+<h2 id="任务调度算法">任务调度算法<a class="anchor" href="#任务调度算法">¶</a></h2>
+<h3 id="Conservation-BackFilling算法">Conservation BackFilling算法<a class="anchor" href="#Conservation-BackFilling算法">¶</a></h3>
+<p>在等待任务队列中选择任务进行回填，该任务必须保证不能使预约在其前面的任务延迟执行。步骤如下：</p>
+<ol>
+<li>寻找插入点
+<ol>
 <li>对当前虚拟机的时空分布图进行扫描，如果发现可以满足该任务申请的处理器资源的第一个时间点作为该任务的插入点。</li>
 <li>从插入点开始，扫描时空图，确保当前任务在插入点后的执行时间处理器都是可用的。</li>
 <li>若条件2不满足，则返回1继续执行扫描，直到找到一个合适的插入点。</li>
@@ -698,34 +734,52 @@
 </li>
 <li>更新虚拟机的时空图，及时反馈当前任务的调度情况，将当前任务提交到插入点执行。</li>
 </ol>
-<h3 id="Easy-BackFilling算法"><a href="#Easy-BackFilling算法" class="headerlink" title="Easy BackFilling算法"></a>Easy BackFilling算法</h3><p>该算法不需要考虑等待队列后面的任务对排在前面任务造成的延迟。回填时根据等待任务申请的处理器资源的大小尽可能提前将小任务回填至空闲资源中执行。在扫描虚拟机时空图前对所有的等待任务按照申请的处理器的资源大小升序排列，优先回填小任务。</p>
-<h3 id="Improved-BackFilling算法"><a href="#Improved-BackFilling算法" class="headerlink" title="Improved BackFilling算法"></a>Improved BackFilling算法</h3><p>使用Balanced Spiral方法对等待任务进行分类，按照任务所申请的PE的大小进行升序排列，排序处理提交任务所申请的处理器核心数将任务排成V字形的趋势进行排序，然后对后续提交的任务进行回填作业。</p>
-<h2 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h2><h3 id="显著性水平"><a href="#显著性水平" class="headerlink" title="显著性水平"></a>显著性水平</h3><p>假设检验是围绕对原假设内容的审定而展开的。如果原假设正确我们接受了（同时也就拒绝了备择假设），或原假设错误我们拒绝了（同时也就接受了备择假设），这表明我们作出了正确的决定。但是，由于假设检验是根据样本提供的信息进行推断的，也就有犯错误的可能。<em>有这样一种情况，原假设正确，而我们却把它当成错误的加以拒绝。犯这种错误的概率用α表示，统计上把α称为假设检验中的显著性水平  ，也就是决策中所面临的风险。</em></p>
-<h3 id="小概率原理"><a href="#小概率原理" class="headerlink" title="小概率原理"></a>小概率原理</h3><p>小概率原理是指一个事件的发生概率很小，那么它在一次试验中是几乎不可能发生的，但在多次重复试验中是必然发生的。统计学上，把小概率事件在一次实验中看成是实际不可能发生的事件，一般认为等于或小于0.05或0.01的概率为小概率。</p>
-<h3 id="离散程度指标"><a href="#离散程度指标" class="headerlink" title="离散程度指标"></a>离散程度指标</h3><p>离散指标的数据越小,说明数据的离散程度越小,反之亦然.</p>
-<h4 id="全距-Range"><a href="#全距-Range" class="headerlink" title="全距(Range)"></a>全距(Range)</h4><p>又称极差,指数据中最大值与最小值的差.即$R=max-min$.是一个比较粗糙的测度指标。如果需要全面、精确地说明数据离散程度时，就不宜使用全距.</p>
-<h4 id="平均差-Mean-Absolute-Deviation"><a href="#平均差-Mean-Absolute-Deviation" class="headerlink" title="平均差(Mean Absolute Deviation)"></a>平均差(Mean Absolute Deviation)</h4><p>各项数值与其均值绝对值之和的平均数,即$MAD=\frac{\sum|X-\overline{X}|}{n}$</p>
+<h3 id="Easy-BackFilling算法">Easy BackFilling算法<a class="anchor" href="#Easy-BackFilling算法">¶</a></h3>
+<p>该算法不需要考虑等待队列后面的任务对排在前面任务造成的延迟。回填时根据等待任务申请的处理器资源的大小尽可能提前将小任务回填至空闲资源中执行。在扫描虚拟机时空图前对所有的等待任务按照申请的处理器的资源大小升序排列，优先回填小任务。</p>
+<h3 id="Improved-BackFilling算法">Improved BackFilling算法<a class="anchor" href="#Improved-BackFilling算法">¶</a></h3>
+<p>使用Balanced Spiral方法对等待任务进行分类，按照任务所申请的PE的大小进行升序排列，排序处理提交任务所申请的处理器核心数将任务排成V字形的趋势进行排序，然后对后续提交的任务进行回填作业。</p>
+<h2 id="Tip-11">Tip<a class="anchor" href="#Tip-11">¶</a></h2>
+<h3 id="显著性水平">显著性水平<a class="anchor" href="#显著性水平">¶</a></h3>
+<p>假设检验是围绕对原假设内容的审定而展开的。如果原假设正确我们接受了（同时也就拒绝了备择假设），或原假设错误我们拒绝了（同时也就接受了备择假设），这表明我们作出了正确的决定。但是，由于假设检验是根据样本提供的信息进行推断的，也就有犯错误的可能。<em>有这样一种情况，原假设正确，而我们却把它当成错误的加以拒绝。犯这种错误的概率用α表示，统计上把α称为假设检验中的显著性水平  ，也就是决策中所面临的风险。</em></p>
+<h3 id="小概率原理">小概率原理<a class="anchor" href="#小概率原理">¶</a></h3>
+<p>小概率原理是指一个事件的发生概率很小，那么它在一次试验中是几乎不可能发生的，但在多次重复试验中是必然发生的。统计学上，把小概率事件在一次实验中看成是实际不可能发生的事件，一般认为等于或小于0.05或0.01的概率为小概率。</p>
+<h3 id="离散程度指标">离散程度指标<a class="anchor" href="#离散程度指标">¶</a></h3>
+<p>离散指标的数据越小,说明数据的离散程度越小,反之亦然.</p>
+<h4 id="全距-Range">全距(Range)<a class="anchor" href="#全距-Range">¶</a></h4>
+<p>又称极差,指数据中最大值与最小值的差.即<img src="https://math.now.sh?inline=R%3Dmax-min" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.是一个比较粗糙的测度指标。如果需要全面、精确地说明数据离散程度时，就不宜使用全距.</p>
+<h4 id="平均差-Mean-Absolute-Deviation">平均差(Mean Absolute Deviation)<a class="anchor" href="#平均差-Mean-Absolute-Deviation">¶</a></h4>
+<p>各项数值与其均值绝对值之和的平均数,即<img src="https://math.now.sh?inline=MAD%3D%5Cfrac%7B%5Csum%7CX-%5Coverline%7BX%7D%7C%7D%7Bn%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
 <p>虽然平均差简单易懂，但因为使用了绝对值，不便于进一步计算，所以在实际应用中不如其他离散指标应用那样广泛。但在预测领域，还常常使用该指标用于误差的说明。</p>
-<h4 id="方差-Variance"><a href="#方差-Variance" class="headerlink" title="方差(Variance)"></a>方差(Variance)</h4><p>指全部数据离差平方的平均数,即$\sigma^2=\frac{\sum_{i=1}^n(X_i-\mu)^2}{n}$.</p>
+<h4 id="方差-Variance">方差(Variance)<a class="anchor" href="#方差-Variance">¶</a></h4>
+<p>指全部数据离差平方的平均数,即<img src="https://math.now.sh?inline=%5Csigma%5E2%3D%5Cfrac%7B%5Csum_%7Bi%3D1%7D%5En%28X_i-%5Cmu%29%5E2%7D%7Bn%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.</p>
 <p>方差克服了平均差绝对值的问题，成为描述离散程度的一个重要指标。但是，在方差数值含义的解释上却遇到困难。因为方差的单位是数据单位的平方，夸大了数据的离散程度，使人不易直观理解数值意义.</p>
-<h4 id="标准差-Standard-Deviation"><a href="#标准差-Standard-Deviation" class="headerlink" title="标准差(Standard Deviation)"></a>标准差(Standard Deviation)</h4><p>通常取方差的算数平方根作为描述离散程度的指标,即$\sigma=\sqrt{\frac{\sum_{i=1}^n(X_i-\mu)^2}{n}}$.</p>
-<h4 id="样本的方差和标准差"><a href="#样本的方差和标准差" class="headerlink" title="样本的方差和标准差"></a>样本的方差和标准差</h4><p>分别用$S^2和S$表示.与总体的方差和标准差之间的唯一区别就是分数的分母是n-1,而不是n了.因为样本的方差和标准差在使用中，经常作为总体方差和标准差的估计量，如果直接除以样本容量n，得到的结果相对于总体方差和标准差来说是有偏的；除以自由度n-1可以得到总体方差和标准差的较好的估计量。</p>
-<h4 id="离散系数-Coefficient-Of-Variation"><a href="#离散系数-Coefficient-Of-Variation" class="headerlink" title="离散系数(Coefficient Of Variation)"></a>离散系数(Coefficient Of Variation)</h4><p>为标准差与均值的比值.一般用V表示.总体的离散系数$V_\sigma=\frac{\sigma}{\mu}$.样本的离散系数$V_\sigma=\frac{S}{\overline X}$.</p>
-<h4 id="异众比率"><a href="#异众比率" class="headerlink" title="异众比率"></a>异众比率</h4><p>异众比率指的是总体中非众数次数与总体全部次数之比，常常使用$V_r$来表示.假设有N个样本值,样本存在一个众数c,且众数的个数为n,则异众比率$V_r=\frac{N-n}{N}=1-\frac{n}{N}$.</p>
-<h4 id="四分位距-interquartile-range-IQR"><a href="#四分位距-interquartile-range-IQR" class="headerlink" title="四分位距(interquartile range, IQR)"></a>四分位距(interquartile range, IQR)</h4><p>又称四分差,以确定第三四分位数(上分位数)和第一二分位数(下分位数)的区别.$IQR=Q_3-Q_1$.用来画出箱线图查看数据的异常点,数据的偏态和数据的大致形状.</p>
-<h3 id="四分位数"><a href="#四分位数" class="headerlink" title="四分位数"></a>四分位数</h3><ul>
-<li>第一四分位数$Q_1$，又称较小四分位数，等于该样本中所有数值由小到大排列后第25%的数字。</li>
-<li>第二四分位数$Q_2$，又称中位数，等于该样本中所有数值由小到大排列后第50%的数字。</li>
-<li>第三四分位数$Q_3$，又称较大四分位数，等于该样本中所有数值由小到大排列后第75%的数字。</li>
+<h4 id="标准差-Standard-Deviation">标准差(Standard Deviation)<a class="anchor" href="#标准差-Standard-Deviation">¶</a></h4>
+<p>通常取方差的算数平方根作为描述离散程度的指标,即<img src="https://math.now.sh?inline=%5Csigma%3D%5Csqrt%7B%5Cfrac%7B%5Csum_%7Bi%3D1%7D%5En%28X_i-%5Cmu%29%5E2%7D%7Bn%7D%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.</p>
+<h4 id="样本的方差和标准差">样本的方差和标准差<a class="anchor" href="#样本的方差和标准差">¶</a></h4>
+<p>分别用<img src="https://math.now.sh?inline=S%5E2%E5%92%8CS" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示.与总体的方差和标准差之间的唯一区别就是分数的分母是n-1,而不是n了.因为样本的方差和标准差在使用中，经常作为总体方差和标准差的估计量，如果直接除以样本容量n，得到的结果相对于总体方差和标准差来说是有偏的；除以自由度n-1可以得到总体方差和标准差的较好的估计量。</p>
+<h4 id="离散系数-Coefficient-Of-Variation">离散系数(Coefficient Of Variation)<a class="anchor" href="#离散系数-Coefficient-Of-Variation">¶</a></h4>
+<p>为标准差与均值的比值.一般用V表示.总体的离散系数<img src="https://math.now.sh?inline=V_%5Csigma%3D%5Cfrac%7B%5Csigma%7D%7B%5Cmu%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.样本的离散系数<img src="https://math.now.sh?inline=V_%5Csigma%3D%5Cfrac%7BS%7D%7B%5Coverline%20X%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.</p>
+<h4 id="异众比率">异众比率<a class="anchor" href="#异众比率">¶</a></h4>
+<p>异众比率指的是总体中非众数次数与总体全部次数之比，常常使用<img src="https://math.now.sh?inline=V_r" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">来表示.假设有N个样本值,样本存在一个众数c,且众数的个数为n,则异众比率<img src="https://math.now.sh?inline=V_r%3D%5Cfrac%7BN-n%7D%7BN%7D%3D1-%5Cfrac%7Bn%7D%7BN%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.</p>
+<h4 id="四分位距-interquartile-range-IQR">四分位距(interquartile range, IQR)<a class="anchor" href="#四分位距-interquartile-range-IQR">¶</a></h4>
+<p>又称四分差,以确定第三四分位数(上分位数)和第一二分位数(下分位数)的区别.<img src="https://math.now.sh?inline=IQR%3DQ_3-Q_1" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.用来画出箱线图查看数据的异常点,数据的偏态和数据的大致形状.</p>
+<h3 id="四分位数">四分位数<a class="anchor" href="#四分位数">¶</a></h3>
+<ul>
+<li>第一四分位数<img src="https://math.now.sh?inline=Q_1" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，又称较小四分位数，等于该样本中所有数值由小到大排列后第25%的数字。</li>
+<li>第二四分位数<img src="https://math.now.sh?inline=Q_2" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，又称中位数，等于该样本中所有数值由小到大排列后第50%的数字。</li>
+<li>第三四分位数<img src="https://math.now.sh?inline=Q_3" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，又称较大四分位数，等于该样本中所有数值由小到大排列后第75%的数字。</li>
 </ul>
 <p>主要选择四分位的百分比值p，及样本总量n.有以下数学公式可以表示：</p>
 <ul>
-<li><p>情况1：如果L是一个整数，则取第L和第L+1的平均值.</p>
+<li>
+<p>情况1：如果L是一个整数，则取第L和第L+1的平均值.</p>
 </li>
-<li><p>情况2：如果L不是一个整数，则取向下取整.</p>
+<li>
+<p>情况2：如果L不是一个整数，则取向下取整.</p>
 </li>
 </ul>
-<h4 id="四分位差-QD"><a href="#四分位差-QD" class="headerlink" title="四分位差(QD)"></a>四分位差(QD)</h4><p>$QD=\frac{Q_3-Q_1}{2}$.</p>
+<h4 id="四分位差-QD">四分位差(QD)<a class="anchor" href="#四分位差-QD">¶</a></h4>
+<p><img src="https://math.now.sh?inline=QD%3D%5Cfrac%7BQ_3-Q_1%7D%7B2%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">.</p>
 
                 
             </div>
@@ -1222,13 +1276,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1300,7 +1347,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

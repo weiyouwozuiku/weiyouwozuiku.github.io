@@ -501,7 +501,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    810
+                    819
                 </div>
                 
 
@@ -536,7 +536,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="201-210"><a href="#201-210" class="headerlink" title="201-210"></a>201-210</h2><h4 id="208-实现-Trie-前缀树"><a href="#208-实现-Trie-前缀树" class="headerlink" title="208. 实现 Trie (前缀树)"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-trie-prefix-tree/">208. 实现 Trie (前缀树)</a></h4><p>关于「二维数组」是如何工作 &amp; 1e5 大小的估算要搞懂为什么行数估算是 1e5，首先要搞清楚「二维数组」是如何工作的。</p>
+                <h2 id="201-210">201-210<a class="anchor" href="#201-210">¶</a></h2>
+<h4 id="208-实现-Trie-前缀树"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-trie-prefix-tree/">208. 实现 Trie (前缀树)</a><a class="anchor" href="#208-实现-Trie-前缀树">¶</a></h4>
+<p>关于「二维数组」是如何工作 &amp; 1e5 大小的估算要搞懂为什么行数估算是 1e5，首先要搞清楚「二维数组」是如何工作的。</p>
 <p>在「二维数组」中，我们是通过 indexindex 自增来控制使用了多少行的。</p>
 <p>当我们有一个新的字符需要记录，我们会将 indexindex 自增（代表用到了新的一行），然后将这新行的下标记录到当前某个前缀的格子中。</p>
 <p>举个🌰，假设我们先插入字符串 abc 这时候，前面三行会被占掉。</p>
@@ -592,22 +594,24 @@
         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<h2 id="211-220"><a href="#211-220" class="headerlink" title="211-220"></a>211-220</h2><h2 id="221-230"><a href="#221-230" class="headerlink" title="221-230"></a>221-230</h2><h2 id="231-240"><a href="#231-240" class="headerlink" title="231-240"></a>231-240</h2><h4 id="231-2-的幂"><a href="#231-2-的幂" class="headerlink" title="231.2 的幂"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/power-of-two/">231.2 的幂</a></h4><p>符合2的幂的数在二进制中表示为首位为1，其余位为0。</p>
+<h2 id="211-220">211-220<a class="anchor" href="#211-220">¶</a></h2>
+<h2 id="221-230">221-230<a class="anchor" href="#221-230">¶</a></h2>
+<h2 id="231-240">231-240<a class="anchor" href="#231-240">¶</a></h2>
+<h4 id="231-2-的幂"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/power-of-two/">231.2 的幂</a><a class="anchor" href="#231-2-的幂">¶</a></h4>
+<p>符合2的幂的数在二进制中表示为首位为1，其余位为0。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token keyword">bool</span> <span class="token function">isPowerOfTwo</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>n <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>n <span class="token operator">&amp;</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="241-250">241-250<a class="anchor" href="#241-250">¶</a></h2>
+<h2 id="251-260">251-260<a class="anchor" href="#251-260">¶</a></h2>
+<h2 id="261-270">261-270<a class="anchor" href="#261-270">¶</a></h2>
+<h2 id="271-280">271-280<a class="anchor" href="#271-280">¶</a></h2>
+<h2 id="281-290">281-290<a class="anchor" href="#281-290">¶</a></h2>
+<h2 id="291-300">291-300<a class="anchor" href="#291-300">¶</a></h2>
 
-
-
-<h2 id="241-250"><a href="#241-250" class="headerlink" title="241-250"></a>241-250</h2><h2 id="251-260"><a href="#251-260" class="headerlink" title="251-260"></a>251-260</h2><h2 id="261-270"><a href="#261-270" class="headerlink" title="261-270"></a>261-270</h2><h2 id="271-280"><a href="#271-280" class="headerlink" title="271-280"></a>271-280</h2><h2 id="281-290"><a href="#281-290" class="headerlink" title="281-290"></a>281-290</h2><h2 id="291-300"><a href="#291-300" class="headerlink" title="291-300"></a>291-300</h2>
                 
             </div>
             <hr/>
@@ -1111,13 +1115,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1189,7 +1186,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

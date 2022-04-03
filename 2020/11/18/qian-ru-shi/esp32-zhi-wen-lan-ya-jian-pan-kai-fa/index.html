@@ -538,12 +538,14 @@
             <div id="articleContent">
                 <p>因为Linux系统每次开机或者执行一些需要权限的命令时要输入密码，但是本身输入密码这件事就不太安全。综合现有情况，windows可以很方便的使用人脸识别，但是linux上指纹都不方便，也怕破坏启动配置。于是决定使用外部硬件的方式实现指纹识别后自动输入密码的功能。相对安全了点。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/weiyouwozuiku/ESP32_BluetoothKeyboard"><strong>项目地址</strong></a></p>
-<h3 id="功能逻辑"><a href="#功能逻辑" class="headerlink" title="功能逻辑"></a>功能逻辑</h3><ol>
+<h3 id="功能逻辑">功能逻辑<a class="anchor" href="#功能逻辑">¶</a></h3>
+<ol>
 <li>通过蓝牙连接ESP32</li>
 <li>通过AS608校验指纹</li>
 <li>指纹校验通过则模拟成蓝牙键盘发送密码</li>
 </ol>
-<h3 id="硬件方面"><a href="#硬件方面" class="headerlink" title="硬件方面"></a>硬件方面</h3><ul>
+<h3 id="硬件方面">硬件方面<a class="anchor" href="#硬件方面">¶</a></h3>
+<ul>
 <li>采用的ESP32作为主控，其本身自带WIFI和蓝牙，非常便于之后的功能改善。</li>
 <li>AS608作为指纹传感器，负责指纹的录入和校验。</li>
 <li>OLED SSD1306作为屏幕进行必要的显示，方便了解处理进度。</li>
@@ -559,7 +561,8 @@
 <p>选择开发版<code>ESP32 Dev Module</code>。</p>
 <p>安装库：<code>ESP8266 and ESP32 OLED driver for SSD1306 displays</code>和<code>Adafruit Fingerprint Senser Library</code>。</p>
 <p>安装第三方库：从<code>https://github.com/T-vK/ESP32-BLE-Keyboard</code>下载并添加。</p>
-<h3 id="电路连接"><a href="#电路连接" class="headerlink" title="电路连接"></a>电路连接</h3><p>OLED：</p>
+<h3 id="电路连接">电路连接<a class="anchor" href="#电路连接">¶</a></h3>
+<p>OLED：</p>
 <ul>
 <li>VCC-&gt;3.3V</li>
 <li>GND-&gt;GND</li>
@@ -574,7 +577,9 @@
 <li>RX-&gt;TX2</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/ESP32%E6%8C%87%E7%BA%B9%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E5%BC%80%E5%8F%91/ESP32%E6%8C%87%E7%BA%B9%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E5%BC%80%E5%8F%91_%E8%BF%9E%E7%BA%BF%E5%9B%BE.png" alt="ESP32指纹蓝牙键盘开发_连线图.png"></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="指纹注册代码"><a href="#指纹注册代码" class="headerlink" title="指纹注册代码"></a>指纹注册代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;Adafruit_Fingerprint.h&gt;</span></span>
+<h3 id="代码">代码<a class="anchor" href="#代码">¶</a></h3>
+<h4 id="指纹注册代码">指纹注册代码<a class="anchor" href="#指纹注册代码">¶</a></h4>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;Adafruit_Fingerprint.h&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">mySerial</span> <span class="token expression">Serial2 </span></span>
 
 Adafruit_Fingerprint finger <span class="token operator">=</span> <span class="token function">Adafruit_Fingerprint</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mySerial<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -773,8 +778,8 @@ Adafruit_Fingerprint finger <span class="token operator">=</span> <span class="t
 
   <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="删除指纹代码"><a href="#删除指纹代码" class="headerlink" title="删除指纹代码"></a>删除指纹代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">mySerial</span> <span class="token expression">Serial2</span></span>
+<h4 id="删除指纹代码">删除指纹代码<a class="anchor" href="#删除指纹代码">¶</a></h4>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">mySerial</span> <span class="token expression">Serial2</span></span>
 Adafruit_Fingerprint finger <span class="token operator">=</span> <span class="token function">Adafruit_Fingerprint</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>mySerial<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -841,8 +846,8 @@ Adafruit_Fingerprint finger <span class="token operator">=</span> <span class="t
     <span class="token keyword">return</span> p<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="使用代码"><a href="#使用代码" class="headerlink" title="使用代码"></a>使用代码</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"SSD1306Wire.h"</span>        <span class="token comment">// legacy: #include "SSD1306.h"</span></span>
+<h4 id="使用代码">使用代码<a class="anchor" href="#使用代码">¶</a></h4>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"SSD1306Wire.h"</span>        <span class="token comment">// legacy: #include "SSD1306.h"</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;Wire.h&gt;</span>     </span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;BleKeyboard.h&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;Adafruit_Fingerprint.h&gt;</span></span>
@@ -1013,10 +1018,12 @@ Adafruit_Fingerprint finger <span class="token operator">=</span> <span class="t
   <span class="token function">checkBlueTooth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">getFingerprintID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>想要修改默认的蓝牙名称需要在默认<code>C:\Users\&lt;用户名&gt;\Documents\Arduino\libraries\ESP32-BLE-Keyboard</code>的<code>BleKeyboard.h</code>的第101行进行修改。</p>
-<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>在开发过程中，当OLED显示屏没有在和ESP32同时上电，可能导致OLED屏幕无法显示。但是在电脑端未出现此问题。同时采用ESP32的电源进行供电就没有此问题。</p>
-<h3 id="可选升级"><a href="#可选升级" class="headerlink" title="可选升级"></a>可选升级</h3><h4 id="通过树莓派控制供电"><a href="#通过树莓派控制供电" class="headerlink" title="通过树莓派控制供电"></a>通过树莓派控制供电</h4><p>USB 接口的供电并不是通过 GPIO 直接控制的，而是通过 USB 集线器 LAN9514 控制的。CPU 可以通过设置集线器的 PORT_POWER 选项完成 USB 供电电路的开关。</p>
+<h3 id="遇到的问题">遇到的问题<a class="anchor" href="#遇到的问题">¶</a></h3>
+<p>在开发过程中，当OLED显示屏没有在和ESP32同时上电，可能导致OLED屏幕无法显示。但是在电脑端未出现此问题。同时采用ESP32的电源进行供电就没有此问题。</p>
+<h3 id="可选升级">可选升级<a class="anchor" href="#可选升级">¶</a></h3>
+<h4 id="通过树莓派控制供电">通过树莓派控制供电<a class="anchor" href="#通过树莓派控制供电">¶</a></h4>
+<p>USB 接口的供电并不是通过 GPIO 直接控制的，而是通过 USB 集线器 LAN9514 控制的。CPU 可以通过设置集线器的 PORT_POWER 选项完成 USB 供电电路的开关。</p>
 <p>控制 USB 供电的电路出现在 Raspberry Pi Model B+ 之后的版本。原版的 Raspberry Pi Model B 的 USB 供电电路直接与 5V 相连，不受控制。</p>
 <p>-P 参数用于指定要控制的端口，1 为集成网卡，2 为 4 个 USB 口。网卡的供电可以独立控制，所以开关 USB 口的供电并不会导致 ssh 断开。</p>
 <p>下载并编译 <a target="_blank" rel="noopener" href="https://github.com/codazoda/hub-ctrl.c">hub-ctrl.c</a>（这个程序依赖于 libusb，编译时请带上参数 -lusb）。</p>
@@ -1027,17 +1034,16 @@ lsusb
 sudo /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 1
 //USB不供电
 sudo /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>设置定时任务：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo crontab -e
 //命令如下
 //每天7点30供电，21点40停止供电
 30 7 * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0
 40 21 * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="添加触摸传感器"><a href="#添加触摸传感器" class="headerlink" title="添加触摸传感器"></a>添加触摸传感器</h4><p>为了避免长时间供电损坏引脚以及避免烧屏，采用传感器触发开启指纹。</p>
+<h4 id="添加触摸传感器">添加触摸传感器<a class="anchor" href="#添加触摸传感器">¶</a></h4>
+<p>为了避免长时间供电损坏引脚以及避免烧屏，采用传感器触发开启指纹。</p>
 <p>添加触摸传感器，其只有三个引脚VCC、GND、Sig。</p>
-<p>通过Respeaker上的Grove接口预留的GPIO12采集其信号。当检测到触摸传感器被触摸后返回的高电平信号，树莓派给USB口供电，启动指纹蓝牙键盘。使用树莓派的$I^2C$连接SSD1306的OLED屏幕显示树莓派当前状态，并将每次的log信息保存在项目文件夹中。</p>
+<p>通过Respeaker上的Grove接口预留的GPIO12采集其信号。当检测到触摸传感器被触摸后返回的高电平信号，树莓派给USB口供电，启动指纹蓝牙键盘。使用树莓派的<img src="https://math.now.sh?inline=I%5E2C" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">连接SSD1306的OLED屏幕显示树莓派当前状态，并将每次的log信息保存在项目文件夹中。</p>
 <p>代码如下：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> time
 <span class="token keyword">import</span> subprocess
@@ -1129,15 +1135,14 @@ filePath <span class="token operator">=</span> os<span class="token punctuation"
 <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
     displayInfo<span class="token punctuation">(</span><span class="token punctuation">)</span>
     checkTouch<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>最终的crontab：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># sudo crontab -e 定时任务
 40 21 * * * /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0
 # vim /etc/rc.local 开机自启
 sudo /home/pi/hub-ctrl.c/hub-ctrl -b 001 -d 002 -P 2 -p 0
 cd /home/pi &amp;&amp; python3 finger.py<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="最终实物图"><a href="#最终实物图" class="headerlink" title="最终实物图"></a>最终实物图</h3><p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/ESP32%E6%8C%87%E7%BA%B9%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E5%BC%80%E5%8F%91/ESP32%E6%8C%87%E7%BA%B9%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E5%BC%80%E5%8F%91_%E5%AE%9E%E7%89%A9%E5%9B%BE.jpgg" alt="ESP32指纹蓝牙键盘开发_实物图.jpg"></p>
+<h3 id="最终实物图">最终实物图<a class="anchor" href="#最终实物图">¶</a></h3>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/ESP32%E6%8C%87%E7%BA%B9%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E5%BC%80%E5%8F%91/ESP32%E6%8C%87%E7%BA%B9%E8%93%9D%E7%89%99%E9%94%AE%E7%9B%98%E5%BC%80%E5%8F%91_%E5%AE%9E%E7%89%A9%E5%9B%BE.jpgg" alt="ESP32指纹蓝牙键盘开发_实物图.jpg"></p>
 
                 
             </div>
@@ -1634,13 +1639,6 @@ cd /home/pi &amp;&amp; python3 finger.py<span aria-hidden="true" class="line-num
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1712,7 +1710,7 @@ cd /home/pi &amp;&amp; python3 finger.py<span aria-hidden="true" class="line-num
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

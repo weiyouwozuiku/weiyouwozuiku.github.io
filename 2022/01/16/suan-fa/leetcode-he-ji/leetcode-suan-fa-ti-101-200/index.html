@@ -501,7 +501,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    605
+                    611
                 </div>
                 
 
@@ -536,7 +536,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="101-110"><a href="#101-110" class="headerlink" title="101-110"></a>101-110</h2><h2 id="111-120"><a href="#111-120" class="headerlink" title="111-120"></a>111-120</h2><h2 id="121-130"><a href="#121-130" class="headerlink" title="121-130"></a>121-130</h2><h2 id="131-140"><a href="#131-140" class="headerlink" title="131-140"></a>131-140</h2><h4 id="136-只出现一次的数字"><a href="#136-只出现一次的数字" class="headerlink" title="136. 只出现一次的数字"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/single-number/">136. 只出现一次的数字</a></h4><p>本题利用位运算中异或的性质。</p>
+                <h2 id="101-110">101-110<a class="anchor" href="#101-110">¶</a></h2>
+<h2 id="111-120">111-120<a class="anchor" href="#111-120">¶</a></h2>
+<h2 id="121-130">121-130<a class="anchor" href="#121-130">¶</a></h2>
+<h2 id="131-140">131-140<a class="anchor" href="#131-140">¶</a></h2>
+<h4 id="136-只出现一次的数字"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/single-number/">136. 只出现一次的数字</a><a class="anchor" href="#136-只出现一次的数字">¶</a></h4>
+<p>本题利用位运算中异或的性质。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token keyword">int</span> <span class="token function">singleNumber</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -547,12 +552,14 @@
         <span class="token keyword">return</span> n<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="141-150"><a href="#141-150" class="headerlink" title="141-150"></a>141-150</h2><h2 id="151-160"><a href="#151-160" class="headerlink" title="151-160"></a>151-160</h2><h2 id="161-170"><a href="#161-170" class="headerlink" title="161-170"></a>161-170</h2><h2 id="171-180"><a href="#171-180" class="headerlink" title="171-180"></a>171-180</h2><h4 id="172-阶乘后的零"><a href="#172-阶乘后的零" class="headerlink" title="172. 阶乘后的零"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/factorial-trailing-zeroes/">172. 阶乘后的零</a></h4><p>本题的难度都在于计算的逻辑，而非代码，属于数论的题目。</p>
-<p>首先判断0会在什么情况下出现，即2和5为1<del>n之间元素的因数时，2与5相乘得10。因此本题可以转化为找到（2，5）对在1 ~ n之间有多少个数含有这两个因数。总所周知，2出现的概率低于5出现的概率，因此本题简化为寻找1</del>n中每个元素中可以分解为多少个5。</p>
-<p>一个元素如果存在5这个因数可以表示为$x=y*5^k$。因此只需要检查1到n中有多少个$5^k$。于是答案如下：</p>
+<h2 id="141-150">141-150<a class="anchor" href="#141-150">¶</a></h2>
+<h2 id="151-160">151-160<a class="anchor" href="#151-160">¶</a></h2>
+<h2 id="161-170">161-170<a class="anchor" href="#161-170">¶</a></h2>
+<h2 id="171-180">171-180<a class="anchor" href="#171-180">¶</a></h2>
+<h4 id="172-阶乘后的零"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/factorial-trailing-zeroes/">172. 阶乘后的零</a><a class="anchor" href="#172-阶乘后的零">¶</a></h4>
+<p>本题的难度都在于计算的逻辑，而非代码，属于数论的题目。</p>
+<p>首先判断0会在什么情况下出现，即2和5为1~n之间元素的因数时，2与5相乘得10。因此本题可以转化为找到（2，5）对在1 ~ n之间有多少个数含有这两个因数。总所周知，2出现的概率低于5出现的概率，因此本题简化为寻找1~n中每个元素中可以分解为多少个5。</p>
+<p>一个元素如果存在5这个因数可以表示为<img src="https://math.now.sh?inline=x%3Dy*5%5Ek" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。因此只需要检查1到n中有多少个<img src="https://math.now.sh?inline=5%5Ek" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。于是答案如下：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token keyword">int</span> <span class="token function">trailingZeroes</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -561,8 +568,8 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="173-二叉搜索树迭代器"><a href="#173-二叉搜索树迭代器" class="headerlink" title="173. 二叉搜索树迭代器"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-search-tree-iterator/">173. 二叉搜索树迭代器</a></h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">BSTIterator</span> <span class="token punctuation">{</span>
+<h4 id="173-二叉搜索树迭代器"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-search-tree-iterator/">173. 二叉搜索树迭代器</a><a class="anchor" href="#173-二叉搜索树迭代器">¶</a></h4>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">BSTIterator</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token comment">//构造栈，将根节点的左节点循环加入栈中，以此寻找相应子树的节点</span>
     <span class="token function">BSTIterator</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -594,8 +601,9 @@
     <span class="token comment">//使用栈存储节点信息</span>
     stack<span class="token operator">&lt;</span>TreeNode<span class="token operator">*</span><span class="token operator">&gt;</span> stk<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="181-190"><a href="#181-190" class="headerlink" title="181-190"></a>181-190</h2><h4 id="190-颠倒二进制位"><a href="#190-颠倒二进制位" class="headerlink" title="190. 颠倒二进制位"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-bits/">190. 颠倒二进制位</a></h4><p>这题最好的解法是分治算法，但是局限性很大。故本题给出基于循环处理位运算的解法。</p>
+<h2 id="181-190">181-190<a class="anchor" href="#181-190">¶</a></h2>
+<h4 id="190-颠倒二进制位"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-bits/">190. 颠倒二进制位</a><a class="anchor" href="#190-颠倒二进制位">¶</a></h4>
+<p>这题最好的解法是分治算法，但是局限性很大。故本题给出基于循环处理位运算的解法。</p>
 <p>本题可以分解为两个部分：</p>
 <ol>
 <li>首先获取当前位二进制值，n&gt;&gt;i&amp;1</li>
@@ -609,10 +617,9 @@
         <span class="token keyword">return</span> res<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="191-200"><a href="#191-200" class="headerlink" title="191-200"></a>191-200</h2><h4 id="191-位1的个数"><a href="#191-位1的个数" class="headerlink" title="191. 位1的个数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-1-bits/">191. 位1的个数</a></h4><p> 函数<code>lowbit(x)</code>可以返回当前数字x二进制下最后1位1在第几位，实现方法为x&amp;-x，在Cpp中-x=~x+1。本题解法就是这样的思路。</p>
+<h2 id="191-200">191-200<a class="anchor" href="#191-200">¶</a></h2>
+<h4 id="191-位1的个数"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-1-bits/">191. 位1的个数</a><a class="anchor" href="#191-位1的个数">¶</a></h4>
+<p>函数<code>lowbit(x)</code>可以返回当前数字x二进制下最后1位1在第几位，实现方法为x&amp;-x，在Cpp中-x=~x+1。本题解法就是这样的思路。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token keyword">int</span> <span class="token function">hammingWeight</span><span class="token punctuation">(</span><span class="token keyword">uint32_t</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -624,7 +631,6 @@
         <span class="token keyword">return</span> num<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>
@@ -1129,13 +1135,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1207,7 +1206,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

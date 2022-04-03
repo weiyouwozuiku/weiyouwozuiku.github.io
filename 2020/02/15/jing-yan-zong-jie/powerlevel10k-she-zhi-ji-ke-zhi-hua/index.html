@@ -532,18 +532,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Powerlevel10k"><a href="#Powerlevel10k" class="headerlink" title="Powerlevel10k"></a>Powerlevel10k</h2><p><strong>Powerlevel10k is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience.</strong></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用操作系统软件管理器安装Zsh。</p>
-<h3 id="安装Oh-My-Zsh主题"><a href="#安装Oh-My-Zsh主题" class="headerlink" title="安装Oh-My-Zsh主题"></a>安装Oh-My-Zsh主题</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+                <h2 id="Powerlevel10k">Powerlevel10k<a class="anchor" href="#Powerlevel10k">¶</a></h2>
+<p><strong>Powerlevel10k is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience.</strong></p>
+<h3 id="安装-11">安装<a class="anchor" href="#安装-11">¶</a></h3>
+<p>使用操作系统软件管理器安装Zsh。</p>
+<h3 id="安装Oh-My-Zsh主题">安装Oh-My-Zsh主题<a class="anchor" href="#安装Oh-My-Zsh主题">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>wget不能走sock代理，推荐使用curl下载。</p>
-<h3 id="基于Oh-My-Zsh的安装"><a href="#基于Oh-My-Zsh的安装" class="headerlink" title="基于Oh-My-Zsh的安装"></a>基于Oh-My-Zsh的安装</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">git</span> clone --depth<span class="token operator">=</span><span class="token number">1</span> https://github.com/romkatv/powerlevel10k.git <span class="token variable">$ZSH_CUSTOM</span>/themes/powerlevel10k<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h3><p>在<code>.zshrc</code>文件中设置主题</p>
+<h3 id="基于Oh-My-Zsh的安装">基于Oh-My-Zsh的安装<a class="anchor" href="#基于Oh-My-Zsh的安装">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">git</span> clone --depth<span class="token operator">=</span><span class="token number">1</span> https://github.com/romkatv/powerlevel10k.git <span class="token variable">$ZSH_CUSTOM</span>/themes/powerlevel10k<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="设置主题">设置主题<a class="anchor" href="#设置主题">¶</a></h3>
+<p>在<code>.zshrc</code>文件中设置主题</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token assign-left variable">ZSH_THEME</span><span class="token operator">=</span><span class="token string">"powerlevel10k/powerlevel10k"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="生成配置文件"><a href="#生成配置文件" class="headerlink" title="生成配置文件"></a>生成配置文件</h3><p>使用<code>p10k configure</code>配置Powerlevel10k。会自动根据选项生成<code>.p10k.zsh</code>文件。根据喜好设置配置文件。</p>
-<h3 id="我的配置"><a href="#我的配置" class="headerlink" title="我的配置"></a>我的配置</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># The list of segments shown on the left. Fill it with the most important segments.</span>
+<h3 id="生成配置文件">生成配置文件<a class="anchor" href="#生成配置文件">¶</a></h3>
+<p>使用<code>p10k configure</code>配置Powerlevel10k。会自动根据选项生成<code>.p10k.zsh</code>文件。根据喜好设置配置文件。</p>
+<h3 id="我的配置">我的配置<a class="anchor" href="#我的配置">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># The list of segments shown on the left. Fill it with the most important segments.</span>
  <span class="token builtin class-name">typeset</span> -g <span class="token assign-left variable">POWERLEVEL9K_LEFT_PROMPT_ELEMENTS</span><span class="token operator">=</span><span class="token punctuation">(</span>
    <span class="token comment"># =========================[ Line #1 ]=========================</span>
    context
@@ -622,7 +626,6 @@
    <span class="token comment"># wifi                  # wifi speed</span>
    <span class="token comment"># example               # example user-defined segment (see prompt_example function below)</span>
  <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>默认情况下<code>context</code>组件不显示，需要修改才能显示：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">##################################[ context: user@hostname ]##################################</span>
   <span class="token comment"># Context color when running with privileges.</span>
@@ -648,13 +651,11 @@
   <span class="token comment"># typeset -g POWERLEVEL9K_CONTEXT_VISUAL_IDENTIFIER_EXPANSION='⭐'</span>
   <span class="token comment"># Custom prefix.</span>
   <span class="token comment"># typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%246Fwith '</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>默认情况的IP组件无法显示，需要配置相应的网卡信息：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># Show information for the first network interface whose name matches this regular expression.</span>
  <span class="token comment"># Run `ifconfig` or `ip -4 a show` to see the names of all network interfaces.</span>
  <span class="token builtin class-name">typeset</span> -g <span class="token assign-left variable">POWERLEVEL9K_IP_INTERFACE</span><span class="token operator">=</span><span class="token string">'wlp2s0*'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>  自己扩展功能的方式就是以shell中函数的方式定义。函数名需要以<code>prompt_my_</code>作为前缀。在前面的设置中直接写之后的函数就行。显示必须依托<code>p10k segment</code>才能显示在主题中。可以使用<code>p10k help segment</code>获取使用方法。</p>
+<p>自己扩展功能的方式就是以shell中函数的方式定义。函数名需要以<code>prompt_my_</code>作为前缀。在前面的设置中直接写之后的函数就行。显示必须依托<code>p10k segment</code>才能显示在主题中。可以使用<code>p10k help segment</code>获取使用方法。</p>
 <p>修改显示的系统图标：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#################################[ os_icon: os identifier ]##################################</span>
 <span class="token comment"># OS identifier color.</span>
@@ -663,9 +664,9 @@
 <span class="token comment">#typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='%B${P9K_CONTENT}'</span>
 <span class="token comment"># 修改显示的系统图标为Arch</span>
 <span class="token builtin class-name">typeset</span> -g <span class="token assign-left variable">POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION</span><span class="token operator">=</span>%B<span class="token string">$'<span class="token entity" title="\uF303">\uF303</span> '</span>     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><code>'\uF303'</code>为Arch图标，<code>'\uF17c'</code>为Linux图标。后面如果显示字符位不足的时候在编码后添加适量空格，<code>%B</code>表示加粗。</p>
-<h3 id="自定义的问候语程序"><a href="#自定义的问候语程序" class="headerlink" title="自定义的问候语程序"></a>自定义的问候语程序</h3><p>实现思路：通过<code>date</code>程序获取当前小时数。通过小时数判断当前是哪一个时间段。</p>
+<h3 id="自定义的问候语程序">自定义的问候语程序<a class="anchor" href="#自定义的问候语程序">¶</a></h3>
+<p>实现思路：通过<code>date</code>程序获取当前小时数。通过小时数判断当前是哪一个时间段。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token keyword">function</span> <span class="token function-name function">prompt_Greeting</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token builtin class-name">local</span> <span class="token assign-left variable">hour</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">date</span> <span class="token string">"+%H"</span><span class="token variable">`</span></span>
     <span class="token builtin class-name">local</span> <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">",king"</span>
@@ -683,8 +684,8 @@
     <span class="token keyword">fi</span>
     p10k segment -f <span class="token number">208</span> -i <span class="token string">'㋡'</span> -t <span class="token variable">$str</span><span class="token variable">$name</span> 
   <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="自定义的显示当前天气的程序"><a href="#自定义的显示当前天气的程序" class="headerlink" title="自定义的显示当前天气的程序"></a>自定义的显示当前天气的程序</h3><p>实现思路：先查询电脑是否连接网络。若连接，去<code>/tmp</code>路径中查找是否有一年中相同天数相同小时的文件。这个路径下的文件在关机后自动删除，所以在这不考虑重复的可能。每小时去获取一次当前天气。避免频繁获取造成的终端响应缓慢。获取后写入文件中，同一小时内，天气信息从文件中获取。</p>
+<h3 id="自定义的显示当前天气的程序">自定义的显示当前天气的程序<a class="anchor" href="#自定义的显示当前天气的程序">¶</a></h3>
+<p>实现思路：先查询电脑是否连接网络。若连接，去<code>/tmp</code>路径中查找是否有一年中相同天数相同小时的文件。这个路径下的文件在关机后自动删除，所以在这不考虑重复的可能。每小时去获取一次当前天气。避免频繁获取造成的终端响应缓慢。获取后写入文件中，同一小时内，天气信息从文件中获取。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token keyword">function</span> <span class="token function-name function">prompt_my_weather</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">ping</span> -c1 <span class="token number">114.114</span>.114.114 <span class="token operator">&amp;&gt;</span> /dev/null
     <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span>
@@ -709,9 +710,6 @@
     p10k segment -f <span class="token string">'#ffb44b'</span> -t <span class="token variable">$weather</span>
 
  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 
                 
             </div>
@@ -1287,7 +1285,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

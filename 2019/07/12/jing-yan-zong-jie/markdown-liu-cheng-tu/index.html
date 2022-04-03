@@ -532,60 +532,68 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="文字不如图"><a href="#文字不如图" class="headerlink" title="文字不如图"></a>文字不如图</h2><hr>
-<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p>Markdown中的流程图都是通过代码实现的，即平时展示代码的地方写流程图代码，使用的语言是<strong>mermaid</strong>。</p>
-<h4 id="连线选择"><a href="#连线选择" class="headerlink" title="连线选择"></a>连线选择</h4><table>
-<thead>
-<tr>
-<th align="center">圆角</th>
-<th align="center">方形</th>
-<th align="center">条件</th>
-<th align="center">圆形</th>
-<th align="center">带箭头的连线</th>
-<th align="center">不带箭头的连线</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">()</td>
-<td align="center">[]</td>
-<td align="center">{}</td>
-<td align="center">(())</td>
-<td align="center">–&gt;</td>
-<td align="center">—</td>
-</tr>
-</tbody></table>
+                <h2 id="文字不如图">文字不如图<a class="anchor" href="#文字不如图">¶</a></h2>
+<hr>
+<h3 id="流程图">流程图<a class="anchor" href="#流程图">¶</a></h3>
+<p>Markdown中的流程图都是通过代码实现的，即平时展示代码的地方写流程图代码，使用的语言是<strong>mermaid</strong>。</p>
+<h4 id="连线选择">连线选择<a class="anchor" href="#连线选择">¶</a></h4>
 <table>
 <thead>
 <tr>
-<th align="center">虚线连线</th>
-<th align="center">带文字的虚线连线</th>
-<th align="center">粗连线</th>
-<th align="center">带文字的粗连线</th>
+<th style="text-align:center">圆角</th>
+<th style="text-align:center">方形</th>
+<th style="text-align:center">条件</th>
+<th style="text-align:center">圆形</th>
+<th style="text-align:center">带箭头的连线</th>
+<th style="text-align:center">不带箭头的连线</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">-.-</td>
-<td align="center">-. text .-</td>
-<td align="center">==&gt;</td>
-<td align="center">== text ==&gt;</td>
+<tbody>
+<tr>
+<td style="text-align:center">()</td>
+<td style="text-align:center">[]</td>
+<td style="text-align:center">{}</td>
+<td style="text-align:center">(())</td>
+<td style="text-align:center">–&gt;</td>
+<td style="text-align:center">—</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">虚线连线</th>
+<th style="text-align:center">带文字的虚线连线</th>
+<th style="text-align:center">粗连线</th>
+<th style="text-align:center">带文字的粗连线</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-.-</td>
+<td style="text-align:center">-. text .-</td>
+<td style="text-align:center">==&gt;</td>
+<td style="text-align:center">== text ==&gt;</td>
+</tr>
+</tbody>
+</table>
 <p><em>连线上的文字在连线代码后用||包裹</em></p>
-<h4 id="横向流程图"><a href="#横向流程图" class="headerlink" title="横向流程图"></a>横向流程图</h4><pre class="mermaid">graph LR
+<h4 id="横向流程图">横向流程图<a class="anchor" href="#横向流程图">¶</a></h4>
+<pre class="mermaid">graph LR
 A["方形 ♥#9733;"]--&gt;B(圆角)
 B--&gt;C{条件a}
 C--&gt;|a=1|D[结果1]
 C--&gt;|a=2|E[结果2]
 F[横向流程图]</pre>
-
-<h4 id="竖直流程图"><a href="#竖直流程图" class="headerlink" title="竖直流程图"></a>竖直流程图</h4><pre class="mermaid">graph TD
+<h4 id="竖直流程图">竖直流程图<a class="anchor" href="#竖直流程图">¶</a></h4>
+<pre class="mermaid">graph TD
 A[方形]--&gt;B(圆角)
 B --&gt; C{条件a}
 C --&gt;|a=1| D&gt;结果1]
 C --&gt;|a=2| E((结果2))
 F[竖向流程图]</pre>
-
-<h4 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h4><pre class="mermaid">graph TB
+<h4 id="子图">子图<a class="anchor" href="#子图">¶</a></h4>
+<pre class="mermaid">graph TB
     c1--&gt;a2
     subgraph one
     a1--&gt;a2
@@ -597,7 +605,8 @@ F[竖向流程图]</pre>
     c1--&gt;c2
     end</pre>
 <hr>
-<h3 id="序列图"><a href="#序列图" class="headerlink" title="序列图"></a>序列图</h3><pre class="mermaid">sequenceDiagram
+<h3 id="序列图">序列图<a class="anchor" href="#序列图">¶</a></h3>
+<pre class="mermaid">sequenceDiagram
     participant A as Alice
     participant J as John
     A-&gt;&gt;J: Hello John, how are you?
@@ -606,54 +615,60 @@ F[竖向流程图]</pre>
 <pre class="mermaid">sequenceDiagram
     Alice-&gt;&gt;+John: Hello John, how are you?
     John--&gt;&gt;-Alice: Great!</pre>
-<h4 id="连线选择-1"><a href="#连线选择-1" class="headerlink" title="连线选择"></a>连线选择</h4><table>
+<h4 id="连线选择-2">连线选择<a class="anchor" href="#连线选择-2">¶</a></h4>
+<table>
 <thead>
 <tr>
-<th align="center">类型</th>
-<th align="center">描述</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">-&gt;</td>
-<td align="center">没有箭头的实线</td>
+<tbody>
+<tr>
+<td style="text-align:center">-&gt;</td>
+<td style="text-align:center">没有箭头的实线</td>
 </tr>
 <tr>
-<td align="center">–&gt;</td>
-<td align="center">没有箭头的虚线</td>
+<td style="text-align:center">–&gt;</td>
+<td style="text-align:center">没有箭头的虚线</td>
 </tr>
 <tr>
-<td align="center">-&gt;&gt;</td>
-<td align="center">带箭头的实线</td>
+<td style="text-align:center">-&gt;&gt;</td>
+<td style="text-align:center">带箭头的实线</td>
 </tr>
 <tr>
-<td align="center">–&gt;&gt;</td>
-<td align="center">带箭头的虚线</td>
+<td style="text-align:center">–&gt;&gt;</td>
+<td style="text-align:center">带箭头的虚线</td>
 </tr>
 <tr>
-<td align="center">-x</td>
-<td align="center">实线与末端的十字架（异步）</td>
+<td style="text-align:center">-x</td>
+<td style="text-align:center">实线与末端的十字架（异步）</td>
 </tr>
 <tr>
-<td align="center">–x</td>
-<td align="center">最后用十字线的虚线（异步）</td>
+<td style="text-align:center">–x</td>
+<td style="text-align:center">最后用十字线的虚线（异步）</td>
 </tr>
-</tbody></table>
-<h4 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h4><pre class="mermaid">sequenceDiagram
+</tbody>
+</table>
+<h4 id="激活">激活<a class="anchor" href="#激活">¶</a></h4>
+<pre class="mermaid">sequenceDiagram
     Alice-&gt;&gt;+John: Hello John, how are you?
     Alice-&gt;&gt;+John: John, can you hear me?
     John--&gt;&gt;-Alice: Hi Alice, I can hear you!
     John--&gt;&gt;-Alice: I feel great!</pre>
-<h4 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h4><pre class="mermaid">sequenceDiagram
+<h4 id="笔记">笔记<a class="anchor" href="#笔记">¶</a></h4>
+<pre class="mermaid">sequenceDiagram
     participant John
     Note right of John: Text in note</pre>
-<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><pre class="mermaid">sequenceDiagram
+<h4 id="循环-3">循环<a class="anchor" href="#循环-3">¶</a></h4>
+<pre class="mermaid">sequenceDiagram
     Alice-&gt;John: Hello John, how are you?
     loop Every minute
         John--&gt;Alice: Great!
     end</pre>
-
 <hr>
-<h3 id="甘特图"><a href="#甘特图" class="headerlink" title="甘特图"></a>甘特图</h3><pre class="mermaid">gantt
+<h3 id="甘特图">甘特图<a class="anchor" href="#甘特图">¶</a></h3>
+<pre class="mermaid">gantt
     title A Gantt Diagram
     dateFormat  YYYY-MM-DD
     section Section
@@ -662,7 +677,6 @@ F[竖向流程图]</pre>
     section Another
     Task in sec      :2014-01-12  , 12d
     another task      : 24d</pre>
-
 <pre class="mermaid">gantt
        dateFormat  YYYY-MM-DD
        title Adding GANTT diagram functionality to mermaid
@@ -1182,13 +1196,6 @@ F[竖向流程图]</pre>
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1260,7 +1267,7 @@ F[竖向流程图]</pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

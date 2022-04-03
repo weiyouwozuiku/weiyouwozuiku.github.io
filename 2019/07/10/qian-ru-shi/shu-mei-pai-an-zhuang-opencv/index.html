@@ -501,7 +501,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    286
+                    294
                 </div>
                 
 
@@ -536,30 +536,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="树莓派安装OpenCV"><a href="#树莓派安装OpenCV" class="headerlink" title="树莓派安装OpenCV"></a>树莓派安装OpenCV</h2><h3 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt update
+                <h2 id="树莓派安装OpenCV">树莓派安装OpenCV<a class="anchor" href="#树莓派安装OpenCV">¶</a></h2>
+<h3 id="系统更新">系统更新<a class="anchor" href="#系统更新">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt update
 sudo apt upgrade
 sudo rpi-update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="安装一些OpenCV相关工具"><a href="#安装一些OpenCV相关工具" class="headerlink" title="安装一些OpenCV相关工具"></a>安装一些OpenCV相关工具</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install git cmake build-essential pkg-config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h3 id="安装一些OpenCV相关工具">安装一些OpenCV相关工具<a class="anchor" href="#安装一些OpenCV相关工具">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install git cmake build-essential pkg-config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <span id="more"></span>
-
-<h3 id="安装四个常用的图像工具包"><a href="#安装四个常用的图像工具包" class="headerlink" title="安装四个常用的图像工具包"></a>安装四个常用的图像工具包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="安装视频IO包"><a href="#安装视频IO包" class="headerlink" title="安装视频IO包"></a>安装视频IO包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="安装gtk2-0"><a href="#安装gtk2-0" class="headerlink" title="安装gtk2.0"></a>安装gtk2.0</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libgtk2.0-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="安装优化函数包"><a href="#安装优化函数包" class="headerlink" title="安装优化函数包"></a>安装优化函数包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libatlas-base-dev gfortran<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="安装Python开发包"><a href="#安装Python开发包" class="headerlink" title="安装Python开发包"></a>安装Python开发包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install python-dev python3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h3 id="安装四个常用的图像工具包">安装四个常用的图像工具包<a class="anchor" href="#安装四个常用的图像工具包">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装视频IO包">安装视频IO包<a class="anchor" href="#安装视频IO包">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装gtk2-0">安装gtk2.0<a class="anchor" href="#安装gtk2-0">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libgtk2.0-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装优化函数包">安装优化函数包<a class="anchor" href="#安装优化函数包">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install libatlas-base-dev gfortran<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装Python开发包">安装Python开发包<a class="anchor" href="#安装Python开发包">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt install python-dev python3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><em>这一步在新版的树莓派上不需要</em></p>
-<h3 id="下载OpenCV源码"><a href="#下载OpenCV源码" class="headerlink" title="下载OpenCV源码"></a>下载OpenCV源码</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget -O opencv-3.4.6.zip https://github.com/opencv/opencv/archive/3.4.6.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="下载OpenCV-contrib包"><a href="#下载OpenCV-contrib包" class="headerlink" title="下载OpenCV_contrib包"></a>下载OpenCV_contrib包</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget -O opencv_contrib.3.4.6.tar.gz https://github.com/opencv/opencv_contrib/archive/3.4.6.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>将上面下载的两个OpenCV文件压缩包进行解压，并在OpenCV的主文件夹中新建一个release文件夹。进入release文件夹中，执行一下命令。</p>
+<h3 id="下载OpenCV源码">下载OpenCV源码<a class="anchor" href="#下载OpenCV源码">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget -O opencv-3.4.6.zip https://github.com/opencv/opencv/archive/3.4.6.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="下载OpenCV-contrib包">下载OpenCV_contrib包<a class="anchor" href="#下载OpenCV-contrib包">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget -O opencv_contrib.3.4.6.tar.gz https://github.com/opencv/opencv_contrib/archive/3.4.6.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="编译">编译<a class="anchor" href="#编译">¶</a></h3>
+<p>将上面下载的两个OpenCV文件压缩包进行解压，并在OpenCV的主文件夹中新建一个release文件夹。进入release文件夹中，执行一下命令。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D CMAKE_INSTALL_PREFIX=/usr/local \
 	-D OPENCV_EXTRA+MODULES_PATH=~/opencv_contrib-3.4.6/modules \
@@ -567,14 +568,12 @@ sudo rpi-update<span aria-hidden="true" class="line-numbers-rows"><span></span><
 	-D BUILD_EXAMPLES=ON ..
 screen -S opencv
 sudo make<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="安装OpenCV"><a href="#安装OpenCV" class="headerlink" title="安装OpenCV"></a>安装OpenCV</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo make install
+<h3 id="安装OpenCV">安装OpenCV<a class="anchor" href="#安装OpenCV">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo make install
 // 更新动态链接库
 sudo ldconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="树莓派连接隐藏网络"><a href="#树莓派连接隐藏网络" class="headerlink" title="树莓派连接隐藏网络"></a>树莓派连接隐藏网络</h3><p>修改/etc/wpa_supplicant/wpa_supplicant.conf，在相应的wifi设置中添加上scan_ssid=1即可。</p>
+<h3 id="树莓派连接隐藏网络">树莓派连接隐藏网络<a class="anchor" href="#树莓派连接隐藏网络">¶</a></h3>
+<p>修改/etc/wpa_supplicant/wpa_supplicant.conf，在相应的wifi设置中添加上scan_ssid=1即可。</p>
 
                 
             </div>
@@ -1071,13 +1070,6 @@ sudo ldconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1149,7 +1141,7 @@ sudo ldconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

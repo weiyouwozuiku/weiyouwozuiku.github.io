@@ -540,7 +540,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Manjaro安装及其配置"><a href="#Manjaro安装及其配置" class="headerlink" title="Manjaro安装及其配置"></a>Manjaro安装及其配置</h2><h3 id="Win与Manjaro并存"><a href="#Win与Manjaro并存" class="headerlink" title="Win与Manjaro并存"></a>Win与Manjaro并存</h3><p>在安装时，需要注意分配<code>/</code>和<code>/home</code>路径。将挂载点<code>/boot/efi</code>放置在windows启动盘的fat32格式的区分中。</p>
+                <h2 id="Manjaro安装及其配置">Manjaro安装及其配置<a class="anchor" href="#Manjaro安装及其配置">¶</a></h2>
+<h3 id="Win与Manjaro并存">Win与Manjaro并存<a class="anchor" href="#Win与Manjaro并存">¶</a></h3>
+<p>在安装时，需要注意分配<code>/</code>和<code>/home</code>路径。将挂载点<code>/boot/efi</code>放置在windows启动盘的fat32格式的区分中。</p>
 <p>若是Windows更新或其他原因导致Manjaro引导消失，请执行一下步骤：</p>
 <ol>
 <li>首先关闭Windows快速启动</li>
@@ -560,7 +562,9 @@
 </ul>
 <p>Windows认为硬件时间就是UTC时间，而Linux会加减时区。使用<code>sudo timedatectl set-local-rtc true</code>即可。</p>
 <hr>
-<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><h4 id="Pacman安装"><a href="#Pacman安装" class="headerlink" title="Pacman安装"></a>Pacman安装</h4><p>vim：文本软件，配合<a target="_blank" rel="noopener" href="https://github.com/chxuan/vimplus">vimplus</a>更佳（若默认编辑器不是vim可以在<code>/etc/profile</code>中添加<code>export EDITOR=/usr/bin/vim</code>）</p>
+<h3 id="软件安装">软件安装<a class="anchor" href="#软件安装">¶</a></h3>
+<h4 id="Pacman安装">Pacman安装<a class="anchor" href="#Pacman安装">¶</a></h4>
+<p>vim：文本软件，配合<a target="_blank" rel="noopener" href="https://github.com/chxuan/vimplus">vimplus</a>更佳（若默认编辑器不是vim可以在<code>/etc/profile</code>中添加<code>export EDITOR=/usr/bin/vim</code>）</p>
 <p>yay：优秀的社区包管理工具</p>
 <p>gcc和base-devel可以方便的准备C++环境</p>
 <p>go：go语言包</p>
@@ -587,7 +591,7 @@
 <p>evtest：Input device event monitor and query tool</p>
 <p>fzf：Command-line fuzzy finder</p>
 <p>feh：Fast and light imlib2-based image viewer</p>
-<p>telegram-desktop：Official Telegram Desktop client </p>
+<p>telegram-desktop：Official Telegram Desktop client</p>
 <p>highlight：Fast and flexible source code highlighter (CLI version)</p>
 <p>iease-music：Elegant neteaseMusic desktop app, Rock with NeteaseMusic.</p>
 <p>kate： Advanced Text Editor</p>
@@ -621,20 +625,25 @@
 <p>lolcat：终端文本渐变色</p>
 <p>strace:追踪进程进行时的系统调用和接收的信号</p>
 <p>downgrade：指定软件版本降级</p>
-<h5 id="Goldendict"><a href="#Goldendict" class="headerlink" title="Goldendict"></a>Goldendict</h5><p>Feature-rich dictionary lookup program</p>
+<h5 id="Goldendict">Goldendict<a class="anchor" href="#Goldendict">¶</a></h5>
+<p>Feature-rich dictionary lookup program</p>
 <p>可以添加自己的词库</p>
 <p>设置程序翻译：</p>
 <ol>
-<li><p>sudo pacman -S translate-shell</p>
+<li>
+<p>sudo pacman -S translate-shell</p>
 </li>
-<li><p>编辑-&gt;词典-&gt;词典来源-&gt;程序-&gt;添加</p>
+<li>
+<p>编辑-&gt;词典-&gt;词典来源-&gt;程序-&gt;添加</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">#  Trans-2-Chinese
 trans -e google -s auto -t zh-CN -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n “%GDWORD%”
 
 # Trans-2-English
-trans -e google -s auto -t en-US -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n “%GDWORD%”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+trans -e google -s auto -t en-US -show-original y -show-original-phonetics n -show-translation y -no-ansi -show-translation-phonetics n -show-prompt-message n -show-languages y -show-original-dictionary n -show-dictionary n -show-alternatives n “%GDWORD%”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ol>
-<h5 id="Alacritty"><a href="#Alacritty" class="headerlink" title="Alacritty"></a>Alacritty</h5><p>一款GPU实时渲染的终端</p>
+<h5 id="Alacritty">Alacritty<a class="anchor" href="#Alacritty">¶</a></h5>
+<p>一款GPU实时渲染的终端</p>
 <p>配置文件在<code>.config/alacritty/alacritty.yml</code>。</p>
 <p>可以使用<code>fc-list</code>查看已安装的字体。</p>
 <p>修改如下字段：</p>
@@ -654,36 +663,30 @@ font:
     #family: JetBrains Mono Regular Nerd Font Complete Mono
     # The `style` can be specified to pick a specific face.
     style: Regular<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h5 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h5><p>安装<code>sudo pacman -S tmux</code></p>
+<h5 id="Tmux-2">Tmux<a class="anchor" href="#Tmux-2">¶</a></h5>
+<p>安装<code>sudo pacman -S tmux</code></p>
 <p>配置基于<a target="_blank" rel="noopener" href="https://github.com/gpakosz/.tmux">github</a></p>
-<h5 id="Barrier"><a href="#Barrier" class="headerlink" title="Barrier"></a>Barrier</h5><p>多台主机之间共享键鼠，使用<code>sudo pacman -S barrier</code>或<code>sudo apt install barrier</code>。</p>
+<h5 id="Barrier-2">Barrier<a class="anchor" href="#Barrier-2">¶</a></h5>
+<p>多台主机之间共享键鼠，使用<code>sudo pacman -S barrier</code>或<code>sudo apt install barrier</code>。</p>
 <p>配置时在服务端的屏幕和联结中创建新的屏幕并设置名称，此名称需要和连接的设备的barrier中的名称一致。</p>
-<h5 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h5><p>推荐使用<code>fcitx5</code>。搜狗输入法每次启动都会花费大量时间。</p>
+<h5 id="输入法">输入法<a class="anchor" href="#输入法">¶</a></h5>
+<p>推荐使用<code>fcitx5</code>。搜狗输入法每次启动都会花费大量时间。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-im<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>修改<code>~/.pam_environment</code></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">INPUT_METHOD  DEFAULT=fcitx5
 GTK_IM_MODULE DEFAULT=fcitx5
 QT_IM_MODULE  DEFAULT=fcitx5
 XMODIFIERS    DEFAULT=\@im=fcitx5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>将<code>/usr/share/applications/fcitx5.desktop</code>复制到<code>~/.config/autostart  </code>，实现开机自启。</p>
 <p>添加对中文支持</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-chinese-addons<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>添加输入法模块</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-qt fcitx5-gtk <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>添加词库</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>安装输入法皮肤</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S fcitx5-material-color<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>​    然后修改配置文件 <code>~/.config/fcitx5/conf/classicui.conf</code></p>
+<p>​	然后修改配置文件 <code>~/.config/fcitx5/conf/classicui.conf</code></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 垂直候选列表
 Vertical Candidate List=False
 
@@ -695,7 +698,6 @@ Font="思源黑体 CN Medium 13"
 
 # 主题 (自定义)
 Theme=Material-Color-Pink<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>主题名称：</p>
 <ul>
 <li>Material-Color-Pink</li>
@@ -706,21 +708,22 @@ Theme=Material-Color-Pink<span aria-hidden="true" class="line-numbers-rows"><spa
 <li>Material-Color-Red</li>
 <li>Material-Color-Teal(不错)</li>
 </ul>
-<p>​    更新皮肤  </p>
+<p>​	更新皮肤</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd ~/.local/share/fcitx5/themes/Material-Color
 git pull<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>​    单行模式</p>
+<p>​	单行模式</p>
 <ul>
 <li>对于 fcitx5 自带的 pinyin，请修改 <code>~/.config/fcitx5/conf/pinyin.conf</code></li>
 <li>对于 fcitx5-rime，请新建/修改 <code>~/.config/fcitx5/conf/rime.conf</code></li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 可用时在应用程序中显示预编辑文本
 PreeditInApplication=True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h5 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h5><p>终端显示，能智能的显示一些信息，高定制性。</p>
-<h6 id="Oh-My-Zsh"><a href="#Oh-My-Zsh" class="headerlink" title="Oh-My-Zsh"></a>Oh-My-Zsh</h6><p><code>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></p>
-<h6 id="相应插件"><a href="#相应插件" class="headerlink" title="相应插件"></a>相应插件</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">plugins=( 
+<h5 id="zsh">zsh<a class="anchor" href="#zsh">¶</a></h5>
+<p>终端显示，能智能的显示一些信息，高定制性。</p>
+<h6 id="Oh-My-Zsh">Oh-My-Zsh<a class="anchor" href="#Oh-My-Zsh">¶</a></h6>
+<p><code>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></p>
+<h6 id="相应插件">相应插件<a class="anchor" href="#相应插件">¶</a></h6>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">plugins=( 
    git 
    z 
    extract 
@@ -736,7 +739,6 @@ PreeditInApplication=True<span aria-hidden="true" class="line-numbers-rows"><spa
    tmuxinator 
    tmux 
    )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>如果相关插件提示无法使用，需要去寻找相应github仓库。将所需项目克隆至本地。</p>
 <p>添加fzf设置：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export FZF_DEFAULT_COMMAND='fd --hidden --follow -E ".git" -E "node_modules" -E ".idea" . /home'
@@ -744,7 +746,6 @@ PreeditInApplication=True<span aria-hidden="true" class="line-numbers-rows"><spa
 #export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border  --preview "[[ $(file --mime {}) =~ binary ]] &amp;&amp; echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2&gt; /dev/null | head -500" --preview-window=down'
 export FZF_DEFAULT_OPTS='--height 90% --layout=reverse --bind=alt-j:down,alt-k:up,alt-i:toggle+down --border --preview "echo {} | ~/.config/file_preview.py" --preview-window=down'
 export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p><code>file_preview.py</code></p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/env python</span>
 <span class="token comment"># coding=utf-8</span>
@@ -796,7 +797,6 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
     <span class="token keyword">else</span><span class="token punctuation">:</span>
         os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'echo {}'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>preview_nameandline<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>添加执行权限。</p>
 <p>设置power10k:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Generated by Powerlevel10k configuration wizard on 2020-02-16 at 19:30 CST.
@@ -2295,21 +2295,17 @@ export FZF_COMPLETION_TRIGGER='\'<span aria-hidden="true" class="line-numbers-ro
 
 (( ${#p10k_config_opts} )) &amp;&amp; setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h5 id="终端音乐"><a href="#终端音乐" class="headerlink" title="终端音乐"></a>终端音乐</h5><p>推荐使用<code>ncmpcpp</code>作为前端，<code>mpd</code>作为后端，<code>mpc</code>作为控制端。</p>
-<h6 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a><del>全局配置</del></h6><p>打开mpd的配置文件<code>/etc/mpd.conf</code></p>
+<h5 id="终端音乐">终端音乐<a class="anchor" href="#终端音乐">¶</a></h5>
+<p>推荐使用<code>ncmpcpp</code>作为前端，<code>mpd</code>作为后端，<code>mpc</code>作为控制端。</p>
+<h6 id="全局配置"><s>全局配置</s><a class="anchor" href="#全局配置">¶</a></h6>
+<p>打开mpd的配置文件<code>/etc/mpd.conf</code></p>
 <p>添加音乐目录</p>
-<p>​    将<code>/etc/mpd.conf</code>中添加字段<code>music_directory "/path/to/music"</code>。这里的路径就是音乐存放的绝对路径。</p>
+<p>​	将<code>/etc/mpd.conf</code>中添加字段<code>music_directory "/path/to/music"</code>。这里的路径就是音乐存放的绝对路径。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># gpasswd -a mpd &lt;your login group&gt;
 $ chmod 710 /home/&lt;your home dir&gt;
 gpasswd -a mpd audio<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h6 id="单用户配置"><a href="#单用户配置" class="headerlink" title="单用户配置"></a>单用户配置</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ cp /usr/share/doc/mpd/mpdconf.example ~/.config/mpd/mpd.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h6 id="单用户配置">单用户配置<a class="anchor" href="#单用户配置">¶</a></h6>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ cp /usr/share/doc/mpd/mpdconf.example ~/.config/mpd/mpd.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>编辑 <code>~/.config/mpd/mpd.conf</code> 并且指定所需文件：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Required files
 db_file            "~/.config/mpd/database"
@@ -2321,11 +2317,9 @@ playlist_directory "~/.config/mpd/playlists"
 pid_file           "~/.config/mpd/pid"
 state_file         "~/.config/mpd/state"
 sticker_file       "~/.config/mpd/sticker.sql"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>创建所有上述配置中提及的文件和目录：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ mkdir ~/.config/mpd/playlists
 $ touch ~/.config/mpd/{database,log,pid,state,sticker.sql}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>添加如下</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">audio_output {
     type        "alsa"
@@ -2336,7 +2330,6 @@ $ touch ~/.config/mpd/{database,log,pid,state,sticker.sql}<span aria-hidden="tru
     mixer_control   "Master"        # optional
     mixer_index "0"     # optional
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>这里的mixer控制mpd的音量调节。如果不知使用哪一个mixer,可以用<code>amixer</code>进行查看。</p>
 <p>ncmpcpp实现可视化需要如下字段：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">audio_output {
@@ -2345,39 +2338,39 @@ $ touch ~/.config/mpd/{database,log,pid,state,sticker.sql}<span aria-hidden="tru
     path                    "/tmp/mpd.fifo"
     format                  "44100:16:2"
 }     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>创建ncmpcpp的配置文件<code>~/.ncmpcpp/config</code>。从<code>/usr/share/doc/ncmpcpp/config</code>复制过来。</p>
 <p>创建ncmpcpp的自定义按键的配置文件<code>~/.ncmpcpp/bindings</code>。从<code>/usr/share/doc/ncmpcpp/bindings </code>复制过来。</p>
 <hr>
-<h5 id="Ranger"><a href="#Ranger" class="headerlink" title="Ranger"></a>Ranger</h5><h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S ranger  #或者
+<h5 id="Ranger">Ranger<a class="anchor" href="#Ranger">¶</a></h5>
+<h6 id="安装-9">安装<a class="anchor" href="#安装-9">¶</a></h6>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S ranger  #或者
 pip install ranger-fm --user<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h6 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h6><h6 id="开启自定义选项"><a href="#开启自定义选项" class="headerlink" title="开启自定义选项"></a>开启自定义选项</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ranger --copy-config=all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h6 id="配置-4">配置<a class="anchor" href="#配置-4">¶</a></h6>
+<h6 id="开启自定义选项">开启自定义选项<a class="anchor" href="#开启自定义选项">¶</a></h6>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ranger --copy-config=all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在环境变量中添加<code>export RANGER_LOAD_DEFAULT_RC=FALSE </code></p>
-<h6 id="设置文件图标"><a href="#设置文件图标" class="headerlink" title="设置文件图标"></a>设置文件图标</h6><p>首先安装nerd-font,详见下面的字体配置。</p>
+<h6 id="设置文件图标">设置文件图标<a class="anchor" href="#设置文件图标">¶</a></h6>
+<p>首先安装nerd-font,详见下面的字体配置。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>添加<code>default_linemode devicons</code> 到 <code>rc.conf</code>。即执行<code>echo "default_linemode devicons" &gt;&gt; $HOME/.config/ranger/rc.conf</code></p>
-<p><del>若是不行，就在这个插件的文件夹下面<code>make install</code>。</del></p>
-<h6 id="开启图片预览"><a href="#开启图片预览" class="headerlink" title="开启图片预览"></a>开启图片预览</h6><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S w3m #提供显示图像的组件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<p><s>若是不行，就在这个插件的文件夹下面<code>make install</code>。</s></p>
+<h6 id="开启图片预览">开启图片预览<a class="anchor" href="#开启图片预览">¶</a></h6>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S w3m #提供显示图像的组件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>在<code>rc.conf</code>中添加：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set preview_images true 
 # Be aware of version control systems and display information.将这里改成true,可以显示github目录的状态
 set vcs_aware true  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>查看图片：</p>
 <p><code>sudo pacman -S w3m</code></p>
 <p>编辑配置文件<code>~/.config/ranger/rc.conf</code></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Use one of the supported image preview protocols
 set preview_images true 
 set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>在<code>～/.config/ranger/scope.sh</code>中，将相关格式代码的注释取消。</p>
 <p>视频预览需要安装ffmpegthumbnailer。</p>
 <p>docx预览需要安装pandoc。</p>
-<h6 id="设置自定义的命令（压缩，mkcd，解压，fzf）"><a href="#设置自定义的命令（压缩，mkcd，解压，fzf）" class="headerlink" title="设置自定义的命令（压缩，mkcd，解压，fzf）"></a>设置自定义的命令（压缩，mkcd，解压，fzf）</h6><p>在<code>commands.py</code>文件中添加如下代码：</p>
+<h6 id="设置自定义的命令（压缩，mkcd，解压，fzf）">设置自定义的命令（压缩，mkcd，解压，fzf）<a class="anchor" href="#设置自定义的命令（压缩，mkcd，解压，fzf）">¶</a></h6>
+<p>在<code>commands.py</code>文件中添加如下代码：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> ranger<span class="token punctuation">.</span>core<span class="token punctuation">.</span>loader <span class="token keyword">import</span> CommandLoader
 <span class="token keyword">class</span> <span class="token class-name">mkcd</span><span class="token punctuation">(</span>Command<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token triple-quoted-string string">"""
@@ -2501,11 +2494,10 @@ set preview_images_method w3m<span aria-hidden="true" class="line-numbers-rows">
 
         obj<span class="token punctuation">.</span>signal_bind<span class="token punctuation">(</span><span class="token string">'after'</span><span class="token punctuation">,</span> refresh<span class="token punctuation">)</span>
         self<span class="token punctuation">.</span>fm<span class="token punctuation">.</span>loader<span class="token punctuation">.</span>add<span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h5 id="Latex"><a href="#Latex" class="headerlink" title="Latex"></a>Latex</h5><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S texstudio
+<h5 id="Latex">Latex<a class="anchor" href="#Latex">¶</a></h5>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S texstudio
 sudo pacman -S texlive-core  texlive-bin texlive-langcjk texlive-latex3 texlive-latexextra texlive-langchinese
 sudo pacman -S texlive-most<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p>中文latex最简化模板</p>
 <pre class="line-numbers language-latex" data-language="latex"><code class="language-latex"><span class="token comment">%!TEX program = xelatex</span>
 <span class="token function selector">\documentclass</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span>article<span class="token punctuation">}</span>
@@ -2527,11 +2519,10 @@ sudo pacman -S texlive-most<span aria-hidden="true" class="line-numbers-rows"><s
 
 <span class="token function selector">\end</span><span class="token punctuation">{</span><span class="token keyword">document</span><span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <hr>
-<h4 id="yay安装"><a href="#yay安装" class="headerlink" title="yay安装"></a>yay安装</h4><h5 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h5><p>yay jdk15 和yay jdk8</p>
+<h4 id="yay安装">yay安装<a class="anchor" href="#yay安装">¶</a></h4>
+<h5 id="Java-2">Java<a class="anchor" href="#Java-2">¶</a></h5>
+<p>yay jdk15 和yay jdk8</p>
 <p>若是需要安装jdk8，则先下载相应版本的jdk包到默认的下载文件夹。然后执行<code>yay jdk8</code>即可。</p>
 <p><code>archlinux-java status</code>查看当前使用的JDK版本</p>
 <p>easyconnect: yay easyconnect</p>
@@ -2542,31 +2533,32 @@ sudo pacman -S texlive-most<span aria-hidden="true" class="line-numbers-rows"><s
 <p>yay -S picgo-appimage:picgo图片上传工具</p>
 <p><a target="_blank" rel="noopener" href="https://www.archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/"> zathura-pdf-mupdf</a>：zathura的pdf支持插件</p>
 <p>the_silver_searcher：</p>
-<p>touchegg：触控板程序，创建开机自启可以使用”/usr/bin/touchegg –daemon &amp; /usr/bin/touchegg –client”</p>
+<p>touchegg：触控板程序，创建开机自启可以使用"/usr/bin/touchegg --daemon &amp; /usr/bin/touchegg --client"</p>
 <p>logiops：罗技MX系列鼠标在linux下的驱动</p>
-<h4 id="Appimage形式存在的软件"><a href="#Appimage形式存在的软件" class="headerlink" title="Appimage形式存在的软件"></a>Appimage形式存在的软件</h4><p>pdman：数据库设计软件</p>
+<h4 id="Appimage形式存在的软件">Appimage形式存在的软件<a class="anchor" href="#Appimage形式存在的软件">¶</a></h4>
+<p>pdman：数据库设计软件</p>
 <hr>
-<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><h4 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h4><p><strong>Http代理</strong></p>
+<h3 id="配置-5">配置<a class="anchor" href="#配置-5">¶</a></h3>
+<h4 id="终端代理">终端代理<a class="anchor" href="#终端代理">¶</a></h4>
+<p><strong>Http代理</strong></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export http_proxy="http://localhost:port"
 export https_proxy="http://localhost:port"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p><strong>Socket5</strong></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export http_proxy="socks5://127.0.0.1:1080"
 export https_proxy="socks5://127.0.0.1:1080"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h4 id="ArchLinuxCN源"><a href="#ArchLinuxCN源" class="headerlink" title="ArchLinuxCN源"></a>ArchLinuxCN源</h4><p>在/etc/pacman.conf文件中添加以下两行</p>
+<h4 id="ArchLinuxCN源">ArchLinuxCN源<a class="anchor" href="#ArchLinuxCN源">¶</a></h4>
+<p>在/etc/pacman.conf文件中添加以下两行</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[archlinuxcn]
 Server = https://repo.archlinuxcn.org/$arch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>或者去<a target="_blank" rel="noopener" href="https://github.com/archlinuxcn/mirrorlist-repo">官方</a>获取镜像站点。</p>
-<h4 id="BlackArch源"><a href="#BlackArch源" class="headerlink" title="BlackArch源"></a>BlackArch源</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[blackarch]
+<h4 id="BlackArch源">BlackArch源<a class="anchor" href="#BlackArch源">¶</a></h4>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[blackarch]
 SigLevel = Optional TrustAll
 Server = https://mirrors.ustc.edu.cn/blackarch/$repo/os/$arch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h4 id="桌面毛玻璃"><a href="#桌面毛玻璃" class="headerlink" title="桌面毛玻璃"></a>桌面毛玻璃</h4><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=86ro5Q0Fi34">主题配置</a></p>
-<h6 id="终端模糊"><a href="#终端模糊" class="headerlink" title="终端模糊"></a>终端模糊</h6><p>修改<code>.config/yakuakerc</code>，修改成:</p>
+<h4 id="桌面毛玻璃">桌面毛玻璃<a class="anchor" href="#桌面毛玻璃">¶</a></h4>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=86ro5Q0Fi34">主题配置</a></p>
+<h6 id="终端模糊">终端模糊<a class="anchor" href="#终端模糊">¶</a></h6>
+<p>修改<code>.config/yakuakerc</code>，修改成:</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">[Appearance]
 Blur=true
 Translucency=true                                                                                                                                                            
@@ -2578,12 +2570,14 @@ Favorites=
 Height=100
 KeepOpen=false
 Width=100<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>konsole的毛玻璃特效在外观-&gt;配色方法和字体中的背景透明度。</p>
-<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>nerd-fonts-hack ttf-meslo-nerd-font-powerlevel10k nerd-fonts-jetbrains-mono ttf-nerd-fonts-hack-complete-git</p>
+<h4 id="字体">字体<a class="anchor" href="#字体">¶</a></h4>
+<p>nerd-fonts-hack ttf-meslo-nerd-font-powerlevel10k nerd-fonts-jetbrains-mono ttf-nerd-fonts-hack-complete-git</p>
 <p>重点推荐<code>nerd-fonts-jetbrains-mono</code>。挺好的。</p>
-<p>中文字体：<strong>yay</strong> -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei adobe-source-han-mono-cn-fonts adobe-source<br>-han-sans-cn-fonts adobe-source-han-serif-cn-fonts</p>
-<h4 id="安全软件"><a href="#安全软件" class="headerlink" title="安全软件"></a>安全软件</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S john
+<p>中文字体：<strong>yay</strong> -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei adobe-source-han-mono-cn-fonts adobe-source
+-han-sans-cn-fonts adobe-source-han-serif-cn-fonts</p>
+<h4 id="安全软件">安全软件<a class="anchor" href="#安全软件">¶</a></h4>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman -S john
 <span class="token function">sudo</span> pacman -S hydra
 <span class="token function">sudo</span> pacman -S nmap
 <span class="token function">sudo</span> pacman -S bettercap
@@ -2597,24 +2591,31 @@ yay -S edb-debugger
 yay -S halcyon
 yay -S charles
 yay -S maltego<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="开机蓝牙自启"><a href="#开机蓝牙自启" class="headerlink" title="开机蓝牙自启"></a>开机蓝牙自启</h4><p>实现登陆前可以使用蓝牙键盘。</p>
+<h4 id="开机蓝牙自启">开机蓝牙自启<a class="anchor" href="#开机蓝牙自启">¶</a></h4>
+<p>实现登陆前可以使用蓝牙键盘。</p>
 <p>修改<code>/etc/bluetooth/main.conf</code>，修改如下字段：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>Policy<span class="token punctuation">]</span>
 AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="更新错误"><a href="#更新错误" class="headerlink" title="更新错误"></a>更新错误</h3><h4 id="下载出现依赖关系的错误"><a href="#下载出现依赖关系的错误" class="headerlink" title="下载出现依赖关系的错误"></a>下载出现依赖关系的错误</h4><p>推荐去官网的公告区查看最新信息。</p>
+<h3 id="更新错误">更新错误<a class="anchor" href="#更新错误">¶</a></h3>
+<h4 id="下载出现依赖关系的错误">下载出现依赖关系的错误<a class="anchor" href="#下载出现依赖关系的错误">¶</a></h4>
+<p>推荐去官网的公告区查看最新信息。</p>
 <p><a target="_blank" rel="noopener" href="https://forum.manjaro.org/c/announcements/11">https://forum.manjaro.org/c/announcements/11</a></p>
-<h4 id="包错误或损坏"><a href="#包错误或损坏" class="headerlink" title="包错误或损坏"></a>包错误或损坏</h4><p>首先自然是重新下载。但是顺利下载下来的内容依旧是损坏或错误，此时推荐使用<code>sudo pacman -S archlinuxcn-keyring</code>。</p>
-<h3 id="罗技驱动"><a href="#罗技驱动" class="headerlink" title="罗技驱动"></a>罗技驱动</h3><p>罗技的MX系列鼠标没有板载内存，只能通过读取软件中设置的方式来实现按键自定义。因此，需要在Linux下也安装相应的驱动才能正常使用。详情见<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Logitech_MX_Master">https://wiki.archlinux.org/title/Logitech_MX_Master</a></p>
+<h4 id="包错误或损坏">包错误或损坏<a class="anchor" href="#包错误或损坏">¶</a></h4>
+<p>首先自然是重新下载。但是顺利下载下来的内容依旧是损坏或错误，此时推荐使用<code>sudo pacman -S archlinuxcn-keyring</code>。</p>
+<h3 id="罗技驱动">罗技驱动<a class="anchor" href="#罗技驱动">¶</a></h3>
+<p>罗技的MX系列鼠标没有板载内存，只能通过读取软件中设置的方式来实现按键自定义。因此，需要在Linux下也安装相应的驱动才能正常使用。详情见<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Logitech_MX_Master">https://wiki.archlinux.org/title/Logitech_MX_Master</a></p>
 <ol>
-<li><p><code>yay -s logiops</code>安装驱动。</p>
+<li>
+<p><code>yay -s logiops</code>安装驱动。</p>
 </li>
-<li><p>启动服务<code>systemctl start logid</code></p>
+<li>
+<p>启动服务<code>systemctl start logid</code></p>
 </li>
-<li><p>使用命令<code>sudo logid -v</code>获取设备的名称。</p>
+<li>
+<p>使用命令<code>sudo logid -v</code>获取设备的名称。</p>
 </li>
-<li><p>编写配置文件<code>/etc/logid.cfg</code></p>
+<li>
+<p>编写配置文件<code>/etc/logid.cfg</code></p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">devices: (
 {
     name: "Wireless Mouse MX Master 3";
@@ -2639,62 +2640,79 @@ AutoEnable-true<span aria-hidden="true" class="line-numbers-rows"><span></span><
         }
     );
 }
-);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="Navicat15"><a href="#Navicat15" class="headerlink" title="Navicat15"></a>Navicat15</h3><ol>
-<li><p>首先下载navicat15的软件包。<code>wget https://github.com/HeQuanX/navicat-keygen-tools/releases/download/recommended/navicat15-premium-cs.zip</code></p>
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>提取Appimage文件中的内容到指定文件夹中</p>
+</ol>
+<h3 id="Navicat15">Navicat15<a class="anchor" href="#Navicat15">¶</a></h3>
+<ol>
+<li>
+<p>首先下载navicat15的软件包。<code>wget https://github.com/HeQuanX/navicat-keygen-tools/releases/download/recommended/navicat15-premium-cs.zip</code></p>
+</li>
+<li>
+<p>提取Appimage文件中的内容到指定文件夹中</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> navicat15-premium-cs
 <span class="token function">sudo</span> <span class="token function">mount</span> -o loop navicat15-premium-cs.AppImage navicat15-premium-cs
 <span class="token function">sudo</span> <span class="token function">cp</span> -r navicat15-premium-cs navicat
 <span class="token function">sudo</span> <span class="token function">umount</span> navicat15-premium-cs
 <span class="token function">rm</span> -rf navicat15-premium-cs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>安装编译依赖软件</p>
+<li>
+<p>安装编译依赖软件</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yay -S capstone keystone rapidjson openssl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><p>编译生成补丁文件</p>
+<li>
+<p>编译生成补丁文件</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">git</span> clone -b linux --single-branch https://github.com/Orginly/navicat-keygen.git
 <span class="token builtin class-name">cd</span> navicat-keygen
 <span class="token function">make</span> all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <p><strong>生成完成后，你会在 <code>./bin</code> 文件夹下看到编译后的keygen/patcher。</strong></p>
 </li>
-<li><p>navicat-patcher 替换官方公钥</p>
+<li>
+<p>navicat-patcher 替换官方公钥</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> ./bin/navicat-patcher <span class="token punctuation">..</span>/navicat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><p>重新打包成AppImage文件</p>
+<li>
+<p>重新打包成AppImage文件</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yay -S appimagetool
 appimagetool navicat navicat15.AppImage
 ./navicat15.AppImage<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>激活</p>
+<li>
+<p>激活</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> navicat-keygen
 ./bin/navicat-keygen --text ./RegPrivateKey.pem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>在这里输入请求码，并复制生成的激活码。此过程中记得断网，使用手动激活的方式。</p>
 </li>
-<li><p>清理</p>
+<li>
+<p>清理</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat15-premium-cs
 <span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat15-premium-cs.AppImage
-<span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<span class="token function">sudo</span> <span class="token function">rm</span> -rf navicat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 </ol>
-<h3 id="Manjaro与Win双系统蓝牙"><a href="#Manjaro与Win双系统蓝牙" class="headerlink" title="Manjaro与Win双系统蓝牙"></a>Manjaro与Win双系统蓝牙</h3><h4 id="普通蓝牙设备"><a href="#普通蓝牙设备" class="headerlink" title="普通蓝牙设备"></a>普通蓝牙设备</h4><ol>
-<li><p>在win10下建立与蓝牙设备的连接，以保证win中的系统注册表中有该设备配置项。</p>
+<h3 id="Manjaro与Win双系统蓝牙">Manjaro与Win双系统蓝牙<a class="anchor" href="#Manjaro与Win双系统蓝牙">¶</a></h3>
+<h4 id="普通蓝牙设备">普通蓝牙设备<a class="anchor" href="#普通蓝牙设备">¶</a></h4>
+<ol>
+<li>
+<p>在win10下建立与蓝牙设备的连接，以保证win中的系统注册表中有该设备配置项。</p>
 </li>
-<li><p>切换到Manjaro下，再次设备配对。</p>
+<li>
+<p>切换到Manjaro下，再次设备配对。</p>
 </li>
-<li><p>获取Manjaro系统下蓝牙设备的linkkey或设备认证码。路径在<code>/var/lib/bluetooth</code>下。里面的第一层文件夹是本机蓝牙的mac地址，再里面的文件夹就是每个与电脑配对的蓝牙设备的mac地址。找到相应设备的mac地址文件夹，其中info文件就记录着设备的linkkey。</p>
-<p><img src="http://www.linuxdiyf.com/linux/uploads/allimg/170311/2-1F311100530443.png"></p>
+<li>
+<p>获取Manjaro系统下蓝牙设备的linkkey或设备认证码。路径在<code>/var/lib/bluetooth</code>下。里面的第一层文件夹是本机蓝牙的mac地址，再里面的文件夹就是每个与电脑配对的蓝牙设备的mac地址。找到相应设备的mac地址文件夹，其中info文件就记录着设备的linkkey。</p>
+<p><img src="http://www.linuxdiyf.com/linux/uploads/allimg/170311/2-1F311100530443.png" alt=""></p>
 </li>
-<li><p>切换到win系统下，通过<a target="_blank" rel="noopener" href="https://technet.microsoft.com/en-us/sysinternals/bb897553">微软官网</a>下载PSTools工具修改系统注册表中的蓝牙linkkey。在命令行程序中执行<code>PsExec.exe -s -i regedit</code>。</p>
+<li>
+<p>切换到win系统下，通过<a target="_blank" rel="noopener" href="https://technet.microsoft.com/en-us/sysinternals/bb897553">微软官网</a>下载PSTools工具修改系统注册表中的蓝牙linkkey。在命令行程序中执行<code>PsExec.exe -s -i regedit</code>。</p>
 </li>
-<li><p>找到<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\BTHPORT\Parameters\Keys\</code>。将Manjaro下获取的key输入进去。重启电脑即可。</p>
+<li>
+<p>找到<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\BTHPORT\Parameters\Keys\</code>。将Manjaro下获取的key输入进去。重启电脑即可。</p>
 <p><img src="http://www.linuxdiyf.com/linux/uploads/allimg/170311/2-1F311100555c6.png" alt="win10和ubuntu16共用蓝牙鼠标"></p>
 </li>
 </ol>
-<h4 id="罗技Master3"><a href="#罗技Master3" class="headerlink" title="罗技Master3"></a>罗技Master3</h4><p>罗技的Master3不同于一般的蓝牙设备。**每次配对都会导致鼠标自身的mac地址自增(即+2)**，因此在修改时需要将Manjaro下的mac地址文件夹名字进行修改。</p>
+<h4 id="罗技Master3">罗技Master3<a class="anchor" href="#罗技Master3">¶</a></h4>
+<p>罗技的Master3不同于一般的蓝牙设备。<strong>每次配对都会导致鼠标自身的mac地址自增(即+2)</strong>，因此在修改时需要将Manjaro下的mac地址文件夹名字进行修改。</p>
 <ol>
 <li>将鼠标在Manjaro系统下进行配对。完成后可以在<code>/var/lib/bluetooth/主机蓝牙设备地址/鼠标蓝牙设备地址</code> 下看到配对信息，在 info 中就存有配对验证使用的 <code>IdentityResolvingKey</code> 和 <code>SlaveLongTermKey</code> 。</li>
 <li>同普通蓝牙设备，在win系统中配对设备并通过PSTools工具获取设备当前的<code>Address(设备地址)</code>、<code>IRK(IdentityResolvingKey)</code> 和 <code>LTK(SlaveLongTermKey)</code>。</li>
@@ -3213,13 +3231,6 @@ appimagetool navicat navicat15.AppImage
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -3291,7 +3302,7 @@ appimagetool navicat navicat15.AppImage
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

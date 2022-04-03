@@ -532,54 +532,69 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Python函数"><a href="#Python函数" class="headerlink" title="Python函数"></a>Python函数</h2><ul>
-<li><p>调用函数时，如果传入的参数或者类型不对，Python会报TypeError的错误。</p>
+                <h2 id="Python函数">Python函数<a class="anchor" href="#Python函数">¶</a></h2>
+<ul>
+<li>
+<p>调用函数时，如果传入的参数或者类型不对，Python会报TypeError的错误。</p>
 </li>
-<li><p><code>int(参数)</code>将参数转换成整数，其他类型也用类似的函数进行转换。</p>
+<li>
+<p><code>int(参数)</code>将参数转换成整数，其他类型也用类似的函数进行转换。</p>
 </li>
-<li><p>函数名是指向一个函数对象的引用。可以将函数赋值给另一个对象，效果是给这个函数起了别名。</p>
+<li>
+<p>函数名是指向一个函数对象的引用。可以将函数赋值给另一个对象，效果是给这个函数起了别名。</p>
 </li>
-<li><p>函数定义</p>
+<li>
+<p>函数定义</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> 函数名（参数列表）：
 	函数逻辑
 	<span class="token keyword">return</span> 返回值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>没有返回值的函数，其实也会返回结果，是None。返回return None可以简写为return。</p>
+<li>
+<p>没有返回值的函数，其实也会返回结果，是None。返回return None可以简写为return。</p>
 </li>
 </ul>
 <span id="more"></span>
-
 <ul>
-<li><p>未实现的函数可以将函数体先写成<code>pass</code>。<code>pass</code>表示什么都不做，只有起占位符的作用。</p>
+<li>
+<p>未实现的函数可以将函数体先写成<code>pass</code>。<code>pass</code>表示什么都不做，只有起占位符的作用。</p>
 </li>
-<li><p>定义函数时可以进行数据类型检查，使用<code>isinstance()</code>实现。</p>
+<li>
+<p>定义函数时可以进行数据类型检查，使用<code>isinstance()</code>实现。</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>需校验参数<span class="token punctuation">,</span><span class="token punctuation">(</span>数据类型集合或单一数据类型<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">raise</span> TypeError<span class="token punctuation">(</span><span class="token string">'bad operand type'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
-<li><p>函数return多个值，本质上是返回了一个tuple</p>
+<li>
+<p>函数return多个值，本质上是返回了一个tuple</p>
 </li>
-<li><p>默认参数同java。必选参数在前，默认参数在后。</p>
+<li>
+<p>默认参数同java。必选参数在前，默认参数在后。</p>
 </li>
-<li><p>当不按照顺序进行传参时，需要把参数名写上。</p>
+<li>
+<p>当不按照顺序进行传参时，需要把参数名写上。</p>
 </li>
-<li><p><strong>默认参数必须指向不变对象！</strong></p>
+<li>
+<p><strong>默认参数必须指向不变对象！</strong></p>
 </li>
-<li><p>在参数名前面加上*，参数就变成了可变参数。如果传递的参数原本就是一个tuple或者list，那么需要在参数名前加上*，使其编程可变参数。</p>
+<li>
+<p>在参数名前面加上*，参数就变成了可变参数。如果传递的参数原本就是一个tuple或者list，那么需要在参数名前加上*，使其编程可变参数。</p>
 </li>
-<li><p>关键字参数就是在参数名前面加上<code>**</code>。如果传入一个dict集合，在参数前加上<code>**</code>。</p>
+<li>
+<p>关键字参数就是在参数名前面加上<code>**</code>。如果传入一个dict集合，在参数前加上<code>**</code>。</p>
 </li>
-<li><p>命名关键字参数，可以限制关键字参数中只接收需要的关键字参数。</p>
+<li>
+<p>命名关键字参数，可以限制关键字参数中只接收需要的关键字参数。</p>
 <pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">def 函数名(参数1,参数2,*,参数三,参数四)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <p>上面那个例子的参数三、参数四就是命名关键字，传入时必须要传入参数名。可以有缺省值。</p>
 </li>
-<li><p>通过尾递归来优化递归造成的栈溢出。尾递归是指，在函数返回的时候，调用自身本身，并且，<code>return</code>语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。重点是把每一步计算的值传递到函数中去。如下所示：</p>
+<li>
+<p>通过尾递归来优化递归造成的栈溢出。尾递归是指，在函数返回的时候，调用自身本身，并且，<code>return</code>语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。重点是把每一步计算的值传递到函数中去。如下所示：</p>
   <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">fact</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
       <span class="token keyword">return</span> fact_iter<span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
   <span class="token keyword">def</span> <span class="token function">fact_iter</span><span class="token punctuation">(</span>num<span class="token punctuation">,</span> product<span class="token punctuation">)</span><span class="token punctuation">:</span>
       <span class="token keyword">if</span> num <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
           <span class="token keyword">return</span> product
-      <span class="token keyword">return</span> fact_iter<span class="token punctuation">(</span>num <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> num <span class="token operator">*</span> product<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+      <span class="token keyword">return</span> fact_iter<span class="token punctuation">(</span>num <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> num <span class="token operator">*</span> product<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 
                 
@@ -1073,13 +1088,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1151,7 +1159,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

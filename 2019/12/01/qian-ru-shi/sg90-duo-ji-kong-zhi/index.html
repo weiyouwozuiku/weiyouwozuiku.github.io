@@ -536,10 +536,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="查看树莓派引脚"><a href="#查看树莓派引脚" class="headerlink" title="查看树莓派引脚"></a>查看树莓派引脚</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gpio readall<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+                <h3 id="查看树莓派引脚">查看树莓派引脚<a class="anchor" href="#查看树莓派引脚">¶</a></h3>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">gpio readall<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/sg90%E8%88%B5%E6%9C%BA%E6%8E%A7%E5%88%B6/sg90%E8%88%B5%E6%9C%BA%E6%8E%A7%E5%88%B6_gpio.png" alt="sg90舵机控制_gpio.png"></p>
-<p>硬件接口：<br>SG90 一共三根线，红线接5v电源，棕线GND，黄线为数据控制线，接到GPIO上<br>舵机参数：<br>SG90 脉冲周期为20ms,脉宽0.5ms-2.5ms对应的角度-90到+90，对应的占空比为2.5%-12。</p>
+<p>硬件接口：
+SG90 一共三根线，红线接5v电源，棕线GND，黄线为数据控制线，接到GPIO上舵机参数：
+SG90 脉冲周期为20ms,脉宽0.5ms-2.5ms对应的角度-90到+90，对应的占空比为2.5%-12。</p>
 <p>与步进电机不同，伺服电机不占用许多GPIO引脚来控制运动。 为此，旋转由脉冲的长度控制。</p>
 <p>电机的角度沿脉冲长度设置，因此PWM特别有用，它以均匀的间隔发送重复信号（必须安装Raspberry Pi Python库）。</p>
 <p>建一个python文件，代码如下：</p>
@@ -1144,7 +1146,7 @@ p<span class="token punctuation">.</span>start<span class="token punctuation">(<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

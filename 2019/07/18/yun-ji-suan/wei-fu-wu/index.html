@@ -536,40 +536,47 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Docker-k8s微服务"><a href="#Docker-k8s微服务" class="headerlink" title="Docker+k8s微服务"></a>Docker+k8s微服务</h2><ul>
-<li><p>什么是软件架构？</p>
+                <h2 id="Docker-k8s微服务">Docker+k8s微服务<a class="anchor" href="#Docker-k8s微服务">¶</a></h2>
+<ul>
+<li>
+<p>什么是软件架构？</p>
 <p>软件架构是在软件内部，经过综合各种因素的考量、权衡，选择特定的技术，将系统划分成不同的部分并使这些部分相互分工，彼此协作，为用户提供需要的价值。</p>
 </li>
-<li><p>什么是微服务？</p>
+<li>
+<p>什么是微服务？</p>
 <p>使用一套小服务来开发单个应用的方式，每个服务运行在独立的进程中，一般采用轻量级的通讯机制互联，并且它们可以通过自动化的方式部署。</p>
 <p>特点：单一职责；轻量级通信（语言无关、平台无关）；隔离性；有自己的数据；技术多样性。</p>
 </li>
-<li><p>什么是单体架构？</p>
+<li>
+<p>什么是单体架构？</p>
 <p>功能、业务集中在一个发布包里，部署运行在同一进程中。</p>
 <p>优点：易于开发、易于部署、易于测试、易于水平伸缩。</p>
 <p>缺点：代码膨胀，难以维护；创新困难；构建、部署成本大；可扩展性差。</p>
 </li>
-<li><p>微服务之间如何通讯？</p>
+<li>
+<p>微服务之间如何通讯？</p>
 <p>从通讯模式角度考虑：</p>
 <table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center">一对一</th>
-<th align="center">一对多</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">一对一</th>
+<th style="text-align:center">一对多</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">同步</td>
-<td align="center">请求响应模式，最常见</td>
-<td align="center"></td>
+<tbody>
+<tr>
+<td style="text-align:center">同步</td>
+<td style="text-align:center">请求响应模式，最常见</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td align="center">异步</td>
-<td align="center">通知/请求异步响应</td>
-<td align="center">发布订阅/发布异步响应</td>
+<td style="text-align:center">异步</td>
+<td style="text-align:center">通知/请求异步响应</td>
+<td style="text-align:center">发布订阅/发布异步响应</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>从通讯协议角度考虑：</p>
 <ul>
 <li>REST API</li>
@@ -577,106 +584,120 @@
 <li>MQ</li>
 </ul>
 </li>
-<li><p>RPC框架要向调用方屏蔽各种复杂性，要向服务提供方也屏蔽各类复杂性：</p>
+<li>
+<p>RPC框架要向调用方屏蔽各种复杂性，要向服务提供方也屏蔽各类复杂性：</p>
 <ul>
 <li>调用方感觉就像调用本地函数一样</li>
 <li>服务提供方感觉就像实现一个本地函数一样来实现服务</li>
 </ul>
 </li>
-<li><p>Dubbo的架构为：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_architecture.png"></p>
+<li>
+<p>Dubbo的架构为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_architecture.png" alt=""></p>
 </li>
-<li><p>Motan</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_Motan.png"></p>
+<li>
+<p>Motan</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_Motan.png" alt=""></p>
 </li>
-<li><p>Thrift</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_Thrift.png"></p>
+<li>
+<p>Thrift</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_Thrift.png" alt=""></p>
 </li>
-<li><p>Grpc</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_GRPC.png"></p>
+<li>
+<p>Grpc</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_GRPC.png" alt=""></p>
 <table>
 <thead>
 <tr>
-<th align="center">RPC对比</th>
-<th align="center">Dubbo</th>
-<th align="center">Motan</th>
-<th align="center">Thrift</th>
-<th align="center">Grpc</th>
+<th style="text-align:center">RPC对比</th>
+<th style="text-align:center">Dubbo</th>
+<th style="text-align:center">Motan</th>
+<th style="text-align:center">Thrift</th>
+<th style="text-align:center">Grpc</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">开发语言</td>
-<td align="center">Java</td>
-<td align="center">Java</td>
-<td align="center">跨语言</td>
-<td align="center">跨语言</td>
+<tbody>
+<tr>
+<td style="text-align:center">开发语言</td>
+<td style="text-align:center">Java</td>
+<td style="text-align:center">Java</td>
+<td style="text-align:center">跨语言</td>
+<td style="text-align:center">跨语言</td>
 </tr>
 <tr>
-<td align="center">服务治理</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">χ</td>
-<td align="center">χ</td>
+<td style="text-align:center">服务治理</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">χ</td>
+<td style="text-align:center">χ</td>
 </tr>
 <tr>
-<td align="center">多种序列化</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">只支持thrift</td>
-<td align="center">只支持protobuf</td>
+<td style="text-align:center">多种序列化</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">只支持thrift</td>
+<td style="text-align:center">只支持protobuf</td>
 </tr>
 <tr>
-<td align="center">多种注册中心</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">χ</td>
-<td align="center">χ</td>
+<td style="text-align:center">多种注册中心</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">χ</td>
+<td style="text-align:center">χ</td>
 </tr>
 <tr>
-<td align="center">管理中心</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">χ</td>
-<td align="center">χ</td>
+<td style="text-align:center">管理中心</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">χ</td>
+<td style="text-align:center">χ</td>
 </tr>
 <tr>
-<td align="center">跨语言通讯</td>
-<td align="center">χ</td>
-<td align="center">χ</td>
-<td align="center">√</td>
-<td align="center">√</td>
+<td style="text-align:center">跨语言通讯</td>
+<td style="text-align:center">χ</td>
+<td style="text-align:center">χ</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
 </tr>
 <tr>
-<td align="center">整体性能</td>
-<td align="center">3</td>
-<td align="center">4</td>
-<td align="center">5</td>
-<td align="center">3</td>
+<td style="text-align:center">整体性能</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </li>
-<li><p>服务发现</p>
+<li>
+<p>服务发现</p>
 <ul>
-<li><p>传统服务</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_%E4%BC%A0%E7%BB%9F%E6%9C%8D%E5%8A%A1.png"></p>
+<li>
+<p>传统服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_%E4%BC%A0%E7%BB%9F%E6%9C%8D%E5%8A%A1.png" alt=""></p>
 </li>
-<li><p>微服务的客户端发现</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%91%E7%8E%B0.png"></p>
+<li>
+<p>微服务的客户端发现</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%91%E7%8E%B0.png" alt=""></p>
 </li>
-<li><p>微服务的服务端发现</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%91%E7%8E%B0.png"></p>
+<li>
+<p>微服务的服务端发现</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1_%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%91%E7%8E%B0.png" alt=""></p>
 </li>
 </ul>
 </li>
-<li><p>流行的服务编排工具：Mesos、Docker Swarm、Kubernetes。</p>
+<li>
+<p>流行的服务编排工具：Mesos、Docker Swarm、Kubernetes。</p>
 </li>
-<li><p>Spring Cloud vs Spring Boot：</p>
+<li>
+<p>Spring Cloud vs Spring Boot：</p>
 <ul>
 <li>Spring Boot意在简化，是一种开发、配置风格。</li>
 <li>Spring Cloud意在简化分布式，是功能的集合，风格的统一。</li>
 </ul>
 </li>
-<li><p>Spring Cloud核心组件：</p>
+<li>
+<p>Spring Cloud核心组件：</p>
 <ul>
 <li>Netflix Eureka 服务发现组件</li>
 <li>Netflix Ribbon 客户端负载均衡组件</li>
@@ -942,9 +963,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Tmux安装sudo pacman -S tmux
-
-使用创建session：tmux new -s session_name。
+                            Tmux¶
+安装¶
+sudo pacman -S tmux
+使用¶
+创建session：tmux new -s session_name。
 直接退出在终端输入exit即可。
                         
                     </div>
@@ -993,12 +1016,13 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Python面向对象编程class ClassName(继承的类名):
+                            Python面向对象编程¶
+class ClassName(继承的类名):
     def __init__(变量):
         self.类内变量=变量
 
 
-没有合适的继承类，就使用object类，这是所有类最终都会继承的类。创建实例是
+没有合适的继承类，就使用object类，这是所有类最终都会继承的类。创建实
                         
                     </div>
                     <div class="publish-info">
@@ -1194,13 +1218,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1272,7 +1289,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

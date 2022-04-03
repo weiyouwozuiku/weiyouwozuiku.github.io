@@ -532,19 +532,23 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Python模块"><a href="#Python模块" class="headerlink" title="Python模块"></a>Python模块</h2><ul>
-<li><p>在Python中，一个.py文件就是一个模块。好处是<strong>提高了代码的可维护性，避免函数名和变量名的冲突，便于使用</strong>。模块名与文件名相同。</p>
+                <h2 id="Python模块">Python模块<a class="anchor" href="#Python模块">¶</a></h2>
+<ul>
+<li>
+<p>在Python中，一个.py文件就是一个模块。好处是<strong>提高了代码的可维护性，避免函数名和变量名的冲突，便于使用</strong>。模块名与文件名相同。</p>
 </li>
-<li><p>利用包名来避免模块名相同的情况。<strong>每个包下面都必须要有一个<code>__int__.py</code>文件</strong>，否则就是只是一个普通文件夹，而非一个包。<code>__int__.py</code>文件本身就是一个模块，模块名为当前文件夹的名字。</p>
+<li>
+<p>利用包名来避免模块名相同的情况。<strong>每个包下面都必须要有一个<code>__int__.py</code>文件</strong>，否则就是只是一个普通文件夹，而非一个包。<code>__int__.py</code>文件本身就是一个模块，模块名为当前文件夹的名字。</p>
 </li>
-<li><p>任何模块代码的第一个字符串都被视为模块的文档注释。</p>
+<li>
+<p>任何模块代码的第一个字符串都被视为模块的文档注释。</p>
 </li>
-<li><p>进行模块测试时，使用以下代码：</p>
+<li>
+<p>进行模块测试时，使用以下代码：</p>
 </li>
 </ul>
  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">'__main__'</span><span class="token punctuation">:</span>
     test<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p><code>if __name__ == '__main__'</code> 的意思是：当 <code>.py</code> 文件被直接运行时，<code>if __name__ =='__main__'</code> 之下的代码块将被运行；当 <code>.py</code> 文件以模块形式被导入时，<code>if __name__ =='__main__'</code>之下的代码块不会被运行。</p>
 <ul>
 <li><code>__author__</code>、<code>__name__</code>等是特殊变量，模块定义的文档注释可以用特殊变量<code>__doc__</code>访问。变量名前面加上下划线的变量不应该直接被引用。</li>
@@ -802,12 +806,13 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Python面向对象编程class ClassName(继承的类名):
+                            Python面向对象编程¶
+class ClassName(继承的类名):
     def __init__(变量):
         self.类内变量=变量
 
 
-没有合适的继承类，就使用object类，这是所有类最终都会继承的类。创建实例是
+没有合适的继承类，就使用object类，这是所有类最终都会继承的类。创建实
                         
                     </div>
                     <div class="publish-info">
@@ -859,12 +864,16 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Python函数式编程
+                            Python函数式编程¶
+
+
 函数式编程没有变量，在确定输入时，输出就已经确定了，没有因为变量的不确定导致的副作用。允许将番薯本身作为参数传入另一个函数，允许返回一个函数。
+
 
 一个函数可以接收另一个函数作为参数，称之为高阶函数。
 
-map()函数
+
+ma
                         
                     </div>
                     <div class="publish-info">
@@ -1060,13 +1069,6 @@ map()函数
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1138,7 +1140,7 @@ map()函数
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

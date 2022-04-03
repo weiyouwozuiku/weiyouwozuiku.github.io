@@ -501,7 +501,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    198
+                    205
                 </div>
                 
 
@@ -536,9 +536,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1801-1810"><a href="#1801-1810" class="headerlink" title="1801-1810"></a>1801-1810</h2><h2 id="1811-1820"><a href="#1811-1820" class="headerlink" title="1811-1820"></a>1811-1820</h2><h2 id="1821-1830"><a href="#1821-1830" class="headerlink" title="1821-1830"></a>1821-1830</h2><h2 id="1831-1840"><a href="#1831-1840" class="headerlink" title="1831-1840"></a>1831-1840</h2><h2 id="1841-1850"><a href="#1841-1850" class="headerlink" title="1841-1850"></a>1841-1850</h2><h2 id="1851-1860"><a href="#1851-1860" class="headerlink" title="1851-1860"></a>1851-1860</h2><h2 id="1861-1870"><a href="#1861-1870" class="headerlink" title="1861-1870"></a>1861-1870</h2><h4 id="1863-找出所有子集的异或总和再求和"><a href="#1863-找出所有子集的异或总和再求和" class="headerlink" title="1863. 找出所有子集的异或总和再求和"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sum-of-all-subset-xor-totals/">1863. 找出所有子集的异或总和再求和</a></h4><p>本题关键在于两点：</p>
+                <h2 id="1801-1810">1801-1810<a class="anchor" href="#1801-1810">¶</a></h2>
+<h2 id="1811-1820">1811-1820<a class="anchor" href="#1811-1820">¶</a></h2>
+<h2 id="1821-1830">1821-1830<a class="anchor" href="#1821-1830">¶</a></h2>
+<h2 id="1831-1840">1831-1840<a class="anchor" href="#1831-1840">¶</a></h2>
+<h2 id="1841-1850">1841-1850<a class="anchor" href="#1841-1850">¶</a></h2>
+<h2 id="1851-1860">1851-1860<a class="anchor" href="#1851-1860">¶</a></h2>
+<h2 id="1861-1870">1861-1870<a class="anchor" href="#1861-1870">¶</a></h2>
+<h4 id="1863-找出所有子集的异或总和再求和"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sum-of-all-subset-xor-totals/">1863. 找出所有子集的异或总和再求和</a><a class="anchor" href="#1863-找出所有子集的异或总和再求和">¶</a></h4>
+<p>本题关键在于两点：</p>
 <ol>
-<li>找到所有子集的情况，这里可以用二进制表示元素在不在子集中，子集存在的数量为$2^n$，可以表示为1&lt;&lt;nums.size()。</li>
+<li>找到所有子集的情况，这里可以用二进制表示元素在不在子集中，子集存在的数量为<img src="https://math.now.sh?inline=2%5En" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，可以表示为1&lt;&lt;nums.size()。</li>
 <li>找出每种情况中对应元素的情况并计算异或。这里使用<code>i&amp;(1&lt;&lt;j)</code>表示第j位对应的元素是否在该子集中。</li>
 </ol>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
@@ -560,10 +568,10 @@
         <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="1871-1880">1871-1880<a class="anchor" href="#1871-1880">¶</a></h2>
+<h2 id="1881-1890">1881-1890<a class="anchor" href="#1881-1890">¶</a></h2>
+<h2 id="1891-1900">1891-1900<a class="anchor" href="#1891-1900">¶</a></h2>
 
-
-
-<h2 id="1871-1880"><a href="#1871-1880" class="headerlink" title="1871-1880"></a>1871-1880</h2><h2 id="1881-1890"><a href="#1881-1890" class="headerlink" title="1881-1890"></a>1881-1890</h2><h2 id="1891-1900"><a href="#1891-1900" class="headerlink" title="1891-1900"></a>1891-1900</h2>
                 
             </div>
             <hr/>
@@ -1067,13 +1075,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1145,7 +1146,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             

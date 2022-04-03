@@ -501,7 +501,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    3.4k
                 </div>
                 
 
@@ -536,25 +536,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇博客作为自身阅读论文的一个备忘。记录自己看过的论文中的所见、所思、所感。</p>
-<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><h3 id="QoS"><a href="#QoS" class="headerlink" title="QoS"></a>QoS</h3><p>解释：QoS（Quality of Service，服务质量）指一个网络能够利用各种基础技术，为指定的网络通信提供更好的服务能力，是网络的一种<strong>安全机制</strong>， 是用来解决网络延迟和阻塞等问题的一种技术。QoS的保证对于容量有限的网络来说是十分重要的，特别是对于流多媒体应用，例如VoIP和IPTV等，因为这些应用常常需要固定的传输率，对延时也比较敏感。</p>
+                <h2 id="前言">前言<a class="anchor" href="#前言">¶</a></h2>
+<p>这篇博客作为自身阅读论文的一个备忘。记录自己看过的论文中的所见、所思、所感。</p>
+<h2 id="前置知识">前置知识<a class="anchor" href="#前置知识">¶</a></h2>
+<h3 id="QoS-2">QoS<a class="anchor" href="#QoS-2">¶</a></h3>
+<p>解释：QoS（Quality of Service，服务质量）指一个网络能够利用各种基础技术，为指定的网络通信提供更好的服务能力，是网络的一种<strong>安全机制</strong>， 是用来解决网络延迟和阻塞等问题的一种技术。QoS的保证对于容量有限的网络来说是十分重要的，特别是对于流多媒体应用，例如VoIP和IPTV等，因为这些应用常常需要固定的传输率，对延时也比较敏感。</p>
 <p>定义：当网络发生拥塞的时候，所有的数据流都有可能被丢弃；为满足用户对不同应用不同服务质量的要求，就需要网络能根据用户的要求分配和调度资源，对不同的数据流提供不同的服务质量：对实时性强且重要的数据报文优先处理；对于实时性不强的普通数据报文，提供较低的处理优先级，网络拥塞时甚至丢弃。QoS应运而生。支持QoS功能的设备，能够提供传输品质服务；针对某种类别的数据流，可以为它赋予某个级别的传输优先级，来标识它的相对重要性，并使用设备所提供的各种优先级转发策略、拥塞避免等机制为这些数据流提供特殊的传输服务。配置了QoS的网络环境，增加了网络性能的可预知性，并能够有效地分配网络带宽，更加合理地利用网络资源。</p>
-<h3 id="Best-Effort-service"><a href="#Best-Effort-service" class="headerlink" title="Best-Effort service"></a>Best-Effort service</h3><p>解释: 标准的因特网服务模式。在网络接口发生拥塞时，不顾及用户或应用，马上丢弃数据包，直到业务量有所减少为止。对Best-Effort服务模型，网络尽最大的可能性来发送报文。但对延时、可靠性等性能不提供任何保证。</p>
+<h3 id="Best-Effort-service">Best-Effort service<a class="anchor" href="#Best-Effort-service">¶</a></h3>
+<p>解释: 标准的因特网服务模式。在网络接口发生拥塞时，不顾及用户或应用，马上丢弃数据包，直到业务量有所减少为止。对Best-Effort服务模型，网络尽最大的可能性来发送报文。但对延时、可靠性等性能不提供任何保证。</p>
 <p>Best-Effort服务模型是网络的缺省服务模型，通过<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/FIFO">FIFO</a>（first in first out 先入先出）<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%98%9F%E5%88%97">队列</a>来实现。它适用于绝大多数网络应用，如FTP、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/E-Mail">E-Mail</a>等。</p>
-<h3 id="Integrated-service"><a href="#Integrated-service" class="headerlink" title="Integrated service"></a>Integrated service</h3><p>综合服务模型，简称Int-Serv</p>
+<h3 id="Integrated-service">Integrated service<a class="anchor" href="#Integrated-service">¶</a></h3>
+<p>综合服务模型，简称Int-Serv</p>
 <p>Int-Serv是一个综合服务模型，它可以满足多种QoS需求。该模型使用资源预留协议（RSVP），RSVP运行在从源端到目的端的每个设备上，可以监视每个流，以防止其消耗资源过多。这种体系能够明确区分并保证每一个业务流的服务质量，为网络提供最细粒度化的服务质量区分。但是，Inter-Serv模型对设备的要求很高，当网络中的数据流数量很大时，设备的存储和处理能力会遇到很大的压力。Inter-Serv模型可扩展性很差，难以在Internet核心网络实施。</p>
-<h3 id="Differentiated-service"><a href="#Differentiated-service" class="headerlink" title="Differentiated service"></a>Differentiated service</h3><p>Diff-Serv服务模型是一个多服务模型，它可以满足不同的QoS需求。与Int-Serv不同，它不需要通知网络为每个业务预留资源。区分服务实现简单，扩展性较好。</p>
-<h3 id="P、NP、NP-hard、NP-complete"><a href="#P、NP、NP-hard、NP-complete" class="headerlink" title="P、NP、NP-hard、NP-complete"></a>P、NP、NP-hard、NP-complete</h3><p>最简单的解释：<br>P：算起来很快的问题<br>NP：算起来不一定快，但对于任何答案我们都可以快速的验证这个答案对不对<br>NP-hard：比所有的NP问题都难的问题<br>NP-complete：满足两点：</p>
+<h3 id="Differentiated-service">Differentiated service<a class="anchor" href="#Differentiated-service">¶</a></h3>
+<p>Diff-Serv服务模型是一个多服务模型，它可以满足不同的QoS需求。与Int-Serv不同，它不需要通知网络为每个业务预留资源。区分服务实现简单，扩展性较好。</p>
+<h3 id="P、NP、NP-hard、NP-complete">P、NP、NP-hard、NP-complete<a class="anchor" href="#P、NP、NP-hard、NP-complete">¶</a></h3>
+<p>最简单的解释：
+P：算起来很快的问题
+NP：算起来不一定快，但对于任何答案我们都可以快速的验证这个答案对不对
+NP-hard：比所有的NP问题都难的问题
+NP-complete：满足两点：</p>
 <ol>
 <li>是NP hard的问题</li>
 <li>是NP问题</li>
 </ol>
 <p>P就是能在多项式时间内解决的问题，NP就是能在多项式时间验证答案正确与否的问题。</p>
-<h3 id="模拟退火算法"><a href="#模拟退火算法" class="headerlink" title="模拟退火算法"></a>模拟退火算法</h3><p>模拟退火是一种通用概率算法，常用来在一定时间内寻找在一个很大搜寻空间中的近似最优解。</p>
+<h3 id="模拟退火算法">模拟退火算法<a class="anchor" href="#模拟退火算法">¶</a></h3>
+<p>模拟退火是一种通用概率算法，常用来在一定时间内寻找在一个很大搜寻空间中的近似最优解。</p>
 <p>模拟退火来自冶金学的专有名词退火。退火是将材料加热后再经特定速率冷却，目的是增大晶粒的体积，并且减少晶格中的缺陷。材料中的原子原来会停留在使内能有局部最小值的位置，加热使能量变大，原子会离开原来位置，而随机在其他位置中移动。退火冷却时速度较慢，使得原子有较多可能可以找到内能比原先更低的位置。</p>
 <p>模拟退火的原理也和金属退火的原理近似：我们将热力学的理论套用到统计学上，将搜寻空间内每一点想像成空气内的分子；分子的能量，就是它本身的动能；而搜寻空间内的每一点，也像空气分子一样带有“能量”，以表示该点对命题的合适程度。算法先以搜寻空间内一个任意点作起始：每一步先选择一个“邻居”，然后再计算从现有位置到达“邻居”的概率。</p>
 <p>可以证明，模拟退火算法所得解依概率收敛到全局最优解。</p>
-<h3 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h3><p>遗传算法（Genetic Algorithm）是模拟达尔文生物进化论的自然选择和遗传学机理的生物进化过程的计算模型，是一种通过模拟自然进化过程搜索最优解的方法。遗传算法是从代表问题可能潜在的解集的一个种群（population）开始的，而一个种群则由经过基因（gene）编码的一定数目的个体(individual)组成。每个个体实际上是染色体(chromosome)带有特征的实体。染色体作为遗传物质的主要载体，即多个基因的集合，其内部表现（即基因型）是某种基因组合，它决定了个体的形状的外部表现，如黑头发的特征是由染色体中控制这一特征的某种基因组合决定的。因此，在一开始需要实现从表现型到基因型的映射即编码工作。由于仿照基因编码的工作很复杂，我们往往进行简化，如二进制编码，初代种群产生之后，按照适者生存和优胜劣汰的原理，逐代（generation）演化产生出越来越好的近似解，在每一代，根据问题域中个体的适应度（fitness）大小选择（selection）个体，并借助于自然遗传学的遗传算子（genetic operators）进行组合交叉（crossover）和变异（mutation），产生出代表新的解集的种群。这个过程将导致种群像自然进化一样的后生代种群比前代更加适应于环境，末代种群中的最优个体经过解码（decoding），可以作为问题近似最优解。</p>
+<h3 id="遗传算法">遗传算法<a class="anchor" href="#遗传算法">¶</a></h3>
+<p>遗传算法（Genetic Algorithm）是模拟达尔文生物进化论的自然选择和遗传学机理的生物进化过程的计算模型，是一种通过模拟自然进化过程搜索最优解的方法。遗传算法是从代表问题可能潜在的解集的一个种群（population）开始的，而一个种群则由经过基因（gene）编码的一定数目的个体(individual)组成。每个个体实际上是染色体(chromosome)带有特征的实体。染色体作为遗传物质的主要载体，即多个基因的集合，其内部表现（即基因型）是某种基因组合，它决定了个体的形状的外部表现，如黑头发的特征是由染色体中控制这一特征的某种基因组合决定的。因此，在一开始需要实现从表现型到基因型的映射即编码工作。由于仿照基因编码的工作很复杂，我们往往进行简化，如二进制编码，初代种群产生之后，按照适者生存和优胜劣汰的原理，逐代（generation）演化产生出越来越好的近似解，在每一代，根据问题域中个体的适应度（fitness）大小选择（selection）个体，并借助于自然遗传学的遗传算子（genetic operators）进行组合交叉（crossover）和变异（mutation），产生出代表新的解集的种群。这个过程将导致种群像自然进化一样的后生代种群比前代更加适应于环境，末代种群中的最优个体经过解码（decoding），可以作为问题近似最优解。</p>
 <p>过程如下：</p>
 <ol>
 <li>初始化：设置进化代数计数器t=0，设置最大进化代数T，随机生成M个个体作为初始群体P(0)。</li>
@@ -564,7 +577,7 @@
 <li>变异运算：将变异算子作用于群体。即是对群体中的个体串的某些基因座上的基因值作变动。群体P(t)经过选择、交叉、变异运算之后得到下一代群体P(t+1)。</li>
 <li>终止条件判断：若t=T,则以进化过程中所得到的具有最大适应度个体作为最优解输出，终止计算。</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93_%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95.jpg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93_%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95.jpg" alt=""></p>
 <p>基因型(genotype)：性状染色体的内部表现。</p>
 <p>表现型(phenotype)：染色体决定的性状的外部表现，或者说，根据基因型形成的个体的外部表现。</p>
 <p>进化(evolution)：种群逐渐适应生存环境，品质不断得到改良。生物的进化是以种群的形式进行的。</p>
@@ -576,17 +589,20 @@
 <p>w编码(coding)：DNA中遗传信息在一个长链上按一定的模式排列。遗传编码可看作从表现型到基因型的映射。</p>
 <p>解码(decoding)：基因型到表现型的映射。</p>
 <p>个体（individual）：指染色体带有特征的实体。</p>
-<p>种群（population）：个体的集合，该集合内个体数称为种群的大小。        </p>
-<h2 id="Resource-allocation-algorithms-for-virtualized-service-hosting-platforms"><a href="#Resource-allocation-algorithms-for-virtualized-service-hosting-platforms" class="headerlink" title="Resource allocation algorithms for virtualized service hosting platforms"></a>Resource allocation algorithms for virtualized service hosting platforms</h2><p>author:Mark Stillwell a , David Schanzenbacha , Frédéric Vivienb , Henri Casanova a,∗</p>
+<p>种群（population）：个体的集合，该集合内个体数称为种群的大小。</p>
+<h2 id="Resource-allocation-algorithms-for-virtualized-service-hosting-platforms">Resource allocation algorithms for virtualized service hosting platforms<a class="anchor" href="#Resource-allocation-algorithms-for-virtualized-service-hosting-platforms">¶</a></h2>
+<p>author:Mark Stillwell a , David Schanzenbacha , Frédéric Vivienb , Henri Casanova a,∗</p>
 <p>这片论文研究的是在具有多种资源类型的服务器在静态工作量的情况下进行资源分配方案。支持尽力而为和QoS混合场景，通过精确定义的目标函数来提升性能、公平性和集群利用率。</p>
-<h3 id="论文的创新点"><a href="#论文的创新点" class="headerlink" title="论文的创新点"></a>论文的创新点</h3><ol>
+<h3 id="论文的创新点">论文的创新点<a class="anchor" href="#论文的创新点">¶</a></h3>
+<ol>
 <li>定义资源分配问题为静态服务负载，每个服务完全运行在一台VM实例上。这个定义考虑到了多个资源维度。</li>
 <li>建立了问题的复杂度，并给出混合整数线性函数公式，到达最优的界限。</li>
 <li>提出几种算法解决问题。</li>
 <li>模拟评估算法。</li>
 <li>讨论算法在服务运行在多台服务器上的情况。</li>
 </ol>
-<h3 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h3><p>计算机群为同构服务器配有高速网络交换。每个服务包含一个或多个VM实例。每台服务器提供CPU、RAM、I/O、disk。</p>
+<h3 id="问题定义">问题定义<a class="anchor" href="#问题定义">¶</a></h3>
+<p>计算机群为同构服务器配有高速网络交换。每个服务包含一个或多个VM实例。每台服务器提供CPU、RAM、I/O、disk。</p>
 <p>在第三章，假定每个服务只运行在一台VM实例上。在第六章讨论多VM的服务。</p>
 <p>每个服务资源需求量固定。资源分为两类：<code>regid</code>(load-independent)和<code>fluid</code>(load-dependent)</p>
 <table>
@@ -596,33 +612,41 @@
 <th>fluid</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>对资源的需求量提供的不能少，多也无法获益</td>
 <td>对资源的需求量提供的少也能运行，多无法获益</td>
 </tr>
-</tbody></table>
-<p>$yield=\frac{分配的资源量}{所需分配的最大资源量}$取值范围为[0,1]。当有QoS要求时，yield设置一个最低阈值。</p>
+</tbody>
+</table>
+<p><img src="https://math.now.sh?inline=yield%3D%5Cfrac%7B%E5%88%86%E9%85%8D%E7%9A%84%E8%B5%84%E6%BA%90%E9%87%8F%7D%7B%E6%89%80%E9%9C%80%E5%88%86%E9%85%8D%E7%9A%84%E6%9C%80%E5%A4%A7%E8%B5%84%E6%BA%90%E9%87%8F%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">取值范围为[0,1]。当有QoS要求时，yield设置一个最低阈值。</p>
 <p>假定所有资源的利用率与fluid需求之间呈现线性相关性。</p>
-<p>一些没有QoS要求且采用的是尽力而为模式的任务，$constrained\quad fluid\quad need=一个服务的fluid\quad need×QoS要求$。</p>
+<p>一些没有QoS要求且采用的是尽力而为模式的任务，<img src="https://math.now.sh?inline=constrained%5Cquad%20fluid%5Cquad%20need%3D%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E7%9A%84fluid%5Cquad%20need%C3%97QoS%E8%A6%81%E6%B1%82" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。</p>
 <p>假定所有rigid资源需求都与fluid资源需求无关且彼此独立。</p>
 <p>资源份额与响应时间或吞吐量之间的模型在[11],[33],[8],[45],[55],[64],[54]中有定义。这些都只能处理有QoS需求的服务。本论文方法可以处理具有QoS需求的服务和不具有QoS的尽力而为服务。</p>
-<p>$scaled\quad yield=\frac{yield-minimum\quad yield}{1-minimum\quad yield}$</p>
+<p><img src="https://math.now.sh?inline=scaled%5Cquad%20yield%3D%5Cfrac%7Byield-minimum%5Cquad%20yield%7D%7B1-minimum%5Cquad%20yield%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
 <p>对于尽力而为服务，yield=scaled yield。yield最小为1时，sclaes yield为1。sclaes yield为负数则资源分配失败。</p>
 <p>yield和传统的strtch相比，stretch适用于有时限的任务，而不是连续服务。stretch的定义是作业的流动时间，即作业提交和完成之间的时间，除以该作业在系统中所应达到的流动时间。 最小化最大拉伸被认为是优化平均流动时间的一种方法，同时确保作业不会经历较高的相对流动时间。 因此，这是一种同时优化性能和公平性的方法，而仅使平均拉伸量最小化则容易出现饥饿。</p>
 <p>论文使用的是最大化最小yield。</p>
 <p>虽然定期迁移可以提高最低收益[56]，但是会占用网络资源，具有开销，在本论文不进行考虑。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93_%E7%BA%A6%E6%9D%9F%E5%BD%A2%E5%BC%8F%E5%8C%96.png"></p>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><h4 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h4><p>将服务进行排序。因为在装箱问题中，大多数情况下递增序列效果差于递减序列。所以排序采用递减序列。（S1）随机； （S2）通过递减最大fluid需求进行排序； （S3）通过递减fluid需求的总和； （S4）通过递减最大rigid需求和受约束的fluid需求;（S5）通过递减rigid需求和受约束的fluid需求的总和;（S6）通过递减最大资源需求（无论为fluid还是rigid）;（S7）通过递减rigid and fluid 需求。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93/%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93_%E7%BA%A6%E6%9D%9F%E5%BD%A2%E5%BC%8F%E5%8C%96.png" alt=""></p>
+<h3 id="算法">算法<a class="anchor" href="#算法">¶</a></h3>
+<h4 id="贪心算法">贪心算法<a class="anchor" href="#贪心算法">¶</a></h4>
+<p>将服务进行排序。因为在装箱问题中，大多数情况下递增序列效果差于递减序列。所以排序采用递减序列。（S1）随机； （S2）通过递减最大fluid需求进行排序； （S3）通过递减fluid需求的总和； （S4）通过递减最大rigid需求和受约束的fluid需求;（S5）通过递减rigid需求和受约束的fluid需求的总和;（S6）通过递减最大资源需求（无论为fluid还是rigid）;（S7）通过递减rigid and fluid 需求。</p>
 <p>从七个指标考虑服务器的选择。</p>
-<h4 id="遗传算法-1"><a href="#遗传算法-1" class="headerlink" title="遗传算法"></a>遗传算法</h4><p>每个染色体为一个一维数组，索引为服务编号，对应值为服务器编号。</p>
-<h2 id="Energy-aware-service-allocation"><a href="#Energy-aware-service-allocation" class="headerlink" title="Energy-aware service allocation"></a>Energy-aware service allocation</h2><p>author:Damien Borgettoa,∗ , Henri Casanova b , Georges Da Costa a , Jean-Marc Piersona</p>
-<h2 id="CSL‑driven-and-energy‑efficient-resource-scheduling-in-cloud-data-center"><a href="#CSL‑driven-and-energy‑efficient-resource-scheduling-in-cloud-data-center" class="headerlink" title="CSL‑driven and energy‑efficient resource scheduling in cloud data center"></a>CSL‑driven and energy‑efficient resource scheduling in cloud data center</h2><p>DOI: 10.1007/s11227-019-03036-9</p>
-<p>CSL: Customer Satisfaction Level </p>
+<h4 id="遗传算法-2">遗传算法<a class="anchor" href="#遗传算法-2">¶</a></h4>
+<p>每个染色体为一个一维数组，索引为服务编号，对应值为服务器编号。</p>
+<h2 id="Energy-aware-service-allocation">Energy-aware service allocation<a class="anchor" href="#Energy-aware-service-allocation">¶</a></h2>
+<p>author:Damien Borgettoa,∗ , Henri Casanova b , Georges Da Costa a , Jean-Marc Piersona</p>
+<h2 id="CSL‑driven-and-energy‑efficient-resource-scheduling-in-cloud-data-center">CSL‑driven and energy‑efficient resource scheduling in cloud data center<a class="anchor" href="#CSL‑driven-and-energy‑efficient-resource-scheduling-in-cloud-data-center">¶</a></h2>
+<p>DOI: 10.1007/s11227-019-03036-9</p>
+<p>CSL: Customer Satisfaction Level</p>
 <p>MSVR:metric based on SLA violation rate</p>
 <p>MW:metric based on workload</p>
 <p>MRT:metric based on response time</p>
-<p>$CSL\begin{cases}imperceptible-&gt; energy;saving;strategy;达到最小能源消耗\tolerable-&gt;trade-off ;strategy;最大化每单位能源的CSL\unusable-&gt;CSL-driven; strategy;达到最大CSL\end{cases}$</p>
-<h3 id="本文创新点"><a href="#本文创新点" class="headerlink" title="本文创新点"></a>本文创新点</h3><ul>
+<p><img src="https://math.now.sh?inline=CSL%5Cbegin%7Bcases%7Dimperceptible-%3E%20energy%5C%3Bsaving%5C%3Bstrategy%5C%3B%E8%BE%BE%E5%88%B0%E6%9C%80%E5%B0%8F%E8%83%BD%E6%BA%90%E6%B6%88%E8%80%97%5C%5Ctolerable-%3Etrade-off%20%5C%3Bstrategy%5C%3B%E6%9C%80%E5%A4%A7%E5%8C%96%E6%AF%8F%E5%8D%95%E4%BD%8D%E8%83%BD%E6%BA%90%E7%9A%84CSL%5C%5Cunusable-%3ECSL-driven%5C%3B%20strategy%5C%3B%E8%BE%BE%E5%88%B0%E6%9C%80%E5%A4%A7CSL%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<h3 id="本文创新点">本文创新点<a class="anchor" href="#本文创新点">¶</a></h3>
+<ul>
 <li>设计了CSL-driven 高效调度框架以优化云数据中心的能源效率。同时考虑了</li>
 </ul>
 
@@ -1133,13 +1157,6 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
@@ -1211,7 +1228,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.5k</span>&nbsp;字
+                class="white-color">220.2k</span>&nbsp;字
             
             
             
