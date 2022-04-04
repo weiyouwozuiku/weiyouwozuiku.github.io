@@ -205,7 +205,14 @@ markdown:
       options:
         style: 'filter: opacity(95%);transform:scale(0.85);text-align:center;'
 #以下为额外安装插件
-    - markdown-it-task-checkbox
+    - name: markdown-it-task-checkbox
+      options:
+        - disabled: true
+        - divWrap: false
+        - divClass: 'checkbox'
+        - idPrefix: 'cbx_'
+        - ulClass: 'task-list'
+        - liClass: 'task-list-item'
   anchors: # 锚点的配置
     level: 1 # 开始创建锚点的等级 # 如 "2" 则表示从 H2 开始创建一直到 H6(最后).
     collisionSuffix: '' # 如果遇到重复的锚点 ID 为其添加数字编号时在这个数字后添加的后缀.
