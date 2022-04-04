@@ -34,38 +34,38 @@ categories: 算法
 
 ### 算法
 
-- [ ]  [Leetcode算法题1-100](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-1-100)
-- [ ]  [Leetcode算法题101-200](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-101-200/)
-- [ ]  [Leetcode算法题201-300](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-201-300/)
-- [ ]  [Leetcode算法题301-400](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-301-400/)
-- [ ]  [Leetcode算法题401-500](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-401-500/)
-- [ ]  [Leetcode算法题501-600](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-501-600/)
-- [ ]  [Leetcode算法题601-700](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-601-700/)
-- [ ]  [Leetcode算法题701-800](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-701-800/)
-- [ ]  [Leetcode算法题801-900](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-801-900/)
-- [ ]  [Leetcode算法题901-1000](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-901-1000/)
-- [ ]  [Leetcode算法题1001-1100](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-1001-1100/)
-- [ ] [Leetcode算法题1101-1200](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-1101-1200/)
-- [ ] [Leetcode算法题1201-1300](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-1201-1300/)
-- [ ] [Leetcode算法题1301-1400](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-1301-1400/)
-- [ ] [Leetcode算法题1401-1500](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-1401-1500/)
-- [ ] [Leetcode算法题1501-1600](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-1501-1600/)
-- [ ] [Leetcode算法题1601-1700](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-1601-1700/)
-- [ ] [Leetcode算法题1701-1800](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-1701-1800/)
-- [ ] [Leetcode算法题1801-1900](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-1801-1900/)
-- [ ] [Leetcode算法题1901-2000](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-1901-2000/)
-- [ ] [Leetcode算法题2001-2100](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-2001-2100/)
-- [ ] [Leetcode算法题2101-2189](https://buerlog.top/2022/01/16/suan-fa/leetcode-suan-fa-ti-2101-2189/)
+- [ ]  [Leetcode算法题1-100](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1-100)
+- [ ]  [Leetcode算法题101-200](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-101-200/)
+- [ ]  [Leetcode算法题201-300](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-201-300/)
+- [ ]  [Leetcode算法题301-400](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-301-400/)
+- [ ]  [Leetcode算法题401-500](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-401-500/)
+- [ ]  [Leetcode算法题501-600](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-501-600/)
+- [ ]  [Leetcode算法题601-700](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-601-700/)
+- [ ]  [Leetcode算法题701-800](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-701-800/)
+- [ ]  [Leetcode算法题801-900](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-801-900/)
+- [ ]  [Leetcode算法题901-1000](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-901-1000/)
+- [ ]  [Leetcode算法题1001-1100](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1001-1100/)
+- [ ] [Leetcode算法题1101-1200](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1101-1200/)
+- [ ] [Leetcode算法题1201-1300](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1201-1300/)
+- [ ] [Leetcode算法题1301-1400](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1301-1400/)
+- [ ] [Leetcode算法题1401-1500](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1401-1500/)
+- [ ] [Leetcode算法题1501-1600](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1501-1600/)
+- [ ] [Leetcode算法题1601-1700](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1601-1700/)
+- [ ] [Leetcode算法题1701-1800](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1701-1800/)
+- [ ] [Leetcode算法题1801-1900](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1801-1900/)
+- [ ] [Leetcode算法题1901-2000](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1901-2000/)
+- [ ] [Leetcode算法题2001-2100](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2001-2100/)
+- [ ] [Leetcode算法题2101-2189](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2101-2189/)
 
 ### 数据库
 
-- [ ] [LeetcodeSQL题175-1369](https://buerlog.top/2022/01/16/suan-fa/leetcodesql-ti-175-1369/)
+- [ ] [LeetcodeSQL题175-1369](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcodesql-ti-175-1369/)
 
-- [ ] [LeetcodeSQL题1378-2175](https://buerlog.top/2022/01/16/suan-fa/leetcodesql-ti-1378-2175/)
+- [ ] [LeetcodeSQL题1378-2175](https://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcodesql-ti-1378-2175/)
 
 ### Shell
 
-- [ ] [LeetcodeShell题](https://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcodeshell-ti/)
+- [ ] [LeetcodeShell题](https://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcodeshell-ti)
 
 ### 多线程
 
