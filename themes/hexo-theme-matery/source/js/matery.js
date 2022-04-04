@@ -74,14 +74,16 @@ $(function () {
 
         $('#articleContent img').each(function () {
             let imgPath = $(this).attr('src');
-            let imgStyle=$(this).attr('style');
-            if (typeof(style)!="undefined"){
-                if(style.search("display:inline-block")!=-1){
-                    $(this).wrap('<div class="img-item" data-src="' + imgPath + '" style="display:inline-block" data-sub-html=".caption"></div>');
+            if(imgPath.search("https://math.now.sh?")!=-1){
+                let imgStyle=$(this).attr('style');
+                if (typeof(imgStyle)!="undefined"){
+                    if(imgStyle.search("display:inline-block")!=-1){
+                        $(this).wrap('<div class="img-item" data-src="' + imgPath + '" style="display:inline-block" data-sub-html=".caption"></div>');
+                    }
                 }
             }else{
                 $(this).wrap('<div class="img-item" data-src="' + imgPath + '" data-sub-html=".caption"></div>');
-            }
+            }            
             
             // 图片添加阴影
             $(this).addClass("img-shadow img-margin");
