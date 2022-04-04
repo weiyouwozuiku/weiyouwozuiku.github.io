@@ -274,7 +274,7 @@ int main(){
 
 - $mid={\frac{l+r+1}{2}}$
 
-    $$if (check(mid)) \begin{cases} true& \text {[mid,r]=>l=mid} \\ false& \text {[l,mid+1]=>r=mid-1} \end{cases}$ $$
+    $$if (check(mid)) \begin{cases} true& \text {[mid,r]=>l=mid} \\ false& \text {[l,mid+1]=>r=mid-1} \end{cases}$$
 
 - 区间[l,r]被划分为[l,mid-1]和[mid,r]
 
