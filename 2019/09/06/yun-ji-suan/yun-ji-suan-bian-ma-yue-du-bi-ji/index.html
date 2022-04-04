@@ -1,0 +1,1645 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="云计算编码阅读笔记, 博客">
+    <meta name="description" content="个人学习储备知识与经验的秘密基地">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDXT8Y4CLW"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-KDXT8Y4CLW');
+</script>
+
+
+    <title>云计算编码阅读笔记 | 不二博客</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">不二博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">不二博客</div>
+        <div class="logo-desc">
+            
+            个人学习储备知识与经验的秘密基地
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/weiyouwozuiku" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/weiyouwozuiku" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/云计算/cloud.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">云计算编码阅读笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BC%96%E7%A0%81/">
+                                <span class="chip bg-color">云计算编码</span>
+                            </a>
+                        
+                            <a href="/tags/Book/">
+                                <span class="chip bg-color">Book</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">
+                                云计算
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-09-06
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-01-14
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="云计算编码阅读笔记">云计算编码阅读笔记<a class="anchor" href="#云计算编码阅读笔记">¶</a></h2>
+<h3 id="第一章-云计算概述">第一章 云计算概述<a class="anchor" href="#第一章-云计算概述">¶</a></h3>
+<ul>
+<li>
+<p>摩尔定理：集成电路上可容纳的晶体管数目，约每隔18个月便会增加1倍，性能也会提升1倍。</p>
+</li>
+<li>
+<p>Web1.0 由网站编辑产生内容，用户单向获取信息。</p>
+</li>
+<li>
+<p>Web2.0 由用户产生内容，信息双向互动。</p>
+</li>
+<li>
+<p>Web3.0 互联网成为数字枢纽，形成多维度信息交互和语义网。</p>
+</li>
+<li>
+<p>云计算的云指的是通过计算池提供资源。</p>
+</li>
+<li>
+<p>计算池需满足：统一管理和调度、较大的规模、良好的可拓展性（针对计算池）、良好的可伸缩性（针对单一用户）、及时提供、更对的成本。</p>
+</li>
+<li>
+<p>云计算：基于互联网将规模化资源池的计算、存储、开发平台和软件能力提供给用户，实现自动化、低成本、快速提供和灵活伸缩的IT服务。</p>
+</li>
+<li>
+<p>效用计算：将主机资源基于网络出租给用户，并按用户的资源使用量进行收费。</p>
+</li>
+<li>
+<p>传统分布式计算存在的主要问题是没有统一的编程模型，针对不容应用领域，需要相关专业的人员进行复杂的开发，限制了应用。</p>
+</li>
+<li>
+<p>网格计算试图解决的是异构问题，由跨网络、跨组织（虚拟组织）、异构节点构成网络，统一提供计算和存储能力。</p>
+</li>
+<li>
+<p>复本收费：按用户能用的全部内容收取固定费用。</p>
+</li>
+<li>
+<p>云计算使得整个信息产业从传统的产品交付模式转变为服务交付模式，还原网络化信息的自然本质：让复本流动起来，然后按照每一次使用进行收费。</p>
+</li>
+</ul>
+<h3 id="第二章-云计算产业分析">第二章 云计算产业分析<a class="anchor" href="#第二章-云计算产业分析">¶</a></h3>
+<ul>
+<li>互联网的哲学：网络是中立和无控制的，任何人都没有决定权；网络是应用无关的，它的任务就是如何更好的传输数据包。</li>
+<li>互联网的价值体现在使用外部性（Adoption Externality）。实现“胜者全得”的市场。</li>
+<li>万维网&gt;互联网</li>
+<li><img src="https://math.now.sh?inline=%E4%BF%A1%E6%81%AF%E4%BB%B7%E5%80%BC%5Cbegin%7Bcases%7D%E5%85%85%E8%B6%B3%E7%9A%84%E4%BF%A1%E6%81%AF--%3E%E5%85%8D%E8%B4%B9%5C%5C%E7%A8%80%E7%BC%BA%E7%9A%84%E4%BF%A1%E6%81%AF%E6%88%96%E8%80%85%E5%AE%9A%E5%88%B6%E7%9A%84%E4%BF%A1%E6%81%AF--%3E%E6%94%B6%E8%B4%B9%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li>在信息经济中，信息流的方向就是金钱流动的方向。需要注意<strong>注意力经济</strong>和<strong>声誉经济</strong>。</li>
+<li>互联网的信息经济市场是一个多方共存的生态系统，只在某些方面直接进行现金交易。整个市场是同分结合的双层结构：“统”的一层是基础业务平台，是免费生态系统；"分"的一层是多元增值业务，直接进行现金交易。参考免费游戏的运营方式。</li>
+<li>私有云注重的是安全性，公有云侧重性价比。混合云的真正竞争力在于私有云和公有云的无缝集成和协同。</li>
+</ul>
+<h3 id="第三章-云计算技术体系架构">第三章 云计算技术体系架构<a class="anchor" href="#第三章-云计算技术体系架构">¶</a></h3>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BC%96%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BC%96%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0_1.png" alt="云计算编码阅读笔记_1.png"></li>
+<li>云计算系统架构的核心部分是操作系统及其拥有的资源管理功能。主要是分布式技术和虚拟化技术。</li>
+<li>新一代的分布式主要特点是：节点同构且对对单节点可靠性要求不高、节点之间有高速网络互联、系统运行时信令流和数据流分离、针对大规模数据处理进行存储管理优化以及结合数据存储提出创新的计算模型等。</li>
+<li><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BC%96%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BC%96%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0_2.png" alt="云计算编码阅读笔记_2.png"></li>
+<li>虚拟化体现了一种“分裂”的思想，分布式体现了“聚合”的思想。</li>
+<li>IaaS服务主要依托于云计算基础架构层，向外提供基础资源服务，如弹性计算、弹性存储等；PaaS服务主要依托于云计算应用开发与执行环境，向外提供应用开发与运行托管服务；SaaS服务主要通过云计算应用软件层向外提供应用软件服务。只是层次不同，没有必然的上下层关系。</li>
+<li>分布式技术体系包括：分布式文件系统（位置透明性和性能透明性）、分布式数据库、并行计算模型（通过将计算到存储节点的方式完成数据处理任务）、分布式同步（确保系统一致性）等。</li>
+<li>CDN(Content Delivery Network，内容分发网络)位于IP网络与互联网应用之间，将网站内容推送到离用户最近的地方，从而实现用户就近访问，降低时延。关键技术为：用户访问制度、内容缓存管理。  采用同构节点，提供系统冗余，并将业务流与数据流分离，在设计思想上与分布式架构类似。</li>
+<li><img src="https://math.now.sh?inline=CDN%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0%5Cbegin%7Bcases%7D%E5%88%86%E5%8F%91%E6%9C%8D%E5%8A%A1%E7%B3%BB%E7%BB%9F%5C%5C%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%92%8C%E8%B0%83%E5%BA%A6%E7%B3%BB%E7%BB%9F%5C%5C%E8%BF%90%E8%90%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">
+<ul>
+<li>分布服务系统的作用是<strong>实现将内容从内容源中心向边缘推送和存储，承担实际的内容数据流的全网分发工作和面向最终用户的数据请求服务</strong>。最基本的工作单元是Cache设备（缓存服务器）。</li>
+<li>负载均衡是CDN的神经中枢，主要功能是父子啊对所有发起服务请求的用户进行调度访问，确定提供给用户的实际访问地址。</li>
+<li>运营管理系统负责整个系统的维护管理和业务计费等工作。</li>
+</ul>
+</li>
+<li><img src="https://math.now.sh?inline=%E4%BA%91%E8%AE%A1%E7%AE%97%E5%9B%9B%E5%B1%82%E6%9E%B6%E6%9E%84%5Cbegin%7Bcases%7D%E5%BA%95%E5%B1%82%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E8%B5%84%E6%BA%90%EF%BC%88%E5%8D%B3%E2%80%9C%E6%B1%A0%E2%80%9D%E5%8C%96%E7%9A%84%E7%89%A9%E7%90%86%E8%B5%84%E6%BA%90%E5%92%8C%E8%99%9A%E6%8B%9F%E5%8C%96%E8%B5%84%E6%BA%90%EF%BC%89%5C%5C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%88%E8%B4%9F%E8%B4%A3%E5%BA%95%E5%B1%82%E5%9F%BA%E7%A1%80%E8%B5%84%E6%BA%90%E7%9A%84%E7%AE%A1%E7%90%86%E5%92%8C%E8%B0%83%E5%BA%A6%EF%BC%8C%E8%B0%83%E5%BA%A6%E7%B2%92%E5%BA%A6%E5%8C%85%E6%8B%AC%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8C%E8%AE%A1%E7%AE%97%E4%BB%BB%E5%8A%A1%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%89%5C%5C%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%EF%BC%88%E6%94%AF%E6%8C%81%E5%BA%94%E7%94%A8%E7%9A%84%E5%BC%80%E5%8F%91%E5%92%8C%E8%BF%90%E8%A1%8C%EF%BC%89%5C%5C%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%B1%82%EF%BC%88%E5%9F%BA%E4%BA%8E%E5%A4%9A%E7%A7%9F%E6%88%B7%E6%9E%B6%E6%9E%84%E5%92%8CWeb%E6%8A%80%E6%9C%AF%EF%BC%8C%E5%90%91%E7%94%A8%E6%88%B7%E6%8F%90%E4%BE%9B%E4%BA%91%E7%AB%AFSaaS%E5%BA%94%E7%94%A8%EF%BC%89%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li>IaaS核心：虚拟化和资源管理和资源调度</li>
+<li>PaaS核心：分布式系统</li>
+<li>SaaS核心：多租户和Web技术</li>
+<li>DaaS核心：桌面交付协议</li>
+<li>CDN核心：Cache缓存和内容分发调度</li>
+</ul>
+<h3 id="第四章-IaaS及关键实现技术">第四章 IaaS及关键实现技术<a class="anchor" href="#第四章-IaaS及关键实现技术">¶</a></h3>
+<ul>
+<li>
+<p>Guest OS：运行在虚拟机里的操作系统</p>
+</li>
+<li>
+<p>VMM或者Hypervisor：负责管理虚拟机中的软件</p>
+</li>
+<li>
+<p><img src="https://math.now.sh?inline=%E8%99%9A%E6%8B%9F%E5%8C%96%E6%9E%B6%E6%9E%84%5Cbegin%7Bcases%7D%E5%AF%84%E7%94%9F%E6%9E%B6%E6%9E%84%28Hosted%EF%BC%8C%E5%8D%B3VMM%E5%AE%89%E8%A3%85%E5%9C%A8%E5%AE%BF%E4%B8%BB%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%29%5C%5C%E8%A3%B8%E9%87%91%E5%B1%9E%E6%9E%B6%E6%9E%84(Bare-metal%EF%BC%8C%E5%8D%B3VMM%E7%9B%B4%E6%8E%A5%E5%AE%89%E8%A3%85%E5%9C%A8%E7%89%A9%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A)%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+</li>
+<li>
+<p>裸金属架构无法说明VMM能够抛开Host OS运行在硬件之上。Xen的裸金属版本内部包含Domain0其中包含了一个剪裁过的Linux内核。即使是寄生架构的产品，在宿主系统中有一个运行在核心态的驱动程序，直接与物理设备打交道。</p>
+</li>
+<li>
+<p><strong>裸金属架构本身不会给Guest OS的性能带来任何提升。</strong></p>
+</li>
+</ul>
+<h4 id="CPU虚拟化">CPU虚拟化<a class="anchor" href="#CPU虚拟化">¶</a></h4>
+<ul>
+<li>
+<p>虚拟CPU分时复用物理CPU，由VMM为虚拟CPU分配时间片，并同时对虚拟CPU的状态进行管理。</p>
+</li>
+<li>
+<p><img src="https://math.now.sh?inline=x86%E6%8C%87%E4%BB%A4%E7%89%B9%E6%9D%83%E7%BA%A7%5Cbegin%7Bcases%7D%E7%AC%AC0%E7%BA%A7%EF%BC%9A%E5%85%B7%E6%9C%89%E6%9C%80%E9%AB%98%E7%9A%84%E7%89%B9%E6%9D%83%EF%BC%8C%E7%94%A8%E4%BA%8E%E8%BF%90%E8%A1%8C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%5C%5C%E7%AC%AC1%E7%BA%A7%5C%5C%E7%AC%AC2%E7%BA%A7%5C%5C%E7%AC%AC3%E7%BA%A7%EF%BC%9A%E6%9C%80%E4%BD%8E%E7%9A%84%E7%89%B9%E6%9D%83%E7%BA%A7%EF%BC%8C%E7%94%A8%E4%BA%8E%E8%BF%90%E8%A1%8C%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+</li>
+<li>
+<p>CPU特权指令的虚拟化：模拟执行、操作系统辅助、<strong>硬件辅助</strong>（主流）</p>
+<ul>
+<li>
+<p><img src="https://math.now.sh?inline=%E6%A8%A1%E6%8B%9F%E6%89%A7%E8%A1%8C%5Cbegin%7Bcases%7D%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C%28%E8%AF%BB%E5%8F%96%E6%BA%90%E6%8C%87%E4%BB%A4%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90%EF%BC%8C%E6%89%A7%E8%A1%8C%E6%93%8D%E4%BD%9C%EF%BC%8C%E9%80%90%E6%9D%A1%29%5C%5C%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%BF%BB%E8%AF%91(%E5%B0%86%E4%B8%80%E6%AE%B5%E6%BA%90%E6%8C%87%E4%BB%A4%E7%BF%BB%E8%AF%91%E6%88%90%E8%A2%AB%E6%89%A7%E8%A1%8C%E7%9A%84%E7%9B%AE%E6%A0%87%E6%8C%87%E4%BB%A4%E5%B9%B6%E4%BF%9D%E5%AD%98%EF%BC%8C%E5%86%B2%E9%87%8D%E5%A4%8D%E4%BD%BF%E7%94%A8)%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+</li>
+<li>
+<p>模拟执行适用于虚拟化CPU和本地物理CPU的指令集不同的应用场景。对特权指令的模拟执行需要<strong>较高的性能开销</strong>。是完全虚拟化。</p>
+</li>
+<li>
+<p>基于操作系统辅助的CPU虚拟化直接在Guest OS进行修改，将其与特权指令执行相关的操作调用Hypercall（类似系统调用，但并不是针对操作系统进行操作的，而是直接与VMM通信，并在其管理下执行特权指令）的形式改写。提供的是与真实的物理设备有一定差异的CPU指令集接口，然后通过改写Guest OS调用该接口，使Guest OS的相关操作可以直接在底层硬件上实现。最大优点：有效的使Guest OS的运行获得与其在本地物理CPU上直接执行相接近的性能。最大缺点：需要对Guest OS进行改进，可移植性差。早期Xen所使用的技术。</p>
+</li>
+<li>
+<p>上述两种方法都是因为传统的X86CPU不支持硬件虚拟化，只能采用软件层面的虚拟化。</p>
+</li>
+<li>
+<p>基于硬件辅助的CPU虚拟化得益于现行的X86CPU支持硬件层面的虚拟化。</p>
+</li>
+<li>
+<p><img src="https://math.now.sh?inline=X86CPU%E7%A1%AC%E4%BB%B6%E8%BE%85%E5%8A%A9%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF%5Cbegin%7Bcases%7DIntel%5C%20VT-x%5C%5CAMD%5C%20SVM%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+</li>
+<li>
+<p><img src="https://math.now.sh?inline=Intel%5Cquad%20VT-x--%3EVMX%E5%A4%84%E7%90%86%E6%A8%A1%E5%BC%8F%5Cbegin%7Bcases%7DVMX%5C%20root%20%5C%20operation%5C%5CVMX%5C%20non-root%5C%20operation%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<ul>
+<li>
+<p>VMX root operation：专为VMM，行为与不带VT-x的技术的x86CPU相同</p>
+</li>
+<li>
+<p>VMX non-root operation：提供了一个在VMM控制下用于支撑虚拟机运行的CPU环境。</p>
+</li>
+<li>
+<p>都具有四个特权级</p>
+</li>
+<li>
+<p>VMX root operation-&gt;VMX non-root operation：VM exit</p>
+</li>
+<li>
+<p>VMX non-root operation-&gt;VMX root operation：VM entry</p>
+</li>
+<li>
+<pre class="mermaid">      graph TD
+A[CPU正常模式启动]--&gt;|vmxon指令|B[CPU进入VMX模式]
+B--&gt;C[VMM执行VMX root operation]
+C--&gt;D[VMM为虚拟机设置环境]
+D--&gt;|vmlaunch指令|E[启动虚拟机]
+E--&gt;F[CPU处于VMX non-root operation状态,并由虚拟机执行VMX non-root operation]
+F--&gt;K{虚拟机管理相关操作}
+K--&gt;G[虚拟机将CPU控制权让给VMM]
+G--&gt;|vmcall指令|H[CPU进入VMX root operation]
+H--&gt;|vmresume指令|I[重新唤起虚拟机]
+I--&gt;F
+F--&gt;L{退出VMX模式}
+L--&gt;J[执行vmxoff指令]
+J--&gt;A
+Z[VT-x应用过程]</pre>
+</li>
+<li>
+<p>VMM位于比第0级更高的特权级，且不会影响Guest OS对特权指令的执行。</p>
+<p>优点：有效避免特权指令模拟执行产生的性能消耗，以及操作系统辅助虚拟化对所需的Guest OS的改写。</p>
+<p>缺点：在VMX模式进行模式切换时会消耗大量的 CPU周期。</p>
+<p>发展方向：减少每次切换消耗的周期数以及切换次数。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="内存虚拟化">内存虚拟化<a class="anchor" href="#内存虚拟化">¶</a></h4>
+<ul>
+<li><img src="https://math.now.sh?inline=%E5%86%85%E5%AD%98%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E7%A7%8D%E7%B1%BB%5Cbegin%7Bcases%7D%E6%9C%BA%E5%99%A8%E5%9C%B0%E5%9D%80%28MA%29%EF%BC%9A%E7%9C%9F%E5%AE%9E%E7%A1%AC%E4%BB%B6%E7%9A%84%E6%9C%BA%E5%99%A8%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%9C%A8%E5%9C%B0%E5%9D%80%E6%80%BB%E7%BA%BF%E4%B8%8A%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E7%9A%84%E5%9C%B0%E5%9D%80%E4%BF%A1%E5%8F%B7%5C%5C%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80(GPA)%3A%E7%BB%8F%E8%BF%87VMM%E6%8A%BD%E8%B1%A1%E5%90%8E%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9C%8B%E5%88%B0%E7%9A%84%E4%BC%AA%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%5C%5C%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80(VA)%EF%BC%9AGuest%20OS%E6%8F%90%E4%BE%9B%E7%BB%99%E5%85%B6%E5%BA%94%E7%94%A8%E4%BD%BF%E7%94%A8%E7%9A%84%E7%BA%BF%E6%80%A7%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li>操作系统的内存管理单元(MMU)只能完成一次虚拟地址到物理地址的映射。</li>
+<li><img src="https://math.now.sh?inline=VMM%E7%9A%84%E5%A4%8D%E5%90%88%E6%98%A0%E5%B0%84%E6%96%B9%E5%BC%8F%5Cbegin%7Bcases%7DMMU%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%28MMU%5C%20%20Paravirtualization%29%3A%E7%9B%B4%E6%8E%A5%E5%B0%86%E6%98%A0%E5%B0%84%E5%85%B3%E7%B3%BBf*g%E7%9B%B4%E6%8E%A5%E5%86%99%E5%85%A5Guest%20OS%E9%A1%B5%E8%A1%A8%E4%B8%AD%5C%5C%E5%BD%B1%E5%AD%90%E9%A1%B5%E8%A1%A8%3A%E5%B0%86f*g%E7%9A%84%E6%98%A0%E5%B0%84%E5%85%B3%E7%B3%BB%E5%86%99%E5%85%A5%E5%BD%B1%E5%AD%90%E9%A1%B5%E8%A1%A8%EF%BC%8CGuest%20OS%E7%9A%84%E9%A1%B5%E8%A1%A8%E5%86%85%E5%AE%B9%E4%BF%9D%E6%8C%81%E4%B8%8D%E5%8F%98VMM%E5%BD%B1%E5%AD%90%E9%A1%B5%E8%A1%A8%E5%86%99%E5%85%A5MMU%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li>影子页表的缺陷：时间上，Guest OS构建页表时不会主动通知VMM，只能在Guest OS发生缺页中断时补全影子页表；在空间上，每台虚拟机的Guest OS通常都会在其上运行的每个进程创建一套页表系统，空间开销随着线程数量的增多而增大。</li>
+<li>对于上述问题的解决方法是采用影子页表缓存技术。VMM在内存中维护部分最近使用的影子页表，只有当影子页表在缓存中无法命中的时候，才创建新的影子页表。</li>
+</ul>
+<h4 id="I-O虚拟化">I/O虚拟化<a class="anchor" href="#I-O虚拟化">¶</a></h4>
+<ul>
+<li><img src="https://math.now.sh?inline=I%2FO%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF%5Cbegin%7Bcases%7D%E5%85%A8%E8%99%9A%E6%8B%9F%E5%8C%96%3A%E5%AF%B9%E8%AE%BE%E5%A4%87%E8%BF%9B%E8%A1%8C%E6%A8%A1%E6%8B%9F%EF%BC%8CGuest%20OS%E9%99%B7%E5%85%A5VMM%2CVMM%E8%A7%A3%E6%9E%90%E5%B9%B6%E6%98%A0%E5%B0%84%E5%88%B0%E5%AE%9E%E9%99%85%E7%89%A9%E7%90%86%E8%AE%BE%E5%A4%87%5C%5C%E5%8D%8A%E8%99%9A%E6%8B%9F%E5%8C%96%3A%E5%9C%A8Guest%20OS%E4%B8%AD%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9FI%2FO%E5%89%8D%E7%AB%AF%E9%A9%B1%E5%8A%A8%EF%BC%8CVMM%E6%8F%90%E4%BE%9B%E5%90%8E%E7%AB%AF%E9%A9%B1%E5%8A%A8%E3%80%82%E5%89%8D%E7%AB%AF%E9%A9%B1%E5%8A%A8%E6%8E%A5%E6%94%B6%E8%AF%B7%E6%B1%82%E9%80%9A%E8%BF%87%5C%5C%20VMM%E5%AE%9A%E4%B9%89%E7%9A%84%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E4%B8%8E%E5%90%8E%E7%AB%AF%E9%A9%B1%E5%8A%A8%E9%80%9A%E4%BF%A1%EF%BC%8C%E5%90%8E%E7%AB%AF%E9%A9%B1%E5%8A%A8%E9%AA%8C%E8%AF%81%E5%85%B6%E6%9C%89%E6%95%88%E6%80%A7%EF%BC%8C%E5%B9%B6%E6%98%A0%E5%B0%84%E5%88%B0%E7%89%A9%E7%90%86%E8%AE%BE%E5%A4%87%E4%B8%8A%E3%80%82%E5%BE%80%E5%BE%80%E5%92%8C%E5%9F%BA%E4%BA%8E%5C%5C%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BE%85%E5%8A%A9%E7%9A%84CPU%E8%BE%85%E5%8A%A9%E8%99%9A%E6%8B%9F%E5%8C%96%E4%B8%80%E5%90%8C%E4%BD%BF%E7%94%A8%E3%80%82%5C%5C%E8%BD%AF%E4%BB%B6%E6%A8%A1%E6%8B%9F%3AVMM%E6%8D%95%E6%8D%89I%2FO%E8%AF%B7%E6%B1%82%E8%BD%AC%E4%BA%A4%E7%BB%99Host%20OS%E7%9A%84%E7%94%A8%E6%88%B7%E6%80%81%E8%BF%9B%E7%A8%8B%EF%BC%8C%E7%84%B6%E5%90%8E%E9%80%9A%E8%BF%87%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E6%9D%A5%E6%A8%A1%E6%8B%9F%E8%AE%BE%E5%A4%87%E7%9A%84%E8%A1%8C%E4%B8%BA%EF%BC%8C%5C%5C%20%E6%80%A7%E8%83%BD%E4%BD%8E%EF%BC%8C%E5%92%8CCPU%E5%9F%BA%E4%BA%8E%E6%A8%A1%E6%8B%9F%E6%89%A7%E8%A1%8C%E7%9A%84%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF%E4%B8%80%E5%90%8C%E4%BD%BF%E7%94%A8%5C%5C%E7%9B%B4%E6%8E%A5%E5%88%92%E5%88%86%3A%E5%B0%86%E7%89%A9%E7%90%86I%2FO%E8%AE%BE%E5%A4%87%E5%88%86%E9%85%8D%E7%BB%99%E6%8C%87%E5%AE%9A%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%8C%E5%BE%80%E5%BE%80%E4%B8%8ECPU%E5%9F%BA%E4%BA%8E%E7%A1%AC%E4%BB%B6%E8%BE%85%E5%8A%A9%E7%9A%84%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF%E4%B8%80%E5%90%8C%E4%BD%BF%E7%94%A8%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+</ul>
+<h4 id="网卡虚拟化">网卡虚拟化<a class="anchor" href="#网卡虚拟化">¶</a></h4>
+<ul>
+<li><img src="https://math.now.sh?inline=%E7%BD%91%E5%8D%A1%E8%99%9A%E6%8B%9F%E5%8C%96%5Cbegin%7Bcases%7D%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%3A%E9%93%BE%E6%8E%A5%E7%89%A9%E7%90%86%E6%9C%BA%E7%9A%84%E7%89%A9%E7%90%86%E7%BD%91%E5%8D%A1%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E7%89%A9%E7%90%86%E7%BD%91%E5%8D%A1%5C%5C%E8%99%9A%E6%8B%9F%E7%BD%91%E6%A1%A5%3A%E4%BD%BF%E5%A4%9A%E5%BC%A0%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%E5%9C%A8%E5%90%8C%E4%B8%80%E5%8F%B0%E7%89%A9%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E5%85%B1%E4%BA%AB%E4%B8%80%E5%9D%97%E7%89%A9%E7%90%86%E7%BD%91%E5%8D%A1%E7%9A%84%E5%90%8C%E6%97%B6%E5%AF%B9%E5%A4%96%E4%BB%8D%E7%84%B6%E8%A1%A8%E7%8E%B0%E4%B8%BA%E5%A4%9A%E5%BC%A0%E7%89%A9%E7%90%86%E7%BD%91%E5%8D%A1%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+</ul>
+<h4 id="存储虚拟化">存储虚拟化<a class="anchor" href="#存储虚拟化">¶</a></h4>
+<ul>
+<li><img src="https://math.now.sh?inline=%E5%AD%98%E5%82%A8%E5%9F%9F%5Cbegin%7Bcases%7D%E6%96%87%E4%BB%B6%2F%E8%AE%B0%E5%BD%95%E5%B1%82%3A%E4%B8%8A%E5%B1%82%E5%BA%94%E7%94%A8%E4%B8%8E%E5%AD%98%E5%82%A8%E8%B5%84%E6%BA%90%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8E%A5%E5%8F%A3%5C%5C%E5%9D%97%E8%81%9A%E5%90%88%E5%B1%82%3A%E5%B0%86%E5%A4%9A%E4%B8%AA%E5%BA%95%E5%B1%82%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87%E7%9A%84%E5%AD%98%E5%82%A8%E8%B5%84%E6%BA%90%E5%9D%97%E8%81%9A%E5%90%88%E4%B8%BA%E8%83%BD%E5%A4%9F%E8%A2%AB%E7%BB%9F%E4%B8%80%E7%9A%84%E5%AD%98%E5%82%A8%E8%B5%84%E6%BA%90%5C%5C%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87%E5%B1%82%3A%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%9D%97%E5%AD%98%E5%82%A8%E7%9A%84%E7%89%A9%E7%90%86%E4%BD%8D%E7%BD%AE%E8%BF%9B%E8%A1%8C%E8%AF%86%E5%88%AB%E5%B9%B6%E8%BF%9B%E8%A1%8C%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E4%B8%BA%E6%96%87%E4%BB%B6%2F%E8%AE%B0%E5%BD%95%E5%B1%82%E6%8F%90%E4%BE%9B%E6%8E%A5%E5%8F%A3%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">
+<ul>
+<li>
+<p><img src="https://math.now.sh?inline=%E7%A3%81%E7%9B%98%E7%9A%84%E5%AD%98%E5%82%A8%E4%BF%A1%E6%81%AF%5Cbegin%7Bcases%7D%E6%9F%B1%E9%9D%A2%28Cluster%29%5C%5C%E7%A3%81%E5%A4%B4(Head)%5C%5C%E6%89%87%E5%8C%BA(Section)%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+</li>
+<li>
+<p>存储设备的虚拟化体现在磁盘固件将CHS地址信息转换成具有连续编号的逻辑块供上层使用，同时保证了磁盘的零缺陷。</p>
+</li>
+<li>
+<p><img src="https://math.now.sh?inline=%E5%9D%97%E8%81%9A%E5%90%88%E5%B1%82%E5%AD%98%E5%82%A8%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF%5Cbegin%7Bcases%7D%E5%B8%A6%E5%86%85%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%9A%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8E%A7%E5%88%B6%E5%99%A8%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87%E7%9A%84%E8%B7%AF%E5%BE%84%E4%B8%8A%5C%5C%E5%B8%A6%E5%A4%96%E8%99%9A%E6%8B%9F%E5%8C%96%EF%BC%9A%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8E%A7%E5%88%B6%E5%99%A8%E5%9C%A8%E4%BC%A0%E8%BE%93%E8%B7%AF%E5%BE%84%E4%B9%8B%E5%A4%96%2C%E6%AF%8F%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%9C%80%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E5%8C%96%E4%BB%A3%E7%90%86%E7%A8%8B%E5%BA%8F%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+</li>
+<li>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">DAS</th>
+<th style="text-align:center">SAN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">直接附加存储</td>
+<td style="text-align:center">存储区域网络</td>
+</tr>
+<tr>
+<td style="text-align:center">只能访问直接挂载的存储资源</td>
+<td style="text-align:center">访问存储网络的所有存储资源</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="IaaS云计算管理平台">IaaS云计算管理平台<a class="anchor" href="#IaaS云计算管理平台">¶</a></h4>
+<ul>
+<li><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BC%96%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BC%96%E7%A0%81%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0_3.png" alt="云计算编码阅读笔记_3.png"></li>
+<li>将一台没有运行的虚拟机部署到一台物理机上并使其运行起来，称之为初次部署。</li>
+<li>将一台正在运行的虚拟机迁移到另一台物理机上，称之为迁移。</li>
+<li>服务器虚拟化本质上是一种纯软件的技术，VMM可以认为是服务器“操作系统”的程序，虚拟机可以认为是该“操作系统”上的一种特定“进程”。</li>
+<li>选择合理物理服务器的因素<img src="https://math.now.sh?inline=%5Cbegin%7Bcases%7D%E5%B0%BD%E5%8F%AF%E8%83%BD%E4%B8%8D%E5%90%AF%E5%8A%A8%E6%96%B0%E7%9A%84%E7%89%A9%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%5C%5C%E5%B0%BD%E5%8F%AF%E8%83%BD%E8%AE%A9CPU%E5%92%8CI%2FO%E8%B5%84%E6%BA%90%E4%BA%92%E8%A1%A5%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li>通常系统模板会自带一个软件，使其在操作系统第一次启东市从服务端动态获得IP和主机名。关机后释放IP，主机名保留。</li>
+<li>要实现跨物理机的实施迁移，一般来说，需要虚拟机自身能够支持迁移功能且物理服务器之间有共享存储。</li>
+<li>虚拟机实时迁移时产生内存中的“脏”读写，通过重复迁移来解决。直至最后一次迁移的脏数据非常少，停顿时间非常短，对于业务和应用来说基本可以忽略不计。</li>
+<li><img src="https://math.now.sh?inline=%E5%BC%B9%E6%80%A7%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%BC%8F%5Cbegin%7Bcases%7D%E8%B5%84%E6%BA%90%E5%90%91%E4%B8%8A%2F%E4%B8%8B%E6%89%A9%E5%B1%95%28Scale%20Up%2FDowm%29%2C%E5%8D%B3%E5%8A%A8%E6%80%81%E7%9A%84%E5%A2%9E%E5%A4%A7%2F%E7%BC%A9%E5%B0%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%85%8D%E7%BD%AE(%E5%B0%8F%E5%9E%8B%E6%9C%BA)%5C%5C%E8%B5%84%E6%BA%90%E5%90%91%E5%A4%96%2F%E6%89%A9%E5%B1%95(Scale%20Out%2FIn)%EF%BC%8C%E5%8D%B3%E5%8A%A8%E6%80%81%E7%9A%84%E5%88%9B%E5%BB%BA%2F%E5%87%8F%E5%B0%91%E8%99%9A%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B0%E9%87%8F%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li>为实现弹性能力提供，需设定资源监控阈值（包括监控项目和阈值）、弹性资源提供策略（包括弹性资源提供模式、资源扩展规模等）。</li>
+<li><img src="https://math.now.sh?inline=%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9B%91%E6%8E%A7%E7%9A%84%E7%9B%AE%E7%9A%84%E4%B8%8E%E5%A4%8D%E6%9D%82%E6%80%A7%5Cbegin%7Bcases%7D%E7%8A%B6%E6%80%81%E7%9B%91%E6%8E%A7%EF%BC%9A%E7%9B%91%E6%8E%A7%E6%89%80%E6%9C%89%E7%89%A9%E7%90%86%E8%B5%84%E6%BA%90%E5%92%8C%E8%99%9A%E6%8B%9F%E8%B5%84%E6%BA%90%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81%5C%5C%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E5%92%8C%E4%B8%8E%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9B%B8%E5%85%B3%E7%9A%84%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%5C%5C%E5%AE%B9%E9%87%8F%E7%9B%91%E6%8E%A7%EF%BC%9A%E5%AE%8F%E8%A7%82%E8%A7%92%E5%BA%A6%E7%9A%84%E9%95%BF%E6%9C%9F%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%5C%5C%E5%AE%89%E5%85%A8%E7%9B%91%E6%8E%A7%5Cbegin%7Bcases%7D%E4%BC%A0%E7%BB%9F%E5%AE%89%E5%85%A8%E7%9B%91%E6%8E%A7%5C%5C%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%94%93%E7%94%9F%E6%B4%BB%E5%8A%A8%E7%9B%91%E6%8E%A7%5C%5C%E5%90%88%E8%A7%84%E7%9B%91%E6%8E%A7%5C%5C%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E7%9B%91%E6%8E%A7%5Cend%7Bcases%7D%5C%5C%E4%BD%BF%E7%94%A8%E9%87%8F%E5%BA%A6%E9%87%8F%EF%BC%9A%E5%BA%A6%E9%87%8F%E4%B8%8D%E5%90%8C%E7%BB%84%E7%BB%87%E3%80%81%E5%9B%A2%E4%BD%93%E3%80%81%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E8%B5%84%E6%BA%90%E5%92%8C%E6%9C%8D%E5%8A%A1%E7%9A%84%E6%83%85%E5%86%B5%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li><img src="https://math.now.sh?inline=%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E7%9B%91%E6%8E%A7%E6%96%B9%E6%B3%95%5Cbegin%7Bcases%7D%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%5C%5C%E5%8C%85%E5%97%85%E6%8E%A2%5C%5C%E6%8E%A2%E9%92%88%E9%87%87%E9%9B%86%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></li>
+<li><strong>云资源调度策略的方向1：对应用的资源分配进行分析和预测。在运行时动态的捕捉各个应用在不同时段的执行行为和资源需求，将这两方面的信息进行分析以发现它们各自内在以及彼此之间可能存在的逻辑关联，进而利用发掘出的关联关系进行应用的后续行为和资源需求的预测，并按照预测结果为其提前准备资源调度方案。</strong></li>
+<li><strong>云资源调度策略的方向2：鉴于“云”是分布式计算和存储架构，所以网络因素也相当重要，需要采用位置相关的调度策略。考虑用户和资源之间的网络情况以及分配给同一应用的资源之间的网络情况。</strong></li>
+<li><strong>云资源调度策略的方向3：注重负载均衡，可以体现在计算密集型和存储密集型应用上，通过合理的配比将其部署到特性不同的服务器上。扬长避短</strong></li>
+<li><strong>云资源调度策略的方向4：基于能源的角度考虑，将多个运行在不同服务器上的应用在满足SLA的前提下，迁移至一台服务器上，进而减少不必要的能耗，降低运营成本。</strong></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">不二</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://buerlog.top/2019/09/06/yun-ji-suan/yun-ji-suan-bian-ma-yue-du-bi-ji/">http://buerlog.top/2019/09/06/yun-ji-suan/yun-ji-suan-bian-ma-yue-du-bi-ji/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">不二</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97%E7%BC%96%E7%A0%81/">
+                                    <span class="chip bg-color">云计算编码</span>
+                                </a>
+                            
+                                <a href="/tags/Book/">
+                                    <span class="chip bg-color">Book</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/09/23/suan-fa/gui-yi-hua-suan-fa/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/归一化算法.jpg" class="responsive-img" alt="归一化算法">
+                        
+                        <span class="card-title">归一化算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">数据分析</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/04/cheng-xu-she-ji/shu-ju-fen-xi/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/数据分析.jpg" class="responsive-img" alt="数据分析">
+                        
+                        <span class="card-title">数据分析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    程序设计
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Anaconda/">
+                        <span class="chip bg-color">Anaconda</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">数据分析</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 不二博客<br />'
+            + '文章作者: 不二<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4, h5, h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4, h5, h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="song"
+                   id="1901371647"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2022</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">不二</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">220.2k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "5";
+                    var startDate = "25";
+                    var startHour = "17";
+                    var startMinute = "20";
+                    var startSecond = "53";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/weiyouwozuiku" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:weiyouwozuiku@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1104891151" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1104891151" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/he-he-9-35-47" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/he-he-9-35-47" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <script src='https://unpkg.com/mermaid@8.14.0/dist/mermaid.min.js'></script>
+    <script>
+      if (window.mermaid) {
+        mermaid.initialize({theme: 'forest'});
+      }
+    </script>
+  
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?943a68f473d421f2d98228f74edc63d0";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="150"
+        src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

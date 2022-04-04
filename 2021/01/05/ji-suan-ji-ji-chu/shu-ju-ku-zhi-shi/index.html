@@ -1,0 +1,1775 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据库知识, 博客">
+    <meta name="description" content="个人学习储备知识与经验的秘密基地">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDXT8Y4CLW"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-KDXT8Y4CLW');
+</script>
+
+
+    <title>数据库知识 | 不二博客</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">不二博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">不二博客</div>
+        <div class="logo-desc">
+            
+            个人学习储备知识与经验的秘密基地
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/weiyouwozuiku" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/weiyouwozuiku" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/计算机基础/db.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据库知识</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                计算机基础
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-01-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-10-31
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    17 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/prism/prism.css">
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="概要">概要<a class="anchor" href="#概要">¶</a></h2>
+<p>一个数据库的组成主要可以分为以下几个模块：</p>
+<ul>
+<li>存储（文件系统）</li>
+<li>程序实例
+<ul>
+<li>存储管理</li>
+<li>缓存机制（淘汰机制）</li>
+<li>SQL解析</li>
+<li>日志管理</li>
+<li>权限划分</li>
+<li>容灾机制</li>
+<li>索引管理</li>
+<li>锁管理</li>
+</ul>
+</li>
+</ul>
+<h2 id="ACID四原则">ACID四原则<a class="anchor" href="#ACID四原则">¶</a></h2>
+<p>事务具有四个特性：原子性、一致性、隔离性和持久性。</p>
+<ul>
+<li>原子性：事务是数据库的逻辑工作单位，不可分割，事务中包含的各操作要么都做，要么都不做。</li>
+<li>一致性：事务执行的结果必须是使数据库从一个一致性状态变到另一个一致性状态。因此当数据库只包含成功事务提交的结果时，就说数据库处于一致性状态。如果数据库系统运行中发生故障，有些事务尚未完成就被迫中断，这些未完成事务对数据库所做的修改有一部分已写入物理数据库，这时数据库就处于一种不正确的状态，或者说是 不一致的状态。</li>
+<li>隔离性：一个事务的执行不能其它事务干扰。即一个事务内部的操作及使用的数据对其它并发事务是隔离的，并发执行的各个事务之间不能互相干扰。</li>
+<li>持久性：指一个事务一旦提交，它对数据库中的数据的改变就应该是永久性的，不能回滚。接下来的其它操作或故障不应该对其执行结果有任何影响。</li>
+</ul>
+<h2 id="SQL">SQL<a class="anchor" href="#SQL">¶</a></h2>
+<p><img src="https://math.now.sh?inline=DBMS%E7%A7%8D%E7%B1%BB%20%5Cbegin%7Bcases%7D%20%E5%B1%82%E6%AC%A1%E6%95%B0%E6%8D%AE%E5%BA%93%28HDB%29%3A%E4%BD%BF%E7%94%A8%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E8%BF%9B%E8%A1%8C%E8%A1%A8%E7%A4%BA%20%5C%5C%20%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93(RDB)%3A%E7%94%B1%E8%A1%8C%E5%88%97%E7%BB%84%E6%88%90%E7%9A%84%E4%BA%8C%E7%BB%B4%E8%A1%A8%20%5C%5C%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E5%BA%93(OODB)%3A%E6%8A%8A%E6%95%B0%E6%8D%AE%E4%BB%A5%E5%8F%8A%E5%AF%B9%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C%E9%9B%86%E5%90%88%E8%B5%B7%E6%9D%A5%E4%BB%A5%E5%AF%B9%E8%B1%A1%E4%B8%BA%E5%8D%95%E4%BD%8D%E8%BF%9B%E8%A1%8C%E7%AE%A1%E7%90%86%20%5C%5C%20%20XML%E6%95%B0%E6%8D%AE%E5%BA%93%20%5C%5C%20%E9%94%AE%E5%80%BC%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F(KVS)%3A%E5%8D%95%E7%BA%AF%E4%BF%9D%E5%AD%98%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%BB%E9%94%AE%E5%92%8C%E5%80%BC%20%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<p><img src="https://math.now.sh?inline=SQl%E7%A7%8D%E7%B1%BB%20%5Cbegin%7Bcases%7D%20DDL%20%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80%20%5C%5C%20DML%20%E6%95%B0%E6%8D%AE%E6%93%8D%E7%BA%B5%E8%AF%AD%E8%A8%80%20%5C%5C%20DCL%E6%95%B0%E6%8D%AE%E6%8E%A7%E5%88%B6%E8%AF%AD%E8%A8%80%20%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<p>SQL书写规则：</p>
+<ul>
+<li>以分号结尾</li>
+<li>SQL不区分关键词的大小写，插入到表中的数据区分大小写</li>
+<li>推荐关键字大写，表名的首字母大写，其余(列名等)小写</li>
+<li>常数用单引号进行包裹</li>
+<li>单词之间需要使用半角空格或者换行符进行分隔</li>
+</ul>
+<h3 id="数据库管理">数据库管理<a class="anchor" href="#数据库管理">¶</a></h3>
+<p>创建数据库：<code>CREATE DATABASE &lt;数据库名称&gt;;</code></p>
+<p>创建表：<code>CREATE TABLE &lt;表名&gt; (&lt;列名&gt; &lt;数据类型&gt; &lt;该类所需约束&gt;,...,&lt;该表的约束1&gt;，&lt;该表的约束2&gt;);</code></p>
+<p>删除表：<code>DROP TABLE &lt;表名&gt;;</code></p>
+<p>表定义的更新：</p>
+<ul>
+<li>添加列：<code>ALTER TABLE &lt;表名&gt; ADD COLUMN &lt;列名&gt; &lt;列类型&gt;;</code> Oracle和SQL Server中不用写COLUMN。，Oracle可以<code>ALTER TABLE &lt;表名&gt; ADD （ &lt;列名&gt;， &lt;列名&gt;，……）；</code></li>
+<li>删除列：<code>ALTER TABLE &lt;表名&gt; DROP COLUMN &lt;列名&gt;;</code>Oracle的特殊同上。</li>
+</ul>
+<p>只能使用半角英文字母（开头）、数字、下划线作为数据库、表、列的名称。</p>
+<p>同一数据库表不能重名，同一个表里列也不能重名。</p>
+<p><img src="https://math.now.sh?inline=%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%20%5Cbegin%7Bcases%7D%20INTEGER%3A%E6%95%B4%E6%95%B0%EF%BC%8C%E9%9D%9E%E5%B0%8F%E6%95%B0%20%5C%5C%20CHAR%EF%BC%88%E5%9C%A8%E6%8B%AC%E5%8F%B7%E4%B8%AD%E6%8C%87%E5%AE%9A%E5%AD%98%E5%82%A8%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6%EF%BC%8C%E4%B8%8D%E5%90%8C%E7%9A%84%0ARDBSM%E4%B8%AD%E5%8F%AF%E8%83%BD%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%AA%E6%95%B0%E4%B9%9F%E5%8F%AF%E8%83%BD%E6%98%AF%E5%AD%97%E8%8A%82%E9%95%BF%E5%BA%A6%EF%BC%89%5C%5C%20VARCHAR%EF%BC%9A%E5%90%8CCHAR%EF%BC%8C%E4%BD%86%E6%98%AF%E4%B8%8D%E6%98%AF%E5%AE%9A%E9%95%BF%EF%BC%8C%E9%9C%80%E8%A6%81%E7%BB%99%E5%AE%9A%E9%95%BF%E5%BA%A6%2C%E4%B8%8D%E4%BC%9A%E7%94%A8%E5%8D%8A%E8%A7%92%E7%9A%84%E7%A9%BA%E6%A0%BC%E8%BF%9B%E8%A1%8C%E8%A1%A5%E4%BD%8D%28Oracle%E4%B8%AD%E4%BD%BF%E7%94%A8VARCHAR2%29%20%5C%5C%20DATE%3A%E5%AD%98%E5%82%A8%E6%97%A5%E6%9C%9F%20%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<p>对于<code>Mysql</code>来说，时间类型如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">时间类型</th>
+<th style="text-align:center">占用空间</th>
+<th style="text-align:center">日期格式</th>
+<th style="text-align:center">最小值</th>
+<th style="text-align:center">最大值</th>
+<th style="text-align:center">零值表示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">DATETIME</td>
+<td style="text-align:center">8 bytes</td>
+<td style="text-align:center">YYYY-MM-DD HH:MM:SS</td>
+<td style="text-align:center">1000-01-01 00:00:00</td>
+<td style="text-align:center">9999-12-31 23:59:59</td>
+<td style="text-align:center">0000-00-00 00:00:00</td>
+</tr>
+<tr>
+<td style="text-align:center">TIMESTAMP</td>
+<td style="text-align:center">4 bytes</td>
+<td style="text-align:center">YYYY-MM-DD HH:MM:SS</td>
+<td style="text-align:center">19700101080001</td>
+<td style="text-align:center">2038 年的某个时刻</td>
+<td style="text-align:center">00000000000000</td>
+</tr>
+<tr>
+<td style="text-align:center">DATE</td>
+<td style="text-align:center">4 bytes</td>
+<td style="text-align:center">YYYY-MM-DD</td>
+<td style="text-align:center">1000-01-01</td>
+<td style="text-align:center">9999-12-31</td>
+<td style="text-align:center">0000-00-00</td>
+</tr>
+<tr>
+<td style="text-align:center">TIME</td>
+<td style="text-align:center">3 bytes</td>
+<td style="text-align:center">HH:MM:SS</td>
+<td style="text-align:center">-838:59:59</td>
+<td style="text-align:center">838:59:59</td>
+<td style="text-align:center">00:00:00</td>
+</tr>
+<tr>
+<td style="text-align:center">YEAR</td>
+<td style="text-align:center">1 bytes</td>
+<td style="text-align:center">YYYY</td>
+<td style="text-align:center">1901</td>
+<td style="text-align:center">2155</td>
+<td style="text-align:center">0000</td>
+</tr>
+</tbody>
+</table>
+<p>一般建表时候，创建时间用datetime，更新时间用timestamp。</p>
+<p>数据表重命名：</p>
+<ul>
+<li>Oracle、PostgreSQL：<code>ALTER TABLE &lt;表名&gt; RENAME TO &lt;新的表名&gt;</code></li>
+<li>DB2：<code>RENAME TABLE &lt;表名&gt; TO &lt;新的表名&gt;</code></li>
+<li>SQL SERVER:<code>sp_rename '表名','新的表名'</code></li>
+<li>Mysql:<code>RENAME TABLE &lt;表名&gt; TO &lt;新的表名&gt;</code></li>
+</ul>
+<h3 id="SELECT语句">SELECT语句<a class="anchor" href="#SELECT语句">¶</a></h3>
+<p>基本语法：<code>SELECT &lt;列名&gt;,... FROM &lt;表名&gt;</code>。列名之间用逗号分割。</p>
+<p>使用<code>*</code>进行select无法设定列的显示顺序，按照CREATE TABLE语句的定义顺序。</p>
+<p>插入空行会导致执行错误。</p>
+<p>使用<code>AS</code>为列设置别名，格式如下：<code>SELECT &lt;列名&gt; AS &lt;别名&gt;...</code>。<strong>别名可以使用中文，但是要用双引号包裹。</strong></p>
+<p>可以在<code>SELECT</code>语句中书写常量，如下所示。这些常量会显示在每条查询出的结果的前面。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token string">'商品'</span> <span class="token keyword">AS</span> string<span class="token punctuation">,</span> <span class="token number">38</span> <span class="token keyword">AS</span> number<span class="token punctuation">,</span> <span class="token string">'2009-02-24'</span> <span class="token keyword">AS</span> <span class="token keyword">date</span><span class="token punctuation">,</span>
+product_id<span class="token punctuation">,</span> product_name
+<span class="token keyword">FROM</span> Product<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>在<code>SELECT</code>语句中删除重复行时，使用关键词<code>DISTINCT</code>。DISTINCT 关键字只能用在第一个列名之前。<code>SELECT DISTINCT &lt;列名&gt; FROM &lt;表名&gt;</code>。<code>NULL</code>也会被合并。</p>
+<p><code>SELECT</code>语句通过<code>WHERE</code>子句指定查询条件。WHERE子句要紧跟在FROM子句之后。</p>
+<p>单行注释<code>--</code>，<strong>Mysql需要在<code>--</code>之后加上一个半角空格</strong>。多行注释使用<code>/* */</code>。</p>
+<p>**所有包含NULL的运算，其结果都是NULL。**即使除零也还是NULL。</p>
+<p>FROM子句在SELECT中并不是必不可少，例如<code>SELECT (100 + 200) * 3 AS calculation;</code>Oracle不允许省略FROM。可以使用<code>DUAL</code>临时表。</p>
+<p>不等于<code>&lt;&gt;</code>，<code>!=</code>不被标准SQL承认。</p>
+<p>比较运算符可以对字符、数值和日期等几乎所有数据类型的列和值进行比较。</p>
+<p>使用比较运算符时一定要注意不等号和等号的位置。</p>
+<p>对字符串类型的数据进行大小比较时，规则是按照字典顺序。<strong>以相同字符开头的单词比不同字符开头的单词更相近</strong>。该规则对定长字符串和可变长字符串都适用。</p>
+<p>**不能对NULL使用比较运算符。**专门用来判断是否为 NULL 的 IS NULL或 IS NOT NULL  运算符。</p>
+<p>NOT运算符用来否定某一条件，但是不能滥用。</p>
+<p>多个查询条件进行组合时，需要使用AND运算符或者OR运算符。</p>
+<p>AND 运算符优先于 OR 运算符，可以使用<code>()</code>，改变优先级。</p>
+<p>使用 AND 运算符进行的逻辑运算称为逻辑积，使用 OR 运算符进行的逻辑运算称为逻辑和。</p>
+<p>SQL中除了真值和假值以外，存在第三种，即不确定NULL。即三值逻辑。</p>
+<h3 id="聚合和排序">聚合和排序<a class="anchor" href="#聚合和排序">¶</a></h3>
+<p>通常，聚合函数会对NULL以外的对象进行汇总。但是只有COUNT函数例外，使用COUNT（*）可以查出包含NULL在内的全部数据的行数。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">用处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">COUNT</td>
+<td style="text-align:center">计算表中的记录数(行数)</td>
+</tr>
+<tr>
+<td style="text-align:center">SUM</td>
+<td style="text-align:center">计算表中数值列中数据的合计值</td>
+</tr>
+<tr>
+<td style="text-align:center">AVG</td>
+<td style="text-align:center">计算表中数值列中数据的平均值</td>
+</tr>
+<tr>
+<td style="text-align:center">MAX</td>
+<td style="text-align:center">计算表中数值列中数据的最大值</td>
+</tr>
+<tr>
+<td style="text-align:center">MIN</td>
+<td style="text-align:center">计算表中数值列中数据的最小值</td>
+</tr>
+</tbody>
+</table>
+<p><code>*</code>是COUNT函数特有的参数，其它函数不能使用其作为参数。COUNT(*)返回包含NULL的数据行数，COUNT(列名)则返回不包含NULL的数据行数。</p>
+<p><strong>使用聚合函数时，NULL的数据会被排除在外，不能简单的理解为等价于0。</strong></p>
+<p>SUM和AVG函数只对数值类型的列使用，MAX和MIN函数适用于任何数据类型的列。</p>
+<p>去掉重复值的聚合函数，格式形如<code>SELECT COUNT (DISTINCT product_type) FROM Product</code>。</p>
+<p>DISTINCT关键字必须写在括号中。写在外面会优先执行聚合函数，然后才是DISTINCT。</p>
+<p>使用GROUP BY子句进行汇总：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">&gt;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>；<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在GROUP BY子句中指定的列称为聚合键或分组列。</p>
+<p>GROUP BY子句必须写在FROM子句之后。如果有WHERE子句，需要卸载WHERE子句之后。</p>
+<p>聚合键中包含NULL时，在结果中会以“不确定”行（空行）的形式表现出来。</p>
+<p>使用 WHERE 子句进行汇总处理时，会先根据 WHERE 子句指定的条件进行过滤，然后再进行汇总处理。</p>
+<p><strong>子句书写顺序：SELECT -&gt; FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; OREDER BY</strong></p>
+<p><strong>子句执行顺序：FROM -&gt; WHERE -&gt; GROUP BY -&gt; HAVING -&gt; SELECT -&gt; OREDER BY</strong></p>
+<p>与聚合函数和GROUP BY子句有关的常见错误：</p>
+<ul>
+<li>在SELECT子句中书写了多余的列。使用聚合函数时，SELECT子句只能存在以下三种元素：<strong>常数，聚合函数，GROUP BY子句中指定的列名(也就是聚合键)</strong>，MYSQL支持在多列候补中只要有一列满足要求就可以，其他RDBMS都不支持。因为聚合键和另外的列名不一定是一对一关系。</li>
+<li>在GROUP BY子句中写了列的别名。在MYSQL中不算错误，但是不标准，因为标准SQL的执行顺序的影响，GROUP BY 时还未执行SELECT，系统也就不知道列的别名。</li>
+<li>GROUP BY子句结果的显示是无序的。</li>
+<li>只有在SELECT子句、HAVING子句和ORDER BY子句中能够使用COUNT等聚合函数。</li>
+</ul>
+<p>使用COUNT函数等对表中数据进行汇总操作时，为其指定条件的不是WHERE子句，而是HAVING子句。</p>
+<p>HAVING子句要写在GROUP BY子句之后。</p>
+<p><strong>WHERE子句用来指定数据行的条件， HAVING子句用来指定分组的条件。</strong></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……
+<span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">&gt;</span>
+<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……
+<span class="token keyword">HAVING</span> <span class="token operator">&lt;</span>分组结果对应的条件<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>HAVING 子句中能够使用的 3 种要素:<strong>常数、聚合函数、GROUP BY子句中指定的列名</strong>。</p>
+<p>在 WHERE 子句和 HAVING 子句中都可以使用的条件，最好写在 WHERE 子句中。WHERE在排序之前就删去了部分数据，且便于建立索引，执行速度也会更快。</p>
+<p>若查询没有指定顺序，则返回的结果往往是随机的。</p>
+<p>OREDER BY：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……
+<span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">&gt;</span>
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>排序基准列<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>排序基准列<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>不论何种情况， ORDER BY 子句都需要写在 SELECT 语句的末尾。这是因为对数据行进行排序的操作必须在结果即将返回时执行。</p>
+<p>OREDER BY默认是升序，也可以显式声明<code>ASC</code>，使用关键词<code>DESC</code>降序。</p>
+<p><code>OREDER BY</code>指定多个排序键时，优先使用左侧的键，相同情况下在参考右侧的键。</p>
+<p><strong>排序键中包含NULL时，会在开头或末尾进行汇总。</strong></p>
+<p>在ORDER BY子句中可以使用SELECT子句中定义的别名。但是GROUP BY不可以。<strong>因为 SELECT 子句的执行顺序在 GROUP BY 子句之后， ORDER BY 子句之前</strong>。</p>
+<p>在ORDER BY子句中可以使用SELECT子句中未使用的列和聚合函数。</p>
+<h2 id="索引">索引<a class="anchor" href="#索引">¶</a></h2>
+<p>当数据量巨大时，通过索引可以大幅提升查询数据的速度。而数据量很少的时候，直接读入内存进行全表扫描会更快。</p>
+<h3 id="索引类型">索引类型<a class="anchor" href="#索引类型">¶</a></h3>
+<p>主键、唯一键以及普通键等。</p>
+<h3 id="索引的数据结构">索引的数据结构<a class="anchor" href="#索引的数据结构">¶</a></h3>
+<ul>
+<li>建立二叉查找树进行二分查找</li>
+<li>建立B-Tree结构进行查找</li>
+<li>建立B±Tree结构进行查找（MYSQl）</li>
+<li>建立Hash结构进行查找。</li>
+</ul>
+<h4 id="二叉查找树">二叉查找树<a class="anchor" href="#二叉查找树">¶</a></h4>
+<h5 id="定义-9">定义<a class="anchor" href="#定义-9">¶</a></h5>
+<p>二叉查找数，是在二叉树的基础之上，约束其根节点的左节点小于根节点，右节点大于根节点。这样查找的时间复杂度为<img src="https://math.now.sh?inline=O%28logn%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。但是由于这样每个节点至多只能有两个节点，在面对大量数据时，整个树的层级会很深且由于数据变动可能变成线性的导致查询效果变差。因此，引入B-Tree。</p>
+<h4 id="B-Tree">B-Tree<a class="anchor" href="#B-Tree">¶</a></h4>
+<p>m阶B-Tree即子节点最多m个的B-Tree。</p>
+<h5 id="定义-10">定义<a class="anchor" href="#定义-10">¶</a></h5>
+<ul>
+<li>根节点至少包含两个子节点</li>
+<li>树中每个节点最多含有m个子节点（m&gt;=2），m取决与节点的容量与相关配置。</li>
+<li>除根节点和叶节点外，其他每个节点至少有ceil(m/2)个子节点（ceil为取上限）</li>
+<li>所有叶子节点都在同一层</li>
+<li>假设每个非终端节点中包含有n个关键字信息，其中
+<ul>
+<li><img src="https://math.now.sh?inline=k_i%28i%3D1%2C%2C%2Cn%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">为关键字，且关键字按顺序升序排序<img src="https://math.now.sh?inline=k_%7Bi-1%7D%3Ck_i" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。</li>
+<li>关键字的个数n必须满足：<img src="https://math.now.sh?inline=%5Bceil%28m%2F2%29-1%5D%5Cle%20n%20%5Cle%20m-1" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。</li>
+<li>非叶子节点的指针：p[1],p[2],…,p[M]；其中p[1]指向关键字小于k[1]的子树，p[M]指向关键字大于k[M-1]的子树，其中p[i]指向关键字属于<img src="https://math.now.sh?inline=%28k_%7Bi-1%7D%2Ck_i%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">的子树。</li>
+</ul>
+</li>
+</ul>
+<h4 id="B±Tree">B±Tree<a class="anchor" href="#B±Tree">¶</a></h4>
+<h5 id="定义-11">定义<a class="anchor" href="#定义-11">¶</a></h5>
+<p>B±Tree是B-Tree的变体，其定义基本与B树相同，除了</p>
+<ul>
+<li>非叶子节点的子树指针与关键字个数相同</li>
+<li>非叶子节点的子树指针p[i]，指向关键字值[k[i],k[i+1]]的子树</li>
+<li>非叶子节点仅用来索引，数据都保存在叶子节点中</li>
+<li>所有叶子节点均有一个链指针指向下一个叶子节点，这样便于进行范围计算。例如大于某一个数的记录</li>
+</ul>
+<h5 id="优点-3">优点<a class="anchor" href="#优点-3">¶</a></h5>
+<ul>
+<li>B+树的磁盘读写代价更低，其非叶子节点因其不存储信息相较于B树大小更小，一次性读入内存的节点数更多，可以减少读写</li>
+<li>B+树的查询效率更加稳定，都是从根节点到叶子节点</li>
+<li>B+树更有利于对数据库的扫描，其叶子节点之间有着链指针，遍历链指针就能实现对全部数据的扫描，范围查询效果更好</li>
+</ul>
+<h4 id="Hash索引">Hash索引<a class="anchor" href="#Hash索引">¶</a></h4>
+<p>hash索引也能可以作为索引，但是有以下缺陷，主要体现为SQL查询指令上的范围查找：</p>
+<ul>
+<li>仅仅能满足“=”，“in”，不能使用范围查询</li>
+<li>无法被用来避免数据的排序操作</li>
+<li>不能利用部分索引键查询</li>
+<li>不能避免表扫描</li>
+<li>遇到大量hash值相等的情况后性能并不一定就会比B-Tree索引高</li>
+</ul>
+<h4 id="BitMap索引">BitMap索引<a class="anchor" href="#BitMap索引">¶</a></h4>
+<h5 id="定义-12">定义<a class="anchor" href="#定义-12">¶</a></h5>
+<p>位图索引可以看作是存储了大量bit位的bit序列，并且通过这些bit序列上的按位操作来响应查询请求，同时每个bit序列中的位数与数据表中的行数是一致的。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95.png" alt="数据库知识_位图索引.png"></p>
+<h3 id="索引模块">索引模块<a class="anchor" href="#索引模块">¶</a></h3>
+<h4 id="密集索引与稀疏索引">密集索引与稀疏索引<a class="anchor" href="#密集索引与稀疏索引">¶</a></h4>
+<ul>
+<li>
+<p>密集索引文件中的每个搜索码值都对应一个索引值</p>
+</li>
+<li>
+<p>稀疏索引文件只为索引码的某些值建立索引项</p>
+</li>
+<li>
+<p>MylSAM引擎：主键索引、唯一键索引、普通索引其索引都属于稀疏索引</p>
+</li>
+<li>
+<p>InnoDB引擎：有且仅有一个密集索引</p>
+<ul>
+<li>
+<p>若一个主键被定义，该主键则作为密集索引</p>
+</li>
+<li>
+<p>若没有主键被定义，该表的第一个唯一非空索引则作为密集索引</p>
+</li>
+<li>
+<p>若不满足以上条件，InnoDB内部会生成一个隐藏主键（密集索引），该列是一个6字节的列</p>
+</li>
+<li>
+<p>非主键索引存储相关键位和其对应的主键值，包括两次查找</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E4%B8%8D%E5%90%8C%E5%BC%95%E6%93%8E%E7%B4%A2%E5%BC%95.png" alt="数据库知识_不同引擎索引.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="连接">连接<a class="anchor" href="#连接">¶</a></h2>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E8%BF%9E%E6%8E%A5.png" alt="数据库知识_连接.png"></p>
+<h2 id="性能优化-2">性能优化<a class="anchor" href="#性能优化-2">¶</a></h2>
+<p>在SQL在数据库中执行花费很长时间的时候需要考虑相应的性能优化问题。</p>
+<p>在优化的过程中大致可以分成两个部分：即程序在执行sql的过程中可否优化以及sql语句本身可否优化。针对第一点明显的就是在大量数据需要插入的时候，能否将多条数据整合进入一条sql中，以此加快执行的速度。或给表加上索引，mysql可以使用explain查看sql执行计划来检查查询是否命中索引。</p>
+<h3 id="explain">explain<a class="anchor" href="#explain">¶</a></h3>
+<p>explain执行计划中包含的信息如下：</p>
+<ul>
+<li>
+<p>id:  查询序列号</p>
+<p>select查询的序列号(一组数字)，表示查询中执行select子句或者操作表的顺序。</p>
+<p>id列分为三种情况：</p>
+<ul>
+<li>如果id相同，那么执行顺序从上到下</li>
+<li>如果id不同，如果是子查询，id的序号会递增，id值越大优先级越高，越先被执行</li>
+<li>id相同和不同的，同时存在：相同的可以认为是一组，从上往下顺序执行，在所有组中，id值越大，优先级越高，越先执行</li>
+</ul>
+</li>
+<li>
+<p>select_type: 查询类型</p>
+<p>主要用来分辨查询的类型，是普通查询还是联合查询还是子查询</p>
+<ul>
+<li><strong>simple</strong>: 简单的查询，不包含子查询和union</li>
+<li><strong>primary</strong>: 查询中若包含任何复杂的子查询，最外层查询则被标记为Primary</li>
+<li><strong>union</strong>: 在union，union all和子查询中的第二个和随后的select被标记为union</li>
+<li><strong>dependent union</strong>: 在包含UNION或者UNION ALL的大查询中，如果各个小查询都依赖于外层查询的话，那除了最左边的那个小查询之外，其余的小查询的select_type的值就是DEPENDENT UNION。</li>
+<li><strong>union result</strong>: 从union表获取结果的select。</li>
+<li><strong>subquery</strong>: 在select或者where列表中包含子查询（不在from子句中）</li>
+<li><strong>dependent subquery</strong>: 子查询中的第一个select（不在from子句中），而且取决于外面的查询。</li>
+<li><strong>derived</strong>: 在FROM列表中包含的子查询被标记为DERIVED，也叫做派生类</li>
+<li><strong>UNCACHEABLE SUBQUERY</strong>：一个子查询的结果不能被缓存，必须重新评估外链接的第一行对于外层的主表，子查询不可被物化，每次都需要计算（耗时操作）</li>
+<li><strong>uncacheable union</strong>: 表示union的查询结果不能被缓存</li>
+</ul>
+</li>
+<li>
+<p>table: 表名或者别名</p>
+<p>对应行正在访问哪一个表，表名或者别名，可能是临时表或者union合并结果集.</p>
+<ul>
+<li>如果是具体的表名，则表明从实际的物理表中获取数据，当然也可以是表的别名.</li>
+<li>表名是derivedN的形式，表示使用了id为N的查询产生的衍生表.</li>
+<li>当有union result的时候，表名是union n1,n2等的形式，n1,n2表示参与union的id.</li>
+</ul>
+</li>
+<li>
+<p>partitions: 匹配的分区</p>
+</li>
+<li>
+<p>type: 访问类型</p>
+<p>type显示的是访问类型，访问类型表示我是以何种方式去访问我们的数据，最容易想的是全表扫描，直接暴力的遍历一张表去寻找需要的数据，效率非常低下。</p>
+<p>访问的类型有很多，效率从最好到最坏依次是：</p>
+<p>system &gt; const &gt; eq_ref &gt; <strong>ref</strong> &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; <strong>range</strong> &gt; <strong>index</strong> &gt; ALL</p>
+<p><strong>一般情况下，要保证查询至少达到range级别，最好能达到ref</strong></p>
+<ul>
+<li><strong>all</strong>: 全表扫描，需要扫描整张表，从头到尾找到需要的数据行。一般情况下出现这样的sql语句而且数据量比较大的话那么就需要进行优化。</li>
+<li><strong>index</strong>：全索引扫描这个比all的效率要好，主要有两种情况，一种是当前的查询时覆盖索引，即我们需要的数据在索引中就可以索取，或者是使用了索引进行排序，这样就避免数据的重排序</li>
+<li><strong>range</strong>：表示利用索引查询的时候限制了范围，在指定范围内进行查询，这样避免了index的全索引扫描，适用的操作符：=, &lt;&gt;, &gt;, &gt;=, &lt;, &lt;=, IS NULL, BETWEEN, LIKE, or IN()</li>
+<li><strong>index_subquery</strong>：利用索引来关联子查询，不再扫描全表</li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>possible_keys: 可能用到的索引</p>
+</li>
+<li>
+<p>key: 实际用到的索引</p>
+</li>
+<li>
+<p>key_len: 索引长度</p>
+</li>
+<li>
+<p>ref: 与索引比较的列</p>
+</li>
+<li>
+<p>rows: 估算的行数</p>
+</li>
+<li>
+<p>filtered: 按表条件筛选的行百分比</p>
+</li>
+<li>
+<p>Extra: 额外信息</p>
+</li>
+</ul>
+<h2 id="Tip-14">Tip<a class="anchor" href="#Tip-14">¶</a></h2>
+<p>mysql中的sql语句中表名、列名可以用`进行包裹。comment之后的文字用单引号进行包裹。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">不二</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://buerlog.top/2021/01/05/ji-suan-ji-ji-chu/shu-ju-ku-zhi-shi/">http://buerlog.top/2021/01/05/ji-suan-ji-ji-chu/shu-ju-ku-zhi-shi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">不二</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/01/25/cheng-xu-she-ji/linux-fu-xi-bi-ji/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/linux.jpg" class="responsive-img" alt="Linux复习笔记">
+                        
+                        <span class="card-title">Linux复习笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    程序设计
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/01/05/ji-suan-ji-ji-chu/ji-suan-ji-wang-luo/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/计算机基础/network.jpg" class="responsive-img" alt="计算机网络">
+                        
+                        <span class="card-title">计算机网络</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    计算机基础
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 不二博客<br />'
+            + '文章作者: 不二<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4, h5, h6'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4, h5, h6').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="song"
+                   id="1901371647"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2022</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">不二</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">220.2k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "5";
+                    var startDate = "25";
+                    var startHour = "17";
+                    var startMinute = "20";
+                    var startSecond = "53";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/weiyouwozuiku" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:weiyouwozuiku@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1104891151" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1104891151" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/he-he-9-35-47" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/he-he-9-35-47" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <script src='https://unpkg.com/mermaid@8.14.0/dist/mermaid.min.js'></script>
+    <script>
+      if (window.mermaid) {
+        mermaid.initialize({theme: 'forest'});
+      }
+    </script>
+  
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?943a68f473d421f2d98228f74edc63d0";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="150"
+        src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
