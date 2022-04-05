@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>dlv使用笔记</title>
+      <link href="/2022/04/05/cheng-xu-she-ji/dlv-shi-yong-bi-ji/"/>
+      <url>/2022/04/05/cheng-xu-she-ji/dlv-shi-yong-bi-ji/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 程序设计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Go </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>TiDB及其TiKV学习记录</title>
       <link href="/2022/04/02/kv-cun-chu/tidb-ji-qi-tikv-xue-xi-ji-lu/"/>
       <url>/2022/04/02/kv-cun-chu/tidb-ji-qi-tikv-xue-xi-ji-lu/</url>

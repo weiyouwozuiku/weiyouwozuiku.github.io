@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-04-02T16:33:30.000Z</updated>
+  <updated>2022-04-05T09:16:26.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>dlv使用笔记</title>
+    <link href="http://buerlog.top/2022/04/05/cheng-xu-she-ji/dlv-shi-yong-bi-ji/"/>
+    <id>http://buerlog.top/2022/04/05/cheng-xu-she-ji/dlv-shi-yong-bi-ji/</id>
+    <published>2022-04-05T08:56:17.000Z</published>
+    <updated>2022-04-05T09:16:26.000Z</updated>
+    
+    
+    
+    
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
+    
+  </entry>
   
   <entry>
     <title>TiDB及其TiKV学习记录</title>
@@ -2614,44 +2631,6 @@
     <category term="树莓派" scheme="http://buerlog.top/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
     
     <category term="Esp32" scheme="http://buerlog.top/tags/Esp32/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++复习笔记</title>
-    <link href="http://buerlog.top/2020/11/10/cheng-xu-she-ji/cpp-fu-xi-bi-ji/"/>
-    <id>http://buerlog.top/2020/11/10/cheng-xu-she-ji/cpp-fu-xi-bi-ji/</id>
-    <published>2020-11-10T04:14:19.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;本文为自己复习C++时知识的补充与记录。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;sizeof运算符返回变量的大小。&lt;/p&gt;
-&lt;p&gt;逗号运算符会顺序执行一系列运算。整个逗号表达式的值是以逗号分隔的列表中的最后一个表达式的值。&lt;/p&gt;
-&lt;p&gt;补码范围：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;数&lt;/th&gt;
-&lt;th&gt;8&lt;/th&gt;
-&lt;th&gt;16&lt;/th&gt;
-&lt;th&gt;32&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
     
   </entry>
   
