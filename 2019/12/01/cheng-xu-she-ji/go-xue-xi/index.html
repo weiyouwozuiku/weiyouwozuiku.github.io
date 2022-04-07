@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-15
+                    2022-04-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.7k
+                    10.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    38 分
+                    39 分
                 </div>
                 
 
@@ -1117,6 +1117,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
     <span class="token string">"hello"</span><span class="token punctuation">:</span><span class="token string">"world"</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><code>map</code>是无序的。</p>
+<p>最好不要用浮点数作为key，最坏情况会出现NaN和任何浮点数不相等的情况。</p>
 <p><code>map</code>中的value不可以通过取地址获取，以避免因为map扩容导致的地址迁移。</p>
 <p><code>map</code>中数据的返回是无序的，如果需要按照某种顺序输出，只能在外层将key进行排序后进行输出。</p>
 <p><strong><code>map</code>中没有的key对应的value是value类型的初始值。相应取值返回的第二个参数是false，如果有返回true。</strong></p>
@@ -1247,17 +1248,14 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
 </tr>
 </tbody>
 </table>
+<h3 id="make与new">make与new<a class="anchor" href="#make与new">¶</a></h3>
+<p>Go语言中 new 和 make 是两个内置函数，主要用来创建并分配类型的内存。在我们定义变量的时候，可能会觉得有点迷惑，不知道应该使用哪个函数来声明变量，其实他们的规则很简单，new 只分配内存，而 make 只能用于 slice、map 和 channel 的初始化。</p>
 <h2 id="参考文献-4">参考文献<a class="anchor" href="#参考文献-4">¶</a></h2>
 <ol>
-<li>
-<p><a target="_blank" rel="noopener" href="http://gopl.io/">《The Go Programming Language》</a></p>
-</li>
-<li>
-<p>维基百科，<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SOLID_(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1)">SOLID (面向对象设计)</a>，2021</p>
-</li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://draveness.me/golang">Go 语言设计与实现</a></p>
-</li>
+<li><a target="_blank" rel="noopener" href="http://gopl.io/">《The Go Programming Language》</a></li>
+<li>维基百科，<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SOLID_(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1)">SOLID (面向对象设计)</a>，2021</li>
+<li><a target="_blank" rel="noopener" href="https://draveness.me/golang">Go 语言设计与实现</a></li>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/5722.html">Go语言make和new关键字的区别及实现原理</a></li>
 </ol>
 
                 
@@ -1838,7 +1836,7 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">220.2k</span>&nbsp;字
+                class="white-color">220.4k</span>&nbsp;字
             
             
             
