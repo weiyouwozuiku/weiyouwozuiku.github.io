@@ -805,6 +805,8 @@ m:=map[string]string {
 
 `map`是无序的。
 
+最好不要用浮点数作为key，最坏情况会出现NaN和任何浮点数不相等的情况。
+
 `map`中的value不可以通过取地址获取，以避免因为map扩容导致的地址迁移。
 
 `map`中数据的返回是无序的，如果需要按照某种顺序输出，只能在外层将key进行排序后进行输出。
@@ -990,10 +992,15 @@ $ source ~/.profile
 |   I    | [接口隔离原则](https://zh.wikipedia.org/wiki/接口隔离原则) | 认为“多个特定客户端接口要好于一个宽泛用途的接口”[[5\]](https://zh.wikipedia.org/wiki/SOLID_(面向对象设计)#cite_note-martin-design-principles-5) 的概念。 |
 |   D    | [依赖反转原则](https://zh.wikipedia.org/wiki/依赖反转原则) | 认为一个方法应该遵从“依赖于抽象而不是一个实例”[[5\]](https://zh.wikipedia.org/wiki/SOLID_(面向对象设计)#cite_note-martin-design-principles-5) 的概念。 [依赖注入](https://zh.wikipedia.org/wiki/依赖注入)是该原则的一种实现方式。 |
 
+### make与new
+
+Go语言中 new 和 make 是两个内置函数，主要用来创建并分配类型的内存。在我们定义变量的时候，可能会觉得有点迷惑，不知道应该使用哪个函数来声明变量，其实他们的规则很简单，new 只分配内存，而 make 只能用于 slice、map 和 channel 的初始化。
+
+
+
 ## 参考文献
 
 1. [《The Go Programming Language》](http://gopl.io/)
-
 2. 维基百科，[SOLID (面向对象设计)](https://zh.wikipedia.org/wiki/SOLID_(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1))，2021
-
 2. [Go 语言设计与实现](https://draveness.me/golang)
+2. [Go语言make和new关键字的区别及实现原理](http://c.biancheng.net/view/5722.html)
