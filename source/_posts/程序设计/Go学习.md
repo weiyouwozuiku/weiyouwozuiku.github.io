@@ -996,6 +996,125 @@ $ source ~/.profile
 
 Go语言中 new 和 make 是两个内置函数，主要用来创建并分配类型的内存。在我们定义变量的时候，可能会觉得有点迷惑，不知道应该使用哪个函数来声明变量，其实他们的规则很简单，new 只分配内存，而 make 只能用于 slice、map 和 channel 的初始化。
 
+**make 函数只用于 map，slice 和 channel，并且不返回指针。如果想要获得一个显式的指针，可以使用 new 函数进行分配，或者显式地使用一个变量的地址。**
+
+Go语言中的 new 和 make 主要区别如下：
+
+- make 只能用来分配及初始化类型为 slice、map、chan 的数据。new 可以分配任意类型的数据；
+- new 分配返回的是指针，即类型 *Type。make 返回引用，即 Type；
+- new 分配的空间被清零。make 分配空间后，会进行初始化；
+
+#### new
+
+在源码中new的函数描述如下：
+
+```go
+// The new built-in function allocates memory. The first argument is a type,
+// not a value, and the value returned is a pointer to a newly
+// allocated zero value of that type.
+func new(Type) *Type
+```
+
+由上可知，**new函数只接受类型这一个参数，返回一个指向该类型内存地址的指针。同时new函数会把分配的内存置为零，也就是类型的零值**。
+
+内置函数 new 会在编译期的 SSA 代码生成阶段经过 callnew 函数的处理，如果请求创建的类型大小是 0，那么就会返回一个表示空指针的 zerobase 变量，在遇到其他情况时会将关键字转换成 newobject：
+
+```go
+func callnew(t *types.Type) *Node {
+    if t.NotInHeap() {
+        yyerror("%v is go:notinheap; heap allocation disallowed", t)
+    }
+    dowidth(t)
+    if t.Size() == 0 {
+        z := newname(Runtimepkg.Lookup("zerobase"))
+        z.SetClass(PEXTERN)
+        z.Type = t
+        return typecheck(nod(OADDR, z, nil), ctxExpr)
+    }
+    fn := syslook("newobject")
+    fn = substArgTypes(fn, t)
+    v := mkcall1(fn, types.NewPtr(t), nil, typename(t))
+    v.SetNonNil(true)
+    return v
+}
+```
+
+需要提到的是，哪怕当前变量是使用 var 进行初始化，在这一阶段也可能会被转换成 newobject 的函数调用并在堆上申请内存：
+
+```go
+func walkstmt(n *Node) *Node {
+    switch n.Op {
+    case ODCL:
+        v := n.Left
+        if v.Class() == PAUTOHEAP {
+            if prealloc[v] == nil {
+                prealloc[v] = callnew(v.Type)
+            }
+            nn := nod(OAS, v.Name.Param.Heapaddr, prealloc[v])
+            nn.SetColas(true)
+            nn = typecheck(nn, ctxStmt)
+            return walkstmt(nn)
+        }
+    case ONEW:
+        if n.Esc == EscNone {
+            r := temp(n.Type.Elem())
+            r = nod(OAS, r, nil)
+            r = typecheck(r, ctxStmt)
+            init.Append(r)
+            r = nod(OADDR, r.Left, nil)
+            r = typecheck(r, ctxExpr)
+            n = r
+        } else {
+            n = callnew(n.Type.Elem())
+        }
+    }
+}
+```
+
+当然这也不是绝对的，如果当前声明的变量或者参数不需要在当前作用域外生存，那么其实就不会被初始化在堆上，而是会初始化在当前函数的栈中并随着函数调用的结束而被销毁。
+
+newobject 函数的工作就是获取传入类型的大小并调用 mallocgc 在堆上申请一片大小合适的内存空间并返回指向这片内存空间的指针：
+
+```go
+func newobject(typ *_type) unsafe.Pointer {
+    return mallocgc(typ.size, typ, true)
+}
+```
+
+#### make
+
+make函数也是用于内存分配的函数，但是与new函数不同，**它只适用于chan、map、slice的内存创建，返回类型是这三个类型本身，而不是它们的指针类型**，因为这三种类型就是引用类型，没有鼻炎返回它们的指针。
+
+在源码中make的函数描述如下：
+
+```go
+// The make built-in function allocates and initializes an object of type
+// slice, map, or chan (only). Like new, the first argument is a type, not a
+// value. Unlike new, make's return type is the same as the type of its
+// argument, not a pointer to it. The specification of the result depends on
+// the type:
+// Slice: The size specifies the length. The capacity of the slice is
+// equal to its length. A second integer argument may be provided to
+// specify a different capacity; it must be no smaller than the
+// length, so make([]int, 0, 10) allocates a slice of length 0 and
+// capacity 10.
+// Map: An empty map is allocated with enough space to hold the
+// specified number of elements. The size may be omitted, in which case
+// a small starting size is allocated.
+// Channel: The channel's buffer is initialized with the specified
+// buffer capacity. If zero, or the size is omitted, the channel is
+// unbuffered.
+func make(t Type, size ...IntegerType) Type
+```
+
+**通过上面的代码可以看出 make 函数的 t 参数必须是 chan（通道）、map（字典）、slice（切片）中的一个，并且返回值也是类型本身。**
+
+![make_OMAKE.gif](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/make_OMAKE.gif)
+
+在编译期的类型检查阶段，Go语言其实就将代表 make 关键字的 OMAKE 节点根据参数类型的不同转换成了 OMAKESLICE、OMAKEMAP 和 OMAKECHAN 三种不同类型的节点，这些节点最终也会调用不同的运行时函数来初始化数据结构。
+
+
+
 
 
 ## 参考文献
