@@ -1688,17 +1688,19 @@ bool topsort()
 
 ### 最短路
 
-```mermaid
-flowchart LR
-最短路-->单源最短路
-单源最短路-->所有边权重都是正数
-所有边权重都是正数-->朴素Dijkstra算法
-所有边权重都是正数-->堆优化版Dijkstra算法
-单源最短路-->存在负权边
-存在负权边-->Bellman-Ford算法
-存在负权边-->SPFA算法
-最短路-->多源汇最短路-->floyd算法
-```
+$$
+最短路=\begin{cases}
+单源最短路 
+\begin{cases}
+所有边权重都是正数 \begin{cases} 朴素Dijkstra算法 \quad O(n^2) \quad 适用稠密图 \\ 堆优化版Dijkstra算法 \quad O(mlogn) \quad 适用稀疏图 \end{cases} \\ 
+存在负权边 \begin{cases} Bellman-Ford算法 \quad O(nm)\quad 适用不超过k条边的最短路\\ SPFA算法 \quad 一般O(m)，最差O(nm) \end{cases}
+\end{cases}
+\\
+多源最短路 \Rightarrow Floyd算法 \quad O(n^3) \
+\end{cases}
+$$
+
+n表示点数，m表示边数。
 
 源点：起点
 
