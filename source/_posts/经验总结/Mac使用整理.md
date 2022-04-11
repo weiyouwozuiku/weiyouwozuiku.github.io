@@ -100,6 +100,8 @@ categories: 经验总结
 - axel
 - glow或mdv，终端markdown文本阅读器
 - ipython
+- neofetch，查看系统配置
+- mas，查看商店安装的程序
 
 ## zsh配置
 
