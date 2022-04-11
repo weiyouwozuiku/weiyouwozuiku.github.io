@@ -1742,6 +1742,7 @@ int dijkstra(int index) {
         for (int j = 1; j <= n; ++j)
             if (!st[j] && (t == -1 || dist[t] > dist[j]))t = j;
         st[t] = true;
+        if (t==n) break;
         // 用t更新其他点的距离
         for (int j = 1; j <= n; ++j) dist[j] = min(dist[j], dist[t] + g[t][j]);
     }
