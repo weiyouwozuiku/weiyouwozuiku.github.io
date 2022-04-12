@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-11
+                    2022-04-12
                 </div>
                 
 
@@ -1521,7 +1521,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
 <h4 id="建堆">建堆<a class="anchor" href="#建堆">¶</a></h4>
 <p>堆的建立不推荐使用插入的方式解决，效率太低是<code>O(nlogn)</code>。这里阐述一个<code>O(n)</code>复杂度的建堆方式，并给出复杂度分析。</p>
 <p>思想就是<strong>直接从<img src="https://math.now.sh?inline=%5Clfloor%20n%2F2%20%5Crfloor" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">下标开始执行down操作直至1下标</strong>。</p>
-<p>之所以这么做是基于下标之间的关系及其完全二叉树的性质。由于完全二叉树的性质，我们可以知道在某一节点之后的所有节点都是叶子节点。再结合下标之间的关系可以知道，最后一个非叶子节点就是<img src="https://math.now.sh?inline=%5Clfloor%20n%2F2%20%5Crfloor" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">的位置。因此之后的所有叶子节点不需要进行调整位置，因为其父节点调整时会调整符合条件的叶子结点，而起本身没有子节点。</p>
+<p>之所以这么做是基于下标之间的关系及其完全二叉树的性质。由于完全二叉树的性质，我们可以知道在某一节点之后的所有节点都是叶子节点。再结合下标之间的关系可以知道，最后一个非叶子节点就是<img src="https://math.now.sh?inline=%5Clfloor%20n%2F2%20%5Crfloor" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">的位置。因此之后的所有叶子节点不需要进行调整位置，因为其父节点调整时会调整符合条件的叶子结点，而其本身没有子节点。</p>
 <p>原本的插入方式来建堆，其复杂性依赖于树的深度其复杂度为<img src="https://math.now.sh?inline=O%28logn%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，建堆中有n个元素，因此总时间复杂度为<img src="https://math.now.sh?inline=O%28nlogn%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。</p>
 <p>但是采用上述方法创建堆，其时间复杂度大大较少。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%AE%97%E6%B3%95/Acwing%E5%AD%A6%E4%B9%A0/%E5%BB%BA%E5%A0%86%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90.jpeg" alt="建堆复杂度分析.jpeg"></p>
@@ -1837,14 +1837,13 @@ ULL <span class="token function">get</span><span class="token punctuation">(</sp
 <span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
 
 <span class="token comment">// 添加一条边a-&gt;b</span>
-<span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
+<span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
     e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> b<span class="token punctuation">,</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">,</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> idx <span class="token operator">++</span> <span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment">// 初始化</span>
 idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token function">memset</span><span class="token punctuation">(</span>h<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">memset</span><span class="token punctuation">(</span>h<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="树与图的遍历">树与图的遍历<a class="anchor" href="#树与图的遍历">¶</a></h4>
 <p>时间复杂度<img src="https://math.now.sh?inline=O%28n%2Bm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">， <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数。</p>
 <ul>
