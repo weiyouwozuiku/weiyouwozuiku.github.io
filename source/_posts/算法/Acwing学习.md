@@ -1757,6 +1757,16 @@ int dijkstra(int index) {
 
 时间复杂度$O(mlogn)$, $n$ 表示点数，$m$ 表示边数
 
+堆的实现有两种方法：
+$$
+堆优化中的堆实现
+\begin{cases}
+手动实现 \quad 维护一套映射表,可以只使用n个元素空间 \\
+优先队列 \quad \text{priority\_queue，需要使用m个元素空间,并且判断冗余元素}
+\end{cases}
+$$
+
+
 ```cpp
 typedef pair<int, int> PII;
 
@@ -2315,13 +2325,15 @@ for (int i = 1; i <= n1; i ++ )
 - `priority_queue<int, vector<int>, greater<int>> q;`
 
 ```cpp
-	size()
+  size()
   empty()
   push()  插入一个元素
   top()  返回堆顶元素
   pop()  弹出堆顶元素
   定义成小根堆的方式：priority_queue<int, vector<int>, greater<int>> q;
 ```
+
+**优先队列不支持修改元素的值。**如果需要修改元素的值，只能在此插入，会存在冗余值的问题。
 
 ### stack
 
