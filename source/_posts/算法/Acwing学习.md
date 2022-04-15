@@ -1766,7 +1766,6 @@ $$
 \end{cases}
 $$
 
-
 ```cpp
 typedef pair<int, int> PII;
 
@@ -1815,6 +1814,8 @@ int dijkstra()
 
 时间复杂度$O(nm)$, $n$ 表示点数，$m$表示边数
 
+当出现负权回路时，最短路是不存在的。
+
 注意在模板题中需要对下面的模板稍作修改，加上备份数组。
 
 ```cpp
@@ -1839,6 +1840,7 @@ int bellman_ford()
         {
             int a = edges[j].a, b = edges[j].b, w = edges[j].w;
             if (dist[b] > dist[a] + w)
+                // 松弛操作
                 dist[b] = dist[a] + w;
         }
     }
