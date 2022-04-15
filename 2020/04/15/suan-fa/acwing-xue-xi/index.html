@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-13
+                    2022-04-15
                 </div>
                 
 
@@ -2013,6 +2013,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/852/">AcWing 850. Dijkstra求最短路 II</a></p>
 <h4 id="Bellman-Ford算法">Bellman-Ford算法<a class="anchor" href="#Bellman-Ford算法">¶</a></h4>
 <p>时间复杂度<img src="https://math.now.sh?inline=O%28nm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"> 表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数</p>
+<p>当出现负权回路时，最短路是不存在的。</p>
 <p>注意在模板题中需要对下面的模板稍作修改，加上备份数组。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>       <span class="token comment">// n表示点数，m表示边数</span>
 <span class="token keyword">int</span> dist<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment">// dist[x]存储1到x的最短路距离</span>
@@ -2035,13 +2036,14 @@ q<span class="token punctuation">.</span><span class="token function">push</span
         <span class="token punctuation">{</span>
             <span class="token keyword">int</span> a <span class="token operator">=</span> edges<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>a<span class="token punctuation">,</span> b <span class="token operator">=</span> edges<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>b<span class="token punctuation">,</span> w <span class="token operator">=</span> edges<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>w<span class="token punctuation">;</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token operator">&gt;</span> dist<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">+</span> w<span class="token punctuation">)</span>
+                <span class="token comment">// 松弛操作</span>
                 dist<span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> dist<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">+</span> w<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
     <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0x3f3f3f3f</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> dist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/855/">AcWing 853. 有边数限制的最短路</a></p>
 <h4 id="SPFA-算法（队列优化的Bellman-Ford算法）">SPFA 算法（队列优化的Bellman-Ford算法）<a class="anchor" href="#SPFA-算法（队列优化的Bellman-Ford算法）">¶</a></h4>
 <p>时间复杂度平均情况下<img src="https://math.now.sh?inline=O%28m%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，最坏情况下<img src="https://math.now.sh?inline=O%28nm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数</p>
@@ -2577,7 +2579,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
 <li>另一方面，由于一般的数据都不会大于<img src="https://math.now.sh?inline=10%5E9" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上<code>0x3f3f3f3f+0x3f3f3f3f=2122219134</code>，这非常大但却没有超过32-bit int的表示范围，所以<code>0x3f3f3f3f</code>还满足了我们“无穷大加无穷大还是无穷大”的需求。</li>
 <li>最后，0x3f3f3f3f还能给我们带来一个意想不到的额外好处：如果我们想要将某个数组清零，我们通常会使用memset(a,0,sizeof(a))这样的代码来实现（方便而高效），但是当我们想将某个数组全部赋值为无穷大时（例如解决图论问题时邻接矩阵的初始化），就不能使用memset函数而得自己写循环了（写这些不重要的代码真的很痛苦），我们知道这是因为memset是按字节操作的，它能够对数组清零是因为0的每个字节都是0，现在好了，如果我们将无穷大设为0x3f3f3f3f，那么奇迹就发生了，0x3f3f3f3f的每个字节都是0x3f！所以要把一段内存全部置为无穷大，我们只需要memset(a,0x3f,sizeof(a))。</li>
 </ul>
-<h2 id="参考文献-10">参考文献<a class="anchor" href="#参考文献-10">¶</a></h2>
+<h2 id="参考文献-11">参考文献<a class="anchor" href="#参考文献-11">¶</a></h2>
 <ol>
 <li>CSDN，<a target="_blank" rel="noopener" href="https://blog.csdn.net/L_apple8/article/details/52525752">使用0x3f3f3f表示无穷大</a></li>
 </ol>
@@ -3148,7 +3150,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">222.6k</span>&nbsp;字
+                class="white-color">222.9k</span>&nbsp;字
             
             
             
