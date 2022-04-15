@@ -501,7 +501,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    21
+                    403
                 </div>
                 
 
@@ -537,6 +537,16 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="摘要">摘要<a class="anchor" href="#摘要">¶</a></h2>
+<p>序列化和反序列化是系统选型或重构一个重要的环节，在分布式、大数据量系统设计里面更为显著。恰当的序列化协议不仅可以提高系统的通用性、强健性、安全性、优化系统性能，而且会让系统更加易于调试、便于扩展。本文借助网络中存在众多材料从多个角度分析和讲解“序列化与反序列化”，并对比当前流行的几种序列化协议。</p>
+<p>当服务本身需要处理Terabyte到Gigabyte级别的数据时，为了提供高质量的数据服务，为了实现与上下游各系统进行良好的对接，序列化与反序列化的选型往往是系统设计的一个重要考虑因素。</p>
+<p>本文的内容组织方式如下：</p>
+<ul>
+<li>第一部分给出了序列化和反序列化的定义，以及其在通讯协议中所处的位置。</li>
+<li>第二部分从使用者的角度探讨了序列化协议的一些特性。</li>
+<li>第三部分描述在具体的实施过程中典型的序列化组件，并与数据库组建进行了类比。</li>
+<li>第四部分分别讲解了目前常见的几种序列化协议的特性，应用场景，并对相关组件进行举例。</li>
+<li>最后一部分，基于各种协议的特性，以及相关benchmark数据，给出了作者的技术选型建议。</li>
+</ul>
 <h2 id="参考文献-10">参考文献<a class="anchor" href="#参考文献-10">¶</a></h2>
 <ol>
 <li>美团技术团队，<a target="_blank" rel="noopener" href="https://tech.meituan.com/2015/02/26/serialization-vs-deserialization.html">序列化和反序列化</a>，2015</li>
@@ -1114,7 +1124,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">222.9k</span>&nbsp;字
+                class="white-color">223.2k</span>&nbsp;字
             
             
             
