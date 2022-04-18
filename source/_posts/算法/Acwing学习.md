@@ -1692,7 +1692,7 @@ $$
 单源最短路 
 \begin{cases}
 所有边权重都是正数 \begin{cases} 朴素Dijkstra算法 \quad O(n^2) \quad 适用稠密图 \\ 堆优化版Dijkstra算法 \quad O(mlogn) \quad 适用稀疏图 \end{cases} \\ 
-存在负权边 \begin{cases} Bellman-Ford算法 \quad O(nm)\quad 适用不超过k条边的最短路\\ SPFA算法 \quad 一般O(m)，最差O(nm) \end{cases}
+存在负权边 \begin{cases} Bellman-Ford算法 \quad O(nm)\quad 适用不超过k条边的最短路\\ SPFA算法 \quad 一般O(m)，最差O(nm) \quad 不能存在负权回路 \end{cases}
 \end{cases}
 \\
 多源最短路 \Rightarrow Floyd算法 \quad O(n^3) \
@@ -1814,7 +1814,7 @@ int dijkstra()
 
 时间复杂度$O(nm)$, $n$ 表示点数，$m$表示边数
 
-当出现负权回路时，最短路是不存在的。
+当出现负权回路时，最短路不一定存在的。因为存在负权回路的节点并不在最短路上就没事。
 
 注意在模板题中需要对下面的模板稍作修改，加上备份数组。
 
@@ -1853,6 +1853,8 @@ int bellman_ford()
 具体实现可以参考[AcWing 853. 有边数限制的最短路](https://www.acwing.com/problem/content/855/)
 
 #### SPFA 算法（队列优化的Bellman-Ford算法）
+
+使用限制：要求当前图不存在负权回路
 
 时间复杂度平均情况下$O(m)$，最坏情况下$O(nm)$, $n$表示点数，$m$表示边数
 
