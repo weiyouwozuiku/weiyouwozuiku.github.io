@@ -751,11 +751,11 @@ product_id<span class="token punctuation">,</span> product_name
 <li>建立Hash结构进行查找。</li>
 </ul>
 <h4 id="二叉查找树">二叉查找树<a class="anchor" href="#二叉查找树">¶</a></h4>
-<h5 id="定义-9">定义<a class="anchor" href="#定义-9">¶</a></h5>
+<h5 id="定义-10">定义<a class="anchor" href="#定义-10">¶</a></h5>
 <p>二叉查找数，是在二叉树的基础之上，约束其根节点的左节点小于根节点，右节点大于根节点。这样查找的时间复杂度为<img src="https://math.now.sh?inline=O%28logn%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。但是由于这样每个节点至多只能有两个节点，在面对大量数据时，整个树的层级会很深且由于数据变动可能变成线性的导致查询效果变差。因此，引入B-Tree。</p>
 <h4 id="B-Tree">B-Tree<a class="anchor" href="#B-Tree">¶</a></h4>
 <p>m阶B-Tree即子节点最多m个的B-Tree。</p>
-<h5 id="定义-10">定义<a class="anchor" href="#定义-10">¶</a></h5>
+<h5 id="定义-11">定义<a class="anchor" href="#定义-11">¶</a></h5>
 <ul>
 <li>根节点至少包含两个子节点</li>
 <li>树中每个节点最多含有m个子节点（m&gt;=2），m取决与节点的容量与相关配置。</li>
@@ -770,7 +770,7 @@ product_id<span class="token punctuation">,</span> product_name
 </li>
 </ul>
 <h4 id="B±Tree">B±Tree<a class="anchor" href="#B±Tree">¶</a></h4>
-<h5 id="定义-11">定义<a class="anchor" href="#定义-11">¶</a></h5>
+<h5 id="定义-12">定义<a class="anchor" href="#定义-12">¶</a></h5>
 <p>B±Tree是B-Tree的变体，其定义基本与B树相同，除了</p>
 <ul>
 <li>非叶子节点的子树指针与关键字个数相同</li>
@@ -794,7 +794,7 @@ product_id<span class="token punctuation">,</span> product_name
 <li>遇到大量hash值相等的情况后性能并不一定就会比B-Tree索引高</li>
 </ul>
 <h4 id="BitMap索引">BitMap索引<a class="anchor" href="#BitMap索引">¶</a></h4>
-<h5 id="定义-12">定义<a class="anchor" href="#定义-12">¶</a></h5>
+<h5 id="定义-13">定义<a class="anchor" href="#定义-13">¶</a></h5>
 <p>位图索引可以看作是存储了大量bit位的bit序列，并且通过这些bit序列上的按位操作来响应查询请求，同时每个bit序列中的位数与数据表中的行数是一致的。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95.png" alt="数据库知识_位图索引.png"></p>
 <h3 id="索引模块">索引模块<a class="anchor" href="#索引模块">¶</a></h3>
@@ -1475,7 +1475,7 @@ product_id<span class="token punctuation">,</span> product_name
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.2k</span>&nbsp;字
+                class="white-color">224.5k</span>&nbsp;字
             
             
             

@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-15
+                    2022-04-18
                 </div>
                 
 
@@ -1925,7 +1925,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/850/">AcWing 848. 有向图的拓扑序列</a>，<a target="_blank" rel="noopener" href="https://github.com/weiyouwozuiku/AlgorithmSolution/blob/master/Cpp/acwing/%5B848%5D%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.cpp">代码实现</a></p>
 <h3 id="最短路">最短路<a class="anchor" href="#最短路">¶</a></h3>
-<p style="filter: opacity(95%);transform:scale(0.85);text-align:center;"><img src="https://math.now.sh?from=%E6%9C%80%E7%9F%AD%E8%B7%AF%3D%5Cbegin%7Bcases%7D%0A%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%20%0A%5Cbegin%7Bcases%7D%0A%E6%89%80%E6%9C%89%E8%BE%B9%E6%9D%83%E9%87%8D%E9%83%BD%E6%98%AF%E6%AD%A3%E6%95%B0%20%5Cbegin%7Bcases%7D%20%E6%9C%B4%E7%B4%A0Dijkstra%E7%AE%97%E6%B3%95%20%5Cquad%20O%28n%5E2%29%20%5Cquad%20%E9%80%82%E7%94%A8%E7%A8%A0%E5%AF%86%E5%9B%BE%20%5C%5C%20%E5%A0%86%E4%BC%98%E5%8C%96%E7%89%88Dijkstra%E7%AE%97%E6%B3%95%20%5Cquad%20O(mlogn)%20%5Cquad%20%E9%80%82%E7%94%A8%E7%A8%80%E7%96%8F%E5%9B%BE%20%5Cend%7Bcases%7D%20%5C%5C%20%0A%E5%AD%98%E5%9C%A8%E8%B4%9F%E6%9D%83%E8%BE%B9%20%5Cbegin%7Bcases%7D%20Bellman-Ford%E7%AE%97%E6%B3%95%20%5Cquad%20O(nm)%5Cquad%20%E9%80%82%E7%94%A8%E4%B8%8D%E8%B6%85%E8%BF%87k%E6%9D%A1%E8%BE%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%5C%5C%20SPFA%E7%AE%97%E6%B3%95%20%5Cquad%20%E4%B8%80%E8%88%ACO(m)%EF%BC%8C%E6%9C%80%E5%B7%AEO(nm)%20%5Cend%7Bcases%7D%0A%5Cend%7Bcases%7D%0A%5C%5C%0A%E5%A4%9A%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%20%5CRightarrow%20Floyd%E7%AE%97%E6%B3%95%20%5Cquad%20O(n%5E3)%20%5C%0A%5Cend%7Bcases%7D%0A"></p><p>n表示点数，m表示边数。</p>
+<p style="filter: opacity(95%);transform:scale(0.85);text-align:center;"><img src="https://math.now.sh?from=%E6%9C%80%E7%9F%AD%E8%B7%AF%3D%5Cbegin%7Bcases%7D%0A%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%20%0A%5Cbegin%7Bcases%7D%0A%E6%89%80%E6%9C%89%E8%BE%B9%E6%9D%83%E9%87%8D%E9%83%BD%E6%98%AF%E6%AD%A3%E6%95%B0%20%5Cbegin%7Bcases%7D%20%E6%9C%B4%E7%B4%A0Dijkstra%E7%AE%97%E6%B3%95%20%5Cquad%20O%28n%5E2%29%20%5Cquad%20%E9%80%82%E7%94%A8%E7%A8%A0%E5%AF%86%E5%9B%BE%20%5C%5C%20%E5%A0%86%E4%BC%98%E5%8C%96%E7%89%88Dijkstra%E7%AE%97%E6%B3%95%20%5Cquad%20O(mlogn)%20%5Cquad%20%E9%80%82%E7%94%A8%E7%A8%80%E7%96%8F%E5%9B%BE%20%5Cend%7Bcases%7D%20%5C%5C%20%0A%E5%AD%98%E5%9C%A8%E8%B4%9F%E6%9D%83%E8%BE%B9%20%5Cbegin%7Bcases%7D%20Bellman-Ford%E7%AE%97%E6%B3%95%20%5Cquad%20O(nm)%5Cquad%20%E9%80%82%E7%94%A8%E4%B8%8D%E8%B6%85%E8%BF%87k%E6%9D%A1%E8%BE%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%5C%5C%20SPFA%E7%AE%97%E6%B3%95%20%5Cquad%20%E4%B8%80%E8%88%ACO(m)%EF%BC%8C%E6%9C%80%E5%B7%AEO(nm)%20%5Cquad%20%E4%B8%8D%E8%83%BD%E5%AD%98%E5%9C%A8%E8%B4%9F%E6%9D%83%E5%9B%9E%E8%B7%AF%20%5Cend%7Bcases%7D%0A%5Cend%7Bcases%7D%0A%5C%5C%0A%E5%A4%9A%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%20%5CRightarrow%20Floyd%E7%AE%97%E6%B3%95%20%5Cquad%20O(n%5E3)%20%5C%0A%5Cend%7Bcases%7D%0A"></p><p>n表示点数，m表示边数。</p>
 <p>源点：起点</p>
 <p>汇点：终点</p>
 <h4 id="朴素dijkstra算法">朴素dijkstra算法<a class="anchor" href="#朴素dijkstra算法">¶</a></h4>
@@ -2013,7 +2013,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/852/">AcWing 850. Dijkstra求最短路 II</a></p>
 <h4 id="Bellman-Ford算法">Bellman-Ford算法<a class="anchor" href="#Bellman-Ford算法">¶</a></h4>
 <p>时间复杂度<img src="https://math.now.sh?inline=O%28nm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"> 表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数</p>
-<p>当出现负权回路时，最短路是不存在的。</p>
+<p>当出现负权回路时，最短路不一定存在的。因为存在负权回路的节点并不在最短路上就没事。</p>
 <p>注意在模板题中需要对下面的模板稍作修改，加上备份数组。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>       <span class="token comment">// n表示点数，m表示边数</span>
 <span class="token keyword">int</span> dist<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment">// dist[x]存储1到x的最短路距离</span>
@@ -2046,6 +2046,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/855/">AcWing 853. 有边数限制的最短路</a></p>
 <h4 id="SPFA-算法（队列优化的Bellman-Ford算法）">SPFA 算法（队列优化的Bellman-Ford算法）<a class="anchor" href="#SPFA-算法（队列优化的Bellman-Ford算法）">¶</a></h4>
+<p>使用限制：要求当前图不存在负权回路</p>
 <p>时间复杂度平均情况下<img src="https://math.now.sh?inline=O%28m%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，最坏情况下<img src="https://math.now.sh?inline=O%28nm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">;</span>      <span class="token comment">// 总点数</span>
 <span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> w<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>       <span class="token comment">// 邻接表存储所有边</span>
@@ -3150,7 +3151,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.2k</span>&nbsp;字
+                class="white-color">224.5k</span>&nbsp;字
             
             
             

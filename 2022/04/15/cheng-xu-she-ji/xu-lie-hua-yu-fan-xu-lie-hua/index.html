@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-15
+                    2022-04-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    403
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -547,6 +547,19 @@
 <li>第四部分分别讲解了目前常见的几种序列化协议的特性，应用场景，并对相关组件进行举例。</li>
 <li>最后一部分，基于各种协议的特性，以及相关benchmark数据，给出了作者的技术选型建议。</li>
 </ul>
+<h2 id="定义-3">定义<a class="anchor" href="#定义-3">¶</a></h2>
+<p>互联网的产生带来了机器间通讯的需求，而互联通讯的双方需要采用约定的协议，序列化和反序列化属于通讯协议的一部分。通讯协议往往采用分层模型，不同模型每层的功能定义以及颗粒度不同，例如：TCP/IP协议是一个四层协议，而OSI模型却是七层协议模型。在OSI七层协议模型中展现层（Presentation Layer）的主要功能是把应用层的对象转换成一段连续的二进制串，或者反过来，把二进制串转换成应用层的对象–这两个功能就是序列化和反序列化。一般而言，TCP/IP协议的应用层对应与OSI七层协议模型的应用层，展示层和会话层，所以序列化协议属于TCP/IP协议应用层的一部分。本文对序列化协议的讲解主要基于OSI七层协议模型。</p>
+<ul>
+<li>序列化： 将数据结构或对象转换成二进制串的过程</li>
+<li>反序列化：将在序列化过程中所生成的二进制串转换成数据结构或者对象的过程</li>
+</ul>
+<h2 id="数据结构、对象与二进制串">数据结构、对象与二进制串<a class="anchor" href="#数据结构、对象与二进制串">¶</a></h2>
+<p>不同的计算机语言中，数据结构，对象以及二进制串的表示方式并不相同。</p>
+<p>数据结构和对象：对于类似Java这种完全面向对象的语言，工程师所操作的一切都是对象（Object），来自于类的实例化。在Java语言中最接近数据结构的概念，就是POJO（Plain Old Java Object）或者Javabean－－那些只有setter/getter方法的类。而在C++这种半面向对象的语言中，数据结构和struct对应，对象和class对应。</p>
+<p>二进制串：序列化所生成的二进制串指的是存储在内存中的一块数据。C<ins>语言具有内存操作符，所以二进制串的概念容易理解，例如，C</ins>语言的字符串可以直接被传输层使用，因为其本质上就是以’\0’结尾的存储在内存中的二进制串。在Java语言里面，二进制串的概念容易和String混淆。实际上String 是Java的一等公民，是一种特殊对象（Object）。对于跨语言间的通讯，序列化后的数据当然不能是某种语言的特殊数据类型。二进制串在Java里面所指的是byte[]，byte是Java的8中原生数据类型之一（Primitive data types）。</p>
+<h2 id="序列化协议特性">序列化协议特性<a class="anchor" href="#序列化协议特性">¶</a></h2>
+<p>每种序列化协议都有优点和缺点，它们在设计之初有自己独特的应用场景。在系统设计的过程中，需要考虑序列化需求的方方面面，综合对比各种序列化协议的特性，最终给出一个折衷的方案</p>
+<h3 id="通用性">通用性<a class="anchor" href="#通用性">¶</a></h3>
 <h2 id="参考文献-10">参考文献<a class="anchor" href="#参考文献-10">¶</a></h2>
 <ol>
 <li>美团技术团队，<a target="_blank" rel="noopener" href="https://tech.meituan.com/2015/02/26/serialization-vs-deserialization.html">序列化和反序列化</a>，2015</li>
@@ -1124,7 +1137,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">223.2k</span>&nbsp;字
+                class="white-color">224.5k</span>&nbsp;字
             
             
             
