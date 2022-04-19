@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-18
+                    2022-04-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -648,8 +648,32 @@
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/KV%E5%AD%98%E5%82%A8/MySQL%E6%95%B4%E7%90%86%E4%B8%8E%E6%80%BB%E7%BB%93/MVCC.jpg" alt="MVCC.jpg"></p>
 <p>当前值是 4，但是在查询这条记录的时候，不同时刻启动的事务会有不同的 read-view。如图中看到的，在视图 A、B、C 里面，这一个记录的值分别是 1、2、4，<strong>同一条记录在系统中可以存在多个版本，就是数据库的多版本并发控制（MVCC）</strong>。对于 read-view A，要得到 1，就必须将当前值依次执行图中所有的回滚操作得到。</p>
 <p>回滚日志会在系统判断当没有事务需要这些回滚日志时，回滚日志就会被删除。而系统判断的方法就是<strong>检查系统中没有比这个回滚日志更早的read-view的时候</strong>。</p>
-<p><strong>长事务意味着系统里面会存在很老的事务视图。由于这些事务随时可能访问数据库里面的任何数据，所以这个事务提交之前，数据库里面它可能用到的回滚记录都必须保留，这就会导致大量占用存储空间。除了对回滚段的影响，长事务还占用锁资源，也可能拖垮整个库。</strong></p>
+<p><strong>长事务<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>意味着系统里面会存在很老的事务视图。由于这些事务随时可能访问数据库里面的任何数据，所以这个事务提交之前，数据库里面它可能用到的回滚记录都必须保留，这就会导致大量占用存储空间。除了对回滚段的影响，长事务还占用锁资源，也可能拖垮整个库。</strong></p>
 <p>在 MySQL 5.5 及以前的版本，回滚日志是跟数据字典一起放在 ibdata 文件里的，即使长事务最终提交，回滚段被清理，文件也不会变小。导致数据量其实不大，但是产生的回滚段无法清理，只能重建整个库。</p>
+<h3 id="事务启动方式">事务启动方式<a class="anchor" href="#事务启动方式">¶</a></h3>
+<p>Mysql的事务启动方式有以下几种：</p>
+<ul>
+<li>显式启动事务语句，begin或者start transaction。配套的提交语句是commit，回滚语句是rollback。</li>
+<li><code>set autocommit=0</code>这个命令会将这个线程的自动提交关闭。意味着如果你只执行一个select语句，这个事务就启动了，而不会自动提交。这个事务会持续存在直到你主动执行commit或rollback语句，或断开连接。</li>
+</ul>
+<p>有些客户端连接框架默认连接成功后先执行set autocommit=0的操作，这就导致之后的查询都在事务中，如果是长连接，就会导致意外的长事务。</p>
+<p><strong>建议使用set autocommit=1来启动事务。</strong></p>
+<p><strong>针对在乎频繁使用事务的业务，推荐使用commit work and chain语法</strong>。在 autocommit 为 1 的情况下，用 begin 显式启动的事务，如果执行 commit 则提交事务。如果执行 commit work and chain，则是提交事务并自动启动下一个事务，这样也省去了再次执行 begin 语句的开销。同时带来的好处是从程序开发的角度明确地知道每个语句是否处于事务中。</p>
+<p>你可以在 information_schema 库的 innodb_trx 这个表中查询长事务，比如下面这个语句，用于查找持续时间超过 60s 的事务。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> information_schema<span class="token punctuation">.</span>innodb_trx <span class="token keyword">where</span> TIME_TO_SEC<span class="token punctuation">(</span>timediff<span class="token punctuation">(</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>trx_started<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">60</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="索引">索引<a class="anchor" href="#索引">¶</a></h2>
+<h2 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h2>
+<h2 id="参考文献-2">参考文献<a class="anchor" href="#参考文献-2">¶</a></h2>
+<ol>
+<li>掘金，<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903945920315405">MySQL-长事务详解</a>，2019</li>
+</ol>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>长事务，顾名思义就是执行时间较长，长时间未提交的事务。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
                 
             </div>
@@ -1217,7 +1241,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">224.5k</span>&nbsp;字
+                class="white-color">225k</span>&nbsp;字
             
             
             
