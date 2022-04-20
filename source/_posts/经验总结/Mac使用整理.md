@@ -102,6 +102,7 @@ categories: 经验总结
 - ipython
 - neofetch，查看系统配置
 - mas，查看商店安装的程序
+- lsd 直接alias ll=“lsd -lh”
 
 ## zsh配置
 
