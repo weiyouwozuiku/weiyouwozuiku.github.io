@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-27
+                    2022-04-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    611
+                    851
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -553,6 +553,26 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="141-150">141-150<a class="anchor" href="#141-150">¶</a></h2>
+<h4 id="141-环形链表"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle/">141. 环形链表</a><a class="anchor" href="#141-环形链表">¶</a></h4>
+<p>本题思路：</p>
+<p>本题使用了快慢指针的方法来检测链表中环的存在。首先，已知当链表中出现环的时候遍历时会在第一个环中陷入死循环。基于此，采用双指针的思想，分别设置一个快指针、一个慢指针。快指针每次走两步，慢指针每次走一步。当慢指针移动到环的起始点时，快指针必然还在环中。在快慢指针都在环中时，就变成了慢指针与快指针之间的追击问题。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">bool</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 没有节点或只有一个节点必然没有环</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>head <span class="token operator">||</span> <span class="token operator">!</span>head<span class="token operator">-&gt;</span>next<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token comment">// fast指针每次走两步，slow指针每次走一步</span>
+        <span class="token keyword">auto</span> slow <span class="token operator">=</span> head<span class="token punctuation">,</span> fast <span class="token operator">=</span> head<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>fast<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            slow <span class="token operator">=</span> slow<span class="token operator">-&gt;</span>next<span class="token punctuation">,</span> fast <span class="token operator">=</span> fast<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+            <span class="token comment">// fast指针指向最后的空节点</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>fast<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            fast <span class="token operator">=</span> fast<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>fast <span class="token operator">==</span> slow<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="151-160">151-160<a class="anchor" href="#151-160">¶</a></h2>
 <h2 id="161-170">161-170<a class="anchor" href="#161-170">¶</a></h2>
 <h2 id="171-180">171-180<a class="anchor" href="#171-180">¶</a></h2>
@@ -1206,7 +1226,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">225.8k</span>&nbsp;字
+                class="white-color">226.1k</span>&nbsp;字
             
             
             
