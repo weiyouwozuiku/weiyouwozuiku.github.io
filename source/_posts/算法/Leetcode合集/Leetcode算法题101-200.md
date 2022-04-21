@@ -39,7 +39,37 @@ public:
 
 
 ## 141-150
+
+#### [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+
+本题思路：
+
+本题使用了快慢指针的方法来检测链表中环的存在。首先，已知当链表中出现环的时候遍历时会在第一个环中陷入死循环。基于此，采用双指针的思想，分别设置一个快指针、一个慢指针。快指针每次走两步，慢指针每次走一步。当慢指针移动到环的起始点时，快指针必然还在环中。在快慢指针都在环中时，就变成了慢指针与快指针之间的追击问题。
+
+```cpp
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        // 没有节点或只有一个节点必然没有环
+        if (!head || !head->next) return false;
+        // fast指针每次走两步，slow指针每次走一步
+        auto slow = head, fast = head->next;
+        while (fast) {
+            slow = slow->next, fast = fast->next;
+            // fast指针指向最后的空节点
+            if (!fast) return false;
+            fast = fast->next;
+            if (fast == slow) return true;
+        }
+        return false;
+    }
+};
+```
+
+
+
 ## 151-160
+
 ## 161-170
 ## 171-180
 
