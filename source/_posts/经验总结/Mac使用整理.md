@@ -389,6 +389,10 @@ omz update //oh my zsh 更新
 }
 ```
 
+ 推荐一些方便的键盘映射文件：
+
+![组合键映射.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/经验总结/Mac使用整理/组合键映射.png)
+
 ## SSH
 
 为了保持会话的长久链接可以在本地通过新增 `.ssh/config`文件中如下字段：
