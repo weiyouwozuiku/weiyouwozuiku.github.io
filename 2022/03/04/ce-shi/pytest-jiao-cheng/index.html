@@ -550,7 +550,7 @@
 </ul>
 <h2 id="基础">基础<a class="anchor" href="#基础">¶</a></h2>
 <h3 id="安装">安装<a class="anchor" href="#安装">¶</a></h3>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip3 install pytest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip3 <span class="token function">install</span> pytest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="命令行参数">命令行参数<a class="anchor" href="#命令行参数">¶</a></h3>
 <p>可以在pytest命令后加上<code>-v</code>和<code>--verbose</code>查看更加详细的测试信息。</p>
 <p><code>--collect-only</code>选项展示哪些测试用例会被运行。</p>
@@ -688,9 +688,9 @@
                      <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"some boolean option"</span><span class="token punctuation">)</span>
     parser<span class="token punctuation">.</span>addoption<span class="token punctuation">(</span><span class="token string">"--foo"</span><span class="token punctuation">,</span> action<span class="token operator">=</span><span class="token string">"store"</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token string">"bar"</span><span class="token punctuation">,</span>
                      <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"foo: bar or baz"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">❯ pytest -s -q --foo hhh --myopt  test_config.py::test_option
-"foo" set to: hhh
-"myopt" set to: True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">❯ pytest -s -q --foo hhh --myopt  test_config.py::test_option
+<span class="token string">"foo"</span> <span class="token builtin class-name">set</span> to: hhh
+<span class="token string">"myopt"</span> <span class="token builtin class-name">set</span> to: True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>pytestconfig是一个fixture，它可以被其他fixture使用，形如：</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@pytest<span class="token punctuation">.</span>fixture</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">def</span> <span class="token function">foo</span><span class="token punctuation">(</span>pytestconfig<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -1332,7 +1332,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">229.5k</span>&nbsp;字
+                class="white-color">230.1k</span>&nbsp;字
             
             
             

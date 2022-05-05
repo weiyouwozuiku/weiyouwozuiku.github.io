@@ -296,7 +296,7 @@
     <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/xiao-xi-dui-lie-xue-xi/"/>
     <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/xiao-xi-dui-lie-xue-xi/</id>
     <published>2022-03-12T14:07:51.000Z</published>
-    <updated>2022-05-01T14:59:10.000Z</updated>
+    <updated>2022-05-05T16:03:47.000Z</updated>
     
     
       
@@ -1672,7 +1672,7 @@
     <link href="http://buerlog.top/2021/10/26/cheng-xu-she-ji/rpc-li-jie-hui-gu/"/>
     <id>http://buerlog.top/2021/10/26/cheng-xu-she-ji/rpc-li-jie-hui-gu/</id>
     <published>2021-10-26T02:52:52.000Z</published>
-    <updated>2022-04-15T03:54:55.000Z</updated>
+    <updated>2022-05-05T16:03:47.000Z</updated>
     
     
       
@@ -1886,7 +1886,7 @@
     <summary type="html">&lt;h2 id=&quot;前言-2&quot;&gt;前言&lt;a class=&quot;anchor&quot; href=&quot;#前言-2&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Django是一个开放源代码的Web应用框架。&lt;/p&gt;
 &lt;p&gt;检测是否安装Django模块：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-shell&quot; data-language=&quot;shell&quot;&gt;&lt;code</summary>
+&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
         
       
     

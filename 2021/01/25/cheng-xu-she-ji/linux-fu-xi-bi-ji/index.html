@@ -573,7 +573,7 @@
 <h3 id="nohup">nohup<a class="anchor" href="#nohup">¶</a></h3>
 <p>nohup 英文全称 no hang up（不挂起），用于在系统后台不挂断地运行命令，退出终端不会影响程序的运行。</p>
 <p>nohup 命令，在默认情况下（非重定向时），会输出一个名叫 nohup.out 的文件到当前目录下，如果当前目录的 nohup.out 文件不可写，输出重定向到 $HOME/nohup.out 文件中。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">nohup Command [ Arg … ] [　&amp; ]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">nohup</span> Command <span class="token punctuation">[</span> Arg … <span class="token punctuation">]</span> <span class="token punctuation">[</span>　<span class="token operator">&amp;</span> <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>参数说明：</p>
 <ul>
 <li>
@@ -603,7 +603,7 @@
 <h3 id="查看文件夹之间的不同文件">查看文件夹之间的不同文件<a class="anchor" href="#查看文件夹之间的不同文件">¶</a></h3>
 <p>直接使用过diff可能会导致差异文件过多，导致的不可查。可以使用<code>vimdiff &lt;(cd 文件夹1; find . | sort) &lt;(cd 文件夹2; find . | sort)</code></p>
 <h3 id="多行输入到文件">多行输入到文件<a class="anchor" href="#多行输入到文件">¶</a></h3>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cat &gt;&gt;demo &lt;&lt;EOF<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> <span class="token operator">&gt;&gt;</span>demo <span class="token operator">&lt;&lt;</span>EOF<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这行命令的执行方式是从尾到首再到中间。即&lt;&lt;EOF表示标准输入来自命令行的分隔符之间的内容，这里的分隔符被设置为EOF，这个可以人为给定。再将获取的输入传给cat命令，相当于是多行版本的echo，最后&gt;&gt;将内容写入至中间的demo文件。</p>
 <h2 id="Shell编写">Shell编写<a class="anchor" href="#Shell编写">¶</a></h2>
 
@@ -1169,7 +1169,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">229.5k</span>&nbsp;字
+                class="white-color">230.1k</span>&nbsp;字
             
             
             

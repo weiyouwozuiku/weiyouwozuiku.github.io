@@ -540,17 +540,17 @@
 <h3 id="限制用户SSH登陆">限制用户SSH登陆<a class="anchor" href="#限制用户SSH登陆">¶</a></h3>
 <p>只允许指定用户通过指定ip进行登陆（白名单）。</p>
 <p>修改<code>/etc/ssh/sshd_config</code>文件中设置<code>AllowUsers</code>选项。<strong>配置完成需要重启 SSHD 服务。</strong></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">AllowUsers root@<span class="token operator">&lt;</span>指定ip<span class="token operator">&gt;</span> king<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">AllowUsers root@<span class="token operator">&lt;</span>指定ip<span class="token operator">&gt;</span> king<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>只拒绝指定用户进行登陆（黑名单）。</p>
 <p>修改<code>/etc/ssh/sshd_config</code>文件中设置<code>DenyUsers</code>选项。<strong>配置完成需要重启 SSHD 服务。</strong></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">DenyUsers    root aliyun    <span class="token comment">#Linux系统账户        </span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">DenyUsers    root aliyun    <span class="token comment">#Linux系统账户        </span>
 <span class="token comment"># 拒绝 root aliyun 帐户通过 SSH 登录系统</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="重启SSH服务">重启SSH服务<a class="anchor" href="#重启SSH服务">¶</a></h3>
 <p><code>sudo service sshd restart</code></p>
 <h2 id="VSCODE">VSCODE<a class="anchor" href="#VSCODE">¶</a></h2>
 <h3 id="堡垒机跳转">堡垒机跳转<a class="anchor" href="#堡垒机跳转">¶</a></h3>
 <p>当我们使用堡垒机连接服务器的时候，需要在vscode的ssh配置环境中加上如下格式的字段以保证能跳转到相应服务器上。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Host centos7
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Host centos7
   HostName <span class="token punctuation">{</span>服务器ip<span class="token punctuation">}</span>
   User <span class="token punctuation">{</span>登陆用户名<span class="token punctuation">}</span>
   ForwardAgent <span class="token function">yes</span>
@@ -586,12 +586,12 @@ Host centos8
 <p>避免中文乱码：</p>
 <p>在默认设置下，中文文件名在工作区状态输出，中文名不能正确显示，而是显示为八进制的字符编码。</p>
 <p>将git配置文件 <code>core.quotepath</code>项设置为<code>false</code>。<code>quotepath</code>表示引用路径，加上<code>--global</code>表示全局配置。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">git</span> config --global core.quotepath <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global core.quotepath <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="查找相应文件数量">查找相应文件数量<a class="anchor" href="#查找相应文件数量">¶</a></h2>
 <p>获取当前文件夹及其子文件夹中md文件的数量。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ls</span> -lR <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">".md"</span> <span class="token operator">|</span> <span class="token function">wc</span> -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> -lR <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">".md"</span> <span class="token operator">|</span> <span class="token function">wc</span> -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="统计相应文件中代码行数之和">统计相应文件中代码行数之和<a class="anchor" href="#统计相应文件中代码行数之和">¶</a></h2>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">find</span> ./* -name <span class="token string">"*.md"</span> <span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">cat</span><span class="token operator">|</span><span class="token function">grep</span> -v ^$<span class="token operator">|</span><span class="token function">wc</span> -l <span class="token comment">#这里过滤掉了空行</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> ./* -name <span class="token string">"*.md"</span> <span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">cat</span><span class="token operator">|</span><span class="token function">grep</span> -v ^$<span class="token operator">|</span><span class="token function">wc</span> -l <span class="token comment">#这里过滤掉了空行</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -1155,7 +1155,7 @@ Host centos8
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">229.5k</span>&nbsp;字
+                class="white-color">230.1k</span>&nbsp;字
             
             
             

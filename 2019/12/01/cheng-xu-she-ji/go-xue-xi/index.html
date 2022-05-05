@@ -618,7 +618,7 @@
 <p>GO最有意思并且最新奇的特性就是对并发编程的支持。</p>
 <p>Go中的指针类似C。但是不能对指针进行加减操作。<code>*p++</code>只改变变量的值，不改变指针值。</p>
 <p>使用<code>godoc</code>工具可以在本地命令行阅读标准库中的文档。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">go doc package<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go doc package<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><code>golang.org/x/tools/cmd/goimports</code>导入工具，它可以根据需要自动添加或删除导入的包。</p>
 <p>函数的右小括弧，即函数传参数是的参数列表的最后一位的右括号，可以另起一行缩进，并在最后一个参数的后面加上一个逗号，防止编译器在行尾自动插入分号而导致编译错误。例如：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">函数名<span class="token punctuation">(</span>
@@ -1150,9 +1150,9 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <p>go扩充系统类型或他人的类型使用两种方法：<strong>定义别名或使用组合</strong></p>
 <p>使用组合就是创建一个新的结构体，其中包含需要拓展的结构体指针作为数据成员。将结构体中的数据提取出来，创建为一个新的结构体，并对其进行操作。</p>
 <p>有些go的第三方包因为国内网络环境的原因影响，可以使用第三方工具进行下载，而不是使用<code>go get</code>。方式如下：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">go get -v github.com/gpmgo/gopm
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go get -v github.com/gpmgo/gopm
 gopm get -u -g -v 包的地址
-go install 包地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+go <span class="token function">install</span> 包地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="Goroutines和Channels">Goroutines和Channels<a class="anchor" href="#Goroutines和Channels">¶</a></h2>
 <p><code>goroutine</code>是一种函数的并发执行方式，<code>channel</code>在<code>goroutine</code>之间进行参数传递。</p>
 <p><code>main</code>函数本身运行在一个<code>goroutine</code>中。</p>
@@ -1177,16 +1177,16 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
 <p><code>GOPATH</code>表示开发者Go项目的默认路径。</p>
 <h3 id="依赖包下载网络配置">依赖包下载网络配置<a class="anchor" href="#依赖包下载网络配置">¶</a></h3>
 <p>由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">go env -w GO111MODULE=on
-go env -w GOPROXY=https://goproxy.cn,direct<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go <span class="token function">env</span> -w <span class="token assign-left variable">GO111MODULE</span><span class="token operator">=</span>on
+go <span class="token function">env</span> -w <span class="token assign-left variable">GOPROXY</span><span class="token operator">=</span>https://goproxy.cn,direct<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>或者基于系统的环境变量</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 一次性
-$ export GO111MODULE=on
-$ export GOPROXY=https://goproxy.cn
-# 永久
-$ echo "export GO111MODULE=on" &gt;&gt; ~/.profile
-$ echo "export GOPROXY=https://goproxy.cn" &gt;&gt; ~/.profile
-$ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 一次性</span>
+$ <span class="token builtin class-name">export</span> <span class="token assign-left variable">GO111MODULE</span><span class="token operator">=</span>on
+$ <span class="token builtin class-name">export</span> <span class="token assign-left variable">GOPROXY</span><span class="token operator">=</span>https://goproxy.cn
+<span class="token comment"># 永久</span>
+$ <span class="token builtin class-name">echo</span> <span class="token string">"export GO111MODULE=on"</span> <span class="token operator">&gt;&gt;</span> ~/.profile
+$ <span class="token builtin class-name">echo</span> <span class="token string">"export GOPROXY=https://goproxy.cn"</span> <span class="token operator">&gt;&gt;</span> ~/.profile
+$ <span class="token builtin class-name">source</span> ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这里的<code>.profile</code>文件可以改成<code>.zshrc</code>。</p>
 <h3 id="Linux安装Go">Linux安装Go<a class="anchor" href="#Linux安装Go">¶</a></h3>
 <ol>
@@ -1201,10 +1201,10 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
 </li>
 <li>
 <p>修改环境变量</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># sudo vi /etc/profile
- export GOROOT=/usr/local/go
- export GOPATH=/usr/local/gopath
- export PATH=$GOPATH/bin:$GOROOT/bin:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># sudo vi /etc/profile</span>
+ <span class="token builtin class-name">export</span> <span class="token assign-left variable">GOROOT</span><span class="token operator">=</span>/usr/local/go
+ <span class="token builtin class-name">export</span> <span class="token assign-left variable">GOPATH</span><span class="token operator">=</span>/usr/local/gopath
+ <span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$GOPATH</span>/bin:<span class="token variable">$GOROOT</span>/bin:<span class="token environment constant">$PATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li>
 <p><code>source /etc/profile</code>生效配置</p>
@@ -1924,7 +1924,7 @@ $ source ~/.profile<span aria-hidden="true" class="line-numbers-rows"><span></sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">229.5k</span>&nbsp;字
+                class="white-color">230.1k</span>&nbsp;字
             
             
             

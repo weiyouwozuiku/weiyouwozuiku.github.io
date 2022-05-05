@@ -604,9 +604,9 @@
 <p>Manjaro：<code>sudo pacman -S git</code></p>
 <p>Windows：下载安装一直下一步</p>
 <h5 id="配置信息">配置信息<a class="anchor" href="#配置信息">¶</a></h5>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ git config --global user.name "Your Name"
-$ git config --global user.email "email@example.com"
-$ ssh-keygen -t rsa -C "youremail@example.com"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> config --global user.name <span class="token string">"Your Name"</span>
+$ <span class="token function">git</span> config --global user.email <span class="token string">"email@example.com"</span>
+$ ssh-keygen -t rsa -C <span class="token string">"youremail@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>将<code>id_rsa.pub</code>文件中的信息添加到Github-&gt;Account settings-&gt;SSH Keys页面。</p>
 <p>如果想同时长传至coding,也是去coding添加上述信息。</p>
 <p>测试是否成功使用<code>ssh -T git@github.com</code>。</p>
@@ -618,18 +618,18 @@ $ ssh-keygen -t rsa -C "youremail@example.com"<span aria-hidden="true" class="li
 <p>进入该目录，使用<code>npm install</code>安装所需的node包。</p>
 <p>在本地启动hexo：<code>hexo server</code>或<code>hexo s</code>。</p>
 <h4 id="常用命令-3">常用命令<a class="anchor" href="#常用命令-3">¶</a></h4>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo -g #安装Hexo
-npm update hexo -g #升级
-hexo init #初始化博客
-hexo n "我的博客" == hexo new "我的博客" #新建文章
-hexo g == hexo generate #生成
-hexo s == hexo server #启动服务预览
-hexo d == hexo deploy #部署
-hexo server #Hexo会监视文件变动并自动更新，无须重启服务器
-hexo server -s #静态模式
-hexo server -p 5000 #更改端口
-hexo server -i 192.168.1.1 #自定义 IP
-hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo -g <span class="token comment">#安装Hexo</span>
+<span class="token function">npm</span> update hexo -g <span class="token comment">#升级</span>
+hexo init <span class="token comment">#初始化博客</span>
+hexo n <span class="token string">"我的博客"</span> <span class="token operator">==</span> hexo new <span class="token string">"我的博客"</span> <span class="token comment">#新建文章</span>
+hexo g <span class="token operator">==</span> hexo generate <span class="token comment">#生成</span>
+hexo s <span class="token operator">==</span> hexo server <span class="token comment">#启动服务预览</span>
+hexo d <span class="token operator">==</span> hexo deploy <span class="token comment">#部署</span>
+hexo server <span class="token comment">#Hexo会监视文件变动并自动更新，无须重启服务器</span>
+hexo server -s <span class="token comment">#静态模式</span>
+hexo server -p <span class="token number">5000</span> <span class="token comment">#更改端口</span>
+hexo server -i <span class="token number">192.168</span>.1.1 <span class="token comment">#自定义 IP</span>
+hexo clean <span class="token comment">#清除缓存，若是网页正常情况下可以忽略这条命令</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="部署至Github">部署至Github<a class="anchor" href="#部署至Github">¶</a></h4>
 <ol>
 <li>
@@ -675,9 +675,9 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<s
 <p>原生使用的是<code>hexo-renderer-marked</code>，可以替换成<code>hexo-renderer-marked-it</code>这个解析器。</p>
 <h4 id="安装-5">安装<a class="anchor" href="#安装-5">¶</a></h4>
 <p>卸载原生解析器</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ npm un hexo-renderer-marked --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> un hexo-renderer-marked --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>安装解析器</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ npm i hexo-renderer-markdown-it --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> i hexo-renderer-markdown-it --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h4 id="配置-2">配置<a class="anchor" href="#配置-2">¶</a></h4>
 <p>在整个Hexo项目下的<code>_config.yaml</code>文件下添加配置<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">markdown</span><span class="token punctuation">:</span>
@@ -734,12 +734,12 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<s
 <h2 id="自动化部署">自动化部署<a class="anchor" href="#自动化部署">¶</a></h2>
 <p>借助<code>Github Action</code>可以实现当我们在本地向Github提交代码的时候，自动创建并生成相应的静态网页代码，进而联动后面的<code>vercel</code>的部署任务。</p>
 <p>目录结构如下：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">.github
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">.github
 └── workflows
     └── deploy.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="创建Action所需的环境变量">创建Action所需的环境变量<a class="anchor" href="#创建Action所需的环境变量">¶</a></h3>
 <p>创建Action提交代码的秘钥。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh-keygen -f hexo-deploy-key -C "&lt;博客网址&gt;" #仅作为区分<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -f hexo-deploy-key -C <span class="token string">"&lt;博客网址&gt;"</span> <span class="token comment">#仅作为区分</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>上面的命令会在当前文件夹下生成名为<code>hexo-deploy-key</code>的私钥和<code>hexo-deploy-key.pub</code>的公钥。</p>
 <p>将公钥设置进对应仓库的<code>setting-&gt;Deploy keys</code>，同时赋予写权限。</p>
 <p>将私钥设置进对应仓库的<code>setting-&gt;Secrets-&gt;Actions</code>，对应的key名设置为<code>DEPLOY_KEY</code>，value就是私钥。</p>
@@ -830,14 +830,14 @@ hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令<s
 <p><strong>注</strong>：如果<code>github actions</code>中使用<code>actions/checkout@v2</code>，请设定它的参数<code>fetch-depth: 0</code>，因为<code>0</code>表示获取所有分支和标签的所有历史记录。默认值为<code>1</code></p>
 </blockquote>
 <p>小知识：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 获取 git 仓库中所有文件的最新修改时间
-git ls-tree -r --name-only HEAD | while read filename; do
-  echo "$(git log -1 --format="%ad" -- $filename) $filename"
-done
-# 获取 git 仓库中所有文件的最初创建时间
-git ls-tree -r --name-only HEAD | while read filename; do
-	echo "$(git log --format="%ad" -- $filename | tail -1) $filename"
-done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 获取 git 仓库中所有文件的最新修改时间</span>
+<span class="token function">git</span> ls-tree -r --name-only HEAD <span class="token operator">|</span> <span class="token keyword">while</span> <span class="token builtin class-name">read</span> filename<span class="token punctuation">;</span> <span class="token keyword">do</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">git</span> log -1 --format<span class="token operator">=</span><span class="token string">"%ad"</span> -- $filename<span class="token variable">)</span></span> <span class="token variable">$filename</span>"</span>
+<span class="token keyword">done</span>
+<span class="token comment"># 获取 git 仓库中所有文件的最初创建时间</span>
+<span class="token function">git</span> ls-tree -r --name-only HEAD <span class="token operator">|</span> <span class="token keyword">while</span> <span class="token builtin class-name">read</span> filename<span class="token punctuation">;</span> <span class="token keyword">do</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">git</span> log --format<span class="token operator">=</span><span class="token string">"%ad"</span> -- $filename <span class="token operator">|</span> <span class="token function">tail</span> -1<span class="token variable">)</span></span> <span class="token variable">$filename</span>"</span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="访问加速">访问加速<a class="anchor" href="#访问加速">¶</a></h2>
 <h2 id="分支存储源码">分支存储源码<a class="anchor" href="#分支存储源码">¶</a></h2>
 <p>首先在Github的仓库中创建一个新的分支，因为Github Page默认是master分支，所以随便创建一个分支名即可。</p>
@@ -875,8 +875,8 @@ public/
 <h2 id="SEO">SEO<a class="anchor" href="#SEO">¶</a></h2>
 <p>站点地图即 sitemap，是一个页面，上面放置了网站上需要搜索引擎抓取的所有页面的链接。站点地图可以告诉搜索引擎网站上有哪些可供抓取的网页，以便搜索引擎可以更加智能地抓取网站。</p>
 <h3 id="安装插件">安装插件<a class="anchor" href="#安装插件">¶</a></h3>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo-generator-baidu-sitemap --save
-npm install hexo-generator-sitemap --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-baidu-sitemap --save
+<span class="token function">npm</span> <span class="token function">install</span> hexo-generator-sitemap --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="修改配置文件">修改配置文件<a class="anchor" href="#修改配置文件">¶</a></h3>
 <p>在<code>_config.yml</code>中添加如下字段：</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"># 自动生成sitemap
@@ -1475,7 +1475,7 @@ baidusitemap<span class="token operator">:</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">229.5k</span>&nbsp;字
+                class="white-color">230.1k</span>&nbsp;字
             
             
             

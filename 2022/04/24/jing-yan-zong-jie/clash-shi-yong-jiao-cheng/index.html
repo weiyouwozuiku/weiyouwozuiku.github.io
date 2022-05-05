@@ -537,41 +537,41 @@
 <p>下载<a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash/releases/tag/premium">clash</a>的二进制文件到<code>~/clash</code>这个也可以放在/usr/local/bin中，赋予运行权限。</p>
 <p>在<code>~/.config/clash</code>中执行<code>git clone https://github.com/Dreamacro/clash-dashboard.git &amp;&amp; cd clash-dashboard &amp;&amp; git checkout -b gh-pages origin/gh-pages</code>，这个是clash的页面。</p>
 <h3 id="开机自启">开机自启<a class="anchor" href="#开机自启">¶</a></h3>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo vim /etc/systemd/system/clash.service
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/systemd/system/clash.service
 
-[Unit]
-Description=clash daemon
+<span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
+<span class="token assign-left variable">Description</span><span class="token operator">=</span>clash daemon
 
-[Service]
-Type=simple
-User=root
-ExecStart=clash -d /home/pi/.config/clash
-Restart=on-failure
+<span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
+<span class="token assign-left variable">Type</span><span class="token operator">=</span>simple
+<span class="token assign-left variable">User</span><span class="token operator">=</span>root
+<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>clash -d /home/pi/.config/clash
+<span class="token assign-left variable">Restart</span><span class="token operator">=</span>on-failure
 
-[Install]
-WantedBy=multi-user.target
+<span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
+<span class="token assign-left variable">WantedBy</span><span class="token operator">=</span>multi-user.target
 
-sudo systemctl enable clash.service  #设置开机自启动
-sudo systemctl start clash.service  #手动启动<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> clash.service  <span class="token comment">#设置开机自启动</span>
+<span class="token function">sudo</span> systemctl start clash.service  <span class="token comment">#手动启动</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="自动更新">自动更新<a class="anchor" href="#自动更新">¶</a></h2>
 <h3 id="更新脚本及其配置">更新脚本及其配置<a class="anchor" href="#更新脚本及其配置">¶</a></h3>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
 
-# 设置clash路径
-clash_path="/home/pi/.config/clash"
+<span class="token comment"># 设置clash路径</span>
+<span class="token assign-left variable">clash_path</span><span class="token operator">=</span><span class="token string">"/home/pi/.config/clash"</span>
 
-# 停止clash
-sudo systemctl stop clash.service
+<span class="token comment"># 停止clash</span>
+<span class="token function">sudo</span> systemctl stop clash.service
 
-wget -O $clash_path/config.yaml &lt;订阅地址&gt;
-wget -O $clash_path/Country.mmdb https://www.sub-speeder.com/client-download/Country.mmdb
-sed -i "s/# external-ui: folder/external-ui: \/home\/pi\/.config\/clash\/clash-dashboard/;s/secret: ''/secret: '登录秘钥'/g" $clash_path/config.yaml
+<span class="token function">wget</span> -O <span class="token variable">$clash_path</span>/config.yaml <span class="token operator">&lt;</span>订阅地址<span class="token operator">&gt;</span>
+<span class="token function">wget</span> -O <span class="token variable">$clash_path</span>/Country.mmdb https://www.sub-speeder.com/client-download/Country.mmdb
+<span class="token function">sed</span> -i <span class="token string">"s/# external-ui: folder/external-ui: \/home\/pi\/.config\/clash\/clash-dashboard/;s/secret: ''/secret: '登录秘钥'/g"</span> <span class="token variable">$clash_path</span>/config.yaml
 
-# 重启clash
-sudo systemctl restart clash.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 重启clash</span>
+<span class="token function">sudo</span> systemctl restart clash.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="crontab执行">crontab执行<a class="anchor" href="#crontab执行">¶</a></h3>
 <p><code>crontab -e</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">0 */8 * * * /home/pi/.config/clash/update.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">0</span> */8 * * * /home/pi/.config/clash/update.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -1137,7 +1137,7 @@ sudo systemctl restart clash.service<span aria-hidden="true" class="line-numbers
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">229.5k</span>&nbsp;字
+                class="white-color">230.1k</span>&nbsp;字
             
             
             

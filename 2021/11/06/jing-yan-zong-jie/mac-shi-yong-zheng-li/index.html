@@ -633,141 +633,141 @@
 <li>zsh-autosuggestions: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</li>
 </ul>
 <h3 id="zshrc">.zshrc<a class="anchor" href="#zshrc">¶</a></h3>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.</span>
+<span class="token comment"># Initialization code that may require console input (password prompts, [y/n]</span>
+<span class="token comment"># confirmations, etc.) must go above this block; everything else may go below.</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> -r <span class="token string">"<span class="token variable">${XDG_CACHE_HOME<span class="token operator">:-</span>$HOME<span class="token operator">/</span>.cache}</span>/p10k-instant-prompt-<span class="token variable">${(<span class="token operator">%</span>)<span class="token operator">:-</span><span class="token operator">%</span>n}</span>.zsh"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token builtin class-name">source</span> <span class="token string">"<span class="token variable">${XDG_CACHE_HOME<span class="token operator">:-</span>$HOME<span class="token operator">/</span>.cache}</span>/p10k-instant-prompt-<span class="token variable">${(<span class="token operator">%</span>)<span class="token operator">:-</span><span class="token operator">%</span>n}</span>.zsh"</span>
+<span class="token keyword">fi</span>
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+<span class="token comment"># If you come from bash you might have to change your $PATH.</span>
+<span class="token comment"># export PATH=$HOME/bin:/usr/local/bin:$PATH</span>
 
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/robertwang/.oh-my-zsh"
+<span class="token comment"># Path to your oh-my-zsh installation.</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">ZSH</span><span class="token operator">=</span><span class="token string">"/Users/robertwang/.oh-my-zsh"</span>
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+<span class="token comment"># Set name of the theme to load --- if set to "random", it will</span>
+<span class="token comment"># load a random theme each time oh-my-zsh is loaded, in which case,</span>
+<span class="token comment"># to know which specific one was loaded, run: echo $RANDOM_THEME</span>
+<span class="token comment"># See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</span>
+<span class="token assign-left variable">ZSH_THEME</span><span class="token operator">=</span><span class="token string">"powerlevel10k/powerlevel10k"</span>
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+<span class="token comment"># Set list of themes to pick from when loading at random</span>
+<span class="token comment"># Setting this variable when ZSH_THEME=random will cause zsh to load</span>
+<span class="token comment"># a theme from this variable instead of looking in $ZSH/themes/</span>
+<span class="token comment"># If set to an empty array, this variable will have no effect.</span>
+<span class="token comment"># ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )</span>
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+<span class="token comment"># Uncomment the following line to use case-sensitive completion.</span>
+<span class="token comment"># CASE_SENSITIVE="true"</span>
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+<span class="token comment"># Uncomment the following line to use hyphen-insensitive completion.</span>
+<span class="token comment"># Case-sensitive completion must be off. _ and - will be interchangeable.</span>
+<span class="token comment"># HYPHEN_INSENSITIVE="true"</span>
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+<span class="token comment"># Uncomment one of the following lines to change the auto-update behavior</span>
+<span class="token comment"># zstyle ':omz:update' mode disabled  # disable automatic updates</span>
+<span class="token comment"># zstyle ':omz:update' mode auto      # update automatically without asking</span>
+<span class="token comment"># zstyle ':omz:update' mode reminder  # just remind me to update when it's time</span>
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+<span class="token comment"># Uncomment the following line to change how often to auto-update (in days).</span>
+<span class="token comment"># zstyle ':omz:update' frequency 13</span>
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+<span class="token comment"># Uncomment the following line if pasting URLs and other text is messed up.</span>
+<span class="token comment"># DISABLE_MAGIC_FUNCTIONS="true"</span>
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+<span class="token comment"># Uncomment the following line to disable colors in ls.</span>
+<span class="token comment"># DISABLE_LS_COLORS="true"</span>
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+<span class="token comment"># Uncomment the following line to disable auto-setting terminal title.</span>
+<span class="token comment"># DISABLE_AUTO_TITLE="true"</span>
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+<span class="token comment"># Uncomment the following line to enable command auto-correction.</span>
+<span class="token comment"># ENABLE_CORRECTION="true"</span>
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh &lt; 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+<span class="token comment"># Uncomment the following line to display red dots whilst waiting for completion.</span>
+<span class="token comment"># You can also set it to another string to have that shown instead of the default red dots.</span>
+<span class="token comment"># e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"</span>
+<span class="token comment"># Caution: this setting can cause issues with multiline prompts in zsh &lt; 5.7.1 (see #5765)</span>
+<span class="token comment"># COMPLETION_WAITING_DOTS="true"</span>
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+<span class="token comment"># Uncomment the following line if you want to disable marking untracked files</span>
+<span class="token comment"># under VCS as dirty. This makes repository status check for large repositories</span>
+<span class="token comment"># much, much faster.</span>
+<span class="token comment"># DISABLE_UNTRACKED_FILES_DIRTY="true"</span>
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+<span class="token comment"># Uncomment the following line if you want to change the command execution time</span>
+<span class="token comment"># stamp shown in the history command output.</span>
+<span class="token comment"># You can set one of the optional three formats:</span>
+<span class="token comment"># "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"</span>
+<span class="token comment"># or set a custom format using the strftime function format specifications,</span>
+<span class="token comment"># see 'man strftime' for details.</span>
+<span class="token comment"># HIST_STAMPS="mm/dd/yyyy"</span>
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+<span class="token comment"># Would you like to use another custom folder than $ZSH/custom?</span>
+<span class="token comment"># ZSH_CUSTOM=/path/to/new-custom-folder</span>
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git
+<span class="token comment"># Which plugins would you like to load?</span>
+<span class="token comment"># Standard plugins can be found in $ZSH/plugins/</span>
+<span class="token comment"># Custom plugins may be added to $ZSH_CUSTOM/plugins/</span>
+<span class="token comment"># Example format: plugins=(rails git textmate ruby lighthouse)</span>
+<span class="token comment"># Add wisely, as too many plugins slow down shell startup.</span>
+<span class="token assign-left variable">plugins</span><span class="token operator">=</span><span class="token punctuation">(</span>git
     z
     extract
     hitokoto
     gitignore
-    cp
+    <span class="token function">cp</span>
     git-open
-    #safe-paste
-    sudo
+    <span class="token comment">#safe-paste</span>
+    <span class="token function">sudo</span>
     zsh-syntax-highlighting
     zsh-autosuggestions
-    history
+    <span class="token function">history</span>
     tmuxinator
     tmux
-    )
+    <span class="token punctuation">)</span>
 
-source $ZSH/oh-my-zsh.sh
+<span class="token builtin class-name">source</span> <span class="token variable">$ZSH</span>/oh-my-zsh.sh
 
-# User configuration
+<span class="token comment"># User configuration</span>
 
-# export MANPATH="/usr/local/man:$MANPATH"
+<span class="token comment"># export MANPATH="/usr/local/man:$MANPATH"</span>
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+<span class="token comment"># You may need to manually set your language environment</span>
+<span class="token comment"># export LANG=en_US.UTF-8</span>
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+<span class="token comment"># Preferred editor for local and remote sessions</span>
+<span class="token comment"># if [[ -n $SSH_CONNECTION ]]; then</span>
+<span class="token comment">#   export EDITOR='vim'</span>
+<span class="token comment"># else</span>
+<span class="token comment">#   export EDITOR='mvim'</span>
+<span class="token comment"># fi</span>
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+<span class="token comment"># Compilation flags</span>
+<span class="token comment"># export ARCHFLAGS="-arch x86_64"</span>
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+<span class="token comment"># Set personal aliases, overriding those provided by oh-my-zsh libs,</span>
+<span class="token comment"># plugins, and themes. Aliases can be placed here, though oh-my-zsh</span>
+<span class="token comment"># users are encouraged to define aliases within the ZSH_CUSTOM folder.</span>
+<span class="token comment"># For a full list of active aliases, run `alias`.</span>
+<span class="token comment">#</span>
+<span class="token comment"># Example aliases</span>
+<span class="token comment"># alias zshconfig="mate ~/.zshrc"</span>
+<span class="token comment"># alias ohmyzsh="mate ~/.oh-my-zsh"</span>
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export FZF_COMPLETION_TRIGGER='\'
+<span class="token comment"># To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.</span>
+<span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token operator">!</span> -f ~/.p10k.zsh <span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token builtin class-name">source</span> ~/.p10k.zsh
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">FZF_COMPLETION_TRIGGER</span><span class="token operator">=</span><span class="token string">'\'</span>
 
-[ -f ~/.fzf.zsh ] &amp;&amp; source ~/.fzf.zsh
+<span class="token punctuation">[</span> -f ~/.fzf.zsh <span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">source</span> ~/.fzf.zsh
 
-export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2&gt; /dev/null | head -500'"
-alias setproxy='export https_proxy=http://192.168.50.77:20171 http_proxy=http://192.168.50.77:20171 all_proxy=socks5://192.168.50.77:20170'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">FZF_DEFAULT_OPTS</span><span class="token operator">=</span><span class="token string">"--height 80% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2&gt; /dev/null | head -500'"</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">setproxy</span><span class="token operator">=</span><span class="token string">'export https_proxy=http://192.168.50.77:20171 http_proxy=http://192.168.50.77:20171 all_proxy=socks5://192.168.50.77:20170'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="ohmyzsh本地化">ohmyzsh本地化<a class="anchor" href="#ohmyzsh本地化">¶</a></h3>
 <h4 id="安装ohmyzsh">安装ohmyzsh<a class="anchor" href="#安装ohmyzsh">¶</a></h4>
 <p>下载</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>编辑</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"># Default settings
 ZSH=$<span class="token punctuation">{</span>ZSH<span class="token operator">:</span>-~/.oh-my-zsh<span class="token punctuation">}</span>
@@ -885,12 +885,12 @@ omz update <span class="token comment">//oh my zsh 更新</span><span aria-hidde
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/Mac%E4%BD%BF%E7%94%A8%E6%95%B4%E7%90%86/%E7%BB%84%E5%90%88%E9%94%AE%E6%98%A0%E5%B0%84.png" alt="组合键映射.png"></p>
 <h2 id="SSH">SSH<a class="anchor" href="#SSH">¶</a></h2>
 <p>为了保持会话的长久链接可以在本地通过新增 <code>.ssh/config</code>文件中如下字段：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Host *
-  ServerAliveInterval 60<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Host *
+  ServerAliveInterval <span class="token number">60</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="vim">vim<a class="anchor" href="#vim">¶</a></h2>
 <p>安装 <code>vimplus</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/chxuan/vimplus.git ~/.vimplus
-cd ~/.vimplus
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/chxuan/vimplus.git ~/.vimplus
+<span class="token builtin class-name">cd</span> ~/.vimplus
 ./install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>直接安装完成直接会因为apple自研芯片的原因导致安装YouCompleteMe的过程中其实安装失败.可以使用 <code>python3 install.py --all --system-libclang</code>在YouCompleteMe文件夹中安装.</p>
 <p>安装YouCompleteMe中可能出现<code>Python headers are missing in /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.7/Headers.</code>的错误，只需要执行<code>echo 'export PATH="/usr/local/bin:$PATH"' &gt;&gt; ~/.zshrc</code>即可。这个问题的原因可以通过执行<code>brew doctor</code>发现。</p>
@@ -901,99 +901,99 @@ cd ~/.vimplus
 <ul>
 <li>ranger图标</li>
 </ul>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-echo "default_linemode devicons" &gt;&gt; $HOME/.config/ranger/rc.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+<span class="token builtin class-name">echo</span> <span class="token string">"default_linemode devicons"</span> <span class="token operator">&gt;&gt;</span> <span class="token environment constant">$HOME</span>/.config/ranger/rc.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>图片预览</li>
 </ul>
 <p>Add the following lines to your ~/.config/ranger/rc.conf:</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">set preview_images true
-set preview_images_method iterm2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">set</span> preview_images <span class="token boolean">true</span>
+<span class="token builtin class-name">set</span> preview_images_method iterm2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>highlight</li>
 </ul>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install highlight<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> highlight<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="fzf">fzf<a class="anchor" href="#fzf">¶</a></h2>
 <h3 id="安装-8">安装<a class="anchor" href="#安装-8">¶</a></h3>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install fzf
-#安装按键绑定与模糊补全
-$(brew --prefix)/opt/fzf/install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> fzf
+<span class="token comment">#安装按键绑定与模糊补全</span>
+<span class="token variable"><span class="token variable">$(</span>brew --prefix<span class="token variable">)</span></span>/opt/fzf/install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="配置-3">配置<a class="anchor" href="#配置-3">¶</a></h3>
 <p>修改<code>.zshrc</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 修改fzf的触发符号
-export FZF_COMPLETION_TRIGGER='\'
-# 修改fzf默认展示
-export FZF_DEFAULT_OPTS="--height 80% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2&gt; /dev/null | head -500'"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改fzf的触发符号</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">FZF_COMPLETION_TRIGGER</span><span class="token operator">=</span><span class="token string">'\'</span>
+<span class="token comment"># 修改fzf默认展示</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">FZF_DEFAULT_OPTS</span><span class="token operator">=</span><span class="token string">"--height 80% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2&gt; /dev/null | head -500'"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="lrzsz">lrzsz<a class="anchor" href="#lrzsz">¶</a></h2>
 <h3 id="安装-9">安装<a class="anchor" href="#安装-9">¶</a></h3>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install lrzsz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> lrzsz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="安装执行脚本">安装执行脚本<a class="anchor" href="#安装执行脚本">¶</a></h3>
 <p>将<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-send-zmodem.sh">iterm2-send-zmodem.sh</a>和<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/RobberPhex/iterm2-zmodem/master/iterm2-recv-zmodem.sh">iterm2-recv-zmodem.sh</a>保存到<code>/usr/local/bin</code>目录下。</p>
 <p><code>iterm2-send-zmodem.sh</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash
-# Author: Matt Mastracci (matthew@mastracci.com)
-# AppleScript from http://stackoverflow.com/questions/4309087/cancel-button-on-osascript-in-a-bash-script
-# licensed under cc-wiki with attribution required
-# Remainder of script public domain
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># Author: Matt Mastracci (matthew@mastracci.com)</span>
+<span class="token comment"># AppleScript from http://stackoverflow.com/questions/4309087/cancel-button-on-osascript-in-a-bash-script</span>
+<span class="token comment"># licensed under cc-wiki with attribution required</span>
+<span class="token comment"># Remainder of script public domain</span>
 
-osascript -e 'tell application "iTerm2" to version' &gt; /dev/null 2&gt;&amp;1 &amp;&amp; NAME=iTerm2 || NAME=iTerm
-if [[ $NAME = "iTerm" ]]; then
-    FILE=$(osascript -e 'tell application "iTerm" to activate' -e 'tell application "iTerm" to set thefile to choose file with prompt "Choose a file to send"' -e "do shell script (\"echo \"&amp;(quoted form of POSIX path of thefile as Unicode
-else
-    FILE=$(osascript -e 'tell application "iTerm2" to activate' -e 'tell application "iTerm2" to set thefile to choose file with prompt "Choose a file to send"' -e "do shell script (\"echo \"&amp;(quoted form of POSIX path of thefile as Unico
+osascript -e <span class="token string">'tell application "iTerm2" to version'</span> <span class="token operator">&gt;</span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;&amp;</span> <span class="token assign-left variable">NAME</span><span class="token operator">=</span>iTerm2 <span class="token operator">||</span> <span class="token assign-left variable">NAME</span><span class="token operator">=</span>iTerm
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$NAME</span> <span class="token operator">=</span> <span class="token string">"iTerm"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token assign-left variable">FILE</span><span class="token operator">=</span><span class="token punctuation">$(</span>osascript -e <span class="token string">'tell application "iTerm" to activate'</span> -e <span class="token string">'tell application "iTerm" to set thefile to choose file with prompt "Choose a file to send"'</span> -e "do shell script <span class="token punctuation">(</span><span class="token punctuation">\</span>"echo <span class="token punctuation">\</span>"<span class="token operator">&amp;</span><span class="token punctuation">(</span>quoted form of POSIX path of thefile as Unicode
+<span class="token keyword">else</span>
+    <span class="token assign-left variable">FILE</span><span class="token operator">=</span><span class="token punctuation">$(</span>osascript -e <span class="token string">'tell application "iTerm2" to activate'</span> -e <span class="token string">'tell application "iTerm2" to set thefile to choose file with prompt "Choose a file to send"'</span> -e <span class="token string">"do shell script (<span class="token entity" title="\&quot;">\"</span>echo <span class="token entity" title="\&quot;">\"</span>&amp;(quoted form of POSIX path of thefile as Unico
 fi
-if [[ $FILE = "" ]]; then
-    echo Cancelled.
-    # Send ZModem cancel
-    echo -e \\x18\\x18\\x18\\x18\\x18
-    sleep 1
-    echo
-    echo \# Cancelled transfer
-else
-    /opt/homebrew/bin/sz "$FILE" --escape --binary --bufsize 4096
-    sleep 1
-    echo
-    echo \# Received "$FILE"
-fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+if [[ <span class="token variable">$FILE</span> = "</span>" <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> Cancelled.
+    <span class="token comment"># Send ZModem cancel</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token punctuation">\</span><span class="token punctuation">\</span>x18<span class="token punctuation">\</span><span class="token punctuation">\</span>x18<span class="token punctuation">\</span><span class="token punctuation">\</span>x18<span class="token punctuation">\</span><span class="token punctuation">\</span>x18<span class="token punctuation">\</span><span class="token punctuation">\</span>x18
+    <span class="token function">sleep</span> <span class="token number">1</span>
+    <span class="token builtin class-name">echo</span>
+    <span class="token builtin class-name">echo</span> <span class="token punctuation">\</span># Cancelled transfer
+<span class="token keyword">else</span>
+    /opt/homebrew/bin/sz <span class="token string">"<span class="token variable">$FILE</span>"</span> --escape --binary --bufsize <span class="token number">4096</span>
+    <span class="token function">sleep</span> <span class="token number">1</span>
+    <span class="token builtin class-name">echo</span>
+    <span class="token builtin class-name">echo</span> <span class="token punctuation">\</span># Received <span class="token string">"<span class="token variable">$FILE</span>"</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>iterm2-recv-zmodem.sh</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash
-# Author: Matt Mastracci (matthew@mastracci.com)
-# AppleScript from http://stackoverflow.com/questions/4309087/cancel-button-on-osascript-in-a-bash-script
-# licensed under cc-wiki with attribution required
-# Remainder of script public domain
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment"># Author: Matt Mastracci (matthew@mastracci.com)</span>
+<span class="token comment"># AppleScript from http://stackoverflow.com/questions/4309087/cancel-button-on-osascript-in-a-bash-script</span>
+<span class="token comment"># licensed under cc-wiki with attribution required</span>
+<span class="token comment"># Remainder of script public domain</span>
 
-osascript -e 'tell application "iTerm2" to version' &gt; /dev/null 2&gt;&amp;1 &amp;&amp; NAME=iTerm2 || NAME=iTerm
-if [[ $NAME = "iTerm" ]]; then
-    FILE=$(osascript -e 'tell application "iTerm" to activate' -e 'tell application "iTerm" to set thefile to choose folder with prompt "Choose a folder to place received files in"' -e "do shell script (\"echo \"&amp;(quoted form of POSIX pat
-else
-    FILE=$(osascript -e 'tell application "iTerm2" to activate' -e 'tell application "iTerm2" to set thefile to choose folder with prompt "Choose a folder to place received files in"' -e "do shell script (\"echo \"&amp;(quoted form of POSIX p
+osascript -e <span class="token string">'tell application "iTerm2" to version'</span> <span class="token operator">&gt;</span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;&amp;</span> <span class="token assign-left variable">NAME</span><span class="token operator">=</span>iTerm2 <span class="token operator">||</span> <span class="token assign-left variable">NAME</span><span class="token operator">=</span>iTerm
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$NAME</span> <span class="token operator">=</span> <span class="token string">"iTerm"</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token assign-left variable">FILE</span><span class="token operator">=</span><span class="token punctuation">$(</span>osascript -e <span class="token string">'tell application "iTerm" to activate'</span> -e <span class="token string">'tell application "iTerm" to set thefile to choose folder with prompt "Choose a folder to place received files in"'</span> -e "do shell script <span class="token punctuation">(</span><span class="token punctuation">\</span>"echo <span class="token punctuation">\</span>"<span class="token operator">&amp;</span><span class="token punctuation">(</span>quoted form of POSIX pat
+<span class="token keyword">else</span>
+    <span class="token assign-left variable">FILE</span><span class="token operator">=</span><span class="token punctuation">$(</span>osascript -e <span class="token string">'tell application "iTerm2" to activate'</span> -e <span class="token string">'tell application "iTerm2" to set thefile to choose folder with prompt "Choose a folder to place received files in"'</span> -e <span class="token string">"do shell script (<span class="token entity" title="\&quot;">\"</span>echo <span class="token entity" title="\&quot;">\"</span>&amp;(quoted form of POSIX p
 fi
 
-if [[ $FILE = "" ]]; then
-    echo Cancelled.
-    # Send ZModem cancel
-    echo -e \\x18\\x18\\x18\\x18\\x18
-    sleep 1
-    echo
-    echo \# Cancelled transfer
-else
-    cd "$FILE"
-    /opt/homebrew/bin/rz --rename --escape --binary --bufsize 4096
-    sleep 1
-    echo
-    echo
-    echo \# Sent \-\&gt; $FILE
-fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+if [[ <span class="token variable">$FILE</span> = "</span>" <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token builtin class-name">echo</span> Cancelled.
+    <span class="token comment"># Send ZModem cancel</span>
+    <span class="token builtin class-name">echo</span> -e <span class="token punctuation">\</span><span class="token punctuation">\</span>x18<span class="token punctuation">\</span><span class="token punctuation">\</span>x18<span class="token punctuation">\</span><span class="token punctuation">\</span>x18<span class="token punctuation">\</span><span class="token punctuation">\</span>x18<span class="token punctuation">\</span><span class="token punctuation">\</span>x18
+    <span class="token function">sleep</span> <span class="token number">1</span>
+    <span class="token builtin class-name">echo</span>
+    <span class="token builtin class-name">echo</span> <span class="token punctuation">\</span># Cancelled transfer
+<span class="token keyword">else</span>
+    <span class="token builtin class-name">cd</span> <span class="token string">"<span class="token variable">$FILE</span>"</span>
+    /opt/homebrew/bin/rz --rename --escape --binary --bufsize <span class="token number">4096</span>
+    <span class="token function">sleep</span> <span class="token number">1</span>
+    <span class="token builtin class-name">echo</span>
+    <span class="token builtin class-name">echo</span>
+    <span class="token builtin class-name">echo</span> <span class="token punctuation">\</span># Sent <span class="token punctuation">\</span>-<span class="token punctuation">\</span><span class="token operator">&gt;</span> <span class="token variable">$FILE</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="授予执行权限">授予执行权限<a class="anchor" href="#授予执行权限">¶</a></h3>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo chmod +x /usr/local/bin/iterm2-*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">chmod</span> +x /usr/local/bin/iterm2-*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="设置iterm的trigger">设置iterm的trigger<a class="anchor" href="#设置iterm的trigger">¶</a></h3>
 <p>设置Iterm2的Tirgger特性，<code>Preferences-&gt;Profiles-&gt;Default-&gt;Advanced-&gt;Trigged-&gt;Edit</code></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">Regular expression: rz waiting to receive.\*\*B0100
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Regular expression: rz waiting to receive.<span class="token punctuation">\</span>*<span class="token punctuation">\</span>*B0100
 Action: Run Silent Coprocess
 Parameters: /usr/local/bin/iterm2-send-zmodem.sh
 Instant: checked
 
-Regular expression: \*\*B00000000000000
+Regular expression: <span class="token punctuation">\</span>*<span class="token punctuation">\</span>*B00000000000000
 Action: Run Silent Coprocess
 Parameters: /usr/local/bin/iterm2-recv-zmodem.sh
 Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1015,9 +1015,9 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <p>打开<code>系统信息.app</code>就可以查看具体信息以及电脑中安装的所有软件的版本。</p>
 <h2 id="编译报错">编译报错<a class="anchor" href="#编译报错">¶</a></h2>
 <p>当Mac OS进行更新时，可能会导致更新后的系统中原本在Clion等IDE软件中原本的组件的缓存无法找到相应资源，出现如下错误：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#include_next &lt;wchar.h&gt;
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#include_next &lt;wchar.h&gt;</span>
               ^~~~~~~~~
-1 error generated.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token number">1</span> error generated.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>此时只需要清空IDE中的缓存即可。</p>
 <p>在Clion中就是<code>文件-&gt;清除缓存</code>。</p>
 <h2 id="参考资料-4">参考资料<a class="anchor" href="#参考资料-4">¶</a></h2>
@@ -1592,7 +1592,7 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">229.5k</span>&nbsp;字
+                class="white-color">230.1k</span>&nbsp;字
             
             
             

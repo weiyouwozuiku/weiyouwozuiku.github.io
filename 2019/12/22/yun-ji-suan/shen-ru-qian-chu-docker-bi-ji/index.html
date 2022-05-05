@@ -563,21 +563,21 @@
 <h4 id="Linux版Docker">Linux版Docker<a class="anchor" href="#Linux版Docker">¶</a></h4>
 <p style="filter: opacity(95%);transform:scale(0.85);text-align:center;"><img src="https://math.now.sh?from=%5Cbegin%7Bcases%7D%5Ctext%7B%E7%A4%BE%E5%8C%BA%E7%89%88%28Community%20Edition%29%7D%20%5C%5C%20%5Ctext%7B%E4%BC%81%E4%B8%9A%E7%89%88(Enterprise%20Edition)%7D%5Cend%7Bcases%7D%0A"></p><p>Docker EE包含Docker CE中的全部功能，还包括了商业支持和其他Docker产品的集成。</p>
 <p>使用shell脚本的安装步骤如下：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget -qO- https://get.docker.com/ | sh
-# 将用户加入Docker Unix组，通过非root用户使用Docker
-sudo usermod -aG docker your-name
-# 查看是否添加到docker组成功，执行完毕需要重新登录，组权限才能生效
-cat /etc/group | grep docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> -qO- https://get.docker.com/ <span class="token operator">|</span> <span class="token function">sh</span>
+<span class="token comment"># 将用户加入Docker Unix组，通过非root用户使用Docker</span>
+<span class="token function">sudo</span> <span class="token function">usermod</span> -aG <span class="token function">docker</span> your-name
+<span class="token comment"># 查看是否添加到docker组成功，执行完毕需要重新登录，组权限才能生效</span>
+<span class="token function">cat</span> /etc/group <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>查看docker版本：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看docker信息：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker system info<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> system info<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>设置docker开机自启：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo systemctl enable docker
-sudo systemctl is-enabled docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> <span class="token function">docker</span>
+<span class="token function">sudo</span> systemctl is-enabled <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>检查确保docker的容器和服务都已经重启成功：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker container ls
-docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> container <span class="token function">ls</span>
+<span class="token function">docker</span> <span class="token function">service</span> <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h4 id="升级Docker引擎">升级Docker引擎<a class="anchor" href="#升级Docker引擎">¶</a></h4>
 <p>升级关键步骤：</p>
 <ol>
@@ -595,10 +595,10 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 <p>在Linux上，Docker可选择的一些存储驱动包括AUFS(最原始也是最老的)、Overlay2(可能是未来最佳选择)、Device Mapper、Btrfs和ZFS。</p>
 <p>在Win上，Docker只支持Windows Filter一种存储驱动。</p>
 <p>存储驱动的选择是节点级别的。即，每个docker主机只能选择一种存储驱动。不能为每个容器选择不同的存储驱动。在Linux上，修改<code>/etc/docker/deamon.json</code>文件来修改存储引擎配置。*修改完之后需要重启Docker才能生效。*如：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">{
-	"storage-driver":"overlay2"
-}
-# 如果配置所在行不是最后一行，则需要在行尾添加逗号。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">{</span>
+	<span class="token string">"storage-driver"</span><span class="token builtin class-name">:</span><span class="token string">"overlay2"</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># 如果配置所在行不是最后一行，则需要在行尾添加逗号。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>如果修改了正在运行的docker主机的存储引擎类型，则现有的镜像和容器在重启之后将不可用，因为每种存储驱动在主机上存储镜像层的位置不一样(通常在/var/lib/<storage-driver>/…目录下)。</storage-driver></p>
 <p>修改了存储驱动的类型，docker就无法找到原有的镜像和容器。切换回原本的存储驱动能继续使用之前的镜像和容器。如果在切换存储引擎之后，还想使用之前的镜像和容器，则需要将镜像保存为Docker格式，上传到某个镜像仓库，修改本地Docker引擎并重启，之后从镜像仓库将镜像拉取到本地，最后重启容器。</p>
 <p>检查Docker当前的存储驱动类型：<code>docker system info</code>。</p>
@@ -620,16 +620,16 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
 <ol>
 <li>
 <p>将下面的存储驱动配置添加到<code>/etc/docker/daemon.json</code>当中。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">{"storage-driver":"devicemapper"
-"storage-opts":[
-	"dm.directlvm_device=/dev/xdf", # 设置块设备的位置
-	"dm.thinp_percent=95", # 设置镜像和容器允许适应的最大存储空间占比
-	"dm.thinp_metapercent=1",# 设置元数据存储允许使用的存储空间大小
-	"dm.thinp_autoextend_threshold=80",# 设置LVM自动扩展精简池的阈值
-	"dm.thinp_autoextend_percent=20",# 当触发精简池自动扩容机制的时候，扩容大小应当占现有空间的比例
-	"dm.directlvm_device_force=false"# 是否将块设备格式化为新的文件系统
-]
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">{</span><span class="token string">"storage-driver"</span><span class="token builtin class-name">:</span><span class="token string">"devicemapper"</span>
+<span class="token string">"storage-opts"</span>:<span class="token punctuation">[</span>
+	<span class="token string">"dm.directlvm_device=/dev/xdf"</span>, <span class="token comment"># 设置块设备的位置</span>
+	<span class="token string">"dm.thinp_percent=95"</span>, <span class="token comment"># 设置镜像和容器允许适应的最大存储空间占比</span>
+	<span class="token string">"dm.thinp_metapercent=1"</span>,<span class="token comment"># 设置元数据存储允许使用的存储空间大小</span>
+	<span class="token string">"dm.thinp_autoextend_threshold=80"</span>,<span class="token comment"># 设置LVM自动扩展精简池的阈值</span>
+	<span class="token string">"dm.thinp_autoextend_percent=20"</span>,<span class="token comment"># 当触发精简池自动扩容机制的时候，扩容大小应当占现有空间的比例</span>
+	<span class="token string">"dm.directlvm_device_force=false"</span># 是否将块设备格式化为新的文件系统
+<span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li>
 <p>重启Docker。</p>
@@ -1331,7 +1331,7 @@ docker service ls<span aria-hidden="true" class="line-numbers-rows"><span></span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">229.5k</span>&nbsp;字
+                class="white-color">230.1k</span>&nbsp;字
             
             
             
