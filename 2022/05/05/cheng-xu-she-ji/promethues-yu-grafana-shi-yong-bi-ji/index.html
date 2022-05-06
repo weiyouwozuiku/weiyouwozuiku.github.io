@@ -501,14 +501,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    112
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -539,9 +539,193 @@
                 <h2 id="需求背景">需求背景<a class="anchor" href="#需求背景">¶</a></h2>
 <p>为了避免因为服务器资源或者温度导致的服务不可访问等问题的出现，需要监测各台服务器在一定时间间隔内的运行状态，这样即使出现了问题，也能更好的定位问题发生的原因，进而避免机器本身访问不可达。</p>
 <h2 id="整体思路">整体思路<a class="anchor" href="#整体思路">¶</a></h2>
+<p>在监控机上安装监控服务，并在受监控机器上安装相应的监控程序，以满足在一台指定的机器上检查所有机器运行状态的问题。</p>
 <h2 id="难点解决方案">难点解决方案<a class="anchor" href="#难点解决方案">¶</a></h2>
+<p>这一整个流程中的方案选型，有两个方案可以采用：</p>
+<h3 id="探针">探针<a class="anchor" href="#探针">¶</a></h3>
+<p>探针可以采集机器运行信息，但是相对比较简单。</p>
+<p>缺点：往往只能采集到cpu、内存、网络、硬盘的利用率，且数据只能实时展示，不落盘。对于之后问题的定位没啥帮助。</p>
+<p>优点：部署简单，没有难度，端口不好设置加密。</p>
+<h3 id="Promethues-Grafana">Promethues+Grafana<a class="anchor" href="#Promethues-Grafana">¶</a></h3>
+<p>Promethues是一个成熟的监控开源软件。</p>
+<p>优点：能够获取极为详细的运行信息，并且能针对不同的服务以服务的粒度去监控其各项指标。每次监控的数据都会存在相应的主机的时序数据库中，便于之后的问题定位与查找。能设置更好的面板，支持类sql的查询方式。</p>
+<p>缺点：因为采集的数据过于详细，频繁的采集可能导致服务本身的能力受到影响。并且其体量相较于探针大得多，部署等工作相对复杂。</p>
+<h3 id="总结-2">总结<a class="anchor" href="#总结-2">¶</a></h3>
+<p>对于之前的需求而言，并不在乎其实时状态，只需要监控一定时间间隔内的运行状态，并且现在有一个相对空置的机器可以部署Promethues服务。因此选择Promethues+Grafana作为技术方案。</p>
+<p>其中，Promethues进行数据收集，Grafana负责数据展示</p>
 <h2 id="详细设计">详细设计<a class="anchor" href="#详细设计">¶</a></h2>
-<h2 id="上线、回滚方案">上线、回滚方案<a class="anchor" href="#上线、回滚方案">¶</a></h2>
+<h3 id="安装node-exporter">安装node_exporter<a class="anchor" href="#安装node-exporter">¶</a></h3>
+<ol>
+<li>
+<p>在从机上安装<a target="_blank" rel="noopener" href="https://github.com/prometheus/node_exporter">node_exporter</a>监控从机的运行状态</p>
+<ol>
+<li>树莓派选择arm7l的下载包或者使用<code>lscpu </code>查看cpu信息</li>
+<li>服务器选择相应的版本下载</li>
+</ol>
+</li>
+<li>
+<p>将下载下来的文件解压后，将二进制文件放在<code>/usr/local/bin</code>文件下，注意有没有可执行权限，主要是其他用户有没有执行权限。因为之后会注册成系统服务，会使用名为<code>node_exporter</code>用户启动</p>
+</li>
+<li>
+<p>创建<code>node_exporter</code>用户，并授予权限</p>
+   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">groupadd</span> --system node_exporter
+<span class="token function">sudo</span> <span class="token function">useradd</span> -s /sbin/nologin --system -g prometheus node_exporter<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>创建node_exporter运行时的配置文件，一般放在<code>/etc/node_exporter/config.yml</code></p>
+<ol>
+<li>
+<p>这个文件默认没有需要自己去创建</p>
+</li>
+<li>
+<p>httpwd生成密码：<code>htpasswd -nBC 12 '' | tr -d ':\n'</code></p>
+</li>
+<li>
+<pre><code class="language-yaml">   basic_auth_users:
+     用户名: httpwd生成的密码
+   <pre class="line-numbers language-none"><code class="language-none">
+5. 编写系统服务
+
+      1. 创建`/etc/systemd/system/node_exporter.service`文件
+
+      2. 写入如下内容
+
+            ```shell
+            [Unit]
+            Description=Node Exporter
+            Wants=network-online.target
+            After=network-online.target
+            
+            [Service]
+            User=node_exporter
+            Group=node_exporter
+            Type=simple
+            ExecStart=/usr/local/bin/node_exporter --web.config=/etc/node_exporter/config.yml
+            
+            [Install]
+            WantedBy=multi-user.target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p><code>sudo systemctl daemon-reload</code>刷新daemon服务</p>
+</li>
+<li>
+<p>此时可以使用<code>sudo systemctl start node_exporter</code>等命令控制node_exporter程序的运行</p>
+</li>
+<li>
+<p>node_exporter默认运行在9100端口，开启9100端口，并查看该端口下是否有正常输出</p>
+</li>
+<li>
+<p>如果确认没有问题则可以开机自启动服务<code>sudo systemctl enable node_exporter</code></p>
+</li>
+</ol>
+<h3 id="安装Promethues">安装Promethues<a class="anchor" href="#安装Promethues">¶</a></h3>
+<ol>
+<li>
+<p>创建相应用户</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">groupadd</span> --system prometheus
+<span class="token function">sudo</span> <span class="token function">useradd</span> -s /sbin/nologin --system -g prometheus prometheus<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>创建配置目录</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">mkdir</span> /var/lib/prometheus
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> rules rules.d files_sd<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">sudo</span> <span class="token function">mkdir</span> -p /etc/prometheus/<span class="token variable">${i}</span><span class="token punctuation">;</span> <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>下载Promethues</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /tmp/prometheus <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> /tmp/prometheus
+<span class="token function">curl</span> -s https://api.github.com/repos/prometheus/prometheus/releases/latest <span class="token punctuation">\</span>
+  <span class="token operator">|</span> <span class="token function">grep</span> browser_download_url <span class="token punctuation">\</span>
+  <span class="token operator">|</span> <span class="token function">grep</span> linux-amd64 <span class="token punctuation">\</span>
+  <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">'"'</span> -f <span class="token number">4</span> <span class="token punctuation">\</span>
+  <span class="token operator">|</span> <span class="token function">wget</span> -qi -
+  
+<span class="token function">tar</span> xvf prometheus*.tar.gz
+<span class="token builtin class-name">cd</span> prometheus*/
+<span class="token function">mv</span> prometheus promtool /usr/local/bin/
+<span class="token function">mv</span> prometheus.yml  /etc/prometheus/prometheus.yml
+<span class="token function">mv</span> consoles/ console_libraries/ /etc/prometheus/
+
+<span class="token builtin class-name">cd</span> ~/
+<span class="token function">rm</span> -rf /tmp/prometheus<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>创建系统服务</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">tee</span> /etc/systemd/system/prometheus.service<span class="token operator">&lt;&lt;</span><span class="token string">EOF
+
+[Unit]
+Description=Prometheus
+Documentation=https://prometheus.io/docs/introduction/overview/
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=prometheus
+Group=prometheus
+ExecReload=/bin/kill -HUP <span class="token variable">$MAINPID</span>
+ExecStart=/usr/local/bin/prometheus \
+  --config.file=/etc/prometheus/prometheus.yml \
+  --storage.tsdb.path=/var/lib/prometheus \
+  --web.console.templates=/etc/prometheus/consoles \
+  --web.console.libraries=/etc/prometheus/console_libraries \
+  --web.listen-address=0.0.0.0:9090 \
+  --web.external-url=
+
+SyslogIdentifier=prometheus
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>配置相应权限</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> rules rules.d files_sd<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">sudo</span> <span class="token function">chown</span> -R prometheus:prometheus /etc/prometheus/<span class="token variable">${i}</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> rules rules.d files_sd<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">sudo</span> <span class="token function">chmod</span> -R <span class="token number">775</span> /etc/prometheus/<span class="token variable">${i}</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
+<span class="token function">sudo</span> <span class="token function">chown</span> -R prometheus:prometheus /var/lib/prometheus/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>配置节点job</p>
+<ol>
+<li>
+<p>在Promethues中的<code>scrape_configs</code>下添加配置</p>
+  <pre class="line-numbers language-yam" data-language="yam"><code class="language-yam">- job_name: "raspberry pi"
+  basic_auth:
+    username: &lt;name&gt;
+    password: &lt;password&gt;
+  static_configs:
+    - targets: ["localhost:9100"]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>启动</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl daemon-reload
+<span class="token function">sudo</span> systemctl start prometheus
+<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> prometheus<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h3 id="安装Grafana">安装Grafana<a class="anchor" href="#安装Grafana">¶</a></h3>
+<p>参考<a target="_blank" rel="noopener" href="https://grafana.com/grafana/download?platform=linux">官方教程</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> grafana-enterprise
+<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> --now grafana-server
+systemctl status grafana-server.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>默认端口是3000，用户名和密码都是admin。</p>
+<p>通过yum安装的Grafana的配置文件在<code>/etc/grafana/grafana.ini</code>中，修改端口就是改成如下</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># The http port  to use</span>
+http_port = 8028<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>删掉前面的分号，分号在其中表示注释。</p>
+<p>重启Grafana即可。</p>
+<p>在Grafana中首先创建Data Source，之后去import面板，可以用1860或者8919。</p>
+<h2 id="参考文献-9">参考文献<a class="anchor" href="#参考文献-9">¶</a></h2>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://einverne.github.io/post/2020/05/use-prometheus-and-grafana-monitor-proxmox.html">使用 Prometheus 和 Grafana 监控 Proxmox 服务器</a>，2020</li>
+<li>简书，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/821bf7d2bbef">让普罗米修斯替我监测树莓派集群</a>，2020</li>
+</ol>
 
                 
             </div>
@@ -1115,7 +1299,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">230.2k</span>&nbsp;字
+                class="white-color">231.4k</span>&nbsp;字
             
             
             
