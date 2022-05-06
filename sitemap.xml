@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/contact/index.html</loc>
+    <loc>http://buerlog.top/friends/index.html</loc>
     
     <lastmod>2022-05-06</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/friends/index.html</loc>
+    <loc>http://buerlog.top/contact/index.html</loc>
     
     <lastmod>2022-05-06</lastmod>
     
@@ -56,6 +56,15 @@
   </url>
   
   <url>
+    <loc>http://buerlog.top/2022/03/12/cheng-xu-she-ji/xiao-xi-dui-lie-xue-xi/</loc>
+    
+    <lastmod>2022-05-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/2022/05/05/cheng-xu-she-ji/promethues-yu-grafana-shi-yong-bi-ji/</loc>
     
     <lastmod>2022-05-06</lastmod>
@@ -66,15 +75,6 @@
   
   <url>
     <loc>http://buerlog.top/2021/10/26/cheng-xu-she-ji/rpc-li-jie-hui-gu/</loc>
-    
-    <lastmod>2022-05-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2022/03/12/cheng-xu-she-ji/xiao-xi-dui-lie-xue-xi/</loc>
     
     <lastmod>2022-05-05</lastmod>
     
