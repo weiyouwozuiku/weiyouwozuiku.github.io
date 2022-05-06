@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Promethues与Grafana使用笔记</title>
+      <link href="/2022/05/05/cheng-xu-she-ji/promethues-yu-grafana-shi-yong-bi-ji/"/>
+      <url>/2022/05/05/cheng-xu-she-ji/promethues-yu-grafana-shi-yong-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h2 id="需求背景">需求背景<a class="anchor" href="#需求背景">¶</a></h2><p>为了避免因为服务器资源或者温度导致的服务不可访问等问题的出现，需要监测各台服务器在一定时间间隔内的运行状态，这样即使出现了问题，也能更好的定位问题发生的原因，进而避免机器本身访问不可达。</p><h2 id="整体思路">整体思路<a class="anchor" href="#整体思路">¶</a></h2><h2 id="难点解决方案">难点解决方案<a class="anchor" href="#难点解决方案">¶</a></h2><h2 id="详细设计">详细设计<a class="anchor" href="#详细设计">¶</a></h2><h2 id="上线、回滚方案">上线、回滚方案<a class="anchor" href="#上线、回滚方案">¶</a></h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 程序设计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Promethues </tag>
+            
+            <tag> Grafana </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Clash使用教程</title>
       <link href="/2022/04/24/jing-yan-zong-jie/clash-shi-yong-jiao-cheng/"/>
       <url>/2022/04/24/jing-yan-zong-jie/clash-shi-yong-jiao-cheng/</url>
