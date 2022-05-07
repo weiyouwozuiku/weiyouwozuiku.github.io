@@ -226,6 +226,8 @@ http_port = 8028
 
 在Grafana中首先创建Data Source，之后去import面板，可以用1860或者8919。
 
+可以在[官网](https://grafana.com/grafana/dashboards/?collector=nodeexporter)选择喜欢的模板，import进自己的Grafana即可。
+
 ## 参考文献
 
 1. [使用 Prometheus 和 Grafana 监控 Proxmox 服务器](https://einverne.github.io/post/2020/05/use-prometheus-and-grafana-monitor-proxmox.html)，2020
