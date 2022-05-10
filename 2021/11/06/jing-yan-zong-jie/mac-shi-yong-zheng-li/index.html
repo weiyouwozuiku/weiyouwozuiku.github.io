@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-01
+                    2022-05-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.4k
                 </div>
                 
 
@@ -600,6 +600,7 @@
 <li>licecap</li>
 <li>Clearview X</li>
 <li><a target="_blank" rel="noopener" href="https://github.com/balena-io/etcher">balenaEtcher</a></li>
+<li>Reeder</li>
 </ul>
 <h2 id="终端">终端<a class="anchor" href="#终端">¶</a></h2>
 <ul>
@@ -610,7 +611,6 @@
 <li>git</li>
 <li>fd</li>
 <li>ripgrep</li>
-<li>htop</li>
 <li>glances(M1暂时没有适配)</li>
 <li>ctop</li>
 <li>lazydocker</li>
@@ -1003,6 +1003,32 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <li>上传文件：rz</li>
 <li>下载文件：sz + filename</li>
 </ul>
+<h2 id="Autojump">Autojump<a class="anchor" href="#Autojump">¶</a></h2>
+<ul>
+<li>安装<code>brew install autojump</code></li>
+<li>配置进<code>.zshrc</code>加入<code>[[ -s </code>brew --prefix<code>/etc/autojump.sh ]] &amp;&amp; . </code>brew --prefix<code>/etc/autojump.sh</code></li>
+</ul>
+<h2 id="excalidraw">excalidraw<a class="anchor" href="#excalidraw">¶</a></h2>
+<p>直接把excalidraw的<a target="_blank" rel="noopener" href="https://github.com/excalidraw/excalidraw">官方git仓库</a>直接部署到vercel中，利用chrome中的插件<code>XSwitch</code>配置如下内容：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"proxy"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">"https://draw.buerlog.top/Cascadia.woff2"</span><span class="token punctuation">,</span>
+      <span class="token string">"https://ajietextd.github.io/chinese.woff2"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span>
+      <span class="token string">"https://draw.buerlog.top/Virgil.woff2"</span><span class="token punctuation">,</span>
+      <span class="token string">"https://anhoder.github.io/media/excalidraw/FG_Virgil.woff2"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">"https://excalidraw.com/Cascadia.woff2"</span><span class="token punctuation">,</span>
+      <span class="token string">"https://ajietextd.github.io/chinese.woff2"</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">"https://excalidraw.com/Virgil.woff2"</span><span class="token punctuation">,</span>
+      <span class="token string">"https://anhoder.github.io/media/excalidraw/FG_Virgil.woff2"</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Alfred">Alfred<a class="anchor" href="#Alfred">¶</a></h2>
 <p><a target="_blank" rel="noopener" href="https://github.com/wensonsmith/YoudaoTranslator">YoudaoTranslate</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/codezm/Alfred-codezm-workflows-timestamp-convert">Alfred-codezm-workflows-timestamp-convert</a></p>
@@ -1592,7 +1618,7 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">232.4k</span>&nbsp;字
+                class="white-color">232.5k</span>&nbsp;字
             
             
             
