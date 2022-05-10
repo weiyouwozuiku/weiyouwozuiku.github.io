@@ -79,6 +79,7 @@ categories: 经验总结
 - licecap
 - Clearview X
 - [balenaEtcher](https://github.com/balena-io/etcher)
+- Reeder
 
 ## 终端
 
@@ -89,7 +90,6 @@ categories: 经验总结
 - git
 - fd
 - ripgrep
-- htop
 - glances(M1暂时没有适配)
 - ctop
 - lazydocker
@@ -570,6 +570,37 @@ Instant: checked
 
 - 上传文件：rz
 - 下载文件：sz + filename
+
+## Autojump
+
+- 安装`brew install autojump`
+- 配置进`.zshrc`加入`[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh`
+
+## excalidraw
+
+直接把excalidraw的[官方git仓库](https://github.com/excalidraw/excalidraw)直接部署到vercel中，利用chrome中的插件`XSwitch`配置如下内容：
+
+```json
+{
+  "proxy": [
+    [
+      "https://draw.buerlog.top/Cascadia.woff2",
+      "https://ajietextd.github.io/chinese.woff2"
+    ],[
+      "https://draw.buerlog.top/Virgil.woff2",
+      "https://anhoder.github.io/media/excalidraw/FG_Virgil.woff2"
+    ],
+    [
+      "https://excalidraw.com/Cascadia.woff2",
+      "https://ajietextd.github.io/chinese.woff2"
+    ],
+    [
+      "https://excalidraw.com/Virgil.woff2",
+      "https://anhoder.github.io/media/excalidraw/FG_Virgil.woff2"
+    ]
+  ],
+}
+```
 
 ## Alfred
 
