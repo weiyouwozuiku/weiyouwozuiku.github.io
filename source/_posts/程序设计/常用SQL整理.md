@@ -117,6 +117,53 @@ select
          3          2          0
 ```
 
+## Hive多维分析函数
+
+### WITH CUBE
+
+```sql
+GROUP BY 1,2 ...
+WITH CUBE
+```
+
+根据GROUP BY的字段的所有组合进行聚合
+
+全维度聚合
+
+聚合维度组合数$2^n$
+
+在presto中需要写成`GROUP BY CUBE(1,2,...)`
+
+### GROUPING SETS
+
+```sql
+GROUP BY 1,2 ...
+GROUPING SETS((),1,2,(1,2)...)
+```
+
+在一个GROUP BY查询中，根据不同的字段组合进行聚合，等价于将不同字段的GROUP BY结果进行UNION ALL
+
+自定义维度组合
+
+聚合维度组合数N（N为sets中自定义的组合数）
+
+### WITH ROLLUP
+
+```sql
+GROUP BY 1,2 ...
+WITH ROLLUP
+```
+
+是CUBE的子集，以GROUP BY最左侧的字段为主，从该字段开始进行层级聚合（相当于((),(1),(1,2)…)）
+
+左侧主维度组合
+
+聚合维度组合数n+1
+
+## NVL
+
+nvl(column,’空的替换值’)
+
 ## datediff
 
 ## 全量表与增量表
