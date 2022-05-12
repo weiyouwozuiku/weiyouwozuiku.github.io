@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="generator" content="Hexo 6.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-29
+                    2022-05-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    933
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -596,6 +596,35 @@
         男性         女性       性别为空
 <span class="token comment">---------- ---------- ----------</span>
          <span class="token number">3</span>          <span class="token number">2</span>          <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Hive多维分析函数">Hive多维分析函数<a class="anchor" href="#Hive多维分析函数">¶</a></h2>
+<h3 id="WITH-CUBE">WITH CUBE<a class="anchor" href="#WITH-CUBE">¶</a></h3>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">WITH</span> CUBE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>根据GROUP BY的字段的所有组合进行聚合</p>
+<p>全维度聚合</p>
+<p>聚合维度组合数<img src="https://math.now.sh?inline=2%5En" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<p>在presto中需要写成<code>GROUP BY CUBE(1,2,...)</code></p>
+<h3 id="GROUPING-SETS">GROUPING SETS<a class="anchor" href="#GROUPING-SETS">¶</a></h3>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+GROUPING SETS<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在一个GROUP BY查询中，根据不同的字段组合进行聚合，等价于将不同字段的GROUP BY结果进行UNION ALL</p>
+<p>自定义维度组合</p>
+<p>聚合维度组合数N（N为sets中自定义的组合数）</p>
+<h3 id="WITH-ROLLUP">WITH ROLLUP<a class="anchor" href="#WITH-ROLLUP">¶</a></h3>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">WITH ROLLUP</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>是CUBE的子集，以GROUP BY最左侧的字段为主，从该字段开始进行层级聚合（相当于((),(1),(1,2)…)）</p>
+<p>左侧主维度组合</p>
+<p>聚合维度组合数n+1</p>
+<h2 id="NVL">NVL<a class="anchor" href="#NVL">¶</a></h2>
+<p>nvl(column,’空的替换值’)</p>
+<h2 id="排序函数">排序函数<a class="anchor" href="#排序函数">¶</a></h2>
+<h3 id="row-number">row_number()<a class="anchor" href="#row-number">¶</a></h3>
+<p>遇到相同的排名index递增。</p>
+<h3 id="rank">rank()<a class="anchor" href="#rank">¶</a></h3>
+<p>遇到相同的排名index一样，下一个不一样的记录之前的数量。</p>
+<h3 id="dense-rank">dense_rank()<a class="anchor" href="#dense-rank">¶</a></h3>
+<p>遇到相同的排名index一样，下一个不一样的视为一个记录。</p>
 <h2 id="datediff">datediff<a class="anchor" href="#datediff">¶</a></h2>
 <h2 id="全量表与增量表">全量表与增量表<a class="anchor" href="#全量表与增量表">¶</a></h2>
 <h2 id="参考资料">参考资料<a class="anchor" href="#参考资料">¶</a></h2>
@@ -1160,7 +1189,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">232.5k</span>&nbsp;字
+                class="white-color">232.7k</span>&nbsp;字
             
             
             
