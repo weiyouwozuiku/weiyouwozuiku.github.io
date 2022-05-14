@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-04
+                    2022-05-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    730
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -592,6 +592,57 @@ Host centos8
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> -lR <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">".md"</span> <span class="token operator">|</span> <span class="token function">wc</span> -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="统计相应文件中代码行数之和">统计相应文件中代码行数之和<a class="anchor" href="#统计相应文件中代码行数之和">¶</a></h2>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> ./* -name <span class="token string">"*.md"</span> <span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">cat</span><span class="token operator">|</span><span class="token function">grep</span> -v ^$<span class="token operator">|</span><span class="token function">wc</span> -l <span class="token comment">#这里过滤掉了空行</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="RSS">RSS<a class="anchor" href="#RSS">¶</a></h2>
+<h3 id="RSSHub">RSSHub<a class="anchor" href="#RSSHub">¶</a></h3>
+<p>RSSHub可以理解为爬取或者拉取rss服务的后端程序。</p>
+<p>可以白嫖Vercel的服务器，直接用RSSHub的git仓库在Vercel创建服务。https://vercel.com/import/project?template=https://github.com/DIYgod/RSSHub</p>
+<h3 id="Miniflux">Miniflux<a class="anchor" href="#Miniflux">¶</a></h3>
+<p>Miniflux偏向于一个前端程序，渲染RSSHub的数据，并且其本身还配置了一个数据库存储拉取的rss数据。</p>
+<p>使用docker安装只需要一行命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 先新增一個 Miniflux 的目錄</span>
+$ <span class="token function">mkdir</span> ~/miniflux <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> ~/miniflux
+<span class="token comment"># 新建一個設定檔</span>
+$ <span class="token function">nano</span> docker-compose.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">version: "3"
+
+services:
+
+   miniflux:
+     image: miniflux/miniflux:latest
+     container_name: miniflux
+     restart: unless-stopped
+     ports:
+       - "8888:8080"
+     depends_on:
+       - db
+     environment:
+       - DATABASE_URL=postgres://miniflux:somepass888@db/miniflux?sslmode=disable
+       - POLLING_FREQUENCY=15
+       - RUN_MIGRATIONS=1
+
+   db:
+     image: postgres:latest
+     container_name: postgres
+     restart: unless-stopped
+     environment:
+       - POSTGRES_USER=miniflux
+       - POSTGRES_PASSWORD=somepass888
+     volumes:
+       - miniflux-db:/var/lib/postgresql/data
+
+volumes:
+  miniflux-db:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> up -d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>上面的命令就可以拉取运行镜像。</p>
+<p>设置配置：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下面這條指令在日後 Miniflux 大版本升級時候有可能也會用到</span>
+$ <span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span> miniflux /usr/bin/miniflux -migrate
+<span class="token comment"># 下面這條在新增管理員帳號跟密碼，等下要登入 Miniflux 管理後台用的</span>
+$ <span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span> miniflux /usr/bin/miniflux -create-admin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="参考文献-20">参考文献<a class="anchor" href="#参考文献-20">¶</a></h2>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.jkg.tw/p3246/">Docker 快速搭建Miniflux + RSSHub</a>，2020</li>
+</ol>
 
                 
             </div>
@@ -1155,7 +1206,7 @@ Host centos8
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">232.7k</span>&nbsp;字
+                class="white-color">233k</span>&nbsp;字
             
             
             
