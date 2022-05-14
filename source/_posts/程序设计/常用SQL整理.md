@@ -164,6 +164,20 @@ WITH ROLLUP
 
 nvl(column,’空的替换值’)
 
+## 排序函数
+
+### row_number()
+
+遇到相同的排名index递增。
+
+### rank()
+
+遇到相同的排名index一样，下一个不一样的记录之前的数量。
+
+### dense_rank()
+
+遇到相同的排名index一样，下一个不一样的视为一个记录。
+
 ## datediff
 
 ## 全量表与增量表
