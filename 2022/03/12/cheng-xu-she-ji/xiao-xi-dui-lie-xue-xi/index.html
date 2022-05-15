@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-15
+                    2022-05-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5k
+                    5.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    18 分
                 </div>
                 
 
@@ -694,7 +694,16 @@
 </ul>
 <h2 id="消息的可靠传递">消息的可靠传递<a class="anchor" href="#消息的可靠传递">¶</a></h2>
 <h3 id="检测消息丢失的方法">检测消息丢失的方法<a class="anchor" href="#检测消息丢失的方法">¶</a></h3>
-<p>通常利用分布式链路追踪系统。</p>
+<p>通常利用分布式链路追踪系统来检查消息有没有丢失的情况。详情见<a href="https://buerlog.top/2022/05/15/cheng-xu-she-ji/fen-bu-shi-lian-lu-zhui-zong-bi-ji/">分布式链路追踪系统笔记</a>。</p>
+<p>这里记录一个比较简单的方法，来检查消息有没有丢失，即<strong>通过消息队列的有序性</strong>。大体就是在Producer端给给个连续发出的消息附加上一个连续增加的序号，然后再Consumer端来检查这个序号的连续性。如果中间丢失了消息，则必然不连续但是这个方法在工程侧基本不可用，只作为学习了解之用。</p>
+<p>大多数消息列表的客户端都支持拦截器机制。上述的逻辑可以交给拦截器去实现，避免对业务代码的侵入。即，在Producer发送消息之前的拦截器中实现序号注入，在Consumer收到消息的拦截器中检测序号的连续性。待系统稳定后，删去这部分检测的逻辑。</p>
+<p>这里详细说一下这个方案的问题：</p>
+<ul>
+<li>像Kafka和RocketMQ这样的消息队列，<strong>不保证在Topic上的严格有序</strong>，只能保证分区上的消息有序。因此在发送消息的时候需要指定分区，并且在每个分区单独检测消息序号的连续性。</li>
+<li>如果存在多个Producer，需要每个Producer生成各自的消息序号，并加上Producer标识。在Consumer端按照每个Producer分别来检测序号的有序性。</li>
+<li>Consumer实例的数量最好与分区数量一致，便于在Consumer中检测消息序号的有序性。</li>
+</ul>
+<h3 id="可能丢失消息的错误点及其经验">可能丢失消息的错误点及其经验<a class="anchor" href="#可能丢失消息的错误点及其经验">¶</a></h3>
 <h2 id="参考资料-2">参考资料<a class="anchor" href="#参考资料-2">¶</a></h2>
 <ol>
 <li>极客时间，<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/intro/100032301">消息队列高手课</a></li>
@@ -1265,7 +1274,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">233.1k</span>&nbsp;字
+                class="white-color">233.5k</span>&nbsp;字
             
             
             
