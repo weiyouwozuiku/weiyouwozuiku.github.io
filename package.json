@@ -12,9 +12,9 @@
     "version": "6.1.0"
   },
   "dependencies": {
-    "hexo": "^6.1.0",
+    "hexo": "^6.2.0",
     "hexo-deployer-git": "^3.0.0",
-    "hexo-filter-github-emojis": "^3.0.4",
+    "hexo-filter-github-emojis": "^3.0.5",
     "hexo-filter-mermaid-diagrams": "^1.0.5",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-baidu-sitemap": "^0.1.9",
