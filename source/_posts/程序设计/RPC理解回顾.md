@@ -63,3 +63,4 @@ HTTP1.0 协议时，HTTP 调用还只能是短链接调用，一个请求来回�
 
 1. 掘金小册，[深入理解 RPC : 基于 Python 自建分布式高并发 RPC 服务](https://juejin.cn/book/6844733722936377351)，2019
 1. 极客时间，[RPC 实战与核心原理](https://time.geekbang.org/column/intro/100046201?tab=catalog)，2020
+1. 公众号，[消息队列背后的设计思想](https://mp.weixin.qq.com/s/yYmcPQ3aWkwd64DUjvkJXw)，2021
