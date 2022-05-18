@@ -80,6 +80,7 @@ categories: 经验总结
 - Clearview X
 - [balenaEtcher](https://github.com/balena-io/etcher)
 - Reeder
+- HazeOver
 
 ## 终端
 
