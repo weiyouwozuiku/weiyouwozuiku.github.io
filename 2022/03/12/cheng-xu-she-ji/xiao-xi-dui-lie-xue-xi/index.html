@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-17
+                    2022-05-18
                 </div>
                 
 
@@ -777,7 +777,7 @@ channel<span class="token punctuation">.</span>basic_consume<span class="token p
 <li>为更新的数据设置前置条件：如果满足条件就更新数据，否则拒绝更新数据，在更新数据的时候，同时变更前置条件中需要判断的数据。这样，重复执行这个操作时，由于第一次更新数据的时候已经变更了前置条件中需要判断的数据，不满足前置条件，则不会重复执行更新数据操作。最简单的判断条件就是设置消息的版本号。</li>
 <li><strong>记录并检查操作</strong>：此方法通用性最强，适用范围最广，Token或GUID（全局唯一ID）机制。但是需要注意怎么生成GUID，以及<strong>检查消息状态，然后更新数据并设置消费状态需要是原子操作</strong>。</li>
 </ul>
-<p><strong>另外需要注意，当处于分布式环境中，两个服务都收到了同一个消息，需要保证只被执行一次需要家伙是哪个分布式事务或者分布式锁。</strong></p>
+<p><strong>另外需要注意，当处于分布式环境中，两个服务都收到了同一个消息，需要保证只被执行一次需要使用分布式事务或者分布式锁。</strong></p>
 <h2 id="消息积压">消息积压<a class="anchor" href="#消息积压">¶</a></h2>
 <h2 id="参考资料-2">参考资料<a class="anchor" href="#参考资料-2">¶</a></h2>
 <ol>
@@ -1349,7 +1349,7 @@ channel<span class="token punctuation">.</span>basic_consume<span class="token p
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">234.9k</span>&nbsp;字
+                class="white-color">235.1k</span>&nbsp;字
             
             
             
