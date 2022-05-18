@@ -13,9 +13,9 @@ categories: 经验总结
 
 1. 从[官网](https://portswigger.net/burp/releases/professional-community-2022-3-7?requestededition=professional&requestedplatform=)下载BurpSuite。
 
-2. 下载[TrojanAZhen/BurpSuitePro-2.1](https://github.com/TrojanAZhen/BurpSuitePro-2.1)
+2. 下载[TrojanAZhen/BurpSuitePro-2.1](https://github.com/TrojanAZhen/BurpSuitePro-2.1)，直接下载可能仓库很大，需要只下载一层`git clone --depth 1`。
 
-3. 将上面仓库中的burp-loader-x-Ai.jar和burp-keygen-scz.jar放置在`/Applications/Burp\ Suite\ Professional.app/Contents/Resources/app/`中
+3. 将上面仓库中的burp-loader-x-Ai.jar和burp-keygen-scz.jar放置在`/Applications/Burp\ Suite\ Professional.app/Contents/Resources/app/`中。
 
 4. 编辑`vmoptions.txt`，追加写
 
@@ -26,15 +26,15 @@ categories: 经验总结
     -Xmx2048m
    ```
 
-5. 带着启动器启动BurpSuite
+5. 带着启动器启动BurpSuite。
 
    ```shell
    java --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED -Dfile.encoding=utf-8 -noverify -javaagent:/Applications/Burp\ Suite\ Professional.app/Contents/Resources/app/burp-loader-x-Ai.jar -Xmx2048m -jar /Applications/Burp\ Suite\ Professional.app/Contents/Resources/app/burpsuite_pro.jar
    ```
 
-6. 选择手动注册
+6. 选择手动注册。
 
-7. 通过注册器获取注册码
+7. 通过注册器获取注册码。
 
    ```shell
    java -jar /Applications/Burp\ Suite\ Professional.app/Contents/Resources/app/burp-keygen-scz.jar
