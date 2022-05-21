@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-19
+                    2022-05-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.1k
+                    7.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    26 分
                 </div>
                 
 
@@ -657,6 +657,7 @@
 <p>RocketMQ中，订阅者的概念是通过消费组体现的。每个消费组都消费主题中的一份完成信息，不同消费组之间互不影响。</p>
 <p>消费组中存在多个消费者，同一消费组中的消费者互为竞争关系。消息只能被其中一个消费者消费。</p>
 <p><strong>大致逻辑是：生产者生产出消息，按照某种规则塞入队列中的一条队列。消息本身组合成不同的队列，队列中的消息有序，但是队列之间无序。每个队列上为每个消费组维护了一个消费位置，用来标记对应的消费组消费到了当前队列中的第几个消息，当前消费组每消费一条信息一次，消费位置向后移动一个。</strong></p>
+<p>这里可以理解为一个用户的操作需要保证其有序性，因此生产者生产后将该用户的一些系列操作都发送到一个队列中。</p>
 <p>丢消息的原因大多是因为消费位置处理不当导致的。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AD%A6%E4%B9%A0/RocketMQ%E6%B6%88%E8%B4%B9%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B.jpeg" alt="RocketMQ消费队列模型.jpeg"></p>
 <h3 id="Kafka模型">Kafka模型<a class="anchor" href="#Kafka模型">¶</a></h3>
@@ -785,7 +786,24 @@ channel<span class="token punctuation">.</span>basic_consume<span class="token p
 <h4 id="发送端性能优化">发送端性能优化<a class="anchor" href="#发送端性能优化">¶</a></h4>
 <p>代码发送消息的性能上不去，需要优先检查一下，是不是发消息之前的业务逻辑耗时太多导致的。</p>
 <p><strong>对于发送消息的业务逻辑，只需要注意设置合适的并发和批量大小，就可以达到很好的发送性能。</strong></p>
+<p>这里还可以细分成两个场景：</p>
+<ul>
+<li>针对在线服务，注重延迟。这里推荐通过并发提升发送性能。</li>
+<li>针对离线分析系统，注重整个系统吞吐，通过批量发送，用少量并发就能获得较高的吞吐，</li>
+</ul>
 <h4 id="消费端性能优化">消费端性能优化<a class="anchor" href="#消费端性能优化">¶</a></h4>
+<p>大多数消息积压的问题都是发生在消费端。当消费的速度跟不上发送端生产的速度就会造成消息积压。</p>
+<p>所以在设计系统时，<strong>一定要保证消费端的消费性能要高于生产端的发送性能，这样系统才能健康运行</strong>。</p>
+<p>消费端的性能优化除了优化消费业务逻辑以外，也可以通过水平扩容，增加消费端的并发数来提升总体的消费性能。特别需要注意的一点是，**在扩容 Consumer 的实例数量的同时，必须同步扩容主题中的分区（也叫队列）数量，确保 Consumer 的实例数和分区数量是相等的。**如果 Consumer 的实例数量超过分区数量，这样的扩容实际上是没有效果的。原因我们之前讲过，因为对于消费者来说，在每个分区上实际上只能支持单线程消费。<strong>对于一个Consumer而言，数量多余分区或者少于分区都没有意义</strong>。</p>
+<p>如果为了增加消费端的性能，选择消费端只负责接收消息并不处理，将处理逻辑转交给消费端后对应的多台机器，需要保证，中途宕机导致的消息丢失问题。<strong>因此这种方法并不可取。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AD%A6%E4%B9%A0/%E9%94%99%E8%AF%AF%E7%9A%84Consumer%E5%B9%B6%E5%8F%91%E6%96%B9%E6%A1%88.jpeg" alt="错误的Consumer并发方案.jpeg"></p>
+<h3 id="消息挤压后的解决方案">消息挤压后的解决方案<a class="anchor" href="#消息挤压后的解决方案">¶</a></h3>
+<p>如果突然之间消息积压了，可以利用以下思路寻找问题根因。</p>
+<p>最粗粒度：发送快了或者消费慢了。大多数消费队列都安装了监控功能，可以利用监控数据断定。</p>
+<p>最简单的方法就是水平增加Consumer的实例数量。</p>
+<p>实在不行，进行服务降级，关闭不重要的业务，最低限度保证系统的正常运转。</p>
+<p>如果通过监控发现，消费端和生产端并没有什么变化。需要检查是不是消费端出现消费失败后重复消费导致的。</p>
+<p>消费变慢可以检查消费实例，分析原因。检查日志是否有大量错误的消费日志。没有的话检查是不是消费线程卡在什么位置，比如死活或者资源等待。</p>
 <h2 id="参考资料-2">参考资料<a class="anchor" href="#参考资料-2">¶</a></h2>
 <ol>
 <li>极客时间，<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/intro/100032301">消息队列高手课</a></li>
@@ -1356,7 +1374,7 @@ channel<span class="token punctuation">.</span>basic_consume<span class="token p
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">235.3k</span>&nbsp;字
+                class="white-color">236k</span>&nbsp;字
             
             
             
