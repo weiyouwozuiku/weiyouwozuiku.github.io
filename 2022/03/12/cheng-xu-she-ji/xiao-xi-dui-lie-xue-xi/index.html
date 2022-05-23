@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-23
+                    2022-05-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.9k
+                    8.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    27 分
+                    28 分
                 </div>
                 
 
@@ -812,6 +812,13 @@ channel<span class="token punctuation">.</span>basic_consume<span class="token p
 <p>实在不行，进行服务降级，关闭不重要的业务，最低限度保证系统的正常运转。</p>
 <p>如果通过监控发现，消费端和生产端并没有什么变化。需要检查是不是消费端出现消费失败后重复消费导致的。</p>
 <p>消费变慢可以检查消费实例，分析原因。检查日志是否有大量错误的消费日志。没有的话检查是不是消费线程卡在什么位置，比如死活或者资源等待。</p>
+<h2 id="单个队列的并行消费">单个队列的并行消费<a class="anchor" href="#单个队列的并行消费">¶</a></h2>
+<p>针对单个队列的并行消费可以选择并发的发送消息，等待消息们的相应。理想情况下全部成功，此时更新消费位置为最新位置。但是如果出现一次并发中某个消息丢失的问题，可以先将消息位置更新成最新位置，但是将没有响应的消息塞到重试队列中。之后再拉取消息优先选择重试队列中的消息。</p>
+<p><strong>但是这种方案需要解决，如果消息本身有问题，导致无法处理。或者队列上的有序性需要如何保证。</strong></p>
+<h2 id="有序性保证">有序性保证<a class="anchor" href="#有序性保证">¶</a></h2>
+<p>强要求全局有序性，只能1个生产者，1个消费者。</p>
+<p>但是往往只需求局部有序。</p>
+<p>如果需要保证局部严格顺序，可以在发送端，使用账户 ID 作为 Key，采用一致性哈希算法计算出队列编号，指定队列来发送消息。一致性哈希算法可以保证，相同 Key 的消息总是发送到同一个队列上，这样可以保证相同 Key 的消息是严格有序的。如果不考虑队列扩容，也可以用队列数量取模的简单方法来计算队列编号。</p>
 <h2 id="参考资料-2">参考资料<a class="anchor" href="#参考资料-2">¶</a></h2>
 <ol>
 <li>极客时间，<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/intro/100032301">消息队列高手课</a></li>
@@ -1382,7 +1389,7 @@ channel<span class="token punctuation">.</span>basic_consume<span class="token p
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">236.2k</span>&nbsp;字
+                class="white-color">237.9k</span>&nbsp;字
             
             
             
