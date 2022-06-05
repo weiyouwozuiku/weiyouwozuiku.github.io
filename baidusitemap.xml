@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://buerlog.top/2020/12/18/cheng-xu-she-ji/go-yu-yan-wang-guan-kai-fa/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2022/04/15/cheng-xu-she-ji/xu-lie-hua-yu-fan-xu-lie-hua/</loc>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
     <loc>http://buerlog.top/2022/03/12/cheng-xu-she-ji/xiao-xi-dui-lie-xue-xi/</loc>
-    <lastmod>2022-05-23</lastmod>
+    <lastmod>2022-06-05</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2021/03/21/jing-yan-zong-jie/qi-qi-guai-guai-de-zhi-shi/</loc>
+    <lastmod>2022-06-05</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2022/05/23/jing-yan-zong-jie/kai-yuan-dai-ma-yue-du-zhi-bei/</loc>
@@ -23,10 +35,6 @@
   <url>
     <loc>http://buerlog.top/2022/05/15/cheng-xu-she-ji/fen-bu-shi-lian-lu-zhui-zong-bi-ji/</loc>
     <lastmod>2022-05-15</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2021/03/21/jing-yan-zong-jie/qi-qi-guai-guai-de-zhi-shi/</loc>
-    <lastmod>2022-05-14</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2021/12/21/cheng-xu-she-ji/chang-yong-sql-zheng-li/</loc>
@@ -50,10 +58,6 @@
   </url>
   <url>
     <loc>http://buerlog.top/2022/04/18/si-wei-jin-hua/ji-jin-xue-xi-bi-ji/</loc>
-    <lastmod>2022-04-19</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2022/04/15/cheng-xu-she-ji/xu-lie-hua-yu-fan-xu-lie-hua/</loc>
     <lastmod>2022-04-19</lastmod>
   </url>
   <url>
@@ -447,10 +451,6 @@
   <url>
     <loc>http://buerlog.top/2021/09/10/si-wei-jin-hua/ren-zhi-tian-xing-du-hou-gan/</loc>
     <lastmod>2021-12-29</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2020/12/18/cheng-xu-she-ji/go-yu-yan-wang-guan-kai-fa/</loc>
-    <lastmod>2021-12-18</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2021/04/02/yun-ji-suan/docker-yu-k8s/</loc>

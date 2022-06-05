@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-18
+                    2022-06-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    914
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -537,11 +537,11 @@
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go%E8%AF%AD%E8%A8%80%E7%BD%91%E5%85%B3%E5%BC%80%E5%8F%91/OSI%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE.png" alt="OSI七层网络协议.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go%E8%AF%AD%E8%A8%80%E7%BD%91%E5%85%B3%E5%BC%80%E5%8F%91/%E7%BB%8F%E5%85%B8%E5%8D%8F%E8%AE%AE%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%8C%85.png" alt="经典协议与数据包.png"></p>
 <h3 id="TCP连接">TCP连接<a class="anchor" href="#TCP连接">¶</a></h3>
-<p>TCP的三次握手最主要目的是保证连接是双工的，可靠更多的是通过重传机制来保证。因为连接是全双工的，双方必须都收到对方的FIN包及确认才可关闭。</p>
+<p><strong>TCP的三次握手最主要目的是保证连接是双工的，可靠更多的是通过重传机制来保证。因为连接是全双工的，双方必须都收到对方的FIN包及确认才可关闭。</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go%E8%AF%AD%E8%A8%80%E7%BD%91%E5%85%B3%E5%BC%80%E5%8F%91/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E8%BF%9E%E6%8E%A5.png" alt="三次握手连接.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go%E8%AF%AD%E8%A8%80%E7%BD%91%E5%85%B3%E5%BC%80%E5%8F%91/%E5%9B%9B%E6%AC%A1%E5%9B%9E%E6%94%B6%E5%85%B3%E9%97%AD.png" alt="四次回收关闭.png"></p>
 <p>MSL：Maximum Segment Lifetime,30秒到1分钟。</p>
-<p>TIME-WAIT等待2MSL是保证TCP协议的全双工连接能够可靠关闭。保证这次连接的重复数据段从网络中消失。</p>
+<p><strong>TIME-WAIT等待2MSL是保证TCP协议的全双工连接能够可靠关闭。保证这次连接的重复数据段从网络中消失。</strong></p>
 <p>大量出现close_wait的原因：</p>
 <ol>
 <li>一般出现在被动关闭方</li>
@@ -566,8 +566,56 @@
 <li>进行MSS（最大报文长度）大小的TCP分段，当TCP报文长度-TCP头部长度&gt;MSS的时候将会发生拆包。</li>
 <li>接收方法不及时读取套接字缓冲区数据，这将发生粘包。</li>
 </ul>
-<h3 id="HTTP创建过程">HTTP创建过程<a class="anchor" href="#HTTP创建过程">¶</a></h3>
-<h4 id="Server">Server<a class="anchor" href="#Server">¶</a></h4>
+<h3 id="数据传输协议">数据传输协议<a class="anchor" href="#数据传输协议">¶</a></h3>
+<ul>
+<li>使用带消息头的协议，头部写入包长度，然后再读取包内容</li>
+<li>设置定长消息，每次读取定长内容，长度不够时空位补固定字段</li>
+<li>设置消息边界，服务端从网络流中按消息边界分理出消息内容，一般使用<code>\n</code></li>
+<li>专有的协议：json，protobuf</li>
+</ul>
+<h2 id="UDP创建过程">UDP创建过程<a class="anchor" href="#UDP创建过程">¶</a></h2>
+<h3 id="Server">Server<a class="anchor" href="#Server">¶</a></h3>
+<p>步骤：</p>
+<ol>
+<li>监听服务器</li>
+<li>循环读取消息（不创建socket）</li>
+<li>回复数据</li>
+</ol>
+<h3 id="Client">Client<a class="anchor" href="#Client">¶</a></h3>
+<p>步骤：</p>
+<ol>
+<li>连接服务器</li>
+<li>发送数据</li>
+<li>接收数据</li>
+</ol>
+<h2 id="TCP创建过程">TCP创建过程<a class="anchor" href="#TCP创建过程">¶</a></h2>
+<h3 id="Server-2">Server<a class="anchor" href="#Server-2">¶</a></h3>
+<p>步骤：</p>
+<ol>
+<li>监听端口</li>
+<li>接受请求，创建套接字连接</li>
+<li>创建独立协程</li>
+<li>数据解码</li>
+</ol>
+<h3 id="Client-2">Client<a class="anchor" href="#Client-2">¶</a></h3>
+<p>步骤：</p>
+<ol>
+<li>连接服务器</li>
+<li>将信息写入套接字，数据编码</li>
+</ol>
+<h2 id="HTTP创建过程">HTTP创建过程<a class="anchor" href="#HTTP创建过程">¶</a></h2>
+<pre class="mermaid">graph LR;
+HTTP--&gt;Server
+Server--&gt;创建路由器
+Server--&gt;设置路由规则
+Server--&gt;创建服务器
+Server--&gt;监听端口并提供服务
+HTTP--&gt;Client
+Client--&gt;创建连接池
+Client--&gt;创建客户端
+Client--&gt;请求数据
+Client--&gt;读取内容</pre>
+<h4 id="Server-3">Server<a class="anchor" href="#Server-3">¶</a></h4>
 <p>主要结构体：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> ServeMux <span class="token keyword">struct</span> <span class="token punctuation">{</span>
 	mu    sync<span class="token punctuation">.</span>RWMutex
@@ -591,7 +639,7 @@
 <li>创建服务器 http.Server</li>
 <li>监听端口并提供服务 http.Server.ListenAndServe-&gt;http.server.Serve-&gt;http.Accept()-&gt;http.newConn-&gt;go c.serve-&gt;mux.ServeHTTP0&gt;mux.Handler®-&gt;mux.handler(r.host,r.URL.Path)-&gt;mux.match(path)-&gt;v,ok:=mux.m[path]</li>
 </ol>
-<h4 id="Client">Client<a class="anchor" href="#Client">¶</a></h4>
+<h4 id="Client-3">Client<a class="anchor" href="#Client-3">¶</a></h4>
 <p>主要结构体：
 http.Client-&gt;Timeout &amp;&amp; Transport
 type RoundTripper interface</p>
@@ -624,40 +672,25 @@ type RoundTripper interface</p>
 	<span class="token operator">...</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="RoundTrip流程">RoundTrip流程<a class="anchor" href="#RoundTrip流程">¶</a></h5>
-<p>func(t *Transport)roundTrip(req * Request)-&gt;pconn, err := t.getConn(treq, cm)</p>
-<ol>
-<li></li>
-</ol>
-<h3 id="UDP创建过程">UDP创建过程<a class="anchor" href="#UDP创建过程">¶</a></h3>
-<h4 id="Server-2">Server<a class="anchor" href="#Server-2">¶</a></h4>
-<p>步骤：</p>
-<ol>
-<li>监听服务器</li>
-<li>循环读取消息（不创建socket）</li>
-<li>回复数据</li>
-</ol>
-<h4 id="Client-2">Client<a class="anchor" href="#Client-2">¶</a></h4>
-<p>步骤：</p>
-<ol>
-<li>连接服务器</li>
-<li>发送数据</li>
-<li>接收数据</li>
-</ol>
-<h3 id="TCP创建过程">TCP创建过程<a class="anchor" href="#TCP创建过程">¶</a></h3>
-<h4 id="Server-3">Server<a class="anchor" href="#Server-3">¶</a></h4>
-<p>步骤：</p>
-<ol>
-<li>监听端口</li>
-<li>接受请求，创建套接字连接</li>
-<li>创建独立协程</li>
-<li>数据解码</li>
-</ol>
-<h4 id="Client-3">Client<a class="anchor" href="#Client-3">¶</a></h4>
-<p>步骤：</p>
-<ol>
-<li>连接服务器</li>
-<li>将信息写入套接字，数据编码</li>
-</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go%E8%AF%AD%E8%A8%80%E7%BD%91%E5%85%B3%E5%BC%80%E5%8F%91/Transport_RoundTrip%E6%B5%81%E7%A8%8B.png" alt="Transport_RoundTrip流程.png"></p>
+<h4 id="超时时间">超时时间<a class="anchor" href="#超时时间">¶</a></h4>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go%E8%AF%AD%E8%A8%80%E7%BD%91%E5%85%B3%E5%BC%80%E5%8F%91/Client%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4.png" alt="Client超时时间.png"></p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">   <span class="token comment">// 创建连接池</span>
+transport <span class="token operator">:=</span> <span class="token operator">&amp;</span>http<span class="token punctuation">.</span>Transport<span class="token punctuation">{</span>
+	DialContext<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token operator">&amp;</span>net<span class="token punctuation">.</span>Dialer<span class="token punctuation">{</span>
+		Timeout<span class="token punctuation">:</span>   <span class="token number">30</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">,</span> <span class="token comment">//连接超时</span>
+		KeepAlive<span class="token punctuation">:</span> <span class="token number">30</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">,</span> <span class="token comment">//探活时间</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>DialContext<span class="token punctuation">,</span>
+	MaxIdleConns<span class="token punctuation">:</span>          <span class="token number">100</span><span class="token punctuation">,</span>              <span class="token comment">//最大空闲连接</span>
+	IdleConnTimeout<span class="token punctuation">:</span>       <span class="token number">90</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">,</span> <span class="token comment">//空闲超时时间</span>
+	TLSHandshakeTimeout<span class="token punctuation">:</span>   <span class="token number">10</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">,</span> <span class="token comment">//tls握手超时时间</span>
+	ExpectContinueTimeout<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">,</span>  <span class="token comment">//100-continue状态码超时时间</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 创建客户端</span>
+client <span class="token operator">:=</span> <span class="token operator">&amp;</span>http<span class="token punctuation">.</span>Client<span class="token punctuation">{</span>
+	Timeout<span class="token punctuation">:</span>   time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token comment">//请求超时时间</span>
+	Transport<span class="token punctuation">:</span> transport<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1221,7 +1254,7 @@ type RoundTripper interface</p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">237.9k</span>&nbsp;字
+                class="white-color">239.5k</span>&nbsp;字
             
             
             

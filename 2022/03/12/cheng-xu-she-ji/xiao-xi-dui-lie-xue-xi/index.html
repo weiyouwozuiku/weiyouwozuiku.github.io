@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-24
+                    2022-06-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.2k
+                    9.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    28 分
+                    32 分
                 </div>
                 
 
@@ -819,6 +819,51 @@ channel<span class="token punctuation">.</span>basic_consume<span class="token p
 <p>强要求全局有序性，只能1个生产者，1个消费者。</p>
 <p>但是往往只需求局部有序。</p>
 <p>如果需要保证局部严格顺序，可以在发送端，使用账户 ID 作为 Key，采用一致性哈希算法计算出队列编号，指定队列来发送消息。一致性哈希算法可以保证，相同 Key 的消息总是发送到同一个队列上，这样可以保证相同 Key 的消息是严格有序的。如果不考虑队列扩容，也可以用队列数量取模的简单方法来计算队列编号。</p>
+<h2 id="Kafka高性能分析">Kafka高性能分析<a class="anchor" href="#Kafka高性能分析">¶</a></h2>
+<h3 id="通用优化性能手段">通用优化性能手段<a class="anchor" href="#通用优化性能手段">¶</a></h3>
+<p>异步化线程模型–&gt; 线程池</p>
+<p>高性能网络传输–&gt;双工传输，序号实现有序</p>
+<p>私有传输协议</p>
+<p>序列化、反序列化实现</p>
+<p>内存管理：对象传递、对象池</p>
+<h3 id="Kafka特有性能优化实现">Kafka特有性能优化实现<a class="anchor" href="#Kafka特有性能优化实现">¶</a></h3>
+<h4 id="批量消息">批量消息<a class="anchor" href="#批量消息">¶</a></h4>
+<p>在 Kafka 内部，消息都是以“批”为单位处理的。</p>
+<p>在 Kafka 的客户端 SDK中，Kafka 的 Producer 只提供了单条发送的 send() 方法，并没有提供任何批量发送的接口。原因是，<strong>Kafka 根本就没有提供单条发送的功能，虽然它提供的 API 每次只能发送一条消息，但实际上，Kafka 的客户端 SDK 在实现消息发送逻辑的时候，采用了异步批量发送的机制。</strong></p>
+<p>当你调用 send() 方法发送一条消息之后，无论你是同步发送还是异步发送，Kafka 都不会立即就把这条消息发送出去。它会先把这条消息，存放在内存中缓存起来，然后选择合适的时机把缓存中的所有消息组成一批，一次性发给 Broker。简单地说，就是攒一波一起发。</p>
+<p>在 Broker 整个处理流程中，无论是写入磁盘、从磁盘读出来、还是复制到其他副本这些流程中，<strong>批消息都不会被解开，一直是作为一条“批消息”来进行处理的。</strong></p>
+<p>在消费时，消息同样是以批为单位进行传递的，Consumer 从 Broker 拉到一批消息后，在客户端把批消息解开，再一条一条交给用户代码处理。</p>
+<p>构建批消息和解开批消息分别在发送端和消费端的客户端完成，不仅减轻了 Broker 的压力，最重要的是减少了 Broker 处理请求的次数，提升了总体的处理能力。</p>
+<pre class="mermaid">graph LR
+A[消息A]--&gt;批消息
+B[消息B]--&gt;批消息
+C[消息C]--&gt;批消息
+D[...]--&gt;批消息
+批消息==&gt;Broker==&gt;Consumer
+Consumer--&gt;a[消息A]
+Consumer--&gt;b[消息B]
+Consumer--&gt;c[消息C]
+Consumer--&gt;d[...]</pre>
+<h4 id="顺序读写">顺序读写<a class="anchor" href="#顺序读写">¶</a></h4>
+<p>对于磁盘来说，它有一个特性，就是顺序读写的性能要远远好于随机读写。在 SSD（固态硬盘）上，顺序读写的性能要比随机读写快几倍，如果是机械硬盘，这个差距会达到几十倍。</p>
+<p>Kafka 就是充分利用了磁盘的这个特性。它的存储设计非常简单，对于每个分区，它把从 Producer 收到的消息，顺序地写入对应的 log 文件中，一个文件写满了，就开启一个新的文件这样顺序写下去。消费的时候，也是从某个全局的位置开始，也就是某一个 log 文件中的某个位置开始，顺序地把消息读出来。</p>
+<h4 id="PageCache加速消息读写">PageCache加速消息读写<a class="anchor" href="#PageCache加速消息读写">¶</a></h4>
+<p>一般来说，消息刚刚写入到服务端就会被消费，按照 LRU 的“优先清除最近最少使用的页”这种策略，读取的时候，对于这种刚刚写入的 PageCache，命中的几率会非常高。</p>
+<p>也就是说，大部分情况下，消费读消息都会命中 PageCache，带来的好处有两个：一个是读取的速度会非常快，另外一个是，给写入消息让出磁盘的 IO 资源，间接也提升了写入的性能。</p>
+<h4 id="ZeroCopy">ZeroCopy<a class="anchor" href="#ZeroCopy">¶</a></h4>
+<p>我们知道，在服务端，处理消费的大致逻辑是这样的：</p>
+<ul>
+<li>首先，从文件中找到消息数据，读到内存中；</li>
+<li>然后，把消息通过网络发给客户端。</li>
+</ul>
+<p>这个过程中，数据实际上做了 2 次或者 3 次复制：</p>
+<ol>
+<li>从文件复制数据到 PageCache 中，如果命中 PageCache，这一步可以省掉；</li>
+<li>从 PageCache 复制到应用程序的内存空间中，也就是我们可以操作的对象所在的内存；</li>
+<li>从应用程序的内存空间复制到 Socket 的缓冲区，这个过程就是我们调用网络应用框架的 API 发送数据的过程。</li>
+</ol>
+<p>Kafka 使用零拷贝技术可以把这个复制次数减少一次，上面的 2、3 步骤两次复制合并成一次复制。直接从 PageCache 中把数据复制到 Socket 缓冲区中，这样不仅减少一次数据复制，更重要的是，由于不用把数据复制到用户内存空间，DMA 控制器可以直接完成数据复制，不需要 CPU 参与，速度更快。</p>
+<p>总结：通过DMA，跳过程序内存控制直接将PageCache中的数据复制到socket缓冲区。针对只是读取文件并发送的需求，而不需要处理，零拷贝可以提升性能。</p>
 <h2 id="参考资料-2">参考资料<a class="anchor" href="#参考资料-2">¶</a></h2>
 <ol>
 <li>极客时间，<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/intro/100032301">消息队列高手课</a></li>
@@ -1389,7 +1434,7 @@ channel<span class="token punctuation">.</span>basic_consume<span class="token p
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">237.9k</span>&nbsp;字
+                class="white-color">239.5k</span>&nbsp;字
             
             
             
