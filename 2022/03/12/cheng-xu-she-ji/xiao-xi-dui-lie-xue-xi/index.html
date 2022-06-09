@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-05
+                    2022-06-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.4k
+                    10k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    32 分
+                    34 分
                 </div>
                 
 
@@ -864,6 +864,14 @@ Consumer--&gt;d[...]</pre>
 </ol>
 <p>Kafka 使用零拷贝技术可以把这个复制次数减少一次，上面的 2、3 步骤两次复制合并成一次复制。直接从 PageCache 中把数据复制到 Socket 缓冲区中，这样不仅减少一次数据复制，更重要的是，由于不用把数据复制到用户内存空间，DMA 控制器可以直接完成数据复制，不需要 CPU 参与，速度更快。</p>
 <p>总结：通过DMA，跳过程序内存控制直接将PageCache中的数据复制到socket缓冲区。针对只是读取文件并发送的需求，而不需要处理，零拷贝可以提升性能。</p>
+<h2 id="缓存策略">缓存策略<a class="anchor" href="#缓存策略">¶</a></h2>
+<p>缓存按照使用方式可以分成：只读缓存和读写缓存。</p>
+<h3 id="读写缓存">读写缓存<a class="anchor" href="#读写缓存">¶</a></h3>
+<p>Kafka中使用的PageCache是经典的读写缓存。操作系统会利用系统空闲的物理内存来给文件读写做缓存，这个缓存叫做 PageCache。应用程序在写文件的时候，操作系统会先把数据写入到 PageCache 中，数据在成功写到 PageCache 之后，对于用户代码来说，写入就结束了。然后，操作系统再异步地把数据更新到磁盘的文件中。应用程序在读文件的时候，操作系统也是先尝试从 PageCache 中寻找数据，如果找到就直接返回数据，找不到会触发一个缺页中断，然后操作系统把数据从文件读取到 PageCache 中，再返回给应用程序。可以看到，在数据写到 PageCache 中后，它并不是同时就写到磁盘上了，这中间是有一个延迟的。操作系统可以保证，即使是应用程序意外退出了，操作系统也会把这部分数据同步到磁盘上。但是，如果服务器突然掉电了，这部分数据就丢失了。</p>
+<p>**读写缓存的这种设计，它天然就是不可靠的，是一种牺牲数据一致性换取性能的设计。**当然，应用程序可以调用 sync 等系统调用，强制操作系统立即把缓存数据同步到磁盘文件中去，但是这个同步的过程是很慢的，也就失去了缓存的意义。</p>
+<p>因为消息队列本身的特点读写比例往往是1：1。只读缓存无法加速写过程，对于读过程效果有限。同时消息队列的数据一致性往往通过不同节点间的多副本解决。</p>
+<h3 id="只读缓存">只读缓存<a class="anchor" href="#只读缓存">¶</a></h3>
+<p>从经验值来看，读次数一般都是写次数的几倍到几十倍。这种情况下，使用只读缓存来加速系统才是非常明智的选择。</p>
 <h2 id="参考资料-2">参考资料<a class="anchor" href="#参考资料-2">¶</a></h2>
 <ol>
 <li>极客时间，<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/intro/100032301">消息队列高手课</a></li>
@@ -1434,7 +1442,7 @@ Consumer--&gt;d[...]</pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">239.6k</span>&nbsp;字
+                class="white-color">240.2k</span>&nbsp;字
             
             
             
