@@ -239,5 +239,14 @@ type persistConn struct {
 	}
 ```
 
+## 正向代理
+
+### http代理
 
 
+
+### socks5代理
+
+
+
+## 反向代理

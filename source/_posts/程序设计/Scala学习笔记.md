@@ -24,9 +24,13 @@ Scala具有一些特性：
 - 高度的伸缩性，仅用少量代码就可以创建高性能的应用程序
 - 具有强大、易用的并发模型
 
-## 1. 探索Scala
+## 安装
 
+```shell
+brew install coursier/formulas/coursier && cs setup
+```
 
+## 探索Scala
 
 Scala不要求以`;`结尾。
 
@@ -43,6 +47,20 @@ object HelloWorld{
 `<10>.asInstanceOf[Double]`：Int类型的10转换成Double类型
 
 `10.isInstanceOf[Int]`：返回10是否为Int类型
+
+### val vs var
+
+val：值
+
+final修饰
+
+val 值名称：类型= xxx
+
+var：变量
+
+### 常见基本类型
+
+
 
 ## Tip
 
