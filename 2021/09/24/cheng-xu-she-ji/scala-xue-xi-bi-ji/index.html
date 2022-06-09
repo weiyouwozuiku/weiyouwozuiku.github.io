@@ -497,14 +497,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    281
+                    580
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -562,7 +562,75 @@
 <p>final修饰</p>
 <p>val 值名称：类型= xxx</p>
 <p>var：变量</p>
+<p>可以使用lazy关键字描述 定义惰性加载，实现懒加载。不加lazy是立即实例化，但是使用lazy则在使用时实例化。</p>
+<p>**使用lazy只有在使用时才执行，可能导致错误不易被发现。**需要注意。</p>
 <h3 id="常见基本类型">常见基本类型<a class="anchor" href="#常见基本类型">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Byte</td>
+<td style="text-align:left">8位有符号补码整数。数值区间为 -128 到 127</td>
+</tr>
+<tr>
+<td style="text-align:left">Short</td>
+<td style="text-align:left">16位有符号补码整数。数值区间为 -32768 到 32767</td>
+</tr>
+<tr>
+<td style="text-align:left">Int</td>
+<td style="text-align:left">32位有符号补码整数。数值区间为 -2147483648 到 2147483647</td>
+</tr>
+<tr>
+<td style="text-align:left">Long</td>
+<td style="text-align:left">64位有符号补码整数。数值区间为 -9223372036854775808 到 9223372036854775807</td>
+</tr>
+<tr>
+<td style="text-align:left">Float</td>
+<td style="text-align:left">32 位, IEEE 754 标准的单精度浮点数</td>
+</tr>
+<tr>
+<td style="text-align:left">Double</td>
+<td style="text-align:left">64 位 IEEE 754 标准的双精度浮点数</td>
+</tr>
+<tr>
+<td style="text-align:left">Char</td>
+<td style="text-align:left">16位无符号Unicode字符, 区间值为 U+0000 到 U+FFFF</td>
+</tr>
+<tr>
+<td style="text-align:left">String</td>
+<td style="text-align:left">字符序列</td>
+</tr>
+<tr>
+<td style="text-align:left">Boolean</td>
+<td style="text-align:left">true或false</td>
+</tr>
+<tr>
+<td style="text-align:left">Unit</td>
+<td style="text-align:left">表示无值，和其他语言中void等同。用作不返回任何结果的方法的结果类型。Unit只有一个实例值，写成()。</td>
+</tr>
+<tr>
+<td style="text-align:left">Null</td>
+<td style="text-align:left">null 或空引用</td>
+</tr>
+<tr>
+<td style="text-align:left">Nothing</td>
+<td style="text-align:left">Nothing类型在Scala的类层级的最底端；它是任何其他类型的子类型。</td>
+</tr>
+<tr>
+<td style="text-align:left">Any</td>
+<td style="text-align:left">Any是所有其他类的超类</td>
+</tr>
+<tr>
+<td style="text-align:left">AnyRef</td>
+<td style="text-align:left">AnyRef类是Scala里所有引用类(reference class)的基类</td>
+</tr>
+</tbody>
+</table>
 <h2 id="Tip-9">Tip<a class="anchor" href="#Tip-9">¶</a></h2>
 <p>本博客为《Scala实用指南》一书的整理与总结，仅供个人学习复习使用。</p>
 
@@ -1128,7 +1196,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">240.2k</span>&nbsp;字
+                class="white-color">240.5k</span>&nbsp;字
             
             
             
