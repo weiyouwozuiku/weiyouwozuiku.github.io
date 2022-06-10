@@ -81,6 +81,14 @@ var：变量
 | Any      | Any是所有其他类的超类                                        |
 | AnyRef   | AnyRef类是Scala里所有引用类(reference class)的基类           |
 
+### 函数定义
+
+```scala
+def 
+```
+
+
+
 ## Tip
 
 本博客为《Scala实用指南》一书的整理与总结，仅供个人学习复习使用。
