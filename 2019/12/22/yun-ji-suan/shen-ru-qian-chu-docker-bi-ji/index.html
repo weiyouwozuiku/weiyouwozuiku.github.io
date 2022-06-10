@@ -494,7 +494,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-14
+                    2022-06-10
                 </div>
                 
 
@@ -732,7 +732,7 @@
 <p>镜像的唯一标识是一个加密ID，即配置对象本身的散列值。每个镜像层也由一个加密ID区分，其值为镜像层本身内容的散列值。也就是内容散列。</p>
 <p><strong>每个镜像层在拉取或推送时，包含一个分发散列值，这是一个压缩版镜像的散列值。该散列值用于校验拉取的镜像是否被篡改过。</strong></p>
 <p>为了实现多架构的方便使用，Docker的镜像仓库服务API支持两种重要的结构：Manifest列表(新)和Manifest。Manifest列表是指某个镜像标签支持的架构列表。其支持的每种架构，都有自己的Manifest定义。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_Manifest%E5%88%97%E8%A1%A8.png" alt="深入浅出Docker笔记_Manifest列表.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E4%BA%91%E8%AE%A1%E7%AE%97/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker%E7%AC%94%E8%AE%B0_Manifest%E5%88%97%E8%A1%A8.png" alt="深入浅出Docker笔记_Manifest列表.png"></p>
 <p>Manifest列表是可选的。在没有Manifest列表的情况下，镜像仓库服务会返回普通的Manifest。</p>
 <p><code>docker image rm &lt;镜像名或镜像ID&gt;</code>：删除镜像。</p>
 <p>某个镜像层被多个镜像共享，那只有当全部依赖该镜像层的镜像都被删除，该镜像层才会被删除。</p>
