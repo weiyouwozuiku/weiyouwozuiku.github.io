@@ -104,6 +104,9 @@ categories: 经验总结
 - neofetch，查看系统配置
 - mas，查看商店安装的程序
 - lsd 直接alias ll=“lsd -lh”
+- yarn
+- npx
+- Slidev markdown版ppt
 
 ## zsh配置
 

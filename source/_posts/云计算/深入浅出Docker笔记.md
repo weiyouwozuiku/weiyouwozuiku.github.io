@@ -335,7 +335,7 @@ Docker采用快照机制实现镜像层堆栈，并保证多镜像层对外显�
 
 为了实现多架构的方便使用，Docker的镜像仓库服务API支持两种重要的结构：Manifest列表(新)和Manifest。Manifest列表是指某个镜像标签支持的架构列表。其支持的每种架构，都有自己的Manifest定义。
 
-![深入浅出Docker笔记_Manifest列表.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/深入浅出Docker笔记_Manifest列表.png)
+![深入浅出Docker笔记_Manifest列表.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/云计算/深入浅出Docker笔记/深入浅出Docker笔记_Manifest列表.png)
 
 Manifest列表是可选的。在没有Manifest列表的情况下，镜像仓库服务会返回普通的Manifest。
 
