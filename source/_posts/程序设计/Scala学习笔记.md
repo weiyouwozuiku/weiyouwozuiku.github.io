@@ -96,8 +96,48 @@ def 函数名(参数名: 类型, 参数名: 类型=默认值): 返回类型={
 
 ### 循环
 
+scala支持几种循环的方式，大多都是依赖Range去实现：
+
+- Range：`Range(1,10,2)`1 3 5 7 9，step不能是0
+- to：左闭右闭 `1 to 10`或者`1.to(10)`
+- until：左闭右开 
+- foreach
+- while
+- for
+
+```scala
+for(i <- 1 to 10 if i%2==0){
+    // todo
+}
+arr.foreach(item=>println(item))
+```
+
+### Class
+
+```scala
+class 类名{
+    //属性
+    var 
+    val
+}
+
+def main(args:Array[String]):Uint{
+    val a=new 类名
+}
+```
+
+对于没有需要明确初始化值的变量，可以直接使用 `—`，其本身只表示是一个占位符。使用占位符必须给明类型。String类型占位符对应的是null。
+
+针对class中没有修饰的val，scala会自动生成对应的get方法。
+
+针对class中没有修饰的var，scala会自动生成对应的get/set方法。
+
+但是有`private [this]`修饰的类外无法直接访问。
+
 
 
 ## Tip
 
-本博客为《Scala实用指南》一书的整理与总结，仅供个人学习复习使用。
+个人觉得学习Scala有一个隐形前提，就是需要会Java。在学习Scala的道路上，常用反编译成Java可能更容易的理解Scala，螺旋式上升。
+
+本博客为《Scala实用指南》以及网络博客组合整理与总结，仅供个人学习复习使用。
