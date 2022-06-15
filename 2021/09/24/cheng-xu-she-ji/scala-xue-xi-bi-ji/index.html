@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-13
+                    2022-06-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    965
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -563,7 +563,7 @@
 <p>val 值名称：类型= xxx</p>
 <p>var：变量</p>
 <p>可以使用lazy关键字描述 定义惰性加载，实现懒加载。不加lazy是立即实例化，但是使用lazy则在使用时实例化。</p>
-<p>**使用lazy只有在使用时才执行，可能导致错误不易被发现。**需要注意。</p>
+<p><strong>使用lazy只有在使用时才执行，可能导致错误不易被发现</strong>，需要注意。</p>
 <h3 id="常见基本类型">常见基本类型<a class="anchor" href="#常见基本类型">¶</a></h3>
 <table>
 <thead>
@@ -666,6 +666,20 @@ arr<span class="token punctuation">.</span>foreach<span class="token punctuation
 <p>针对class中没有修饰的val，scala会自动生成对应的get方法。</p>
 <p>针对class中没有修饰的var，scala会自动生成对应的get/set方法。</p>
 <p>但是有<code>private [this]</code>修饰的类外无法直接访问。</p>
+<h4 id="主构造器">主构造器<a class="anchor" href="#主构造器">¶</a></h4>
+<p>主构造器写在类定义后面，且在类中的语句在每一个相应对象创建的时候就会执行，除了函数定义。</p>
+<p>主构造器支持三种形式的形参：</p>
+<ul>
+<li>不使用任何修饰：在类内部使用，逻辑上不是一个成员，外部不能使用。</li>
+<li>var修饰：属于类成员，为变量。调用时入参直接赋值给该成员。</li>
+<li>val修饰：属于类成员，为常量。调用时入参直接赋值给该成员。</li>
+</ul>
+<p>不加参数列表相当于为空，<code>()</code>可以省略。</p>
+<p>主构造器的访问修饰符添加到参数列表前。</p>
+<h4 id="辅助构造器">辅助构造器<a class="anchor" href="#辅助构造器">¶</a></h4>
+<p>辅助构造器必须用<code>this</code>定义。</p>
+<p>辅助构造器必须直接或者间接调用主构造器，调用其他构造必须位于第一行。</p>
+<p>主构造器和辅助构造器是重载的方法，所以参数列表不能一致。</p>
 <h2 id="Tip-9">Tip<a class="anchor" href="#Tip-9">¶</a></h2>
 <p>个人觉得学习Scala有一个隐形前提，就是需要会Java。在学习Scala的道路上，常用反编译成Java可能更容易的理解Scala，螺旋式上升。</p>
 <p>本博客为《Scala实用指南》以及网络博客组合整理与总结，仅供个人学习复习使用。</p>
@@ -1232,7 +1246,7 @@ arr<span class="token punctuation">.</span>foreach<span class="token punctuation
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">240.9k</span>&nbsp;字
+                class="white-color">241.1k</span>&nbsp;字
             
             
             
