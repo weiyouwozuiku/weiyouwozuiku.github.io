@@ -64,6 +64,16 @@ Go语言之父为罗伯特·格瑞史莫、罗伯·派克和肯·汤普逊.
 
 go语言可以直接使用`go run + 相应go文件名`。
 
+#### 应用程序入口
+
+- 必须是main包
+- 必须是main方法
+- 文件名不一定是main.go
+
+Go中main函数不支持任何返回值，只能使用`os.Exit(0)`这样进行返回。
+
+main函数不支持传入参数，命令参数通过`os.Args`获取。
+
 **go语言原生支持Unicode，可以处理全世界任何语言的文本。**
 
 ### go文件的编译
@@ -300,6 +310,13 @@ log.Print(err)
 Go语言不需要显式的在每一个`case`后写`break`，语言默认执行完`case`后的逻辑语句自动退出。如果需要*相邻几个`case`都执行同一逻辑时，需要自己显式的写上`fallthrough`来覆盖这种默认行为。*
 
 switch不带操作对象时称为无tag switch，默认用true值代替， 然后将每个case的表达式和true值进行比较。等价switch true。
+
+switch与其他语言的差异：
+
+- 条件表达式不限制为常量或者整数
+- 单个case中，可以出现多个结果选项，使用逗号分隔
+- 与C语言相反，Go不需要break来显示退出case
+- 可以不设定switch之后的表达式，在此种情况下，整个switch就是多个if else相同
 
 `continue`和`break`可以使用在`for循环`，`switch`，`select`中。
 
@@ -924,6 +941,10 @@ mu.Unlock()
 
 ## 测试
 
+源码文件以`_test`结尾：xxx_test.go
+
+测试方法名以Test开头
+
 ## 反射
 
 ## 底层编程
@@ -1112,6 +1133,13 @@ func make(t Type, size ...IntegerType) Type
 ![make_OMAKE.gif](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/make_OMAKE.gif)
 
 在编译期的类型检查阶段，Go语言其实就将代表 make 关键字的 OMAKE 节点根据参数类型的不同转换成了 OMAKESLICE、OMAKEMAP 和 OMAKECHAN 三种不同类型的节点，这些节点最终也会调用不同的运行时函数来初始化数据结构。
+
+### 位运算
+
+```go
+x &^ 1 = 0
+x &^ 0 = x
+```
 
 
 
