@@ -494,14 +494,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-09
+                    2022-06-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.9k
+                    12.1k
                 </div>
                 
 
@@ -584,6 +584,14 @@
 <h2 id="Go语言的执行、编译">Go语言的执行、编译<a class="anchor" href="#Go语言的执行、编译">¶</a></h2>
 <h3 id="go文件的执行">go文件的执行<a class="anchor" href="#go文件的执行">¶</a></h3>
 <p>go语言可以直接使用<code>go run + 相应go文件名</code>。</p>
+<h4 id="应用程序入口">应用程序入口<a class="anchor" href="#应用程序入口">¶</a></h4>
+<ul>
+<li>必须是main包</li>
+<li>必须是main方法</li>
+<li>文件名不一定是main.go</li>
+</ul>
+<p>Go中main函数不支持任何返回值，只能使用<code>os.Exit(0)</code>这样进行返回。</p>
+<p>main函数不支持传入参数，命令参数通过<code>os.Args</code>获取。</p>
 <p><strong>go语言原生支持Unicode，可以处理全世界任何语言的文本。</strong></p>
 <h3 id="go文件的编译">go文件的编译<a class="anchor" href="#go文件的编译">¶</a></h3>
 <p><code>go build + 相应go文件名</code>，生成相应二进制可执行文件，且是静态编译，无需担心在系统库更新的时候冲突。</p>
@@ -762,6 +770,13 @@ log<span class="token punctuation">.</span><span class="token function">Print</s
 <p><strong>Go语言中条件语句不需要圆括号，但是分支中必须有大括号。</strong></p>
 <p>Go语言不需要显式的在每一个<code>case</code>后写<code>break</code>，语言默认执行完<code>case</code>后的逻辑语句自动退出。如果需要<em>相邻几个<code>case</code>都执行同一逻辑时，需要自己显式的写上<code>fallthrough</code>来覆盖这种默认行为。</em></p>
 <p>switch不带操作对象时称为无tag switch，默认用true值代替， 然后将每个case的表达式和true值进行比较。等价switch true。</p>
+<p>switch与其他语言的差异：</p>
+<ul>
+<li>条件表达式不限制为常量或者整数</li>
+<li>单个case中，可以出现多个结果选项，使用逗号分隔</li>
+<li>与C语言相反，Go不需要break来显示退出case</li>
+<li>可以不设定switch之后的表达式，在此种情况下，整个switch就是多个if else相同</li>
+</ul>
 <p><code>continue</code>和<code>break</code>可以使用在<code>for循环</code>，<code>switch</code>，<code>select</code>中。</p>
 <h3 id="生命周期">生命周期<a class="anchor" href="#生命周期">¶</a></h3>
 <p>Go中返回函数中局部变量的地址是安全的。</p>
@@ -1168,6 +1183,8 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
 <h2 id="基于共享变量的并发">基于共享变量的并发<a class="anchor" href="#基于共享变量的并发">¶</a></h2>
 <h2 id="包和工具-2">包和工具<a class="anchor" href="#包和工具-2">¶</a></h2>
 <h2 id="测试">测试<a class="anchor" href="#测试">¶</a></h2>
+<p>源码文件以<code>_test</code>结尾：xxx_test.go</p>
+<p>测试方法名以Test开头</p>
 <h2 id="反射">反射<a class="anchor" href="#反射">¶</a></h2>
 <h2 id="底层编程">底层编程<a class="anchor" href="#底层编程">¶</a></h2>
 <h2 id="Tip-5">Tip<a class="anchor" href="#Tip-5">¶</a></h2>
@@ -1338,6 +1355,9 @@ $ <span class="token builtin class-name">source</span> ~/.profile<span aria-hidd
 <p><strong>通过上面的代码可以看出 make 函数的 t 参数必须是 chan（通道）、map（字典）、slice（切片）中的一个，并且返回值也是类型本身。</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go%E5%AD%A6%E4%B9%A0/make_OMAKE.gif" alt="make_OMAKE.gif"></p>
 <p>在编译期的类型检查阶段，Go语言其实就将代表 make 关键字的 OMAKE 节点根据参数类型的不同转换成了 OMAKESLICE、OMAKEMAP 和 OMAKECHAN 三种不同类型的节点，这些节点最终也会调用不同的运行时函数来初始化数据结构。</p>
+<h3 id="位运算">位运算<a class="anchor" href="#位运算">¶</a></h3>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">x <span class="token operator">&amp;^</span> <span class="token number">1</span> <span class="token operator">=</span> <span class="token number">0</span>
+x <span class="token operator">&amp;^</span> <span class="token number">0</span> <span class="token operator">=</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="参考文献-5">参考文献<a class="anchor" href="#参考文献-5">¶</a></h2>
 <ol>
 <li><a target="_blank" rel="noopener" href="http://gopl.io/">《The Go Programming Language》</a></li>
@@ -1924,7 +1944,7 @@ $ <span class="token builtin class-name">source</span> ~/.profile<span aria-hidd
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">241.3k</span>&nbsp;字
+                class="white-color">241.5k</span>&nbsp;字
             
             
             
