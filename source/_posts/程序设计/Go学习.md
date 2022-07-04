@@ -834,6 +834,8 @@ m:=map[string]string {
 
 `map`使用哈希表，key必须可以比较。除了`slice,map,function的内建类型`都可以作为key。`stuct`不包含上述字段也可作为key。
 
+Go中没有set类型，但是可以通过`map[type]bool`的方式模拟set。
+
 ### 结构体
 
 go的结构体没有构造函数，一般可以直接生成。如果一定要用函数进行构造，可以自己定义一个工厂函数，返回一个局部地址，但是不会出错。
