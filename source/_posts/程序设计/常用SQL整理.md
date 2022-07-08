@@ -178,6 +178,14 @@ nvl(column,’空的替换值’)
 
 遇到相同的排名index一样，下一个不一样的视为一个记录。
 
+## 查询库大小
+
+```sql
+select concat(round(sum(data_length/1024/1024),2),'MB') as data from information_schema.tables where table_schema='uoka';
+```
+
+
+
 ## datediff
 
 ## 全量表与增量表
