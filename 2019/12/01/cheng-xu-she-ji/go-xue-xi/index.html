@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-05
+                    2022-07-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12.1k
+                    12.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    44 分
+                    45 分
                 </div>
                 
 
@@ -1359,6 +1359,12 @@ $ <span class="token builtin class-name">source</span> ~/.profile<span aria-hidd
 <h3 id="位运算">位运算<a class="anchor" href="#位运算">¶</a></h3>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">x <span class="token operator">&amp;^</span> <span class="token number">1</span> <span class="token operator">=</span> <span class="token number">0</span>
 x <span class="token operator">&amp;^</span> <span class="token number">0</span> <span class="token operator">=</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="vscode">vscode<a class="anchor" href="#vscode">¶</a></h3>
+<p>在vscode中执行test的代码可能会打印对应的log。原因是默认执行的是<code>go test</code>，这样的输出没有log，需要增加<code>-t</code> 的tag。</p>
+<p>mac可以在<code>/Users/didi/Library/Application Support/Code/User/setting.json</code>中添加如下字段：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"go.testFlags"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"-v"</span>
+    <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="参考文献-5">参考文献<a class="anchor" href="#参考文献-5">¶</a></h2>
 <ol>
 <li><a target="_blank" rel="noopener" href="http://gopl.io/">《The Go Programming Language》</a></li>
@@ -1945,7 +1951,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">241.6k</span>&nbsp;字
+                class="white-color">241.7k</span>&nbsp;字
             
             
             
