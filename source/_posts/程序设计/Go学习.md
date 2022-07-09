@@ -1153,7 +1153,17 @@ x &^ 1 = 0
 x &^ 0 = x
 ```
 
+### vscode
 
+在vscode中执行test的代码可能会打印对应的log。原因是默认执行的是`go test`，这样的输出没有log，需要增加`-t` 的tag。
+
+mac可以在`/Users/didi/Library/Application Support/Code/User/setting.json`中添加如下字段：
+
+```json
+"go.testFlags": [
+        "-v"
+    ]
+```
 
 
 
