@@ -689,6 +689,16 @@ func main() {
 
 向bytes.Buffer添加任意字符的UTF8编码时，最好使用bytes.Buffer的WriteRune方法，如果仅仅是写入ASCII字符则可以使用WriteByte方法。
 
+### string
+
+默认值是空字符串
+
+string是数据类型，不是引用或指针类型
+
+string是只读的byte slice ，len函数返回string对应的byte数
+
+string的byte数组可以存放任意数据
+
 ### 常量
 
 常量表达式的值在编译期计算。每种常量的潜在类型都是基础类型。
