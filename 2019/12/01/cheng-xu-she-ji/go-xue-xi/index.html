@@ -494,7 +494,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-08
+                    2022-07-09
                 </div>
                 
 
@@ -1066,6 +1066,11 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">intsToString</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>向bytes.Buffer添加任意字符的UTF8编码时，最好使用bytes.Buffer的WriteRune方法，如果仅仅是写入ASCII字符则可以使用WriteByte方法。</p>
+<h3 id="string-3">string<a class="anchor" href="#string-3">¶</a></h3>
+<p>默认值是空字符串</p>
+<p>string是数据类型，不是引用或指针类型</p>
+<p>string是只读的byte slice ，len函数返回string对应的byte数</p>
+<p>string的byte数组可以存放任意数据</p>
 <h3 id="常量">常量<a class="anchor" href="#常量">¶</a></h3>
 <p>常量表达式的值在编译期计算。每种常量的潜在类型都是基础类型。</p>
 <p>形式是：<code>const</code></p>
