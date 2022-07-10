@@ -486,21 +486,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-05
+                    2022-07-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    213
+                    572
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -587,6 +587,50 @@
 </table>
 <p>自动启动网口</p>
 <p>/var/lib/vz/template/iso</p>
+<h2 id="Openwrt扩容">Openwrt扩容<a class="anchor" href="#Openwrt扩容">¶</a></h2>
+<p>Openwrt的镜像大小往往为了更小的安装需求，一般空间会给的很小。因此在空间足够的情况下，推荐堆Openwrt的空间进行扩容。如果只是简单的增加Docker的空间，可以直接增加一个硬盘空间，再挂载Docker空间即可。</p>
+<h3 id="基于squashfs的扩容">基于squashfs的扩容<a class="anchor" href="#基于squashfs的扩容">¶</a></h3>
+<p>https://www.youtube.com/watch?v=YwbwzuXKNlg&amp;t=4s</p>
+<h3 id="基于镜像改造的扩容">基于镜像改造的扩容<a class="anchor" href="#基于镜像改造的扩容">¶</a></h3>
+<p>https://www.bilibili.com/video/BV1Ja411m7XA?spm_id_from=333.880.my_history.page.click&amp;vd_source=c07358badb8d5ebd07b117510e0b6f6e</p>
+<p>在https://drive.google.com/drive/folders/1dqNUrMf9n7i3y1aSh68U5Yf44WQ3KCuh下载了最新的系统后，找一个linux机器进行操作。因为Mac没有parted命令。</p>
+<ol>
+<li>将镜像解压成img格式</li>
+<li><code>dd if=/dev/zero bs=1M count=10240 &gt;&gt; &lt;镜像名&gt;.img</code></li>
+<li><code>parted &lt;镜像名&gt;.img</code></li>
+<li>在parted中print看下当前镜像的分区状态</li>
+<li><code>resizepart &lt;分区编号&gt; 100%</code></li>
+<li>操作完成后print查看修改效果</li>
+<li>quit退出parted</li>
+<li>转换成虚拟机系统格式</li>
+<li>创建相应的op虚拟机</li>
+</ol>
+<h2 id="Docker推荐">Docker推荐<a class="anchor" href="#Docker推荐">¶</a></h2>
+<h3 id="百度网盘">百度网盘<a class="anchor" href="#百度网盘">¶</a></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> create <span class="token punctuation">\</span>
+   --name<span class="token operator">=</span>baidunetdisk <span class="token punctuation">\</span>
+   -p <span class="token number">5800</span>:5800 <span class="token punctuation">\</span>
+   -p <span class="token number">5900</span>:5900 <span class="token punctuation">\</span>
+   -e <span class="token assign-left variable">VNC_PASSWORD</span><span class="token operator">=</span><span class="token operator">&lt;</span>vnc密码<span class="token operator">&gt;</span> <span class="token punctuation">\</span>
+   -v <span class="token operator">&lt;</span>百度网盘配置文件地址<span class="token operator">&gt;</span>:/config <span class="token punctuation">\</span>
+   -v <span class="token operator">&lt;</span>下载地址<span class="token operator">&gt;</span>:/config/baidunetdiskdownload <span class="token punctuation">\</span>
+   -e <span class="token assign-left variable">DISPLAY_WIDTH</span><span class="token operator">=</span><span class="token number">1920</span> <span class="token punctuation">\</span>
+   -e <span class="token assign-left variable">DISPLAY_HEIGHT</span><span class="token operator">=</span><span class="token number">1080</span> <span class="token punctuation">\</span>
+   --restart unless-stopped <span class="token punctuation">\</span>
+   johngong/baidunetdisk:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="青龙面板">青龙面板<a class="anchor" href="#青龙面板">¶</a></h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -dit <span class="token punctuation">\</span>
+-v <span class="token variable">$pwd</span>/ql/config:/ql/config <span class="token punctuation">\</span>
+-v <span class="token variable">$pwd</span>/ql/log:/ql/log <span class="token punctuation">\</span>
+-v <span class="token variable">$pwd</span>/ql/db:/ql/db <span class="token punctuation">\</span>
+-v <span class="token variable">$pwd</span>/ql/scripts:/ql/scripts <span class="token punctuation">\</span>
+-v <span class="token variable">$pwd</span>/ql/jbot:/ql/jbot <span class="token punctuation">\</span>
+-p <span class="token number">5700</span>:5700 <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">ENABLE_HANGUP</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">ENABLE_WEB_PANEL</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
+--name qinglong <span class="token punctuation">\</span>
+--restart unless-stopped <span class="token punctuation">\</span>
+whyour/qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1140,7 +1184,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">241.7k</span>&nbsp;字
+                class="white-color">242.1k</span>&nbsp;字
             
             
             
