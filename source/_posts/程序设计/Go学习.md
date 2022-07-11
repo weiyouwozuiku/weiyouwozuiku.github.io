@@ -984,7 +984,17 @@ mu.Unlock()
 - os.Exit退出时不会调用defer指定的函数
 - os.Exit退出时不输出当前调用栈信息
 
+### recover
 
+```go
+defer func() {
+    if err:=recover();err!=nil{
+        //恢复错误
+    }
+}()
+```
+
+使用recover需要注意，没有处理好会形成僵尸服务进程，导致health check失效。
 
 ## Tip
 
