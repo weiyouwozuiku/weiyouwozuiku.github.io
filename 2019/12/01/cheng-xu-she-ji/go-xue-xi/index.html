@@ -501,14 +501,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12.5k
+                    12.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    46 分
+                    47 分
                 </div>
                 
 
@@ -1190,6 +1190,26 @@ go <span class="token function">install</span> 包地址<span aria-hidden="true"
 <p><code>make(chan 传递的参数类型)</code>表示创建一个指定类型的<code>channel</code>。</p>
 <p>当一个<code>goroutine</code>尝试在一个<code>channel</code>上做<code>send</code>或者<code>receive</code>操作时，这个<code>goroutine</code>会阻塞在调用处，直至另一个<code>goroutine</code>往这个<code>channel</code>里写入或者接收值，这样两个<code>goroutine</code>才会继续执行<code>channel</code>操作之后的逻辑。</p>
 <p>每一个<code>fetch</code>函数往<code>channel</code>中输入数据(ch&lt;-expression)，主函数接收<code>channel</code>中的数值(&lt;-ch)。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>变量名<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>变量类型<span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">// 逻辑操作</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span>传入参数<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>依赖于Go本身是通过值传递来实现，因此这样协程内使用的传参的值拷贝。但是如果协程内直接使用外部的变量，虽然协程内可以使用，但是此时的变量是所有协程共享的，需要注意。</p>
+<h3 id="Thread-vs-Goroutine">Thread vs Goroutine<a class="anchor" href="#Thread-vs-Goroutine">¶</a></h3>
+<ol>
+<li>创建时默认的stack的大小
+<ul>
+<li>JDK5以后JAVA Thread stack默认为1M</li>
+<li>Groutine的Stack初始化大小为2K</li>
+</ul>
+</li>
+<li>和KSE（Kernel Space Entity）的对应关系
+<ul>
+<li>Java Thread是1:1</li>
+<li>Goroutine是M:N</li>
+</ul>
+</li>
+</ol>
+<p>kernel entity由cpu进行调度，切换时会涉及内核上下文的切换。</p>
 <h3 id="声明共享变量">声明共享变量<a class="anchor" href="#声明共享变量">¶</a></h3>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> mu sync<span class="token punctuation">.</span>Mutex
 mu<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1197,6 +1217,27 @@ mu<span class="token punctuation">.</span><span class="token function">Lock</spa
 mu<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="基于共享变量的并发">基于共享变量的并发<a class="anchor" href="#基于共享变量的并发">¶</a></h2>
 <h2 id="包和工具-2">包和工具<a class="anchor" href="#包和工具-2">¶</a></h2>
+<p>需要将想用的GOPATH添加对应的项目地址以保证在GOPATH拼接完成import的字符后能够导入对应的包。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">import</span> <span class="token operator">&lt;</span>包别名<span class="token operator">&gt;</span> <span class="token string">"引用路径"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 强制获取最新的包</span>
+go get -u <span class="token operator">&lt;</span>包名<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>不要把src放在路径中，这样<code>go get</code>将获取不到。</p>
+<h3 id="init方法">init方法<a class="anchor" href="#init方法">¶</a></h3>
+<ul>
+<li>在main被执行前，所有依赖的package的init方法都会被执行</li>
+<li>不同包的init函数按照包导入的依赖关系决定执行顺序</li>
+<li>每个包可以有多个init函数</li>
+<li>包的每个源文件也可以有多个init函数</li>
+</ul>
+<h3 id="vendor路径">vendor路径<a class="anchor" href="#vendor路径">¶</a></h3>
+<p>随着Go1.5的发布，vendor目录被添加到出路GOPATH和GOROOT之外的依赖目录查找的解决方案。在Go 1.6之前，需要手动的设置环境变量。</p>
+<p>查找依赖包路径的解决方案如下：</p>
+<ol>
+<li>当前包下的vendor目录</li>
+<li>向上级目录查找，直到找到src下的vendor目录</li>
+<li>在GOPATH下面查找依赖包</li>
+<li>在GOROOT目录下查找</li>
+</ol>
 <h2 id="测试">测试<a class="anchor" href="#测试">¶</a></h2>
 <p>源码文件以<code>_test</code>结尾：xxx_test.go</p>
 <p>测试方法名以Test开头</p>
@@ -1982,7 +2023,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">242.3k</span>&nbsp;字
+                class="white-color">242.7k</span>&nbsp;字
             
             
             
