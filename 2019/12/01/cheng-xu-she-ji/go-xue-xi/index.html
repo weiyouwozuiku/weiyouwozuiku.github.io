@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-09
+                    2022-07-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12.2k
+                    12.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    45 分
+                    46 分
                 </div>
                 
 
@@ -1160,6 +1160,15 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <h2 id="方法">方法<a class="anchor" href="#方法">¶</a></h2>
 <h2 id="接口">接口<a class="anchor" href="#接口">¶</a></h2>
 <p>使用者来定义接口。</p>
+<p>多态的使用只能是传入参数的指针或者说是引用，不能直接传入对象。</p>
+<p>空接口可以表示任何类型。</p>
+<p>通过断言来将空接口转换为指定类型</p>
+<h3 id="最佳实践">最佳实践<a class="anchor" href="#最佳实践">¶</a></h3>
+<ul>
+<li>倾向于使用小的接口定义，很多接口只包含一个方法</li>
+<li>较大的接口定义，可以由多个小接口定义组合而成</li>
+<li>只依赖于必要功能的最小接口</li>
+</ul>
 <h2 id="包和工具">包和工具<a class="anchor" href="#包和工具">¶</a></h2>
 <p><code>go list | wc -l</code>查看标准包的具体数目。</p>
 <p>Go语言的开源程序包可以在http://godoc.org检索。</p>
@@ -1193,6 +1202,23 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
 <p>测试方法名以Test开头</p>
 <h2 id="反射">反射<a class="anchor" href="#反射">¶</a></h2>
 <h2 id="底层编程">底层编程<a class="anchor" href="#底层编程">¶</a></h2>
+<h2 id="错误处理">错误处理<a class="anchor" href="#错误处理">¶</a></h2>
+<p>定义不同的错误变脸，以便于判断错误类型。</p>
+<p>处理错误避免嵌套，优先处理错误，使得代码更加简洁。</p>
+<h3 id="panic">panic<a class="anchor" href="#panic">¶</a></h3>
+<ul>
+<li>panic用于不可恢复的错误</li>
+<li>panic退出前会执行defer指定的内容</li>
+<li>os.Exit退出时不会调用defer指定的函数</li>
+<li>os.Exit退出时不输出当前调用栈信息</li>
+</ul>
+<h3 id="recover">recover<a class="anchor" href="#recover">¶</a></h3>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">defer</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err<span class="token operator">:=</span><span class="token function">recover</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>err<span class="token operator">!=</span><span class="token boolean">nil</span><span class="token punctuation">{</span>
+        <span class="token comment">//恢复错误</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用recover需要注意，没有处理好会形成僵尸服务进程，导致health check失效。</p>
 <h2 id="Tip-5">Tip<a class="anchor" href="#Tip-5">¶</a></h2>
 <p>Go语言很特别，没有对象，没有继承多态，没有泛型，没有try/catch。相反，有接口，函数式编程，CSP并发模型(goroutine+channel)。</p>
 <p><code>go</code>语言仅支持封装，不支持继承和多态。没有<code>class</code>只有<code>struct</code>。面向对象使用接口来实现。</p>
@@ -1956,7 +1982,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">242.1k</span>&nbsp;字
+                class="white-color">242.3k</span>&nbsp;字
             
             
             
