@@ -996,8 +996,6 @@ func write()  {
 
 ## Goroutines和Channels
 
-
-
 `goroutine`是一种函数的并发执行方式，`channel`在`goroutine`之间进行参数传递。
 
 `main`函数本身运行在一个`goroutine`中。
@@ -1083,6 +1081,35 @@ select {
 }
 ```
 
+### channel 关闭
+
+```go
+close(<channel>)
+```
+
+- 向关闭的channel 发送数据，会导致panic。
+- `v,ok<-ch;ok`为bool值，true表示正常接受，false表示通道关闭。
+- 所有的channel接受者都会在channel关闭时，立即从阻塞线程等待中返回且上述ok值为false。这个广播机制被常利用，进行向多个订阅者同时发送信号。
+
+### 多协程下只运行一次
+
+单例模式在Go的实现：
+
+```go
+type SingletonObj struct{}
+var once sync.Once
+var obj *SingletonObj
+func GetSingletonObj() *SingletonObj{
+	once.Do(func ()  {
+		fmt.Println("Create Singletom obj")
+		obj=&SingletonObj{}
+	})
+	return obj
+}
+```
+
+### 仅需任意任务完成
+
 
 
 ## 基于共享变量的并发
@@ -1101,6 +1128,14 @@ go get -u <包名>
 ```
 
 不要把src放在路径中，这样`go get`将获取不到。
+
+## Context
+
+- 根Context：通过`context.Background()`创建
+- 子Context：`context.WithCancel(parentContext)`创建
+    - `ctx,cancel:=context.WithCancel(context.Background())`
+- 当前Context被取消时，基于他的子Context也会被取消
+- 接受取消通知`<-ctx.Done()`
 
 ### init方法
 
