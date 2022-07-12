@@ -996,6 +996,8 @@ func write()  {
 
 ## Goroutines和Channels
 
+
+
 `goroutine`是一种函数的并发执行方式，`channel`在`goroutine`之间进行参数传递。
 
 `main`函数本身运行在一个`goroutine`中。
@@ -1007,6 +1009,25 @@ func write()  {
 当一个`goroutine`尝试在一个`channel`上做`send`或者`receive`操作时，这个`goroutine`会阻塞在调用处，直至另一个`goroutine`往这个`channel`里写入或者接收值，这样两个`goroutine`才会继续执行`channel`操作之后的逻辑。
 
 每一个`fetch`函数往`channel`中输入数据(ch<-expression)，主函数接收`channel`中的数值(<-ch)。
+
+```go
+go func(<变量名> <变量类型>){
+    // 逻辑操作
+}(传入参数)
+```
+
+依赖于Go本身是通过值传递来实现，因此这样协程内使用的传参的值拷贝。但是如果协程内直接使用外部的变量，虽然协程内可以使用，但是此时的变量是所有协程共享的，需要注意。
+
+### Thread vs Goroutine
+
+1. 创建时默认的stack的大小
+    - JDK5以后JAVA Thread stack默认为1M
+    - Groutine的Stack初始化大小为2K
+2. 和KSE（Kernel Space Entity）的对应关系
+    - Java Thread是1:1
+    - Goroutine是M:N
+
+kernel entity由cpu进行调度，切换时会涉及内核上下文的切换。
 
 ### 声明共享变量
 
@@ -1067,6 +1088,37 @@ select {
 ## 基于共享变量的并发
 
 ## 包和工具
+
+需要将想用的GOPATH添加对应的项目地址以保证在GOPATH拼接完成import的字符后能够导入对应的包。
+
+```go
+import <包别名> "引用路径"
+```
+
+```shell
+# 强制获取最新的包
+go get -u <包名>
+```
+
+不要把src放在路径中，这样`go get`将获取不到。
+
+### init方法
+
+- 在main被执行前，所有依赖的package的init方法都会被执行
+- 不同包的init函数按照包导入的依赖关系决定执行顺序
+- 每个包可以有多个init函数
+- 包的每个源文件也可以有多个init函数
+
+### vendor路径
+
+随着Go1.5的发布，vendor目录被添加到出路GOPATH和GOROOT之外的依赖目录查找的解决方案。在Go 1.6之前，需要手动的设置环境变量。
+
+查找依赖包路径的解决方案如下：
+
+1. 当前包下的vendor目录
+2. 向上级目录查找，直到找到src下的vendor目录
+3. 在GOPATH下面查找依赖包
+4. 在GOROOT目录下查找
 
 ## 测试
 
