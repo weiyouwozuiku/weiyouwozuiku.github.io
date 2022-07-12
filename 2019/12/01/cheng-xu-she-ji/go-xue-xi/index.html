@@ -501,14 +501,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    13.4k
+                    13.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    50 分
+                    51 分
                 </div>
                 
 
@@ -1296,6 +1296,26 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
     <span class="token keyword">case</span> <span class="token operator">&lt;-</span>time<span class="token punctuation">.</span><span class="token function">After</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second<span class="token operator">*</span><span class="token number">1</span><span class="token punctuation">)</span>
     	t<span class="token punctuation">.</span><span class="token function">Error</span><span class="token punctuation">(</span><span class="token string">"time out"</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="channel-关闭">channel 关闭<a class="anchor" href="#channel-关闭">¶</a></h3>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token function">close</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>channel<span class="token operator">&gt;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>向关闭的channel 发送数据，会导致panic。</li>
+<li><code>v,ok&lt;-ch;ok</code>为bool值，true表示正常接受，false表示通道关闭。</li>
+<li>所有的channel接受者都会在channel关闭时，立即从阻塞线程等待中返回且上述ok值为false。这个广播机制被常利用，进行向多个订阅者同时发送信号。</li>
+</ul>
+<h3 id="多协程下只运行一次">多协程下只运行一次<a class="anchor" href="#多协程下只运行一次">¶</a></h3>
+<p>单例模式在Go的实现：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> SingletonObj <span class="token keyword">struct</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">var</span> once sync<span class="token punctuation">.</span>Once
+<span class="token keyword">var</span> obj <span class="token operator">*</span>SingletonObj
+<span class="token keyword">func</span> <span class="token function">GetSingletonObj</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span>SingletonObj<span class="token punctuation">{</span>
+	once<span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Create Singletom obj"</span><span class="token punctuation">)</span>
+		obj<span class="token operator">=</span><span class="token operator">&amp;</span>SingletonObj<span class="token punctuation">{</span><span class="token punctuation">}</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> obj
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="仅需任意任务完成">仅需任意任务完成<a class="anchor" href="#仅需任意任务完成">¶</a></h3>
 <h2 id="基于共享变量的并发">基于共享变量的并发<a class="anchor" href="#基于共享变量的并发">¶</a></h2>
 <h2 id="包和工具-2">包和工具<a class="anchor" href="#包和工具-2">¶</a></h2>
 <p>需要将想用的GOPATH添加对应的项目地址以保证在GOPATH拼接完成import的字符后能够导入对应的包。</p>
@@ -1303,6 +1323,17 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 强制获取最新的包</span>
 go get -u <span class="token operator">&lt;</span>包名<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>不要把src放在路径中，这样<code>go get</code>将获取不到。</p>
+<h2 id="Context">Context<a class="anchor" href="#Context">¶</a></h2>
+<ul>
+<li>根Context：通过<code>context.Background()</code>创建</li>
+<li>子Context：<code>context.WithCancel(parentContext)</code>创建
+<ul>
+<li><code>ctx,cancel:=context.WithCancel(context.Background())</code></li>
+</ul>
+</li>
+<li>当前Context被取消时，基于他的子Context也会被取消</li>
+<li>接受取消通知<code>&lt;-ctx.Done()</code></li>
+</ul>
 <h3 id="init方法">init方法<a class="anchor" href="#init方法">¶</a></h3>
 <ul>
 <li>在main被执行前，所有依赖的package的init方法都会被执行</li>
@@ -2110,7 +2141,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">243.3k</span>&nbsp;字
+                class="white-color">243.5k</span>&nbsp;字
             
             
             

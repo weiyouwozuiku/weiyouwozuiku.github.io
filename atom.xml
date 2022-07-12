@@ -414,7 +414,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Context&quot;&gt;Context&lt;a class=&quot;anchor&quot; href=&quot;#Context&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;Context-2&quot;&gt;Context&lt;a class=&quot;anchor&quot; href=&quot;#Context-2&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;在Go1.7版本引入官方库，可以在API边界之间以及过程之间传递截止时间、取消时间或其他与请求相关的数据。&lt;/p&gt;
 &lt;pre class=&quot;mermaid&quot;&gt;graph</summary>
         
