@@ -932,6 +932,66 @@ gopm get -u -g -v 包的地址
 go install 包地址
 ```
 
+## 锁
+
+### 互斥锁
+
+sync包的Mutex类型
+
+使用互斥锁能够保证同一时间有且只有一个goroutine进入临界区，其他的goroutine则在等待锁；当互斥锁释放后，等待的goroutine才可以获取锁进入临界区，多个goroutine同时等待一个锁时，唤醒的策略是随机的。
+但是，这种方式还是有问题的，读写都会等待，大大降低了程序效率。
+
+```go
+// 多个goroutine并发操作全局变量x
+var x int64
+var wg sync.WaitGroup
+var lock sync.Mutex // 互斥锁
+
+func add()  {
+    for i :=0;i<1000;i++{
+        lock.Lock()     // 加锁
+        x = x + 1
+        lock.Unlock()   // 解锁
+    }
+    wg.Done()
+}
+func main()  {
+    wg.Add(2)
+    go add()
+    go add()
+    wg.Wait()
+    fmt.Println(x)
+}
+```
+
+### 读写互斥锁
+
+在大多数场景下，是读多写少的，，当我们并发的去读取一个资源不涉及资源修改的时候是没有必要加锁的。这种情况就可以使用读写互斥锁，Go语言中使用sync包中的RWMutex类型。
+读写锁分为两种：读锁和写锁。当一个goroutine获取读锁之后，其他的goroutine如果是获取读锁会继续获得锁，如果是获取写锁就会等待；当一个goroutine获取写锁之后，其他的goroutine无论是获取读锁还是写锁都会等待。
+
+```go
+// 读写互斥锁
+var (
+    x int64
+    lock sync.RWMutex
+    wg  sync.WaitGroup
+)
+func read()  {
+    lock.RLock()        // 读加锁
+    time.Sleep(time.Millisecond)        // 读操作耗时1ms
+    lock.RUnlock()  //解锁
+    wg.Done()
+}
+
+func write()  {
+    lock.RLock()        // 写加锁
+    x += 1
+    time.Sleep(time.Millisecond *2) // 写操作耗时2ms
+    lock.RUnlock()
+    wg.Done()
+}
+```
+
 
 
 ## Goroutines和Channels
@@ -955,7 +1015,54 @@ var mu sync.Mutex
 mu.Lock()
 //操作
 mu.Unlock()
+
+func TestCounter(t *testing.T) {
+	var mut sync.Mutex
+	var wg sync.WaitGroup
+	counter := 0
+	for i := 0; i < 5000; i++ {
+		wg.Add(1)
+		go func() {
+			defer func() {
+				mut.Unlock()
+			}()
+			mut.Lock()
+			counter++
+			wg.Done()
+		}()
+	}
+	wg.Wait()
+	t.Log(counter)
+}
 ```
+
+### 多渠道选择
+
+```go
+select {
+    case ret:=<-retCh1:
+    	t.Logf("result %s",ret)
+    case ret:=<-retCh2:
+    	t.Logf("result %s",ret)
+    default:
+    t.Error("No one returned")
+}
+```
+
+
+
+### 超时控制
+
+```go
+select {
+    case ret:=<-retCh:
+    	t.Logf("redult %s",ret)
+    case <-time.After(time.Second*1)
+    	t.Error("time out")
+}
+```
+
+
 
 ## 基于共享变量的并发
 
@@ -995,6 +1102,13 @@ defer func() {
 ```
 
 使用recover需要注意，没有处理好会形成僵尸服务进程，导致health check失效。
+
+## CSP
+
+### CSP vs Actor
+
+- 和Actor的直接通讯不同，CSP通讯通过Channel进行通讯，松耦合。
+- Go中channel是有容量限制并且独立于处理Goroutine。Erlang的Actor模式中的mailbox容量无限，接收进程也总是被动的处理消息。
 
 ## Tip
 
