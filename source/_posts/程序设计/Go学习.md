@@ -1016,6 +1016,8 @@ go func(<变量名> <变量类型>){
 
 依赖于Go本身是通过值传递来实现，因此这样协程内使用的传参的值拷贝。但是如果协程内直接使用外部的变量，虽然协程内可以使用，但是此时的变量是所有协程共享的，需要注意。
 
+**Go中不能直接杀死协程。**
+
 ### Thread vs Goroutine
 
 1. 创建时默认的stack的大小
@@ -1067,8 +1069,6 @@ select {
     t.Error("No one returned")
 }
 ```
-
-
 
 ### 超时控制
 
@@ -1132,19 +1132,32 @@ go get -u <包名>
 ## Context
 
 - 根Context：通过`context.Background()`创建
-- 子Context：`context.WithCancel(parentContext)`创建
-    - `ctx,cancel:=context.WithCancel(context.Background())`
-- 当前Context被取消时，基于他的子Context也会被取消
-- 接受取消通知`<-ctx.Done()`
+- 创建子节点Context：
+    - `func WithCancel(parent Context) (ctx Context, cancel CancelFunc)`
+    - `func WithDeadline(parent Context, d time.Time) (Context, CancelFunc)`
+    - `func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)`
+    - `func WithValue(parent Context, key, val any) Context`
 
-### init方法
+
+Context用于解决goroutine之间退出通知、元数据传递的功能的问题。
+
+最佳实践：
+
+- 不要将context放在结构体中，而是直接将context类型作为函数的第一参数，而且一般都命名为ctx
+- 不要向函数内传出nil属性的context，不知传什么，用TODO函数
+- 不要把本应该作为函数参数的属性塞进context，context存储的应该是一些共同的数据
+- 同一个context可能会被传递到多个goroutine中，但是context并发安全
+
+​	
+
+## init方法
 
 - 在main被执行前，所有依赖的package的init方法都会被执行
 - 不同包的init函数按照包导入的依赖关系决定执行顺序
 - 每个包可以有多个init函数
 - 包的每个源文件也可以有多个init函数
 
-### vendor路径
+## vendor路径
 
 随着Go1.5的发布，vendor目录被添加到出路GOPATH和GOROOT之外的依赖目录查找的解决方案。在Go 1.6之前，需要手动的设置环境变量。
 
@@ -1160,6 +1173,38 @@ go get -u <包名>
 源码文件以`_test`结尾：xxx_test.go
 
 测试方法名以Test开头
+
+## sync.Pool对象缓存
+
+$$ Processor \begin{cases} 私有对象 <-协程安全 \\ 共享池 <-协程不安全 \end{cases}$$
+
+### 对象的获取
+
+- 尝试从私有对象获取
+- 私有对象不存在时，尝试从当前Processor的共享池获取
+- 如果当前Processor共享池也是空的，那么就尝试去其他Processor的共享池获取
+- 如果当前Processor共享池也是空的，那么尝试去其他Processor的共享池获取
+- 如果所有子池都是空的，那么就用用户指定的New函数产生一个新的对象返回
+
+### 对象的存放
+
+- 如果私有对象不存在则保存为私有对象
+- 如果私有对象存在，放入当前Processor子池的共享池中
+
+```go
+func TestPool(t *testing.T) {
+	pool := sync.Pool{
+		New: func() any {
+			return 0
+		},
+	}
+	pool.Put(10)
+	arry := pool.Get().(int)
+	...
+}
+```
+
+
 
 ## 反射
 
