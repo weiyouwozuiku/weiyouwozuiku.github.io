@@ -1261,6 +1261,7 @@ func TestPool(t *testing.T) {
 - 通过kind来判断类型
 - `reflect.ValueOf(*t).FieldByName("Name")`
 - `reflect.ValueOf(t).MethodByName("UpdateAge").Call([]reflect.Value{reflect.ValueOf((1))})`
+- 使用`Elem()`将指针提取出其指向的结构
 
 ## struct tag
 
@@ -1271,6 +1272,8 @@ type Xxxx struct{
     Xx 
 }
 ```
+
+## Unsafe
 
 
 
