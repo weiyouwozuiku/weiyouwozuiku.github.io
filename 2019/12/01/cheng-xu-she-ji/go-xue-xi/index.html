@@ -494,14 +494,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-14
+                    2022-07-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    14.3k
+                    14.4k
                 </div>
                 
 
@@ -1431,12 +1431,14 @@ go get -u <span class="token operator">&lt;</span>包名<span class="token opera
 <li>通过kind来判断类型</li>
 <li><code>reflect.ValueOf(*t).FieldByName("Name")</code></li>
 <li><code>reflect.ValueOf(t).MethodByName("UpdateAge").Call([]reflect.Value{reflect.ValueOf((1))})</code></li>
+<li>使用<code>Elem()</code>将指针提取出其指向的结构</li>
 </ul>
 <h2 id="struct-tag">struct tag<a class="anchor" href="#struct-tag">¶</a></h2>
 <p>代码形式如下：</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> Xxxx <span class="token keyword">struct</span><span class="token punctuation">{</span>
     Xx 
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="Unsafe">Unsafe<a class="anchor" href="#Unsafe">¶</a></h2>
 <h2 id="底层编程">底层编程<a class="anchor" href="#底层编程">¶</a></h2>
 <h2 id="错误处理">错误处理<a class="anchor" href="#错误处理">¶</a></h2>
 <p>定义不同的错误变脸，以便于判断错误类型。</p>
