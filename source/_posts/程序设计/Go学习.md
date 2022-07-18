@@ -564,6 +564,8 @@ func itob(i int) bool {
 
 ### 字符串
 
+Go1.10之前推荐使用`bytes.Buffer`，之后推荐使用`strings.Builder`
+
 一个字符串是一个**不可改变**的字节序列。
 
 字符串可以包含任意数据，包括byte值0。
@@ -932,6 +934,16 @@ gopm get -u -g -v 包的地址
 go install 包地址
 ```
 
+## HTTP
+
+### 路由规则
+
+- URL分为两种：
+  - 末尾是`/`：表示一个子树。后面可以跟其他子路径
+  - 末尾不是`/`：表示一个叶子。固定的路径
+- 采用最长匹配原则，如果有多个匹配，一定采用匹配路径最长的那个进行处理
+- 如果没有找到任何匹配项，会返回404错误
+
 ## 锁
 
 ### 互斥锁
@@ -1275,7 +1287,27 @@ type Xxxx struct{
 
 ## Unsafe
 
+可以利用unsafe实现类型的强制转换。
 
+## Pipe-Filter模式
+
+- 非常适合与数据处理及数据分析系统
+- Filter封装数据处理的能力
+- 松耦合：Filter只跟数据（格式）耦合
+- Pipe用于连接FIlter传递数据或者在异步处理过程中缓冲数据流
+- 进程内同步调用时，pipie演变成数据在方法调用间传递
+
+## Micro Kernel
+
+- 特点
+  - 易于扩展
+  - 错误隔离
+  - 保持架构一致性
+- 要点
+  - 内核包含公共流程或通用逻辑
+  - 将可变或可扩展部分规划为扩展点
+  - 抽象扩展点行为，定义接口
+  - 利用插件进行扩展
 
 ## 底层编程
 
@@ -1310,6 +1342,85 @@ defer func() {
 
 - 和Actor的直接通讯不同，CSP通讯通过Channel进行通讯，松耦合。
 - Go中channel是有容量限制并且独立于处理Goroutine。Erlang的Actor模式中的mailbox容量无限，接收进程也总是被动的处理消息。
+
+## 性能分析
+
+### graphviz
+
+### go-torch
+
+## GC
+
+打开GC日志
+
+在程序执行之前加上环境变量`GODEBUG=gctrace=1`
+
+### go tool trace
+
+- 普通程序输出trace信息
+
+  - ```go
+    import "runtime/trace"
+    func TestTrace(t *testing.T){
+    	f,err:=os.Create("trace.out")
+    	if err!=nil{
+    		panic(err)
+    	}
+    	defer f.Close()
+    	err=trace.Start(f)
+    	if err!=nil{
+    		panic(err)
+    	}
+    	defer trace.Stop()
+    }
+    ```
+
+- 测试程序输出trace信息：`go test -trace trace.out`
+
+- 可视化trace信息：`go tool trace trace.out`
+
+## runtime
+
+- Go的runtime没有虚拟机的概念
+- Runtime作为程序的一部分打包进二进制产物
+- Runtime随用户程序一起运行
+- Runtime与用户程序没有明显界限，直接通过函数调用
+- 有一定屏蔽系统调用的能力
+- go的某些关键字在runtime中实现
+
+### 能力
+
+- 内存管理能力
+- GC
+- 并发（协程调度）
+
+## 系统设计
+
+### 面向错误的设计
+
+隔离错误
+
+冗余
+
+逻辑结构重用，部署结构隔离
+
+限流
+
+慢响应：给阻塞操作设置超时时间
+
+错误传递：断路器+服务降级
+
+熔断
+
+### 面向恢复的设计
+
+- 注意僵尸进程，健康检查
+  - 池化资源耗尽
+  - 死锁
+- 拒绝单体系统
+- 快速启动
+- 无状态
+- 在依赖服务不可用时，可以继续存活
 
 ## Tip
 
