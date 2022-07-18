@@ -502,7 +502,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-14
+                    2022-07-18
                 </div>
                 
 
@@ -646,13 +646,13 @@ String data <span class="token operator">=</span> <span class="token string">""<
 </li>
 </ul>
 <p>等效电容示意图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91_0.png" alt="arduino和树莓派开发_0.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91_0.png" alt="arduino和树莓派开发_0.png"></p>
 <p>ESR是电容的串联等效电阻，ESL是电容的串联等效电感，C是真正理想的电容。ESL和ESR是由电容的制作工艺和材料决定的，没法消除。ESR影响电源的纹波，ESL影响电容的滤波频率特性。</p>
 <p>容抗计算公式：<img src="https://math.now.sh?inline=X_c%3D%5Cfrac%7B1%7D%7Bwc%7D%3D%5Cfrac%7B1%7D%7B2%5Cpi%20fc%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">  (w:角频率，f:频率，我国国家电网对工频是50Hz，C:电容值)</p>
 <p>感抗计算公式：<img src="https://math.now.sh?inline=X_l%3DwL%3D2%5Cpi%20fL" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">  (L是线圈电感，单位是亨利)</p>
 <p><strong>当频率很低的时候是电容起作用，而频率高到一定的时候电感的作用就不可忽视了，再高的时候电感就起主导作用了。电容就失去滤波的作用了。所以记住，高频的时候电容就不是单纯的电容了。</strong></p>
 <p>实际电容的滤波曲线如下图所示:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91_1.png" alt="arduino和树莓派开发_1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E5%B5%8C%E5%85%A5%E5%BC%8F/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91/arduino%E5%92%8C%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%8F%91_1.png" alt="arduino和树莓派开发_1.png"></p>
 <p>参见上图，我们想要的最好的滤波效果是在“谷”底，就是曲线凹进去的尖尖，在这个尖尖的时候，滤波效果做好，当我们的芯片IC内部的逻辑门在10-50Mhz范围内执行的时候，芯片内部产生的干扰也在10-50Mhz,（比如51单片机），仔细看上图的曲线，0.1uF电容 （有两种，一种是插件，一种是贴片）的谷底刚好落在了这个范围内，所以能够滤除这个频段的干扰，但是，看清楚，当频率很高的时候（50-100Mhz），就不是那么回事了，这个时候0.1uF电容个滤波效果就没有0.01uF好了，以此类推，频率再高，选用的滤波电容的量级还要变小。</p>
 <p>参考如下：</p>
 <p>DC-100K 10uF以上的钽电容或铝电解</p>
@@ -1239,7 +1239,7 @@ String data <span class="token operator">=</span> <span class="token string">""<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">244.2k</span>&nbsp;字
+                class="white-color">244.8k</span>&nbsp;字
             
             
             
