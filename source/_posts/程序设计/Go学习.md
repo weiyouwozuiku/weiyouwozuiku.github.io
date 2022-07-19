@@ -60,6 +60,54 @@ Go语言之父为罗伯特·格瑞史莫、罗伯·派克和肯·汤普逊.
 
 ## Go语言的执行、编译
 
+### 编译
+
+1. 词法分析：将源代码翻译成Token（Token是代码中最小的语义结构）
+2. 句法分析：Token序列经过处理，变成语法树（SST）
+3. 语义分析：类型检查、类型推断、查看类型是否匹配、函数调用内联、逃逸分析
+4. 中间码生成：为了处理不同平台的差异，生成中间代码（SSA）`export GOSSAFUNC=<指定的函数名>`然后执行go build
+5. 代码优化：
+6. 机器码生成：生成Plan9汇编代码->编译成机器码->输出.a的机器码，使用`go build -gcflags -S main.go`获取Plan9汇编
+7. 链接：将各个包进行链接，包括runtime
+
+go程序的入口不是main，应该是`runtime/rt0_XXX.s`
+
+go程序执行的启动：
+
+1. 读取命令行参数
+2. 复制参数argc argv到栈上
+3. 初始化g0执行栈（g0是为了调度协程的而产生的一个协程，是每一个Go程序的第一个协程）
+4. 运行时检测
+   1. 检查各种类型的长度
+   2. 检查指针操作
+   3. 检查结构体字段的偏移量
+   4. 检查atomic原子操作
+   5. 检查cas操作
+   6. 检查栈大小是否是2的幂次
+5. 参数初始化`runtime.args`
+   1. 对命令行中的参数进行处理
+   2. 参数数量赋值给argc int32
+   3. 参数值赋值给argv **byte
+6. 调度器初始化`runtime.schedinit`
+   1. 全局栈空间内存分配
+   2. 加载命令行参数到`os.Args`
+   3. 堆内存空间的初始化
+   4. 加载操作系统环境变量
+   5. 初始化当前系统线程
+   6. GC的参数初始化
+   7. 算法初始化（map、hash）
+   8. 设置process变量
+7. 创建主协程
+   1. 创建一个新的协程，执行`runtime.main`
+   2. 放入调度器等待调度
+8. 初始化M
+   1. 初始化一个M，用来调度主协程
+9. 主协程执行主函数
+   1. 执行runtime包中的init方法
+   2. 启动GC
+   3. 执行用户包依赖的init方法
+   4. 执行用户主函数的`main.main()`
+
 ### go文件的执行
 
 go语言可以直接使用`go run + 相应go文件名`。
@@ -934,6 +982,17 @@ gopm get -u -g -v 包的地址
 go install 包地址
 ```
 
+在`go.mod`中使用本地文件替代包地址，可以使用在`go.mod`中追加写`replace github.com/XXX/ => xxx/xxx`
+
+`go vender`缓存到本地
+
+```shell
+go mod vendor #这是go mod的vendor，不是以前的vendor
+go build -mod vendor
+```
+
+创建`go.mod`：`go mod init 你的仓库地址/仓库名`
+
 ## HTTP
 
 ### 路由规则
@@ -1359,7 +1418,7 @@ defer func() {
 
 - 普通程序输出trace信息
 
-  - ```go
+	```go
     import "runtime/trace"
     func TestTrace(t *testing.T){
     	f,err:=os.Create("trace.out")
@@ -1373,7 +1432,7 @@ defer func() {
     	}
     	defer trace.Stop()
     }
-    ```
+  ```
 
 - 测试程序输出trace信息：`go test -trace trace.out`
 
