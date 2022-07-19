@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-18
+                    2022-07-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15k
+                    15.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    56 分
+                    58 分
                 </div>
                 
 
@@ -582,6 +582,71 @@
 <li>快速的写出简洁的代码却不易阅读</li>
 </ol>
 <h2 id="Go语言的执行、编译">Go语言的执行、编译<a class="anchor" href="#Go语言的执行、编译">¶</a></h2>
+<h3 id="编译-2">编译<a class="anchor" href="#编译-2">¶</a></h3>
+<ol>
+<li>词法分析：将源代码翻译成Token（Token是代码中最小的语义结构）</li>
+<li>句法分析：Token序列经过处理，变成语法树（SST）</li>
+<li>语义分析：类型检查、类型推断、查看类型是否匹配、函数调用内联、逃逸分析</li>
+<li>中间码生成：为了处理不同平台的差异，生成中间代码（SSA）<code>export GOSSAFUNC=&lt;指定的函数名&gt;</code>然后执行go build</li>
+<li>代码优化：</li>
+<li>机器码生成：生成Plan9汇编代码-&gt;编译成机器码-&gt;输出.a的机器码，使用<code>go build -gcflags -S main.go</code>获取Plan9汇编</li>
+<li>链接：将各个包进行链接，包括runtime</li>
+</ol>
+<p>go程序的入口不是main，应该是<code>runtime/rt0_XXX.s</code></p>
+<p>go程序执行的启动：</p>
+<ol>
+<li>读取命令行参数</li>
+<li>复制参数argc argv到栈上</li>
+<li>初始化g0执行栈（g0是为了调度协程的而产生的一个协程，是每一个Go程序的第一个协程）</li>
+<li>运行时检测
+<ol>
+<li>检查各种类型的长度</li>
+<li>检查指针操作</li>
+<li>检查结构体字段的偏移量</li>
+<li>检查atomic原子操作</li>
+<li>检查cas操作</li>
+<li>检查栈大小是否是2的幂次</li>
+</ol>
+</li>
+<li>参数初始化<code>runtime.args</code>
+<ol>
+<li>对命令行中的参数进行处理</li>
+<li>参数数量赋值给argc int32</li>
+<li>参数值赋值给argv **byte</li>
+</ol>
+</li>
+<li>调度器初始化<code>runtime.schedinit</code>
+<ol>
+<li>全局栈空间内存分配</li>
+<li>加载命令行参数到<code>os.Args</code></li>
+<li>堆内存空间的初始化</li>
+<li>加载操作系统环境变量</li>
+<li>初始化当前系统线程</li>
+<li>GC的参数初始化</li>
+<li>算法初始化（map、hash）</li>
+<li>设置process变量</li>
+</ol>
+</li>
+<li>创建主协程
+<ol>
+<li>创建一个新的协程，执行<code>runtime.main</code></li>
+<li>放入调度器等待调度</li>
+</ol>
+</li>
+<li>初始化M
+<ol>
+<li>初始化一个M，用来调度主协程</li>
+</ol>
+</li>
+<li>主协程执行主函数
+<ol>
+<li>执行runtime包中的init方法</li>
+<li>启动GC</li>
+<li>执行用户包依赖的init方法</li>
+<li>执行用户主函数的<code>main.main()</code></li>
+</ol>
+</li>
+</ol>
 <h3 id="go文件的执行">go文件的执行<a class="anchor" href="#go文件的执行">¶</a></h3>
 <p>go语言可以直接使用<code>go run + 相应go文件名</code>。</p>
 <h4 id="应用程序入口">应用程序入口<a class="anchor" href="#应用程序入口">¶</a></h4>
@@ -1184,6 +1249,11 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go get -v github.com/gpmgo/gopm
 gopm get -u -g -v 包的地址
 go <span class="token function">install</span> 包地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>在<code>go.mod</code>中使用本地文件替代包地址，可以使用在<code>go.mod</code>中追加写<code>replace github.com/XXX/ =&gt; xxx/xxx</code></p>
+<p><code>go vender</code>缓存到本地</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go mod vendor <span class="token comment">#这是go mod的vendor，不是以前的vendor</span>
+go build -mod vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>创建<code>go.mod</code>：<code>go mod init 你的仓库地址/仓库名</code></p>
 <h2 id="HTTP">HTTP<a class="anchor" href="#HTTP">¶</a></h2>
 <h3 id="路由规则">路由规则<a class="anchor" href="#路由规则">¶</a></h3>
 <ul>
@@ -1513,92 +1583,73 @@ go get -u <span class="token operator">&lt;</span>包名<span class="token opera
 <ul>
 <li>
 <p>普通程序输出trace信息</p>
-<ul>
+  <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">import</span> <span class="token string">"runtime/trace"</span>
+<span class="token keyword">func</span> <span class="token function">TestTrace</span><span class="token punctuation">(</span>t <span class="token operator">*</span>testing<span class="token punctuation">.</span>T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	f<span class="token punctuation">,</span>err<span class="token operator">:=</span>os<span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token string">"trace.out"</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err<span class="token operator">!=</span><span class="token boolean">nil</span><span class="token punctuation">{</span>
+		<span class="token function">panic</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">defer</span> f<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	err<span class="token operator">=</span>trace<span class="token punctuation">.</span><span class="token function">Start</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err<span class="token operator">!=</span><span class="token boolean">nil</span><span class="token punctuation">{</span>
+		<span class="token function">panic</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">defer</span> trace<span class="token punctuation">.</span><span class="token function">Stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li>
-<pre><code class="language-go">import "runtime/trace"
-func TestTrace(t *testing.T){
-	f,err:=os.Create("trace.out")
-	if err!=nil{
-		panic(err)
-	}
-	defer f.Close()
-	err=trace.Start(f)
-	if err!=nil{
-		panic(err)
-	}
-	defer trace.Stop()
-}
-<pre class="line-numbers language-none"><code class="language-none">
-- 测试程序输出trace信息：`go test -trace trace.out`
-
-- 可视化trace信息：`go tool trace trace.out`
-
-## runtime
-
-- Go的runtime没有虚拟机的概念
-- Runtime作为程序的一部分打包进二进制产物
-- Runtime随用户程序一起运行
-- Runtime与用户程序没有明显界限，直接通过函数调用
-- 有一定屏蔽系统调用的能力
-- go的某些关键字在runtime中实现
-
-### 能力
-
-- 内存管理能力
-- GC
-- 并发（协程调度）
-
-## 系统设计
-
-### 面向错误的设计
-
-隔离错误
-
-冗余
-
-逻辑结构重用，部署结构隔离
-
-限流
-
-慢响应：给阻塞操作设置超时时间
-
-错误传递：断路器+服务降级
-
-熔断
-
-### 面向恢复的设计
-
-- 注意僵尸进程，健康检查
-  - 池化资源耗尽
-  - 死锁
-- 拒绝单体系统
-- 快速启动
-- 无状态
-- 在依赖服务不可用时，可以继续存活
-
-## Tip
-
-Go语言很特别，没有对象，没有继承多态，没有泛型，没有try/catch。相反，有接口，函数式编程，CSP并发模型(goroutine+channel)。
-
-`go`语言仅支持封装，不支持继承和多态。没有`class`只有`struct`。面向对象使用接口来实现。
-
-`GOROOT`表示源码包所在路径。
-
-`GOPATH`表示开发者Go项目的默认路径。
-
-### 依赖包下载网络配置
-
-由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。
-
-```shell
-go env -w GO111MODULE=on
-go env -w GOPROXY=https://goproxy.cn,direct<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-</code></pre>
+<p>测试程序输出trace信息：<code>go test -trace trace.out</code></p>
+</li>
+<li>
+<p>可视化trace信息：<code>go tool trace trace.out</code></p>
 </li>
 </ul>
-</li>
+<h2 id="runtime">runtime<a class="anchor" href="#runtime">¶</a></h2>
+<ul>
+<li>Go的runtime没有虚拟机的概念</li>
+<li>Runtime作为程序的一部分打包进二进制产物</li>
+<li>Runtime随用户程序一起运行</li>
+<li>Runtime与用户程序没有明显界限，直接通过函数调用</li>
+<li>有一定屏蔽系统调用的能力</li>
+<li>go的某些关键字在runtime中实现</li>
 </ul>
+<h3 id="能力">能力<a class="anchor" href="#能力">¶</a></h3>
+<ul>
+<li>内存管理能力</li>
+<li>GC</li>
+<li>并发（协程调度）</li>
+</ul>
+<h2 id="系统设计">系统设计<a class="anchor" href="#系统设计">¶</a></h2>
+<h3 id="面向错误的设计">面向错误的设计<a class="anchor" href="#面向错误的设计">¶</a></h3>
+<p>隔离错误</p>
+<p>冗余</p>
+<p>逻辑结构重用，部署结构隔离</p>
+<p>限流</p>
+<p>慢响应：给阻塞操作设置超时时间</p>
+<p>错误传递：断路器+服务降级</p>
+<p>熔断</p>
+<h3 id="面向恢复的设计">面向恢复的设计<a class="anchor" href="#面向恢复的设计">¶</a></h3>
+<ul>
+<li>注意僵尸进程，健康检查
+<ul>
+<li>池化资源耗尽</li>
+<li>死锁</li>
+</ul>
+</li>
+<li>拒绝单体系统</li>
+<li>快速启动</li>
+<li>无状态</li>
+<li>在依赖服务不可用时，可以继续存活</li>
+</ul>
+<h2 id="Tip-5">Tip<a class="anchor" href="#Tip-5">¶</a></h2>
+<p>Go语言很特别，没有对象，没有继承多态，没有泛型，没有try/catch。相反，有接口，函数式编程，CSP并发模型(goroutine+channel)。</p>
+<p><code>go</code>语言仅支持封装，不支持继承和多态。没有<code>class</code>只有<code>struct</code>。面向对象使用接口来实现。</p>
+<p><code>GOROOT</code>表示源码包所在路径。</p>
+<p><code>GOPATH</code>表示开发者Go项目的默认路径。</p>
+<h3 id="依赖包下载网络配置">依赖包下载网络配置<a class="anchor" href="#依赖包下载网络配置">¶</a></h3>
+<p>由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go <span class="token function">env</span> -w <span class="token assign-left variable">GO111MODULE</span><span class="token operator">=</span>on
+go <span class="token function">env</span> -w <span class="token assign-left variable">GOPROXY</span><span class="token operator">=</span>https://goproxy.cn,direct<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>或者基于系统的环境变量</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 一次性</span>
 $ <span class="token builtin class-name">export</span> <span class="token assign-left variable">GO111MODULE</span><span class="token operator">=</span>on
@@ -2353,7 +2404,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">244.8k</span>&nbsp;字
+                class="white-color">245.4k</span>&nbsp;字
             
             
             
