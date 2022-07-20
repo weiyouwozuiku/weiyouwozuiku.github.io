@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-19
+                    2022-07-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15.5k
+                    16.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    58 分
+                    60 分
                 </div>
                 
 
@@ -1132,11 +1132,13 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token function">intsToString</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>向bytes.Buffer添加任意字符的UTF8编码时，最好使用bytes.Buffer的WriteRune方法，如果仅仅是写入ASCII字符则可以使用WriteByte方法。</p>
-<h3 id="string-3">string<a class="anchor" href="#string-3">¶</a></h3>
 <p>默认值是空字符串</p>
 <p>string是数据类型，不是引用或指针类型</p>
 <p>string是只读的byte slice ，len函数返回string对应的byte数</p>
 <p>string的byte数组可以存放任意数据</p>
+<p>string类型的大小都是16字节，原因是其底层结构为<code>runtime/string.go</code>中的<code>stringStruct</code>结构体，其中包含了一个指针，和一个int变量表示长度。</p>
+<p>想看string内部的可以用反射变成反射的对应类型：<code>(*reflect.StringHeader)(unsafe.Pointer(&amp;s))</code></p>
+<p>字符串切片：<code>s=string([]rune(s)[:3])</code></p>
 <h3 id="常量">常量<a class="anchor" href="#常量">¶</a></h3>
 <p>常量表达式的值在编译期计算。每种常量的潜在类型都是基础类型。</p>
 <p>形式是：<code>const</code></p>
@@ -1175,6 +1177,14 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <h3 id="Slice">Slice<a class="anchor" href="#Slice">¶</a></h3>
 <p><img src="https://math.now.sh?inline=slice%5Cbegin%7Bcases%7D%E6%8C%87%E9%92%88%3A%E6%8C%87%E5%90%91%E7%AC%AC%E4%B8%80%E4%B8%AAslice%E5%85%83%E7%B4%A0%E5%AF%B9%E5%BA%94%E7%9A%84%E5%BA%95%E5%B1%82%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%9C%B0%E5%9D%80%EF%BC%8Cslice%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E4%B8%8D%E4%B8%80%E5%AE%9A%E6%98%AF%E6%95%B0%E7%BB%84%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%5C%5C%E9%95%BF%E5%BA%A6%3Aslice%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0%E6%95%B0%E7%9B%AE%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%94%A8len%E5%87%BD%E6%95%B0%E8%8E%B7%E5%8F%96%5C%5C%E5%AE%B9%E9%87%8F%3A%E4%BB%8Eslice%E5%BC%80%E5%A7%8B%E4%BD%8D%E7%BD%AE%E5%88%B0%E5%BA%95%E5%B1%82%E6%95%B0%E6%8D%AE%E7%9A%84%E7%BB%93%E5%B0%BE%E4%BD%8D%E7%BD%AE%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%94%A8cap%E5%87%BD%E6%95%B0%E8%8E%B7%E5%8F%96%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
 <p>多个slice可以共享底层数据，引用的数组部分区间可能重叠。</p>
+<p>slice的追加</p>
+<p>扩容是，编译时转为调用<code>runtime.growslice()</code></p>
+<ul>
+<li>如果期望容量大于当前容量的两倍就会使用期望容量</li>
+<li>如果当前切片的长度小于1024，容量翻倍</li>
+<li>如果当前切片的长度大于1024，每次增加25%</li>
+<li>切片扩容时，<strong>并发不安全</strong>，切片并发需要加锁</li>
+</ul>
 <p>slice支持切片<code>s[i:j]</code>，<img src="https://math.now.sh?inline=0%5Cleq%20i%5Cleq%20j%20%5Cleq%20cap%28s%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，引用s的从第i个元素开始到第j-1个元素的子序列。i省略的话，默认为0。j省略为len(s)代替。</p>
 <p>切片操作超过cap(s)的上限导致panic异常，超过len(s)表示拓展了slice</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//翻转数组</span>
@@ -1210,6 +1220,8 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <p><code>delete(map名，key值)</code>删除元素。</p>
 <p><code>map</code>使用哈希表，key必须可以比较。除了<code>slice,map,function的内建类型</code>都可以作为key。<code>stuct</code>不包含上述字段也可作为key。</p>
 <p>Go中没有set类型，但是可以通过<code>map[type]bool</code>的方式模拟set。</p>
+<p>其底层是<code>runtime.hmap</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go%E5%AD%A6%E4%B9%A0/Go%E4%B8%ADMap.png" alt="Go中Map.png"></p>
 <h3 id="结构体-2">结构体<a class="anchor" href="#结构体-2">¶</a></h3>
 <p>go的结构体没有构造函数，一般可以直接生成。如果一定要用函数进行构造，可以自己定义一个工厂函数，返回一个局部地址，但是不会出错。</p>
 <p>针对函数体的函数形式如下：</p>
@@ -1809,6 +1821,73 @@ $ <span class="token builtin class-name">source</span> ~/.profile<span aria-hidd
 <p><strong>通过上面的代码可以看出 make 函数的 t 参数必须是 chan（通道）、map（字典）、slice（切片）中的一个，并且返回值也是类型本身。</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go%E5%AD%A6%E4%B9%A0/make_OMAKE.gif" alt="make_OMAKE.gif"></p>
 <p>在编译期的类型检查阶段，Go语言其实就将代表 make 关键字的 OMAKE 节点根据参数类型的不同转换成了 OMAKESLICE、OMAKEMAP 和 OMAKECHAN 三种不同类型的节点，这些节点最终也会调用不同的运行时函数来初始化数据结构。</p>
+<h3 id="空结构体">空结构体<a class="anchor" href="#空结构体">¶</a></h3>
+<p>当结构体内部是空的时候，创建的对应大小为0，可以通过<code>unsafe.Sizeof()</code>查看大小。</p>
+<p>在Go程序中所有的0-byte的地址都是用的同一个（不被包含在其他结构体中时），具体实现是对应了<code>malloc中的zerobase</code>变量。</p>
+<p>这样的好处在于节约内存。</p>
+<p>场景：</p>
+<ul>
+<li>当使用map实现hashset时，只使用了key，而不需要value，所有value都是空结构体的话，都指向一个地址</li>
+<li>空结构体与channel结合可以当纯信号</li>
+</ul>
+<h3 id="GO环境变量">GO环境变量<a class="anchor" href="#GO环境变量">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GOARCH</td>
+<td>用于指示GO编译器生成代码所针对的平台CPU架构</td>
+<td>主要值是AMD64等，默认值是本机CPU架构</td>
+</tr>
+<tr>
+<td>GOOS</td>
+<td>用于指示GO编译器生成代码所针对的操作系统</td>
+<td>主要值是Linux等，默认是本机的操作系统</td>
+</tr>
+<tr>
+<td>GO11MODULE</td>
+<td>决定了当前使用的构建模式是传统的GOPATH模式还是新引入的Go Module模式</td>
+<td>在Go1.16版本Go Module构建模式默认开启，为on</td>
+</tr>
+<tr>
+<td>GOCACHE</td>
+<td>用于指示存储构建结果缓存的路径，这些缓存可能会被后续的构建所使用的</td>
+<td>不同操作系统默认值不一样</td>
+</tr>
+<tr>
+<td>GOMODCACHE</td>
+<td>用于指示存放Go Module的路径</td>
+<td>在不同的操作系统上不一样</td>
+</tr>
+<tr>
+<td>GOPROXY</td>
+<td>用来配置GO Module proxy</td>
+<td>默认值为“https://proxy,golang.org,direct”</td>
+</tr>
+<tr>
+<td>GOPATH</td>
+<td>在传统GOPATH构建模式下，用于指示Go包搜索路径的环境变量</td>
+<td></td>
+</tr>
+<tr>
+<td>GOROOT</td>
+<td>指示Go安装路径</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="安装多个go版本">安装多个go版本<a class="anchor" href="#安装多个go版本">¶</a></h3>
+<ol>
+<li>在PATH环境变量中设置成<code>export PATH=$PATH:/user/local/go/bin:~/go/bin</code></li>
+<li><code>go get golang.org/dl/go.1.15.13</code></li>
+<li><code>go1.15.13 </code></li>
+</ol>
 <h3 id="位运算">位运算<a class="anchor" href="#位运算">¶</a></h3>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">x <span class="token operator">&amp;^</span> <span class="token number">1</span> <span class="token operator">=</span> <span class="token number">0</span>
 x <span class="token operator">&amp;^</span> <span class="token number">0</span> <span class="token operator">=</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -2404,7 +2483,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">245.4k</span>&nbsp;字
+                class="white-color">246k</span>&nbsp;字
             
             
             
