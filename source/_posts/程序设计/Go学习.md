@@ -739,8 +739,6 @@ func main() {
 
 向bytes.Buffer添加任意字符的UTF8编码时，最好使用bytes.Buffer的WriteRune方法，如果仅仅是写入ASCII字符则可以使用WriteByte方法。
 
-### string
-
 默认值是空字符串
 
 string是数据类型，不是引用或指针类型
@@ -748,6 +746,12 @@ string是数据类型，不是引用或指针类型
 string是只读的byte slice ，len函数返回string对应的byte数
 
 string的byte数组可以存放任意数据
+
+string类型的大小都是16字节，原因是其底层结构为`runtime/string.go`中的`stringStruct`结构体，其中包含了一个指针，和一个int变量表示长度。
+
+想看string内部的可以用反射变成反射的对应类型：`(*reflect.StringHeader)(unsafe.Pointer(&s))`
+
+字符串切片：`s=string([]rune(s)[:3])`
 
 ### 常量
 
@@ -828,6 +832,15 @@ $slice\begin{cases}指针:指向第一个slice元素对应的底层数组元素�
 
 多个slice可以共享底层数据，引用的数组部分区间可能重叠。
 
+slice的追加
+
+扩容是，编译时转为调用`runtime.growslice()`
+
+- 如果期望容量大于当前容量的两倍就会使用期望容量
+- 如果当前切片的长度小于1024，容量翻倍
+- 如果当前切片的长度大于1024，每次增加25%
+- 切片扩容时，**并发不安全**，切片并发需要加锁
+
 slice支持切片`s[i:j]`，$0\leq i\leq j \leq cap(s)$，引用s的从第i个元素开始到第j-1个元素的子序列。i省略的话，默认为0。j省略为len(s)代替。
 
 切片操作超过cap(s)的上限导致panic异常，超过len(s)表示拓展了slice
@@ -895,6 +908,10 @@ m:=map[string]string {
 `map`使用哈希表，key必须可以比较。除了`slice,map,function的内建类型`都可以作为key。`stuct`不包含上述字段也可作为key。
 
 Go中没有set类型，但是可以通过`map[type]bool`的方式模拟set。
+
+其底层是`runtime.hmap`
+
+![Go中Map.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/Go中Map.png)
 
 ### 结构体
 
@@ -1665,6 +1682,38 @@ func make(t Type, size ...IntegerType) Type
 ![make_OMAKE.gif](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/make_OMAKE.gif)
 
 在编译期的类型检查阶段，Go语言其实就将代表 make 关键字的 OMAKE 节点根据参数类型的不同转换成了 OMAKESLICE、OMAKEMAP 和 OMAKECHAN 三种不同类型的节点，这些节点最终也会调用不同的运行时函数来初始化数据结构。
+
+### 空结构体
+
+当结构体内部是空的时候，创建的对应大小为0，可以通过`unsafe.Sizeof()`查看大小。
+
+在Go程序中所有的0-byte的地址都是用的同一个（不被包含在其他结构体中时），具体实现是对应了`malloc中的zerobase`变量。
+
+这样的好处在于节约内存。
+
+场景：
+
+- 当使用map实现hashset时，只使用了key，而不需要value，所有value都是空结构体的话，都指向一个地址
+- 空结构体与channel结合可以当纯信号
+
+### GO环境变量
+
+| 名称       | 作用                                                         | 值                                          |
+| ---------- | ------------------------------------------------------------ | ------------------------------------------- |
+| GOARCH     | 用于指示GO编译器生成代码所针对的平台CPU架构                  | 主要值是AMD64等，默认值是本机CPU架构        |
+| GOOS       | 用于指示GO编译器生成代码所针对的操作系统                     | 主要值是Linux等，默认是本机的操作系统       |
+| GO11MODULE | 决定了当前使用的构建模式是传统的GOPATH模式还是新引入的Go Module模式 | 在Go1.16版本Go Module构建模式默认开启，为on |
+| GOCACHE    | 用于指示存储构建结果缓存的路径，这些缓存可能会被后续的构建所使用的 | 不同操作系统默认值不一样                    |
+| GOMODCACHE | 用于指示存放Go Module的路径                                  | 在不同的操作系统上不一样                    |
+| GOPROXY    | 用来配置GO Module proxy                                      | 默认值为“https://proxy,golang.org,direct”   |
+| GOPATH     | 在传统GOPATH构建模式下，用于指示Go包搜索路径的环境变量       |                                             |
+| GOROOT     | 指示Go安装路径                                               |                                             |
+
+### 安装多个go版本
+
+1. 在PATH环境变量中设置成`export PATH=$PATH:/user/local/go/bin:~/go/bin`
+2. `go get golang.org/dl/go.1.15.13`
+3. `go1.15.13 `
 
 ### 位运算
 
