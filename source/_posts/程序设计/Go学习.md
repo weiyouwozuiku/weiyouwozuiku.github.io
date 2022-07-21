@@ -913,6 +913,25 @@ Go中没有set类型，但是可以通过`map[type]bool`的方式模拟set。
 
 ![Go中Map.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/Go中Map.png)
 
+#### map使用make创建
+
+![map使用make初始化.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/map使用make初始化.png)
+
+#### map使用字面量创建
+
+- 当元素少于25个时，直接转化为简单赋值，本身还是调用的make创建
+- 当元素多于25个时，转化为循环赋值，本身还是调用的make创建
+
+#### map扩容
+
+当map溢出桶太多时会导致变成链表，进而严重的性能下降。
+
+#### 总结
+
+- go使用拉链实现了hashmap
+- 每个桶中存储键哈希的前8位
+- 桶超过8位，存储在溢出桶中
+
 ### 结构体
 
 go的结构体没有构造函数，一般可以直接生成。如果一定要用函数进行构造，可以自己定义一个工厂函数，返回一个局部地址，但是不会出错。
@@ -1740,5 +1759,7 @@ mac可以在`/Users/didi/Library/Application Support/Code/User/setting.json`中�
 
 1. [《The Go Programming Language》](http://gopl.io/)
 2. 维基百科，[SOLID (面向对象设计)](https://zh.wikipedia.org/wiki/SOLID_(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1))，2021
-2. [Go 语言设计与实现](https://draveness.me/golang)
-2. [Go语言make和new关键字的区别及实现原理](http://c.biancheng.net/view/5722.html)
+3. [Go 语言设计与实现](https://draveness.me/golang)
+4. [Go语言make和new关键字的区别及实现原理](http://c.biancheng.net/view/5722.html)
+5. [大话图解golang map](https://www.jianshu.com/p/a530f506beac)
+6. [如何设计并实现一个线程安全的 Map ?](https://halfrost.com/go_map_chapter_one/#toc-0)
