@@ -1663,7 +1663,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-5&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景-5&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;背景-4&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景-4&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;现在主流的数据存储与检索引擎可以大致分为两种:OLTP和OLAP.&lt;/p&gt;
 &lt;p&gt;OLTP指的是online transaction processing.&lt;/p&gt;
 &lt;p&gt;OLAP指的是online analysis</summary>
@@ -1943,7 +1943,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-4&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景-4&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;背景-5&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景-5&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;随着计算机硬件在过去10年中遵循摩尔定律的发展，通用计算机的CPU主频早已超过了4GHz，内存已早已进入了DDR4的时代。但是传统机械磁盘的读写性能并没有明显提升，而SSD的价格又过高。因此，探究传统机械硬盘的物理结构与性能优化方式具有重大学术与工程意义。&lt;/p&gt;
 &lt;h2</summary>
         
