@@ -494,14 +494,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-21
+                    2022-07-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    16.3k
+                    16.5k
                 </div>
                 
 
@@ -1646,6 +1646,27 @@ go get -u <span class="token operator">&lt;</span>包名<span class="token opera
 <li>GC</li>
 <li>并发（协程调度）</li>
 </ul>
+<h2 id="内存对齐">内存对齐<a class="anchor" href="#内存对齐">¶</a></h2>
+<p>非内存对齐：内存的原子性与效率受影响。cpu在内存中操作按照整8个字长进行获取，当内存不对齐时，需要读取至少两个区域做拼接才行。</p>
+<h3 id="对齐系数">对齐系数<a class="anchor" href="#对齐系数">¶</a></h3>
+<ul>
+<li>为了方便内存对齐，Go提供了对齐系数<code>unsafe.Alignof()</code></li>
+<li>对齐系数的含义：变量的内存地址必须是被对齐系数整除</li>
+<li>如果对齐系数为4，便是变量内存地址必须为4的倍数</li>
+<li>内建类型对齐系数一般就是其sizeof的大小</li>
+<li>结构体的内存对齐：
+<ul>
+<li>结构体的内存对齐分为内部对齐和结构体之间对齐</li>
+<li>内部对齐：考虑成员大小和成员的对其系数
+<ul>
+<li>指的是结构体内部成员的相对位置（偏移量）</li>
+<li>每个成员的偏移量是<strong>自身大小</strong>与其<strong>对齐系数</strong>较小值的倍数</li>
+</ul>
+</li>
+<li>结构体长度填充：考虑自身对齐系数和系统字长</li>
+</ul>
+</li>
+</ul>
 <h2 id="系统设计">系统设计<a class="anchor" href="#系统设计">¶</a></h2>
 <h3 id="面向错误的设计">面向错误的设计<a class="anchor" href="#面向错误的设计">¶</a></h3>
 <p>隔离错误</p>
@@ -2500,7 +2521,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">246.1k</span>&nbsp;字
+                class="white-color">246.4k</span>&nbsp;字
             
             
             
