@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-22
+                    2022-07-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    16.5k
+                    16.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    61 分
+                    62 分
                 </div>
                 
 
@@ -1654,19 +1654,22 @@ go get -u <span class="token operator">&lt;</span>包名<span class="token opera
 <li>对齐系数的含义：变量的内存地址必须是被对齐系数整除</li>
 <li>如果对齐系数为4，便是变量内存地址必须为4的倍数</li>
 <li>内建类型对齐系数一般就是其sizeof的大小</li>
-<li>结构体的内存对齐：
+</ul>
+<h3 id="结构体的内存对齐">结构体的内存对齐<a class="anchor" href="#结构体的内存对齐">¶</a></h3>
+<p>结构体的内存对齐分为内部对齐和结构体之间对齐</p>
 <ul>
-<li>结构体的内存对齐分为内部对齐和结构体之间对齐</li>
 <li>内部对齐：考虑成员大小和成员的对其系数
 <ul>
 <li>指的是结构体内部成员的相对位置（偏移量）</li>
 <li>每个成员的偏移量是<strong>自身大小</strong>与其<strong>对齐系数</strong>较小值的倍数</li>
 </ul>
 </li>
-<li>结构体长度填充：考虑自身对齐系数和系统字长</li>
+<li>结构体长度填充：考虑自身对齐系数和系统字长。结构体通过增加长度，对齐系统字长</li>
+<li>结构体长度是<strong>最大成员长度</strong>与<strong>系统字长</strong>较小的整数倍，这里的长度是结构体中分配长度的单位。</li>
 </ul>
-</li>
-</ul>
+<p>基于上述原理，可以通过<strong>调节成员顺序</strong>，以实现节约空间。</p>
+<p><strong>结构体的对齐系数是其成员的最大对齐系数。</strong></p>
+<p>空结构体不要放在结构体的最后，在结构体中时，只会分配一个地址，并不占用空间。但是出现在结构体末尾时，为了避免空结构体地址影响后面的元素，需要补齐字长。</p>
 <h2 id="系统设计">系统设计<a class="anchor" href="#系统设计">¶</a></h2>
 <h3 id="面向错误的设计">面向错误的设计<a class="anchor" href="#面向错误的设计">¶</a></h3>
 <p>隔离错误</p>
@@ -1864,7 +1867,9 @@ $ <span class="token builtin class-name">source</span> ~/.profile<span aria-hidd
 <p>场景：</p>
 <ul>
 <li>当使用map实现hashset时，只使用了key，而不需要value，所有value都是空结构体的话，都指向一个地址</li>
-<li>空结构体与channel结合可以当纯信号</li>
+<li>空结构体与channel结合可以当纯信号，实现空通道</li>
+<li>实现集合类型</li>
+<li>实现方法接收者，将方法组合起来，代表一个“分组”</li>
 </ul>
 <h3 id="GO环境变量">GO环境变量<a class="anchor" href="#GO环境变量">¶</a></h3>
 <table>
@@ -2521,7 +2526,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">246.4k</span>&nbsp;字
+                class="white-color">246.6k</span>&nbsp;字
             
             
             
