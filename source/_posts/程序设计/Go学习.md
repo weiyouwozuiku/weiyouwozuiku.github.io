@@ -1255,12 +1255,41 @@ func GetSingletonObj() *SingletonObj{
 - 每个sema锁都对应一个SemaRoot结构体
 - SameRoot中有一个平衡二叉树用于协程排队
 
-#### sema操作（uint32>0）
+#### sema操作
 
-- 获取锁：uint32减一，获取成功
-- 释放锁：uint32加一，释放成功
+- uint32>0
+
+    - 获取锁：uint32减一，获取成功
+
+    - 释放锁：uint32加一，释放成功
+
+- uint32==0
+
+    - 获取锁：协程休眠，进入堆树等待
+    - 释放锁：从堆树中取出一个协程，唤醒
+    - sema锁退化成一个专用休眠队列
+
+sema可以直接配置成0，作为休眠队列。
 
 ### Mutex
+
+`sync.Mutex`：`Lock()`与`Unlock()`
+
+```mermaid
+graph LR
+Mutex-->state
+Mutex-->sema-->SemaRoot
+SemaRoot-->treap
+SemaRoot-->nwait
+treap-->sudog
+treap-->g
+state-->最低第一位:Locked
+state-->最低第二位:Woken
+state-->最低第三位:Starving
+state-->其余位数:WaiterShift
+```
+
+
 
 ## 基于共享变量的并发
 
