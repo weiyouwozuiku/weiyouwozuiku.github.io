@@ -501,14 +501,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.1k
+                    17.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    63 分
+                    64 分
                 </div>
                 
 
@@ -1472,12 +1472,42 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
 <li>每个sema锁都对应一个SemaRoot结构体</li>
 <li>SameRoot中有一个平衡二叉树用于协程排队</li>
 </ul>
-<h4 id="sema操作（uint32-0）">sema操作（uint32&gt;0）<a class="anchor" href="#sema操作（uint32-0）">¶</a></h4>
+<h4 id="sema操作">sema操作<a class="anchor" href="#sema操作">¶</a></h4>
 <ul>
-<li>获取锁：uint32减一，获取成功</li>
-<li>释放锁：uint32加一，释放成功</li>
+<li>
+<p>uint32&gt;0</p>
+<ul>
+<li>
+<p>获取锁：uint32减一，获取成功</p>
+</li>
+<li>
+<p>释放锁：uint32加一，释放成功</p>
+</li>
 </ul>
+</li>
+<li>
+<p>uint32==0</p>
+<ul>
+<li>获取锁：协程休眠，进入堆树等待</li>
+<li>释放锁：从堆树中取出一个协程，唤醒</li>
+<li>sema锁退化成一个专用休眠队列</li>
+</ul>
+</li>
+</ul>
+<p>sema可以直接配置成0，作为休眠队列。</p>
 <h3 id="Mutex">Mutex<a class="anchor" href="#Mutex">¶</a></h3>
+<p><code>sync.Mutex</code>：<code>Lock()</code>与<code>Unlock()</code></p>
+<pre class="mermaid">graph LR
+Mutex--&gt;state
+Mutex--&gt;sema--&gt;SemaRoot
+SemaRoot--&gt;treap
+SemaRoot--&gt;nwait
+treap--&gt;sudog
+treap--&gt;g
+state--&gt;最低第一位:Locked
+state--&gt;最低第二位:Woken
+state--&gt;最低第三位:Starving
+state--&gt;其余位数:WaiterShift</pre>
 <h2 id="基于共享变量的并发">基于共享变量的并发<a class="anchor" href="#基于共享变量的并发">¶</a></h2>
 <h2 id="包和工具-2">包和工具<a class="anchor" href="#包和工具-2">¶</a></h2>
 <p>需要将想用的GOPATH添加对应的项目地址以保证在GOPATH拼接完成import的字符后能够导入对应的包。</p>
@@ -2578,7 +2608,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">246.9k</span>&nbsp;字
+                class="white-color">247k</span>&nbsp;字
             
             
             
