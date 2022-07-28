@@ -1283,13 +1283,20 @@ SemaRoot-->treap
 SemaRoot-->nwait
 treap-->sudog
 treap-->g
-state-->最低第一位:Locked
-state-->最低第二位:Woken
-state-->最低第三位:Starving
-state-->其余位数:WaiterShift
+state-->最低第一位:Locked-->1:已锁
+最低第一位:Locked--->0:未锁
+state-->最低第二位:Woken-->睡眠中唤醒
+state-->最低第三位:Starving-->饥饿模式
+state-->其余位数:WaiterShift-->等待锁数量
 ```
 
+#### 正常模式
 
+- 加锁
+  - 尝试CAS直接加锁
+  - 若无法直接获取，进行多次自旋尝试
+  - 多次尝试失败，进入sema队列休眠
+  - 可能导致锁饥饿
 
 ## 基于共享变量的并发
 
