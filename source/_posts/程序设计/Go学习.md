@@ -1041,9 +1041,40 @@ go build -mod vendor
 
 ## 锁
 
-### 互斥锁
+### Atomic
 
-sync包的Mutex类型
+- **Atomic机制需要在硬件级别加锁**
+- 需要CPU硬件支持
+- 不同平台的实现方案不同
+- 保证操作一个变量的时候，其他协程/线程无法访问
+- **只能用于简单变量的简单操作**
+
+### sema锁
+
+- 信号量锁/信号锁
+- 核心是一个uint32值，含义是同时可并发的数量
+- 每个sema锁都对应一个SemaRoot结构体
+- SameRoot中有一个平衡二叉树用于协程排队
+
+#### sema操作
+
+- uint32>0
+
+  - 获取锁：uint32减一，获取成功
+
+  - 释放锁：uint32加一，释放成功
+
+- uint32==0
+
+  - 获取锁：协程休眠，进入堆树等待
+  - 释放锁：从堆树中取出一个协程，唤醒
+  - sema锁退化成一个专用休眠队列
+
+sema可以直接配置成0，作为休眠队列。
+
+### Mutex
+
+`sync.Mutex`：`Lock()`与`Unlock()`
 
 使用互斥锁能够保证同一时间有且只有一个goroutine进入临界区，其他的goroutine则在等待锁；当互斥锁释放后，等待的goroutine才可以获取锁进入临界区，多个goroutine同时等待一个锁时，唤醒的策略是随机的。
 但是，这种方式还是有问题的，读写都会等待，大大降低了程序效率。
@@ -1071,7 +1102,70 @@ func main()  {
 }
 ```
 
+锁竞争严重时，互斥锁进入饥饿模式，也就是协程需要等待1ms。
+
+```mermaid
+graph LR
+Mutex-->state
+Mutex-->sema-->SemaRoot
+SemaRoot-->treap
+SemaRoot-->nwait
+treap-->sudog
+treap-->g
+state-->最低第一位:Locked-->1:已锁
+最低第一位:Locked--->0:未锁
+state-->最低第二位:Woken-->睡眠中唤醒
+state-->最低第三位:Starving-->饥饿模式
+state-->其余位数:WaiterShift-->等待锁数量
+```
+
+#### 正常模式
+
+- 加锁
+  - 尝试CAS直接加锁
+
+  - 若无法直接获取，进行多次自旋尝试
+
+  - 多次尝试失败，进入sema队列休眠
+
+  - 可能导致锁饥饿
+
+#### 饥饿模式
+
+- 当前协程等待锁的时间超过了1ms，切换到饥饿模式，表示位设置为1
+- 饥饿模式中，不自旋，新来的协程直接sema休眠
+- 饥饿模式中，被唤醒的协程直接获取锁  
+- 没有协程在队列中继续等待时，回到正常模式
+- 饥饿模式没有自旋等待，有利于公平
+
 ### 读写互斥锁
+
+- 只读时，不能修改
+- 只读时，多协程共享读
+- 只读时，不需要互斥锁
+
+```go
+type RWMutex struct{
+    w Mutex // 互斥锁作为写锁
+    writerSem uint32 // 作为写协程队列
+    readerSem uint32 // 作为读协程队列
+    readerCount int32 // 正值：正在读的协程 负值：加了写锁
+    readerWait int32 // 写锁应该等待读协程个数
+}
+```
+
+#### 加写锁
+
+1. 先加mutex写锁，若已经被加写锁会阻塞等待
+2. 将readerCount变成负值，阻塞读锁的获取
+3. 计算需要等待多少个读协程释放
+4. 如果需要等待读协程释放，陷入writerSem
+
+#### 解写锁
+
+1. 将readerCount变为正值，允许读锁的获取
+2. 释放在readerSem中等待的读协程
+3. 解锁mutex
 
 在大多数场景下，是读多写少的，，当我们并发的去读取一个资源不涉及资源修改的时候是没有必要加锁的。这种情况就可以使用读写互斥锁，Go语言中使用sync包中的RWMutex类型。
 读写锁分为两种：读锁和写锁。当一个goroutine获取读锁之后，其他的goroutine如果是获取读锁会继续获得锁，如果是获取写锁就会等待；当一个goroutine获取写锁之后，其他的goroutine无论是获取读锁还是写锁都会等待。
@@ -1099,7 +1193,10 @@ func write()  {
 }
 ```
 
+### 使用经验
 
+- 减少锁的使用时间，只在关键地方加锁
+- 善用defer确保锁释放
 
 ## Goroutines和Channels
 
@@ -1240,64 +1337,6 @@ func GetSingletonObj() *SingletonObj{
 - 二级池化会增加系统复杂度
 - Go语言的初衷是希望协程即用即毁，不要池化
 
-### Atomic
-
-- **Atomic机制需要在硬件级别加锁**
-- 需要CPU硬件支持
-- 不同平台的实现方案不同
-- 保证操作一个变量的时候，其他协程/线程无法访问
-- **只能用于简单变量的简单操作**
-
-### sema锁
-
-- 信号量锁/信号锁
-- 核心是一个uint32值，含义是同时可并发的数量
-- 每个sema锁都对应一个SemaRoot结构体
-- SameRoot中有一个平衡二叉树用于协程排队
-
-#### sema操作
-
-- uint32>0
-
-    - 获取锁：uint32减一，获取成功
-
-    - 释放锁：uint32加一，释放成功
-
-- uint32==0
-
-    - 获取锁：协程休眠，进入堆树等待
-    - 释放锁：从堆树中取出一个协程，唤醒
-    - sema锁退化成一个专用休眠队列
-
-sema可以直接配置成0，作为休眠队列。
-
-### Mutex
-
-`sync.Mutex`：`Lock()`与`Unlock()`
-
-```mermaid
-graph LR
-Mutex-->state
-Mutex-->sema-->SemaRoot
-SemaRoot-->treap
-SemaRoot-->nwait
-treap-->sudog
-treap-->g
-state-->最低第一位:Locked-->1:已锁
-最低第一位:Locked--->0:未锁
-state-->最低第二位:Woken-->睡眠中唤醒
-state-->最低第三位:Starving-->饥饿模式
-state-->其余位数:WaiterShift-->等待锁数量
-```
-
-#### 正常模式
-
-- 加锁
-  - 尝试CAS直接加锁
-  - 若无法直接获取，进行多次自旋尝试
-  - 多次尝试失败，进入sema队列休眠
-  - 可能导致锁饥饿
-
 ## 基于共享变量的并发
 
 ## 包和工具
@@ -1332,9 +1371,7 @@ Context用于解决goroutine之间退出通知、元数据传递的功能的问�
 - 不要将context放在结构体中，而是直接将context类型作为函数的第一参数，而且一般都命名为ctx
 - 不要向函数内传出nil属性的context，不知传什么，用TODO函数
 - 不要把本应该作为函数参数的属性塞进context，context存储的应该是一些共同的数据
-- 同一个context可能会被传递到多个goroutine中，但是context并发安全
-
-​	
+- 同一个context可能会被传递到多个goroutine中，但是context并发安全	
 
 ## init方法
 
