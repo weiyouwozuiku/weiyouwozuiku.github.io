@@ -1167,6 +1167,19 @@ type RWMutex struct{
 2. 释放在readerSem中等待的读协程
 3. 解锁mutex
 
+#### 加读锁
+
+1. 将readCount加一
+2. 如果readCount是正数，加锁成功
+3. 如果readCount是负数，说明被加了写锁，陷入readerSem
+
+#### 解写锁
+
+1. 给readerCount减一
+2. 如果readerCount是正数，解锁成功
+3. 如果readerCount是负数，有写锁在排队
+   1. 如果是readerWait的最后一个，唤醒写协程
+
 在大多数场景下，是读多写少的，，当我们并发的去读取一个资源不涉及资源修改的时候是没有必要加锁的。这种情况就可以使用读写互斥锁，Go语言中使用sync包中的RWMutex类型。
 读写锁分为两种：读锁和写锁。当一个goroutine获取读锁之后，其他的goroutine如果是获取读锁会继续获得锁，如果是获取写锁就会等待；当一个goroutine获取写锁之后，其他的goroutine无论是获取读锁还是写锁都会等待。
 
