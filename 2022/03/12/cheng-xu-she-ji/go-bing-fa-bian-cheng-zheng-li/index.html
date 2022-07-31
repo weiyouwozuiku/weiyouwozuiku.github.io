@@ -532,7 +532,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Context-3">Context<a class="anchor" href="#Context-3">¶</a></h2>
+                <h2 id="Context-2">Context<a class="anchor" href="#Context-2">¶</a></h2>
 <p>在Go1.7版本引入官方库，可以在API边界之间以及过程之间传递截止时间、取消时间或其他与请求相关的数据。</p>
 <pre class="mermaid">graph TD;
 Context--&gt;emptyCtx
@@ -570,7 +570,7 @@ Context--&gt;WithValue</pre>
     <span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>但是实际工程中一般直接使用具体的同步原语，而不是接口。</p>
-<h3 id="Mutex-3">Mutex<a class="anchor" href="#Mutex-3">¶</a></h3>
+<h3 id="Mutex-2">Mutex<a class="anchor" href="#Mutex-2">¶</a></h3>
 <p>Mutex是使用最广泛的同步原语。</p>
 <p><strong>互斥锁 Mutex 就提供两个方法 Lock 和 Unlock：进入临界区之前调用 Lock 方法，退出临界区的时候调用 Unlock 方法</strong>。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span><span class="token punctuation">(</span>m <span class="token operator">*</span>Mutex<span class="token punctuation">)</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1056,7 +1056,7 @@ Mutex--&gt;正常模式</pre>
 <h2 id="Channel">Channel<a class="anchor" href="#Channel">¶</a></h2>
 <h2 id="拓展并发原语">拓展并发原语<a class="anchor" href="#拓展并发原语">¶</a></h2>
 <h2 id="分布式并发原语">分布式并发原语<a class="anchor" href="#分布式并发原语">¶</a></h2>
-<h2 id="Tip-7">Tip<a class="anchor" href="#Tip-7">¶</a></h2>
+<h2 id="Tip-6">Tip<a class="anchor" href="#Tip-6">¶</a></h2>
 <h3 id="race-detector">race detector<a class="anchor" href="#race-detector">¶</a></h3>
 <p><a target="_blank" rel="noopener" href="https://go.dev/blog/race-detector">race detector</a>：一个检测并发访问资源是否有资源共享问题。<a target="_blank" rel="noopener" href="https://github.com/google/sanitizers">Go race detector</a> 是基于 Google 的 C/C++ sanitizers 技术实现的，编译器通过探测所有的内存访问，加入代码能监视对这些内存地址的访问（读还是写）。在代码运行的时候，race detector 就能监控到对共享变量的非同步访问，出现 race 的时候，就会打印出警告信息。</p>
 <p>使用方式只需要在命令行参数后面加上<code>-race</code>即可。</p>
@@ -1088,7 +1088,7 @@ Mutex--&gt;正常模式</pre>
 </li>
 </ul>
 <p>参考<a target="_blank" rel="noopener" href="https://go.dev/src/sync/mutex.go">mutex代码实现中的注释</a>。</p>
-<h2 id="参考文献-7">参考文献<a class="anchor" href="#参考文献-7">¶</a></h2>
+<h2 id="参考文献-6">参考文献<a class="anchor" href="#参考文献-6">¶</a></h2>
 <ol>
 <li>
 <p>极客时间，<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/intro/100061801">Go并发变成实战课</a></p>
@@ -1663,7 +1663,7 @@ Mutex--&gt;正常模式</pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">265.6k</span>&nbsp;字
+                class="white-color">247.8k</span>&nbsp;字
             
             
             

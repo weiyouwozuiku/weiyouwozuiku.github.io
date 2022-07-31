@@ -1086,7 +1086,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="位运算-3">位运算<a class="anchor" href="#位运算-3">¶</a></h3>
+<h3 id="位运算-2">位运算<a class="anchor" href="#位运算-2">¶</a></h3>
 <p>一般用于计算n的二进制表示第k位是什么。<code>n&gt;&gt;k&amp;1</code></p>
 <p><code>lowbit(x)</code>：返回x的最后一位1。实现的原理是基于C++中负数是原数取反+1，所以x&amp;-x即x&amp;(~x+1)。、取反后最后一位1是0之后都是1，加1之后全部变成0,最后一位再次变成1,前面的还是取反状态与运算0。</p>
 <h5 id="二进制中1的个数">二进制中1的个数<a class="anchor" href="#二进制中1的个数">¶</a></h5>
@@ -2467,7 +2467,7 @@ map<span class="token operator">/</span>multimap
    <span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  把所有位变成<span class="token number">0</span>
    <span class="token function">flip</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  等价于<span class="token operator">~</span>
    <span class="token function">flip</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span> 把第k位取反<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Tip-12">Tip<a class="anchor" href="#Tip-12">¶</a></h2>
+<h2 id="Tip-11">Tip<a class="anchor" href="#Tip-11">¶</a></h2>
 <h3 id="c-的io">c++的io<a class="anchor" href="#c-的io">¶</a></h3>
 <h4 id="cin和scanf速度">cin和scanf速度<a class="anchor" href="#cin和scanf速度">¶</a></h4>
 <p>cin、cout之所以效率低是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而<code>std::ios::sync_with_stdio(false);</code>可以来打消iostream的输入输出缓存，可以节省许多时间，使效率与scanf与printf相差无几。这样做了之后要注意不要同时混用cout和printf 之类。</p>
@@ -2580,7 +2580,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
 <li>另一方面，由于一般的数据都不会大于<img src="https://math.now.sh?inline=10%5E9" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上<code>0x3f3f3f3f+0x3f3f3f3f=2122219134</code>，这非常大但却没有超过32-bit int的表示范围，所以<code>0x3f3f3f3f</code>还满足了我们“无穷大加无穷大还是无穷大”的需求。</li>
 <li>最后，0x3f3f3f3f还能给我们带来一个意想不到的额外好处：如果我们想要将某个数组清零，我们通常会使用memset(a,0,sizeof(a))这样的代码来实现（方便而高效），但是当我们想将某个数组全部赋值为无穷大时（例如解决图论问题时邻接矩阵的初始化），就不能使用memset函数而得自己写循环了（写这些不重要的代码真的很痛苦），我们知道这是因为memset是按字节操作的，它能够对数组清零是因为0的每个字节都是0，现在好了，如果我们将无穷大设为0x3f3f3f3f，那么奇迹就发生了，0x3f3f3f3f的每个字节都是0x3f！所以要把一段内存全部置为无穷大，我们只需要memset(a,0x3f,sizeof(a))。</li>
 </ul>
-<h2 id="参考文献-15">参考文献<a class="anchor" href="#参考文献-15">¶</a></h2>
+<h2 id="参考文献-14">参考文献<a class="anchor" href="#参考文献-14">¶</a></h2>
 <ol>
 <li>CSDN，<a target="_blank" rel="noopener" href="https://blog.csdn.net/L_apple8/article/details/52525752">使用0x3f3f3f表示无穷大</a></li>
 </ol>
@@ -3151,7 +3151,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">265.6k</span>&nbsp;字
+                class="white-color">247.8k</span>&nbsp;字
             
             
             
