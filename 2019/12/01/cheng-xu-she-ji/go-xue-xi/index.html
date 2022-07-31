@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-29
+                    2022-07-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.6k
+                    17.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    65 分
+                    66 分
                 </div>
                 
 
@@ -1420,6 +1420,22 @@ state--&gt;其余位数:WaiterShift--&gt;等待锁数量</pre>
 <li>将readerCount变为正值，允许读锁的获取</li>
 <li>释放在readerSem中等待的读协程</li>
 <li>解锁mutex</li>
+</ol>
+<h4 id="加读锁">加读锁<a class="anchor" href="#加读锁">¶</a></h4>
+<ol>
+<li>将readCount加一</li>
+<li>如果readCount是正数，加锁成功</li>
+<li>如果readCount是负数，说明被加了写锁，陷入readerSem</li>
+</ol>
+<h4 id="解写锁-2">解写锁<a class="anchor" href="#解写锁-2">¶</a></h4>
+<ol>
+<li>给readerCount减一</li>
+<li>如果readerCount是正数，解锁成功</li>
+<li>如果readerCount是负数，有写锁在排队
+<ol>
+<li>如果是readerWait的最后一个，唤醒写协程</li>
+</ol>
+</li>
 </ol>
 <p>在大多数场景下，是读多写少的，，当我们并发的去读取一个资源不涉及资源修改的时候是没有必要加锁的。这种情况就可以使用读写互斥锁，Go语言中使用sync包中的RWMutex类型。读写锁分为两种：读锁和写锁。当一个goroutine获取读锁之后，其他的goroutine如果是获取读锁会继续获得锁，如果是获取写锁就会等待；当一个goroutine获取写锁之后，其他的goroutine无论是获取读锁还是写锁都会等待。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// 读写互斥锁</span>
@@ -2664,7 +2680,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">247.4k</span>&nbsp;字
+                class="white-color">247.5k</span>&nbsp;字
             
             
             
