@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-31
+                    2022-08-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    18k
+                    18.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    67 分
+                    68 分
                 </div>
                 
 
@@ -1513,7 +1513,7 @@ wait.Group--&gt;noCopy--&gt;nocopy[编译期go vet工具会检查nocopy,避免�
 </ul>
 </li>
 </ul>
-<h2 id="Goroutines和Channels">Goroutines和Channels<a class="anchor" href="#Goroutines和Channels">¶</a></h2>
+<h2 id="Goroutines">Goroutines<a class="anchor" href="#Goroutines">¶</a></h2>
 <p><strong>注意循环内多协程引用循环变量问题</strong></p>
 <p><code>goroutine</code>是一种函数的并发执行方式，<code>channel</code>在<code>goroutine</code>之间进行参数传递。</p>
 <p><code>main</code>函数本身运行在一个<code>goroutine</code>中。</p>
@@ -1633,6 +1633,30 @@ mu<span class="token punctuation">.</span><span class="token function">Unlock</s
 <li>Go语言的初衷是希望协程即用即毁，不要池化</li>
 </ul>
 <h2 id="基于共享变量的并发">基于共享变量的并发<a class="anchor" href="#基于共享变量的并发">¶</a></h2>
+<h2 id="Channel">Channel<a class="anchor" href="#Channel">¶</a></h2>
+<p>Channel中包含<code>hchan</code>结构：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// 环形缓冲区</span>
+qcount <span class="token builtin">uint</span>
+dataqsiz <span class="token builtin">uint</span>
+buf unsafe<span class="token punctuation">.</span>Pointer
+elemsize <span class="token builtin">uint16</span>
+elemtype <span class="token operator">*</span>_type
+<span class="token comment">// 发送队列</span>
+sendx <span class="token builtin">uint</span>
+sendq waitq
+<span class="token comment">// 接收队列</span>
+recvx <span class="token builtin">uint</span>
+recvq waitq
+<span class="token comment">// 互斥锁并不是排队发送/接收数据，保护的是hchan结构体本身</span>
+lock mutex
+<span class="token comment">// 表明当前channel是开放还是关闭，0开启，1关闭</span>
+closed <span class="token builtin">uint32</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上述元素形成了一个环形缓冲区，大幅降低了GC的开销。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> waitq <span class="token keyword">struct</span><span class="token punctuation">{</span>
+    first <span class="token operator">*</span>sudog
+    last <span class="token operator">*</span>sudog
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Channel并不是无锁的，其中的hchan结构体中含有锁。</strong></p>
 <h2 id="包和工具-2">包和工具<a class="anchor" href="#包和工具-2">¶</a></h2>
 <p>需要将想用的GOPATH添加对应的项目地址以保证在GOPATH拼接完成import的字符后能够导入对应的包。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">import</span> <span class="token operator">&lt;</span>包别名<span class="token operator">&gt;</span> <span class="token string">"引用路径"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -2731,7 +2755,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">247.8k</span>&nbsp;字
+                class="white-color">248k</span>&nbsp;字
             
             
             

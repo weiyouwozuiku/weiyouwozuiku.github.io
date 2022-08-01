@@ -1053,7 +1053,7 @@ Mutex--&gt;正常模式</pre>
 <p>如果 Mutex 处于正常状态，如果没有 waiter，或者已经有在处理的情况了，那么释放就好，不做额外的处理（第 112 行到第 114 行）。</p>
 <p>否则，waiter 数减 1，mutexWoken 标志设置上，通过 CAS 更新 state 的值（第 115 行到第 119 行）。</p>
 <h2 id="原子操作">原子操作<a class="anchor" href="#原子操作">¶</a></h2>
-<h2 id="Channel">Channel<a class="anchor" href="#Channel">¶</a></h2>
+<h2 id="Channel-2">Channel<a class="anchor" href="#Channel-2">¶</a></h2>
 <h2 id="拓展并发原语">拓展并发原语<a class="anchor" href="#拓展并发原语">¶</a></h2>
 <h2 id="分布式并发原语">分布式并发原语<a class="anchor" href="#分布式并发原语">¶</a></h2>
 <h2 id="Tip-6">Tip<a class="anchor" href="#Tip-6">¶</a></h2>
@@ -1663,7 +1663,7 @@ Mutex--&gt;正常模式</pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">247.8k</span>&nbsp;字
+                class="white-color">248k</span>&nbsp;字
             
             
             
