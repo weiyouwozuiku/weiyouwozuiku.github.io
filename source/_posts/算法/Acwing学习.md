@@ -156,6 +156,7 @@ void quick_sort(int n[], int l, int r) {
         do j--; while (n[j] > x);
         if (i < j) std::swap(n[i], n[j]);
     }
+    //注意，这里是划分成了[l,j]和[j+1,r]两个区间
     quick_sort(n, l, j);
     quick_sort(n, j + 1, r);
 }

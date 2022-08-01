@@ -1238,8 +1238,7 @@ wait.Group-->noCopy-->nocopy[编译期go vet工具会检查nocopy,避免被拷�
     - 检测可能的死锁
     - 实际是检测获取锁的等待时间
 
-
-## Goroutines和Channels
+## Goroutines
 
 **注意循环内多协程引用循环变量问题**
 
@@ -1381,6 +1380,40 @@ func GetSingletonObj() *SingletonObj{
 - Go语言的初衷是希望协程即用即毁，不要池化
 
 ## 基于共享变量的并发
+
+## Channel
+
+Channel中包含`hchan`结构：
+
+```go
+// 环形缓冲区
+qcount uint
+dataqsiz uint
+buf unsafe.Pointer
+elemsize uint16
+elemtype *_type
+// 发送队列
+sendx uint
+sendq waitq
+// 接收队列
+recvx uint
+recvq waitq
+// 互斥锁并不是排队发送/接收数据，保护的是hchan结构体本身
+lock mutex
+// 表明当前channel是开放还是关闭，0开启，1关闭
+closed uint32
+```
+
+上述元素形成了一个环形缓冲区，大幅降低了GC的开销。
+
+```go
+type waitq struct{
+    first *sudog
+    last *sudog
+}
+```
+
+**Channel并不是无锁的，其中的hchan结构体中含有锁。**
 
 ## 包和工具
 
