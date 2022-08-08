@@ -501,7 +501,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    18.3k
+                    18.4k
                 </div>
                 
 
@@ -1674,6 +1674,10 @@ closed <span class="token builtin">uint32</span><span aria-hidden="true" class="
 <p>获取可存入的缓存地址，存入数据，维护索引。</p>
 <h3 id="休眠等待">休眠等待<a class="anchor" href="#休眠等待">¶</a></h3>
 <p>没有G在休眠等待，而且没有缓存或满了，自己进入发送队列，休眠等待。</p>
+<h3 id="有等待的G，从G接收">有等待的G，从G接收<a class="anchor" href="#有等待的G，从G接收">¶</a></h3>
+<h3 id="有等待的G，从缓存接收">有等待的G，从缓存接收<a class="anchor" href="#有等待的G，从缓存接收">¶</a></h3>
+<h3 id="接收缓存">接收缓存<a class="anchor" href="#接收缓存">¶</a></h3>
+<h3 id="阻塞缓存">阻塞缓存<a class="anchor" href="#阻塞缓存">¶</a></h3>
 <h2 id="包和工具-2">包和工具<a class="anchor" href="#包和工具-2">¶</a></h2>
 <p>需要将想用的GOPATH添加对应的项目地址以保证在GOPATH拼接完成import的字符后能够导入对应的包。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">import</span> <span class="token operator">&lt;</span>包别名<span class="token operator">&gt;</span> <span class="token string">"引用路径"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
