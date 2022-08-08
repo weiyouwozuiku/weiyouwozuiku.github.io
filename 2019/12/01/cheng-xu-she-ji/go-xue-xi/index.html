@@ -1657,7 +1657,17 @@ closed <span class="token builtin">uint32</span><span aria-hidden="true" class="
     last <span class="token operator">*</span>sudog
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Channel并不是无锁的，其中的hchan结构体中含有锁。</strong></p>
-<p><code>&lt;-</code>关键字是一个语法糖，会在编译阶段，将<code>c&lt;-</code>转化为<code>runtime.chansend1()</code>，<code>runtime.chansend1()</code>调用<code>runtime.chansend()</code>。</p>
+<p><code>&lt;-</code>关键字是一个语法糖</p>
+<ul>
+<li>在发送时会在编译阶段，将<code>c&lt;-</code>转化为<code>runtime.chansend1()</code>，<code>runtime.chansend1()</code>调用<code>runtime.chansend()</code></li>
+<li>在接收时会在编译阶段根据是否接收发送的状态采用不同的转换
+<ul>
+<li><code>i&lt;-c</code>转化为<code>runtime.chanrecv1()</code></li>
+<li><code>i,ok&lt;-c</code>转化为<code>runtime.chanrecv2()</code></li>
+<li>但是上述两种方法最终都是调用<code>chanrecv()</code>方法</li>
+</ul>
+</li>
+</ul>
 <h3 id="直接发送">直接发送<a class="anchor" href="#直接发送">¶</a></h3>
 <p>发送前，已经有G在休眠等待接受。此时缓存空，不用考虑缓存。从队列中取出一个等待接收的G。将数据直接拷贝给G的接受变量，唤醒G。</p>
 <h3 id="放入缓存">放入缓存<a class="anchor" href="#放入缓存">¶</a></h3>
@@ -2762,7 +2772,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">248.1k</span>&nbsp;字
+                class="white-color">248.2k</span>&nbsp;字
             
             
             
