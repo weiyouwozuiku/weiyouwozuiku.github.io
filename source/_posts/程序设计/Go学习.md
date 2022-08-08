@@ -1415,7 +1415,13 @@ type waitq struct{
 
 **Channel并不是无锁的，其中的hchan结构体中含有锁。**
 
-`<-`关键字是一个语法糖，会在编译阶段，将`c<-`转化为`runtime.chansend1()`，`runtime.chansend1()`调用`runtime.chansend()`。
+`<-`关键字是一个语法糖
+
+- 在发送时会在编译阶段，将`c<-`转化为`runtime.chansend1()`，`runtime.chansend1()`调用`runtime.chansend()`
+- 在接收时会在编译阶段根据是否接收发送的状态采用不同的转换
+  - `i<-c`转化为`runtime.chanrecv1()`
+  - `i,ok<-c`转化为`runtime.chanrecv2()`
+  - 但是上述两种方法最终都是调用`chanrecv()`方法
 
 ### 直接发送
 
