@@ -494,14 +494,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-01
+                    2022-08-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    18.1k
+                    18.3k
                 </div>
                 
 
@@ -1657,6 +1657,13 @@ closed <span class="token builtin">uint32</span><span aria-hidden="true" class="
     last <span class="token operator">*</span>sudog
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>Channel并不是无锁的，其中的hchan结构体中含有锁。</strong></p>
+<p><code>&lt;-</code>关键字是一个语法糖，会在编译阶段，将<code>c&lt;-</code>转化为<code>runtime.chansend1()</code>，<code>runtime.chansend1()</code>调用<code>runtime.chansend()</code>。</p>
+<h3 id="直接发送">直接发送<a class="anchor" href="#直接发送">¶</a></h3>
+<p>发送前，已经有G在休眠等待接受。此时缓存空，不用考虑缓存。从队列中取出一个等待接收的G。将数据直接拷贝给G的接受变量，唤醒G。</p>
+<h3 id="放入缓存">放入缓存<a class="anchor" href="#放入缓存">¶</a></h3>
+<p>获取可存入的缓存地址，存入数据，维护索引。</p>
+<h3 id="休眠等待">休眠等待<a class="anchor" href="#休眠等待">¶</a></h3>
+<p>没有G在休眠等待，而且没有缓存或满了，自己进入发送队列，休眠等待。</p>
 <h2 id="包和工具-2">包和工具<a class="anchor" href="#包和工具-2">¶</a></h2>
 <p>需要将想用的GOPATH添加对应的项目地址以保证在GOPATH拼接完成import的字符后能够导入对应的包。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">import</span> <span class="token operator">&lt;</span>包别名<span class="token operator">&gt;</span> <span class="token string">"引用路径"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -2755,7 +2762,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">248k</span>&nbsp;字
+                class="white-color">248.1k</span>&nbsp;字
             
             
             
