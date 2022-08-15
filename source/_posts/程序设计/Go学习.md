@@ -1016,6 +1016,95 @@ go build -mod vendor
 
 创建`go.mod`：`go mod init 你的仓库地址/仓库名`
 
+## TCP
+
+#### Socket
+
+- 很多系统提供Socket作为TCP网络连接的抽象
+- Linux->Internet domain socket->SOCK_STREAM
+- Linux中Socket以“文件描述符”FD作为标识
+
+```mermaid
+sequenceDiagram
+participant Server
+participant Client
+opt 建立连接
+Server ->> Server: socket()
+Server ->> Server: bind()
+Server ->> Server: listen()
+Client ->> Client: socket()
+Client ->> + Server: connect()
+Server ->> - Client: accept()
+end
+opt 通信
+Server ->> Server: 切换socket
+Server ->> + Client: write()
+Client ->> - Client: read()
+Client ->> Server: write()
+Server ->> Server: read()
+end
+opt 关闭连接
+Server ->> Server: 切换socket
+Server ->> + Client: close()
+Client ->> Client:read()
+Client ->> - Server:close()
+end
+```
+
+在上述过程中，Server端会保留一个socket作为listen使用，在此基础上，有多少个Client就会有多少个socket。因此需要选择合适的IO模型同时操作socket。
+
+#### IO模型
+
+##### 阻塞
+
+- 同步写入Socket，线程陷入内核态
+- 当读写成功后，切换回用户态，继续执行
+- 优点：开发难度小，代码简单
+- 缺点：内核态切换开销大
+
+##### 非阻塞
+
+- 如果暂时无法收发数据，会返回错误
+- 应用会不断轮询，直到Socket可以读写
+- 优点：不会陷入内核态，自由度高
+- 缺点：需要自旋轮询
+
+##### 多路复用-Linux epoll
+
+![epoll模型.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/epoll模型.png)
+
+- 注册多个Socket事件
+- 调用epoll，当有事件发生返回
+- 优点：提供了事件列表，不需要查询各个Socket
+- 缺点：开发难度大，逻辑复杂
+- Mac：kqueue；Windows：IOCP
+- 新建多路复用器：`epoll_create()`
+- 往多路复用器里插入监听事件`epoll_ctl()`
+- 查询发生事件`epoll_wait()`
+
+### Go的实现
+
+- 在底层使用OS的多路复用IO
+- 在协程层面使用阻塞模型
+- 阻塞协程时，休眠协程
+
+#### epoll抽象层
+
+为了统一各个OS对多路复用的实现，GO实现了Go Network Poller。
+
+- `epoll_create()->netpollinut()` 新建多路复用器抽象
+  - 新建epoll
+  - 新建一个pipe管道用于中断epoll
+  - 将“管道有数据到达”事件注册在epoll中
+- `epoll_ctl()->netpollopen()` 插入监听事件抽象
+  - 传入一个socket的FD和pollDesc指针
+  - pollDesc指针是socket相关详细信息
+  - pollDesc中记录了哪个协程休眠在等待此socket
+  - 将socket可读、可写、断开事件注册到epoll中
+- `epoll_wait()->netpoll()` 查询事件抽象，返回等待事件的协程列表
+  - 调用`epoll_wait()`查询有哪些事件发生
+  - 根据socket相关的pollDesc信息，返回哪些协程可以唤醒
+
 ## HTTP
 
 ### 路由规则
@@ -1437,13 +1526,46 @@ type waitq struct{
 
 ### 有等待的G，从G接收
 
+接收数据前，已经有G在休眠等待，而且这个Channel没有缓存。将数据直接从G拷贝过来，唤醒G。
 
+实现：
+
+1. 判断有G在发送队列等待，进入`recv()`
+2. 判断此Channel无缓存
+3. 直接从等待的G中取走数据，唤醒G
 
 ### 有等待的G，从缓存接收
 
+接收数据前，已经有G在休眠等待发送，而且这个Channel有缓存。从缓存取走一个数据。将休眠G的数据放进缓存，唤醒G。
+
+实现：
+
+1. 判断有G在发送队列等待，进入`recv()`
+2. 判断此Channel有缓存
+3. 从缓存中取走一个数据
+4. 将G的数据放入缓存，唤醒G
+
 ### 接收缓存
 
+没有G在休眠等待发送，但是缓存有内容。从缓存中取数据。
+
+实现：
+
+1. 判断没有G在发送队列等待
+2. 判断此Channel有缓存
+3. 从缓存取数据
+
 ### 阻塞缓存
+
+没有G在休眠等待，而且没有缓存或缓存为空。进入接收队列，休眠等待。
+
+实现：
+
+1. 判断没有G在发送队列等待
+2. 判断此Channel无缓存
+3. 将自己包装成sudog
+4. sudog放入接收等待队列，休眠
+5. 唤醒时，发送的G已经将数据拷贝走
 
 ## 包和工具
 

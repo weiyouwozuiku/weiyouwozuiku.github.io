@@ -455,6 +455,7 @@ vector<int> div(vector<int> &A, int B, int &r) {
         C.push_back(r / B);
         r = r % B;
     }
+    // 注意反转
     reverse(C.begin(), C.end());
     while (C.back() == 0 && C.size() > 1)C.pop_back();
     return C;
