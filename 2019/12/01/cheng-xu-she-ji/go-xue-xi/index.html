@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-08
+                    2022-08-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    18.4k
+                    19.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    68 分
+                    72 分
                 </div>
                 
 
@@ -1281,6 +1281,96 @@ go <span class="token function">install</span> 包地址<span aria-hidden="true"
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go mod vendor <span class="token comment">#这是go mod的vendor，不是以前的vendor</span>
 go build -mod vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>创建<code>go.mod</code>：<code>go mod init 你的仓库地址/仓库名</code></p>
+<h2 id="TCP">TCP<a class="anchor" href="#TCP">¶</a></h2>
+<h4 id="Socket">Socket<a class="anchor" href="#Socket">¶</a></h4>
+<ul>
+<li>很多系统提供Socket作为TCP网络连接的抽象</li>
+<li>Linux-&gt;Internet domain socket-&gt;SOCK_STREAM</li>
+<li>Linux中Socket以“文件描述符”FD作为标识</li>
+</ul>
+<pre class="mermaid">sequenceDiagram
+participant Server
+participant Client
+opt 建立连接
+Server -&gt;&gt; Server: socket()
+Server -&gt;&gt; Server: bind()
+Server -&gt;&gt; Server: listen()
+Client -&gt;&gt; Client: socket()
+Client -&gt;&gt; + Server: connect()
+Server -&gt;&gt; - Client: accept()
+end
+opt 通信
+Server -&gt;&gt; Server: 切换socket
+Server -&gt;&gt; + Client: write()
+Client -&gt;&gt; - Client: read()
+Client -&gt;&gt; Server: write()
+Server -&gt;&gt; Server: read()
+end
+opt 关闭连接
+Server -&gt;&gt; Server: 切换socket
+Server -&gt;&gt; + Client: close()
+Client -&gt;&gt; Client:read()
+Client -&gt;&gt; - Server:close()
+end</pre>
+<p>在上述过程中，Server端会保留一个socket作为listen使用，在此基础上，有多少个Client就会有多少个socket。因此需要选择合适的IO模型同时操作socket。</p>
+<h4 id="IO模型">IO模型<a class="anchor" href="#IO模型">¶</a></h4>
+<h5 id="阻塞">阻塞<a class="anchor" href="#阻塞">¶</a></h5>
+<ul>
+<li>同步写入Socket，线程陷入内核态</li>
+<li>当读写成功后，切换回用户态，继续执行</li>
+<li>优点：开发难度小，代码简单</li>
+<li>缺点：内核态切换开销大</li>
+</ul>
+<h5 id="非阻塞">非阻塞<a class="anchor" href="#非阻塞">¶</a></h5>
+<ul>
+<li>如果暂时无法收发数据，会返回错误</li>
+<li>应用会不断轮询，直到Socket可以读写</li>
+<li>优点：不会陷入内核态，自由度高</li>
+<li>缺点：需要自旋轮询</li>
+</ul>
+<h5 id="多路复用-Linux-epoll">多路复用-Linux epoll<a class="anchor" href="#多路复用-Linux-epoll">¶</a></h5>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go%E5%AD%A6%E4%B9%A0/epoll%E6%A8%A1%E5%9E%8B.png" alt="epoll模型.png"></p>
+<ul>
+<li>注册多个Socket事件</li>
+<li>调用epoll，当有事件发生返回</li>
+<li>优点：提供了事件列表，不需要查询各个Socket</li>
+<li>缺点：开发难度大，逻辑复杂</li>
+<li>Mac：kqueue；Windows：IOCP</li>
+<li>新建多路复用器：<code>epoll_create()</code></li>
+<li>往多路复用器里插入监听事件<code>epoll_ctl()</code></li>
+<li>查询发生事件<code>epoll_wait()</code></li>
+</ul>
+<h3 id="Go的实现">Go的实现<a class="anchor" href="#Go的实现">¶</a></h3>
+<ul>
+<li>在底层使用OS的多路复用IO</li>
+<li>在协程层面使用阻塞模型</li>
+<li>阻塞协程时，休眠协程</li>
+</ul>
+<h4 id="epoll抽象层">epoll抽象层<a class="anchor" href="#epoll抽象层">¶</a></h4>
+<p>为了统一各个OS对多路复用的实现，GO实现了Go Network Poller。</p>
+<ul>
+<li><code>epoll_create()-&gt;netpollinut()</code> 新建多路复用器抽象
+<ul>
+<li>新建epoll</li>
+<li>新建一个pipe管道用于中断epoll</li>
+<li>将“管道有数据到达”事件注册在epoll中</li>
+</ul>
+</li>
+<li><code>epoll_ctl()-&gt;netpollopen()</code> 插入监听事件抽象
+<ul>
+<li>传入一个socket的FD和pollDesc指针</li>
+<li>pollDesc指针是socket相关详细信息</li>
+<li>pollDesc中记录了哪个协程休眠在等待此socket</li>
+<li>将socket可读、可写、断开事件注册到epoll中</li>
+</ul>
+</li>
+<li><code>epoll_wait()-&gt;netpoll()</code> 查询事件抽象，返回等待事件的协程列表
+<ul>
+<li>调用<code>epoll_wait()</code>查询有哪些事件发生</li>
+<li>根据socket相关的pollDesc信息，返回哪些协程可以唤醒</li>
+</ul>
+</li>
+</ul>
 <h2 id="HTTP">HTTP<a class="anchor" href="#HTTP">¶</a></h2>
 <h3 id="路由规则">路由规则<a class="anchor" href="#路由规则">¶</a></h3>
 <ul>
@@ -1675,9 +1765,40 @@ closed <span class="token builtin">uint32</span><span aria-hidden="true" class="
 <h3 id="休眠等待">休眠等待<a class="anchor" href="#休眠等待">¶</a></h3>
 <p>没有G在休眠等待，而且没有缓存或满了，自己进入发送队列，休眠等待。</p>
 <h3 id="有等待的G，从G接收">有等待的G，从G接收<a class="anchor" href="#有等待的G，从G接收">¶</a></h3>
+<p>接收数据前，已经有G在休眠等待，而且这个Channel没有缓存。将数据直接从G拷贝过来，唤醒G。</p>
+<p>实现：</p>
+<ol>
+<li>判断有G在发送队列等待，进入<code>recv()</code></li>
+<li>判断此Channel无缓存</li>
+<li>直接从等待的G中取走数据，唤醒G</li>
+</ol>
 <h3 id="有等待的G，从缓存接收">有等待的G，从缓存接收<a class="anchor" href="#有等待的G，从缓存接收">¶</a></h3>
+<p>接收数据前，已经有G在休眠等待发送，而且这个Channel有缓存。从缓存取走一个数据。将休眠G的数据放进缓存，唤醒G。</p>
+<p>实现：</p>
+<ol>
+<li>判断有G在发送队列等待，进入<code>recv()</code></li>
+<li>判断此Channel有缓存</li>
+<li>从缓存中取走一个数据</li>
+<li>将G的数据放入缓存，唤醒G</li>
+</ol>
 <h3 id="接收缓存">接收缓存<a class="anchor" href="#接收缓存">¶</a></h3>
+<p>没有G在休眠等待发送，但是缓存有内容。从缓存中取数据。</p>
+<p>实现：</p>
+<ol>
+<li>判断没有G在发送队列等待</li>
+<li>判断此Channel有缓存</li>
+<li>从缓存取数据</li>
+</ol>
 <h3 id="阻塞缓存">阻塞缓存<a class="anchor" href="#阻塞缓存">¶</a></h3>
+<p>没有G在休眠等待，而且没有缓存或缓存为空。进入接收队列，休眠等待。</p>
+<p>实现：</p>
+<ol>
+<li>判断没有G在发送队列等待</li>
+<li>判断此Channel无缓存</li>
+<li>将自己包装成sudog</li>
+<li>sudog放入接收等待队列，休眠</li>
+<li>唤醒时，发送的G已经将数据拷贝走</li>
+</ol>
 <h2 id="包和工具-2">包和工具<a class="anchor" href="#包和工具-2">¶</a></h2>
 <p>需要将想用的GOPATH添加对应的项目地址以保证在GOPATH拼接完成import的字符后能够导入对应的包。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">import</span> <span class="token operator">&lt;</span>包别名<span class="token operator">&gt;</span> <span class="token string">"引用路径"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -2776,7 +2897,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">248.2k</span>&nbsp;字
+                class="white-color">249.1k</span>&nbsp;字
             
             
             
