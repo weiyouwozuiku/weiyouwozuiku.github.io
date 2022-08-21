@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-15
+                    2022-08-21
                 </div>
                 
 
@@ -800,7 +800,7 @@ ggraph--&gt;最大流
 <p>浮点数二分不需要处理边界，所以相对简单。</p>
 <p>下面是一个开方的函数,就是利用了浮点数的二分.如果精度要求是四位小数le-6,五位精度le-7类推.</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">kaifang</span><span class="token punctuation">(</span><span class="token keyword">double</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">double</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> r <span class="token operator">=</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//注意这里如果是0.01则结果是0.1直接用x无法得出对应的答案</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span>r <span class="token operator">-</span> l <span class="token operator">&gt;</span> <span class="token number">1e-8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">double</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>mid <span class="token operator">*</span> mid <span class="token operator">&gt;=</span> x<span class="token punctuation">)</span>r <span class="token operator">=</span> mid<span class="token punctuation">;</span>
@@ -3153,7 +3153,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.1k</span>&nbsp;字
+                class="white-color">249.2k</span>&nbsp;字
             
             
             
