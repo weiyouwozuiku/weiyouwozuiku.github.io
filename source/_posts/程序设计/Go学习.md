@@ -1092,7 +1092,7 @@ end
 
 为了统一各个OS对多路复用的实现，GO实现了Go Network Poller。
 
-- `epoll_create()->netpollinut()` 新建多路复用器抽象
+- `epoll_create()->netpollinit()` 新建多路复用器抽象
   - 新建epoll
   - 新建一个pipe管道用于中断epoll
   - 将“管道有数据到达”事件注册在epoll中

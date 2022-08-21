@@ -318,7 +318,7 @@ int bsearch_2(int l, int r){
 
 ```cpp
 int kaifang(double x) {
-    double l = 0, r = x;
+    double l = 0, r = max(1,x); //注意这里如果是0.01则结果是0.1直接用x无法得出对应的答案
     while (r - l > 1e-8) {
         double mid = (l + r) / 2;
         if (mid * mid >= x)r = mid;
