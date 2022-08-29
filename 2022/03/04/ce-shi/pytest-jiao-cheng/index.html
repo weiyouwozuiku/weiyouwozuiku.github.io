@@ -688,7 +688,7 @@
                      <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"some boolean option"</span><span class="token punctuation">)</span>
     parser<span class="token punctuation">.</span>addoption<span class="token punctuation">(</span><span class="token string">"--foo"</span><span class="token punctuation">,</span> action<span class="token operator">=</span><span class="token string">"store"</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token string">"bar"</span><span class="token punctuation">,</span>
                      <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"foo: bar or baz"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">❯ pytest -s -q --foo hhh --myopt  test_config.py::test_option
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">❯ pytest <span class="token parameter variable">-s</span> <span class="token parameter variable">-q</span> <span class="token parameter variable">--foo</span> hhh <span class="token parameter variable">--myopt</span>  test_config.py::test_option
 <span class="token string">"foo"</span> <span class="token builtin class-name">set</span> to: hhh
 <span class="token string">"myopt"</span> <span class="token builtin class-name">set</span> to: True<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>pytestconfig是一个fixture，它可以被其他fixture使用，形如：</p>
@@ -1332,7 +1332,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

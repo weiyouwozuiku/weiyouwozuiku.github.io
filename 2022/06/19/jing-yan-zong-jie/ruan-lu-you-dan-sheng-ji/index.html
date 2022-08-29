@@ -608,28 +608,28 @@
 <h2 id="Docker推荐">Docker推荐<a class="anchor" href="#Docker推荐">¶</a></h2>
 <h3 id="百度网盘">百度网盘<a class="anchor" href="#百度网盘">¶</a></h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> create <span class="token punctuation">\</span>
-   --name<span class="token operator">=</span>baidunetdisk <span class="token punctuation">\</span>
-   -p <span class="token number">5800</span>:5800 <span class="token punctuation">\</span>
-   -p <span class="token number">5900</span>:5900 <span class="token punctuation">\</span>
-   -e <span class="token assign-left variable">VNC_PASSWORD</span><span class="token operator">=</span><span class="token operator">&lt;</span>vnc密码<span class="token operator">&gt;</span> <span class="token punctuation">\</span>
-   -v <span class="token operator">&lt;</span>百度网盘配置文件地址<span class="token operator">&gt;</span>:/config <span class="token punctuation">\</span>
-   -v <span class="token operator">&lt;</span>下载地址<span class="token operator">&gt;</span>:/config/baidunetdiskdownload <span class="token punctuation">\</span>
-   -e <span class="token assign-left variable">DISPLAY_WIDTH</span><span class="token operator">=</span><span class="token number">1920</span> <span class="token punctuation">\</span>
-   -e <span class="token assign-left variable">DISPLAY_HEIGHT</span><span class="token operator">=</span><span class="token number">1080</span> <span class="token punctuation">\</span>
-   --restart unless-stopped <span class="token punctuation">\</span>
+   <span class="token parameter variable">--name</span><span class="token operator">=</span>baidunetdisk <span class="token punctuation">\</span>
+   <span class="token parameter variable">-p</span> <span class="token number">5800</span>:5800 <span class="token punctuation">\</span>
+   <span class="token parameter variable">-p</span> <span class="token number">5900</span>:5900 <span class="token punctuation">\</span>
+   <span class="token parameter variable">-e</span> <span class="token assign-left variable">VNC_PASSWORD</span><span class="token operator">=</span><span class="token operator">&lt;</span>vnc密码<span class="token operator">&gt;</span> <span class="token punctuation">\</span>
+   <span class="token parameter variable">-v</span> <span class="token operator">&lt;</span>百度网盘配置文件地址<span class="token operator">&gt;</span>:/config <span class="token punctuation">\</span>
+   <span class="token parameter variable">-v</span> <span class="token operator">&lt;</span>下载地址<span class="token operator">&gt;</span>:/config/baidunetdiskdownload <span class="token punctuation">\</span>
+   <span class="token parameter variable">-e</span> <span class="token assign-left variable">DISPLAY_WIDTH</span><span class="token operator">=</span><span class="token number">1920</span> <span class="token punctuation">\</span>
+   <span class="token parameter variable">-e</span> <span class="token assign-left variable">DISPLAY_HEIGHT</span><span class="token operator">=</span><span class="token number">1080</span> <span class="token punctuation">\</span>
+   <span class="token parameter variable">--restart</span> unless-stopped <span class="token punctuation">\</span>
    johngong/baidunetdisk:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="青龙面板">青龙面板<a class="anchor" href="#青龙面板">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -dit <span class="token punctuation">\</span>
--v <span class="token variable">$pwd</span>/ql/config:/ql/config <span class="token punctuation">\</span>
--v <span class="token variable">$pwd</span>/ql/log:/ql/log <span class="token punctuation">\</span>
--v <span class="token variable">$pwd</span>/ql/db:/ql/db <span class="token punctuation">\</span>
--v <span class="token variable">$pwd</span>/ql/scripts:/ql/scripts <span class="token punctuation">\</span>
--v <span class="token variable">$pwd</span>/ql/jbot:/ql/jbot <span class="token punctuation">\</span>
--p <span class="token number">5700</span>:5700 <span class="token punctuation">\</span>
--e <span class="token assign-left variable">ENABLE_HANGUP</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
--e <span class="token assign-left variable">ENABLE_WEB_PANEL</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
---name qinglong <span class="token punctuation">\</span>
---restart unless-stopped <span class="token punctuation">\</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-dit</span> <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> <span class="token variable">$pwd</span>/ql/config:/ql/config <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> <span class="token variable">$pwd</span>/ql/log:/ql/log <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> <span class="token variable">$pwd</span>/ql/db:/ql/db <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> <span class="token variable">$pwd</span>/ql/scripts:/ql/scripts <span class="token punctuation">\</span>
+<span class="token parameter variable">-v</span> <span class="token variable">$pwd</span>/ql/jbot:/ql/jbot <span class="token punctuation">\</span>
+<span class="token parameter variable">-p</span> <span class="token number">5700</span>:5700 <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">ENABLE_HANGUP</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
+<span class="token parameter variable">-e</span> <span class="token assign-left variable">ENABLE_WEB_PANEL</span><span class="token operator">=</span>true <span class="token punctuation">\</span>
+<span class="token parameter variable">--name</span> qinglong <span class="token punctuation">\</span>
+<span class="token parameter variable">--restart</span> unless-stopped <span class="token punctuation">\</span>
 whyour/qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
@@ -1184,7 +1184,7 @@ whyour/qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

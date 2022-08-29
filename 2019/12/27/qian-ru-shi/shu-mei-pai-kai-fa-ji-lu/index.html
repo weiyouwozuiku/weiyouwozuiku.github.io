@@ -555,16 +555,16 @@ brctl addif br-lan eth0
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/sysctl.conf
 + net.ipv4.ip_forward <span class="token operator">=</span> <span class="token number">1</span>
 <span class="token comment">#或</span>
-sysctl net.ipv4.ip_forward <span class="token operator">=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">sysctl</span> net.ipv4.ip_forward <span class="token operator">=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li>
 <p>配置iptables</p>
 <p>想让内网的所有设备共享一个IP，需要在wlan0网口启用nat。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-o</span> wlan0 <span class="token parameter variable">-j</span> MASQUERADE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li>
 <p>安装DHCP/DNS服务器</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> dnsmasq -y
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt</span> <span class="token function">install</span> dnsmasq <span class="token parameter variable">-y</span>
 <span class="token function">vim</span> /etc/dnsmasq.conf
 +<span class="token string">'dhcp-range=192.168.3.50,192.168.3.150,255.255.255.0,12h'</span> <span class="token operator">&gt;&gt;</span> /etc/dnsmasq.conf <span class="token comment">#这里IP的网段跟之前配置的需要一致</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
@@ -576,8 +576,8 @@ brctl addbr br-lan
 brctl addif br-lan eth0
 <span class="token function">ifconfig</span> br-lan <span class="token number">192.168</span>.3.1 up <span class="token comment">#这里的地址随便，和Wan侧不在一个网段就行</span>
 <span class="token function">ifconfig</span> eth0 <span class="token number">0.0</span>.0.0 up
-sysctl net.ipv4.ip_forward<span class="token operator">=</span><span class="token number">1</span>
-iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">sysctl</span> <span class="token assign-left variable">net.ipv4.ip_forward</span><span class="token operator">=</span><span class="token number">1</span>
+iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-o</span> wlan0 <span class="token parameter variable">-j</span> MASQUERADE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>使用<code>vim /usr/lib/systemd/system/&lt;自定义&gt;.service</code>命令创建执行计划</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
 <span class="token assign-left variable">Description</span><span class="token operator">=</span>autostart
@@ -592,9 +592,9 @@ iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE<span aria-hidden="true" cl
 <hr>
 <h2 id="顺风耳">顺风耳<a class="anchor" href="#顺风耳">¶</a></h2>
 <p>列出所有的录音设备：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">arecord -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">arecord <span class="token parameter variable">-l</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>列出所有的播放设备：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">aplay -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">aplay <span class="token parameter variable">-l</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <hr>
 <h2 id="千里眼">千里眼<a class="anchor" href="#千里眼">¶</a></h2>
 <p>针对USB的免驱摄像头，推荐拍照使用<code>fswebcam</code>，摄像使用<code>luvcview</code>。</p>
@@ -969,12 +969,12 @@ hdmi_cvt <span class="token number">800</span> <span class="token number">480</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
-                    </a>
-                    
                     <a href="/tags/Book/">
                         <span class="chip bg-color">Book</span>
+                    </a>
+                    
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
                     </a>
                     
                 </div>
@@ -1214,7 +1214,7 @@ hdmi_cvt <span class="token number">800</span> <span class="token number">480</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

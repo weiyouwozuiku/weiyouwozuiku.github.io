@@ -564,7 +564,7 @@ pool=mysql.connector.pooling.MySQLConnetcionPool(**config,pool_size=10)
 con=pool.get_connection()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="性能优化">性能优化<a class="anchor" href="#性能优化">¶</a></h3>
 <p>当大量数据需要插入时，可以使用<code>executemany()</code>方法。其效果可以有效的优化自己每次使用<code>execute()</code>方法所带来的性能损耗，尤其是当数据库中有10万条以上的数据后。</p>
-<h2 id="Tip-8">Tip<a class="anchor" href="#Tip-8">¶</a></h2>
+<h2 id="Tip-10">Tip<a class="anchor" href="#Tip-10">¶</a></h2>
 <h3 id="SQL注入">SQL注入<a class="anchor" href="#SQL注入">¶</a></h3>
 <p>由于SQL是解释型语言，存在SQL注入问题。</p>
 <p>此时可以利用SQL预编译机制抵御注入攻击。</p>
@@ -1136,7 +1136,7 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

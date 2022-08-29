@@ -554,7 +554,7 @@
   HostName <span class="token punctuation">{</span>服务器ip<span class="token punctuation">}</span>
   User <span class="token punctuation">{</span>登陆用户名<span class="token punctuation">}</span>
   ForwardAgent <span class="token function">yes</span>
-  ProxyCommand <span class="token function">ssh</span> -W <span class="token punctuation">{</span>服务器的内网地址<span class="token punctuation">}</span>:%p <span class="token punctuation">{</span>堡垒机ip<span class="token punctuation">}</span> 
+  ProxyCommand <span class="token function">ssh</span> <span class="token parameter variable">-W</span> <span class="token punctuation">{</span>服务器的内网地址<span class="token punctuation">}</span>:%p <span class="token punctuation">{</span>堡垒机ip<span class="token punctuation">}</span> 
 Host centos8
   HostName <span class="token punctuation">{</span>堡垒机ip<span class="token punctuation">}</span>
   User <span class="token punctuation">{</span>登陆用户名<span class="token punctuation">}</span>
@@ -586,12 +586,12 @@ Host centos8
 <p>避免中文乱码：</p>
 <p>在默认设置下，中文文件名在工作区状态输出，中文名不能正确显示，而是显示为八进制的字符编码。</p>
 <p>将git配置文件 <code>core.quotepath</code>项设置为<code>false</code>。<code>quotepath</code>表示引用路径，加上<code>--global</code>表示全局配置。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global core.quotepath <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> core.quotepath <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="查找相应文件数量">查找相应文件数量<a class="anchor" href="#查找相应文件数量">¶</a></h2>
 <p>获取当前文件夹及其子文件夹中md文件的数量。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> -lR <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">".md"</span> <span class="token operator">|</span> <span class="token function">wc</span> -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> <span class="token parameter variable">-lR</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">".md"</span> <span class="token operator">|</span> <span class="token function">wc</span> <span class="token parameter variable">-l</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="统计相应文件中代码行数之和">统计相应文件中代码行数之和<a class="anchor" href="#统计相应文件中代码行数之和">¶</a></h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> ./* -name <span class="token string">"*.md"</span> <span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">cat</span><span class="token operator">|</span><span class="token function">grep</span> -v ^$<span class="token operator">|</span><span class="token function">wc</span> -l <span class="token comment">#这里过滤掉了空行</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> ./* <span class="token parameter variable">-name</span> <span class="token string">"*.md"</span> <span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">cat</span><span class="token operator">|</span><span class="token function">grep</span> <span class="token parameter variable">-v</span> ^$<span class="token operator">|</span><span class="token function">wc</span> <span class="token parameter variable">-l</span> <span class="token comment">#这里过滤掉了空行</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="RSS">RSS<a class="anchor" href="#RSS">¶</a></h2>
 <h3 id="RSSHub">RSSHub<a class="anchor" href="#RSSHub">¶</a></h3>
 <p>RSSHub可以理解为爬取或者拉取rss服务的后端程序。</p>
@@ -632,11 +632,11 @@ services:
 
 volumes:
   miniflux-db:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> up -d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>上面的命令就可以拉取运行镜像。</p>
 <p>设置配置：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下面這條指令在日後 Miniflux 大版本升級時候有可能也會用到</span>
-$ <span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span> miniflux /usr/bin/miniflux -migrate
+$ <span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span> miniflux /usr/bin/miniflux <span class="token parameter variable">-migrate</span>
 <span class="token comment"># 下面這條在新增管理員帳號跟密碼，等下要登入 Miniflux 管理後台用的</span>
 $ <span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span> miniflux /usr/bin/miniflux -create-admin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Chrome">Chrome<a class="anchor" href="#Chrome">¶</a></h2>
@@ -1208,7 +1208,7 @@ $ <span class="token function">docker-compose</span> <span class="token builtin 
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

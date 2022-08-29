@@ -458,12 +458,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Docker/">
-                                <span class="chip bg-color">Docker</span>
-                            </a>
-                        
                             <a href="/tags/Book/">
                                 <span class="chip bg-color">Book</span>
+                            </a>
+                        
+                            <a href="/tags/Docker/">
+                                <span class="chip bg-color">Docker</span>
                             </a>
                         
                     </div>
@@ -565,11 +565,11 @@
 <p>使用shell脚本的安装步骤如下：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> -qO- https://get.docker.com/ <span class="token operator">|</span> <span class="token function">sh</span>
 <span class="token comment"># 将用户加入Docker Unix组，通过非root用户使用Docker</span>
-<span class="token function">sudo</span> <span class="token function">usermod</span> -aG <span class="token function">docker</span> your-name
+<span class="token function">sudo</span> <span class="token function">usermod</span> <span class="token parameter variable">-aG</span> <span class="token function">docker</span> your-name
 <span class="token comment"># 查看是否添加到docker组成功，执行完毕需要重新登录，组权限才能生效</span>
 <span class="token function">cat</span> /etc/group <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>查看docker版本：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token parameter variable">--version</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看docker信息：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> system info<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>设置docker开机自启：</p>
@@ -816,12 +816,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Docker/">
-                                    <span class="chip bg-color">Docker</span>
-                                </a>
-                            
                                 <a href="/tags/Book/">
                                     <span class="chip bg-color">Book</span>
+                                </a>
+                            
+                                <a href="/tags/Docker/">
+                                    <span class="chip bg-color">Docker</span>
                                 </a>
                             
                         </div>
@@ -1331,7 +1331,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

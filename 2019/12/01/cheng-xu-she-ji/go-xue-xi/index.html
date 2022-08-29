@@ -1273,13 +1273,13 @@ fmt<span class="token punctuation">.</span><span class="token function">Print</s
 <p>go扩充系统类型或他人的类型使用两种方法：<strong>定义别名或使用组合</strong></p>
 <p>使用组合就是创建一个新的结构体，其中包含需要拓展的结构体指针作为数据成员。将结构体中的数据提取出来，创建为一个新的结构体，并对其进行操作。</p>
 <p>有些go的第三方包因为国内网络环境的原因影响，可以使用第三方工具进行下载，而不是使用<code>go get</code>。方式如下：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go get -v github.com/gpmgo/gopm
-gopm get -u -g -v 包的地址
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go get <span class="token parameter variable">-v</span> github.com/gpmgo/gopm
+gopm get <span class="token parameter variable">-u</span> <span class="token parameter variable">-g</span> <span class="token parameter variable">-v</span> 包的地址
 go <span class="token function">install</span> 包地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>在<code>go.mod</code>中使用本地文件替代包地址，可以使用在<code>go.mod</code>中追加写<code>replace github.com/XXX/ =&gt; xxx/xxx</code></p>
 <p><code>go vender</code>缓存到本地</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go mod vendor <span class="token comment">#这是go mod的vendor，不是以前的vendor</span>
-go build -mod vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+go build <span class="token parameter variable">-mod</span> vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>创建<code>go.mod</code>：<code>go mod init 你的仓库地址/仓库名</code></p>
 <h2 id="TCP">TCP<a class="anchor" href="#TCP">¶</a></h2>
 <h4 id="Socket">Socket<a class="anchor" href="#Socket">¶</a></h4>
@@ -1803,7 +1803,7 @@ closed <span class="token builtin">uint32</span><span aria-hidden="true" class="
 <p>需要将想用的GOPATH添加对应的项目地址以保证在GOPATH拼接完成import的字符后能够导入对应的包。</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">import</span> <span class="token operator">&lt;</span>包别名<span class="token operator">&gt;</span> <span class="token string">"引用路径"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 强制获取最新的包</span>
-go get -u <span class="token operator">&lt;</span>包名<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+go get <span class="token parameter variable">-u</span> <span class="token operator">&lt;</span>包名<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>不要把src放在路径中，这样<code>go get</code>将获取不到。</p>
 <h2 id="Context">Context<a class="anchor" href="#Context">¶</a></h2>
 <ul>
@@ -2062,15 +2062,15 @@ go get -u <span class="token operator">&lt;</span>包名<span class="token opera
 <li>无状态</li>
 <li>在依赖服务不可用时，可以继续存活</li>
 </ul>
-<h2 id="Tip-5">Tip<a class="anchor" href="#Tip-5">¶</a></h2>
+<h2 id="Tip-7">Tip<a class="anchor" href="#Tip-7">¶</a></h2>
 <p>Go语言很特别，没有对象，没有继承多态，没有泛型，没有try/catch。相反，有接口，函数式编程，CSP并发模型(goroutine+channel)。</p>
 <p><code>go</code>语言仅支持封装，不支持继承和多态。没有<code>class</code>只有<code>struct</code>。面向对象使用接口来实现。</p>
 <p><code>GOROOT</code>表示源码包所在路径。</p>
 <p><code>GOPATH</code>表示开发者Go项目的默认路径。</p>
 <h3 id="依赖包下载网络配置">依赖包下载网络配置<a class="anchor" href="#依赖包下载网络配置">¶</a></h3>
 <p>由于国内特殊的网络环境，Go模块可能无法下载，但可以通过模块代理进行下载。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go <span class="token function">env</span> -w <span class="token assign-left variable">GO111MODULE</span><span class="token operator">=</span>on
-go <span class="token function">env</span> -w <span class="token assign-left variable">GOPROXY</span><span class="token operator">=</span>https://goproxy.cn,direct<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">go <span class="token function">env</span> <span class="token parameter variable">-w</span> <span class="token assign-left variable">GO111MODULE</span><span class="token operator">=</span>on
+go <span class="token function">env</span> <span class="token parameter variable">-w</span> <span class="token assign-left variable">GOPROXY</span><span class="token operator">=</span>https://goproxy.cn,direct<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>或者基于系统的环境变量</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 一次性</span>
 $ <span class="token builtin class-name">export</span> <span class="token assign-left variable">GO111MODULE</span><span class="token operator">=</span>on
@@ -2299,7 +2299,7 @@ $ <span class="token builtin class-name">source</span> ~/.profile<span aria-hidd
 <li><code>go get golang.org/dl/go.1.15.13</code></li>
 <li><code>go1.15.13 </code></li>
 </ol>
-<h3 id="位运算">位运算<a class="anchor" href="#位运算">¶</a></h3>
+<h3 id="位运算-2">位运算<a class="anchor" href="#位运算-2">¶</a></h3>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">x <span class="token operator">&amp;^</span> <span class="token number">1</span> <span class="token operator">=</span> <span class="token number">0</span>
 x <span class="token operator">&amp;^</span> <span class="token number">0</span> <span class="token operator">=</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="vscode">vscode<a class="anchor" href="#vscode">¶</a></h3>
@@ -2308,7 +2308,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"go.testFlags"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         <span class="token string">"-v"</span>
     <span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="参考文献-5">参考文献<a class="anchor" href="#参考文献-5">¶</a></h2>
+<h2 id="参考文献-9">参考文献<a class="anchor" href="#参考文献-9">¶</a></h2>
 <ol>
 <li><a target="_blank" rel="noopener" href="http://gopl.io/">《The Go Programming Language》</a></li>
 <li>维基百科，<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SOLID_(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1)">SOLID (面向对象设计)</a>，2021</li>
@@ -2897,7 +2897,7 @@ x <span class="token operator">&amp;^</span> <span class="token number">0</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

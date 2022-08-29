@@ -606,22 +606,22 @@
 <h2 id="常用命令-2">常用命令<a class="anchor" href="#常用命令-2">¶</a></h2>
 <h3 id="配置命令">配置命令<a class="anchor" href="#配置命令">¶</a></h3>
 <p>配置用户信息：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"Your name"</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"Your name"</span>
 <span class="token comment"># github设置了email隐藏的话，需要将这里的邮箱设置成github的邮箱</span>
-<span class="token function">git</span> cinfug --globel user.email <span class="token string">"email@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span class="token function">git</span> cinfug <span class="token parameter variable">--globel</span> user.email <span class="token string">"email@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>上面的命令还可以使用<code>--local</code>和<code>--global</code>参数以区分不同的作用域。</p>
 <p><code>--local</code>表示只对某个仓库有效</p>
 <p><code>--global</code>表示对当前用户所有仓库有效</p>
 <p><code>--system</code>表示对系统所有登录的用户有效</p>
 <p>查看当前所有配置：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --list <span class="token punctuation">[</span>--local<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--list</span> <span class="token punctuation">[</span>--local<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这个命令同样可以设置上述三种不同的作用域。</p>
 <p>设置常用的文本编辑器：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global core.editor <span class="token punctuation">{</span>编辑器名字<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> core.editor <span class="token punctuation">{</span>编辑器名字<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>避免中文乱码：</p>
 <p>在默认设置下，中文文件名在工作区状态输出，中文名不能正确显示，而是显示为八进制的字符编码。</p>
 <p>将git配置文件 <code>core.quotepath</code>项设置为<code>false</code>。<code>quotepath</code>表示引用路径，加上<code>--global</code>表示全局配置。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global core.quotepath <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> core.quotepath <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>git默认忽略大小写，可以使用命令修改</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config core.ignorecase <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="操作命令">操作命令<a class="anchor" href="#操作命令">¶</a></h3>
@@ -640,13 +640,13 @@
 </ul>
 <p>添加文件到Git仓库：</p>
  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>
-<span class="token function">git</span> commit -m <span class="token string">"message"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"message"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong><code>git add</code>即为精确的将内容添加到下一次提交中</strong></p>
 <p>针对之前就Git跟踪过的文件直接使用<code>git add -u</code>即可。</p>
 <p>工作区状态：</p>
  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"> <span class="token function">git</span> status
  <span class="token comment"># 状态简浏览</span>
- <span class="token function">git</span> status -s <span class="token comment"># git status --short</span>
+ <span class="token function">git</span> status <span class="token parameter variable">-s</span> <span class="token comment"># git status --short</span>
   M README <span class="token comment"># 在工作区已修改但尚未暂存</span>
 MM Rakefile <span class="token comment"># 文件已修，暂存后又作了修改</span>
 A  lib/git.rb <span class="token comment"># 新添加到暂存区中的文件前面有 A 标记</span>
@@ -657,26 +657,26 @@ M  lib/simplegit.rb <span class="token comment"># 已修改且已暂存</span>
  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看工作目录中当前文件和暂存区域快照之间的差异</span>
 <span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>
 <span class="token comment"># 查看已暂存的将要添加到下次提交里的内容</span>
-<span class="token function">git</span> <span class="token function">diff</span> --staged
+<span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--staged</span>
 <span class="token comment"># 下面的命令效果同上</span>
-<span class="token function">git</span> <span class="token function">diff</span> --cached<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--cached</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>git diff 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动.</strong></p>
 <p>修改最近一次commit messgae：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit --amend<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit <span class="token parameter variable">--amend</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>修改指定的commit message：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 首先rabase到需要修改commit的上一个版本</span>
-<span class="token function">git</span> rebase -i <span class="token operator">&lt;</span>需修改的commit上一次提交的哈希值<span class="token operator">&gt;</span>
+<span class="token function">git</span> rebase <span class="token parameter variable">-i</span> <span class="token operator">&lt;</span>需修改的commit上一次提交的哈希值<span class="token operator">&gt;</span>
 <span class="token comment"># 在跳出的界面中将需要修改的commit记录前面的pick之类的命令修改成r</span>
 <span class="token comment"># r 即reword 表示使用原本的提交，但修改commit message</span>
 <span class="token comment"># 在再一次弹出的界面中修改commit message</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>修改完成之后原本的commit id 会发生改变</strong>，因为messgae也是git结构体中的一员。</p>
 <p>合并多次连续commit到一次commit中：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> rebase -i <span class="token operator">&lt;</span>需合并commit的前一次commit哈希<span class="token operator">&gt;</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> rebase <span class="token parameter variable">-i</span> <span class="token operator">&lt;</span>需合并commit的前一次commit哈希<span class="token operator">&gt;</span>
 <span class="token comment"># 在跳出的界面中将多次需要合并的commit前面的命令更改为s</span>
 <span class="token comment"># s 即squash 表示使用commit，但注册到上一次commit中</span>
 <span class="token comment"># 在再一次弹出的界面中修改总体的commit message</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>合并多次非连续commit到一次commit中：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> rebase -i <span class="token operator">&lt;</span>需合并commit的前一次commit哈希<span class="token operator">&gt;</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> rebase <span class="token parameter variable">-i</span> <span class="token operator">&lt;</span>需合并commit的前一次commit哈希<span class="token operator">&gt;</span>
 <span class="token comment"># 在跳出的界面中将多次需要合并的commit前面的命令更改为s</span>
 <span class="token comment"># s 即squash 表示使用commit，但注册到上一次commit中</span>
 <span class="token comment"># 修改commit之间的顺序，将被合并的commit挂在第一行commit之下</span>
@@ -686,7 +686,7 @@ M  lib/simplegit.rb <span class="token comment"># 已修改且已暂存</span>
 <p>从暂存区和工作区删除文件:</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">rm</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>版本回退：</p>
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset --hard commit_id<span class="token punctuation">(</span>可以用HEAD~选择前第几个版本<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset <span class="token parameter variable">--hard</span> commit_id<span class="token punctuation">(</span>可以用HEAD~选择前第几个版本<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>将存入暂存区中的指定文件撤销暂存：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset HEAD <span class="token operator">&lt;</span>-- file1 file<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>移动或重命名一个文件、目录或软连接：</p>
@@ -699,7 +699,7 @@ M  lib/simplegit.rb <span class="token comment"># 已修改且已暂存</span>
 <p>查看工作区与暂存区的不同：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> <span class="token punctuation">[</span>-- 文件名 <span class="token punctuation">]</span> <span class="token comment"># 不写指定的文件默认查看所有不同的文件，指定的话可以写多个文件名，用空格做分割</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看暂存区与HEAD之间的差异：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> --cached<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--cached</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看工作区与版本库中版本之间的区别：</p>
  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> HEAD -- <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看不同版本之间的diff：</p>
@@ -711,23 +711,23 @@ M  lib/simplegit.rb <span class="token comment"># 已修改且已暂存</span>
 <p>将暂存区的修改撤销：</p>
  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset HEAD <span class="token punctuation">[</span>-- <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span><span class="token punctuation">]</span> <span class="token comment"># 不指定文件默认撤销所有文件在暂存区的修改</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>删除之前的commit内容：（<strong>危险，小心使用！暂存区和工作区都丢失</strong>）</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset --hard <span class="token operator">&lt;</span>需要恢复到的commit哈希值<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset <span class="token parameter variable">--hard</span> <span class="token operator">&lt;</span>需要恢复到的commit哈希值<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>checkout影响工作区，reset影响暂存区</strong></p>
 <p>创建ssh key：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"youremail@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"youremail@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看远端地址：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>关联仓库：</p>
  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> origin git@server-name:path/repo-name.git <span class="token comment"># 这里的origin只是给后面的地址起别名，但origin是默认名</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>第一次推送分支内容：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push -u origin master<span class="token punctuation">(</span>以后不用加-u参数<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push <span class="token parameter variable">-u</span> origin master<span class="token punctuation">(</span>以后不用加-u参数<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>克隆一个本地库：</p>
  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来</span>
 <span class="token function">git</span> clone <span class="token operator">&lt;</span>git仓库名<span class="token operator">&gt;</span> 自定义仓库名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>创建分支：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -b <span class="token operator">&lt;</span>branch-name<span class="token operator">&gt;</span><span class="token punctuation">(</span>可以拆分为 <span class="token function">git</span> branch <span class="token operator">&lt;</span>branch-name<span class="token operator">&gt;</span> 和 <span class="token function">git</span> checkout <span class="token operator">&lt;</span>branch-name<span class="token operator">&gt;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout <span class="token parameter variable">-b</span> <span class="token operator">&lt;</span>branch-name<span class="token operator">&gt;</span><span class="token punctuation">(</span>可以拆分为 <span class="token function">git</span> branch <span class="token operator">&lt;</span>branch-name<span class="token operator">&gt;</span> 和 <span class="token function">git</span> checkout <span class="token operator">&lt;</span>branch-name<span class="token operator">&gt;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>使用指定分支创建分支：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -b <span class="token operator">&lt;</span>分支名<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>指定分支名<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout <span class="token parameter variable">-b</span> <span class="token operator">&lt;</span>分支名<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>指定分支名<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看分支：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch<span class="token punctuation">(</span>当前分支前会有*作为标记<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>切换分支：</p>
@@ -736,11 +736,11 @@ M  lib/simplegit.rb <span class="token comment"># 已修改且已暂存</span>
  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> merge <span class="token operator">&lt;</span>branch-name<span class="token operator">&gt;</span>
 <span class="token comment">#如果分支是none fast-forward的commit，使用--allow-unrelated-histories，即git merge --allow-unrelated-histories 分支名</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>删除分支（强制删除使用-D）：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch -d <span class="token operator">&lt;</span>branch-name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch <span class="token parameter variable">-d</span> <span class="token operator">&lt;</span>branch-name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看分支情况：</p>
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --graph --pretty<span class="token operator">=</span>oneline --abbrev-commit<span class="token punctuation">(</span>有分支合并图<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log <span class="token parameter variable">--graph</span> <span class="token parameter variable">--pretty</span><span class="token operator">=</span>oneline --abbrev-commit<span class="token punctuation">(</span>有分支合并图<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>强制禁用Fast forward模式：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> merge --no-ff -m <span class="token string">"merge with no-ff"</span> <span class="token operator">&lt;</span>branch-name<span class="token operator">&gt;</span><span class="token punctuation">(</span>会创建一个新的commit<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> merge --no-ff <span class="token parameter variable">-m</span> <span class="token string">"merge with no-ff"</span> <span class="token operator">&lt;</span>branch-name<span class="token operator">&gt;</span><span class="token punctuation">(</span>会创建一个新的commit<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>现场存储：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看现场存储列表：</p>
@@ -750,7 +750,7 @@ M  lib/simplegit.rb <span class="token comment"># 已修改且已暂存</span>
 <p>指定恢复现场：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> stash apply stash@<span class="token punctuation">{</span><span class="token operator">&lt;</span>stash_list<span class="token operator">&gt;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>丢弃未合并的分支：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch -D <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> branch <span class="token parameter variable">-D</span> <span class="token operator">&lt;</span>name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看远程库信息：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token operator">&lt;</span>-v<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>抓取版本库：</p>
@@ -766,17 +766,17 @@ M  lib/simplegit.rb <span class="token comment"># 已修改且已暂存</span>
 <p>查看标签信息：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> show <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>用私钥给标签签名：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag -s tag-name -m <span class="token string">"message"</span> commit-id<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag <span class="token parameter variable">-s</span> tag-name <span class="token parameter variable">-m</span> <span class="token string">"message"</span> commit-id<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>删除标签：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag -d tag-name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag <span class="token parameter variable">-d</span> tag-name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>推送某个标签到远程：</p>
  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>推送所有标签：</p>
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin --tags<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin <span class="token parameter variable">--tags</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>远程删除标签：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin :refs/tags/<span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>git 显示颜色：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global color.ui <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> color.ui <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>不想提交的文件放在文件夹下面的.gitignore目录中</p>
 <p><code>.gitignore</code>文件中可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。</p>
 <p>其中glob的模式匹配是指shell所用的简化了的正则表达式。</p>
@@ -801,19 +801,19 @@ doc/*.txt
 doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在最简单的情况下，一个仓库可能只根目录下有一个 .gitignore 文件，它递归地应用到整个仓库中。 然而，子目录下也可以有额外的 .gitignore 文件。子目录中的 .gitignore 文件中的规则只作用于它所在的目录中。</p>
 <p>强制添加文件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> -f <span class="token operator">&lt;</span>file-name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> <span class="token parameter variable">-f</span> <span class="token operator">&lt;</span>file-name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看.gitignore的问题：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> check-ignore -v <span class="token operator">&lt;</span>file-name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> check-ignore <span class="token parameter variable">-v</span> <span class="token operator">&lt;</span>file-name<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>命名别名：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global alias.<span class="token operator">&lt;</span>缩写<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>全称<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.<span class="token operator">&lt;</span>缩写<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>全称<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>查看提交信息：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log -stat -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log <span class="token parameter variable">-stat</span> <span class="token parameter variable">-l</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>检查提交散列值：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">fsck</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>将文件移出暂存区</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset <span class="token function">head</span> <span class="token operator">&lt;</span>filename<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>无敌配置：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global alias.lg <span class="token string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> alias.lg <span class="token string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -1381,7 +1381,7 @@ doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

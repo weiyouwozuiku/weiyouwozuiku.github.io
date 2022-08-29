@@ -545,7 +545,7 @@
 <span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
 <span class="token assign-left variable">Type</span><span class="token operator">=</span>simple
 <span class="token assign-left variable">User</span><span class="token operator">=</span>root
-<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>clash -d /home/pi/.config/clash
+<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>clash <span class="token parameter variable">-d</span> /home/pi/.config/clash
 <span class="token assign-left variable">Restart</span><span class="token operator">=</span>on-failure
 
 <span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
@@ -563,9 +563,9 @@
 <span class="token comment"># 停止clash</span>
 <span class="token function">sudo</span> systemctl stop clash.service
 
-<span class="token function">wget</span> -O <span class="token variable">$clash_path</span>/config.yaml <span class="token operator">&lt;</span>订阅地址<span class="token operator">&gt;</span>
-<span class="token function">wget</span> -O <span class="token variable">$clash_path</span>/Country.mmdb https://www.sub-speeder.com/client-download/Country.mmdb
-<span class="token function">sed</span> -i <span class="token string">"s/# external-ui: folder/external-ui: \/home\/pi\/.config\/clash\/clash-dashboard/;s/secret: ''/secret: '登录秘钥'/g"</span> <span class="token variable">$clash_path</span>/config.yaml
+<span class="token function">wget</span> <span class="token parameter variable">-O</span> <span class="token variable">$clash_path</span>/config.yaml <span class="token operator">&lt;</span>订阅地址<span class="token operator">&gt;</span>
+<span class="token function">wget</span> <span class="token parameter variable">-O</span> <span class="token variable">$clash_path</span>/Country.mmdb https://www.sub-speeder.com/client-download/Country.mmdb
+<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">"s/# external-ui: folder/external-ui: \/home\/pi\/.config\/clash\/clash-dashboard/;s/secret: ''/secret: '登录秘钥'/g"</span> <span class="token variable">$clash_path</span>/config.yaml
 
 <span class="token comment"># 重启clash</span>
 <span class="token function">sudo</span> systemctl restart clash.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1139,7 +1139,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

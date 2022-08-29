@@ -568,8 +568,8 @@
 </li>
 <li>
 <p>创建<code>node_exporter</code>用户，并授予权限</p>
-   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">groupadd</span> --system node_exporter
-<span class="token function">sudo</span> <span class="token function">useradd</span> -s /sbin/nologin --system -g prometheus node_exporter<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">groupadd</span> <span class="token parameter variable">--system</span> node_exporter
+<span class="token function">sudo</span> <span class="token function">useradd</span> <span class="token parameter variable">-s</span> /sbin/nologin <span class="token parameter variable">--system</span> <span class="token parameter variable">-g</span> prometheus node_exporter<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li>
 <p>创建node_exporter运行时的配置文件，一般放在<code>/etc/node_exporter/config.yml</code></p>
@@ -626,22 +626,22 @@
 <ol>
 <li>
 <p>创建相应用户</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">groupadd</span> --system prometheus
-<span class="token function">sudo</span> <span class="token function">useradd</span> -s /sbin/nologin --system -g prometheus prometheus<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">groupadd</span> <span class="token parameter variable">--system</span> prometheus
+<span class="token function">sudo</span> <span class="token function">useradd</span> <span class="token parameter variable">-s</span> /sbin/nologin <span class="token parameter variable">--system</span> <span class="token parameter variable">-g</span> prometheus prometheus<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li>
 <p>创建配置目录</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">mkdir</span> /var/lib/prometheus
-<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> rules rules.d files_sd<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">sudo</span> <span class="token function">mkdir</span> -p /etc/prometheus/<span class="token variable">${i}</span><span class="token punctuation">;</span> <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> rules rules.d files_sd<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">sudo</span> <span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /etc/prometheus/<span class="token variable">${i}</span><span class="token punctuation">;</span> <span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li>
 <p>下载Promethues</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p /tmp/prometheus <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> /tmp/prometheus
-<span class="token function">curl</span> -s https://api.github.com/repos/prometheus/prometheus/releases/latest <span class="token punctuation">\</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /tmp/prometheus <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> /tmp/prometheus
+<span class="token function">curl</span> <span class="token parameter variable">-s</span> https://api.github.com/repos/prometheus/prometheus/releases/latest <span class="token punctuation">\</span>
   <span class="token operator">|</span> <span class="token function">grep</span> browser_download_url <span class="token punctuation">\</span>
   <span class="token operator">|</span> <span class="token function">grep</span> linux-amd64 <span class="token punctuation">\</span>
-  <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">'"'</span> -f <span class="token number">4</span> <span class="token punctuation">\</span>
-  <span class="token operator">|</span> <span class="token function">wget</span> -qi -
+  <span class="token operator">|</span> <span class="token function">cut</span> <span class="token parameter variable">-d</span> <span class="token string">'"'</span> <span class="token parameter variable">-f</span> <span class="token number">4</span> <span class="token punctuation">\</span>
+  <span class="token operator">|</span> <span class="token function">wget</span> <span class="token parameter variable">-qi</span> -
   
 <span class="token function">tar</span> xvf prometheus*.tar.gz
 <span class="token builtin class-name">cd</span> prometheus*/
@@ -650,7 +650,7 @@
 <span class="token function">mv</span> consoles/ console_libraries/ /etc/prometheus/
 
 <span class="token builtin class-name">cd</span> ~/
-<span class="token function">rm</span> -rf /tmp/prometheus<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">rm</span> <span class="token parameter variable">-rf</span> /tmp/prometheus<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li>
 <p>创建系统服务</p>
@@ -684,9 +684,9 @@ EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 </li>
 <li>
 <p>配置相应权限</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> rules rules.d files_sd<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">sudo</span> <span class="token function">chown</span> -R prometheus:prometheus /etc/prometheus/<span class="token variable">${i}</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
-<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> rules rules.d files_sd<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">sudo</span> <span class="token function">chmod</span> -R <span class="token number">775</span> /etc/prometheus/<span class="token variable">${i}</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
-<span class="token function">sudo</span> <span class="token function">chown</span> -R prometheus:prometheus /var/lib/prometheus/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> rules rules.d files_sd<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">sudo</span> <span class="token function">chown</span> <span class="token parameter variable">-R</span> prometheus:prometheus /etc/prometheus/<span class="token variable">${i}</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> rules rules.d files_sd<span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token parameter variable">-R</span> <span class="token number">775</span> /etc/prometheus/<span class="token variable">${i}</span><span class="token punctuation">;</span> <span class="token keyword">done</span>
+<span class="token function">sudo</span> <span class="token function">chown</span> <span class="token parameter variable">-R</span> prometheus:prometheus /var/lib/prometheus/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li>
 <p>配置节点job</p>
@@ -712,7 +712,7 @@ EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 <h3 id="安装Grafana">安装Grafana<a class="anchor" href="#安装Grafana">¶</a></h3>
 <p>参考<a target="_blank" rel="noopener" href="https://grafana.com/grafana/download?platform=linux">官方教程</a></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> grafana-enterprise
-<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> --now grafana-server
+<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> <span class="token parameter variable">--now</span> grafana-server
 systemctl status grafana-server.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>默认端口是3000，用户名和密码都是admin。</p>
 <p>通过yum安装的Grafana的配置文件在<code>/etc/grafana/grafana.ini</code>中，修改端口就是改成如下</p>
@@ -722,7 +722,7 @@ http_port = 8028<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <p>重启Grafana即可。</p>
 <p>在Grafana中首先创建Data Source，之后去import面板，可以用1860或者8919。</p>
 <p>可以在<a target="_blank" rel="noopener" href="https://grafana.com/grafana/dashboards/?collector=nodeexporter">官网</a>选择喜欢的模板，import进自己的Grafana即可。</p>
-<h2 id="参考文献-9">参考文献<a class="anchor" href="#参考文献-9">¶</a></h2>
+<h2 id="参考文献-13">参考文献<a class="anchor" href="#参考文献-13">¶</a></h2>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://einverne.github.io/post/2020/05/use-prometheus-and-grafana-monitor-proxmox.html">使用 Prometheus 和 Grafana 监控 Proxmox 服务器</a>，2020</li>
 <li>简书，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/821bf7d2bbef">让普罗米修斯替我监测树莓派集群</a>，2020</li>
@@ -1298,7 +1298,7 @@ http_port = 8028<span aria-hidden="true" class="line-numbers-rows"><span></span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

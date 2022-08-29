@@ -544,21 +544,21 @@
 <h3 id="下载python源码包">下载python源码包<a class="anchor" href="#下载python源码包">¶</a></h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tar.xz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="安装所需依赖关系">安装所需依赖关系<a class="anchor" href="#安装所需依赖关系">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum -y groupinstall <span class="token string">"Development tools"</span>
-<span class="token function">sudo</span> yum -y <span class="token function">install</span> zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token parameter variable">-y</span> groupinstall <span class="token string">"Development tools"</span>
+<span class="token function">sudo</span> yum <span class="token parameter variable">-y</span> <span class="token function">install</span> zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="解压进入相应目录">解压进入相应目录<a class="anchor" href="#解压进入相应目录">¶</a></h3>
 <p>直接使用zsh的extract。</p>
 <h3 id="编译安装">编译安装<a class="anchor" href="#编译安装">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./configure --prefix<span class="token operator">=</span>/usr/local/python3  
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./configure <span class="token parameter variable">--prefix</span><span class="token operator">=</span>/usr/local/python3  
 <span class="token function">make</span>  
 <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="创建相应软连接命令">创建相应软连接命令<a class="anchor" href="#创建相应软连接命令">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">ln</span> -s /usr/local/python3/bin/python3 /usr/bin/python3
-<span class="token function">sudo</span> <span class="token function">ln</span> -s /usr/local/python3/bin/pip3 /usr/bin/pip3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">ln</span> <span class="token parameter variable">-s</span> /usr/local/python3/bin/python3 /usr/bin/python3
+<span class="token function">sudo</span> <span class="token function">ln</span> <span class="token parameter variable">-s</span> /usr/local/python3/bin/pip3 /usr/bin/pip3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="升级相应的pip版本">升级相应的pip版本<a class="anchor" href="#升级相应的pip版本">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pip3 <span class="token function">install</span> --upgrade pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pip3 <span class="token function">install</span> <span class="token parameter variable">--upgrade</span> pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="安装python依赖包">安装python依赖包<a class="anchor" href="#安装python依赖包">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pip3 <span class="token function">install</span> -r requestment.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pip3 <span class="token function">install</span> <span class="token parameter variable">-r</span> requestment.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="python2与python3共存">python2与python3共存<a class="anchor" href="#python2与python3共存">¶</a></h3>
 <p>将 <code>/usr/bin/yum</code>和 <code>/usr/libexec/urlgrabber-ext-down</code>文件的最首句最后的python改成python2。</p>
 <h3 id="可能出现的问题">可能出现的问题<a class="anchor" href="#可能出现的问题">¶</a></h3>
@@ -570,7 +570,7 @@
 <h2 id="安装mysql5-7">安装mysql5.7<a class="anchor" href="#安装mysql5-7">¶</a></h2>
 <h3 id="安装YUM-Repo">安装YUM Repo<a class="anchor" href="#安装YUM-Repo">¶</a></h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
-<span class="token function">rpm</span> -ivh mysql57-community-release-el7-9.noarch.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token function">rpm</span> <span class="token parameter variable">-ivh</span> mysql57-community-release-el7-9.noarch.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>执行完成后会在 <code>/etc/yum.repos.d/</code>目录下生成两个repo文件 <code>mysql-community.repo</code> <code>mysql-community-source.repo</code>。</p>
 <h3 id="安装Mysql">安装Mysql<a class="anchor" href="#安装Mysql">¶</a></h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> mysql-server
@@ -579,9 +579,9 @@
 <p>获取初始密码</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">grep</span> <span class="token string">'temporary password'</span> /var/log/mysqld.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>若是获取不到则删除原本的安装过的mysql残留数据。然后在启动mysql。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> -rf /var/lib/mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> <span class="token parameter variable">-rf</span> /var/lib/mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="登录">登录<a class="anchor" href="#登录">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysql -u root -p -P <span class="token number">3500</span> <span class="token comment">#这里之前设置了mysql的端口开放在3500端口</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysql <span class="token parameter variable">-u</span> root <span class="token parameter variable">-p</span> <span class="token parameter variable">-P</span> <span class="token number">3500</span> <span class="token comment">#这里之前设置了mysql的端口开放在3500端口</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="修改密码">修改密码<a class="anchor" href="#修改密码">¶</a></h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">set</span> <span class="token assign-left variable">password</span><span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">"yourpassword"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 flush privileges<span class="token punctuation">;</span> <span class="token comment">#刷新设置好的设置</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -609,7 +609,7 @@ grant all privileges on *.* to root@<span class="token string">"113.64.243.1"</s
 <h2 id="配置终端">配置终端<a class="anchor" href="#配置终端">¶</a></h2>
 <h3 id="powerlevel9k-不推荐">powerlevel9k(不推荐)<a class="anchor" href="#powerlevel9k-不推荐">¶</a></h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token function">zsh</span> <span class="token function">git</span>
-<span class="token function">sh</span> -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="token variable">)</span></span>"</span>
+<span class="token function">sh</span> <span class="token parameter variable">-c</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="token variable">)</span></span>"</span>
 <span class="token function">git</span> clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>修改.zshrc文件</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">TERM</span></span><span class="token operator">=</span><span class="token string">"screen-256color"</span>
@@ -661,7 +661,7 @@ Description <span class="token builtin class-name">:</span> The <span class="tok
 </li>
 <li>
 <p>安装编译依赖</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y <span class="token function">install</span> gcc perl-ExtUtils-MakeMaker ncurses-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gcc perl-ExtUtils-MakeMaker ncurses-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li>
 <p>编译安装</p>
@@ -688,7 +688,7 @@ Description <span class="token builtin class-name">:</span> The <span class="tok
 <p>设置配置文件：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">cd</span>
 $ <span class="token function">git</span> clone https://github.com/gpakosz/.tmux.git
-$ <span class="token function">ln</span> -s -f .tmux/.tmux.conf
+$ <span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token parameter variable">-f</span> .tmux/.tmux.conf
 $ <span class="token function">cp</span> .tmux/.tmux.conf.local <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="安装VIM8">安装VIM8<a class="anchor" href="#安装VIM8">¶</a></h2>
 <p>直接使用一键化脚本即可。</p>
@@ -706,7 +706,7 @@ AllowUsers king root@ip<span aria-hidden="true" class="line-numbers-rows"><span>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载解压程序</span>
 <span class="token function">wget</span> http://www.rarlab.com/rar/rarlinux-x64-5.3.0.tar.gz
 <span class="token comment"># 解压</span>
-<span class="token function">tar</span> -xf rarlinux-x64-5.3.0.tar.gz
+<span class="token function">tar</span> <span class="token parameter variable">-xf</span> rarlinux-x64-5.3.0.tar.gz
 <span class="token comment"># 编译</span>
 <span class="token builtin class-name">cd</span> <span class="token function">rar</span> <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">make</span>
 <span class="token comment"># 解压文件</span>
@@ -1299,7 +1299,7 @@ AllowUsers king root@ip<span aria-hidden="true" class="line-numbers-rows"><span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             

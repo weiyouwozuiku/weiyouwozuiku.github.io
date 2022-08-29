@@ -556,17 +556,17 @@
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> python-dev python3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><em>这一步在新版的树莓派上不需要</em></p>
 <h3 id="下载OpenCV源码">下载OpenCV源码<a class="anchor" href="#下载OpenCV源码">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> -O opencv-3.4.6.zip https://github.com/opencv/opencv/archive/3.4.6.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> opencv-3.4.6.zip https://github.com/opencv/opencv/archive/3.4.6.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="下载OpenCV-contrib包">下载OpenCV_contrib包<a class="anchor" href="#下载OpenCV-contrib包">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> -O opencv_contrib.3.4.6.tar.gz https://github.com/opencv/opencv_contrib/archive/3.4.6.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> opencv_contrib.3.4.6.tar.gz https://github.com/opencv/opencv_contrib/archive/3.4.6.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="编译">编译<a class="anchor" href="#编译">¶</a></h3>
 <p>将上面下载的两个OpenCV文件压缩包进行解压，并在OpenCV的主文件夹中新建一个release文件夹。进入release文件夹中，执行一下命令。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> cmake -D <span class="token assign-left variable">CMAKE_BUILD_TYPE</span><span class="token operator">=</span>RELEASE <span class="token punctuation">\</span>
-	-D <span class="token assign-left variable">CMAKE_INSTALL_PREFIX</span><span class="token operator">=</span>/usr/local <span class="token punctuation">\</span>
-	-D OPENCV_EXTRA+MODULES_PATH<span class="token operator">=~</span>/opencv_contrib-3.4.6/modules <span class="token punctuation">\</span>
-	-D <span class="token assign-left variable">INSTALL_PYTHON_EXAMPLES</span><span class="token operator">=</span>ON <span class="token punctuation">\</span>
-	-D <span class="token assign-left variable">BUILD_EXAMPLES</span><span class="token operator">=</span>ON <span class="token punctuation">..</span>
-<span class="token function">screen</span> -S opencv
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> cmake <span class="token parameter variable">-D</span> <span class="token assign-left variable">CMAKE_BUILD_TYPE</span><span class="token operator">=</span>RELEASE <span class="token punctuation">\</span>
+	<span class="token parameter variable">-D</span> <span class="token assign-left variable">CMAKE_INSTALL_PREFIX</span><span class="token operator">=</span>/usr/local <span class="token punctuation">\</span>
+	<span class="token parameter variable">-D</span> OPENCV_EXTRA+MODULES_PATH<span class="token operator">=~</span>/opencv_contrib-3.4.6/modules <span class="token punctuation">\</span>
+	<span class="token parameter variable">-D</span> <span class="token assign-left variable">INSTALL_PYTHON_EXAMPLES</span><span class="token operator">=</span>ON <span class="token punctuation">\</span>
+	<span class="token parameter variable">-D</span> <span class="token assign-left variable">BUILD_EXAMPLES</span><span class="token operator">=</span>ON <span class="token punctuation">..</span>
+<span class="token function">screen</span> <span class="token parameter variable">-S</span> opencv
 <span class="token function">sudo</span> <span class="token function">make</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="安装OpenCV">安装OpenCV<a class="anchor" href="#安装OpenCV">¶</a></h3>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
@@ -1141,7 +1141,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">249.2k</span>&nbsp;字
+                class="white-color">250.4k</span>&nbsp;字
             
             
             
