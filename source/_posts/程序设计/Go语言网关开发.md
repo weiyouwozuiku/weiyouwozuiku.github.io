@@ -239,14 +239,192 @@ type persistConn struct {
 	}
 ```
 
-## 正向代理
+## 网络代理
 
-### http代理
+网络代理 v.s 网络转发：
 
+- 网络代理：用户不直接连接服务器，网络代理去连接。获取数据后返回给用户。
+- 网络转发：是路由器对报文的转发操作，中间可能堆数据包修改。
 
+### 正向代理
 
-### socks5代理
+正向代理：是一种**客户端**的代理技术。帮助客户端访问无法访问的服务资源，可以隐藏用户真实IP。
 
+1. 代理接收客户端请求，复制原请求对象，并根据数据配置新请求各种参数
+2. 把新请求发送到真实服务端，并接收到服务器返回
+3. 代理服务器相应做一些处理，然后返回给客户端
 
+#### http代理
 
-## 反向代理
+```go
+import (
+	"fmt"
+	"io"
+	"net"
+	"net/http"
+	"strings"
+)
+
+type Pxy struct{}
+
+func (p *Pxy) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
+	fmt.Printf("Received request %s %s %s\n", req.Method, req.Host, req.RemoteAddr)
+	transport := http.DefaultTransport
+	// step 1，浅拷贝对象，然后就再新增属性数据
+	outReq := new(http.Request)
+	*outReq = *req
+	if clientIP, _, err := net.SplitHostPort(req.RemoteAddr); err == nil {
+		if prior, ok := outReq.Header["X-Forwarded-For"]; ok {
+			clientIP = strings.Join(prior, ", ") + ", " + clientIP
+		}
+		outReq.Header.Set("X-Forwarded-For", clientIP)
+	}
+	
+	// step 2, 请求下游
+	res, err := transport.RoundTrip(outReq)
+	if err != nil {
+		rw.WriteHeader(http.StatusBadGateway)
+		return
+	}
+
+	// step 3, 把下游请求内容返回给上游
+	for key, value := range res.Header {
+		for _, v := range value {
+			rw.Header().Add(key, v)
+		}
+	}
+	rw.WriteHeader(res.StatusCode)
+	io.Copy(rw, res.Body)
+	res.Body.Close()
+}
+
+func main() {
+	fmt.Println("Serve on :8080")
+	http.Handle("/", &Pxy{})
+	http.ListenAndServe("0.0.0.0:8080", nil)
+}
+```
+
+### 反向代理
+
+反向代理：是一种**服务端**的代理技术，帮助服务器做负载均衡、缓存、提供安全校验等，可以隐藏服务器真实IP。
+
+1. 代理接受客户端请求，更改请求结构体信息
+2. 通过一定的负载均衡算法获取下游服务地址
+3. 把请求发送给下游服务器，并获取返回内容
+4. 堆返回内容做一些处理，然后返回给客户端
+
+#### http代理
+
+Go内置了`httputil.ReverseProxy`类型。内置`httputil.NewSingleHostReverseProxy`。可以按照其实现自己实现。
+
+简单版：
+
+```go
+import (
+	"bufio"
+	"log"
+	"net/http"
+	"net/url"
+)
+
+var (
+	proxy_addr = "http://127.0.0.1:2003"
+	port       = "2002"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	//step 1 解析代理地址，并更改请求体的协议和主机
+	proxy, err := url.Parse(proxy_addr)
+	r.URL.Scheme = proxy.Scheme
+	r.URL.Host = proxy.Host
+
+	//step 2 请求下游
+	transport := http.DefaultTransport
+	resp, err := transport.RoundTrip(r)
+	if err != nil {
+		log.Print(err)
+		return
+	}
+
+	//step 3 把下游请求内容返回给上游
+	for k, vv := range resp.Header {
+		for _, v := range vv {
+			w.Header().Add(k, v)
+		}
+	}
+	defer resp.Body.Close()
+	bufio.NewReader(resp.Body).WriteTo(w)
+}
+
+func main() {
+	http.HandleFunc("/", handler)
+	log.Println("Start serving on port " + port)
+	err := http.ListenAndServe(":"+port, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+```
+
+##### ReverseProxy的特殊StatusCode
+
+- 100：目前一切正常，客户端可以继续请求
+  - 客户端Post的数据大于1024字节的时候
+  - 客户端需要先发送一个请求，包含一个`Expect:100-continue`，询问服务端是否愿意接收数据
+  - 接收到服务端返回的100-continue应答之后，返回100状态，把数据Post到服务端
+  - 相关策略
+    - 客户端策略
+      - 如果客户端有 post 数据要上传，可以考虑使用 100-continue 协议。在请求头中加入 {“Expect”:”100-continue”}
+      - 如果没有 post 数据，不能使用 100-continue 协议，因为这会让服务端造成误解。
+      - 并不是所有的 Server 都会正确实现 100-continue 协议，如果 Client 发送 Expect:100-continue 消息后，在 timeout 时间内无响应，Client 需要立马上传 post 数据。
+      - 有些 Server 会错误实现 100-continue 协议，在不需要此协议时返回 100，此时客户端应该忽略。
+    - 服务端策略
+      - 正确情况下，收到请求后，返回 100 或错误码。
+      - 如果在发送 100-continue 前收到了 post 数据（客户端提前发送 post 数据），则不发送 100 响应码(略去)。
+- 101：服务端发送给客户端升级协议的请求
+
+##### ReverseProxy的特殊Header头
+
+- 特殊Header头
+  - X-Forwarded-For
+    - 记录最后直连实际服务器之前的整个代理过程
+    - 可能被伪造
+  - X-Real-IP
+    - 请求实际服务器的IP
+    - 每过一层代理都会被覆盖掉，只需第一代理设置转发
+  - Connection
+  - TE
+  - Trailer
+- 第一代理除去标准的逐段传输头
+
+##### Connection
+
+- 标记请求发起方与第一代理的状态
+- 决定当前事务完成后，是否会关闭网络
+  - Connection：keep-alive 不关闭网络
+  - Connection：close 关闭网络
+  - Connection：upgrade 协议升级
+
+##### TE
+
+TE是requesy_header，表示希望使用的传输编码类型。
+
+如：`TE:trailers,deflate;q=0.5`表示，期望在采用分块传输编码响应中接收挂载字段，zlib编码，0.5优先级排序。
+
+##### Trailer
+
+Trailer是response header，允许发送方在消息后面添加额外的元信息。
+
+如：`Trailer:Expires`表示Expires将出现在分块信息的结尾。
+
+##### 去除逐段传输头
+
+代理过程中上述只发生在客户端和第一代理中。因此第一代理需要除去标准的逐段传输头（hop-by-hop）
+
+- 逐段传输头都需要在Connection头中列出
+- 第一代理必须处理它们且不转发
+- 逐段传输头：`Keep-Alive,Transfer-Encoding,TE,Connection,Trailer,Upgrade,Proxy-Authorization,Proxy-Authenticate`
+
+#### socks5代理
+
