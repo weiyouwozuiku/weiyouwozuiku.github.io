@@ -398,6 +398,242 @@ func main() {
   - Trailer
 - 第一代理除去标准的逐段传输头
 
+##### ReverseProxy
+
+```go
+type ReverseProxy struct {
+	// 控制器必须是一个函数，函数内部可以堆请求进行修改
+	Director func(*http.Request)
+
+	// The transport used to perform proxy requests.
+	// If nil, http.DefaultTransport is used.
+    // 连接池
+	Transport http.RoundTripper
+
+	// FlushInterval specifies the flush interval
+	// to flush to the client while copying the
+	// response body.
+	// If zero, no periodic flushing is done.
+	// A negative value means to flush immediately
+	// after each write to the client.
+	// The FlushInterval is ignored when ReverseProxy
+	// recognizes a response as a streaming response, or
+	// if its ContentLength is -1; for such responses, writes
+	// are flushed to the client immediately.
+    // 刷新到客户端的刷新间隔
+	FlushInterval time.Duration
+
+	// ErrorLog specifies an optional logger for errors
+	// that occur when attempting to proxy the request.
+	// If nil, logging is done via the log package's standard logger.
+    // 错误记录器
+	ErrorLog *log.Logger
+
+	// BufferPool optionally specifies a buffer pool to
+	// get byte slices for use by io.CopyBuffer when
+	// copying HTTP response bodies.
+    // 定义缓冲池，在复制http响应时使用，用以提高请求效率
+	BufferPool BufferPool
+
+	// ModifyResponse is an optional function that modifies the
+	// Response from the backend. It is called if the backend
+	// returns a response at all, with any HTTP status code.
+	// If the backend is unreachable, the optional ErrorHandler is
+	// called without any call to ModifyResponse.
+	//
+	// If ModifyResponse returns an error, ErrorHandler is called
+	// with its error value. If ErrorHandler is nil, its default
+	// implementation is used.
+    // 修改response函数
+	ModifyResponse func(*http.Response) error
+
+	// ErrorHandler is an optional function that handles errors
+	// reaching the backend or errors from ModifyResponse.
+	//
+	// If nil, the default is to log the provided error and return
+	// a 502 Status Bad Gateway response.
+    // 错误处理回调函数，如果为nil时，则遇到错误会显示502
+	ErrorHandler func(http.ResponseWriter, *http.Request, error)
+}
+
+func (p *ReverseProxy) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
+	transport := p.Transport
+	if transport == nil {
+		transport = http.DefaultTransport
+	}
+    // 验证请求是否终止
+	ctx := req.Context()
+	if ctx.Done() != nil {
+		// CloseNotifier predates context.Context, and has been
+		// entirely superseded by it. If the request contains
+		// a Context that carries a cancellation signal, don't
+		// bother spinning up a goroutine to watch the CloseNotify
+		// channel (if any).
+		//
+		// If the request Context has a nil Done channel (which
+		// means it is either context.Background, or a custom
+		// Context implementation with no cancellation signal),
+		// then consult the CloseNotifier if available.
+	} else if cn, ok := rw.(http.CloseNotifier); ok {
+		var cancel context.CancelFunc
+		ctx, cancel = context.WithCancel(ctx)
+		defer cancel()
+		notifyChan := cn.CloseNotify()
+		go func() {
+			select {
+			case <-notifyChan:
+				cancel()
+			case <-ctx.Done():
+			}
+		}()
+	}
+    // 设置请求ctx信息
+	outreq := req.Clone(ctx)
+	if req.ContentLength == 0 {
+		outreq.Body = nil // Issue 16036: nil Body for http.Transport retries
+	}
+	if outreq.Body != nil {
+		// Reading from the request body after returning from a handler is not
+		// allowed, and the RoundTrip goroutine that reads the Body can outlive
+		// this handler. This can lead to a crash if the handler panics (see
+		// Issue 46866). Although calling Close doesn't guarantee there isn't
+		// any Read in flight after the handle returns, in practice it's safe to
+		// read after closing it.
+		defer outreq.Body.Close()
+	}
+    // 深拷贝header
+	if outreq.Header == nil {
+		outreq.Header = make(http.Header) // Issue 33142: historical behavior was to always allocate
+	}
+	// 修改req
+	p.Director(outreq)
+	outreq.Close = false
+	// Upgrade头的特殊处理
+	reqUpType := upgradeType(outreq.Header)
+	if !ascii.IsPrint(reqUpType) {
+		p.getErrorHandler()(rw, req, fmt.Errorf("client tried to switch to invalid protocol %q", reqUpType))
+		return
+	}
+	removeConnectionHeaders(outreq.Header)
+
+	// Remove hop-by-hop headers to the backend. Especially
+	// important is "Connection" because we want a persistent
+	// connection, regardless of what the client sent to us.
+    // 删除后端的逐段标题
+	for _, h := range hopHeaders {
+		outreq.Header.Del(h)
+	}
+
+	// Issue 21096: tell backend applications that care about trailer support
+	// that we support trailers. (We do, but we don't go out of our way to
+	// advertise that unless the incoming client request thought it was worth
+	// mentioning.) Note that we look at req.Header, not outreq.Header, since
+	// the latter has passed through removeConnectionHeaders.
+	if httpguts.HeaderValuesContainsToken(req.Header["Te"], "trailers") {
+		outreq.Header.Set("Te", "trailers")
+	}
+
+	// After stripping all the hop-by-hop connection headers above, add back any
+	// necessary for protocol upgrades, such as for websockets.
+	if reqUpType != "" {
+		outreq.Header.Set("Connection", "Upgrade")
+		outreq.Header.Set("Upgrade", reqUpType)
+	}
+	// 追加clint IP信息
+	if clientIP, _, err := net.SplitHostPort(req.RemoteAddr); err == nil {
+		// If we aren't the first proxy retain prior
+		// X-Forwarded-For information as a comma+space
+		// separated list and fold multiple headers into one.
+		prior, ok := outreq.Header["X-Forwarded-For"]
+		omit := ok && prior == nil // Issue 38079: nil now means don't populate the header
+		if len(prior) > 0 {
+			clientIP = strings.Join(prior, ", ") + ", " + clientIP
+		}
+		if !omit {
+			outreq.Header.Set("X-Forwarded-For", clientIP)
+		}
+	}
+	// 向下游请求数据
+	res, err := transport.RoundTrip(outreq)
+	if err != nil {
+		p.getErrorHandler()(rw, outreq, err)
+		return
+	}
+
+	// Deal with 101 Switching Protocols responses: (WebSocket, h2c, etc)
+    // 处理升级协议请求
+	if res.StatusCode == http.StatusSwitchingProtocols {
+		if !p.modifyResponse(rw, res, outreq) {
+			return
+		}
+		p.handleUpgradeResponse(rw, outreq, res)
+		return
+	}
+	// 移除逐段头部
+	removeConnectionHeaders(res.Header)
+
+	for _, h := range hopHeaders {
+		res.Header.Del(h)
+	}
+	// 修改返回数据
+	if !p.modifyResponse(rw, res, outreq) {
+		return
+	}
+	// 拷贝头部信息
+	copyHeader(rw.Header(), res.Header)
+
+	// The "Trailer" header isn't included in the Transport's response,
+	// at least for *http.Transport. Build it up from Trailer.
+	announcedTrailers := len(res.Trailer)
+	if announcedTrailers > 0 {
+		trailerKeys := make([]string, 0, len(res.Trailer))
+		for k := range res.Trailer {
+			trailerKeys = append(trailerKeys, k)
+		}
+		rw.Header().Add("Trailer", strings.Join(trailerKeys, ", "))
+	}
+	// 写入状态码
+	rw.WriteHeader(res.StatusCode)
+	// 周期刷新内容到response
+	err = p.copyResponse(rw, res.Body, p.flushInterval(res))
+	if err != nil {
+		defer res.Body.Close()
+		// Since we're streaming the response, if we run into an error all we can do
+		// is abort the request. Issue 23643: ReverseProxy should use ErrAbortHandler
+		// on read error while copying body.
+		if !shouldPanicOnCopyError(req) {
+			p.logf("suppressing panic for copyResponse error in test; copy error: %v", err)
+			return
+		}
+		panic(http.ErrAbortHandler)
+	}
+	res.Body.Close() // close now, instead of defer, to populate res.Trailer
+
+	if len(res.Trailer) > 0 {
+		// Force chunking if we saw a response trailer.
+		// This prevents net/http from calculating the length for short
+		// bodies and adding a Content-Length.
+		if fl, ok := rw.(http.Flusher); ok {
+			fl.Flush()
+		}
+	}
+
+	if len(res.Trailer) == announcedTrailers {
+		copyHeader(rw.Header(), res.Trailer)
+		return
+	}
+
+	for k, vv := range res.Trailer {
+		k = http.TrailerPrefix + k
+		for _, v := range vv {
+			rw.Header().Add(k, v)
+		}
+	}
+}
+```
+
+
+
 ##### Connection
 
 - 标记请求发起方与第一代理的状态
@@ -427,4 +663,341 @@ Trailer是response header，允许发送方在消息后面添加额外的元信�
 - 逐段传输头：`Keep-Alive,Transfer-Encoding,TE,Connection,Trailer,Upgrade,Proxy-Authorization,Proxy-Authenticate`
 
 #### socks5代理
+
+## 负载均衡
+
+### 随机负载均衡
+
+```go
+import (
+	"errors"
+	"fmt"
+	"math/rand"
+	"strings"
+)
+
+type RandomBalance struct {
+	curIndex int
+	rss      []string
+	//观察主体
+	conf LoadBalanceConf
+}
+
+func (r *RandomBalance) Add(params ...string) error {
+	if len(params) == 0 {
+		return errors.New("param len 1 at least")
+	}
+	addr := params[0]
+	r.rss = append(r.rss, addr)
+	return nil
+}
+
+func (r *RandomBalance) Next() string {
+	if len(r.rss) == 0 {
+		return ""
+	}
+	r.curIndex = rand.Intn(len(r.rss))
+	return r.rss[r.curIndex]
+}
+
+func (r *RandomBalance) Get(key string) (string, error) {
+	return r.Next(), nil
+}
+
+func (r *RandomBalance) SetConf(conf LoadBalanceConf) {
+	r.conf = conf
+}
+
+func (r *RandomBalance) Update() {
+	if conf, ok := r.conf.(*LoadBalanceZkConf); ok {
+		fmt.Println("Update get conf:", conf.GetConf())
+		r.rss = []string{}
+		for _, ip := range conf.GetConf() {
+			r.Add(strings.Split(ip, ",")...)
+		}
+	}
+	if conf, ok := r.conf.(*LoadBalanceCheckConf); ok {
+		fmt.Println("Update get conf:", conf.GetConf())
+		r.rss = nil
+		for _, ip := range conf.GetConf() {
+			r.Add(strings.Split(ip, ",")...)
+		}
+	}
+}
+```
+
+###  轮询负载均衡
+
+```go
+import (
+	"errors"
+	"fmt"
+	"strings"
+)
+
+type RoundRobinBalance struct {
+	curIndex int
+	rss      []string
+	//观察主体
+	conf LoadBalanceConf
+}
+
+func (r *RoundRobinBalance) Add(params ...string) error {
+	if len(params) == 0 {
+		return errors.New("param len 1 at least")
+	}
+	addr := params[0]
+	r.rss = append(r.rss, addr)
+	return nil
+}
+
+func (r *RoundRobinBalance) Next() string {
+	if len(r.rss) == 0 {
+		return ""
+	}
+	lens := len(r.rss) //5
+	if r.curIndex >= lens {
+		r.curIndex = 0
+	}
+	curAddr := r.rss[r.curIndex]
+	r.curIndex = (r.curIndex + 1) % lens
+	return curAddr
+}
+
+func (r *RoundRobinBalance) Get(key string) (string, error) {
+	return r.Next(), nil
+}
+
+func (r *RoundRobinBalance) SetConf(conf LoadBalanceConf) {
+	r.conf = conf
+}
+
+func (r *RoundRobinBalance) Update() {
+	if conf, ok := r.conf.(*LoadBalanceZkConf); ok {
+		fmt.Println("Update get conf:", conf.GetConf())
+		r.rss = []string{}
+		for _, ip := range conf.GetConf() {
+			r.Add(strings.Split(ip, ",")...)
+		}
+	}
+	if conf, ok := r.conf.(*LoadBalanceCheckConf); ok {
+		fmt.Println("Update get conf:", conf.GetConf())
+		r.rss = nil
+		for _, ip := range conf.GetConf() {
+			r.Add(strings.Split(ip, ",")...)
+		}
+	}
+}
+```
+
+### 加权轮询负载均衡
+
+```go
+import (
+	"errors"
+	"fmt"
+	"strconv"
+	"strings"
+)
+
+type WeightRoundRobinBalance struct {
+	curIndex int
+	rss      []*WeightNode
+	rsw      []int
+	//观察主体
+	conf LoadBalanceConf
+}
+
+type WeightNode struct {
+	addr            string
+	weight          int //权重值
+	currentWeight   int //节点当前权重
+	effectiveWeight int //有效权重
+}
+
+func (r *WeightRoundRobinBalance) Add(params ...string) error {
+	if len(params) != 2 {
+		return errors.New("param len need 2")
+	}
+	parInt, err := strconv.ParseInt(params[1], 10, 64)
+	if err != nil {
+		return err
+	}
+	node := &WeightNode{addr: params[0], weight: int(parInt)}
+	node.effectiveWeight = node.weight
+	r.rss = append(r.rss, node)
+	return nil
+}
+
+func (r *WeightRoundRobinBalance) Next() string {
+	total := 0
+	var best *WeightNode
+	for i := 0; i < len(r.rss); i++ {
+		w := r.rss[i]
+		//step 1 统计所有有效权重之和
+		total += w.effectiveWeight
+		//step 2 变更节点临时权重为的节点临时权重+节点有效权重
+		w.currentWeight += w.effectiveWeight
+		//step 3 有效权重默认与权重相同，通讯异常时-1, 通讯成功+1，直到恢复到weight大小
+		if w.effectiveWeight < w.weight {
+			w.effectiveWeight++
+		}
+		//step 4 选择最大临时权重点节点
+		if best == nil || w.currentWeight > best.currentWeight {
+			best = w
+		}
+	}
+	if best == nil {
+		return ""
+	}
+	//step 5 变更临时权重为 临时权重-有效权重之和
+	best.currentWeight -= total
+	return best.addr
+}
+
+func (r *WeightRoundRobinBalance) Get(key string) (string, error) {
+	return r.Next(), nil
+}
+
+func (r *WeightRoundRobinBalance) SetConf(conf LoadBalanceConf) {
+	r.conf = conf
+}
+
+func (r *WeightRoundRobinBalance) Update() {
+	if conf, ok := r.conf.(*LoadBalanceZkConf); ok {
+		fmt.Println("WeightRoundRobinBalance get conf:", conf.GetConf())
+		r.rss = nil
+		for _, ip := range conf.GetConf() {
+			r.Add(strings.Split(ip, ",")...)
+		}
+	}
+	if conf, ok := r.conf.(*LoadBalanceCheckConf); ok {
+		fmt.Println("WeightRoundRobinBalance get conf:", conf.GetConf())
+		r.rss = nil
+		for _, ip := range conf.GetConf() {
+			r.Add(strings.Split(ip, ",")...)
+		}
+	}
+}
+```
+
+### 一致性负载均衡
+
+```go
+import (
+	"errors"
+	"fmt"
+	"hash/crc32"
+	"sort"
+	"strconv"
+	"strings"
+	"sync"
+)
+
+type Hash func(data []byte) uint32
+
+type UInt32Slice []uint32
+
+func (s UInt32Slice) Len() int {
+	return len(s)
+}
+
+func (s UInt32Slice) Less(i, j int) bool {
+	return s[i] < s[j]
+}
+
+func (s UInt32Slice) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+type ConsistentHashBanlance struct {
+	mux      sync.RWMutex
+	hash     Hash
+	replicas int               //复制因子
+	keys     UInt32Slice       //已排序的节点hash切片
+	hashMap  map[uint32]string //节点哈希和Key的map,键是hash值，值是节点key
+
+	//观察主体
+	conf LoadBalanceConf
+}
+
+func NewConsistentHashBanlance(replicas int, fn Hash) *ConsistentHashBanlance {
+	m := &ConsistentHashBanlance{
+		replicas: replicas,
+		hash:     fn,
+		hashMap:  make(map[uint32]string),
+	}
+	if m.hash == nil {
+		//最多32位,保证是一个2^32-1环
+		m.hash = crc32.ChecksumIEEE
+	}
+	return m
+}
+
+// 验证是否为空
+func (c *ConsistentHashBanlance) IsEmpty() bool {
+	return len(c.keys) == 0
+}
+
+// Add 方法用来添加缓存节点，参数为节点key，比如使用IP
+func (c *ConsistentHashBanlance) Add(params ...string) error {
+	if len(params) == 0 {
+		return errors.New("param len 1 at least")
+	}
+	addr := params[0]
+	c.mux.Lock()
+	defer c.mux.Unlock()
+	// 结合复制因子计算所有虚拟节点的hash值，并存入m.keys中，同时在m.hashMap中保存哈希值和key的映射
+	for i := 0; i < c.replicas; i++ {
+		hash := c.hash([]byte(strconv.Itoa(i) + addr))
+		c.keys = append(c.keys, hash)
+		c.hashMap[hash] = addr
+	}
+	// 对所有虚拟节点的哈希值进行排序，方便之后进行二分查找
+	sort.Sort(c.keys)
+	return nil
+}
+
+// Get 方法根据给定的对象获取最靠近它的那个节点
+func (c *ConsistentHashBanlance) Get(key string) (string, error) {
+	if c.IsEmpty() {
+		return "", errors.New("node is empty")
+	}
+	hash := c.hash([]byte(key))
+
+	// 通过二分查找获取最优节点，第一个"服务器hash"值大于"数据hash"值的就是最优"服务器节点"
+	idx := sort.Search(len(c.keys), func(i int) bool { return c.keys[i] >= hash })
+
+	// 如果查找结果 大于 服务器节点哈希数组的最大索引，表示此时该对象哈希值位于最后一个节点之后，那么放入第一个节点中
+	if idx == len(c.keys) {
+		idx = 0
+	}
+	c.mux.RLock()
+	defer c.mux.RUnlock()
+	return c.hashMap[c.keys[idx]], nil
+}
+
+func (c *ConsistentHashBanlance) SetConf(conf LoadBalanceConf) {
+	c.conf = conf
+}
+
+func (c *ConsistentHashBanlance) Update() {
+	if conf, ok := c.conf.(*LoadBalanceZkConf); ok {
+		fmt.Println("Update get conf:", conf.GetConf())
+		c.keys = nil
+		c.hashMap = nil
+		for _, ip := range conf.GetConf() {
+			c.Add(strings.Split(ip, ",")...)
+		}
+	}
+	if conf, ok := c.conf.(*LoadBalanceCheckConf); ok {
+		fmt.Println("Update get conf:", conf.GetConf())
+		c.keys = nil
+		c.hashMap = map[uint32]string{}
+		for _, ip := range conf.GetConf() {
+			c.Add(strings.Split(ip, ",")...)
+		}
+	}
+}
+```
 
