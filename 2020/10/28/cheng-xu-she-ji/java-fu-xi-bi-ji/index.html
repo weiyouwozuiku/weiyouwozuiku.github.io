@@ -1039,7 +1039,7 @@
 <p>假设线程A已经拥有了某个对象（不是类）的锁，而其他线程B、C想要调用这个对象的某个synchronized方法（或者块），由于B、C线程在进入对象的synchronized方法（或者块）之前必须获得该对象锁的拥有权，而恰好该对象的锁目前正被线程A所占用。此时B、C线程就会被阻塞，进入一个地方等待锁的释放，这个地方就是该对象的锁池。</p>
 <h4 id="等待池WaitSet">等待池WaitSet<a class="anchor" href="#等待池WaitSet">¶</a></h4>
 <p>假设线程A调用了某个对象的wait()方法，线程A就会释放该对象的锁。同时线程A就进入到该对象的等待池中，不会去竞争该对象的锁。</p>
-<h4 id="区别-2">区别<a class="anchor" href="#区别-2">¶</a></h4>
+<h4 id="区别">区别<a class="anchor" href="#区别">¶</a></h4>
 <ul>
 <li>notifyAll会让所有处于等待池的线程全部进入锁池去竞争获取锁的机会</li>
 <li>notify只会随即选取一个处于等待池中的线程进入锁池去争取竞争获取锁的机会</li>
@@ -1267,7 +1267,7 @@
 <h3 id="ACID">ACID<a class="anchor" href="#ACID">¶</a></h3>
 <h3 id="隔离级别">隔离级别<a class="anchor" href="#隔离级别">¶</a></h3>
 <h3 id="事务传播">事务传播<a class="anchor" href="#事务传播">¶</a></h3>
-<h2 id="Tip-9">Tip<a class="anchor" href="#Tip-9">¶</a></h2>
+<h2 id="Tip-7">Tip<a class="anchor" href="#Tip-7">¶</a></h2>
 <h3 id="static、final、static-final的区别">static、final、static final的区别<a class="anchor" href="#static、final、static-final的区别">¶</a></h3>
 <h4 id="final">final<a class="anchor" href="#final">¶</a></h4>
 <p>可以修饰属性、方法、类、局部变量。</p>
@@ -1873,7 +1873,7 @@ s<span class="token punctuation">.</span><span class="token function">intern</sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">250.4k</span>&nbsp;字
+                class="white-color">252.9k</span>&nbsp;字
             
             
             
