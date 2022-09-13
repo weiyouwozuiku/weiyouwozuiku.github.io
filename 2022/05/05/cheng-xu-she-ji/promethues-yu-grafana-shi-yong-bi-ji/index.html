@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -550,7 +550,7 @@
 <p>Promethues是一个成熟的监控开源软件。</p>
 <p>优点：能够获取极为详细的运行信息，并且能针对不同的服务以服务的粒度去监控其各项指标。每次监控的数据都会存在相应的主机的时序数据库中，便于之后的问题定位与查找。能设置更好的面板，支持类sql的查询方式。</p>
 <p>缺点：因为采集的数据过于详细，频繁的采集可能导致服务本身的能力受到影响。并且其体量相较于探针大得多，部署等工作相对复杂。</p>
-<h3 id="总结-4">总结<a class="anchor" href="#总结-4">¶</a></h3>
+<h3 id="总结">总结<a class="anchor" href="#总结">¶</a></h3>
 <p>对于之前的需求而言，并不在乎其实时状态，只需要监控一定时间间隔内的运行状态，并且现在有一个相对空置的机器可以部署Promethues服务。因此选择Promethues+Grafana作为技术方案。</p>
 <p>其中，Promethues进行数据收集，Grafana负责数据展示</p>
 <h2 id="详细设计">详细设计<a class="anchor" href="#详细设计">¶</a></h2>
@@ -722,7 +722,7 @@ http_port = 8028<span aria-hidden="true" class="line-numbers-rows"><span></span>
 <p>重启Grafana即可。</p>
 <p>在Grafana中首先创建Data Source，之后去import面板，可以用1860或者8919。</p>
 <p>可以在<a target="_blank" rel="noopener" href="https://grafana.com/grafana/dashboards/?collector=nodeexporter">官网</a>选择喜欢的模板，import进自己的Grafana即可。</p>
-<h2 id="参考文献-9">参考文献<a class="anchor" href="#参考文献-9">¶</a></h2>
+<h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://einverne.github.io/post/2020/05/use-prometheus-and-grafana-monitor-proxmox.html">使用 Prometheus 和 Grafana 监控 Proxmox 服务器</a>，2020</li>
 <li>简书，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/821bf7d2bbef">让普罗米修斯替我监测树莓派集群</a>，2020</li>

@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -700,7 +700,7 @@
 <li>-Xmx：堆能达到的最大值</li>
 </ul>
 <p>一般将Xms和Xmx设置成一样，因为当堆不够用而发生扩容时，会发生内存抖动，影响程序运行时的稳定性。</p>
-<h2 id="反射-2">反射<a class="anchor" href="#反射-2">¶</a></h2>
+<h2 id="反射">反射<a class="anchor" href="#反射">¶</a></h2>
 <p>在运行状态中，对于任意一个类。都能够知道这个类的所有属性和方法；对于任意一个对象。都能够调用它的任意方法和属性；这种动态获取信息以及调用对象方法的功能称为java的反射机制。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//robot.java</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Robot</span> <span class="token punctuation">{</span>
@@ -747,7 +747,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="GC-2">GC<a class="anchor" href="#GC-2">¶</a></h2>
+<h2 id="GC">GC<a class="anchor" href="#GC">¶</a></h2>
 <h2 id="多线程与并发">多线程与并发<a class="anchor" href="#多线程与并发">¶</a></h2>
 <h3 id="进程与线程">进程与线程<a class="anchor" href="#进程与线程">¶</a></h3>
 <p>进程：进程独占内存空间，保存各自运行状态，相互间不干扰且可以互相切换，为并发处理任务提供了可能。</p>
@@ -803,7 +803,7 @@
 <li>同步代码块（synchronized(类.class)），锁是小括号()中的类对象(Class对象)</li>
 <li>同步静态方法（synchronzied static method），锁是当前对象的类对象(Class对象)</li>
 </ol>
-<h4 id="总结-3">总结<a class="anchor" href="#总结-3">¶</a></h4>
+<h4 id="总结">总结<a class="anchor" href="#总结">¶</a></h4>
 <ul>
 <li>线程访问对象的同步代码块时，另外的线程可以访问该对象的非同步代码块</li>
 <li>若锁住的是同一个对象，一个线程在访问对象的同步代码块时，另一个访问对象的同步代码块的线程会被阻塞</li>
@@ -813,8 +813,8 @@
 <li>类锁由于也是一种特殊的对象锁，因此表现和上述1,2,3,4一致，而由于一个类只有一把对象锁，所以同一个类的不同对象使用类锁，将会是同步的</li>
 <li>类锁和对象锁互不干扰</li>
 </ul>
-<h4 id="原理-2">原理<a class="anchor" href="#原理-2">¶</a></h4>
-<h5 id="重入-2">重入<a class="anchor" href="#重入-2">¶</a></h5>
+<h4 id="原理">原理<a class="anchor" href="#原理">¶</a></h4>
+<h5 id="重入">重入<a class="anchor" href="#重入">¶</a></h5>
 <p>从互斥锁的设计上来说，当一个线程试图操作一个由其他线程持有的对象锁的临界资源时，将会进入阻塞状态。但当一个线程再次请求自己持有对象锁的临界资源的时候，这种情况就叫重入。</p>
 <h5 id="Java对象头">Java对象头<a class="anchor" href="#Java对象头">¶</a></h5>
 <p>对象在内存中的布局：</p>
@@ -1062,7 +1062,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.png" alt="Java复习笔记_集合框架.png"></p>
 <h3 id="List和Set">List和Set<a class="anchor" href="#List和Set">¶</a></h3>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/Java%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0_List&amp;Set.png" alt="Java复习笔记_List&amp;Set.png"></p>
-<h3 id="Map-2">Map<a class="anchor" href="#Map-2">¶</a></h3>
+<h3 id="Map">Map<a class="anchor" href="#Map">¶</a></h3>
 <h4 id="HashMap">HashMap<a class="anchor" href="#HashMap">¶</a></h4>
 <p><strong>在HashMap中，null可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为null。</strong></p>
 <p>当get()方法返回null值时，即可以表示 HashMap中没有该键，也可以表示该键所对应的值为null。因此，在HashMap中不能由get()方法来判断HashMap中是否存在某个键， 而应该用containsKey()方法来判断。</p>
@@ -1267,7 +1267,7 @@
 <h3 id="ACID">ACID<a class="anchor" href="#ACID">¶</a></h3>
 <h3 id="隔离级别">隔离级别<a class="anchor" href="#隔离级别">¶</a></h3>
 <h3 id="事务传播">事务传播<a class="anchor" href="#事务传播">¶</a></h3>
-<h2 id="Tip-7">Tip<a class="anchor" href="#Tip-7">¶</a></h2>
+<h2 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h2>
 <h3 id="static、final、static-final的区别">static、final、static final的区别<a class="anchor" href="#static、final、static-final的区别">¶</a></h3>
 <h4 id="final">final<a class="anchor" href="#final">¶</a></h4>
 <p>可以修饰属性、方法、类、局部变量。</p>

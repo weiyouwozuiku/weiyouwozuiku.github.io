@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -611,13 +611,13 @@ $ ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="t
 <p>如果想同时长传至coding,也是去coding添加上述信息。</p>
 <p>测试是否成功使用<code>ssh -T git@github.com</code>。</p>
 <h3 id="Hexo">Hexo<a class="anchor" href="#Hexo">¶</a></h3>
-<h4 id="安装-6">安装<a class="anchor" href="#安装-6">¶</a></h4>
+<h4 id="安装">安装<a class="anchor" href="#安装">¶</a></h4>
 <p><code>npm install -g hexo-cli </code>，安装Hexo主程序。</p>
 <h4 id="初始化">初始化<a class="anchor" href="#初始化">¶</a></h4>
 <p><code>hexo init &lt;博客文件夹名称&gt;</code>，创建博客所在的文件夹并生成最基本的框架文件。</p>
 <p>进入该目录，使用<code>npm install</code>安装所需的node包。</p>
 <p>在本地启动hexo：<code>hexo server</code>或<code>hexo s</code>。</p>
-<h4 id="常用命令-3">常用命令<a class="anchor" href="#常用命令-3">¶</a></h4>
+<h4 id="常用命令">常用命令<a class="anchor" href="#常用命令">¶</a></h4>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo <span class="token parameter variable">-g</span> <span class="token comment">#安装Hexo</span>
 <span class="token function">npm</span> update hexo <span class="token parameter variable">-g</span> <span class="token comment">#升级</span>
 hexo init <span class="token comment">#初始化博客</span>
@@ -673,12 +673,12 @@ hexo clean <span class="token comment">#清除缓存，若是网页正常情况�
 	<span class="token key atrule">order_by</span><span class="token punctuation">:</span> <span class="token punctuation">-</span>updated<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="更换解析器">更换解析器<a class="anchor" href="#更换解析器">¶</a></h3>
 <p>原生使用的是<code>hexo-renderer-marked</code>，可以替换成<code>hexo-renderer-marked-it</code>这个解析器。</p>
-<h4 id="安装-7">安装<a class="anchor" href="#安装-7">¶</a></h4>
+<h4 id="安装-2">安装<a class="anchor" href="#安装-2">¶</a></h4>
 <p>卸载原生解析器</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> un hexo-renderer-marked <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>安装解析器</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">npm</span> i hexo-renderer-markdown-it <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="配置-2">配置<a class="anchor" href="#配置-2">¶</a></h4>
+<h4 id="配置">配置<a class="anchor" href="#配置">¶</a></h4>
 <p>在整个Hexo项目下的<code>_config.yaml</code>文件下添加配置<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">markdown</span><span class="token punctuation">:</span>
   <span class="token key atrule">preset</span><span class="token punctuation">:</span> <span class="token string">"default"</span> <span class="token comment"># 渲染器默认预设 # "commonmark": 使用严格 CommandMark 规定. # "default": 默认配置, 类似于 GFM # "zero": 禁用所有预设.</span>
@@ -904,7 +904,7 @@ baidusitemap<span class="token operator">:</span>
 </ul>
 <p>成功截图如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95_Google%E6%94%B6%E5%BD%95%E6%88%90%E5%8A%9F.png" alt="Hexo博客搭建记录_Google收录成功.png"></p>
-<h2 id="参考文献-19">参考文献<a class="anchor" href="#参考文献-19">¶</a></h2>
+<h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">

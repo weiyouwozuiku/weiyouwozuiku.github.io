@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -1088,7 +1088,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="位运算-2">位运算<a class="anchor" href="#位运算-2">¶</a></h3>
+<h3 id="位运算">位运算<a class="anchor" href="#位运算">¶</a></h3>
 <p>一般用于计算n的二进制表示第k位是什么。<code>n&gt;&gt;k&amp;1</code></p>
 <p><code>lowbit(x)</code>：返回x的最后一位1。实现的原理是基于C++中负数是原数取反+1，所以x&amp;-x即x&amp;(~x+1)。、取反后最后一位1是0之后都是1，加1之后全部变成0,最后一位再次变成1,前面的还是取反状态与运算0。</p>
 <h5 id="二进制中1的个数">二进制中1的个数<a class="anchor" href="#二进制中1的个数">¶</a></h5>
@@ -2359,7 +2359,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <h3 id="自适应辛普森积分">自适应辛普森积分<a class="anchor" href="#自适应辛普森积分">¶</a></h3>
 <h2 id="常用STL">常用STL<a class="anchor" href="#常用STL">¶</a></h2>
 <p>所有容器中都有<code>size()和empty()</code>函数时间复杂度为<img src="https://math.now.sh?inline=O%281%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。</p>
-<h3 id="vector-2">vector<a class="anchor" href="#vector-2">¶</a></h3>
+<h3 id="vector">vector<a class="anchor" href="#vector">¶</a></h3>
 <p>变长数组，倍增思想。</p>
 <p>系统中为某一程序分配空间时所需时间时间，与空间大小无关，与申请次数有关。vector插入的平均性能可以理解为是<img src="https://math.now.sh?inline=O%281%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//a中10个元素</span>
@@ -2373,20 +2373,20 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
  <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">// 随机寻址</span>
  支持比较运算，按字典序
  <span class="token keyword">for</span> <span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token double-colon punctuation">::</span>iterator i<span class="token operator">=</span>a<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">!=</span>a<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token comment">// 迭代器可以看做是指针，用*获取</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="pair-2">pair<a class="anchor" href="#pair-2">¶</a></h3>
+<h3 id="pair">pair<a class="anchor" href="#pair">¶</a></h3>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token comment">// 两个元素不要求相同类型</span>
  实例化：p<span class="token operator">=</span><span class="token function">make_pair</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token string">"wang"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 p<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token string">"abc"</span><span class="token punctuation">}</span>
 first<span class="token punctuation">,</span> 第一个元素
  second<span class="token punctuation">,</span> 第二个元素
  支持比较运算，以first为第一关键字，以second为第二关键字（字典序）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="string-3">string<a class="anchor" href="#string-3">¶</a></h3>
+<h3 id="string">string<a class="anchor" href="#string">¶</a></h3>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  返回字符串长度
  <span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
  <span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
  <span class="token function">substr</span><span class="token punctuation">(</span>起始下标，<span class="token punctuation">(</span>子串长度<span class="token punctuation">)</span><span class="token punctuation">)</span>  返回子串
  <span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  返回字符串所在字符数组的起始地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="queue-2">queue<a class="anchor" href="#queue-2">¶</a></h3>
+<h3 id="queue">queue<a class="anchor" href="#queue">¶</a></h3>
 <p>队列</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -2394,7 +2394,7 @@ first<span class="token punctuation">,</span> 第一个元素
 <span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  返回队头元素
 <span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  返回队尾元素
 <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  弹出队头元素<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="priority-queue-2">priority_queue<a class="anchor" href="#priority-queue-2">¶</a></h3>
+<h3 id="priority-queue">priority_queue<a class="anchor" href="#priority-queue">¶</a></h3>
 <p>优先队列，默认是大根堆。</p>
 <p>如果想要小顶堆有两种方式：</p>
 <ul>
@@ -2408,7 +2408,7 @@ first<span class="token punctuation">,</span> 第一个元素
 <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  弹出堆顶元素
 定义成小根堆的方式：priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> greater<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> q<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>**优先队列不支持修改元素的值。**如果需要修改元素的值，只能在此插入，会存在冗余值的问题。</p>
-<h3 id="stack-2">stack<a class="anchor" href="#stack-2">¶</a></h3>
+<h3 id="stack">stack<a class="anchor" href="#stack">¶</a></h3>
 <p>栈</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -2469,7 +2469,7 @@ map<span class="token operator">/</span>multimap
    <span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  把所有位变成<span class="token number">0</span>
    <span class="token function">flip</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  等价于<span class="token operator">~</span>
    <span class="token function">flip</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span> 把第k位取反<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Tip-11">Tip<a class="anchor" href="#Tip-11">¶</a></h2>
+<h2 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h2>
 <h3 id="c-的io">c++的io<a class="anchor" href="#c-的io">¶</a></h3>
 <h4 id="cin和scanf速度">cin和scanf速度<a class="anchor" href="#cin和scanf速度">¶</a></h4>
 <p>cin、cout之所以效率低是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而<code>std::ios::sync_with_stdio(false);</code>可以来打消iostream的输入输出缓存，可以节省许多时间，使效率与scanf与printf相差无几。这样做了之后要注意不要同时混用cout和printf 之类。</p>
@@ -2582,7 +2582,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
 <li>另一方面，由于一般的数据都不会大于<img src="https://math.now.sh?inline=10%5E9" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，所以当我们把无穷大加上一个数据时，它并不会溢出（这就满足了“无穷大加一个有穷的数依然是无穷大”），事实上<code>0x3f3f3f3f+0x3f3f3f3f=2122219134</code>，这非常大但却没有超过32-bit int的表示范围，所以<code>0x3f3f3f3f</code>还满足了我们“无穷大加无穷大还是无穷大”的需求。</li>
 <li>最后，0x3f3f3f3f还能给我们带来一个意想不到的额外好处：如果我们想要将某个数组清零，我们通常会使用memset(a,0,sizeof(a))这样的代码来实现（方便而高效），但是当我们想将某个数组全部赋值为无穷大时（例如解决图论问题时邻接矩阵的初始化），就不能使用memset函数而得自己写循环了（写这些不重要的代码真的很痛苦），我们知道这是因为memset是按字节操作的，它能够对数组清零是因为0的每个字节都是0，现在好了，如果我们将无穷大设为0x3f3f3f3f，那么奇迹就发生了，0x3f3f3f3f的每个字节都是0x3f！所以要把一段内存全部置为无穷大，我们只需要memset(a,0x3f,sizeof(a))。</li>
 </ul>
-<h2 id="参考文献-14">参考文献<a class="anchor" href="#参考文献-14">¶</a></h2>
+<h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
 <ol>
 <li>CSDN，<a target="_blank" rel="noopener" href="https://blog.csdn.net/L_apple8/article/details/52525752">使用0x3f3f3f表示无穷大</a></li>
 </ol>

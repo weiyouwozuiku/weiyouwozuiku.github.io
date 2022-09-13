@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -533,7 +533,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="Mysql">Mysql<a class="anchor" href="#Mysql">¶</a></h2>
-<h3 id="使用-3">使用<a class="anchor" href="#使用-3">¶</a></h3>
+<h3 id="使用">使用<a class="anchor" href="#使用">¶</a></h3>
 <ul>
 <li>安装mysql-connect的包</li>
 </ul>
@@ -564,7 +564,7 @@ pool=mysql.connector.pooling.MySQLConnetcionPool(**config,pool_size=10)
 con=pool.get_connection()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="性能优化">性能优化<a class="anchor" href="#性能优化">¶</a></h3>
 <p>当大量数据需要插入时，可以使用<code>executemany()</code>方法。其效果可以有效的优化自己每次使用<code>execute()</code>方法所带来的性能损耗，尤其是当数据库中有10万条以上的数据后。</p>
-<h2 id="Tip-8">Tip<a class="anchor" href="#Tip-8">¶</a></h2>
+<h2 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h2>
 <h3 id="SQL注入">SQL注入<a class="anchor" href="#SQL注入">¶</a></h3>
 <p>由于SQL是解释型语言，存在SQL注入问题。</p>
 <p>此时可以利用SQL预编译机制抵御注入攻击。</p>

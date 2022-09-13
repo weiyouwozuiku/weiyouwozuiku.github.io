@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -739,7 +739,7 @@ product_id<span class="token punctuation">,</span> product_name
 <p><strong>排序键中包含NULL时，会在开头或末尾进行汇总。</strong></p>
 <p>在ORDER BY子句中可以使用SELECT子句中定义的别名。但是GROUP BY不可以。<strong>因为 SELECT 子句的执行顺序在 GROUP BY 子句之后， ORDER BY 子句之前</strong>。</p>
 <p>在ORDER BY子句中可以使用SELECT子句中未使用的列和聚合函数。</p>
-<h2 id="索引-2">索引<a class="anchor" href="#索引-2">¶</a></h2>
+<h2 id="索引">索引<a class="anchor" href="#索引">¶</a></h2>
 <p>当数据量巨大时，通过索引可以大幅提升查询数据的速度。而数据量很少的时候，直接读入内存进行全表扫描会更快。</p>
 <h3 id="索引类型">索引类型<a class="anchor" href="#索引类型">¶</a></h3>
 <p>主键、唯一键以及普通键等。</p>
@@ -751,11 +751,11 @@ product_id<span class="token punctuation">,</span> product_name
 <li>建立Hash结构进行查找。</li>
 </ul>
 <h4 id="二叉查找树">二叉查找树<a class="anchor" href="#二叉查找树">¶</a></h4>
-<h5 id="定义-10">定义<a class="anchor" href="#定义-10">¶</a></h5>
+<h5 id="定义">定义<a class="anchor" href="#定义">¶</a></h5>
 <p>二叉查找数，是在二叉树的基础之上，约束其根节点的左节点小于根节点，右节点大于根节点。这样查找的时间复杂度为<img src="https://math.now.sh?inline=O%28logn%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。但是由于这样每个节点至多只能有两个节点，在面对大量数据时，整个树的层级会很深且由于数据变动可能变成线性的导致查询效果变差。因此，引入B-Tree。</p>
 <h4 id="B-Tree">B-Tree<a class="anchor" href="#B-Tree">¶</a></h4>
 <p>m阶B-Tree即子节点最多m个的B-Tree。</p>
-<h5 id="定义-11">定义<a class="anchor" href="#定义-11">¶</a></h5>
+<h5 id="定义-2">定义<a class="anchor" href="#定义-2">¶</a></h5>
 <ul>
 <li>根节点至少包含两个子节点</li>
 <li>树中每个节点最多含有m个子节点（m&gt;=2），m取决与节点的容量与相关配置。</li>
@@ -770,7 +770,7 @@ product_id<span class="token punctuation">,</span> product_name
 </li>
 </ul>
 <h4 id="B±Tree">B±Tree<a class="anchor" href="#B±Tree">¶</a></h4>
-<h5 id="定义-12">定义<a class="anchor" href="#定义-12">¶</a></h5>
+<h5 id="定义-3">定义<a class="anchor" href="#定义-3">¶</a></h5>
 <p>B±Tree是B-Tree的变体，其定义基本与B树相同，除了</p>
 <ul>
 <li>非叶子节点的子树指针与关键字个数相同</li>
@@ -778,7 +778,7 @@ product_id<span class="token punctuation">,</span> product_name
 <li>非叶子节点仅用来索引，数据都保存在叶子节点中</li>
 <li>所有叶子节点均有一个链指针指向下一个叶子节点，这样便于进行范围计算。例如大于某一个数的记录</li>
 </ul>
-<h5 id="优点-3">优点<a class="anchor" href="#优点-3">¶</a></h5>
+<h5 id="优点">优点<a class="anchor" href="#优点">¶</a></h5>
 <ul>
 <li>B+树的磁盘读写代价更低，其非叶子节点因其不存储信息相较于B树大小更小，一次性读入内存的节点数更多，可以减少读写</li>
 <li>B+树的查询效率更加稳定，都是从根节点到叶子节点</li>
@@ -794,7 +794,7 @@ product_id<span class="token punctuation">,</span> product_name
 <li>遇到大量hash值相等的情况后性能并不一定就会比B-Tree索引高</li>
 </ul>
 <h4 id="BitMap索引">BitMap索引<a class="anchor" href="#BitMap索引">¶</a></h4>
-<h5 id="定义-13">定义<a class="anchor" href="#定义-13">¶</a></h5>
+<h5 id="定义-4">定义<a class="anchor" href="#定义-4">¶</a></h5>
 <p>位图索引可以看作是存储了大量bit位的bit序列，并且通过这些bit序列上的按位操作来响应查询请求，同时每个bit序列中的位数与数据表中的行数是一致的。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95.png" alt="数据库知识_位图索引.png"></p>
 <h3 id="索引模块">索引模块<a class="anchor" href="#索引模块">¶</a></h3>
@@ -830,7 +830,7 @@ product_id<span class="token punctuation">,</span> product_name
 </ul>
 <h2 id="连接">连接<a class="anchor" href="#连接">¶</a></h2>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86_%E8%BF%9E%E6%8E%A5.png" alt="数据库知识_连接.png"></p>
-<h2 id="性能优化-2">性能优化<a class="anchor" href="#性能优化-2">¶</a></h2>
+<h2 id="性能优化">性能优化<a class="anchor" href="#性能优化">¶</a></h2>
 <p>在SQL在数据库中执行花费很长时间的时候需要考虑相应的性能优化问题。</p>
 <p>在优化的过程中大致可以分成两个部分：即程序在执行sql的过程中可否优化以及sql语句本身可否优化。针对第一点明显的就是在大量数据需要插入的时候，能否将多条数据整合进入一条sql中，以此加快执行的速度。或给表加上索引，mysql可以使用explain查看sql执行计划来检查查询是否命中索引。</p>
 <h3 id="explain">explain<a class="anchor" href="#explain">¶</a></h3>
@@ -910,7 +910,7 @@ product_id<span class="token punctuation">,</span> product_name
 <p>Extra: 额外信息</p>
 </li>
 </ul>
-<h2 id="Tip-15">Tip<a class="anchor" href="#Tip-15">¶</a></h2>
+<h2 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h2>
 <p>mysql中的sql语句中表名、列名可以用`进行包裹。comment之后的文字用单引号进行包裹。</p>
 
                 

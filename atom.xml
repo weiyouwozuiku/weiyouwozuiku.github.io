@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-07-10T11:13:43.000Z</updated>
+  <updated>2022-09-13T01:20:43.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spark学习笔记</title>
+    <link href="http://buerlog.top/2022/09/11/cheng-xu-she-ji/spark-xue-xi-bi-ji/"/>
+    <id>http://buerlog.top/2022/09/11/cheng-xu-she-ji/spark-xue-xi-bi-ji/</id>
+    <published>2022-09-11T15:04:09.000Z</published>
+    <updated>2022-09-13T01:20:43.000Z</updated>
+    
+    
+    
+    
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="Spark" scheme="http://buerlog.top/tags/Spark/"/>
+    
+  </entry>
   
   <entry>
     <title>软路由诞生记</title>
@@ -28,7 +45,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;摘要-3&quot;&gt;摘要&lt;a class=&quot;anchor&quot; href=&quot;#摘要-3&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;a class=&quot;anchor&quot; href=&quot;#摘要&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;h2 id=&quot;网络拓扑&quot;&gt;网络拓扑&lt;a class=&quot;anchor&quot; href=&quot;#网络拓扑&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;h2 id=&quot;硬件&quot;&gt;硬件&lt;a class=&quot;anchor&quot;</summary>
         
@@ -80,7 +97,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;安装-4&quot;&gt;安装&lt;a class=&quot;anchor&quot; href=&quot;#安装-4&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;安装&lt;a class=&quot;anchor&quot; href=&quot;#安装&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;从&lt;a</summary>
@@ -108,7 +125,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;参考文献-11&quot;&gt;参考文献&lt;a class=&quot;anchor&quot; href=&quot;#参考文献-11&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;参考文献&quot;&gt;参考文献&lt;a class=&quot;anchor&quot; href=&quot;#参考文献&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;字节技术团队，&lt;a</summary>
         
@@ -166,7 +183,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;安装-5&quot;&gt;安装&lt;a class=&quot;anchor&quot; href=&quot;#安装-5&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;安装&lt;a class=&quot;anchor&quot; href=&quot;#安装&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&quot;下载&quot;&gt;下载&lt;a class=&quot;anchor&quot; href=&quot;#下载&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;下载&lt;a</summary>
         
@@ -291,7 +308,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-6&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
         
       
     
@@ -333,7 +350,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-3&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
         
       
     
@@ -360,7 +377,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-16&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景-16&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;本文归纳整理学习生活过程中遇到的效应或问题，以便查阅。&lt;/p&gt;
 &lt;h2 id=&quot;惊群效应-1&quot;&gt;惊群效应&lt;a</summary>
         
@@ -414,7 +431,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Context-2&quot;&gt;Context&lt;a class=&quot;anchor&quot; href=&quot;#Context-2&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;Context&quot;&gt;Context&lt;a class=&quot;anchor&quot; href=&quot;#Context&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;在Go1.7版本引入官方库，可以在API边界之间以及过程之间传递截止时间、取消时间或其他与请求相关的数据。&lt;/p&gt;
 &lt;pre class=&quot;mermaid&quot;&gt;graph</summary>
         
@@ -563,7 +580,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-7&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
         
       
     
@@ -652,7 +669,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-14&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景-14&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;所谓哈希（hash），就是将不同的输入映射成独一无二的、固定长度的值（又称&quot;哈希值&quot;）。它是最常见的软件运算之一。&lt;/p&gt;
 &lt;p&gt;如果不同的输入得到了同一个哈希值，就发生了&quot;哈希碰撞&quot;（collision）。&lt;/p&gt;
 &lt;p&gt;&lt;img</summary>
@@ -743,7 +760,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-13&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景-13&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;所谓的海量数据是指海量数据的存储、处理和操作。正是因为数据量太大，所以导致要么无法在短时间迅速完成，要么无法一次性载入内存。&lt;/p&gt;
 &lt;p&gt;数据去重（data</summary>
         
@@ -798,7 +815,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;参考文献-25&quot;&gt;参考文献&lt;a class=&quot;anchor&quot; href=&quot;#参考文献-25&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;参考文献&quot;&gt;参考文献&lt;a class=&quot;anchor&quot; href=&quot;#参考文献&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;[A Primer on Memory Consistency and Cache</summary>
         
@@ -827,7 +844,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;参考文献-26&quot;&gt;参考文献&lt;a class=&quot;anchor&quot; href=&quot;#参考文献-26&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;参考文献&quot;&gt;参考文献&lt;a class=&quot;anchor&quot; href=&quot;#参考文献&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;[What Every Programmer Should Know About</summary>
         
@@ -856,7 +873,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-9&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
         
       
     
@@ -1581,7 +1598,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-8&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景-8&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;HQL（Hibernate Query Language）是面向对象的查询语言。，它与SQL查询语言类似。 在 Hibernate 提供的各种检索方式中, HQL 是使用最广的一种检索方式.</summary>
         
       
@@ -1663,7 +1680,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-4&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景-4&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;现在主流的数据存储与检索引擎可以大致分为两种:OLTP和OLAP.&lt;/p&gt;
 &lt;p&gt;OLTP指的是online transaction processing.&lt;/p&gt;
 &lt;p&gt;OLAP指的是online analysis</summary>
@@ -1704,7 +1721,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;摘要-2&quot;&gt;摘要&lt;a class=&quot;anchor&quot; href=&quot;#摘要-2&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;a class=&quot;anchor&quot; href=&quot;#摘要&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;本文旨在记录和汇总自己在工作以及学习过程中所使用的软件及其所遇问题的解决方案,以便日后所需.&lt;/p&gt;
 &lt;h2 id=&quot;可视化&quot;&gt;可视化&lt;a class=&quot;anchor&quot; href=&quot;#可视化&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
@@ -1817,7 +1834,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-11&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
         
       
     
@@ -1848,7 +1865,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-15&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
         
       
     
@@ -1916,7 +1933,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-12&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景-12&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;平时查询一个value是否存在，通常会创建一个hashmap进行存储所有元素。它的好处是快速准确，缺点是浪费空间。因此，引入布隆过滤器。&lt;/p&gt;
 &lt;p&gt;布隆过滤器（Bloom</summary>
         
@@ -1943,7 +1960,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景-5&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景-5&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;随着计算机硬件在过去10年中遵循摩尔定律的发展，通用计算机的CPU主频早已超过了4GHz，内存已早已进入了DDR4的时代。但是传统机械磁盘的读写性能并没有明显提升，而SSD的价格又过高。因此，探究传统机械硬盘的物理结构与性能优化方式具有重大学术与工程意义。&lt;/p&gt;
 &lt;h2</summary>
         
@@ -1996,7 +2013,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;前言-3&quot;&gt;前言&lt;a class=&quot;anchor&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;a class=&quot;anchor&quot;</summary>
         
       
     
@@ -2021,7 +2038,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;前言-2&quot;&gt;前言&lt;a class=&quot;anchor&quot; href=&quot;#前言-2&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;a class=&quot;anchor&quot; href=&quot;#前言&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Django是一个开放源代码的Web应用框架。&lt;/p&gt;
 &lt;p&gt;检测是否安装Django模块：&lt;/p&gt;
 &lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
@@ -2104,7 +2121,7 @@
         
         
     <summary type="html">&lt;h2 id=&quot;SkipList&quot;&gt;SkipList&lt;a class=&quot;anchor&quot; href=&quot;#SkipList&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;背景-2&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
+&lt;h3 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
         
       
     
@@ -2266,7 +2283,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;日志-2&quot;&gt;日志&lt;a class=&quot;anchor&quot; href=&quot;#日志-2&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;日志&quot;&gt;日志&lt;a class=&quot;anchor&quot; href=&quot;#日志&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;slf4j是日志的规范/接口&lt;/li&gt;
 &lt;li&gt;日志实现工具：log4j/logback/common-logging&lt;/li&gt;
@@ -2298,7 +2315,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;原理-4&quot;&gt;原理&lt;a class=&quot;anchor&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;原理&quot;&gt;原理&lt;a class=&quot;anchor&quot;</summary>
         
       
     
@@ -2341,7 +2358,7 @@
         
         
     <summary type="html">&lt;h2 id=&quot;vector&quot;&gt;vector&lt;a class=&quot;anchor&quot; href=&quot;#vector&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;-2&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#-2&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;h2 id=&quot;set&quot;&gt;set&lt;a class=&quot;anchor&quot; href=&quot;#set&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;h2 id=&quot;string&quot;&gt;string&lt;a</summary>
         
@@ -2479,7 +2496,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;前言-5&quot;&gt;前言&lt;a class=&quot;anchor&quot; href=&quot;#前言-5&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;a class=&quot;anchor&quot; href=&quot;#前言&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;本文记录本人刷Acwing过程的收获和代码。语言选择C++。&lt;/p&gt;
 &lt;h2 id=&quot;1～1000&quot;&gt;1～1000&lt;a class=&quot;anchor&quot; href=&quot;#1～1000&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&quot;1～500&quot;&gt;1～500&lt;a class=&quot;anchor&quot;</summary>
@@ -2508,7 +2525,7 @@
         
         
     <summary type="html">&lt;h2 id=&quot;Mysql&quot;&gt;Mysql&lt;a class=&quot;anchor&quot; href=&quot;#Mysql&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;使用-3&quot;&gt;使用&lt;a class=&quot;anchor&quot; href=&quot;#使用-3&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;使用&quot;&gt;使用&lt;a class=&quot;anchor&quot; href=&quot;#使用&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;安装mysql-connect的包&lt;/li&gt;
 &lt;/ul&gt;
@@ -2592,7 +2609,8 @@
         
     <summary type="html">&lt;p&gt;Nginx是一款轻量级的Web服务器、反向代理服务器，由于它的内存占用少，启动极快，高并发能力强，在互联网项目中广泛应用。&lt;/p&gt;
 &lt;h2 id=&quot;用途&quot;&gt;用途&lt;a class=&quot;anchor&quot; href=&quot;#用途&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;反向代理-3&quot;&gt;反向代理&lt;a class=&quot;anchor&quot;</summary>
+&lt;h3 id=&quot;反向代理&quot;&gt;反向代理&lt;a class=&quot;anchor&quot; href=&quot;#反向代理&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;反向代理（Reverse</summary>
         
       
     
@@ -2602,31 +2620,6 @@
     
     
     <category term="Nginx" scheme="http://buerlog.top/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux复习笔记</title>
-    <link href="http://buerlog.top/2021/01/25/cheng-xu-she-ji/linux-fu-xi-bi-ji/"/>
-    <id>http://buerlog.top/2021/01/25/cheng-xu-she-ji/linux-fu-xi-bi-ji/</id>
-    <published>2021-01-25T10:55:28.000Z</published>
-    <updated>2022-01-29T09:27:20.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Linux的体系结构&quot;&gt;Linux的体系结构&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Linux" scheme="http://buerlog.top/tags/Linux/"/>
     
   </entry>
   

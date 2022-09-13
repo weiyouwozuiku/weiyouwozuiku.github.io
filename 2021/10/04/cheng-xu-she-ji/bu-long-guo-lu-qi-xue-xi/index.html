@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -532,14 +532,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="背景-12">背景<a class="anchor" href="#背景-12">¶</a></h2>
+                <h2 id="背景">背景<a class="anchor" href="#背景">¶</a></h2>
 <p>平时查询一个value是否存在，通常会创建一个hashmap进行存储所有元素。它的好处是快速准确，缺点是浪费空间。因此，引入布隆过滤器。</p>
 <p>布隆过滤器（Bloom Filter）是1970年由布隆提出的。它实际上是由一个很长的bit数组和一系列哈希函数组成的。布隆过滤器可以用于检索一个元素是否在一个集合中。</p>
-<h2 id="原理-3">原理<a class="anchor" href="#原理-3">¶</a></h2>
+<h2 id="原理">原理<a class="anchor" href="#原理">¶</a></h2>
 <p>数组的每个元素都只占1bit空间，并且每个元素只能为0或1。</p>
 <p>布隆过滤器拥有k个哈希函数，当一个元素加入布隆过滤器时，会使用k个哈希函数对其进行k次计算,得到k个哈希值，并且根据得到的哈希值，在一维数组中把对应下标的值置位1。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="结构图.png"></p>
-<h2 id="参考文献-12">参考文献<a class="anchor" href="#参考文献-12">¶</a></h2>
+<h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
 <ol>
 <li>飞书，</li>
 </ol>
