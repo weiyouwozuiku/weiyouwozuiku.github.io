@@ -81,6 +81,7 @@ categories: 经验总结
 - [balenaEtcher](https://github.com/balena-io/etcher)
 - Reeder
 - HazeOver
+- json crack
 
 ## 终端
 
@@ -107,6 +108,7 @@ categories: 经验总结
 - yarn
 - npx
 - Slidev markdown版ppt
+- difftastic
 
 ## zsh配置
 
