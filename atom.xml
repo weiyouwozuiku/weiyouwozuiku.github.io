@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-09-13T01:20:43.000Z</updated>
+  <updated>2022-10-07T15:27:32.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go并发笔记</title>
+    <link href="http://buerlog.top/2022/10/02/cheng-xu-she-ji/go-bing-fa-bi-ji/"/>
+    <id>http://buerlog.top/2022/10/02/cheng-xu-she-ji/go-bing-fa-bi-ji/</id>
+    <published>2022-10-02T15:07:30.000Z</published>
+    <updated>2022-10-07T15:27:32.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;基本并发原语&quot;&gt;基本并发原语&lt;a class=&quot;anchor&quot; href=&quot;#基本并发原语&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;Mutex&quot;&gt;Mutex&lt;a class=&quot;anchor&quot; href=&quot;#Mutex&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;RWMutex&quot;&gt;RWMutex&lt;a class=&quot;anchor&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
+    
+  </entry>
   
   <entry>
     <title>Spark学习笔记</title>
@@ -2592,34 +2619,6 @@
     
     
     <category term="单元测试" scheme="http://buerlog.top/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Nginx学习笔记</title>
-    <link href="http://buerlog.top/2021/01/25/cheng-xu-she-ji/nginx-xue-xi-bi-ji/"/>
-    <id>http://buerlog.top/2021/01/25/cheng-xu-she-ji/nginx-xue-xi-bi-ji/</id>
-    <published>2021-01-25T11:10:17.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Nginx是一款轻量级的Web服务器、反向代理服务器，由于它的内存占用少，启动极快，高并发能力强，在互联网项目中广泛应用。&lt;/p&gt;
-&lt;h2 id=&quot;用途&quot;&gt;用途&lt;a class=&quot;anchor&quot; href=&quot;#用途&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;反向代理&quot;&gt;反向代理&lt;a class=&quot;anchor&quot; href=&quot;#反向代理&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;反向代理（Reverse</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Nginx" scheme="http://buerlog.top/tags/Nginx/"/>
     
   </entry>
   
