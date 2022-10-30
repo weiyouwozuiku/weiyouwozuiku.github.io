@@ -122,7 +122,7 @@ const char *c_str = s1.c_str();
 
 栈内分配内存从高地址向低地址分配，堆区分配内存是从低地址到高地址。
 
-![Cpp复习笔记_Cpp存储结构.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Cpp复习笔记/Cpp复习笔记_Cpp存储结构.png)
+![Cpp复习笔记_Cpp存储结构.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Cpp/Cpp复习笔记/Cpp复习笔记_Cpp存储结构.png)
 
 主流的编程语言中，C++是唯一一个依赖RAII(Resource Acquisition Is Initialization)来做资源管理的。
 
@@ -195,7 +195,7 @@ RAII有些比较成熟的智能指针代表：如`std:auto_ptr`和`boost:shared_
 
   循环引用会导致堆里的内存无法被正常回收，造成内存泄漏。
 
-![Cpp复习笔记_智能指针的循环引用问题.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Cpp复习笔记/Cpp复习笔记_智能指针的循环引用问题.png)
+![Cpp复习笔记_智能指针的循环引用问题.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Cpp/Cpp复习笔记/Cpp复习笔记_智能指针的循环引用问题.png)
 
 #### weak_ptr
 
@@ -676,7 +676,7 @@ iostream-->fstream
 streambuf-->strstreambuf & filebuf
 ```
 
-![Cpp复习笔记_IO流类层次结构图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Cpp复习笔记/Cpp复习笔记_IO流类层次结构图.png)
+![Cpp复习笔记_IO流类层次结构图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Cpp/Cpp复习笔记/Cpp复习笔记_IO流类层次结构图.png)
 
 #### 缓存区
 

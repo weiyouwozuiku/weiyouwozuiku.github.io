@@ -33,7 +33,7 @@ Go语言之父为罗伯特·格瑞史莫、罗伯·派克和肯·汤普逊.
 - 从Pascal主要继承包管理特性
 - 创造了defer,切片,map以及原生并发等特性
 
-![go特性.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/go特性.png)
+![go特性.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go学习/go特性.png)
 
 ### 设计哲学
 
@@ -912,11 +912,11 @@ Go中没有set类型，但是可以通过`map[type]bool`的方式模拟set。
 
 其底层是`runtime.hmap`
 
-![Go中Map.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/Go中Map.png)
+![Go中Map.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go学习/Go中Map.png)
 
 #### map使用make创建
 
-![map使用make初始化.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/map使用make初始化.png)
+![map使用make初始化.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go学习/map使用make初始化.png)
 
 #### map使用字面量创建
 
@@ -1071,7 +1071,7 @@ end
 
 ##### 多路复用-Linux epoll
 
-![epoll模型.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/epoll模型.png)
+![epoll模型.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go学习/epoll模型.png)
 
 - 注册多个Socket事件
 - 调用epoll，当有事件发生返回
@@ -2069,7 +2069,7 @@ func make(t Type, size ...IntegerType) Type
 
 **通过上面的代码可以看出 make 函数的 t 参数必须是 chan（通道）、map（字典）、slice（切片）中的一个，并且返回值也是类型本身。**
 
-![make_OMAKE.gif](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go学习/make_OMAKE.gif)
+![make_OMAKE.gif](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go学习/make_OMAKE.gif)
 
 在编译期的类型检查阶段，Go语言其实就将代表 make 关键字的 OMAKE 节点根据参数类型的不同转换成了 OMAKESLICE、OMAKEMAP 和 OMAKECHAN 三种不同类型的节点，这些节点最终也会调用不同的运行时函数来初始化数据结构。
 

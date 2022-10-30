@@ -12,17 +12,17 @@ categories: 程序设计
 
 ### 协议模型
 
-![OSI七层网络协议.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go语言网关开发/OSI七层网络协议.png)
+![OSI七层网络协议.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言网关开发/OSI七层网络协议.png)
 
-![经典协议与数据包.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go语言网关开发/经典协议与数据包.png)
+![经典协议与数据包.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言网关开发/经典协议与数据包.png)
 
 ### TCP连接
 
 **TCP的三次握手最主要目的是保证连接是双工的，可靠更多的是通过重传机制来保证。因为连接是全双工的，双方必须都收到对方的FIN包及确认才可关闭。**
 
-![三次握手连接.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go语言网关开发/三次握手连接.png)
+![三次握手连接.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言网关开发/三次握手连接.png)
 
-![四次回收关闭.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go语言网关开发/四次回收关闭.png)
+![四次回收关闭.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言网关开发/四次回收关闭.png)
 
 MSL：Maximum Segment Lifetime,30秒到1分钟。
 
@@ -40,7 +40,7 @@ MSL：Maximum Segment Lifetime,30秒到1分钟。
 
 缓冲区大小称之为接收端口，用变量win表示。如果win=0，则发送方停止发送。
 
-![TCP流量控制.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go语言网关开发/TCP流量控制.png)
+![TCP流量控制.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言网关开发/TCP流量控制.png)
 
 ### TCP拥塞控制
 
@@ -48,11 +48,11 @@ MSL：Maximum Segment Lifetime,30秒到1分钟。
 
 #### 慢开始和拥塞避免
 
-![慢开始与拥塞避免.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go语言网关开发/慢开始与拥塞避免.png)
+![慢开始与拥塞避免.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言网关开发/慢开始与拥塞避免.png)
 
 #### 快速重传和快速恢复
 
-![快重传和快恢复.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go语言网关开发/快重传和快恢复.png)
+![快重传和快恢复.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言网关开发/快重传和快恢复.png)
 
 ### 粘包和拆包
 
@@ -214,11 +214,11 @@ type persistConn struct {
 
 ##### RoundTrip流程
 
-![Transport_RoundTrip流程.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go语言网关开发/Transport_RoundTrip流程.png)
+![Transport_RoundTrip流程.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言网关开发/Transport_RoundTrip流程.png)
 
 #### 超时时间
 
-![Client超时时间.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go语言网关开发/Client超时时间.png)
+![Client超时时间.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言网关开发/Client超时时间.png)
 
 ```go
     // 创建连接池

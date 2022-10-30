@@ -10,7 +10,7 @@ img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/sourc
 categories: 程序设计
 ---
 
-![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/spring.jpg)
+![](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/spring.jpg)
 
 ## 前言
 
@@ -145,31 +145,31 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
 
 #### 常见的Lombok注释
 
-![lombok_overview.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/lombok_overview.png)
+![lombok_overview.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/lombok_overview.png)
 
 - @Data：注解在类上。提供类所有属性的getter和setter方法，还提供了equals、hashCode、toString、RequiredArgsConstructor方法。
 
-  ![lombok_data.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/lombok_data.png)
+  ![lombok_data.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/lombok_data.png)
 
 - @Setter：注解在属性上；为属性提供setting方法
 
 - @Getter：注解在属性上；为属性提供getting方法
 
-  ![lombok_getter_setter.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/lombok_getter_setter.png)
+  ![lombok_getter_setter.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/lombok_getter_setter.png)
 
 - @ToString：自动重写`toString`方法
 
-  ![lombok_tostring.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/lombok_tostring.png)
+  ![lombok_tostring.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/lombok_tostring.png)
 
 - @EqualAndHashCode
 
   自动生成`equals(Object other)`和`hashCode()`方法，包括所有非静态变量和非transient的变量
 
-  ![lombok_equalsandhashcode.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/lombok_equalsandhashcode.png)
+  ![lombok_equalsandhashcode.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/lombok_equalsandhashcode.png)
 
   如果某些变量不想要加进判断，可以透过exclude 排除，也可以使用of 指定某些字段
 
-  ![lombok_equalsandhashcode_exclude.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/lombok_equalsandhashcode_exclude.png)
+  ![lombok_equalsandhashcode_exclude.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/lombok_equalsandhashcode_exclude.png)
 
   Q :为什么只有一个整体的@EqualsAndHashCode注解，而不是分开的两个@Equals和@HashCode？
 
@@ -187,11 +187,11 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
 
 - @NoArgsConstructor：注释在类上；为类提供一个无参的构造方法
 
-  ![lombok_noargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/lombok_noargsconstructor.png)
+  ![lombok_noargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/lombok_noargsconstructor.png)
 
 - @AllArgsConstructor：注释在类上；为类提供一个全参的构造方法
 
-  ![lombok_allargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/lombok_allargsconstructor.png)
+  ![lombok_allargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/lombok_allargsconstructor.png)
 
   这里注意一个Java 的小坑，当我们没有指定constructor 时，Java compiler 会帮我们自动生成一个没有任何参数的constructor 给该类，但是如果我们自己写了constructor 之后，Java 就不会自动帮我们补上那个无参数的constructor 了
 
@@ -208,19 +208,19 @@ JRebel and XRebel for intellij（低版本叫JRebel for intellij，下方还有�
 
 - @RequiredArgsConstructor：生成一个包含“特定参数”的constructor，特定参数指的是那些有加上final修饰词的变量们
 
-  ![lombok_requiredargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/lombok_requiredargsconstructor.png)
+  ![lombok_requiredargsconstructor.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/lombok_requiredargsconstructor.png)
 
   如果所有的变量都是正常的，都没有用final 修饰的话，那就会生成一个没有参数的constructor。
 
 - @Value 基本与@Data相同，不同在于它会把所有变量设置为final。相应的也就没有setter方法了。
 
-  ![lombok_value.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/lombok_value.png)
+  ![lombok_value.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/lombok_value.png)
 
   此lombok 的注解@Value 和另一个Spring 的注解@Value 撞名，在import 时不要import 错了。
 
 - @Builder，自动生成流式set 值写法，从此之后再也不用写一堆setter 了
 
-  ![lombok_builder.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Spring实战学习/lombok_builder.png)
+  ![lombok_builder.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Spring实战学习/lombok_builder.png)
 
   注意，虽然只要加上@Builder 注解，我们就能够用流式写法快速设定Object 的值，但是setter 还是必须要写不能省略的，因为Spring 或是其他框架有很多地方都会用到Object 的getter/setter对他们取值/赋值。所以**通常是@Data 和@Builder 会一起用在同个类上，既方便我们流式写code，也方便框架做事**。
 

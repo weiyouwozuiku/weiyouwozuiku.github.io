@@ -188,7 +188,7 @@ func (c *Counter) Count() uint64 {
 
 Mutex的实现从原本简单的设计逐渐变得精密，以下分阶段描述Mutex实现。
 
-![Mutex实现四阶段.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go并发编程整理/Mutex实现四阶段.jpg)
+![Mutex实现四阶段.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go并发编程整理/Mutex实现四阶段.jpg)
 
 #####  初版
 
@@ -236,7 +236,7 @@ CAS需要有3个操作数：内存地址V，旧的预期值A，即将要更新�
 
 **原子性保证这个指令总是基于最新的值进行计算，如果同时有其它线程已经修改了这个值，那么，CAS 会返回失败**。
 
-![初版Mutex.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go并发编程整理/初版Mutex.jpg)
+![初版Mutex.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go并发编程整理/初版Mutex.jpg)
 
 调用 Lock 请求锁的时候，通过 xadd 方法进行 CAS 操作（第 24 行），xadd 方法通过循环执行 CAS 操作直到成功，保证对 key 加 1 的操作成功完成。如果比较幸运，锁没有被别的 goroutine 持有，那么，Lock 方法成功地将 key 设置为 1，这个 goroutine 就持有了这个锁；如果锁已经被别的 goroutine 持有了，那么，当前的 goroutine 会把 key 加 1，而且还会调用 semacquire 方法（第 27 行），使用信号量将自己休眠，等锁释放的时候，信号量会将它唤醒。
 
@@ -288,7 +288,7 @@ Go 开发者在 2011 年 6 月 30 日的 commit 中对 Mutex 做了一次大的�
 
 其中state字段是一个复合字段，一个字段包含多个意义，这样可以通过尽可能少的内存来实现互斥锁。这个字段的第一位（最小的一位）来表示这个锁是否被持有，第二位代表是否有唤醒的 goroutine，剩余的位数代表的是等待此锁的 goroutine 数。所以，state 这一个字段被分成了三部分，代表三个数据。
 
-![给新人机会_state字段.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go并发编程整理/给新人机会_state字段.jpg)
+![给新人机会_state字段.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go并发编程整理/给新人机会_state字段.jpg)
 
 ```go
    func (m *Mutex) Lock() {
@@ -334,7 +334,7 @@ for 循环是不断尝试获取锁，如果获取不到，就通过 runtime.Sema
 
 请求锁的 goroutine 有两类，一类是新来请求锁的 goroutine，另一类是被唤醒的等待请求锁的 goroutine。锁的状态也有两种：加锁和未加锁。我用一张表格，来说明一下 goroutine 不同来源不同状态下的处理逻辑。
 
-![给新人机会_两类goroutine.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go并发编程整理/给新人机会_两类goroutine.jpg)
+![给新人机会_两类goroutine.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go并发编程整理/给新人机会_两类goroutine.jpg)
 
 上述是Lock操作，以下是Unlock操作：
 
@@ -441,7 +441,7 @@ Mutex 不能容忍这种事情发生。所以，2016 年 Go 1.9 中 Mutex 增加
 
 以下给出现在state字段的设计示意图：
 
-![现阶段Mutex中state字段.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go并发编程整理/现阶段Mutex中state字段.jpg)
+![现阶段Mutex中state字段.jpg](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go并发编程整理/现阶段Mutex中state字段.jpg)
 
 ```go
    type Mutex struct {

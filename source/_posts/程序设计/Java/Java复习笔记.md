@@ -11,9 +11,9 @@ categories: 程序设计
 
 ## JVM
 
-![Java复习笔记_编译流程.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_编译流程.png)
+![Java复习笔记_编译流程.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_编译流程.png)
 
-![Java复习笔记_JVM.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_JVM.png)
+![Java复习笔记_JVM.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_JVM.png)
 
 - Class Loader：依据特定格式，加载class文件到内存。
 - Execution Engine：对命令进行解析。
@@ -117,7 +117,7 @@ public class ClassLoaderChecker {
 
 #### 双亲委派机制
 
-![Java复习笔记_双亲委派.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_双亲委派.png)
+![Java复习笔记_双亲委派.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_双亲委派.png)
 
 采用双亲委派机制可以避免多份同样的字节码的加载。
 
@@ -130,14 +130,14 @@ public class ClassLoaderChecker {
 
 类的加载过程
 
-![Java复习笔记_类的装载过程.png ](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_类的装载过程.png)
+![Java复习笔记_类的装载过程.png ](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_类的装载过程.png)
 
 - Class.forName的带的class是已经完成初始化的。如果项目中需要引入Mysql driver就需要使用forName以便执行其中的static块，完成初始化。
 - Class.loadClass得到的class时候还没有链接的。利用这个特性spring可以实现延迟加载，加快加载速度。 
 
 ### JVM内存模型
 
-![Java复习笔记_JVM内存模型.png ](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_JVM内存模型.png)
+![Java复习笔记_JVM内存模型.png ](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_JVM内存模型.png)
 
 - 线程私有：程序计数器、虚拟机栈、本地方法栈
 - 线程共享：MetaSpace、Java堆
@@ -157,7 +157,7 @@ public class ClassLoaderChecker {
 
 ##### 栈帧
 
-![Java复习笔记_虚拟机栈帧.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_虚拟机栈帧.png)
+![Java复习笔记_虚拟机栈帧.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_虚拟机栈帧.png)
 
 ###### 局部变量表和操作数栈
 
@@ -165,7 +165,7 @@ public class ClassLoaderChecker {
 
 操作数栈：入栈、出栈、复制、交换、产生消费变量
 
-![Java复习笔记_add执行.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_add执行.png)
+![Java复习笔记_add执行.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_add执行.png)
 
 递归会引发java.lang.StackOverflowError异常就是因为递归过深，栈帧数超过虚拟机栈深度。
 
@@ -199,7 +199,7 @@ MetaSpace相比PermGen的优势
 
 联系：引用对象、数组时，栈里定义变量保存堆中目标的首地址。如下图。
 
-![Java复习笔记_引用堆对象.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_引用堆对象.png)
+![Java复习笔记_引用堆对象.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_引用堆对象.png)
 
 区别：
 
@@ -285,13 +285,13 @@ public class ReflectSample {
 
 所有与进程相关的资源，都被记录在PCB中。
 
-![Java复习笔记_PCB.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_PCB.png)
+![Java复习笔记_PCB.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_PCB.png)
 
 进程是抢占处理机的调度单位。线程属于某个进程，共享其资源。
 
 线程只由堆栈寄存器、程序计数器和TCB组成。
 
-![Java复习笔记_TCB.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_TCB.png)
+![Java复习笔记_TCB.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_TCB.png)
 
 区别：
 
@@ -374,17 +374,17 @@ synchronzied锁的不是代码，而是对象。
 
 对象头的结构：
 
-![Java复习笔记_对象头结构.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_对象头结构.png)
+![Java复习笔记_对象头结构.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_对象头结构.png)
 
 Mark Word结构：
 
-![Java复习笔记_MarkWord.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_MarkWord.png)
+![Java复习笔记_MarkWord.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_MarkWord.png)
 
 ##### Monitor
 
 每个Java对象天生自带了一把看不见的锁。
 
-![Java复习笔记_Montior锁.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_Montior锁.png)
+![Java复习笔记_Montior锁.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_Montior锁.png)
 
 #### synchronized的四种状态
 
@@ -395,7 +395,7 @@ Mark Word结构：
 
 锁膨胀方向：无锁->偏向锁->轻量级锁->重量级锁
 
-![Java复习笔记_锁汇总.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_锁汇总.png)
+![Java复习笔记_锁汇总.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_锁汇总.png)
 
 ##### 偏向锁
 
@@ -421,7 +421,7 @@ Mark Word结构：
 
 1. 在代码进入同步代码块的时候，如果同步对象锁状态为无锁状态（锁标志位为“01”），虚拟机首先在当前线程的栈帧中创建一个名为锁记录(Lock Record)的空间，用于存储锁对象目前的Mark Word拷贝。官方称之为Displaced Mark Word。这时候线程堆栈与对象头的状态如图所示。
 
-   ![Java复习笔记_初始化锁.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_初始化锁.png)
+   ![Java复习笔记_初始化锁.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Java/程序设计/Java复习笔记/Java复习笔记_初始化锁.png)
 
 2. 拷贝对象头中的Mark Word复制到锁记录中。
 
@@ -429,7 +429,7 @@ Mark Word结构：
 
 4. 如果这个更新成功，那么这个线程就拥有了该对象的锁，并且该对象Mark Word的锁标志位设置为“00”，即表示此对象处于轻量级锁定状态，这时候线程堆栈与对象头的状态如图所示。
 
-   ![Java复习笔记_轻量级锁.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_轻量级锁.png)
+   ![Java复习笔记_轻量级锁.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/Java/程序设计/Java复习笔记/Java复习笔记_轻量级锁.png)
 
 5. 如果这个更新失败，虚拟机首先会检查对象的Mark Word是否指向当前线程的栈帧。如果是就说明当前线程已经拥有这个对象的锁，那就可以直接进入同步块继续执行。否则说明多个线程竞争锁，轻量级锁膨胀为重量级锁，锁标志位的状态值设置为“10”，Mark Word中存储的就是指向重量级锁（互斥量）的指针，后面等待锁的线程也就要进入阻塞状态。而当前线程便尝试使用自旋来获取锁。
 
@@ -450,7 +450,7 @@ Mark Word结构：
 - 调用start方法会创建一个新的子线程并启动
 - run方法只是Thread的一个普通的方法调用
 
-![Java复习笔记_run方法.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_run方法.png)
+![Java复习笔记_run方法.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_run方法.png)
 
 #### Runnable和Thread
 
@@ -603,7 +603,7 @@ public class ThreadPoolDemo {
 - 阻塞（Blocked）：等待获取排它锁
 - 结束（Terminated）：已终止线程的状态，线程已经结束执行
 
-![Java复习笔记_线程状态图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_线程状态图.png)
+![Java复习笔记_线程状态图.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_线程状态图.png)
 
 ### sleep和wait
 
@@ -649,11 +649,11 @@ public class ThreadPoolDemo {
 
 ## 常见类库
 
-![Java复习笔记_集合框架.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_集合框架.png)
+![Java复习笔记_集合框架.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_集合框架.png)
 
 ### List和Set
 
-![Java复习笔记_List&Set.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_List&Set.png)
+![Java复习笔记_List&Set.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_List&Set.png)
 
 ### Map
 
@@ -665,13 +665,13 @@ public class ThreadPoolDemo {
 
 在Java8以前实现方式为数组+链表。
 
-![Java复习笔记_HashMap.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_HashMap.png)
+![Java复习笔记_HashMap.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_HashMap.png)
 
  当大量数值的hash值相同时，则存储在链表中。链表查找是通过便利进行查找，所以性能恶化时，会从$O(1)$变成$O(n)$。
 
 在Java8之后实现方式变为数组+链表+红黑树。
 
-![Java复习笔记_HashMap_JDK8](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_HashMap_JDK8.png)
+![Java复习笔记_HashMap_JDK8](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_HashMap_JDK8.png)
 
 当链表超过8时，链表变化成红黑树。当链表小于6时，退化成链表。
 
@@ -699,7 +699,7 @@ put方法的逻辑：
 
 获取hash到散列的过程：
 
-![Java复习笔记_HashMapGetHash.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_HashMapGetHash.png)
+![Java复习笔记_HashMapGetHash.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_HashMapGetHash.png)
 
 HashMap 底层数组的长度总是 2 的 n 次方。
 
@@ -726,11 +726,11 @@ HashTable是线程安全的，所有方法都被`synchronized`修饰。因为是
 
 早期ConcurrentHashMap：通过分化锁Segment实现。
 
-![Java复习笔记_早期ConcurrentHashMap.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_早期ConcurrentHashMap.png)
+![Java复习笔记_早期ConcurrentHashMap.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_早期ConcurrentHashMap.png)
 
 当前的ConcurrentHashMap：CAS+synchronized使得锁更细化。
 
-![Java复习笔记_ConcurrentHashMap.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_ConcurrentHashMap.png)
+![Java复习笔记_ConcurrentHashMap.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_ConcurrentHashMap.png)
 
 ### HashSet
 
@@ -762,7 +762,7 @@ StringBuffer是线程安全的，而StringBuilder是非线程安全的。StringB
 - Error：程序无法处理的系统错误，编译器不做检查
 - Exception：程序可以处理的异常，捕获后可能恢复
 
-![Java复习笔记_异常.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_异常.png)
+![Java复习笔记_异常.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_异常.png)
 
 - RuntimeException：不可预知，程序应当自行避免
 - 非RuntimeException：可预知，从编译器校验的异常
@@ -801,7 +801,7 @@ StringBuffer是线程安全的，而StringBuilder是非线程安全的。StringB
 
 把底层类作为参数传递给上层类，实现上层对下层的“控制”。
 
-![Java复习笔记_Spring_DI.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_Spring_DI.png)
+![Java复习笔记_Spring_DI.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_Spring_DI.png)
 
 ### IOC
 
@@ -814,14 +814,14 @@ IOC支持的功能：
 - 指定初始化方法和销毁方法
 - 支持回调方法
 
-![Java复习笔记_Spring_IOC.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_Spring_IOC.png)
+![Java复习笔记_Spring_IOC.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_Spring_IOC.png)
 
 IOC容器的优势：
 
 - 避免在各处使用new来创建类，并且可以做到统一维护。
 - 创建实例的时候不需要了解其中的细节。
 
-![Java复习笔记_Spring_IOC流程.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_Spring_IOC流程.png)
+![Java复习笔记_Spring_IOC流程.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_Spring_IOC流程.png)
 
 #### IOC容器的核心接口
 
@@ -834,7 +834,7 @@ Spring框架最核心的接口。
 - 建立Bean之间的依赖关系。
 - Bean生命周期的控制。
 
-![Java复习笔记_BeanFactory体系.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_BeanFactory体系.png)
+![Java复习笔记_BeanFactory体系.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_BeanFactory体系.png)
 
 ##### ApplicationContext
 
@@ -868,7 +868,7 @@ BeanDefinitionRegistry：提供向IOC容器注册BeanDefinition对象的方法�
 
 ###### 创建过程
 
-![Java复习笔记_Bean创建流程.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java复习笔记/Java复习笔记_Bean创建流程.png)
+![Java复习笔记_Bean创建流程.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Java/Java复习笔记/Java复习笔记_Bean创建流程.png)
 
 ###### 销毁过程
 
