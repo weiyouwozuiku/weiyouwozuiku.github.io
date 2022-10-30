@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2022-10-07T15:27:32.000Z</updated>
+  <updated>2022-10-30T17:27:29.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Go语言基础</title>
+    <link href="http://buerlog.top/2022/10/30/cheng-xu-she-ji/go/go-yu-yan-ji-chu/"/>
+    <id>http://buerlog.top/2022/10/30/cheng-xu-she-ji/go/go-yu-yan-ji-chu/</id>
+    <published>2022-10-30T15:46:18.000Z</published>
+    <updated>2022-10-30T17:27:29.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;逃逸分析&quot;&gt;逃逸分析&lt;a class=&quot;anchor&quot; href=&quot;#逃逸分析&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Go编译器会根据变量是否被外部引用决定是否逃逸，而不能像Cpp那样使用&lt;code&gt;new&lt;/code&gt;明确指定在堆上创建。其原则是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果变量在函数外部没有引用，则&lt;strong&gt;优先放在栈上&lt;/strong&gt;-&amp;gt;</summary>
+        
+      
+    
+    
+    
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Go并发笔记</title>
-    <link href="http://buerlog.top/2022/10/02/cheng-xu-she-ji/go-bing-fa-bi-ji/"/>
-    <id>http://buerlog.top/2022/10/02/cheng-xu-she-ji/go-bing-fa-bi-ji/</id>
+    <link href="http://buerlog.top/2022/10/02/cheng-xu-she-ji/go/go-bing-fa-bi-ji/"/>
+    <id>http://buerlog.top/2022/10/02/cheng-xu-she-ji/go/go-bing-fa-bi-ji/</id>
     <published>2022-10-02T15:07:30.000Z</published>
-    <updated>2022-10-07T15:27:32.000Z</updated>
+    <updated>2022-10-30T17:27:29.000Z</updated>
     
     
       
@@ -279,10 +307,10 @@
   
   <entry>
     <title>dlv使用笔记</title>
-    <link href="http://buerlog.top/2022/04/05/cheng-xu-she-ji/dlv-shi-yong-bi-ji/"/>
-    <id>http://buerlog.top/2022/04/05/cheng-xu-she-ji/dlv-shi-yong-bi-ji/</id>
+    <link href="http://buerlog.top/2022/04/05/cheng-xu-she-ji/go/dlv-shi-yong-bi-ji/"/>
+    <id>http://buerlog.top/2022/04/05/cheng-xu-she-ji/go/dlv-shi-yong-bi-ji/</id>
     <published>2022-04-05T08:56:17.000Z</published>
-    <updated>2022-04-05T09:16:26.000Z</updated>
+    <updated>2022-10-30T17:27:29.000Z</updated>
     
     
     
@@ -448,10 +476,10 @@
   
   <entry>
     <title>Go并发编程整理</title>
-    <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/go-bing-fa-bian-cheng-zheng-li/"/>
-    <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/go-bing-fa-bian-cheng-zheng-li/</id>
+    <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/go/go-bing-fa-bian-cheng-zheng-li/"/>
+    <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/go/go-bing-fa-bian-cheng-zheng-li/</id>
     <published>2022-03-12T14:51:56.000Z</published>
-    <updated>2022-03-15T14:44:11.000Z</updated>
+    <updated>2022-10-30T17:27:29.000Z</updated>
     
     
       
@@ -580,10 +608,10 @@
   
   <entry>
     <title>《流畅的Python》整理</title>
-    <link href="http://buerlog.top/2022/03/04/cheng-xu-she-ji/liu-chang-de-python-zheng-li/"/>
-    <id>http://buerlog.top/2022/03/04/cheng-xu-she-ji/liu-chang-de-python-zheng-li/</id>
+    <link href="http://buerlog.top/2022/03/04/cheng-xu-she-ji/python/liu-chang-de-python-zheng-li/"/>
+    <id>http://buerlog.top/2022/03/04/cheng-xu-she-ji/python/liu-chang-de-python-zheng-li/</id>
     <published>2022-03-04T12:36:11.000Z</published>
-    <updated>2022-03-04T12:47:03.000Z</updated>
+    <updated>2022-10-30T17:27:29.000Z</updated>
     
     
     
@@ -2055,10 +2083,10 @@
   
   <entry>
     <title>Django学习笔记</title>
-    <link href="http://buerlog.top/2021/09/22/cheng-xu-she-ji/django-xue-xi-bi-ji/"/>
-    <id>http://buerlog.top/2021/09/22/cheng-xu-she-ji/django-xue-xi-bi-ji/</id>
+    <link href="http://buerlog.top/2021/09/22/cheng-xu-she-ji/python/django-xue-xi-bi-ji/"/>
+    <id>http://buerlog.top/2021/09/22/cheng-xu-she-ji/python/django-xue-xi-bi-ji/</id>
     <published>2021-09-22T07:23:38.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
+    <updated>2022-10-30T17:27:29.000Z</updated>
     
     
       
@@ -2300,10 +2328,10 @@
   
   <entry>
     <title>Java日志</title>
-    <link href="http://buerlog.top/2021/06/10/cheng-xu-she-ji/java-ri-zhi/"/>
-    <id>http://buerlog.top/2021/06/10/cheng-xu-she-ji/java-ri-zhi/</id>
+    <link href="http://buerlog.top/2021/06/10/cheng-xu-she-ji/java/java-ri-zhi/"/>
+    <id>http://buerlog.top/2021/06/10/cheng-xu-she-ji/java/java-ri-zhi/</id>
     <published>2021-06-10T08:24:16.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
+    <updated>2022-10-30T17:27:29.000Z</updated>
     
     
       
@@ -2374,10 +2402,10 @@
   
   <entry>
     <title>CPP常用STL</title>
-    <link href="http://buerlog.top/2021/05/19/cheng-xu-she-ji/cpp-chang-yong-stl/"/>
-    <id>http://buerlog.top/2021/05/19/cheng-xu-she-ji/cpp-chang-yong-stl/</id>
+    <link href="http://buerlog.top/2021/05/19/cheng-xu-she-ji/cpp/cpp-chang-yong-stl/"/>
+    <id>http://buerlog.top/2021/05/19/cheng-xu-she-ji/cpp/cpp-chang-yong-stl/</id>
     <published>2021-05-19T02:44:34.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
+    <updated>2022-10-30T17:27:29.000Z</updated>
     
     
       
@@ -2404,10 +2432,10 @@
   
   <entry>
     <title>深入分析Java Web技术内幕笔记</title>
-    <link href="http://buerlog.top/2021/05/09/cheng-xu-she-ji/shen-ru-fen-xi-java-web-ji-zhu-nei-mu-bi-ji/"/>
-    <id>http://buerlog.top/2021/05/09/cheng-xu-she-ji/shen-ru-fen-xi-java-web-ji-zhu-nei-mu-bi-ji/</id>
+    <link href="http://buerlog.top/2021/05/09/cheng-xu-she-ji/java/shen-ru-fen-xi-java-web-ji-zhu-nei-mu-bi-ji/"/>
+    <id>http://buerlog.top/2021/05/09/cheng-xu-she-ji/java/shen-ru-fen-xi-java-web-ji-zhu-nei-mu-bi-ji/</id>
     <published>2021-05-09T06:31:48.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
+    <updated>2022-10-30T17:27:29.000Z</updated>
     
     
       
@@ -2541,10 +2569,10 @@
   
   <entry>
     <title>Python与数据库</title>
-    <link href="http://buerlog.top/2021/03/21/cheng-xu-she-ji/python-yu-shu-ju-ku/"/>
-    <id>http://buerlog.top/2021/03/21/cheng-xu-she-ji/python-yu-shu-ju-ku/</id>
+    <link href="http://buerlog.top/2021/03/21/cheng-xu-she-ji/python/python-yu-shu-ju-ku/"/>
+    <id>http://buerlog.top/2021/03/21/cheng-xu-she-ji/python/python-yu-shu-ju-ku/</id>
     <published>2021-03-21T10:16:34.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
+    <updated>2022-10-30T17:27:29.000Z</updated>
     
     
       
@@ -2592,33 +2620,6 @@
     
     
     <category term="软件" scheme="http://buerlog.top/tags/%E8%BD%AF%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>单元测试知识</title>
-    <link href="http://buerlog.top/2021/03/02/ce-shi/dan-yuan-ce-shi-zhi-shi/"/>
-    <id>http://buerlog.top/2021/03/02/ce-shi/dan-yuan-ce-shi-zhi-shi/</id>
-    <published>2021-03-02T03:06:53.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;定义&quot;&gt;定义&lt;a class=&quot;anchor&quot; href=&quot;#定义&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;单元测试是指对软件中的最小可测试单元 进行检查和验证。通常而言，一个单元测试是用于判断每个特定条件（或场景）下某个特定函数的行为，单元测试是由&lt;strong&gt;开发&lt;/strong&gt;写的。执行单元测试是为了证明编写的功能代码与我们期望的一致。&lt;/p&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="测试" scheme="http://buerlog.top/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-    <category term="单元测试" scheme="http://buerlog.top/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
