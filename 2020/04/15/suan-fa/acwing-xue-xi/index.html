@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-21
+                    2022-10-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.6k
+                    17.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    75 分
+                    76 分
                 </div>
                 
 
@@ -1658,7 +1658,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
 <p>哈希函数：</p>
 <ul>
 <li>将x映射进一个范围，一般用取余的操作。x mod 范围</li>
-<li>冲突解决。针对冲突解决有两种方法：
+<li>冲突解决。针对冲突解决有三种方法：
 <ul>
 <li>开放寻址法：出现散列冲突之后，就去寻找下一个空的散列地址
 <ul>
@@ -1675,6 +1675,22 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
 <p>不管哪种探测方法，散列表中空闲位置不多的时候，散列冲突的概率就会提高，为了保证操作效率，我们会尽可能保证散列表中有一定比例的空闲槽位，我们用装载因子来表示空位的多少，装载因子=填入元素/散列表长度，装载因子越大，表明空闲位置越少，冲突越多，散列表性能降低。</p>
 <p>算法题中一般只涉及插入和查找操作，不涉及删除。如果一定要实现删除，可以选择将对应节点做上标识的方式，而不是真的去删除。</p>
 <p><strong>取模的数一般推荐选择采用质数且离2的整次幂尽可能的远，这样冲突的概率较小，可以通过<a href="https://buerlog.top/2022/02/16/suan-fa/sheng-ri-peng-zhuang-he-ha-xi-han-shu/">数学证明</a></strong>。</p>
+<p>取模计算（寻找第一个大于<img src="https://math.now.sh?inline=1e5" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">）的实现：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">//使用双重循环， 遍历寻找的方法，且遍历的范围不可能大于sqrt(i)</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1e5</span><span class="token punctuation">;</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">bool</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> j <span class="token operator">*</span> j <span class="token operator">&lt;=</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span> i <span class="token operator">%</span> j <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>   
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="拉链法">拉链法<a class="anchor" href="#拉链法">¶</a></h4>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
     <span class="token comment">// 向哈希表中插入一个数</span>
@@ -3153,7 +3169,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">254.5k</span>&nbsp;字
+                class="white-color">254.8k</span>&nbsp;字
             
             
             

@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-08
+                    2022-10-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.1k
+                    7.3k
                 </div>
                 
 
@@ -612,7 +612,25 @@
 <h4 id="简单工厂">简单工厂<a class="anchor" href="#简单工厂">¶</a></h4>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_6.png" alt="设计模式_6.png"></p>
 <ul>
-<li>简单工厂如上图所示，并不是“工厂模式”。只是一种编程习惯。本质就是将针对实现的代码提取出来，进行封装。这里封装成了工厂而已。</li>
+<li>
+<p>简单工厂如上图所示，并不是“工厂模式”。只是一种编程习惯。本质就是将针对实现的代码提取出来，进行封装。这里封装成了工厂而已。</p>
+<h5 id="优点">优点<a class="anchor" href="#优点">¶</a></h5>
+<ol>
+<li>实现了对象创建和使用的分离</li>
+<li>不需要记住具体类名，记住参数即可，减少使用者记忆量</li>
+</ol>
+<h5 id="缺点">缺点<a class="anchor" href="#缺点">¶</a></h5>
+<ol>
+<li>对工厂类职责过重，一旦不能工作，系统收到影响</li>
+<li>增加系统中类的个数，复杂度和理解度增加</li>
+<li>违反开闭原则，增加新产品需要修改工厂逻辑，工厂越来越复杂</li>
+</ol>
+<h5 id="适用场景">适用场景<a class="anchor" href="#适用场景">¶</a></h5>
+<ol>
+<li>工厂类负责创建的对象比较少，由于创建的对象较少，不会造成工厂方法中的业务逻辑太过复杂</li>
+<li>客户端只知道传入工厂类的参数，对于如何创建对象并不关心</li>
+</ol>
+</li>
 </ul>
 <h4 id="真正的工厂模式">真正的工厂模式<a class="anchor" href="#真正的工厂模式">¶</a></h4>
 <ul>
@@ -737,14 +755,14 @@ class ExampleApplication is
 
         打印结果。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="优缺点">优缺点<a class="anchor" href="#优缺点">¶</a></h4>
-<h5 id="优点">优点<a class="anchor" href="#优点">¶</a></h5>
+<h5 id="优点-2">优点<a class="anchor" href="#优点-2">¶</a></h5>
 <ul>
 <li>你可以在运行时切换对象内的算法</li>
 <li>你可以将算法的实现和使用算法的代码隔离开</li>
 <li>你可以使用组合来代替继承</li>
 <li>开闭原则。你无需对上下文进行修改就能够引入新的策略</li>
 </ul>
-<h5 id="缺点">缺点<a class="anchor" href="#缺点">¶</a></h5>
+<h5 id="缺点-2">缺点<a class="anchor" href="#缺点-2">¶</a></h5>
 <ul>
 <li>如果你的算法极少发生变化，那么没有任务理由引入新的类和接口。使用该模式只会让程序过于复杂</li>
 <li>客户端必须知晓策略间的不同——它需要选择合适的策略</li>
@@ -803,7 +821,7 @@ class ExampleApplication is
 <h4 id="定义-5">定义<a class="anchor" href="#定义-5">¶</a></h4>
 <p>迭代器模式提供一种方法顺序访问一个聚合对象中的各个元素，而又不暴露其内部的表示。</p>
 <p>迭代器模式把游走的任务放在迭代器上，而不是聚合上。这样简化了聚合的接口和实现，也让责任各得其所。</p>
-<h4 id="适用场景">适用场景<a class="anchor" href="#适用场景">¶</a></h4>
+<h4 id="适用场景-2">适用场景<a class="anchor" href="#适用场景-2">¶</a></h4>
 <p>当集合背后为复杂的数据结构，且你希望对客户端隐藏其复杂性时（出于使用便利性或安全性的考虑），可以使用迭代器模式。</p>
 <p>迭代器封装了与复杂数据结构进行交互的细节，为客户端提供了多个访问集合元素的简单方法。这种方式不仅对客户端来说方便，而且能避免客户端在直接与集合交互时执行错误或有害的操作，从而起到保护集合的作用。</p>
 <p>使用迭代器模式可以减少程序中重复的遍历代码。</p>
@@ -818,14 +836,14 @@ class ExampleApplication is
 <li><strong>在你的集合类中实现集合接口</strong>。 其主要思想是针对特定集合为客户端代码提供创建迭代器的快捷方式。 <strong>集合对象必须将自身传递给迭代器的构造函数来创建两者之间的链接</strong>。</li>
 <li>检查客户端代码， 使用迭代器替代所有集合遍历代码。 <strong>每当客户端需要遍历集合元素时都会获取一个新的迭代器</strong>。</li>
 </ol>
-<h4 id="优点-2">优点<a class="anchor" href="#优点-2">¶</a></h4>
+<h4 id="优点-3">优点<a class="anchor" href="#优点-3">¶</a></h4>
 <ul>
 <li>单一职责原则。通过将提及庞大的遍历算法代码抽取为独立的类，可对客户端代码和集合进行整理</li>
 <li>开闭原则。可实现新型的集合和迭代器并将其传递给现有代码，无需修改现有代码</li>
 <li>你可以并行遍历统一集合，每个迭代器对象都包含其自身的遍历状态</li>
 <li>相似的，你可以暂停遍历并在需要时继续</li>
 </ul>
-<h4 id="缺点-2">缺点<a class="anchor" href="#缺点-2">¶</a></h4>
+<h4 id="缺点-3">缺点<a class="anchor" href="#缺点-3">¶</a></h4>
 <ul>
 <li>如果你的程序只与简单的集合进行交互，应用该模式可能矫枉过正</li>
 <li><strong>对于某些特殊集合，使用迭代器可能必直接遍历的效率低</strong></li>
@@ -867,7 +885,7 @@ class ExampleApplication is
 <li>创建相应的组件类，继承组件抽象类，并重写抽象方法。</li>
 <li>使用时，用组件抽象类类型变量new相应的装饰类或者组件类。一个对象进行装饰时，将哪一个对象依次传入每一个装饰器或组件中。</li>
 </ol>
-<h4 id="缺点-3">缺点<a class="anchor" href="#缺点-3">¶</a></h4>
+<h4 id="缺点-4">缺点<a class="anchor" href="#缺点-4">¶</a></h4>
 <ul>
 <li>会在设计中加入大量小类，使人不容易理解设计方式。</li>
 </ul>
@@ -1446,7 +1464,7 @@ class ExampleApplication is
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">254.5k</span>&nbsp;字
+                class="white-color">254.8k</span>&nbsp;字
             
             
             
