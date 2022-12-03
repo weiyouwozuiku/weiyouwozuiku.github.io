@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="常用SQL整理, 博客">
+    <meta name="keywords" content="Spark学习笔记, 博客">
     <meta name="description" content="个人学习储备知识与经验的秘密基地">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>常用SQL整理 | 不二博客</title>
+    <title>Spark学习笔记 | 不二博客</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/awesome/css/all.css">
@@ -337,12 +337,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/常用SQL整理.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">常用SQL整理</h1>
+                    <h1 class="description center-align post-title">Spark学习笔记</h1>
                 </div>
             </div>
         </div>
@@ -458,8 +458,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/SQL/">
-                                <span class="chip bg-color">SQL</span>
+                            <a href="/tags/Spark/">
+                                <span class="chip bg-color">Spark</span>
                             </a>
                         
                     </div>
@@ -483,28 +483,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-21
+                    2022-09-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-08
+                    2022-12-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    60
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -532,110 +532,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="窗口函数">窗口函数<a class="anchor" href="#窗口函数">¶</a></h2>
-<h3 id="什么是窗口函数">什么是窗口函数<a class="anchor" href="#什么是窗口函数">¶</a></h3>
-<p>窗口函数，也叫OLAP函数（Online Anallytical Processing，联机分析处理），可以对数据库数据进行实时分析。</p>
-<p>窗口函数的基本用法如下：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token operator">&lt;</span>窗口函数<span class="token operator">&gt;</span> <span class="token keyword">over</span> <span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> <span class="token operator">&lt;</span>用户分组的列名<span class="token operator">&gt;</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token operator">&lt;</span>用于排序的列名<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>窗口函数可以放两种函数：</p>
-<ol>
-<li>专用窗口函数</li>
-<li>聚合函数</li>
-</ol>
-<p>因为窗口函数是对where或者group by子句进行处理后的操作，所以<strong>窗口函数原则上只能写在select子句中</strong></p>
-<h3 id="窗口函数的好处">窗口函数的好处<a class="anchor" href="#窗口函数的好处">¶</a></h3>
-<p>窗口函数中的窗口表示的是范围的意思。</p>
-<p>窗口函数实现的功能类似group by和order by。但是group by分组汇总会改变了表的行数，一行只有一个类别。而partition by和rank函数不会减少原表中的行数。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%B8%B8%E7%94%A8SQL%E6%95%B4%E7%90%86/group_by%E4%B8%8Epartition_by%E7%9A%84%E5%8C%BA%E5%88%AB.jpg" alt="group_by与partition_by的区别.jpg"></p>
-<p>窗口函数中的order by只是决定窗口内的数据按什么顺序进行排序或计算，对最后返回结果的排列顺序并没有影响。</p>
-<h3 id="专业窗口函数">专业窗口函数<a class="anchor" href="#专业窗口函数">¶</a></h3>
-<p>专业窗口函数主要为<code>rank,dense_rank,row_number</code>，其区别如下case所示：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span><span class="token punctuation">,</span>
-   rank<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span><span class="token keyword">order</span> <span class="token keyword">by</span> 成绩 <span class="token keyword">desc</span><span class="token punctuation">)</span> <span class="token keyword">as</span> ranking<span class="token punctuation">,</span>
-   dense_rank<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span><span class="token keyword">order</span> <span class="token keyword">by</span> 成绩 <span class="token keyword">desc</span><span class="token punctuation">)</span> <span class="token keyword">as</span> dese_rank<span class="token punctuation">,</span>
-   row_number<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span> <span class="token punctuation">(</span><span class="token keyword">order</span> <span class="token keyword">by</span> 成绩 <span class="token keyword">desc</span><span class="token punctuation">)</span> <span class="token keyword">as</span> row_num
-<span class="token keyword">from</span> 班级表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%B8%B8%E7%94%A8SQL%E6%95%B4%E7%90%86/%E4%B8%93%E4%B8%9A%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0.jpg" alt="专业窗口函数.jpg"></p>
-<p>总结一下：</p>
-<ul>
-<li>rank函数：如果有并列名次的行，会占用下一名次的位置。</li>
-<li>dense_rank函数：如果有并列名次的行，不占用下一名次的位置。</li>
-<li>row_number函数：不考虑并列名次的情况。</li>
-</ul>
-<p><strong>在上述的这三个专用窗口函数中，函数后面的括号不需要任何参数，保持()空着就可以。</strong></p>
-<h3 id="聚合函数作为窗口函数">聚合函数作为窗口函数<a class="anchor" href="#聚合函数作为窗口函数">¶</a></h3>
-<p>聚和窗口函数和上面提到的专用窗口函数用法完全相同，只需要把聚合函数写在窗口函数的位置即可，<strong>但是函数后面括号里面不能为空，需要指定聚合的列名。</strong></p>
-<p>不仅是sum求和，平均、计数、最大最小值，也是同理，<strong>都是针对自身记录、以及自身记录之上的所有数据进行计算。</strong></p>
-<p>用处：聚合函数作为窗口函数，可以在每一行的数据里直观的看到，截止到本行数据，统计数据是多少（最大值、最小值等）。同时可以看出每一行数据，对整体统计数据的影响。</p>
-<p>另外，在聚合窗口可以指定汇总范围，这个功能称之为框架。</p>
-<p>自身+上1条记录：<code>SUM(sale_price) over(order by product_id rows 1 preceding)</code></p>
-<p>自身+下1条记录：<code>SUM(sale_price) over(order by product_id rows 1 following) </code></p>
-<p>自身+上1条记录+下2条记录：`SUM(sale_price) over(order by product_id rows between 1 preceding and 2 following)</p>
-<h2 id="CASE-WHEN">CASE-WHEN<a class="anchor" href="#CASE-WHEN">¶</a></h2>
-<h3 id="用法">用法<a class="anchor" href="#用法">¶</a></h3>
-<p><strong>case函数只返回第一个符合条件的值，剩下的case部分将会被自动忽略。如果省略了ELSE子句，则返回NULL。</strong></p>
-<h3 id="简单case函数">简单case函数<a class="anchor" href="#简单case函数">¶</a></h3>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">--简单case函数</span>
-<span class="token keyword">case</span> sex
-  <span class="token keyword">when</span> <span class="token string">'1'</span> <span class="token keyword">then</span> <span class="token string">'男'</span>
-  <span class="token keyword">when</span> <span class="token string">'2'</span> <span class="token keyword">then</span> <span class="token string">'女’
-  else '</span>其他' <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="case搜索函数">case搜索函数<a class="anchor" href="#case搜索函数">¶</a></h4>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">case</span> <span class="token keyword">when</span> sex <span class="token operator">=</span> <span class="token string">'1'</span> <span class="token keyword">then</span> <span class="token string">'男'</span>
-     <span class="token keyword">when</span> sex <span class="token operator">=</span> <span class="token string">'2'</span> <span class="token keyword">then</span> <span class="token string">'女'</span>
-     <span class="token keyword">else</span> <span class="token string">'其他'</span> <span class="token keyword">end</span>  
-     
-<span class="token keyword">CASE</span> <span class="token keyword">WHEN</span> score <span class="token operator">IS</span> <span class="token boolean">NULL</span> <span class="token keyword">THEN</span> <span class="token string">'缺席考试'</span> <span class="token keyword">ELSE</span> <span class="token string">'正常'</span> <span class="token keyword">END</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="sum和case结合使用">sum和case结合使用<a class="anchor" href="#sum和case结合使用">¶</a></h4>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span>
-  <span class="token number">2</span>    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> u<span class="token punctuation">.</span>sex <span class="token keyword">when</span> <span class="token number">1</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span>男性<span class="token punctuation">,</span>
-  <span class="token number">3</span>    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> u<span class="token punctuation">.</span>sex <span class="token keyword">when</span> <span class="token number">2</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span>女性<span class="token punctuation">,</span>
-  <span class="token number">4</span>    <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">case</span> <span class="token keyword">when</span> u<span class="token punctuation">.</span>sex <span class="token operator">&lt;&gt;</span><span class="token number">1</span> <span class="token operator">and</span> u<span class="token punctuation">.</span>sex<span class="token operator">&lt;&gt;</span><span class="token number">2</span> <span class="token keyword">then</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">0</span> <span class="token keyword">end</span><span class="token punctuation">)</span>性别为空
-  <span class="token number">5</span>  <span class="token keyword">from</span> users u<span class="token punctuation">;</span>
- 
-        男性         女性       性别为空
-<span class="token comment">---------- ---------- ----------</span>
-         <span class="token number">3</span>          <span class="token number">2</span>          <span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Hive多维分析函数">Hive多维分析函数<a class="anchor" href="#Hive多维分析函数">¶</a></h2>
-<h3 id="WITH-CUBE">WITH CUBE<a class="anchor" href="#WITH-CUBE">¶</a></h3>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">WITH</span> CUBE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>根据GROUP BY的字段的所有组合进行聚合</p>
-<p>全维度聚合</p>
-<p>聚合维度组合数<img src="https://math.now.sh?inline=2%5En" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
-<p>在presto中需要写成<code>GROUP BY CUBE(1,2,...)</code></p>
-<h3 id="GROUPING-SETS">GROUPING SETS<a class="anchor" href="#GROUPING-SETS">¶</a></h3>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-GROUPING SETS<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>在一个GROUP BY查询中，根据不同的字段组合进行聚合，等价于将不同字段的GROUP BY结果进行UNION ALL</p>
-<p>自定义维度组合</p>
-<p>聚合维度组合数N（N为sets中自定义的组合数）</p>
-<h3 id="WITH-ROLLUP">WITH ROLLUP<a class="anchor" href="#WITH-ROLLUP">¶</a></h3>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">WITH ROLLUP</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>是CUBE的子集，以GROUP BY最左侧的字段为主，从该字段开始进行层级聚合（相当于((),(1),(1,2)…)）</p>
-<p>左侧主维度组合</p>
-<p>聚合维度组合数n+1</p>
-<h2 id="NVL">NVL<a class="anchor" href="#NVL">¶</a></h2>
-<p>nvl(column,’空的替换值’)</p>
-<h2 id="排序函数">排序函数<a class="anchor" href="#排序函数">¶</a></h2>
-<h3 id="row-number">row_number()<a class="anchor" href="#row-number">¶</a></h3>
-<p>遇到相同的排名index递增。</p>
-<h3 id="rank">rank()<a class="anchor" href="#rank">¶</a></h3>
-<p>遇到相同的排名index一样，下一个不一样的记录之前的数量。</p>
-<h3 id="dense-rank">dense_rank()<a class="anchor" href="#dense-rank">¶</a></h3>
-<p>遇到相同的排名index一样，下一个不一样的视为一个记录。</p>
-<h2 id="查询库大小">查询库大小<a class="anchor" href="#查询库大小">¶</a></h2>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> concat<span class="token punctuation">(</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span>data_length<span class="token operator">/</span><span class="token number">1024</span><span class="token operator">/</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'MB'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token keyword">data</span> <span class="token keyword">from</span> information_schema<span class="token punctuation">.</span><span class="token keyword">tables</span> <span class="token keyword">where</span> table_schema<span class="token operator">=</span><span class="token string">'uoka'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="datediff">datediff<a class="anchor" href="#datediff">¶</a></h2>
-<h2 id="全量表与增量表">全量表与增量表<a class="anchor" href="#全量表与增量表">¶</a></h2>
-<h2 id="参考资料">参考资料<a class="anchor" href="#参考资料">¶</a></h2>
-<ol>
-<li>知乎，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/92654574">通俗易懂的学会：SQL窗口函数</a>，2021</li>
-<li>知乎，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60226935">精益SQL —— “窗口函数”的正确食用方式</a>，2019</li>
-<li>博客园，<a target="_blank" rel="noopener" href="https://www.cnblogs.com/Richardzhu/p/3571670.html">SQL之case when then用法</a>，2014</li>
-<li>知乎，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/63333847">SQL之CASE WHEN用法详解</a>，2019</li>
-</ol>
+                <h2 id="简述">简述<a class="anchor" href="#简述">¶</a></h2>
+<p>Spark提供了一种称为RDD（resilient distributed dataset，弹性分布式数据集）的简单逻辑数据结，是Spark最基本的抽象。DataFrame和DataSet都是基于RDD构建的。RDD操作分为转化操作和行为操作。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Spark%E7%BB%84%E4%BB%B6%E5%92%8C%E6%9E%B6%E6%9E%84.png" alt="Spark组件和架构.png"></p>
 
                 
             </div>
@@ -662,7 +561,7 @@ GROUPING SETS<span class="token punctuation">(</span><span class="token punctuat
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://buerlog.top/2021/12/21/cheng-xu-she-ji/chang-yong-sql-zheng-li/">http://buerlog.top/2021/12/21/cheng-xu-she-ji/chang-yong-sql-zheng-li/</a>
+                    <a href="http://buerlog.top/2022/09/11/cheng-xu-she-ji/da-shu-ju/spark-xue-xi-bi-ji/">http://buerlog.top/2022/09/11/cheng-xu-she-ji/da-shu-ju/spark-xue-xi-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -700,8 +599,8 @@ GROUPING SETS<span class="token punctuation">(</span><span class="token punctuat
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/SQL/">
-                                    <span class="chip bg-color">SQL</span>
+                                <a href="/tags/Spark/">
+                                    <span class="chip bg-color">Spark</span>
                                 </a>
                             
                         </div>
@@ -877,12 +776,12 @@ GROUPING SETS<span class="token punctuation">(</span><span class="token punctuat
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/12/27/suan-fa/qiu-er-jin-zhi-zhong-1-de-ge-shu/">
+                <a href="/2022/10/02/cheng-xu-she-ji/go/go-bing-fa-bi-ji/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/求二进制中1的个数.jpg" class="responsive-img" alt="求二进制中1的个数">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/" class="responsive-img" alt="Go并发笔记">
                         
-                        <span class="card-title">求二进制中1的个数</span>
+                        <span class="card-title">Go并发笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -893,14 +792,14 @@ GROUPING SETS<span class="token punctuation">(</span><span class="token punctuat
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    程序设计
                                 </a>
                             
                             
@@ -925,12 +824,12 @@ GROUPING SETS<span class="token punctuation">(</span><span class="token punctuat
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/13/kv-cun-chu/shu-ju-cun-chu-yu-jian-suo/">
+                <a href="/2022/06/19/jing-yan-zong-jie/ruan-lu-you-dan-sheng-ji/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/KV存储/数据存储与检索.jpg" class="responsive-img" alt="数据存储与检索">
+                        <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/经验总结/软路由诞生记.jpg" class="responsive-img" alt="软路由诞生记">
                         
-                        <span class="card-title">数据存储与检索</span>
+                        <span class="card-title">软路由诞生记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -941,14 +840,14 @@ GROUPING SETS<span class="token punctuation">(</span><span class="token punctuat
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/KV%E5%AD%98%E5%82%A8/" class="post-category">
-                                    KV存储
+                            <a href="/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/" class="post-category">
+                                    经验总结
                                 </a>
                             
                             
@@ -1191,7 +1090,7 @@ GROUPING SETS<span class="token punctuation">(</span><span class="token punctuat
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">255.8k</span>&nbsp;字
+                class="white-color">256.2k</span>&nbsp;字
             
             
             

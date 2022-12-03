@@ -73,11 +73,21 @@
   
   <entry>
     <title>Spark学习笔记</title>
-    <link href="http://buerlog.top/2022/09/11/cheng-xu-she-ji/spark-xue-xi-bi-ji/"/>
-    <id>http://buerlog.top/2022/09/11/cheng-xu-she-ji/spark-xue-xi-bi-ji/</id>
+    <link href="http://buerlog.top/2022/09/11/cheng-xu-she-ji/da-shu-ju/spark-xue-xi-bi-ji/"/>
+    <id>http://buerlog.top/2022/09/11/cheng-xu-she-ji/da-shu-ju/spark-xue-xi-bi-ji/</id>
     <published>2022-09-11T15:04:09.000Z</published>
-    <updated>2022-09-13T01:20:43.000Z</updated>
+    <updated>2022-12-03T16:37:37.000Z</updated>
     
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简述&quot;&gt;简述&lt;a class=&quot;anchor&quot; href=&quot;#简述&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Spark提供了一种称为RDD（resilient distributed dataset，弹性分布式数据集）的简单逻辑数据结，是Spark最基本的抽象。DataFrame和DataSet都是基于RDD构建的。RDD操作分为转化操作和行为操作。&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
     
     
     
@@ -918,10 +928,10 @@
   
   <entry>
     <title>Presto实战与演练</title>
-    <link href="http://buerlog.top/2022/01/21/cheng-xu-she-ji/presto-shi-zhan-yu-yan-lian/"/>
-    <id>http://buerlog.top/2022/01/21/cheng-xu-she-ji/presto-shi-zhan-yu-yan-lian/</id>
+    <link href="http://buerlog.top/2022/01/21/cheng-xu-she-ji/da-shu-ju/presto-shi-zhan-yu-yan-lian/"/>
+    <id>http://buerlog.top/2022/01/21/cheng-xu-she-ji/da-shu-ju/presto-shi-zhan-yu-yan-lian/</id>
     <published>2022-01-21T13:26:54.000Z</published>
-    <updated>2022-01-24T17:24:57.000Z</updated>
+    <updated>2022-12-03T16:37:37.000Z</updated>
     
     
       
@@ -1617,7 +1627,7 @@
     <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1-100/"/>
     <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1-100/</id>
     <published>2022-01-16T09:40:00.000Z</published>
-    <updated>2022-03-22T17:16:15.000Z</updated>
+    <updated>2022-12-03T16:37:37.000Z</updated>
     
     
       
@@ -1643,10 +1653,10 @@
   
   <entry>
     <title>HQL</title>
-    <link href="http://buerlog.top/2022/01/14/cheng-xu-she-ji/hql-xue-xi/"/>
-    <id>http://buerlog.top/2022/01/14/cheng-xu-she-ji/hql-xue-xi/</id>
+    <link href="http://buerlog.top/2022/01/14/cheng-xu-she-ji/da-shu-ju/hql-xue-xi/"/>
+    <id>http://buerlog.top/2022/01/14/cheng-xu-she-ji/da-shu-ju/hql-xue-xi/</id>
     <published>2022-01-14T02:51:41.000Z</published>
-    <updated>2022-01-24T16:48:20.000Z</updated>
+    <updated>2022-12-03T16:37:37.000Z</updated>
     
     
       
@@ -1698,10 +1708,10 @@
   
   <entry>
     <title>常用SQL整理</title>
-    <link href="http://buerlog.top/2021/12/21/cheng-xu-she-ji/chang-yong-sql-zheng-li/"/>
-    <id>http://buerlog.top/2021/12/21/cheng-xu-she-ji/chang-yong-sql-zheng-li/</id>
+    <link href="http://buerlog.top/2021/12/21/cheng-xu-she-ji/da-shu-ju/chang-yong-sql-zheng-li/"/>
+    <id>http://buerlog.top/2021/12/21/cheng-xu-she-ji/da-shu-ju/chang-yong-sql-zheng-li/</id>
     <published>2021-12-21T13:04:24.000Z</published>
-    <updated>2022-07-08T12:36:27.000Z</updated>
+    <updated>2022-12-03T16:37:37.000Z</updated>
     
     
       
@@ -2058,10 +2068,10 @@
   
   <entry>
     <title>Scala学习笔记</title>
-    <link href="http://buerlog.top/2021/09/24/cheng-xu-she-ji/scala-xue-xi-bi-ji/"/>
-    <id>http://buerlog.top/2021/09/24/cheng-xu-she-ji/scala-xue-xi-bi-ji/</id>
+    <link href="http://buerlog.top/2021/09/24/cheng-xu-she-ji/da-shu-ju/scala-xue-xi-bi-ji/"/>
+    <id>http://buerlog.top/2021/09/24/cheng-xu-she-ji/da-shu-ju/scala-xue-xi-bi-ji/</id>
     <published>2021-09-24T15:48:32.000Z</published>
-    <updated>2022-06-15T16:12:34.000Z</updated>
+    <updated>2022-12-03T16:37:37.000Z</updated>
     
     
       
@@ -2544,7 +2554,7 @@
     <link href="http://buerlog.top/2021/03/23/suan-fa/acwing-shua-ti-ji-lu/"/>
     <id>http://buerlog.top/2021/03/23/suan-fa/acwing-shua-ti-ji-lu/</id>
     <published>2021-03-22T18:35:22.000Z</published>
-    <updated>2022-04-15T03:54:55.000Z</updated>
+    <updated>2022-12-03T16:37:37.000Z</updated>
     
     
       
