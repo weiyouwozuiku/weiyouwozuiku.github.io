@@ -503,6 +503,27 @@ public:
 };
 ```
 
+#### [23.合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
+
+```cpp
+class Solution {
+public:
+    ListNode *mergeKLists(vector<ListNode *> &lists) {
+        auto dummy = new ListNode(-1), tail = dummy;
+        auto cmp = [](const ListNode *a, const ListNode *b) { return a->val > b->val; };
+        priority_queue < ListNode * , vector < ListNode * >, decltype(cmp) > heap(cmp);
+        for (auto it: lists) if (it) heap.push(it);
+        while (heap.size()) {
+            auto it = heap.top();
+            heap.pop();
+            tail = tail->next = it;
+            if (it->next) heap.push(it->next);
+        }
+        return dummy->next;
+    }
+};
+```
+
 #### [25. K 个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
 
 ```cpp
