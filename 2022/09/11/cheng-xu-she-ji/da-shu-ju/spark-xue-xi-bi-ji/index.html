@@ -497,14 +497,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    60
+                    592
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -535,6 +535,71 @@
                 <h2 id="简述">简述<a class="anchor" href="#简述">¶</a></h2>
 <p>Spark提供了一种称为RDD（resilient distributed dataset，弹性分布式数据集）的简单逻辑数据结，是Spark最基本的抽象。DataFrame和DataSet都是基于RDD构建的。RDD操作分为转化操作和行为操作。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Spark%E7%BB%84%E4%BB%B6%E5%92%8C%E6%9E%B6%E6%9E%84.png" alt="Spark组件和架构.png"></p>
+<p>上图为Spark的组件和架构。</p>
+<h3 id="Spark驱动器">Spark驱动器<a class="anchor" href="#Spark驱动器">¶</a></h3>
+<p>负责初始化SparkSession。</p>
+<ul>
+<li>与集群管理器打交道</li>
+<li>向集群管理器申请Spark执行器（JVM）所需要的资源</li>
+<li>将所有的Spark操作转化为DAG计算，并负责调度，将计算任务分发至Spark执行器上。</li>
+</ul>
+<p>一旦资源分配完成，创建好执行器后，驱动器就会直接与执行器通信。</p>
+<h3 id="SparkSession">SparkSession<a class="anchor" href="#SparkSession">¶</a></h3>
+<p>在Spark2.0中，SparkSession是所有Spark操作和数据的统一入口，可以创建JVM运行时参数、定义DataFrame或DataSet、从数据读取数据、访问数据库元数据，并发起Spark SQL查询。</p>
+<h3 id="集群管理器">集群管理器<a class="anchor" href="#集群管理器">¶</a></h3>
+<p>负责管理和分配集群各个节点的资源，以用于Spark应用的执行。</p>
+<p>Spark支持四种集群管理器：</p>
+<ul>
+<li>Spark自带的独立集群管理器</li>
+<li>Apache Hadoop YARN</li>
+<li>Apache Mesos</li>
+<li>Kubernetes</li>
+</ul>
+<h3 id="Spark执行器">Spark执行器<a class="anchor" href="#Spark执行器">¶</a></h3>
+<p>在集群内各工作节点上运行。执行器与驱动器程序通信，并负责在工作节点上执行任务。在大多数部署模式中，每个工作节点只有一个执行器。</p>
+<h3 id="部署模式">部署模式<a class="anchor" href="#部署模式">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>Spark驱动器</th>
+<th>Spark执行器</th>
+<th>集群管理器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本地模式</td>
+<td>在一个JVM上运行</td>
+<td>与Spark驱动器在同一个JVM中运行</td>
+<td>在同一台主机上运行</td>
+</tr>
+<tr>
+<td>独立模式</td>
+<td>在集群内的任意节点上运行</td>
+<td>集群中的每个节点都会启动自己的执行器JVM</td>
+<td>可能随机分配到集群内的任意主机上</td>
+</tr>
+<tr>
+<td>YARM客户端模式</td>
+<td>在客户端内运行，不属于集群的一部分</td>
+<td>YARN的节点管理器所启动的容器</td>
+<td>YARN的资源管理器与YARN的应用主容器协作，从节点管理器上为执行器分配容器</td>
+</tr>
+<tr>
+<td>YARN集群模式</td>
+<td>在YARN的应用主容器内运行</td>
+<td>YARN的节点管理器所启动的容器</td>
+<td>YARN的资源管理器与YARN的应用主容器协作，从节点管理器上为执行器分配容器</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>在一个Kubernetes pod内执行</td>
+<td>各个执行器在各自的pod中运行</td>
+<td>Kuvernetes Master</td>
+</tr>
+</tbody>
+</table>
 
                 
             </div>
@@ -1090,7 +1155,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">256.2k</span>&nbsp;字
+                class="white-color">256.7k</span>&nbsp;字
             
             
             
