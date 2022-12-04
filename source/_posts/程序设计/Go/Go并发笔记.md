@@ -2,7 +2,7 @@
 title: Go并发笔记
 author: 不二
 img: >-
-  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/
+  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/Go并发笔记.png
 mathjax: true
 date: 2022-10-02 23:07:30
 tags: Go
