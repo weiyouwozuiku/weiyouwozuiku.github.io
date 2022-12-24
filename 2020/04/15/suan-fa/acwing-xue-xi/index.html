@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-30
+                    2022-12-24
                 </div>
                 
 
@@ -1849,8 +1849,9 @@ ULL <span class="token function">get</span><span class="token punctuation">(</sp
 有向图存储--&gt;邻接矩阵
 有向图存储--&gt;邻接表</pre>
 <h4 id="邻接矩阵">邻接矩阵<a class="anchor" href="#邻接矩阵">¶</a></h4>
-<p><code>g[a][b]</code>存储边a-&gt;b。如果只是连通，可以用bool表示；如果包含权重信息，可以用int类型。</p>
+<p><code>g[a][b]</code>存储边a-&gt;b。如果只是连通，可以用bool表示；如果包含权重信息，可以用int类型。<strong>通常稠密图使用</strong></p>
 <h4 id="邻接表">邻接表<a class="anchor" href="#邻接表">¶</a></h4>
+<p><strong>通常稀疏图使用</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 对于每个点k，开一个单链表，存储k所有可以走到的点。h[k]存储这个单链表的头结点</span>
 <span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
 
@@ -3169,7 +3170,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">256.7k</span>&nbsp;字
+                class="white-color">257.6k</span>&nbsp;字
             
             
             

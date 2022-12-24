@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-12-04
+                    2022-12-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    592
+                    782
                 </div>
                 
 
@@ -600,6 +600,35 @@
 </tr>
 </tbody>
 </table>
+<h2 id="RDD操作">RDD操作<a class="anchor" href="#RDD操作">¶</a></h2>
+<h3 id="转化操作">转化操作<a class="anchor" href="#转化操作">¶</a></h3>
+<p>指的是将Spark DataFrame转化为新的DataFrame而不改变原有数据的操作，都是惰性求值，将具体的转化关系作为血缘记录下来，在后续生成执行计划时重新安排要做的转化操作。</p>
+<ul>
+<li>orderBy</li>
+<li>groupBy</li>
+<li>filterBy</li>
+<li>select</li>
+<li>join</li>
+</ul>
+<p>窄转化：在每个数据分区上的操作时独立的，生成输出的数据分区时不需要跨分区交换任何数据。</p>
+<p>宽转化：需要从其他分区读取数据并整合</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%AA%84%E8%BD%AC%E5%8C%96%E4%B8%8E%E5%AE%BD%E8%BD%AC%E5%8C%96.png" alt="窄转化与宽转化.png"></p>
+<h3 id="行为操作">行为操作<a class="anchor" href="#行为操作">¶</a></h3>
+<p>会触发所记录下的转化操作。</p>
+<ul>
+<li>show</li>
+<li>take</li>
+<li>count</li>
+<li>collect</li>
+<li>save</li>
+</ul>
+<h2 id="RDD">RDD<a class="anchor" href="#RDD">¶</a></h2>
+<p>RDD是Spark最基本的抽象。其主要有三个属性：</p>
+<ul>
+<li>依赖关系</li>
+<li>分区（包括一些位置信息）</li>
+<li>计算函数</li>
+</ul>
 
                 
             </div>
@@ -1155,7 +1184,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">256.7k</span>&nbsp;字
+                class="white-color">257.6k</span>&nbsp;字
             
             
             
