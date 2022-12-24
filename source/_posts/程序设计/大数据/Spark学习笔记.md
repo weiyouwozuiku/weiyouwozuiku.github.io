@@ -56,3 +56,40 @@ Spark支持四种集群管理器：
 | YARN集群模式   | 在YARN的应用主容器内运行           | YARN的节点管理器所启动的容器            | YARN的资源管理器与YARN的应用主容器协作，从节点管理器上为执行器分配容器 |
 | Kubernetes     | 在一个Kubernetes pod内执行         | 各个执行器在各自的pod中运行             | Kuvernetes Master                                            |
 
+## RDD操作
+
+### 转化操作
+
+指的是将Spark DataFrame转化为新的DataFrame而不改变原有数据的操作，都是惰性求值，将具体的转化关系作为血缘记录下来，在后续生成执行计划时重新安排要做的转化操作。
+
+- orderBy
+- groupBy
+- filterBy
+- select
+- join
+
+窄转化：在每个数据分区上的操作时独立的，生成输出的数据分区时不需要跨分区交换任何数据。
+
+宽转化：需要从其他分区读取数据并整合
+
+![窄转化与宽转化.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/大数据/Spark学习笔记/窄转化与宽转化.png)
+
+
+
+### 行为操作
+
+会触发所记录下的转化操作。
+
+- show
+- take
+- count
+- collect
+- save
+
+## RDD
+
+RDD是Spark最基本的抽象。其主要有三个属性：
+
+- 依赖关系
+- 分区（包括一些位置信息）
+- 计算函数

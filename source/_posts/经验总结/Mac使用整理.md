@@ -109,6 +109,10 @@ categories: 经验总结
 - npx
 - Slidev markdown版ppt
 - difftastic
+- android-platform-tools
+- scrcpy
+- socat
+- privoxy
 
 ## zsh配置
 

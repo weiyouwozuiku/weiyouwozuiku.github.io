@@ -1922,7 +1922,165 @@ int main() {
 
 ##### 851~900
 
+[851.spfa求最短路]
 
+```cpp
+#include <cstring>
+#include <queue>
+
+using namespace std;
+int n, m;
+const int N = 1e5 + 10;
+int h[N], e[N], ne[N], w[N], dist[N], idx;
+bool st[N];
+typedef pair<int, int> PII;
+
+int spfa(int index) {
+    memset(dist, 0x3f, sizeof dist);
+    dist[index] = 0;
+    queue<int> q;
+    st[index] = true;
+    q.push(index);
+    while (q.size()) {
+        auto t = q.front();
+        q.pop();
+        st[t] = false;
+        for (int i = h[t]; i != -1; i = ne[i]) {
+            auto it = e[i];
+            if (dist[it] > dist[t] + w[i]) {
+                dist[it] = dist[t] + w[i];
+                if (!st[it]) {
+                    st[it] = true;
+                    q.push(it);
+                }
+            }
+        }
+    }
+    return dist[n];
+}
+
+void add(int a, int b, int c) {
+    e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx++;
+}
+
+int main() {
+    scanf("%d%d", &n, &m);
+    // 尚未初始化时，节点都没有链接节点
+    memset(h, -1, sizeof h);
+    int a, b, c;
+    while (m--) {
+        scanf("%d%d%d", &a, &b, &c);
+        add(a, b, c);
+    }
+    int result = spfa(1);
+    if (result > 0x3f3f3f3f / 2) puts("impossible");
+    else printf("%d", result);
+    return 0;
+}
+```
+
+[852.spfa判断负环]
+
+```cpp
+#include <cstring>
+#include <queue>
+#include <cstdio>
+using namespace std;
+int n, m;
+const int N = 1e5 + 10;
+int h[N], e[N], ne[N], w[N], idx;
+bool st[N];
+// dist[x]存储1号点到x的最短距离，cnt[x]存储1到x的最短路中经过的点数
+int cnt[N], dist[N];
+
+void add(int a, int b, int x) {
+    e[idx] = b;
+    w[idx] = x;
+    ne[idx] = h[a];
+    h[a] = idx++;
+}
+
+bool spfa() {
+    queue<int> q;
+    // 避免出现起点通路上没有负环，因此直接加入所有点
+    for (int i = 1; i <= n; ++i) {
+        q.push(i);
+        st[i] = true;
+    }
+    while (q.size()) {
+        int t = q.front();
+        q.pop();
+        st[t] = false;
+        for (int i = h[t]; i != -1; i = ne[i]) {
+            int j = e[i];
+            if (dist[j] > dist[t] + w[i]) {
+                dist[j] = dist[t] + w[i];
+                cnt[j] = cnt[t] + 1;
+                if (cnt[j] > n) return true;
+                if (!st[j]) {
+                    st[j] = true;
+                    q.push(j);
+                }
+            }
+        }
+    }
+    return false;
+}
+
+int main() {
+    memset(h, -1, sizeof h);
+    scanf("%d%d", &n, &m);
+    int a, b, x;
+    for (int i = 0; i < m; ++i) {
+        scanf("%d%d%d", &a, &b, &x);
+        add(a, b, x);
+    }
+    if (spfa()) puts("Yes");
+    else puts("No");
+}
+```
+
+[853.有边数限制的最短路]
+
+```cpp
+#include <iostream>
+#include <cstring>
+#include <algorithm>
+
+const int N = 510, M = 10010;
+int n, m, k;
+int dist[N], backup[N];
+struct Edge {
+    int a, b, w;
+} edges[M];
+
+int bellman_ford() {
+    memset(dist, 0x3f, sizeof dist);
+    dist[1] = 0;
+    // 这里的k限制了最多能走的边数
+    for (int i = 0; i < k; ++i) {
+        // 需要注意这里一定要备份之前的数组，不然会出现更新m条边时使用了本次循环更新的dist
+        memcpy(backup, dist, sizeof dist);
+        for (int j = 0; j < m; ++j) {
+            int a = edges[j].a, b = edges[j].b, w = edges[j].w;
+            dist[b] = std::min(dist[b], backup[a] + w);
+        }
+    }
+    return dist[n];
+}
+
+int main() {
+    scanf("%d%d%d", &n, &m, &k);
+    int a, b, x;
+    for (int i = 0; i < m; ++i) {
+        scanf("%d%d%d", &edges[i].a, &edges[i].b, &edges[i].w);
+    }
+    int t = bellman_ford();
+    if (t > 0x3f3f3f3f / 2)puts("impossible");
+    else printf("%d\n", t);
+    return 0;
+}
+```
 
 #### 901~1000
 
