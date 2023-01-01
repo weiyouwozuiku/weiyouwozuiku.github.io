@@ -1727,7 +1727,9 @@ n表示点数，m表示边数。
 
 汇点：终点
 
-#### 朴素dijkstra算法
+#### 单源最短路
+
+##### 朴素dijkstra算法
 
 思路：
 
@@ -1775,7 +1777,7 @@ int dijkstra(int index) {
 
 具体实现可以参考[AcWing 849. Dijkstra求最短路 I](https://www.acwing.com/problem/content/851/)
 
-#### 堆优化版dijkstra
+##### 堆优化版dijkstra
 
 时间复杂度$O(mlogn)$, $n$ 表示点数，$m$ 表示边数
 
@@ -1832,7 +1834,7 @@ int dijkstra()
 
 具体实现可以参考[AcWing 850. Dijkstra求最短路 II](https://www.acwing.com/problem/content/852/)
 
-#### Bellman-Ford算法
+##### Bellman-Ford算法
 
 时间复杂度$O(nm)$, $n$ 表示点数，$m$表示边数
 
@@ -1854,10 +1856,10 @@ int bellman_ford()
 {
     memset(dist, 0x3f, sizeof dist);
     dist[1] = 0;
-
     // 如果第n次迭代仍然会松弛三角不等式，就说明存在一条长度是n+1的最短路径，由抽屉原理，路径中至少存在两个相同的点，说明图中存在负权回路。
     for (int i = 0; i < n; i ++ )
     {
+        memcpy(backup, dist, sizeof dist);
         for (int j = 0; j < m; j ++ )
         {
             int a = edges[j].a, b = edges[j].b, w = edges[j].w;
@@ -1866,7 +1868,6 @@ int bellman_ford()
                 dist[b] = dist[a] + w;
         }
     }
-
     if (dist[n] > 0x3f3f3f3f / 2) return -1;
     return dist[n];
 }
@@ -1874,7 +1875,7 @@ int bellman_ford()
 
 具体实现可以参考[AcWing 853. 有边数限制的最短路](https://www.acwing.com/problem/content/855/)
 
-#### SPFA 算法（队列优化的Bellman-Ford算法）
+##### SPFA 算法（队列优化的Bellman-Ford算法）
 
 使用限制：要求当前图不存在负权回路
 
@@ -1925,7 +1926,7 @@ int spfa()
 
 具体实现可以参考[AcWing 851. spfa求最短路](https://www.acwing.com/problem/content/853/)
 
-### spfa判断图中是否存在负环
+##### spfa判断图中是否存在负环
 
 时间复杂度是$O(nm)$, $n$表示点数，$m$表示边数
 
@@ -1978,7 +1979,9 @@ bool spfa()
 
 具体实现可以参考[AcWing 852. spfa判断负环](https://www.acwing.com/problem/content/854/)
 
-### floyd算法
+#### 多源最短路
+
+##### floyd算法
 
 时间复杂度是$O(n^3)$, $n$表示点数
 
@@ -2001,7 +2004,11 @@ void floyd()
 
 具体实现可以参考[AcWing 854. Floyd求最短路](https://www.acwing.com/problem/content/856/)
 
-### 朴素版prim算法
+### 最小生成树
+
+$最小生成树 \begin{cases}Prim \begin{cases} 朴素版Prim =>O(n^2) \quad 稠密图使用 \\ 堆优化版Prim => O(mlogn) \end{cases} \\ Kruskal => O(mlogm) \quad 稀疏图使用 \end{cases}$
+
+#### 朴素版prim算法
 
 时间复杂度是$O(n^2+m)$, $n$表示点数，$m$表示边数
 
@@ -2039,9 +2046,16 @@ int prim()
 
 具体实现可以参考[AcWing 858. Prim算法求最小生成树](https://www.acwing.com/problem/content/860/)
 
-### Kruskal算法
+#### Kruskal算法
 
 时间复杂度是$O(mlogm)$, $n$表示点数，$m$表示边数
+
+算法思想：
+
+1. 将所有边按权重从小到大排序
+2. 枚举每条边a,b 权重c
+   1. if a,b不连通
+   2. 将这条边加入集合中
 
 ```cpp
 int n, m;       // n是点数，m是边数
@@ -2090,13 +2104,15 @@ int kruskal()
 
 具体实现可以参考[AcWing 859. Kruskal算法求最小生成树](https://www.acwing.com/problem/content/861/)
 
-
-
-### 最小生成树
-
 ### 二分图
 
-### 染色法判别二分图
+#### 定义
+
+二分图：当且仅当图中不含奇数环。将所有点分到两个集合中，边只在两个集合直接，不在单个集合内部。
+
+$二分图 \begin{cases} 染色法 => 判别是不是二分图 => O(n+m) \\ 匈牙利算法 => 求二分图的最大匹配 => O(mn) ,实际运行时间一般远小于O(mn)\end{cases}$
+
+#### 染色法判别二分图
 
 时间复杂度是$O(n+m)$, $n$表示点数，$m$表示边数
 
@@ -2139,7 +2155,7 @@ bool check()
 
 具体实现可以参考[AcWing 860. 染色法判定二分图](https://www.acwing.com/problem/content/862/)
 
-### 匈牙利算法
+#### 匈牙利算法
 
 时间复杂度是$O(nm)$,$n$表示点数，$m$表示边数
 

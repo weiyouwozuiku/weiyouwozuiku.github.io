@@ -80,7 +80,7 @@ public:
 
 下面证明 $\lceil\frac{n}{x+1}\rceil = \frac{n +x}{x+1}$ 。
 
-![Leetcode刷题记录_781.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Leetcode算法题701-800/Leetcode刷题记录_781.png)
+![Leetcode刷题记录_781.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Leetcode合集/Leetcode算法题701-800/Leetcode刷题记录_781.png)
 
 ```cpp
 class Solution {
@@ -93,6 +93,40 @@ public:
             res+=(v+k)/(k+1)*(k+1);
         }
         return res;
+    }
+};
+```
+
+[785.判断二分图](https://leetcode.cn/problems/is-graph-bipartite/submissions/)
+
+```cpp
+class Solution {
+public:
+    vector<int> color;
+
+    bool dfs(int index, int c, vector <vector<int>> &graph) {
+        color[index] = c;
+        for (auto i: graph[index]) {
+            if (color[i] != -1) {
+                if (color[i] == c) return false;
+            } else if (!dfs(i, !c, graph)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool isBipartite(vector <vector<int>> &graph) {
+        color = vector<int>(graph.size(), -1);
+        bool flag = true;
+        for (int i = 0; i < graph.size(); ++i) {
+            if (!~color[i]) {
+                if (!dfs(i, 0, graph)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 };
 ```

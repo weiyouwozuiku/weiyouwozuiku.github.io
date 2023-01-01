@@ -2082,6 +2082,215 @@ int main() {
 }
 ```
 
+[854.Floyd求最短路]
+
+```cpp
+#include <cstdio>
+#include <algorithm>
+
+const int N = 210, INF = 1e9;
+int n, m, k;
+int dist[N][N];
+
+void floyd() {
+    for (int k = 1; k <= n; ++k) {
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                dist[i][j] = std::min(dist[i][j], dist[i][k] + dist[k][j]);
+            }
+        }
+    }
+}
+
+int main() {
+    scanf("%d%d%d", &n, &m, &k);
+    int a, b, w;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= n; ++j) {
+            dist[i][j] = i == j ? 0 : INF;
+        }
+    }
+    for (int i = 0; i < m; ++i) {
+        scanf("%d%d%d", &a, &b, &w);
+        dist[a][b] = std::min(w, dist[a][b]);
+    }
+    floyd();
+    for (int i = 0; i < k; ++i) {
+        scanf("%d%d", &a, &b);
+        if (dist[a][b] > INF >> 1) printf("impossible\n");
+        else printf("%d\n", dist[a][b]);
+    }
+    return 0;
+}
+```
+
+[858.Prim算法求最小生成树]
+
+```cpp
+#include <cstring>
+#include <algorithm>
+#include <cstdio>
+
+const int N = 510;
+int g[N][N], dist[N];
+int n, m;
+bool st[N];
+
+int prim() {
+    memset(dist, 0x3f, sizeof dist);
+    // 记录最小生成树的路径之和
+    int res = 0;
+    for (int i = 0; i < n; ++i) {
+        int t = -1;
+        for (int j = 1; j <= n; ++j) {
+            // 需要注意这里st比较的是j不是t
+            if (!st[j] && (t == -1 || dist[j] < dist[t]))
+                t = j;
+        }
+        // i=0时 dist刚初始化所有边都是INF
+        if (i && dist[t] == 0x3f3f3f3f) return 0x3f3f3f3f;
+        if (i) res += dist[t];
+        st[t] = true;
+        for (int j = 1; j <= n; ++j)dist[j] = std::min(dist[j], g[t][j]);
+    }
+    return res;
+}
+
+int main() {
+    scanf("%d%d", &n, &m);
+    int a, b, w;
+    memset(g, 0x3f, sizeof g);
+    for (int i = 0; i < m; ++i) {
+        scanf("%d%d%d", &a, &b, &w);
+        g[a][b] = g[b][a] = std::min(g[a][b], w);
+    }
+    int r = prim();
+    if (r == 0x3f3f3f3f) puts("impossible");
+    else printf("%d", r);
+}
+```
+
+[859.Kruskal算法求最小生成树]
+
+```cpp
+#include <cstdio>
+#include <cstring>
+#include <algorithm>
+
+const int N = 200010;
+int n, m;
+int p[N];
+
+struct Edge {
+    int a, b, w;
+
+    const bool operator<(const Edge &edge) const {
+        return w < edge.w;
+    }
+} edges[N];
+
+int find(int x) {
+    if (p[x] != x) {
+        p[x] = find(p[x]);
+    }
+    return p[x];
+}
+
+int kruskal() {
+    int res = 0, cnt = 0;
+    for (int i = 1; i <= n; ++i) p[i] = i;
+    std::sort(edges, edges + m);
+    int a, b, w;
+    for (int i = 0; i < m; ++i) {
+        a = edges[i].a, b = edges[i].b, w = edges[i].w;
+        a = find(a), b = find(b);
+        if (a != b) {
+            res += w;
+            cnt++;
+            p[a] = b;
+        }
+    }
+    if (cnt < n - 1) return 0x3f3f3f3f;
+    else return res;
+}
+
+int main() {
+    int a, b, c;
+    scanf("%d%d", &n, &m);
+    for (int i = 0; i < m; ++i) {
+        scanf("%d%d%d", &a, &b, &c);
+        edges[i] = {a, b, c};
+    }
+    int r = kruskal();
+    if (r == 0x3f3f3f3f) puts("impossible");
+    else printf("%d", r);
+    return 0;
+}
+```
+
+[860.染色法判断二分图]
+
+```cpp
+#include <cstdio>
+#include <cstring>
+#include <algorithm>
+
+const int N = 100010, M = 200010;
+int n, m;
+int h[N], e[M], ne[M], idx;
+int color[N];
+
+void add(int a, int b) {
+    e[idx] = b;
+    ne[idx] = h[a];
+    h[a] = idx++;
+}
+
+bool dfs(int index, int c) {
+    color[index] = c;
+    for (int i = h[index]; i != -1; i = ne[i]) {
+        int j = e[i];
+        if (!~color[j]) {
+            if (!dfs(j, !c)) return false;
+        } else {
+            if (color[j] == c) return false;
+        }
+    }
+    return true;
+}
+
+bool check() {
+    bool flag = true;
+    memset(color, -1, sizeof color);
+    for (int i = 1; i <= n; ++i) {
+        if (!~color[i]) {
+            if (!dfs(i, 0)) {
+                flag = false;
+                break;
+            }
+        }
+    }
+    return flag;
+}
+
+int main() {
+    scanf("%d%d", &n, &m);
+    memset(h, -1, sizeof h);
+    int a, b;
+    for (int i = 0; i < m; ++i) {
+        scanf("%d%d", &a, &b);
+        if (a != b) {
+            add(a, b), add(b, a);
+        }
+    }
+    if (check()) puts("Yes");
+    else puts("No");
+    return 0;
+}
+```
+
+
+
 #### 901~1000
 
 ## 1001～2000
