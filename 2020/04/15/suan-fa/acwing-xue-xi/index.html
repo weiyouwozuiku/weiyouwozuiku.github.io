@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-12-24
+                    2023-01-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.7k
+                    17.8k
                 </div>
                 
 
@@ -1947,7 +1947,8 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <p style="filter: opacity(95%);transform:scale(0.85);text-align:center;"><img src="https://math.now.sh?from=%E6%9C%80%E7%9F%AD%E8%B7%AF%3D%5Cbegin%7Bcases%7D%0A%E5%8D%95%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%20%0A%5Cbegin%7Bcases%7D%0A%E6%89%80%E6%9C%89%E8%BE%B9%E6%9D%83%E9%87%8D%E9%83%BD%E6%98%AF%E6%AD%A3%E6%95%B0%20%5Cbegin%7Bcases%7D%20%E6%9C%B4%E7%B4%A0Dijkstra%E7%AE%97%E6%B3%95%20%5Cquad%20O%28n%5E2%29%20%5Cquad%20%E9%80%82%E7%94%A8%E7%A8%A0%E5%AF%86%E5%9B%BE%20%5C%5C%20%E5%A0%86%E4%BC%98%E5%8C%96%E7%89%88Dijkstra%E7%AE%97%E6%B3%95%20%5Cquad%20O(mlogn)%20%5Cquad%20%E9%80%82%E7%94%A8%E7%A8%80%E7%96%8F%E5%9B%BE%20%5Cend%7Bcases%7D%20%5C%5C%20%0A%E5%AD%98%E5%9C%A8%E8%B4%9F%E6%9D%83%E8%BE%B9%20%5Cbegin%7Bcases%7D%20Bellman-Ford%E7%AE%97%E6%B3%95%20%5Cquad%20O(nm)%5Cquad%20%E9%80%82%E7%94%A8%E4%B8%8D%E8%B6%85%E8%BF%87k%E6%9D%A1%E8%BE%B9%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%5C%5C%20SPFA%E7%AE%97%E6%B3%95%20%5Cquad%20%E4%B8%80%E8%88%ACO(m)%EF%BC%8C%E6%9C%80%E5%B7%AEO(nm)%20%5Cquad%20%E4%B8%8D%E8%83%BD%E5%AD%98%E5%9C%A8%E8%B4%9F%E6%9D%83%E5%9B%9E%E8%B7%AF%20%5Cend%7Bcases%7D%0A%5Cend%7Bcases%7D%0A%5C%5C%0A%E5%A4%9A%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%20%5CRightarrow%20Floyd%E7%AE%97%E6%B3%95%20%5Cquad%20O(n%5E3)%20%5C%0A%5Cend%7Bcases%7D%0A"></p><p>n表示点数，m表示边数。</p>
 <p>源点：起点</p>
 <p>汇点：终点</p>
-<h4 id="朴素dijkstra算法">朴素dijkstra算法<a class="anchor" href="#朴素dijkstra算法">¶</a></h4>
+<h4 id="单源最短路">单源最短路<a class="anchor" href="#单源最短路">¶</a></h4>
+<h5 id="朴素dijkstra算法">朴素dijkstra算法<a class="anchor" href="#朴素dijkstra算法">¶</a></h5>
 <p>思路：</p>
 <ol>
 <li>
@@ -1987,7 +1988,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
     <span class="token keyword">else</span> <span class="token keyword">return</span> dist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/851/">AcWing 849. Dijkstra求最短路 I</a></p>
-<h4 id="堆优化版dijkstra">堆优化版dijkstra<a class="anchor" href="#堆优化版dijkstra">¶</a></h4>
+<h5 id="堆优化版dijkstra">堆优化版dijkstra<a class="anchor" href="#堆优化版dijkstra">¶</a></h5>
 <p>时间复杂度<img src="https://math.now.sh?inline=O%28mlogn%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"> 表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"> 表示边数</p>
 <p>堆的实现有两种方法：</p>
 <p style="filter: opacity(95%);transform:scale(0.85);text-align:center;"><img src="https://math.now.sh?from=%E5%A0%86%E4%BC%98%E5%8C%96%E4%B8%AD%E7%9A%84%E5%A0%86%E5%AE%9E%E7%8E%B0%0A%5Cbegin%7Bcases%7D%0A%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0%20%5Cquad%20%E7%BB%B4%E6%8A%A4%E4%B8%80%E5%A5%97%E6%98%A0%E5%B0%84%E8%A1%A8%2C%E5%8F%AF%E4%BB%A5%E5%8F%AA%E4%BD%BF%E7%94%A8n%E4%B8%AA%E5%85%83%E7%B4%A0%E7%A9%BA%E9%97%B4%20%5C%5C%0A%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%20%5Cquad%20%5Ctext%7Bpriority%5C_queue%EF%BC%8C%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8m%E4%B8%AA%E5%85%83%E7%B4%A0%E7%A9%BA%E9%97%B4%2C%E5%B9%B6%E4%B8%94%E5%88%A4%E6%96%AD%E5%86%97%E4%BD%99%E5%85%83%E7%B4%A0%7D%0A%5Cend%7Bcases%7D%0A"></p><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> PII<span class="token punctuation">;</span>
@@ -2030,7 +2031,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
     <span class="token keyword">return</span> dist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/852/">AcWing 850. Dijkstra求最短路 II</a></p>
-<h4 id="Bellman-Ford算法">Bellman-Ford算法<a class="anchor" href="#Bellman-Ford算法">¶</a></h4>
+<h5 id="Bellman-Ford算法">Bellman-Ford算法<a class="anchor" href="#Bellman-Ford算法">¶</a></h5>
 <p>时间复杂度<img src="https://math.now.sh?inline=O%28nm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"> 表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数</p>
 <p>当出现负权回路时，最短路不一定存在的。因为存在负权回路的节点并不在最短路上就没事。</p>
 <p>注意在模板题中需要对下面的模板稍作修改，加上备份数组。</p>
@@ -2047,10 +2048,10 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <span class="token punctuation">{</span>
     <span class="token function">memset</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span> <span class="token number">0x3f</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span> dist<span class="token punctuation">)</span><span class="token punctuation">;</span>
     dist<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
     <span class="token comment">// 如果第n次迭代仍然会松弛三角不等式，就说明存在一条长度是n+1的最短路径，由抽屉原理，路径中至少存在两个相同的点，说明图中存在负权回路。</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
+        <span class="token function">memcpy</span><span class="token punctuation">(</span>backup<span class="token punctuation">,</span> dist<span class="token punctuation">,</span> <span class="token keyword">sizeof</span> dist<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> j <span class="token operator">++</span> <span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
             <span class="token keyword">int</span> a <span class="token operator">=</span> edges<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>a<span class="token punctuation">,</span> b <span class="token operator">=</span> edges<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>b<span class="token punctuation">,</span> w <span class="token operator">=</span> edges<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>w<span class="token punctuation">;</span>
@@ -2059,12 +2060,11 @@ q<span class="token punctuation">.</span><span class="token function">push</span
                 dist<span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> dist<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">+</span> w<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-
     <span class="token keyword">if</span> <span class="token punctuation">(</span>dist<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0x3f3f3f3f</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> dist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/855/">AcWing 853. 有边数限制的最短路</a></p>
-<h4 id="SPFA-算法（队列优化的Bellman-Ford算法）">SPFA 算法（队列优化的Bellman-Ford算法）<a class="anchor" href="#SPFA-算法（队列优化的Bellman-Ford算法）">¶</a></h4>
+<h5 id="SPFA-算法（队列优化的Bellman-Ford算法）">SPFA 算法（队列优化的Bellman-Ford算法）<a class="anchor" href="#SPFA-算法（队列优化的Bellman-Ford算法）">¶</a></h5>
 <p>使用限制：要求当前图不存在负权回路</p>
 <p>时间复杂度平均情况下<img src="https://math.now.sh?inline=O%28m%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，最坏情况下<img src="https://math.now.sh?inline=O%28nm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">;</span>      <span class="token comment">// 总点数</span>
@@ -2108,7 +2108,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
     <span class="token keyword">return</span> dist<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/853/">AcWing 851. spfa求最短路</a></p>
-<h3 id="spfa判断图中是否存在负环">spfa判断图中是否存在负环<a class="anchor" href="#spfa判断图中是否存在负环">¶</a></h3>
+<h5 id="spfa判断图中是否存在负环">spfa判断图中是否存在负环<a class="anchor" href="#spfa判断图中是否存在负环">¶</a></h5>
 <p>时间复杂度是<img src="https://math.now.sh?inline=O%28nm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">;</span>      <span class="token comment">// 总点数</span>
 <span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> w<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>       <span class="token comment">// 邻接表存储所有边</span>
@@ -2155,7 +2155,8 @@ q<span class="token punctuation">.</span><span class="token function">push</span
     <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/854/">AcWing 852. spfa判断负环</a></p>
-<h3 id="floyd算法">floyd算法<a class="anchor" href="#floyd算法">¶</a></h3>
+<h4 id="多源最短路">多源最短路<a class="anchor" href="#多源最短路">¶</a></h4>
+<h5 id="floyd算法">floyd算法<a class="anchor" href="#floyd算法">¶</a></h5>
 <p>时间复杂度是<img src="https://math.now.sh?inline=O%28n%5E3%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示点数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">初始化：
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
@@ -2172,7 +2173,9 @@ q<span class="token punctuation">.</span><span class="token function">push</span
                 d<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>d<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> d<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> d<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/856/">AcWing 854. Floyd求最短路</a></p>
-<h3 id="朴素版prim算法">朴素版prim算法<a class="anchor" href="#朴素版prim算法">¶</a></h3>
+<h3 id="最小生成树">最小生成树<a class="anchor" href="#最小生成树">¶</a></h3>
+<p><img src="https://math.now.sh?inline=%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%20%5Cbegin%7Bcases%7DPrim%20%5Cbegin%7Bcases%7D%20%E6%9C%B4%E7%B4%A0%E7%89%88Prim%20%3D%3EO%28n%5E2%29%20%5Cquad%20%E7%A8%A0%E5%AF%86%E5%9B%BE%E4%BD%BF%E7%94%A8%20%5C%5C%20%E5%A0%86%E4%BC%98%E5%8C%96%E7%89%88Prim%20%3D%3E%20O(mlogn)%20%5Cend%7Bcases%7D%20%5C%5C%20Kruskal%20%3D%3E%20O(mlogm)%20%5Cquad%20%E7%A8%80%E7%96%8F%E5%9B%BE%E4%BD%BF%E7%94%A8%20%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<h4 id="朴素版prim算法">朴素版prim算法<a class="anchor" href="#朴素版prim算法">¶</a></h4>
 <p>时间复杂度是<img src="https://math.now.sh?inline=O%28n%5E2%2Bm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">;</span>      <span class="token comment">// n表示点数</span>
 <span class="token keyword">int</span> g<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment">// 邻接矩阵，存储所有边</span>
@@ -2204,8 +2207,18 @@ q<span class="token punctuation">.</span><span class="token function">push</span
     <span class="token keyword">return</span> res<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/860/">AcWing 858. Prim算法求最小生成树</a></p>
-<h3 id="Kruskal算法">Kruskal算法<a class="anchor" href="#Kruskal算法">¶</a></h3>
+<h4 id="Kruskal算法">Kruskal算法<a class="anchor" href="#Kruskal算法">¶</a></h4>
 <p>时间复杂度是<img src="https://math.now.sh?inline=O%28mlogm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数</p>
+<p>算法思想：</p>
+<ol>
+<li>将所有边按权重从小到大排序</li>
+<li>枚举每条边a,b 权重c
+<ol>
+<li>if a,b不连通</li>
+<li>将这条边加入集合中</li>
+</ol>
+</li>
+</ol>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">;</span>       <span class="token comment">// n是点数，m是边数</span>
 <span class="token keyword">int</span> p<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token comment">// 并查集的父节点数组</span>
 
@@ -2249,9 +2262,11 @@ q<span class="token punctuation">.</span><span class="token function">push</span
     <span class="token keyword">return</span> res<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/861/">AcWing 859. Kruskal算法求最小生成树</a></p>
-<h3 id="最小生成树">最小生成树<a class="anchor" href="#最小生成树">¶</a></h3>
 <h3 id="二分图">二分图<a class="anchor" href="#二分图">¶</a></h3>
-<h3 id="染色法判别二分图">染色法判别二分图<a class="anchor" href="#染色法判别二分图">¶</a></h3>
+<h4 id="定义">定义<a class="anchor" href="#定义">¶</a></h4>
+<p>二分图：当且仅当图中不含奇数环。将所有点分到两个集合中，边只在两个集合直接，不在单个集合内部。</p>
+<p><img src="https://math.now.sh?inline=%E4%BA%8C%E5%88%86%E5%9B%BE%20%5Cbegin%7Bcases%7D%20%E6%9F%93%E8%89%B2%E6%B3%95%20%3D%3E%20%E5%88%A4%E5%88%AB%E6%98%AF%E4%B8%8D%E6%98%AF%E4%BA%8C%E5%88%86%E5%9B%BE%20%3D%3E%20O%28n%2Bm%29%20%5C%5C%20%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95%20%3D%3E%20%E6%B1%82%E4%BA%8C%E5%88%86%E5%9B%BE%E7%9A%84%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%20%3D%3E%20O(mn)%20%2C%E5%AE%9E%E9%99%85%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E4%B8%80%E8%88%AC%E8%BF%9C%E5%B0%8F%E4%BA%8EO(mn)%5Cend%7Bcases%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<h4 id="染色法判别二分图">染色法判别二分图<a class="anchor" href="#染色法判别二分图">¶</a></h4>
 <p>时间复杂度是<img src="https://math.now.sh?inline=O%28n%2Bm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">, <img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n<span class="token punctuation">;</span>      <span class="token comment">// n表示点数</span>
 <span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>     <span class="token comment">// 邻接表存储图</span>
@@ -2288,7 +2303,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
     <span class="token keyword">return</span> flag<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>具体实现可以参考<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/862/">AcWing 860. 染色法判定二分图</a></p>
-<h3 id="匈牙利算法">匈牙利算法<a class="anchor" href="#匈牙利算法">¶</a></h3>
+<h4 id="匈牙利算法">匈牙利算法<a class="anchor" href="#匈牙利算法">¶</a></h4>
 <p>时间复杂度是<img src="https://math.now.sh?inline=O%28nm%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">,<img src="https://math.now.sh?inline=n" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示点数，<img src="https://math.now.sh?inline=m" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">表示边数</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> n1<span class="token punctuation">,</span> n2<span class="token punctuation">;</span>     <span class="token comment">// n1表示第一个集合中的点数，n2表示第二个集合中的点数</span>
 <span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>     <span class="token comment">// 邻接表存储所有边，匈牙利算法中只会用到从第一个集合指向第二个集合的边，所以这里只用存一个方向的边</span>
@@ -3161,7 +3176,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2022</span>
+                <span id="year">2018-2023</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -3170,7 +3185,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">257.6k</span>&nbsp;字
+                class="white-color">258.6k</span>&nbsp;字
             
             
             
