@@ -19,7 +19,7 @@ categories: 算法
 
 #### 1～100
 
-[19. 二叉树的下一个节点](https://www.acwing.com/problem/content/31/)
+##### [19. 二叉树的下一个节点](https://www.acwing.com/problem/content/31/)
 
 这题主要想法就是判断当前节点是否拥有右节点。如果拥有右节点，则中序遍历的后一个节点为右节点子树的最左的节点。即，通过右节点循环找到子树的最左的节点；如果没有右节点，则中序遍历的后一个节点为该节点父节点的拐点。即上一次子树的根节点。
 
@@ -43,7 +43,7 @@ public:
 };
 ```
 
-[26. 二进制中1的个数](https://www.acwing.com/problem/content/25/)
+##### [26. 二进制中1的个数](https://www.acwing.com/problem/content/25/)
 
 ```cpp
 class Solution {
@@ -58,7 +58,7 @@ public:
 
 
 
-[33. 链表中倒数第k个节点](https://www.acwing.com/problem/content/32/)
+##### [33. 链表中倒数第k个节点](https://www.acwing.com/problem/content/32/)
 
 本题解题分为两步：
 
@@ -82,7 +82,7 @@ public:
 };
 ```
 
-[35. 反转链表](https://www.acwing.com/problem/content/33/)
+##### [35. 反转链表](https://www.acwing.com/problem/content/33/)
 
 此题有两个版本，一个迭代，一个递归。
 
@@ -114,7 +114,7 @@ public:
 
 ```
 
-[77.翻转单词顺序](https://www.acwing.com/problem/content/73/)
+##### [77.翻转单词顺序](https://www.acwing.com/problem/content/73/)
 
 本题分为二步：
 
@@ -141,7 +141,7 @@ public:
 
 #### 101~200
 
-[154.滑动窗口](https://www.acwing.com/problem/content/156/)
+##### [154.滑动窗口](https://www.acwing.com/problem/content/156/)
 
 本题利用了结果本身的单调性。因为滑动窗口的长度限制，所以使用单调队列而非单调栈。当新元素入队的时候，元素从队尾移除。当新入队元素小于(或大于)等于队尾元素时，将相应元素从队尾出队。生成的单调队列具有单调性，其最值即为队尾或队首元素。
 
@@ -185,7 +185,7 @@ int main() {
 
 
 
-[197. 阶乘分解](https://www.acwing.com/problem/content/description/199/)
+##### [197. 阶乘分解](https://www.acwing.com/problem/content/description/199/)
 
 质数定理：不超过x的质数的个数近似为$\frac{x}{ln(x)}$。
 
@@ -194,6 +194,67 @@ int main() {
 底数为e时，对数可简写为$ln(x)$。
 
 #### 201~300
+
+##### [257.关押罪犯](https://www.acwing.com/problem/content/description/259/)
+
+```cpp
+#include <cstdio>
+#include <cstring>
+
+const int N = 2e4 + 10, M = 2e5 + 10;
+int n, m;
+int e[M], ne[M], idx, h[N], w[M];
+int color[N];
+
+void add(int x, int y, int c) {
+    e[idx] = y;
+    w[idx] = c;
+    ne[idx] = h[x];
+    h[x] = idx++;
+}
+
+bool dfs(int index, int c, int mid) {
+    color[index] = c;
+    for (int i = h[index]; ~i; i = ne[i]) {
+        int j = e[i];
+        if (w[i] <= mid) continue;
+        if (color[j] == -1) {
+            if (!dfs(j, !c, mid)) return false;
+        } else if (color[j] == c) return false;
+    }
+    return true;
+}
+
+bool check(int mid) {
+    memset(color, -1, sizeof color);
+    for (int i = 1; i <= n; ++i) {
+        if (!~color[i]) {
+            if (!dfs(i, 0, mid)) return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    scanf("%d%d", &n, &m);
+    memset(h,-1,sizeof h);
+    int x, y, w;
+    for (int i = 0; i < m; ++i) {
+        scanf("%d%d%d", &x, &y, &w);
+        add(x, y, w), add(y, x, w);
+    }
+    int l = 0, r = 1e9, mid;
+    while (l < r) {
+        mid = l + r >> 1;
+        if (check(mid))r = mid;
+        else l = mid + 1;
+    }
+    printf("%d", l);
+    return 0;
+}
+```
+
+
 
 #### 301~400
 
@@ -209,7 +270,7 @@ int main() {
 
 #### 701~800
 
-[785. 快速排序](https://www.acwing.com/problem/content/787/)
+##### [785. 快速排序](https://www.acwing.com/problem/content/787/)
 
 ```cpp
 #include <iostream>
@@ -241,7 +302,7 @@ int main() {
 }
 ```
 
-[786.第k个数](https://www.acwing.com/problem/content/788/)
+##### [786.第k个数](https://www.acwing.com/problem/content/788/)
 
 ```cpp
 /**
@@ -281,7 +342,7 @@ int main() {
 
 
 
-[787. 归并排序](https://www.acwing.com/problem/content/789/)
+##### [787. 归并排序](https://www.acwing.com/problem/content/789/)
 
 ```cpp
 #include <iostream>
@@ -314,7 +375,7 @@ int main() {
 }
 ```
 
-[788.逆序对的数量](https://www.acwing.com/problem/content/790/)
+##### [788.逆序对的数量](https://www.acwing.com/problem/content/790/)
 
 ![788逆序对的数量.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Acwing刷题记录/788逆序对的数量.png)
 
@@ -323,7 +384,7 @@ int main() {
 
 
 
-[789. 数的范围](https://www.acwing.com/problem/content/791/)
+##### [789. 数的范围](https://www.acwing.com/problem/content/791/)
 
 ```cpp
 #include < iostream >
@@ -370,7 +431,7 @@ int main() {
 }
 ```
 
-[790. 数的三次方根](https://www.acwing.com/problem/content/792/)
+##### [790. 数的三次方根](https://www.acwing.com/problem/content/792/)
 
 本题需要主要三次方的时候，当数字是0.001之类的小于1的数时，寻找范围需要扩大。
 
@@ -398,7 +459,7 @@ int main() {
 }
 ```
 
-[791. 高精度加法](https://www.acwing.com/problem/content/793/)
+##### [791. 高精度加法](https://www.acwing.com/problem/content/793/)
 
 这里的选择使用数组存储大整数，这里第0位存个位数，最高位放在数组最后面。这样当发生进位的时候，容易处理。
 
@@ -434,7 +495,7 @@ int main() {
 }
 ```
 
-[792. 高精度减法](https://www.acwing.com/problem/content/794/)
+##### [792. 高精度减法](https://www.acwing.com/problem/content/794/)
 
 记得去掉结果中多余的0.
 
@@ -487,7 +548,7 @@ int main() {
 }
 ```
 
-[793. 高精度乘法](https://www.acwing.com/problem/content/795/)
+##### [793. 高精度乘法](https://www.acwing.com/problem/content/795/)
 
 ```cpp
 #include <iostream>
@@ -519,7 +580,7 @@ int main() {
 }
 ```
 
-[794. 高精度除法](https://www.acwing.com/problem/content/796/)
+##### [794. 高精度除法](https://www.acwing.com/problem/content/796/)
 
 除法这里需要注意，运算从高位开始处理。所以需要反过来进行处理。
 
@@ -557,7 +618,7 @@ int main() {
 }
 ```
 
-[795. 前缀和](https://www.acwing.com/problem/content/797/)
+##### [795. 前缀和](https://www.acwing.com/problem/content/797/)
 
 本题使用的是一维前缀和。注意这里的s数组存放前缀和，相减的时候需要将左边界-1。s[0],a[0]处放0，以便后续操作。
 
@@ -586,7 +647,7 @@ int main() {
 }
 ```
 
-[796. 子矩阵的和](https://www.acwing.com/problem/content/798/)
+##### [796. 子矩阵的和](https://www.acwing.com/problem/content/798/)
 
 本题依旧是前缀和，不过是二维前缀和，重点就两个公式。此处假设S为前缀和数组，q为相应的差分数组。
 
@@ -619,7 +680,7 @@ int main() {
 }
 ```
 
-[797. 差分](https://www.acwing.com/problem/content/799/)
+##### [797. 差分](https://www.acwing.com/problem/content/799/)
 
 ```cpp
 #include <iostream>
@@ -657,7 +718,7 @@ int main() {
 }
 ```
 
-[798. 差分矩阵](https://www.acwing.com/problem/content/800/)
+##### [798. 差分矩阵](https://www.acwing.com/problem/content/800/)
 
 ```cpp
 #include <iostream>
@@ -702,7 +763,7 @@ int main() {
 
 ```
 
-[799. 最长连续不重复子序列](https://www.acwing.com/problem/content/801/)
+##### [799. 最长连续不重复子序列](https://www.acwing.com/problem/content/801/)
 
 ```cpp
 #include <iostream>
@@ -734,7 +795,7 @@ int main() {
 
 #### 801~900
 
-[801. 二进制中1的个数](https://www.acwing.com/problem/content/803/)
+##### [801. 二进制中1的个数](https://www.acwing.com/problem/content/803/)
 
 ```cpp
 #include <iostream>
@@ -759,7 +820,7 @@ int main() {
 }
 ```
 
-[802. 区间和](https://www.acwing.com/problem/content/804/)
+##### [802. 区间和](https://www.acwing.com/problem/content/804/)
 
 ```cpp
 #include <iostream>
@@ -826,7 +887,7 @@ int main() {
 }
 ```
 
-[803. 区间合并](https://www.acwing.com/problem/content/805/)
+##### [803. 区间合并](https://www.acwing.com/problem/content/805/)
 
 ```cpp
 #include <iostream>
@@ -868,7 +929,7 @@ int main() {
 }
 ```
 
-[823.模拟栈](https://www.acwing.com/problem/content/830/)
+##### [823.模拟栈](https://www.acwing.com/problem/content/830/)
 
 ```cpp
 #include <iostream>
@@ -915,7 +976,7 @@ int main() {
 
 
 
-[826.单链表](https://www.acwing.com/problem/content/828/)
+##### [826.单链表](https://www.acwing.com/problem/content/828/)
 
 本题注意当删除头节点时，需要特判。
 
@@ -972,7 +1033,7 @@ int main() {
 }
 ```
 
-[827.双链表](https://www.acwing.com/problem/content/description/829/)
+##### [827.双链表](https://www.acwing.com/problem/content/description/829/)
 
 ```cpp
 #include <iostream>
@@ -1042,7 +1103,7 @@ int main() {
 }
 ```
 
-[829.模拟队列](https://www.acwing.com/problem/content/831/)
+##### [829.模拟队列](https://www.acwing.com/problem/content/831/)
 
 ```cpp
 #include <iostream>
@@ -1092,7 +1153,7 @@ int main() {
 }
 ```
 
-[830.单调栈](https://www.acwing.com/problem/content/832/)
+##### [830.单调栈](https://www.acwing.com/problem/content/832/)
 
 本题利用栈的性质
 
@@ -1118,7 +1179,7 @@ int main() {
 }
 ```
 
-[831.KMP字符串](https://www.acwing.com/problem/content/description/833/)
+##### [831.KMP字符串](https://www.acwing.com/problem/content/description/833/)
 
 ```cpp
 .#include <iostream>
@@ -1182,7 +1243,7 @@ int main() {
 } 
 ```
 
-[835.Trie字符串统计](https://www.acwing.com/problem/content/837/)
+##### [835.Trie字符串统计](https://www.acwing.com/problem/content/837/)
 
 ```cpp
 #include <iostream>
@@ -1229,7 +1290,7 @@ int main() {
 }
 ```
 
-[836.合并集合](https://www.acwing.com/problem/content/838/)
+##### [836.合并集合](https://www.acwing.com/problem/content/838/)
 
 ```cpp
 #include<iostream>
@@ -1261,7 +1322,7 @@ int main() {
 }
 ```
 
-[837.连通块中点的数量](https://www.acwing.com/problem/content/description/839/)
+##### [837.连通块中点的数量](https://www.acwing.com/problem/content/description/839/)
 
 ```cpp
 #include<iostream>
@@ -1308,7 +1369,7 @@ int main() {
 }
 ```
 
-[838.堆排序](https://www.acwing.com/problem/content/840/)
+##### [838.堆排序](https://www.acwing.com/problem/content/840/)
 
 ```cpp
 #include <iostream>
@@ -1343,7 +1404,7 @@ int main() {
 }
 ```
 
-[839. 模拟堆](https://www.acwing.com/problem/content/description/841/)
+##### [839. 模拟堆](https://www.acwing.com/problem/content/description/841/)
 
 ```cpp
 //
@@ -1424,7 +1485,7 @@ int main() {
 
 ```
 
-[840. 模拟散列表](https://www.acwing.com/problem/content/842/)
+##### [840. 模拟散列表](https://www.acwing.com/problem/content/842/)
 
 拉链法：
 
@@ -1510,7 +1571,7 @@ int main() {
 }
 ```
 
-[841. 字符串哈希](https://www.acwing.com/problem/content/description/843/)
+##### [841. 字符串哈希](https://www.acwing.com/problem/content/description/843/)
 
 ```cpp
 #include <iostream>
@@ -1549,7 +1610,7 @@ int main() {
 }
 ```
 
-[843. n-皇后问题](https://www.acwing.com/problem/content/845/)
+##### [843. n-皇后问题](https://www.acwing.com/problem/content/845/)
 
 ```cpp
 #include <iostream>
@@ -1593,7 +1654,7 @@ int main() {
 }
 ```
 
-[844.走迷宫](https://www.acwing.com/problem/content/846/)
+##### [844.走迷宫](https://www.acwing.com/problem/content/846/)
 
 ```cpp
 #include <iostream>
@@ -1655,7 +1716,7 @@ int main() {
 }
 ```
 
- [846.树的重心](https://www.acwing.com/problem/content/848/)
+#####  [846.树的重心](https://www.acwing.com/problem/content/848/)
 
 ```cpp
 #include <iostream>
@@ -1713,7 +1774,7 @@ int main() {
 }
 ```
 
-[847.图中点的层次](https://www.acwing.com/problem/content/849/)
+##### [847.图中点的层次](https://www.acwing.com/problem/content/849/)
 
 ```cpp
 #include <iostream>
@@ -1767,7 +1828,7 @@ int main() {
 }
 ```
 
-[848.有向图的拓扑排序](https://www.acwing.com/problem/content/850/)
+##### [848.有向图的拓扑排序](https://www.acwing.com/problem/content/850/)
 
 ```cpp
 #include <iostream>
@@ -1820,7 +1881,7 @@ int main() {
 }
 ```
 
-[849.Dijkstra求最短路](https://www.acwing.com/problem/content/851)
+##### [849.Dijkstra求最短路](https://www.acwing.com/problem/content/851)
 
 ```cpp
 #include <iostream>
@@ -1864,7 +1925,7 @@ int main() {
 }
 ```
 
-[850.Dijkstra求最短路](https://www.acwing.com/problem/content/852)
+##### [850.Dijkstra求最短路](https://www.acwing.com/problem/content/852)
 
 ```cpp
 #include <cstring>
@@ -1922,7 +1983,7 @@ int main() {
 
 ##### 851~900
 
-[851.spfa求最短路]
+##### [851.spfa求最短路]
 
 ```cpp
 #include <cstring>
@@ -1979,7 +2040,7 @@ int main() {
 }
 ```
 
-[852.spfa判断负环]
+##### [852.spfa判断负环]
 
 ```cpp
 #include <cstring>
@@ -2040,7 +2101,7 @@ int main() {
 }
 ```
 
-[853.有边数限制的最短路]
+##### [853.有边数限制的最短路]
 
 ```cpp
 #include <iostream>
@@ -2082,7 +2143,7 @@ int main() {
 }
 ```
 
-[854.Floyd求最短路]
+##### [854.Floyd求最短路]
 
 ```cpp
 #include <cstdio>
@@ -2124,7 +2185,7 @@ int main() {
 }
 ```
 
-[858.Prim算法求最小生成树]
+##### [858.Prim算法求最小生成树]
 
 ```cpp
 #include <cstring>
@@ -2170,7 +2231,7 @@ int main() {
 }
 ```
 
-[859.Kruskal算法求最小生成树]
+##### [859.Kruskal算法求最小生成树]
 
 ```cpp
 #include <cstdio>
@@ -2228,7 +2289,7 @@ int main() {
 }
 ```
 
-[860.染色法判断二分图]
+##### [860.染色法判断二分图]
 
 ```cpp
 #include <cstdio>
@@ -2289,6 +2350,63 @@ int main() {
 }
 ```
 
+##### [861.二分图的最大匹配]
+
+```cpp
+#include <cstdio>
+#include <cstring>
+
+int n1, n2, m;
+const int N = 510, M = 5e5 + 10;
+bool st[N];
+int e[M], ne[M], idx, h[N];
+int pair[N];
+
+bool find(int index) {
+    for (int i = h[index]; i != -1; i = ne[i]) {
+        int j = e[i];
+        if (!st[j]) {
+            st[j] = true;
+            // 当前没有匹配或者可以更换别的匹配
+            if (pair[j] == -1 || find(pair[j])) {
+                pair[j] = index;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+void match() {
+    int res = 0;
+    for (int i = 1; i <= n1; ++i) {
+        // 需要每次清空之前的占位
+        memset(st, false, sizeof st);
+        if (find(i)) res += 1;
+    }
+    printf("%d", res);
+}
+
+void add(int x, int y) {
+    e[idx] = y;
+    ne[idx] = h[x];
+    h[x] = idx++;
+}
+
+int main() {
+    memset(h, -1, sizeof h);
+    scanf("%d%d%d", &n1, &n2, &m);
+    int x, y;
+    for (int i = 0; i < m; ++i) {
+        scanf("%d%d", &x, &y);
+        add(x, y);
+    }
+    memset(pair, -1, sizeof pair);
+    match();
+    return 0;
+}
+```
+
 
 
 #### 901~1000
@@ -2299,7 +2417,7 @@ int main() {
 
 #### 1001～1100
 
-[1076,迷宫问题](https://www.acwing.com/problem/content/description/1078/)
+##### [1076,迷宫问题](https://www.acwing.com/problem/content/description/1078/)
 
 ```cpp
 #include <iostream>
@@ -2359,7 +2477,7 @@ int main() {
 
 #### 1301～1400
 
-[1381. 阶乘](https://www.acwing.com/problem/content/1383/)
+##### [1381. 阶乘](https://www.acwing.com/problem/content/1383/)
 
 本题重点在于如何获取最后一个非零的数。通过分解质因数可知，这里计算出来的阶乘可以拆分为$n!=2^{\alpha-k}*5^{\beta-k}*10^k*C$ ,阶乘中的0就来源于这里的2和5之积，也就是k的数量。
 
@@ -2398,7 +2516,7 @@ int main(){
 
 #### 3100～3200
 
-[3192. 出现次数最多的数](https://www.acwing.com/problem/content/3195/)
+##### [3192. 出现次数最多的数](https://www.acwing.com/problem/content/3195/)
 
 ```cpp
 #include <iostream>
