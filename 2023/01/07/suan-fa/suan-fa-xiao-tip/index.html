@@ -497,14 +497,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    12 分
                 </div>
                 
 
@@ -677,7 +677,50 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
     <span class="token comment">// 定义优先队列</span>
     priority_queue<span class="token operator">&lt;</span>Student<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>Student<span class="token operator">&gt;</span><span class="token punctuation">,</span> Cmp<span class="token operator">&gt;</span> PQ<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="使用lamda表达式排序">使用lamda表达式排序<a class="anchor" href="#使用lamda表达式排序">¶</a></h3>
+<h3 id="使用lambda表达式排序">使用lambda表达式排序<a class="anchor" href="#使用lambda表达式排序">¶</a></h3>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span>Student<span class="token operator">&gt;</span> students <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+std<span class="token double-colon punctuation">::</span><span class="token function">sort</span><span class="token punctuation">(</span>students<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> students<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">const</span> Student<span class="token operator">&amp;</span> a<span class="token punctuation">,</span> <span class="token keyword">const</span> Student<span class="token operator">&amp;</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">return</span> a<span class="token punctuation">.</span>height <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 等价的</span>
+std<span class="token double-colon punctuation">::</span><span class="token function">sort</span><span class="token punctuation">(</span>students<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> students<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">Cmp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="使用lambda表达式定义优先队列">使用lambda表达式定义优先队列<a class="anchor" href="#使用lambda表达式定义优先队列">¶</a></h3>
+<p>实际上priority_queue有一个构造函数，可以传递一个比较对象，如果不传递就会用模板参数定义默认的比较对象。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">explicit</span> <span class="token function">priority_queue</span> <span class="token punctuation">(</span><span class="token keyword">const</span> Compare<span class="token operator">&amp;</span> comp <span class="token operator">=</span> <span class="token function">Compare</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Container<span class="token operator">&amp;&amp;</span> ctnr <span class="token operator">=</span> <span class="token function">Container</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 通过lambda表达式定义序</span>
+<span class="token keyword">auto</span> cmp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">const</span> Node<span class="token operator">&amp;</span> a<span class="token punctuation">,</span> <span class="token keyword">const</span> Node<span class="token operator">&amp;</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a<span class="token punctuation">.</span>height <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+priority_queue<span class="token operator">&lt;</span>Node<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>Node<span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token keyword">decltype</span><span class="token punctuation">(</span>cmp<span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token function">PQ</span><span class="token punctuation">(</span>cmp<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>看上去和通过定义比较器定义优先队列似乎差不多，实际上lambda表达式的魅力在于可以访问当前上下文中的其他变量。</strong></p>
+<p>例如：假设我们有一个 <code>vector&lt;Student&gt;</code>存储着学生信息，我们想定义一个存储学号的优先队列priority_queue，依然按照身高对其中学号排序：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span>Student<span class="token operator">&gt;</span> students <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> Student<span class="token operator">&gt;</span> id2stu<span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span><span class="token operator">&amp;</span> stu<span class="token operator">:</span> students<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	id2stu<span class="token punctuation">[</span>stu<span class="token punctuation">.</span>id<span class="token punctuation">]</span> <span class="token operator">=</span> stu<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 我们可以很方便地把id2stu绑定到lambda表达式中用来排序</span>
+<span class="token keyword">auto</span> cmp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">&amp;</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> id2stu<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">.</span>height <span class="token operator">&lt;</span> id2stu<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token keyword">decltype</span><span class="token punctuation">(</span>cmp<span class="token punctuation">)</span><span class="token operator">&gt;</span> <span class="token function">PQ</span><span class="token punctuation">(</span>cmp<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果用定义比较器类的方式则需要通过构造函数传递id2stu的引用，然后绑定给成员变量。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span>Student<span class="token operator">&gt;</span> students <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> Student<span class="token operator">&gt;</span> id2stu<span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span><span class="token operator">&amp;</span> stu<span class="token operator">:</span> students<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	id2stu<span class="token punctuation">[</span>stu<span class="token punctuation">.</span>id<span class="token punctuation">]</span> <span class="token operator">=</span> stu<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">Cmp</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> Student<span class="token operator">&gt;</span><span class="token operator">&amp;</span> id2stu<span class="token punctuation">;</span>
+	<span class="token function">Cmp</span><span class="token punctuation">(</span><span class="token keyword">const</span> unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> Student<span class="token operator">&gt;</span><span class="token operator">&amp;</span> id2stu<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">id2stu</span><span class="token punctuation">(</span>id2stu<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+	    <span class="token keyword">return</span> id2stu<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">.</span>height <span class="token operator">&lt;</span> id2stu<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+priority_queue<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> Cmp<span class="token operator">&gt;</span> PQ<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
 <hr class="footnotes-sep">
 <section class="footnotes">
@@ -1253,7 +1296,7 @@ inline _Ty <span class="token function">_Accumulate</span><span class="token pun
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">259.3k</span>&nbsp;字
+                class="white-color">259.7k</span>&nbsp;字
             
             
             
