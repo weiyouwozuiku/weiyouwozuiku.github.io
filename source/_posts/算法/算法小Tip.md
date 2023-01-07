@@ -217,9 +217,70 @@ int main()
 }
 ```
 
-### 使用lamda表达式排序
+### 使用lambda表达式排序
 
+```cpp
+vector<Student> students = {...};
+std::sort(students.begin(), students.end(), [](const Student& a, const Student& b){
+	return a.height < b.height;
+});
 
+// 等价的
+std::sort(students.begin(), students.end(), Cmp());
+```
+
+### 使用lambda表达式定义优先队列
+
+实际上priority_queue有一个构造函数，可以传递一个比较对象，如果不传递就会用模板参数定义默认的比较对象。
+
+```cpp
+explicit priority_queue (const Compare& comp = Compare(), Container&& ctnr = Container());
+```
+
+```cpp
+// 通过lambda表达式定义序
+auto cmp = [](const Node& a, const Node& b) {
+    return a.height < b.height;
+};
+priority_queue<Node, vector<Node>, decltype(cmp)> PQ(cmp);
+```
+
+**看上去和通过定义比较器定义优先队列似乎差不多，实际上lambda表达式的魅力在于可以访问当前上下文中的其他变量。**
+
+例如：假设我们有一个 `vector<Student>`存储着学生信息，我们想定义一个存储学号的优先队列priority_queue，依然按照身高对其中学号排序：
+
+```cpp
+vector<Student> students = {...};
+unordered_map<int, Student> id2stu;
+for(auto& stu: students) {
+	id2stu[stu.id] = stu;
+}
+
+// 我们可以很方便地把id2stu绑定到lambda表达式中用来排序
+auto cmp = [&](int a, int b) {
+    return id2stu[a].height < id2stu[b].height;
+};
+priority_queue<int, vector<int>, decltype(cmp)> PQ(cmp);
+```
+
+如果用定义比较器类的方式则需要通过构造函数传递id2stu的引用，然后绑定给成员变量。
+
+```cpp
+vector<Student> students = {...};
+unordered_map<int, Student> id2stu;
+for(auto& stu: students) {
+	id2stu[stu.id] = stu;
+}
+
+struct Cmp {
+    const unordered_map<int, Student>& id2stu;
+	Cmp(const unordered_map<int, Student>& id2stu) : id2stu(id2stu) {}
+    bool operator() (int a, int b) const {
+	    return id2stu[a].height < id2stu[b].height;
+    }
+};
+priority_queue<int, vector<int>, Cmp> PQ;
+```
 
 ## 参考文献
 
