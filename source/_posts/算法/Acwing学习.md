@@ -2223,9 +2223,37 @@ for (int i = 1; i <= n1; i ++ )
 
 #### 判断素数
 
+```cpp
+bool is_prime(int x)
+{
+    if (x < 2) return false;
+    for (int i = 2; i <= x / i; i ++ )
+        if (x % i == 0)
+            return false;
+    return true;
+}
+```
+
+#### 分解质因数
+
+这里依托一个基础，即至多有一个大于$\sqrt{n}$的质因子，因为同时出现两个大于$\sqrt{n}$的质因子相乘就超过n了。因此只需要循环到$\sqrt{n}$即可。如果还有n>1。说明这就是最后一个质因子。
+
+```cpp
+void divide(int x)
+{
+    for (int i = 2; i <= x / i; i ++ )
+        if (x % i == 0)
+        {
+            int s = 0;
+            while (x % i == 0) x /= i, s ++ ;
+            cout << i << ' ' << s << endl;
+        }
+    if (x > 1) cout << x << ' ' << 1 << endl;
+    cout << endl;
+}
+```
 
 
-#### 判断
 
 ### 约数
 
