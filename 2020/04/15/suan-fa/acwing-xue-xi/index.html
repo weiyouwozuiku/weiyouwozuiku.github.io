@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-07
+                    2023-01-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15.1k
+                    15.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    66 分
+                    67 分
                 </div>
                 
 
@@ -2351,7 +2351,28 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <h4 id="定义-2">定义<a class="anchor" href="#定义-2">¶</a></h4>
 <p>在大于1的整数中，如果只包含1和本身这两个约数，就被称为质数或者素数。</p>
 <h4 id="判断素数">判断素数<a class="anchor" href="#判断素数">¶</a></h4>
-<h4 id="判断">判断<a class="anchor" href="#判断">¶</a></h4>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">bool</span> <span class="token function">is_prime</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> x <span class="token operator">/</span> i<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="分解质因数">分解质因数<a class="anchor" href="#分解质因数">¶</a></h4>
+<p>这里依托一个基础，即至多有一个大于<img src="https://math.now.sh?inline=%5Csqrt%7Bn%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">的质因子，因为同时出现两个大于<img src="https://math.now.sh?inline=%5Csqrt%7Bn%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">的质因子相乘就超过n了。因此只需要循环到<img src="https://math.now.sh?inline=%5Csqrt%7Bn%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">即可。如果还有n&gt;1。说明这就是最后一个质因子。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">divide</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> x <span class="token operator">/</span> i<span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> s <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> x <span class="token operator">/=</span> i<span class="token punctuation">,</span> s <span class="token operator">++</span> <span class="token punctuation">;</span>
+            cout <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token char">' '</span> <span class="token operator">&lt;&lt;</span> s <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> x <span class="token operator">&lt;&lt;</span> <span class="token char">' '</span> <span class="token operator">&lt;&lt;</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="约数">约数<a class="anchor" href="#约数">¶</a></h3>
 <h3 id="欧拉函数">欧拉函数<a class="anchor" href="#欧拉函数">¶</a></h3>
 <h3 id="快速幂">快速幂<a class="anchor" href="#快速幂">¶</a></h3>
@@ -3072,7 +3093,7 @@ map<span class="token operator">/</span>multimap
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">259.7k</span>&nbsp;字
+                class="white-color">259.9k</span>&nbsp;字
             
             
             
