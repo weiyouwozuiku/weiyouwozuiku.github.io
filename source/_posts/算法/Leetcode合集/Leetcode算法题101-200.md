@@ -66,6 +66,74 @@ public:
 };
 ```
 
+#### [146.LRU缓存](https://leetcode.cn/problems/lru-cache/)
+
+```cpp
+class LRUCache {
+    // lru算法使用一个unordered_map存储key,value.再使用一个双链表标记使用的时间。最近使用则在双链表头部，最不常使用的则在双链表的尾部
+public:
+    struct Node {
+        int key, val;
+        Node *left, *right;
+
+        Node(int _val, int _key) : val(_val), key(_key), left(nullptr), right(nullptr) {}
+    } *l, *r;
+
+    unordered_map<int, Node *> hash;
+
+    int cap;
+
+    LRUCache(int capacity) {
+        cap = capacity;
+        l = new Node(-1, -1), r = new Node(-1, -1);
+        l->right = r;
+        r->left = l;
+    }
+
+    int get(int key) {
+        if (hash.count(key)) {
+            auto p = hash[key];
+            remove(p);
+            insert(p);
+            return p->val;
+        } else {
+            return -1;
+        }
+    }
+
+    void put(int key, int value) {
+        if (hash.count(key)) {
+            auto p = hash[key];
+            p->val = value;
+            remove(p);
+            insert(p);
+        } else {
+            if (hash.size() == cap) {
+                auto p = r->left;
+                remove(p);
+                hash.erase(p->key);
+                delete p;
+            }
+            auto p = new Node(value, key);
+            hash[key] = p;
+            insert(p);
+        }
+    }
+
+    void remove(const Node *node) {
+        node->left->right = node->right;
+        node->right->left = node->left;
+    }
+
+    void insert(Node *node) {
+        node->right = l->right;
+        node->left = l;
+        l->right->left = node;
+        l->right = node;
+    }
+};
+```
+
 
 
 ## 151-160
