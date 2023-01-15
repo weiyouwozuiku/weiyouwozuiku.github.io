@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-22
+                    2023-01-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    851
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -573,6 +573,70 @@
         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="146-LRU缓存"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/lru-cache/">146.LRU缓存</a><a class="anchor" href="#146-LRU缓存">¶</a></h4>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">LRUCache</span> <span class="token punctuation">{</span>
+    <span class="token comment">// lru算法使用一个unordered_map存储key,value.再使用一个双链表标记使用的时间。最近使用则在双链表头部，最不常使用的则在双链表的尾部</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">struct</span> <span class="token class-name">Node</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> key<span class="token punctuation">,</span> val<span class="token punctuation">;</span>
+        Node <span class="token operator">*</span>left<span class="token punctuation">,</span> <span class="token operator">*</span>right<span class="token punctuation">;</span>
+
+        <span class="token function">Node</span><span class="token punctuation">(</span><span class="token keyword">int</span> _val<span class="token punctuation">,</span> <span class="token keyword">int</span> _key<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">val</span><span class="token punctuation">(</span>_val<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">key</span><span class="token punctuation">(</span>_key<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">left</span><span class="token punctuation">(</span><span class="token keyword">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">right</span><span class="token punctuation">(</span><span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token operator">*</span>l<span class="token punctuation">,</span> <span class="token operator">*</span>r<span class="token punctuation">;</span>
+
+    unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> Node <span class="token operator">*</span><span class="token operator">&gt;</span> hash<span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> cap<span class="token punctuation">;</span>
+
+    <span class="token function">LRUCache</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cap <span class="token operator">=</span> capacity<span class="token punctuation">;</span>
+        l <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">Node</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">Node</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        l<span class="token operator">-&gt;</span>right <span class="token operator">=</span> r<span class="token punctuation">;</span>
+        r<span class="token operator">-&gt;</span>left <span class="token operator">=</span> l<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>hash<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">auto</span> p <span class="token operator">=</span> hash<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token function">remove</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">insert</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> p<span class="token operator">-&gt;</span>val<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>hash<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">auto</span> p <span class="token operator">=</span> hash<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            p<span class="token operator">-&gt;</span>val <span class="token operator">=</span> value<span class="token punctuation">;</span>
+            <span class="token function">remove</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">insert</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>hash<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> cap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">auto</span> p <span class="token operator">=</span> r<span class="token operator">-&gt;</span>left<span class="token punctuation">;</span>
+                <span class="token function">remove</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                hash<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>p<span class="token operator">-&gt;</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">delete</span> p<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">auto</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">Node</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            hash<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">;</span>
+            <span class="token function">insert</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">remove</span><span class="token punctuation">(</span><span class="token keyword">const</span> Node <span class="token operator">*</span>node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node<span class="token operator">-&gt;</span>left<span class="token operator">-&gt;</span>right <span class="token operator">=</span> node<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>
+        node<span class="token operator">-&gt;</span>right<span class="token operator">-&gt;</span>left <span class="token operator">=</span> node<span class="token operator">-&gt;</span>left<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">insert</span><span class="token punctuation">(</span>Node <span class="token operator">*</span>node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node<span class="token operator">-&gt;</span>right <span class="token operator">=</span> l<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>
+        node<span class="token operator">-&gt;</span>left <span class="token operator">=</span> l<span class="token punctuation">;</span>
+        l<span class="token operator">-&gt;</span>right<span class="token operator">-&gt;</span>left <span class="token operator">=</span> node<span class="token punctuation">;</span>
+        l<span class="token operator">-&gt;</span>right <span class="token operator">=</span> node<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="151-160">151-160<a class="anchor" href="#151-160">¶</a></h2>
 <h2 id="161-170">161-170<a class="anchor" href="#161-170">¶</a></h2>
 <h2 id="171-180">171-180<a class="anchor" href="#171-180">¶</a></h2>
@@ -1226,7 +1290,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">259.9k</span>&nbsp;字
+                class="white-color">260.2k</span>&nbsp;字
             
             
             
