@@ -2407,6 +2407,65 @@ int main() {
 }
 ```
 
+##### [866.试除法判定质数]
+
+```cpp
+#include <cstdio>
+
+bool is_prime(int x) {
+    if (x < 2)return false;
+    for (int i = 2; i <= x / i; ++i) {
+        if (x % i == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    int n,x;
+    scanf("%d", &n);
+    for(int i=0;i<n;++i){
+        scanf("%d",&x);
+        if (is_prime(x)) {
+            puts("Yes");
+        } else {
+            puts("No");
+        }
+    }
+    return 0;
+}
+```
+
+##### [867.分解质因数]
+
+```cpp
+#include <cstdio>
+
+void divide(int x) {
+    for (int i = 2; i <= x / i; ++i) {
+        if (x % i == 0) {
+            int b = 0;
+            while (x % i == 0) {
+                x /= i;
+                b += 1;
+            }
+            printf("%d %d\n", i, b);
+        }
+    }
+    if (x > 1) printf("%d 1\n", x);
+    puts("");
+}
+
+int main() {
+    int n, x;
+    scanf("%d", &n);
+    for (int i = 0; i < n; ++i) {
+        scanf("%d", &x);
+        divide(x);
+    }
+    return 0;
+}
+```
+
 
 
 #### 901~1000
