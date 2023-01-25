@@ -497,14 +497,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    551
+                    660
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -564,6 +564,7 @@
 </ul>
 <h2 id="Gin">Gin<a class="anchor" href="#Gin">¶</a></h2>
 <h3 id="IRoutes接口">IRoutes接口<a class="anchor" href="#IRoutes接口">¶</a></h3>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go/Go-Web%E5%AD%A6%E4%B9%A0/Gin_IRoutes.png" alt="Gin_IRoutes.png"></p>
 <p>核心接口IRoutes：<strong>提供的是注册路由的抽象</strong>。它的实现类Engine类似于ControllerRegister。</p>
 <p>Use方法<strong>提供了用户接入自定义逻辑的能力</strong>，这个一般情况下也被看做是插件机制。</p>
 <p>还额外提供了静态文件的接口。</p>
@@ -571,14 +572,27 @@
 <h3 id="Engine实现">Engine实现<a class="anchor" href="#Engine实现">¶</a></h3>
 <p>Engine可以看做是Beego中HttpServer和ControllerRegister的合体。</p>
 <ul>
-<li>实现了路由树功能，提供了注册和匹配路由的功能</li>
-<li>它本身可以作为一个Handler传递到http包中，用户启动服务器</li>
-<li>Engine的路由树功能本质上是依赖于mehtodTree</li>
+<li>实现了<strong>路由树功能</strong>，提供了注册和匹配路由的功能</li>
+<li><strong>它本身可以作为一个Handler传递到http包中</strong>，用于启动服务器</li>
+<li>Engine的路由树功能本质上是依赖于<strong>mehtodTree</strong></li>
 </ul>
 <h3 id="methodTrees和methodTrees">methodTrees和methodTrees<a class="anchor" href="#methodTrees和methodTrees">¶</a></h3>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go/Go-Web%E5%AD%A6%E4%B9%A0/Gin_methodTrees.png" alt="Gin_methodTrees.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go/Go-Web%E5%AD%A6%E4%B9%A0/Gin_methodTrees.png" alt="Gin_methodTrees.png"></p>
 <p>methodTree才是真实的路由树。</p>
 <p>Gin定义了mehtodTrees，它代表的是森林，即每个Http方法都对应到一棵树。</p>
-<h2 id=""><a class="anchor" href="#">¶</a></h2>
+<h3 id="HandlerFunc和HandlersChain">HandlerFunc和HandlersChain<a class="anchor" href="#HandlerFunc和HandlersChain">¶</a></h3>
+<p>HandlerFunc定义了<strong>核心抽象——处理逻辑</strong>。</p>
+<p>在默认情况下，它代表了注册路由的业务代码。HandlersChain则是构建了责任链模式。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go/Go-Web%E5%AD%A6%E4%B9%A0/Gin_HandlerFunc.png" alt="Gin_HandlerFunc.png"></p>
+<h3 id="Context抽象-2">Context抽象<a class="anchor" href="#Context抽象-2">¶</a></h3>
+<p>Context代表了执行的上下文，提供丰富的API。</p>
+<ul>
+<li>处理请求的API，代理的是以Get和Bind为前缀的方法</li>
+<li>处理相应的API，例如返回JSON或者XML响应的方法</li>
+<li>渲染页面，如HTML方法</li>
+</ul>
+<h2 id="Iris">Iris<a class="anchor" href="#Iris">¶</a></h2>
 
                 
             </div>
@@ -1144,7 +1158,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">260.9k</span>&nbsp;字
+                class="white-color">261k</span>&nbsp;字
             
             
             
