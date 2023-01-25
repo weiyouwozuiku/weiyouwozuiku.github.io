@@ -34,7 +34,11 @@ ControllerInterface虽然是用户核心的接入点，但是从功能特性上�
 
 ### Context抽象
 
-用户请求操作和响应是通过Ctx来完成的。它代表的是整个请求执行过程中的上下文。
+用户请求操作和响应是通过Ctx来完成的。它代表的是**整个请求执行过程中的上下文**。
+
+![Beego_ctx.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go-Web学习/Beego_ctx.png)
+
+![Beego_ctx使用.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go-Web学习/Beego_ctx使用.png)
 
 进一步，Beego将Context细分了几个部分：
 
@@ -44,17 +48,17 @@ ControllerInterface虽然是用户核心的接入点，但是从功能特性上�
 
 ### 核心抽象总结
 
-- ControllerRegister最为基础，它解决了路由注册和路由匹配这个基础问题。
-- Context和Controller为用户提供了丰富的API，用于辅助构建系统。
-- HttpServer作为服务器抽象，用户管理应用生命周期和资源隔离单位。
+- ControllerRegister最为基础，它**解决了路由注册和路由匹配这个基础问题**。
+- Context和Controller为用户提供了丰富的API，**用于辅助构建系统**。
+- HttpServer作为服务器抽象，**用户管理应用生命周期和资源隔离单位**。
 
 ## Gin
 
 ### IRoutes接口
 
-核心接口IRoutes：提供的是注册路由的抽象。它的实现类Engine类似于ControllerRegister。
+核心接口IRoutes：**提供的是注册路由的抽象**。它的实现类Engine类似于ControllerRegister。
 
-Use方法提供了用户接入自定义逻辑的能力，这个一般情况下也被看做是插件机制。
+Use方法**提供了用户接入自定义逻辑的能力**，这个一般情况下也被看做是插件机制。
 
 还额外提供了静态文件的接口。
 
