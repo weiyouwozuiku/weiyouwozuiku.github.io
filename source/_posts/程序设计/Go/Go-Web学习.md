@@ -13,13 +13,21 @@ categories: 程序设计
 
 ### controller抽象
 
-Beego是基于MVC的，所以它定义了一个核心接口ControllerInterface。ControllerInterface定义了一个控制器必须要解决什么问题。同时ControllerInterface的默认实现Controller提供了实现自定义控制器的各种辅助方法，所以在Beego中，一般都是组合Controller来实现自己的Controller。
+Beego是基于MVC的，所以它定义了一个核心接口ControllerInterface。ControllerInterface定义了一个控制器**必须要解决什么问题**。同时ControllerInterface的默认实现Controller**提供了实现自定义控制器的各种辅助方法**，所以在Beego中，一般都是组合Controller来实现自己的Controller。
 
-
+![Beego中ControllerInterface.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go-Web学习/Beego中ControllerInterface.png)
 
  注意到用户虽然被要求组合Controller，但是路由注册和服务器启动是通过另一套机制来完成的。
 
+![Beego中的Controller.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go-Web学习/Beego中的Controller.png)
+
+![Beego路由.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go-Web学习/Beego路由.png)
+
 ControllerInterface虽然是用户核心的接入点，但是从功能特性上来说，HttpServer和ControllerRegister才是核心。
+
+![Beego_HttpServer.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go-Web学习/Beego_HttpServer.png)
+
+![Beego_controllerRegister.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go-Web学习/Beego_controllerRegister.png)
 
 - HttpServer：代表一个“服务器”，大多数的时候就是一个进程。
 - ControllerRegister：真正干活的人。注册路由，路由匹配和执行业务代码都是透过它来完成的。
