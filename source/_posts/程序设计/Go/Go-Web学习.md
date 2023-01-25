@@ -2,7 +2,7 @@
 title: Go-Web学习
 author: 不二
 img: >-
-  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/
+  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/Go-Web学习.png
 mathjax: true
 date: 2023-01-23 18:40:46
 tags: Go
