@@ -56,6 +56,8 @@ ControllerInterface虽然是用户核心的接入点，但是从功能特性上�
 
 ### IRoutes接口
 
+![Gin_IRoutes.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go-Web学习/Gin_IRoutes.png)
+
 核心接口IRoutes：**提供的是注册路由的抽象**。它的实现类Engine类似于ControllerRegister。
 
 Use方法**提供了用户接入自定义逻辑的能力**，这个一般情况下也被看做是插件机制。
@@ -68,14 +70,35 @@ Use方法**提供了用户接入自定义逻辑的能力**，这个一般情况�
 
 Engine可以看做是Beego中HttpServer和ControllerRegister的合体。
 
-- 实现了路由树功能，提供了注册和匹配路由的功能
-- 它本身可以作为一个Handler传递到http包中，用户启动服务器
-- Engine的路由树功能本质上是依赖于mehtodTree
+- 实现了**路由树功能**，提供了注册和匹配路由的功能
+- **它本身可以作为一个Handler传递到http包中**，用于启动服务器
+- Engine的路由树功能本质上是依赖于**mehtodTree**
 
 ### methodTrees和methodTrees
+
+![Gin_methodTrees.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go-Web学习/Gin_methodTrees.png)
+
+![Gin_methodTrees.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go-Web学习/Gin_methodTrees.png)
 
 methodTree才是真实的路由树。
 
 Gin定义了mehtodTrees，它代表的是森林，即每个Http方法都对应到一棵树。
 
-##
+### HandlerFunc和HandlersChain
+
+HandlerFunc定义了**核心抽象——处理逻辑**。
+
+在默认情况下，它代表了注册路由的业务代码。HandlersChain则是构建了责任链模式。
+
+![Gin_HandlerFunc.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go-Web学习/Gin_HandlerFunc.png)
+
+### Context抽象
+
+Context代表了执行的上下文，提供丰富的API。
+
+- 处理请求的API，代理的是以Get和Bind为前缀的方法
+- 处理相应的API，例如返回JSON或者XML响应的方法
+- 渲染页面，如HTML方法
+
+## Iris
+
