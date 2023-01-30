@@ -2253,9 +2253,74 @@ void divide(int x)
 }
 ```
 
+#### 筛质数
 
+##### 埃式筛法求素数
+
+```cpp
+int countPrimes(int n) {
+        vector<bool> st(n + 1, false);
+        int nums = 0;
+        for (int i = 2; i < n; ++i) {
+            if (!st[i]) {
+                nums += 1;
+                for (int j = i + i; j < n; j += i) st[j] = true;
+            }
+        }
+        return nums;
+    }
+```
+
+##### 线性筛法求素数
+
+```cpp
+int primes[N], cnt;     // primes[]存储所有素数
+bool st[N];         // st[x]存储x是否被筛掉
+
+void get_primes(int n)
+{
+    for (int i = 2; i <= n; i ++ )
+    {
+        if (!st[i]) primes[cnt ++ ] = i;
+        for (int j = 0; primes[j] <= n / i; j ++ )
+        {
+            st[primes[j] * i] = true;
+            if (i % primes[j] == 0) break;
+        }
+    }
+}
+```
 
 ### 约数
+
+int范围内约数最多的数大概是1560个约数。
+
+#### 试除法求所有约数
+
+重点和试除法判断质数是一样的，优化的点是循环的范围。只需要判断到i<=n/i就行，之后的约数可以通过直接堆之前的数字相除就行。需要特别注意的是，不要重复添加已经有的元素。
+
+```cpp
+vector<int> get_divisors(int x)
+{
+    vector<int> res;
+    for (int i = 1; i <= x / i; i ++ )
+        if (x % i == 0)
+        {
+            res.push_back(i);
+            if (i != x / i) res.push_back(x / i);
+        }
+    sort(res.begin(), res.end());
+    return res;
+}
+```
+
+#### 约数个数
+
+如果$N = p_1^{c_1} * p_2^{c_2} * ... *p_k^{c_k}$
+约数个数： $(c_1 + 1) * (c_2 + 1) * ... * (c_k + 1)$
+约数之和： $(p_1^0 + p_1^1 + ... + p_1^{c_1}) * ... * (p_k^0 + p_k^1 + ... + p_k^{c_k})$
+
+#### 约数之和
 
 ### 欧拉函数
 

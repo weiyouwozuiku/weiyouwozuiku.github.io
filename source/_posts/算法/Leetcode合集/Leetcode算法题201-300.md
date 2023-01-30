@@ -87,7 +87,44 @@ public:
 };
 ```
 
+#### [204. 计数质数](https://leetcode.cn/problems/count-primes/)
 
+```cpp
+// 埃氏筛 O(loglogn)
+class Solution {
+public:
+    int countPrimes(int n) {
+        vector<bool> st(n + 1, false);
+        int nums = 0;
+        for (int i = 2; i < n; ++i) {
+            if (!st[i]) {
+                nums += 1;
+                for (int j = i + i; j < n; j += i) st[j] = true;
+            }
+        }
+        return nums;
+    }
+};
+```
+
+```cpp
+// 线性筛 O(n) 需要注意的是
+class Solution {
+public:
+    int countPrimes(int n) {
+        vector<bool> st(n + 1, false);
+        vector<int> primes;
+        for (int i = 2; i < n; ++i) {
+            if (!st[i]) primes.push_back(i);
+            for (int j = 0; j < primes.size() && primes[j] <= n / i; ++j) {
+                st[primes[j]*i]=true;
+                if(i%primes[j]==0) break;
+            }
+        }
+        return primes.size();
+    }
+};
+```
 
 
 

@@ -102,3 +102,45 @@ Context代表了执行的上下文，提供丰富的API。
 
 ## Iris
 
+Application是Iris的核心抽象，它代表的是“应用”。实际上这个语义更接近Beego的HttpServer和Gin的Engine。
+
+它提供了：
+
+- **生命周期控制功能**，如Shutdown等方法
+- **注册路由的API**
+
+### 路由相关
+
+和处理路由相关的三个抽象：
+
+- Route：直接代表了已经注册的路由。在Beego和Gin里面，对应的是路由树的节点
+- APIBuilder：创建Route的Builder模式，Party也是它创建的
+- repository：存储了所有的Routes，有点接近Gin的methodTrees的概念
+
+### Context抽象
+
+Context代表上下文，其本身也提供了各种处理请求和响应的方法。比较有特色的是它的Context**支持请求级别的添加Handler**，即AddHandler方法。
+
+## Echo
+
+Echo是其内部的一个结构体，类似于Beego的HttpServer和Gin的Engine：
+
+- 暴露了注册路由的方法，但是他并不是路由树的载体
+- 生命周期管理，如：Shutdown和Start方法
+
+在Echo里面有两个相似的字段：
+
+- router：代表路由树
+- routers：根据Host来进行分组组织，可以看做是近似于namespace之类的概念，既是**一种组织方式也是一种隔离机制**。
+
+### Route和node
+
+Router代表的是路由树，node代表的是路由树上的节点，也就是实际存在的路由本身。
+
+node里面存在三种匹配方式：
+
+- staticChild
+- paramChid
+- anyChild
+
+利用这种设计可以轻松实现路由优先级和路由冲突检测。

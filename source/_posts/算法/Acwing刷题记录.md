@@ -2466,6 +2466,79 @@ int main() {
 }
 ```
 
+#### [868.线性法筛质数]
+
+```cpp
+#include <cstdio>
+
+const int N = 1e6 + 10;
+// primes[]存储所有素数
+int primes[N], cnt;
+// st[x]存储x是否被筛掉
+bool st[N];
+
+// 埃式筛法
+void get_primes(int x) {
+    for (int i = 2; i <= x; ++i) {
+        if (!st[i]) {
+            primes[cnt++] = i;
+            for (int j = i + i; j <= x; j += i) st[j] = true;
+        }
+    }
+}
+
+// 线性筛法
+void get_grimes_linear(int x) {
+    for(int i=2;i<=x;++i){
+        if(!st[i]) primes[cnt++]=i;
+        for(int j=0;primes[j]*i<x;++j){
+            st[i*primes[j]]= true;
+            if(i% primes[j]==0) break;
+        }
+    }
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    get_grimes_linear(n);
+    printf("%d", cnt);
+    return 0;
+}
+```
+
+#### [869. 试除法求约数]
+
+```cpp
+#include <cstdio>
+#include <vector>
+
+std::vector<int> get_divisors(int x) {
+    std::vector<int> result;
+    for (int i = 1; i <= x / i; ++i) {
+        if (x % i == 0) {
+            result.push_back(i);
+        }
+    }
+    int cnt = result.size();
+    for (int i = cnt - 1; i >= 0; --i) if (x / result[i] != result[i]) result.push_back(x / result[i]);
+    return result;
+}
+
+int main() {
+    int n, x;
+    scanf("%d", &n);
+    for (int i = 0; i < n; ++i) {
+        scanf("%d", &x);
+        std::vector<int> result = get_divisors(x);
+        for (auto &it: result) {
+            printf("%d ", it);
+        }
+        puts("");
+    }
+}
+```
+
 
 
 #### 901~1000
