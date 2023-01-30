@@ -494,14 +494,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-04
+                    2023-01-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    205
+                    323
                 </div>
                 
 
@@ -539,6 +539,22 @@
                 <h2 id="1801-1810">1801-1810<a class="anchor" href="#1801-1810">¶</a></h2>
 <h2 id="1811-1820">1811-1820<a class="anchor" href="#1811-1820">¶</a></h2>
 <h2 id="1821-1830">1821-1830<a class="anchor" href="#1821-1830">¶</a></h2>
+<h3 id="1828-统计一个圆中点的数目"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/queries-on-number-of-points-inside-a-circle/">1828.统计一个圆中点的数目</a><a class="anchor" href="#1828-统计一个圆中点的数目">¶</a></h3>
+<p>直接使用两点间距离公式就可以解决，需要注意的是迭代时使用auto &amp;，节省了很多内存和时间。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">countPoints</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> points<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> queries<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> result<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span><span class="token operator">&amp;</span> query<span class="token operator">:</span> queries<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> itor<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span><span class="token operator">&amp;</span> point<span class="token operator">:</span>points<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token punctuation">(</span>query<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span>point<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">pow</span><span class="token punctuation">(</span>query<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">-</span>point<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">&lt;=</span><span class="token function">pow</span><span class="token punctuation">(</span>query<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> itor<span class="token operator">+=</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            result<span class="token punctuation">.</span><span class="token function">emplace_back</span><span class="token punctuation">(</span>itor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1831-1840">1831-1840<a class="anchor" href="#1831-1840">¶</a></h2>
 <h2 id="1841-1850">1841-1850<a class="anchor" href="#1841-1850">¶</a></h2>
 <h2 id="1851-1860">1851-1860<a class="anchor" href="#1851-1860">¶</a></h2>
@@ -1146,7 +1162,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">261k</span>&nbsp;字
+                class="white-color">262.2k</span>&nbsp;字
             
             
             

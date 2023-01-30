@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-25
+                    2023-01-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    660
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -593,6 +593,41 @@
 <li>渲染页面，如HTML方法</li>
 </ul>
 <h2 id="Iris">Iris<a class="anchor" href="#Iris">¶</a></h2>
+<p>Application是Iris的核心抽象，它代表的是“应用”。实际上这个语义更接近Beego的HttpServer和Gin的Engine。</p>
+<p>它提供了：</p>
+<ul>
+<li><strong>生命周期控制功能</strong>，如Shutdown等方法</li>
+<li><strong>注册路由的API</strong></li>
+</ul>
+<h3 id="路由相关">路由相关<a class="anchor" href="#路由相关">¶</a></h3>
+<p>和处理路由相关的三个抽象：</p>
+<ul>
+<li>Route：直接代表了已经注册的路由。在Beego和Gin里面，对应的是路由树的节点</li>
+<li>APIBuilder：创建Route的Builder模式，Party也是它创建的</li>
+<li>repository：存储了所有的Routes，有点接近Gin的methodTrees的概念</li>
+</ul>
+<h3 id="Context抽象-3">Context抽象<a class="anchor" href="#Context抽象-3">¶</a></h3>
+<p>Context代表上下文，其本身也提供了各种处理请求和响应的方法。比较有特色的是它的Context<strong>支持请求级别的添加Handler</strong>，即AddHandler方法。</p>
+<h2 id="Echo">Echo<a class="anchor" href="#Echo">¶</a></h2>
+<p>Echo是其内部的一个结构体，类似于Beego的HttpServer和Gin的Engine：</p>
+<ul>
+<li>暴露了注册路由的方法，但是他并不是路由树的载体</li>
+<li>生命周期管理，如：Shutdown和Start方法</li>
+</ul>
+<p>在Echo里面有两个相似的字段：</p>
+<ul>
+<li>router：代表路由树</li>
+<li>routers：根据Host来进行分组组织，可以看做是近似于namespace之类的概念，既是<strong>一种组织方式也是一种隔离机制</strong>。</li>
+</ul>
+<h3 id="Route和node">Route和node<a class="anchor" href="#Route和node">¶</a></h3>
+<p>Router代表的是路由树，node代表的是路由树上的节点，也就是实际存在的路由本身。</p>
+<p>node里面存在三种匹配方式：</p>
+<ul>
+<li>staticChild</li>
+<li>paramChid</li>
+<li>anyChild</li>
+</ul>
+<p>利用这种设计可以轻松实现路由优先级和路由冲突检测。</p>
 
                 
             </div>
@@ -1158,7 +1193,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">261k</span>&nbsp;字
+                class="white-color">262.2k</span>&nbsp;字
             
             
             

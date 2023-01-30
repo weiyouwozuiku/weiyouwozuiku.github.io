@@ -494,14 +494,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-04
+                    2023-01-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    20
+                    93
                 </div>
                 
 
@@ -543,6 +543,20 @@
 <h2 id="1641-1650">1641-1650<a class="anchor" href="#1641-1650">¶</a></h2>
 <h2 id="1651-1660">1651-1660<a class="anchor" href="#1651-1660">¶</a></h2>
 <h2 id="1661-1670">1661-1670<a class="anchor" href="#1661-1670">¶</a></h2>
+<h3 id="1669-合并两个链表"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/merge-in-between-linked-lists/">1669. 合并两个链表</a><a class="anchor" href="#1669-合并两个链表">¶</a></h3>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    ListNode <span class="token operator">*</span><span class="token function">mergeInBetween</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>list1<span class="token punctuation">,</span> <span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> ListNode <span class="token operator">*</span>list2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">auto</span> point1 <span class="token operator">=</span> list1<span class="token punctuation">,</span> point2 <span class="token operator">=</span> list2<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> a<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> point1 <span class="token operator">=</span> point1<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">auto</span> dummy <span class="token operator">=</span> point1<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+        point1<span class="token operator">-&gt;</span>next <span class="token operator">=</span> list2<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> b <span class="token operator">-</span> a<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> dummy <span class="token operator">=</span> dummy<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>point2<span class="token operator">-&gt;</span>next<span class="token punctuation">)</span> point2 <span class="token operator">=</span> point2<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+        point2<span class="token operator">-&gt;</span>next <span class="token operator">=</span> dummy<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> list1<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1671-1680">1671-1680<a class="anchor" href="#1671-1680">¶</a></h2>
 <h2 id="1681-1690">1681-1690<a class="anchor" href="#1681-1690">¶</a></h2>
 <h2 id="1691-1700">1691-1700<a class="anchor" href="#1691-1700">¶</a></h2>
@@ -1121,7 +1135,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">261k</span>&nbsp;字
+                class="white-color">262.2k</span>&nbsp;字
             
             
             
