@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>Leetcode算法题2501-2600</title>
+      <link href="/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2501-2600/"/>
+      <url>/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2501-2600/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode算法题2401-2500</title>
+      <link href="/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2401-2500/"/>
+      <url>/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2401-2500/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode算法题2301-2400</title>
+      <link href="/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2301-2400/"/>
+      <url>/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2301-2400/</url>
+      
+        <content type="html"><![CDATA[<h2 id="2301-2310">2301-2310<a class="anchor" href="#2301-2310">¶</a></h2><h2 id="2311-2320">2311-2320<a class="anchor" href="#2311-2320">¶</a></h2><h3 id="2319-判断矩阵是否是一个-X-矩阵"><a href="https://leetcode.cn/problems/check-if-matrix-is-x-matrix/">2319. 判断矩阵是否是一个 X 矩阵</a><a class="anchor" href="#2319-判断矩阵是否是一个-X-矩阵">¶</a></h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span><span class="token keyword">public</span><span class="token operator">:</span>    <span class="token keyword">bool</span> <span class="token function">checkXMatrix</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span><span class="token operator">&amp;</span> grid<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">int</span> len<span class="token operator">=</span>grid<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>len<span class="token punctuation">;</span><span class="token operator">++</span>j<span class="token punctuation">)</span><span class="token punctuation">{</span>                <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">==</span>j<span class="token operator">||</span>len<span class="token operator">-</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token operator">==</span>i<span class="token punctuation">)</span><span class="token punctuation">{</span>                    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>                <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>                    <span class="token keyword">if</span><span class="token punctuation">(</span>grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>                <span class="token punctuation">}</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode算法题2201-2300</title>
+      <link href="/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2201-2300/"/>
+      <url>/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2201-2300/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Go-Web学习</title>
       <link href="/2023/01/23/cheng-xu-she-ji/go/go-web-xue-xi/"/>
       <url>/2023/01/23/cheng-xu-she-ji/go/go-web-xue-xi/</url>
@@ -1025,8 +1077,8 @@
     
     <entry>
       <title>Leetcode算法题2101-2189</title>
-      <link href="/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2101-2189/"/>
-      <url>/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2101-2189/</url>
+      <link href="/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2101-2200/"/>
+      <url>/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2101-2200/</url>
       
         <content type="html"><![CDATA[<h2 id="2101-2110">2101-2110<a class="anchor" href="#2101-2110">¶</a></h2><h2 id="2111-2120">2111-2120<a class="anchor" href="#2111-2120">¶</a></h2><h2 id="2121-2130">2121-2130<a class="anchor" href="#2121-2130">¶</a></h2><h2 id="2131-2140">2131-2140<a class="anchor" href="#2131-2140">¶</a></h2><h2 id="2141-2150">2141-2150<a class="anchor" href="#2141-2150">¶</a></h2><h2 id="2151-2160">2151-2160<a class="anchor" href="#2151-2160">¶</a></h2><h2 id="2161-2170">2161-2170<a class="anchor" href="#2161-2170">¶</a></h2><h2 id="2171-2180">2171-2180<a class="anchor" href="#2171-2180">¶</a></h2><h2 id="2181-2189">2181-2189<a class="anchor" href="#2181-2189">¶</a></h2>]]></content>
       
