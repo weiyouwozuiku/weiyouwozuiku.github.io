@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-30
+                    2023-02-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15.6k
+                    15.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    68 分
+                    69 分
                 </div>
                 
 
@@ -1441,7 +1441,7 @@ vector<span class="token operator">&lt;</span>PII<span class="token operator">&g
 <p>Trie树示意图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%AE%97%E6%B3%95/Acwing%E5%AD%A6%E4%B9%A0/Trie.jpeg" alt="Trie.jpeg"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1e5</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token comment">// s存放的trie数，横坐标为所有字符串个数，纵坐标为每个字符串的字符，同一层级元素在不同行</span>
+<span class="token comment">// s存放的trie树，横坐标为所有字符串个数，纵坐标为每个字符串的字符，同一层级元素在不同行</span>
 <span class="token comment">// s[i][j]==0既可能是根节点也可能是叶子结点</span>
 <span class="token comment">// cnt[x]存放以x为结尾的单词个数</span>
 <span class="token comment">// idx记录当前处理的s数组行数</span>
@@ -2421,6 +2421,31 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <h4 id="约数个数">约数个数<a class="anchor" href="#约数个数">¶</a></h4>
 <p>如果<img src="https://math.now.sh?inline=N%20%3D%20p_1%5E%7Bc_1%7D%20*%20p_2%5E%7Bc_2%7D%20*%20...%20*p_k%5E%7Bc_k%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">约数个数： <img src="https://math.now.sh?inline=%28c_1%20%2B%201%29%20*%20(c_2%20%2B%201)%20*%20...%20*%20(c_k%20%2B%201)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">
 约数之和： <img src="https://math.now.sh?inline=%28p_1%5E0%20%2B%20p_1%5E1%20%2B%20...%20%2B%20p_1%5E%7Bc_1%7D%29%20*%20...%20*%20(p_k%5E0%20%2B%20p_k%5E1%20%2B%20...%20%2B%20p_k%5E%7Bc_k%7D)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">get_divisor</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>map<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> x <span class="token operator">/</span> i<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            x <span class="token operator">/=</span> i<span class="token punctuation">;</span>
+            map<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> map<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+std<span class="token double-colon punctuation">::</span>unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> divisors<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">get_divisor</span><span class="token punctuation">(</span>divisors<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token comment">// 约数个数</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token operator">&amp;</span>it<span class="token operator">:</span> divisors<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        res <span class="token operator">=</span> it<span class="token punctuation">.</span>second <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token comment">// 约数之和</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token operator">&amp;</span>it<span class="token operator">:</span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> p <span class="token operator">=</span> it<span class="token punctuation">.</span>first<span class="token punctuation">,</span> a <span class="token operator">=</span> it<span class="token punctuation">.</span>second<span class="token punctuation">;</span>
+        LL t <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>a<span class="token operator">--</span><span class="token punctuation">)</span> t <span class="token operator">=</span> <span class="token punctuation">(</span>p <span class="token operator">*</span> t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> mod<span class="token punctuation">;</span>
+        res <span class="token operator">=</span> res <span class="token operator">*</span> t <span class="token operator">%</span> mod<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="约数之和">约数之和<a class="anchor" href="#约数之和">¶</a></h4>
 <h3 id="欧拉函数">欧拉函数<a class="anchor" href="#欧拉函数">¶</a></h3>
 <h3 id="快速幂">快速幂<a class="anchor" href="#快速幂">¶</a></h3>
@@ -3141,7 +3166,7 @@ map<span class="token operator">/</span>multimap
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">262.4k</span>&nbsp;字
+                class="white-color">263.1k</span>&nbsp;字
             
             
             

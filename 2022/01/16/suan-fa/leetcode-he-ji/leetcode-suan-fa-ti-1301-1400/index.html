@@ -494,14 +494,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-04
+                    2023-02-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    356
+                    479
                 </div>
                 
 
@@ -602,6 +602,40 @@
 <h2 id="1361-1370">1361-1370<a class="anchor" href="#1361-1370">¶</a></h2>
 <h2 id="1371-1380">1371-1380<a class="anchor" href="#1371-1380">¶</a></h2>
 <h2 id="1381-1390">1381-1390<a class="anchor" href="#1381-1390">¶</a></h2>
+<h3 id="1390-四因数"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/four-divisors/description/">1390. 四因数</a><a class="anchor" href="#1390-四因数">¶</a></h3>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">sumFourDivisors</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vector <span class="token operator">&lt;</span> unordered_map <span class="token operator">&lt;</span> <span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">&gt;</span> <span class="token operator">*</span> <span class="token operator">&gt;</span> primes<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> x<span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">*</span>map <span class="token operator">=</span> <span class="token keyword">new</span> unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> x <span class="token operator">/</span> i<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    x <span class="token operator">/=</span> i<span class="token punctuation">;</span>
+                    <span class="token punctuation">(</span><span class="token operator">*</span>map<span class="token punctuation">)</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">*</span>map<span class="token punctuation">)</span><span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> divisors <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token operator">&amp;</span>it<span class="token operator">:</span> <span class="token operator">*</span>map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                divisors <span class="token operator">*=</span> it<span class="token punctuation">.</span>second <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>divisors <span class="token operator">&gt;</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>divisors <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span> primes<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> its<span class="token operator">:</span> primes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> tmp <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> it<span class="token operator">:</span> <span class="token operator">*</span>its<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> p <span class="token operator">=</span> it<span class="token punctuation">.</span>first<span class="token punctuation">,</span> a <span class="token operator">=</span> it<span class="token punctuation">.</span>second<span class="token punctuation">,</span> t <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span>a<span class="token operator">--</span><span class="token punctuation">)</span> t <span class="token operator">=</span> p <span class="token operator">*</span> t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                tmp <span class="token operator">*=</span> t<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            res <span class="token operator">+=</span> tmp<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="1391-1400">1391-1400<a class="anchor" href="#1391-1400">¶</a></h2>
 
                 
@@ -1178,7 +1212,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">262.4k</span>&nbsp;字
+                class="white-color">263.1k</span>&nbsp;字
             
             
             
