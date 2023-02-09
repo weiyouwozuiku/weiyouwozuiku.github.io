@@ -1097,7 +1097,7 @@ Trie树示意图：
 
 ```cpp
 const int N = 1e5 + 1;
-// s存放的trie数，横坐标为所有字符串个数，纵坐标为每个字符串的字符，同一层级元素在不同行
+// s存放的trie树，横坐标为所有字符串个数，纵坐标为每个字符串的字符，同一层级元素在不同行
 // s[i][j]==0既可能是根节点也可能是叶子结点
 // cnt[x]存放以x为结尾的单词个数
 // idx记录当前处理的s数组行数
@@ -2319,6 +2319,36 @@ vector<int> get_divisors(int x)
 如果$N = p_1^{c_1} * p_2^{c_2} * ... *p_k^{c_k}$
 约数个数： $(c_1 + 1) * (c_2 + 1) * ... * (c_k + 1)$
 约数之和： $(p_1^0 + p_1^1 + ... + p_1^{c_1}) * ... * (p_k^0 + p_k^1 + ... + p_k^{c_k})$
+
+```cpp
+void get_divisor(std::unordered_map<int, int> &map, int x) {
+    for (int i = 2; i <= x / i; ++i) {
+        while (x % i == 0) {
+            x /= i;
+            map[i] += 1;
+        }
+    }
+    if (x > 1) map[x] += 1;
+}
+std::unordered_map<int, int> divisors;
+    for (int i = 0; i < n; ++i) {
+        scanf("%d", &x);
+        get_divisor(divisors, x);
+    }
+// 约数个数
+    for (auto &it: divisors) {
+        res = it.second + 1;
+    }
+// 约数之和
+    for (auto &it: map) {
+        int p = it.first, a = it.second;
+        LL t = 1;
+        while (a--) t = (p * t + 1) % mod;
+        res = res * t % mod;
+    }
+```
+
+
 
 #### 约数之和
 
