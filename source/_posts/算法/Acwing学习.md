@@ -2314,7 +2314,7 @@ vector<int> get_divisors(int x)
 }
 ```
 
-#### 约数个数
+#### 约数个数&&约数之和
 
 如果$N = p_1^{c_1} * p_2^{c_2} * ... *p_k^{c_k}$
 约数个数： $(c_1 + 1) * (c_2 + 1) * ... * (c_k + 1)$
@@ -2348,9 +2348,33 @@ std::unordered_map<int, int> divisors;
     }
 ```
 
+### 最大公约数
+
+欧几里得算法：**两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。**
+
+形式化表述为：$gcd(a,b)=gcd(b , a \quad mod \quad b )$
+
+其证明可以在[最大公约数](https://oi-wiki.org/math/number-theory/gcd/)找到。
+
+算法演示动画如下：
+
+![Euclidean_algorithm.gif](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/算法/Acwing学习/Euclidean_algorithm.gif)
+
+```cpp
+int gcd(int m, int n) {
+    int t = 1;
+    while(t != 0) {
+        t = m % n;
+        m = n;
+        n = t;
+    }
+    return m;
+}
+//一行表示为
+return b ? GCD(b, a % b) : a;
+```
 
 
-#### 约数之和
 
 ### 欧拉函数
 
