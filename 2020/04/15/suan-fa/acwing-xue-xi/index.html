@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-09
+                    2023-02-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15.7k
+                    15.8k
                 </div>
                 
 
@@ -2418,7 +2418,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
     <span class="token function">sort</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> res<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="约数个数">约数个数<a class="anchor" href="#约数个数">¶</a></h4>
+<h4 id="约数个数-约数之和">约数个数&amp;&amp;约数之和<a class="anchor" href="#约数个数-约数之和">¶</a></h4>
 <p>如果<img src="https://math.now.sh?inline=N%20%3D%20p_1%5E%7Bc_1%7D%20*%20p_2%5E%7Bc_2%7D%20*%20...%20*p_k%5E%7Bc_k%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">约数个数： <img src="https://math.now.sh?inline=%28c_1%20%2B%201%29%20*%20(c_2%20%2B%201)%20*%20...%20*%20(c_k%20%2B%201)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">
 约数之和： <img src="https://math.now.sh?inline=%28p_1%5E0%20%2B%20p_1%5E1%20%2B%20...%20%2B%20p_1%5E%7Bc_1%7D%29%20*%20...%20*%20(p_k%5E0%20%2B%20p_k%5E1%20%2B%20...%20%2B%20p_k%5E%7Bc_k%7D)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">get_divisor</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>map<span class="token punctuation">,</span> <span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -2446,7 +2446,23 @@ std<span class="token double-colon punctuation">::</span>unordered_map<span clas
         <span class="token keyword">while</span> <span class="token punctuation">(</span>a<span class="token operator">--</span><span class="token punctuation">)</span> t <span class="token operator">=</span> <span class="token punctuation">(</span>p <span class="token operator">*</span> t <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> mod<span class="token punctuation">;</span>
         res <span class="token operator">=</span> res <span class="token operator">*</span> t <span class="token operator">%</span> mod<span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="约数之和">约数之和<a class="anchor" href="#约数之和">¶</a></h4>
+<h3 id="最大公约数">最大公约数<a class="anchor" href="#最大公约数">¶</a></h3>
+<p>欧几里得算法：<strong>两个整数的最大公约数等于其中较小的那个数和两数相除余数的最大公约数。</strong></p>
+<p>形式化表述为：<img src="https://math.now.sh?inline=gcd%28a%2Cb%29%3Dgcd(b%20%2C%20a%20%5Cquad%20mod%20%5Cquad%20b%20)" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
+<p>其证明可以在<a target="_blank" rel="noopener" href="https://oi-wiki.org/math/number-theory/gcd/">最大公约数</a>找到。</p>
+<p>算法演示动画如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%AE%97%E6%B3%95/Acwing%E5%AD%A6%E4%B9%A0/Euclidean_algorithm.gif" alt="Euclidean_algorithm.gif"></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">gcd</span><span class="token punctuation">(</span><span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> t <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>t <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        t <span class="token operator">=</span> m <span class="token operator">%</span> n<span class="token punctuation">;</span>
+        m <span class="token operator">=</span> n<span class="token punctuation">;</span>
+        n <span class="token operator">=</span> t<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> m<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//一行表示为</span>
+<span class="token keyword">return</span> b <span class="token operator">?</span> <span class="token function">GCD</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> a <span class="token operator">%</span> b<span class="token punctuation">)</span> <span class="token operator">:</span> a<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="欧拉函数">欧拉函数<a class="anchor" href="#欧拉函数">¶</a></h3>
 <h3 id="快速幂">快速幂<a class="anchor" href="#快速幂">¶</a></h3>
 <h3 id="扩展欧几里德算法">扩展欧几里德算法<a class="anchor" href="#扩展欧几里德算法">¶</a></h3>
@@ -3166,7 +3182,7 @@ map<span class="token operator">/</span>multimap
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">263.1k</span>&nbsp;字
+                class="white-color">263.4k</span>&nbsp;字
             
             
             
