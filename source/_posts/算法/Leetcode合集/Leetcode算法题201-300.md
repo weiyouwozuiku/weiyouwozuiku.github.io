@@ -13,7 +13,71 @@ categories: 算法
 
 ## 201-210
 
-#### [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)
+### [204. 计数质数](https://leetcode.cn/problems/count-primes/)
+
+```cpp
+// 埃氏筛 O(loglogn)
+class Solution {
+public:
+    int countPrimes(int n) {
+        vector<bool> st(n + 1, false);
+        int nums = 0;
+        for (int i = 2; i < n; ++i) {
+            if (!st[i]) {
+                nums += 1;
+                for (int j = i + i; j < n; j += i) st[j] = true;
+            }
+        }
+        return nums;
+    }
+};
+```
+
+```cpp
+// 线性筛 O(n) 需要注意的是
+class Solution {
+public:
+    int countPrimes(int n) {
+        vector<bool> st(n + 1, false);
+        vector<int> primes;
+        for (int i = 2; i < n; ++i) {
+            if (!st[i]) primes.push_back(i);
+            for (int j = 0; j < primes.size() && primes[j] <= n / i; ++j) {
+                st[primes[j]*i]=true;
+                if(i%primes[j]==0) break;
+            }
+        }
+        return primes.size();
+    }
+};
+```
+
+### [206.反转链表](https://leetcode.cn/problems/reverse-linked-list/description/)
+
+```cpp
+// 本题只需要注意的是维护两个指针分别指向当前节点后后一个节点，每次移动位置向后移动，最后处理原本的头节点指向null
+class Solution {
+public:
+    ListNode *reverseList(ListNode *head) {
+        if (!head) return nullptr;
+        auto a = head, b = head->next;
+        while (b) {
+            auto c = b->next;
+            b->next = a;
+            a = b;
+            b = c;
+        }
+        head->next = nullptr;
+        return a;
+    }
+};
+```
+
+
+
+
+
+### [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)
 
 关于「二维数组」是如何工作 & 1e5 大小的估算要搞懂为什么行数估算是 1e5，首先要搞清楚「二维数组」是如何工作的。
 
@@ -87,48 +151,38 @@ public:
 };
 ```
 
-#### [204. 计数质数](https://leetcode.cn/problems/count-primes/)
-
-```cpp
-// 埃氏筛 O(loglogn)
-class Solution {
-public:
-    int countPrimes(int n) {
-        vector<bool> st(n + 1, false);
-        int nums = 0;
-        for (int i = 2; i < n; ++i) {
-            if (!st[i]) {
-                nums += 1;
-                for (int j = i + i; j < n; j += i) st[j] = true;
-            }
-        }
-        return nums;
-    }
-};
-```
-
-```cpp
-// 线性筛 O(n) 需要注意的是
-class Solution {
-public:
-    int countPrimes(int n) {
-        vector<bool> st(n + 1, false);
-        vector<int> primes;
-        for (int i = 2; i < n; ++i) {
-            if (!st[i]) primes.push_back(i);
-            for (int j = 0; j < primes.size() && primes[j] <= n / i; ++j) {
-                st[primes[j]*i]=true;
-                if(i%primes[j]==0) break;
-            }
-        }
-        return primes.size();
-    }
-};
-```
-
 
 
 ## 211-220
+
+### [215.数组中的第k个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/description/)
+
+本题需要再$O(n)$时间内，因此可以采用快速排序+二分的方法。需要注意本题是最大元素。
+
+```cpp
+class Solution {
+public:
+    int quick_select(vector<int> &nums, int l, int r, int k) {
+        if (l == r) return nums[l];
+        int mid = nums[(l + r) >> 1];
+        int i = l - 1, j = r + 1;
+        while (i < j) {
+            while (nums[++i] > mid);
+            while (nums[--j] < mid);
+            if (i < j) swap(nums[i], nums[j]);
+        }
+        if (k <= j) return quick_select(nums, l, j, k);
+        else return quick_select(nums, j + 1, r, k);
+    }
+
+    int findKthLargest(vector<int> &nums, int k) {
+        return quick_select(nums, 0, nums.size() - 1, k - 1);
+    }
+};
+```
+
+
+
 ## 221-230
 ## 231-240
 

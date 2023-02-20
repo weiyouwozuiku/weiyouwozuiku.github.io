@@ -711,7 +711,61 @@ public:
 };
 ```
 
-#### [53.](https://leetcode-cn.com/problems/maximum-subarray)
+#### [53.最大子数组和](https://leetcode-cn.com/problems/maximum-subarray)
+
+```cpp
+// 这里采用了动态规划的方式。f(i)表示以nums[i]为最后一个元素的数组和
+// f(i)可以分为两类只有一个元素的和多个元素累加的
+// 一个元素的就是nums[i]，另一个就是f[i-1]+nums[i]
+// 两种情况都包含nums[i]，提取出来就成了nums[i]+max(0,f(i-1))
+class Solution {
+public:
+    int maxSubArray(vector<int> &nums) {
+        int res = INT_MIN;
+        for (int i = 0,last=0; i < nums.size(); ++i) {
+            last=nums[i]+max(0,last);
+            res=max(last,res);
+        }
+        return res;
+    }
+};
+```
+
+```cpp
+// 分治的思想实现，将整个数组拆成两个子数组，分别计算其中的前缀和
+class Solution {
+public:
+    struct Node{
+        int sum,s,ls,rs;
+    };
+    Node build(vector<int>& nums,int l,int r){
+        if(l==r) {
+            int v=max(nums[l],0);
+            return {nums[l],v,v,v};
+        }
+        int mid=l+r>>1;
+        Node res;
+        auto L=build(nums,l,mid),R=build(nums,mid+1,r);
+        res.sum=L.sum+R.sum;
+        res.s=max(max(L.s,R.s),L.rs+R.ls);
+        res.ls=max(L.ls,L.sum+R.ls);
+        res.rs=max(R.rs,R.sum+L.rs);
+        return res;
+    }
+    int maxSubArray(vector<int>& nums) {
+        // 特判全是负数的情况，因为结果中不允许空数组
+        int tmp=INT_MIN;
+        for(auto &it:nums){
+            tmp=max(it,tmp);
+        }
+        if(tmp<0) return tmp;
+        auto res=build(nums,0,nums.size()-1);
+        return res.s;
+    }
+};
+```
+
+
 
 #### [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
 

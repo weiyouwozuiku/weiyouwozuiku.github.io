@@ -2374,9 +2374,26 @@ int gcd(int m, int n) {
 return b ? GCD(b, a % b) : a;
 ```
 
-
-
 ### 欧拉函数
+
+欧拉函数（Euler's totient function），即$\varphi(n)$，表示的是小于等于n和n互质的数的个数。
+
+由唯一分解定理，设$n=\prod_{i=1}^{s}p_i^{k_i}$，其中$p_i$是质数，有$\varphi (n)=n*\prod_{i=1}^s\tfrac{p_i-1}{p_i}$。
+
+其证明在[欧拉函数](https://oi-wiki.org/math/number-theory/euler/#%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86)。
+
+```cpp
+int res = x;
+for (int i = 2; i <= x / i; ++i) {
+    if (x % i == 0) {
+        res = res / i * (i - 1);
+        while (x % i == 0) x /= i;
+    }
+}
+if (x > 1) res = res / x * (x - 1);
+```
+
+
 
 ### 快速幂
 

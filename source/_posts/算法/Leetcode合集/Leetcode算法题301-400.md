@@ -137,5 +137,41 @@ public:
 ## 381-390
 ## 391-400
 
+```cpp
+// 本题的主要思想是在不满足单调性的情况下通过增加约束的方式，使得出现单调性。
+// 限制住每次子串中不同字母的个数可以保证其出现单调性
+class Solution {
+public:
+    int k;
+    unordered_map<char, int> heap;
+
+    void add(char c, int &x, int &y) {
+        if (!heap[c]) x += 1;
+        heap[c] += 1;
+        if (heap[c] == k) y += 1;
+    }
+
+    void del(char c, int &x, int &y) {
+        if (heap[c] == k) y -= 1;
+        heap[c] -= 1;
+        if (!heap[c]) x -= 1;
+    }
+
+    int longestSubstring(string s, int _k) {
+        k = _k;
+        int res = 0;
+        for (int k = 1; k <= 26; ++k) {
+            heap.clear();
+            for (int i = 0, j = 0, x = 0, y = 0; i < s.size(); ++i) {
+                add(s[i], x, y);
+                while (k < x) del(s[j++], x, y);
+                if (y == x) res = max(res, i - j + 1);
+            }
+        }
+        return res;
+    }
+};
+```
+
 
 
