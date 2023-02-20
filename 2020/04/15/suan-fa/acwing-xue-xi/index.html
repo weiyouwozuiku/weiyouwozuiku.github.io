@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-12
+                    2023-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15.8k
+                    15.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    69 分
+                    70 分
                 </div>
                 
 
@@ -2464,6 +2464,17 @@ std<span class="token double-colon punctuation">::</span>unordered_map<span clas
 <span class="token comment">//一行表示为</span>
 <span class="token keyword">return</span> b <span class="token operator">?</span> <span class="token function">GCD</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> a <span class="token operator">%</span> b<span class="token punctuation">)</span> <span class="token operator">:</span> a<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="欧拉函数">欧拉函数<a class="anchor" href="#欧拉函数">¶</a></h3>
+<p>欧拉函数（Euler’s totient function），即<img src="https://math.now.sh?inline=%5Cvarphi%28n%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，表示的是小于等于n和n互质的数的个数。</p>
+<p>由唯一分解定理，设<img src="https://math.now.sh?inline=n%3D%5Cprod_%7Bi%3D1%7D%5E%7Bs%7Dp_i%5E%7Bk_i%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">，其中<img src="https://math.now.sh?inline=p_i" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">是质数，有<img src="https://math.now.sh?inline=%5Cvarphi%20%28n%29%3Dn*%5Cprod_%7Bi%3D1%7D%5Es%5Ctfrac%7Bp_i-1%7D%7Bp_i%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。</p>
+<p>其证明在<a target="_blank" rel="noopener" href="https://oi-wiki.org/math/number-theory/euler/#%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86">欧拉函数</a>。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> res <span class="token operator">=</span> x<span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> x <span class="token operator">/</span> i<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        res <span class="token operator">=</span> res <span class="token operator">/</span> i <span class="token operator">*</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>x <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> x <span class="token operator">/=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> res <span class="token operator">=</span> res <span class="token operator">/</span> x <span class="token operator">*</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="快速幂">快速幂<a class="anchor" href="#快速幂">¶</a></h3>
 <h3 id="扩展欧几里德算法">扩展欧几里德算法<a class="anchor" href="#扩展欧几里德算法">¶</a></h3>
 <h3 id="中国剩余定理">中国剩余定理<a class="anchor" href="#中国剩余定理">¶</a></h3>
@@ -3182,7 +3193,7 @@ map<span class="token operator">/</span>multimap
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">263.4k</span>&nbsp;字
+                class="white-color">264.5k</span>&nbsp;字
             
             
             

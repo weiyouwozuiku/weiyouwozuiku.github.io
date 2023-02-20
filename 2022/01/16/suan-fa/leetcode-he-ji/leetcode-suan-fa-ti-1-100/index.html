@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-12-04
+                    2023-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.2k
+                    5.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    26 分
                 </div>
                 
 
@@ -1129,7 +1129,53 @@
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="53"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-subarray">53.</a><a class="anchor" href="#53">¶</a></h4>
+<h4 id="53-最大子数组和"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-subarray">53.最大子数组和</a><a class="anchor" href="#53-最大子数组和">¶</a></h4>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 这里采用了动态规划的方式。f(i)表示以nums[i]为最后一个元素的数组和</span>
+<span class="token comment">// f(i)可以分为两类只有一个元素的和多个元素累加的</span>
+<span class="token comment">// 一个元素的就是nums[i]，另一个就是f[i-1]+nums[i]</span>
+<span class="token comment">// 两种情况都包含nums[i]，提取出来就成了nums[i]+max(0,f(i-1))</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">maxSubArray</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> INT_MIN<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>last<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            last<span class="token operator">=</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>last<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            res<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>last<span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 分治的思想实现，将整个数组拆成两个子数组，分别计算其中的前缀和</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">struct</span> <span class="token class-name">Node</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> sum<span class="token punctuation">,</span>s<span class="token punctuation">,</span>ls<span class="token punctuation">,</span>rs<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    Node <span class="token function">build</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">==</span>r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> v<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">,</span>v<span class="token punctuation">,</span>v<span class="token punctuation">,</span>v<span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> mid<span class="token operator">=</span>l<span class="token operator">+</span>r<span class="token operator">&gt;&gt;</span><span class="token number">1</span><span class="token punctuation">;</span>
+        Node res<span class="token punctuation">;</span>
+        <span class="token keyword">auto</span> L<span class="token operator">=</span><span class="token function">build</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span>l<span class="token punctuation">,</span>mid<span class="token punctuation">)</span><span class="token punctuation">,</span>R<span class="token operator">=</span><span class="token function">build</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span>sum<span class="token operator">=</span>L<span class="token punctuation">.</span>sum<span class="token operator">+</span>R<span class="token punctuation">.</span>sum<span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span>s<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token function">max</span><span class="token punctuation">(</span>L<span class="token punctuation">.</span>s<span class="token punctuation">,</span>R<span class="token punctuation">.</span>s<span class="token punctuation">)</span><span class="token punctuation">,</span>L<span class="token punctuation">.</span>rs<span class="token operator">+</span>R<span class="token punctuation">.</span>ls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span>ls<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>L<span class="token punctuation">.</span>ls<span class="token punctuation">,</span>L<span class="token punctuation">.</span>sum<span class="token operator">+</span>R<span class="token punctuation">.</span>ls<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span>rs<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>rs<span class="token punctuation">,</span>R<span class="token punctuation">.</span>sum<span class="token operator">+</span>L<span class="token punctuation">.</span>rs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> <span class="token function">maxSubArray</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 特判全是负数的情况，因为结果中不允许空数组</span>
+        <span class="token keyword">int</span> tmp<span class="token operator">=</span>INT_MIN<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token operator">&amp;</span>it<span class="token operator">:</span>nums<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            tmp<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span>tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>tmp<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> tmp<span class="token punctuation">;</span>
+        <span class="token keyword">auto</span> res<span class="token operator">=</span><span class="token function">build</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">.</span>s<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="56-合并区间"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-intervals/">56. 合并区间</a><a class="anchor" href="#56-合并区间">¶</a></h4>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
@@ -1855,7 +1901,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">263.4k</span>&nbsp;字
+                class="white-color">264.5k</span>&nbsp;字
             
             
             
