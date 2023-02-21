@@ -13,6 +13,35 @@ categories: 算法
 
 ## 101-110
 
+[102.二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/description/)
+
+```cpp
+class Solution {
+public:
+    vector <vector<int>> levelOrder(TreeNode *root) {
+        queue < TreeNode * > q;
+        vector <vector<int>> res;
+        if (!root) return {};
+        else q.push(root);
+        while (q.size()) {
+            int size = q.size();
+            vector<int> level;
+            while (size--) {
+                auto p = q.front();
+                q.pop();
+                level.push_back(p->val);
+                if (p->left) q.push(p->left);
+                if (p->right) q.push(p->right);
+            }
+            res.push_back(level);
+        }
+        return res;
+    }
+};
+```
+
+
+
 ## 111-120
 
 ## 121-130
