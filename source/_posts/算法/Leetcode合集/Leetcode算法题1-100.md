@@ -442,7 +442,28 @@ public:
 };
 ```
 
+### [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/)
 
+```cpp
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<int> q;
+        unordered_map<char, char> heap{{']', '['},
+                                       {')', '('},
+                                       {'}', '{'}};
+        for (auto &it: s) {
+            if(it=='['||it=='{'||it=='(') q.push(it);
+            else{
+                if(q.size()&&heap[it]==q.top()) q.pop();
+                else return false;
+            }
+        }
+        if(q.size()) return false;
+        else return true;
+    }
+};
+```
 
 ## 21-30
 

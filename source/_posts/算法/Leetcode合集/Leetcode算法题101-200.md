@@ -40,6 +40,37 @@ public:
 };
 ```
 
+### [103.二叉树的锯齿形层序遍历](https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal/)
+
+```cpp
+// 本题的思路和二叉树层序遍历一致，只是在每隔一层反转level中的元素
+class Solution {
+public:
+    vector <vector<int>> zigzagLevelOrder(TreeNode *root) {
+        vector <vector<int>> res;
+        queue < TreeNode * > q;
+        if (root) q.push(root);
+        else return {};
+        bool flag = false;
+        while (q.size()) {
+            int size = q.size();
+            vector<int> level;
+            while (size--) {
+                auto p = q.front();
+                q.pop();
+                level.push_back(p->val);
+                if (p->left) q.push(p->left);
+                if (p->right) q.push(p->right);
+            }
+            if (flag) reverse(level.begin(), level.end());
+            res.push_back(level);
+            flag = !flag;
+        }
+        return res;
+    }
+};
+```
+
 
 
 ## 111-120

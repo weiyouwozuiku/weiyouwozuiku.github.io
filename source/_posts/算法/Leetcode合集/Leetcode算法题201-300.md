@@ -199,9 +199,34 @@ public:
 };
 ```
 
+### [236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/)
 
+```cpp
+ // 本题的解题思路就是dfs，通过保存判断当前节点的state进行判断p和q是否在这条路径中
+ // 需要注意的是本题需要的最近的节点，因此需要保证ans只被第一次找到公共祖先时赋值
+class Solution {
+public:
+    TreeNode *res = nullptr;
+
+    TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q) {
+        dfs(root, p, q);
+        return res;
+    }
+
+    int dfs(TreeNode *root, TreeNode *p, TreeNode *q) {
+        if (!root) return 0;
+        int state = dfs(root->left, p, q);
+        if (root == p) state |= 1;
+        if (root == q) state |= 2;
+        state |= dfs(root->right, p, q);
+        if (state == 3 && !res) return res = root;
+        return state;
+    }
+};
+```
 
 ## 241-250
+
 ## 251-260
 ## 261-270
 ## 271-280
