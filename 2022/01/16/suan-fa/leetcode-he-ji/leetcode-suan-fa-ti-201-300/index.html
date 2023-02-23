@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-20
+                    2023-02-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -675,6 +675,28 @@
         <span class="token keyword">return</span> <span class="token punctuation">(</span>n <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>n <span class="token operator">&amp;</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="236-二叉树的最近公共祖先"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/">236. 二叉树的最近公共祖先</a><a class="anchor" href="#236-二叉树的最近公共祖先">¶</a></h3>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"> <span class="token comment">// 本题的解题思路就是dfs，通过保存判断当前节点的state进行判断p和q是否在这条路径中</span>
+ <span class="token comment">// 需要注意的是本题需要的最近的节点，因此需要保证ans只被第一次找到公共祖先时赋值</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    TreeNode <span class="token operator">*</span>res <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+
+    TreeNode <span class="token operator">*</span><span class="token function">lowestCommonAncestor</span><span class="token punctuation">(</span>TreeNode <span class="token operator">*</span>root<span class="token punctuation">,</span> TreeNode <span class="token operator">*</span>p<span class="token punctuation">,</span> TreeNode <span class="token operator">*</span>q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> p<span class="token punctuation">,</span> q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> <span class="token function">dfs</span><span class="token punctuation">(</span>TreeNode <span class="token operator">*</span>root<span class="token punctuation">,</span> TreeNode <span class="token operator">*</span>p<span class="token punctuation">,</span> TreeNode <span class="token operator">*</span>q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>root<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> state <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>left<span class="token punctuation">,</span> p<span class="token punctuation">,</span> q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> p<span class="token punctuation">)</span> state <span class="token operator">|=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> q<span class="token punctuation">)</span> state <span class="token operator">|=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        state <span class="token operator">|=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>right<span class="token punctuation">,</span> p<span class="token punctuation">,</span> q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>state <span class="token operator">==</span> <span class="token number">3</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>res<span class="token punctuation">)</span> <span class="token keyword">return</span> res <span class="token operator">=</span> root<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> state<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="241-250">241-250<a class="anchor" href="#241-250">¶</a></h2>
 <h2 id="251-260">251-260<a class="anchor" href="#251-260">¶</a></h2>
 <h2 id="261-270">261-270<a class="anchor" href="#261-270">¶</a></h2>
@@ -1256,7 +1278,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">264.7k</span>&nbsp;字
+                class="white-color">265.1k</span>&nbsp;字
             
             
             
