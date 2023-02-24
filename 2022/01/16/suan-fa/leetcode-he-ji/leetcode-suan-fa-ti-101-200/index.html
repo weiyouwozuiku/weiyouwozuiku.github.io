@@ -494,14 +494,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-23
+                    2023-02-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
@@ -688,6 +688,20 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="151-160">151-160<a class="anchor" href="#151-160">¶</a></h2>
+<h3 id="160-相交链表"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/intersection-of-two-linked-lists/description/">160. 相交链表</a><a class="anchor" href="#160-相交链表">¶</a></h3>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"> <span class="token comment">// 本题的解题思路在于如果两个链表相交，则遍历一遍所在链表到另一个链表的长度是相同的。</span>
+ <span class="token comment">// 例如headA到相交点距离a，headB到相交点距离b，相交后的长度为c，因此a+c+b=b+c+a。因此本题可以用双指针解决</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    ListNode <span class="token operator">*</span><span class="token function">getIntersectionNode</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>headA<span class="token punctuation">,</span> ListNode <span class="token operator">*</span>headB<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">auto</span> a <span class="token operator">=</span> headA<span class="token punctuation">,</span> b <span class="token operator">=</span> headB<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>a <span class="token operator">!=</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            a <span class="token operator">=</span> a <span class="token operator">?</span> a<span class="token operator">-&gt;</span>next <span class="token operator">:</span> headB<span class="token punctuation">;</span>
+            b <span class="token operator">=</span> b <span class="token operator">?</span> b<span class="token operator">-&gt;</span>next <span class="token operator">:</span> headA<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="161-170">161-170<a class="anchor" href="#161-170">¶</a></h2>
 <h2 id="171-180">171-180<a class="anchor" href="#171-180">¶</a></h2>
 <h4 id="172-阶乘后的零"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/factorial-trailing-zeroes/">172. 阶乘后的零</a><a class="anchor" href="#172-阶乘后的零">¶</a></h4>
@@ -1340,7 +1354,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">265.1k</span>&nbsp;字
+                class="white-color">265.2k</span>&nbsp;字
             
             
             
