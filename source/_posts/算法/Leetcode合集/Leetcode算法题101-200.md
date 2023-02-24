@@ -198,6 +198,26 @@ public:
 
 ## 151-160
 
+### [160. 相交链表](https://leetcode.cn/problems/intersection-of-two-linked-lists/description/)
+
+```cpp
+ // 本题的解题思路在于如果两个链表相交，则遍历一遍所在链表到另一个链表的长度是相同的。
+ // 例如headA到相交点距离a，headB到相交点距离b，相交后的长度为c，因此a+c+b=b+c+a。因此本题可以用双指针解决
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        auto a = headA, b = headB;
+        while (a != b) {
+            a = a ? a->next : headB;
+            b = b ? b->next : headA;
+        }
+        return a;
+    }
+};
+```
+
+
+
 ## 161-170
 ## 171-180
 
