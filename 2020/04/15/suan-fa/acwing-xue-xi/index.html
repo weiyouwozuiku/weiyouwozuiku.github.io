@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-20
+                    2023-02-27
                 </div>
                 
 
@@ -2405,7 +2405,7 @@ q<span class="token punctuation">.</span><span class="token function">push</span
 <h3 id="约数">约数<a class="anchor" href="#约数">¶</a></h3>
 <p>int范围内约数最多的数大概是1560个约数。</p>
 <h4 id="试除法求所有约数">试除法求所有约数<a class="anchor" href="#试除法求所有约数">¶</a></h4>
-<p>重点和试除法判断质数是一样的，优化的点是循环的范围。只需要判断到i&lt;=n/i就行，之后的约数可以通过直接堆之前的数字相除就行。需要特别注意的是，不要重复添加已经有的元素。</p>
+<p>重点和试除法判断质数是一样的，优化的点是循环的范围。只需要判断到i&lt;=n/i就行，之后的约数可以通过直接对之前的数字相除就行。需要特别注意的是，不要重复添加已经有的元素。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">get_divisors</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> res<span class="token punctuation">;</span>
@@ -2437,7 +2437,7 @@ std<span class="token double-colon punctuation">::</span>unordered_map<span clas
     <span class="token punctuation">}</span>
 <span class="token comment">// 约数个数</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token operator">&amp;</span>it<span class="token operator">:</span> divisors<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        res <span class="token operator">=</span> it<span class="token punctuation">.</span>second <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        res <span class="token operator">=</span> <span class="token punctuation">(</span>it<span class="token punctuation">.</span>second <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> res <span class="token operator">%</span> mod<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token comment">// 约数之和</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token operator">&amp;</span>it<span class="token operator">:</span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -3193,7 +3193,7 @@ map<span class="token operator">/</span>multimap
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">265.2k</span>&nbsp;字
+                class="white-color">265.8k</span>&nbsp;字
             
             
             

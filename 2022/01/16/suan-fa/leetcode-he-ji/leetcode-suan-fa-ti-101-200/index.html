@@ -494,21 +494,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-24
+                    2023-02-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -604,6 +604,17 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="141-150">141-150<a class="anchor" href="#141-150">¶</a></h2>
 <h4 id="141-环形链表"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle/">141. 环形链表</a><a class="anchor" href="#141-环形链表">¶</a></h4>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">bool</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>val<span class="token operator">==</span>INT_MAX<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> head<span class="token operator">-&gt;</span>val<span class="token operator">=</span>INT_MAX<span class="token punctuation">;</span>
+            head<span class="token operator">=</span>head<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>   
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>本题思路：</p>
 <p>本题使用了快慢指针的方法来检测链表中环的存在。首先，已知当链表中出现环的时候遍历时会在第一个环中陷入死循环。基于此，采用双指针的思想，分别设置一个快指针、一个慢指针。快指针每次走两步，慢指针每次走一步。当慢指针移动到环的起始点时，快指针必然还在环中。在快慢指针都在环中时，就变成了慢指针与快指针之间的追击问题。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
@@ -623,6 +634,27 @@
         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="142-环形链表-II"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/linked-list-cycle-ii/">142. 环形链表 II</a><a class="anchor" href="#142-环形链表-II">¶</a></h3>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 本题的解题思路也是利用141中的快慢指针的思想，不同点在于因为fast指针走两步，slow走一步。</span>
+<span class="token comment">// 假定，b点是环的入口，即示例1中的2，快慢指针相遇到环中的位置为c。意味着慢指针从头结点到b的长度正好是从c点循环走若干圈到b的长度。</span>
+<span class="token comment">// 因此，当快慢指针相遇是，将慢指针复位到头指针，快指针一步一步走，当两者相遇时就是环入口</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    ListNode <span class="token operator">*</span><span class="token function">detectCycle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>head <span class="token operator">||</span> <span class="token operator">!</span>head<span class="token operator">-&gt;</span>next<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        <span class="token keyword">auto</span> slow <span class="token operator">=</span> head<span class="token punctuation">,</span> fast <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>fast<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            slow <span class="token operator">=</span> slow<span class="token operator">-&gt;</span>next<span class="token punctuation">,</span> fast <span class="token operator">=</span> fast<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>fast<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+            fast <span class="token operator">=</span> fast<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>fast<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>slow <span class="token operator">==</span> fast<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        slow <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>slow <span class="token operator">!=</span> fast<span class="token punctuation">)</span> slow <span class="token operator">=</span> slow<span class="token operator">-&gt;</span>next<span class="token punctuation">,</span> fast <span class="token operator">=</span> fast<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> fast<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="146-LRU缓存"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/lru-cache/">146.LRU缓存</a><a class="anchor" href="#146-LRU缓存">¶</a></h4>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">LRUCache</span> <span class="token punctuation">{</span>
     <span class="token comment">// lru算法使用一个unordered_map存储key,value.再使用一个双链表标记使用的时间。最近使用则在双链表头部，最不常使用的则在双链表的尾部</span>
@@ -1354,7 +1386,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">265.2k</span>&nbsp;字
+                class="white-color">265.8k</span>&nbsp;字
             
             
             
