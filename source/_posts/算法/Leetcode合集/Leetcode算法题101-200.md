@@ -102,6 +102,20 @@ public:
 
 #### [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
 
+```cpp
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        while(head){
+            if(head->val==INT_MAX) return true;
+            else head->val=INT_MAX;
+            head=head->next;
+        }   
+        return false;
+    }
+};
+```
+
 本题思路：
 
 本题使用了快慢指针的方法来检测链表中环的存在。首先，已知当链表中出现环的时候遍历时会在第一个环中陷入死循环。基于此，采用双指针的思想，分别设置一个快指针、一个慢指针。快指针每次走两步，慢指针每次走一步。当慢指针移动到环的起始点时，快指针必然还在环中。在快慢指针都在环中时，就变成了慢指针与快指针之间的追击问题。
@@ -125,6 +139,33 @@ public:
     }
 };
 ```
+
+### [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/)
+
+```cpp
+// 本题的解题思路也是利用141中的快慢指针的思想，不同点在于因为fast指针走两步，slow走一步。
+// 假定，b点是环的入口，即示例1中的2，快慢指针相遇到环中的位置为c。意味着慢指针从头结点到b的长度正好是从c点循环走若干圈到b的长度。
+// 因此，当快慢指针相遇是，将慢指针复位到头指针，快指针一步一步走，当两者相遇时就是环入口
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        if (!head || !head->next) return nullptr;
+        auto slow = head, fast = head;
+        while (fast) {
+            slow = slow->next, fast = fast->next;
+            if (!fast) return nullptr;
+            fast = fast->next;
+            if (!fast) return nullptr;
+            if (slow == fast) break;
+        }
+        slow = head;
+        while (slow != fast) slow = slow->next, fast = fast->next;
+        return fast;
+    }
+};
+```
+
+
 
 #### [146.LRU缓存](https://leetcode.cn/problems/lru-cache/)
 

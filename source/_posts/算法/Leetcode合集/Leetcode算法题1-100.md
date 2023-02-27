@@ -815,6 +815,34 @@ public:
 };
 ```
 
+### [54. 螺旋矩阵](https://leetcode.cn/problems/spiral-matrix/description/)
+
+```cpp
+class Solution {
+public:
+    vector<int> spiralOrder(vector <vector<int>> &matrix) {
+        vector<int> res;
+        int n = matrix.size();
+        if (!n) return {};
+        int m = matrix[0].size();
+        int dx[] = {0, 1, 0, -1}, dy[] = {1, 0, -1, 0};
+        for (int i = 0, x = 0, y = 0, d = 0; i < n * m; ++i) {
+            res.push_back(matrix[x][y]);
+            matrix[x][y]=INT_MAX;
+            st[x][y] = true;
+            int a = x + dx[d], b = y + dy[d];
+            // 需要注意这里的n和m
+            if (a < 0 || a >= n || b < 0 || b >= m || matrix[a][b]==INT_MAX) {
+                d = (d + 1) % 4;
+                a = x + dx[d], b = y + dy[d];
+            }
+            x = a, y = b;
+        }
+        return res;
+    }
+};
+```
+
 
 
 #### [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
@@ -1001,4 +1029,25 @@ public:
 ```
 
 ## 91-100
+
+### [92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/description/)
+
+```cpp
+class Solution {
+public:
+    ListNode *reverseBetween(ListNode *head, int left, int right) {
+        auto dummy = new ListNode(-1), a = dummy;
+        dummy->next = head;
+        for (int i = 1; i < left; ++i) a = a->next;
+        auto b = a->next, c = b->next;
+        for (int i = 0; i < right - left; ++i) {
+            auto d = c->next;
+            c->next = b;
+            b = c, c = d;
+        }
+        a->next->next = c, a->next = b;
+        return dummy->next;
+    }
+};
+```
 
