@@ -649,6 +649,32 @@ public:
 
 ## 41-50
 
+### [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/description/)
+
+```cpp
+// 本题使用了单调栈实现，last存上一个点的高度，需要注意的是这里stk存的是索引，而不是高度
+class Solution {
+public:
+    int trap(vector<int> &height) {
+        int res = 0;
+        stack<int> stk;
+        for (int i = 0; i < height.size(); ++i) {
+            int last = 0;
+            while (stk.size() && height[i] >= height[stk.top()]) {
+                res += (height[stk.top()] - last) * (i - stk.top() - 1);
+                last = height[stk.top()];
+                stk.pop();
+            }
+            if (stk.size()) res += (height[i] - last) * (i - stk.top() - 1);
+            stk.push(i);
+        }
+        return res;
+    }
+};
+```
+
+
+
 #### [43. 字符串相乘](https://leetcode-cn.com/problems/multiply-strings/)
 
 ```cpp
@@ -679,6 +705,40 @@ public:
         string res = "";
         while (k >= 0) res += C[k--] + '0';
         return res;
+    }
+};
+```
+
+### [46. 全排列](https://leetcode.cn/problems/permutations/description/)
+
+```cpp
+// 本题单纯的dfs没办法生成path，因为索引i可能不是path存放的索引，所以需要u来标记path中的存放位置
+class Solution {
+public:
+    vector <vector<int>> ans;
+    vector<int> path;
+    vector<bool> st;
+
+    vector <vector<int>> permute(vector<int> &nums) {
+        path = vector<int>(nums.size());
+        st = vector<bool>(nums.size(), false);
+        dfs(nums, 0);
+        return ans;
+    }
+
+    void dfs(vector<int> &nums, int u) {
+        if (u == nums.size()) {
+            ans.push_back(path);
+            return;
+        }
+        for (int i = 0; i < nums.size(); ++i) {
+            if (!st[i]) {
+                st[i] = true;
+                path[u] = nums[i];
+                dfs(nums, u + 1);
+                st[i] = false;
+            }
+        }
     }
 };
 ```
@@ -986,6 +1046,26 @@ public:
     }
 };
 ```
+
+### [88. 合并两个有序数组](https://leetcode.cn/problems/merge-sorted-array/description/)
+
+```cpp
+// 本题的解题难点在于怎么移动元素，因为采用的vector，移动需要使用额外空间
+// 但是本题nums1长度是n+m-1，因此可以从后往前排序。
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int i=m-1,j=n-1,len=n+m-1;
+        while(i>=0&&j>=0){
+            if(nums1[i]>=nums2[j]) nums1[len--]=nums1[i--];
+            else nums1[len--]=nums2[j--];
+        }
+        while(j>=0) nums1[len--]=nums2[j--];
+    }
+};
+```
+
+
 
 #### [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)
 

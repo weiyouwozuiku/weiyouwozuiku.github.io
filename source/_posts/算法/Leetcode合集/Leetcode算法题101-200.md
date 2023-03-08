@@ -77,6 +77,25 @@ public:
 
 ## 121-130
 
+### [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/description/)
+
+```cpp
+// 本题利用dp，最大的收益就是max(昨日的最大收益,今天价格-历史最低价)
+class Solution {
+public:
+    int maxProfit(vector<int> &prices) {
+        int res = 0;
+        for (int i = 0, minp = INT_MAX; i < prices.size(); ++i) {
+            res = max(res, prices[i] - minp);
+            minp = min(prices[i], minp);
+        }
+        return res;
+    }
+};
+```
+
+
+
 ## 131-140
 
 #### [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/)
@@ -161,6 +180,35 @@ public:
         slow = head;
         while (slow != fast) slow = slow->next, fast = fast->next;
         return fast;
+    }
+};
+```
+
+### [143. 重排链表](https://leetcode.cn/problems/reorder-list/description/)
+
+```cpp
+class Solution {
+public:
+    void reorderList(ListNode *head) {
+        if (!head || !head->next) return;
+        int n = 0;
+        for (auto q = head; q; q = q->next) n += 1;
+        auto a = head;
+        for (int i = 0; i < n / 2; ++i) a = a->next;
+        auto b = a->next;
+        a->next = nullptr;
+        while (b) {
+            auto c = b->next;
+            b->next = a;
+            a = b, b = c;
+        }
+        for (int i = 0; i < (n - 1) / 2; ++i) {
+            auto c = a->next;
+            a->next = head->next;
+            auto d = head->next;
+            head->next = a;
+            head = d, a = c;
+        }
     }
 };
 ```
@@ -362,3 +410,28 @@ public:
 };
 ```
 
+### [200.岛屿数量](https://leetcode.cn/problems/number-of-islands/description/)
+
+```cpp
+class Solution {
+public:
+    const int dx[4] = {1, -1, 0, 0}, dy[4] = {0, 0, 1, -1};
+
+    int numIslands(vector <vector<char>> &grid) {
+        int res = 0;
+        for (int i = 0; i < grid.size(); ++i) {
+            for (int j = 0; j < grid[i].size(); ++j) {
+                if (grid[i][j] == '1') res += 1, dfs(grid, i, j);
+            }
+        }
+        return res;
+    }
+
+    void dfs(vector <vector<char>> &grid, int x, int y) {
+        grid[x][y] = '0';
+        for (int i = 0; i < 4; ++i) {
+            int di = x + dx[i], dj = y + dy[i];
+            if (di >= 0 && dj >= 0 && di < grid.size() && dj < grid[di].size() && grid[di][dj] == '1') dfs(grid, di, dj);
+        }
+    }
+};
