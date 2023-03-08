@@ -410,6 +410,33 @@ public:
 };
 ```
 
+### [199. 二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/description/)
+
+```cpp
+class Solution {
+public:
+    vector<int> rightSideView(TreeNode *root) {
+        vector<int> res;
+        if (!root) return {};
+        queue < TreeNode * > q;
+        q.push(root);
+        while (q.size()) {
+            int len = q.size();
+            for (int i = 0; i < len; ++i) {
+                auto p = q.front();
+                q.pop();
+                if (p->left) q.push(p->left);
+                if (p->right) q.push(p->right);
+                if (i == len - 1) res.push_back(p->val);
+            }
+        }
+        return res;
+    }
+};
+```
+
+
+
 ### [200.岛屿数量](https://leetcode.cn/problems/number-of-islands/description/)
 
 ```cpp
