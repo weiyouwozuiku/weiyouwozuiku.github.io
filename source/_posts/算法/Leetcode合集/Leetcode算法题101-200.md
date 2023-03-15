@@ -94,6 +94,33 @@ public:
 };
 ```
 
+### [124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum/description/)
+
+```cpp
+ // 本题的解题思路是：
+ // dp+dfs。本题可以拆解成最大路径就是ans=max(ans,root->val+left+right)
+ // 需要注意的是返回值一共有三种可能，只走到root或者left+root或者right+root 因此返回root->val + max(left, right)
+class Solution {
+public:
+    int ans;
+
+    int maxPathSum(TreeNode *root) {
+        ans = INT_MIN;
+        dfs(root);
+        return ans;
+    }
+
+    int dfs(TreeNode *root) {
+        if (!root) return 0;
+        int left = 0, right = 0;
+        if (root->left) left = max(0, dfs(root->left));
+        if (root->right) right = max(0, dfs(root->right));
+        ans = max(ans, root->val + left + right);
+        return root->val + max(left, right);
+    }
+};
+```
+
 
 
 ## 131-140

@@ -618,6 +618,30 @@ public:
 
 ## 31-40
 
+### [31. 下一个排列](https://leetcode.cn/problems/next-permutation/)
+
+```cpp
+// 本题的解题思路在于利用两次遍历，找到转折点。
+// 首先是，先从后往前找第一个非递增的点，如果一直扫描到索引0，说明当前整体逆序，此时需要直接反转整个数组
+// 否则，需要在找到的索引j到nums.size()-1之间找到大于nums[j-1]的最小值，交换nums[i-1]和nums[j-1]，再反转nums[i]之后的所有数
+class Solution {
+public:
+    void nextPermutation(vector<int> &nums) {
+        int i = nums.size() - 1;
+        while (i > 0 && nums[i] <= nums[i - 1]) i -= 1;
+        if (!i) reverse(nums.begin(), nums.end());
+        else {
+            int j = i;
+            while (i < nums.size() && nums[i] > nums[j - 1]) i += 1;
+            swap(nums[j - 1], nums[i - 1]);
+            reverse(nums.begin() + j, nums.end());
+        }
+    }
+};
+```
+
+
+
 [33.搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/description/)
 
 ```cpp
