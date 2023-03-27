@@ -636,11 +636,27 @@ func (p *ReverseProxy) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 }
 ```
 
+修改response后记得更新响应头中的 Content-Length以及响应体中ContentLength属性。
 
+`func (p *ReverseProxy)ServerHTTP`主要步骤如下：
+
+- 验证是否请求终止
+- 设置请求ctx信息
+- 深拷贝header
+- 修改req
+- Upgrade头的特殊处理
+- 追加clientIp信息
+- 向下游请求数据
+- 处理升级协议请求
+- 移除逐段头部
+- 修改返回内容
+- 拷贝头部的数据
+- 写入状态码
+- 周期刷新内容到response
 
 ##### Connection
 
-- 标记请求发起方与第一代理的状态
+- 标记请求发起方与**第一代理**的状态
 - 决定当前事务完成后，是否会关闭网络
   - Connection：keep-alive 不关闭网络
   - Connection：close 关闭网络
@@ -795,6 +811,10 @@ func (r *RoundRobinBalance) Update() {
 ```
 
 ### 加权轮询负载均衡
+
+![加权负载均衡.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言网关开发/加权负载均衡.png)
+
+注意这里没有考虑调用下游失败的情况，实际环境中会因为下游失败导致effectiveWeight减少。
 
 ```go
 import (
