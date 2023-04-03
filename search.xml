@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>《Go语言高级编程》笔记</title>
+      <link href="/2023/04/02/cheng-xu-she-ji/go/go-yu-yan-gao-ji-bian-cheng-bi-ji/"/>
+      <url>/2023/04/02/cheng-xu-she-ji/go/go-yu-yan-gao-ji-bian-cheng-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Go和Web">Go和Web<a class="anchor" href="#Go和Web">¶</a></h2><p>设计路由的时候需要规避一些会导致路由冲突的情况。</p><p>考虑到字典树的深度，可以在初始化时对参数的数量进行限制，httprouter中限制路由中的参数数目不超过255。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 程序设计 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Go </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Leetcode算法题2501-2600</title>
       <link href="/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2501-2600/"/>
       <url>/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2501-2600/</url>
