@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-31
+                    2023-04-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8k
+                    8.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    30 分
+                    31 分
                 </div>
                 
 
@@ -1054,6 +1054,19 @@ Mutex--&gt;正常模式</pre>
 <p>否则，waiter 数减 1，mutexWoken 标志设置上，通过 CAS 更新 state 的值（第 115 行到第 119 行）。</p>
 <h2 id="原子操作">原子操作<a class="anchor" href="#原子操作">¶</a></h2>
 <h2 id="Channel">Channel<a class="anchor" href="#Channel">¶</a></h2>
+<blockquote>
+<p>Don’t communicate by sharing memory, share memory by communicating.</p>
+<p>Go Proverbs by Rob Pike</p>
+</blockquote>
+<p>channel的应用场景大致分为：</p>
+<ul>
+<li>数据交流：当作并发的 buffer 或者 queue，解决生产者 - 消费者问题。多个 goroutine 可以并发当作生产者（Producer）和消费者（Consumer）。</li>
+<li>数据传递：一个 goroutine 将数据交给另一个 goroutine，相当于把数据的拥有权 (引用) 托付出去。</li>
+<li>信号通知：一个 goroutine 可以将信号 (closing、closed、data ready 等) 传递给另一个或者另一组 goroutine 。</li>
+<li>任务编排：可以让一组 goroutine 按照一定的顺序并发或者串行的执行。</li>
+<li>锁：利用 Channel 也可以实现互斥锁的机制。</li>
+</ul>
+<p>“&lt;-”有个规则，总是尽量和左边的 chan 结合（The &lt;- operator associates with the leftmost chan possible:）</p>
 <h2 id="拓展并发原语">拓展并发原语<a class="anchor" href="#拓展并发原语">¶</a></h2>
 <h2 id="分布式并发原语">分布式并发原语<a class="anchor" href="#分布式并发原语">¶</a></h2>
 <h2 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h2>
@@ -1663,7 +1676,7 @@ Mutex--&gt;正常模式</pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">267.3k</span>&nbsp;字
+                class="white-color">267.6k</span>&nbsp;字
             
             
             
