@@ -1025,3 +1025,8 @@ func (c *ConsistentHashBanlance) Update() {
 }
 ```
 
+## Tip
+
+代码中合理运用swagger可以快速生成对应的测试接口文档。
+
+使用Validation和translations可以校验参数，针对特殊的校验可以在参数的结构体中添加自定义校验方法，并将方案实现在验证器中，对用路由注册时添加验证器中间件即可。
