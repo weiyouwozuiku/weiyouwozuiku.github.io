@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-09
+                    2023-05-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    367
                 </div>
                 
 
@@ -532,7 +532,48 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="常用命令和数据类型">常用命令和数据类型<a class="anchor" href="#常用命令和数据类型">¶</a></h1>
+<h2 id="String">String<a class="anchor" href="#String">¶</a></h2>
+<p><code>SET key value</code>新建或者覆盖，只会返回ok</p>
+<h2 id="Hash">Hash<a class="anchor" href="#Hash">¶</a></h2>
+<h2 id="List">List<a class="anchor" href="#List">¶</a></h2>
+<h2 id="Set">Set<a class="anchor" href="#Set">¶</a></h2>
+<h2 id="Sorted-Set">Sorted Set<a class="anchor" href="#Sorted-Set">¶</a></h2>
+<h2 id="Redis-HyperLogLog">Redis HyperLogLog<a class="anchor" href="#Redis-HyperLogLog">¶</a></h2>
+<h1 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h1>
+<h2 id="Redis的bin目录文件结构">Redis的bin目录文件结构<a class="anchor" href="#Redis的bin目录文件结构">¶</a></h2>
+<ul>
+<li>Redis-benchmark：Redis性能测试工具</li>
+<li>Redis-check-aof：文件修复工具</li>
+<li>Reids-check-rdb：文件修复工具</li>
+<li>Redis-cli：Redis命令行客户端</li>
+<li>Redis-sentinel：Redis集群管理工具</li>
+<li>Redis-server：Redis服务进程命令</li>
+</ul>
+<h2 id="设置RDB快照地址">设置RDB快照地址<a class="anchor" href="#设置RDB快照地址">¶</a></h2>
+<p>RDB快照是把当前内存中的数据集快照写入磁盘，默认文件名是<code>dump.rdb</code>，默认存放在启动redis服务器时的当前目录。有两种方法修改<code>dump.rdb</code>的存放位置：</p>
+<ul>
+<li>
+<p>使用CONFIG SET dir命令来指定dump.rdb的存放位置</p>
+<pre class="line-numbers language-none"><code class="language-none"># 修改dump.rdb 文件的存放路径为/usr/local/redis/conf
+127.0.0.1:6379&gt; CONFIG SET dir /usr/local/redis/conf
+OK
+127.0.0.1:6379&gt; CONFIG GET dir
+1) "dir"
+2) "/usr/local/redis/conf"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>修改redis.conf配置文件里的dir配置项</p>
+<pre class="line-numbers language-none"><code class="language-none">dir /usr/local/redis/conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+</ul>
+<h2 id="多线程">多线程<a class="anchor" href="#多线程">¶</a></h2>
+<p>Redis6加入了多线程功能。执行命令依然是以单线程的形式，要开启redis的多线程功能，可以在redis.conf配置文件中加入以下配置项。</p>
+<pre class="line-numbers language-none"><code class="language-none">io-threads=do-reads yes #开启IO线程
+io-threads 3            #设置IO线程数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>IO-threads线程数最多可以设置为Linux服务器中cpu核心数的3/4</strong>。</p>
+<p>如果设置超过这个数值，不会有明显的性能提升。可以使用<code>lscpu</code>查询服务器的cpu核心数。</p>
+
                 
             </div>
             <hr/>
@@ -1099,7 +1140,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">267.6k</span>&nbsp;字
+                class="white-color">268k</span>&nbsp;字
             
             
             
