@@ -13,7 +13,33 @@ categories: 程序设计
 
 ## String
 
-`SET key value`新建或者覆盖，只会返回ok
+### SET
+
+`SET key value`
+
+新建或者覆盖，只会返回ok。对应非字符串类型的key会将原本的类型更新成string
+
+### GET
+
+`GET key`
+
+### SETNX
+
+`SETNX key value`
+
+SETNX是Set If Not Exists（如果不存在，则SET）的简写。SETNX用于将key的值设为String类型的value，当key不存在时，返回1；若key已经存在，则SETNX不执行任何操作，返回0。
+
+### SETEX
+
+`SETEX key second value`
+
+SETEX用于设置key对应的值为String类型的value，并指定此key对应的有效期，有效期的过期时间以秒（seconds）为单位。如果key对应的值已经存在，那么SETEX将覆盖旧值。
+
+这个命令是**原子操作**。常用于缓存。
+
+### SETRANGE
+
+`SETRANGE key offset value`
 
 
 
@@ -28,6 +54,25 @@ categories: 程序设计
 ## Redis HyperLogLog
 
 # Tip
+
+## 安装
+
+1. 下载源码[7.0.11](https://js.xxooo.ml/https://github.com/redis/redis/archive/refs/tags/7.0.11.tar.gz)
+2. 安装gcc基础依赖包`yum install gcc-c++`
+3. 更新gcc版本`$ yum -y install centos-release-scl devtoolset-11-gcc devtoolset-11-gcc-c++ devtoolset-11-binutils $ scl enable devtoolset-11 bash $ echo "source /opt/rh/devtoolset-11/enable" >>/etc/profile` *从 CentOS8/RHEL8 开始，devtoolset 更名为 gcc-toolset*
+4. 进入解压后的源码目录执行make
+5. `$ make install PREFIX=/usr/local/redis`
+6. 复制配置文件`$ mkdir -p /usr/local/redis/conf $ cp redis.conf /usr/local/redis/conf`
+7. 环境变量中添加`export PATH=$PATH:/usr/local/redis/bin`
+8. 使其成为自启动服务`$ vi /usr/local/redis/conf/redis.conf`
+   1. daemonize默认值是false，表示Redis服务作为守护进程来运行，需要把它改成daemonize yes。
+   2. pidfile默认值是pidfile/var/run/redis_6379.pid，表示当Redis服务以守护进程方式运行时，Redis服务默认会把pid写入/var/run/redis_6379.pid文件，Redis服务运行时该文件就存在，Redis服务一旦停止该文件就会自动删除，因而可以用来判断Redis服务是否正在运行。该配置项不用修改。
+9. 将redis_init_script脚本复制到/etc/init.d目录下并修改脚本名字为redis`$ cp redis_init_script /etc/init.d/redis`
+10. `$ chmod +x /etc/init.d/redis`
+11. `$ chkconfig redis on`
+12. `$ service redis start`
+13. 设置密码，将conf配置文件中的`# requirepass foobared`取消注释，foobared就是密码的位置
+14. 监听所有ip，将conf配置文件中的`bind 127.0.0.1`注释
 
 ## Redis的bin目录文件结构
 
