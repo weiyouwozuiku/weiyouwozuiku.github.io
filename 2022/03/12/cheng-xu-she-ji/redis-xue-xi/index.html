@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-02
+                    2023-05-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    367
+                    869
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -534,13 +534,48 @@
             <div id="articleContent">
                 <h1 id="常用命令和数据类型">常用命令和数据类型<a class="anchor" href="#常用命令和数据类型">¶</a></h1>
 <h2 id="String">String<a class="anchor" href="#String">¶</a></h2>
-<p><code>SET key value</code>新建或者覆盖，只会返回ok</p>
+<h3 id="SET">SET<a class="anchor" href="#SET">¶</a></h3>
+<p><code>SET key value</code></p>
+<p>新建或者覆盖，只会返回ok。对应非字符串类型的key会将原本的类型更新成string</p>
+<h3 id="GET">GET<a class="anchor" href="#GET">¶</a></h3>
+<p><code>GET key</code></p>
+<h3 id="SETNX">SETNX<a class="anchor" href="#SETNX">¶</a></h3>
+<p><code>SETNX key value</code></p>
+<p>SETNX是Set If Not Exists（如果不存在，则SET）的简写。SETNX用于将key的值设为String类型的value，当key不存在时，返回1；若key已经存在，则SETNX不执行任何操作，返回0。</p>
+<h3 id="SETEX">SETEX<a class="anchor" href="#SETEX">¶</a></h3>
+<p><code>SETEX key second value</code></p>
+<p>SETEX用于设置key对应的值为String类型的value，并指定此key对应的有效期，有效期的过期时间以秒（seconds）为单位。如果key对应的值已经存在，那么SETEX将覆盖旧值。</p>
+<p>这个命令是<strong>原子操作</strong>。常用于缓存。</p>
+<h3 id="SETRANGE">SETRANGE<a class="anchor" href="#SETRANGE">¶</a></h3>
+<p><code>SETRANGE key offset value</code></p>
 <h2 id="Hash">Hash<a class="anchor" href="#Hash">¶</a></h2>
 <h2 id="List">List<a class="anchor" href="#List">¶</a></h2>
 <h2 id="Set">Set<a class="anchor" href="#Set">¶</a></h2>
 <h2 id="Sorted-Set">Sorted Set<a class="anchor" href="#Sorted-Set">¶</a></h2>
 <h2 id="Redis-HyperLogLog">Redis HyperLogLog<a class="anchor" href="#Redis-HyperLogLog">¶</a></h2>
 <h1 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h1>
+<h2 id="安装">安装<a class="anchor" href="#安装">¶</a></h2>
+<ol>
+<li>下载源码<a target="_blank" rel="noopener" href="https://js.xxooo.ml/https://github.com/redis/redis/archive/refs/tags/7.0.11.tar.gz">7.0.11</a></li>
+<li>安装gcc基础依赖包<code>yum install gcc-c++</code></li>
+<li>更新gcc版本<code>$ yum -y install centos-release-scl devtoolset-11-gcc devtoolset-11-gcc-c++ devtoolset-11-binutils $ scl enable devtoolset-11 bash $ echo "source /opt/rh/devtoolset-11/enable" &gt;&gt;/etc/profile</code> <em>从 CentOS8/RHEL8 开始，devtoolset 更名为 gcc-toolset</em></li>
+<li>进入解压后的源码目录执行make</li>
+<li><code>$ make install PREFIX=/usr/local/redis</code></li>
+<li>复制配置文件<code>$ mkdir -p /usr/local/redis/conf $ cp redis.conf /usr/local/redis/conf</code></li>
+<li>环境变量中添加<code>export PATH=$PATH:/usr/local/redis/bin</code></li>
+<li>使其成为自启动服务<code>$ vi /usr/local/redis/conf/redis.conf</code>
+<ol>
+<li>daemonize默认值是false，表示Redis服务作为守护进程来运行，需要把它改成daemonize yes。</li>
+<li>pidfile默认值是pidfile/var/run/redis_6379.pid，表示当Redis服务以守护进程方式运行时，Redis服务默认会把pid写入/var/run/redis_6379.pid文件，Redis服务运行时该文件就存在，Redis服务一旦停止该文件就会自动删除，因而可以用来判断Redis服务是否正在运行。该配置项不用修改。</li>
+</ol>
+</li>
+<li>将redis_init_script脚本复制到/etc/init.d目录下并修改脚本名字为redis<code>$ cp redis_init_script /etc/init.d/redis</code></li>
+<li><code>$ chmod +x /etc/init.d/redis</code></li>
+<li><code>$ chkconfig redis on</code></li>
+<li><code>$ service redis start</code></li>
+<li>设置密码，将conf配置文件中的<code># requirepass foobared</code>取消注释，foobared就是密码的位置</li>
+<li>监听所有ip，将conf配置文件中的<code>bind 127.0.0.1</code>注释</li>
+</ol>
 <h2 id="Redis的bin目录文件结构">Redis的bin目录文件结构<a class="anchor" href="#Redis的bin目录文件结构">¶</a></h2>
 <ul>
 <li>Redis-benchmark：Redis性能测试工具</li>
@@ -1140,7 +1175,7 @@ io-threads 3            #设置IO线程数<span aria-hidden="true" class="line-n
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">268k</span>&nbsp;字
+                class="white-color">268.5k</span>&nbsp;字
             
             
             
