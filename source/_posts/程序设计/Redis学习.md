@@ -41,7 +41,63 @@ SETEX用于设置key对应的值为String类型的value，并指定此key对应�
 
 `SETRANGE key offset value`
 
+通过SETRANGE用value重写key所存储的字符串值，从偏移量offset开始。不存在的key当作空白字符串处理。
 
+### MSET
+
+`MSET key value [key value ...]`
+
+通过MSET可一次设置多个key的值，执行成功返回OK，表示所有值都被设置了；执行失败返回0，表示没有任何值被设置。
+
+### MSETNX
+
+`MSETNX key value [key value ...]`
+
+MSETNX用于设置一个或多个key的值，执行成功返回OK，表示所有值都被设置了；执行失败返回0，表示没有任何值被设置，不会覆盖已经存在的key。
+
+### APPEND
+
+`APPEND key value`
+
+如果key已经存在并且是一个字符串，那么可以通过APPEND将value追加到key关联的值后面。如果key不存在，就简单地将key设为value，就像执行SET key value一样。
+
+### GET
+
+`GET key`
+
+GET用于返回key所关联的字符串值。如果key不存在则返回特殊值nil。
+
+### MGET
+
+`MGET key [key ...]`
+
+GET用于返回key所关联的字符串值。如果key不存在则返回特殊值nil。
+
+### GETRANGE
+
+`GETRANGE key start end`
+
+GETRANGE用于获取指定key中字符串值的子字符串，子字符串的截取范围由start和end两个偏移量决定（包括start和end在内）。负数偏移量表示从字符串的最后开始计数，-1表示字符串中最后一个字符，-2表示字符串中倒数第二个字符，其他负数依此类推。
+
+### GETSET
+
+`GETSET key value`
+
+GETSET用于将key的值设为value，并返回key的旧值。
+
+### STRLEN
+
+`STRLEN key`
+
+STRLEN用于返回key所存储的字符串的长度。返回值：字符串的长度。当key不存在时，返回0。
+
+### INCR
+
+### DECR
+
+`DECR key`
+
+DECR用于将key中存储的数值减1。如果key不存在，则以0为key的初始值，然后执行DECR命令，设置key对应的值为-1。返回值：执行DECR命令之后key的值。
 
 ## Hash
 
