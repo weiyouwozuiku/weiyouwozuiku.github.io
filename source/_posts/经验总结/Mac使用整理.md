@@ -112,6 +112,9 @@ categories: 经验总结
 - android-platform-tools
 - scrcpy
 - socat
+- dua-cli
+- bottom
+- zoxide
 - privoxy
 
 ## zsh配置
