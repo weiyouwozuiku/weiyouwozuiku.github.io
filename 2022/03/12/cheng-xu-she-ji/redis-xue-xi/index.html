@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-09
+                    2023-05-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -602,10 +602,43 @@
 <p><code>STRLEN key</code></p>
 <p>STRLEN用于返回key所存储的字符串的长度。返回值：字符串的长度。当key不存在时，返回0。</p>
 <h3 id="INCR">INCR<a class="anchor" href="#INCR">¶</a></h3>
+<p><code>INCR key</code></p>
+<p>INCR用于将key中存储的数值增1。如果key不存在，则以0为key的初始值，然后执行INCR命令，设置key为1。</p>
+<h3 id="INCRBY">INCRBY<a class="anchor" href="#INCRBY">¶</a></h3>
+<p><code>INCRBY key increment</code></p>
+<p>INCRBY用于将key所存储的值加上增量increment。如果key不存在，则以0为key的初始值，然后执行INCRBY命令。</p>
 <h3 id="DECR">DECR<a class="anchor" href="#DECR">¶</a></h3>
 <p><code>DECR key</code></p>
 <p>DECR用于将key中存储的数值减1。如果key不存在，则以0为key的初始值，然后执行DECR命令，设置key对应的值为-1。返回值：执行DECR命令之后key的值。</p>
+<h3 id="DECRBY">DECRBY<a class="anchor" href="#DECRBY">¶</a></h3>
+<p><code>DECRBY key decrement</code></p>
+<p>DECRBY用于将key所存储的值减去减量decrement，也就是指定数值。如果key不存在，则以0为key的初始值，然后执行DECRBY命令。</p>
 <h2 id="Hash">Hash<a class="anchor" href="#Hash">¶</a></h2>
+<p>Redis的Hash类型是一个String类型的域（field）和value的映射表。一般用来存储对象。</p>
+<p>Redis中的每个Hash类型数据都可以存储<img src="https://math.now.sh?inline=2%5E%7B32%7D-1" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">个field-value对。</p>
+<h3 id="HSET">HSET<a class="anchor" href="#HSET">¶</a></h3>
+<p><code>HSET key field value</code></p>
+<p>HSET用于将散列表key中的field的值设置为value。返回值：如果散列表key中的field不存在并且设置成功，则返回1；如果散列表key中的field已经存在并且新值覆盖了旧值，则返回0。</p>
+<h3 id="HSETNX">HSETNX<a class="anchor" href="#HSETNX">¶</a></h3>
+<p><code>HSETNX key field value</code></p>
+<p>key不存在则创建，这里的nx针对的是field。</p>
+<h3 id="HMSET">HMSET<a class="anchor" href="#HMSET">¶</a></h3>
+<p><code>HMSET key field value [field value ...]</code></p>
+<p>HMSET用于同时将多个field-value对设置到散列表key中，此命令会覆盖散列表中已存在的field。返回值：如果命令执行成功，则返回OK。</p>
+<h3 id="HGET">HGET<a class="anchor" href="#HGET">¶</a></h3>
+<p><code>HGET key field</code></p>
+<p>HGET用于返回散列表key中field的值。返回值：field的值。当field不存在或是key不存在时，返回nil。</p>
+<h3 id="HMGET">HMGET<a class="anchor" href="#HMGET">¶</a></h3>
+<p><code>HMGET key field [field ...]</code></p>
+<p>HMGET用于返回散列表key中一个或多个field的值。返回值：一个或多个给定field的值。</p>
+<h3 id="HGETALL">HGETALL<a class="anchor" href="#HGETALL">¶</a></h3>
+<p><code>HGETALL key</code></p>
+<p>HGETALL用于返回散列表key中所有field和值。</p>
+<h3 id="HDEL">HDEL<a class="anchor" href="#HDEL">¶</a></h3>
+<p><code>HDEL key field [field ...]</code></p>
+<p>HDEL用于删除散列表key中的一个或多个field，不存在的field将被忽略。返回值：被成功删除的field的数量。</p>
+<h3 id="HLEN">HLEN<a class="anchor" href="#HLEN">¶</a></h3>
+<p><code>HLEN key</code></p>
 <h2 id="List">List<a class="anchor" href="#List">¶</a></h2>
 <h2 id="Set">Set<a class="anchor" href="#Set">¶</a></h2>
 <h2 id="Sorted-Set">Sorted Set<a class="anchor" href="#Sorted-Set">¶</a></h2>
@@ -1232,7 +1265,7 @@ io-threads 3            #设置IO线程数<span aria-hidden="true" class="line-n
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">269.1k</span>&nbsp;字
+                class="white-color">269.6k</span>&nbsp;字
             
             
             
