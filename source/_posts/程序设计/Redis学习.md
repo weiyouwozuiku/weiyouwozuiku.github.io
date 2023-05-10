@@ -120,13 +120,81 @@ STRLEN用于返回key所存储的字符串的长度。返回值：字符串的�
 
 ### INCR
 
+`INCR key`
+
+INCR用于将key中存储的数值增1。如果key不存在，则以0为key的初始值，然后执行INCR命令，设置key为1。
+
+### INCRBY
+
+`INCRBY key increment`
+
+INCRBY用于将key所存储的值加上增量increment。如果key不存在，则以0为key的初始值，然后执行INCRBY命令。
+
 ### DECR
 
 `DECR key`
 
 DECR用于将key中存储的数值减1。如果key不存在，则以0为key的初始值，然后执行DECR命令，设置key对应的值为-1。返回值：执行DECR命令之后key的值。
 
+### DECRBY
+
+`DECRBY key decrement`
+
+DECRBY用于将key所存储的值减去减量decrement，也就是指定数值。如果key不存在，则以0为key的初始值，然后执行DECRBY命令。
+
 ## Hash
+
+Redis的Hash类型是一个String类型的域（field）和value的映射表。一般用来存储对象。
+
+Redis中的每个Hash类型数据都可以存储$2^{32}-1$个field-value对。
+
+### HSET
+
+`HSET key field value`
+
+HSET用于将散列表key中的field的值设置为value。返回值：如果散列表key中的field不存在并且设置成功，则返回1；如果散列表key中的field已经存在并且新值覆盖了旧值，则返回0。
+
+### HSETNX
+
+`HSETNX key field value`
+
+key不存在则创建，这里的nx针对的是field。
+
+### HMSET
+
+`HMSET key field value [field value ...]`
+
+HMSET用于同时将多个field-value对设置到散列表key中，此命令会覆盖散列表中已存在的field。返回值：如果命令执行成功，则返回OK。
+
+### HGET
+
+`HGET key field`
+
+HGET用于返回散列表key中field的值。返回值：field的值。当field不存在或是key不存在时，返回nil。
+
+### HMGET
+
+`HMGET key field [field ...]`
+
+HMGET用于返回散列表key中一个或多个field的值。返回值：一个或多个给定field的值。
+
+### HGETALL
+
+`HGETALL key`
+
+HGETALL用于返回散列表key中所有field和值。
+
+### HDEL
+
+`HDEL key field [field ...]`
+
+HDEL用于删除散列表key中的一个或多个field，不存在的field将被忽略。返回值：被成功删除的field的数量。
+
+### HLEN
+
+`HLEN key`
+
+
 
 ## List
 
