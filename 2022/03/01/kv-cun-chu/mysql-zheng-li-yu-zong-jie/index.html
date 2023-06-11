@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-20
+                    2023-06-11
                 </div>
                 
 
@@ -583,7 +583,7 @@
 <h4 id="二者对比">二者对比<a class="anchor" href="#二者对比">¶</a></h4>
 <ol>
 <li>redo log是InnoDB引擎特有的；binlog是MySQL的Server层实现的，所有引擎都可以使用。</li>
-<li>redo log是物理日志，记录的是在某个数据页上做了什么修改；binlog是逻辑日志，记录的是这个语句的原始逻辑。</li>
+<li>redo log是<strong>物理日志</strong>，记录的是在某个数据页上做了什么修改；binlog是<strong>逻辑日志</strong>，记录的是这个语句的原始逻辑。</li>
 <li>redo log是循环写，空间固定会用完；binlog是写到一定大小后切换到下一个，并不会覆盖之前的日志。</li>
 </ol>
 <h4 id="整体运行逻辑">整体运行逻辑<a class="anchor" href="#整体运行逻辑">¶</a></h4>
