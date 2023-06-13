@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-10
+                    2023-06-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.5k
                 </div>
                 
 
@@ -637,6 +637,7 @@
 <li>bottom</li>
 <li>zoxide</li>
 <li>privoxy</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dandavison/delta">delta</a></li>
 </ul>
 <h2 id="zsh配置">zsh配置<a class="anchor" href="#zsh配置">¶</a></h2>
 <h3 id="安装zsh插件">安装zsh插件<a class="anchor" href="#安装zsh插件">¶</a></h3>
@@ -1042,6 +1043,31 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
     <span class="token punctuation">]</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="delta-配置">delta 配置<a class="anchor" href="#delta-配置">¶</a></h2>
+<pre class="line-numbers language-config" data-language="config"><code class="language-config">[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    features = decorations
+    side-by-side = true
+    line-numbers = true
+    hyperlinks = true
+    hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Alfred">Alfred<a class="anchor" href="#Alfred">¶</a></h2>
 <p><a target="_blank" rel="noopener" href="https://github.com/wensonsmith/YoudaoTranslator">YoudaoTranslate</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/codezm/Alfred-codezm-workflows-timestamp-convert">Alfred-codezm-workflows-timestamp-convert</a></p>
@@ -1631,7 +1657,7 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">269.6k</span>&nbsp;字
+                class="white-color">269.5k</span>&nbsp;字
             
             
             
