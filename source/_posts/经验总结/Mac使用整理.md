@@ -116,6 +116,7 @@ categories: 经验总结
 - bottom
 - zoxide
 - privoxy
+- [delta](https://github.com/dandavison/delta)
 
 ## zsh配置
 
@@ -613,6 +614,35 @@ Instant: checked
     ]
   ],
 }
+```
+
+## delta 配置
+
+```config
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    features = decorations
+    side-by-side = true
+    line-numbers = true
+    hyperlinks = true
+    hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
 ```
 
 ## Alfred

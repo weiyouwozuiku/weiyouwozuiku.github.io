@@ -40,35 +40,8 @@ SETEX用于设置key对应的值为String类型的value，并指定此key对应�
 ### SETRANGE
 
 `SETRANGE key offset value`
->>>>>>> fee931c8ba760d70aa5b20d09210947679f77bdf
 
-`SET key value`
-
-新建或者覆盖，只会返回ok。对应非字符串类型的key会将原本的类型更新成string
-
-### GET
-
-`GET key`
-
-### SETNX
-
-`SETNX key value`
-
-SETNX是Set If Not Exists（如果不存在，则SET）的简写。SETNX用于将key的值设为String类型的value，当key不存在时，返回1；若key已经存在，则SETNX不执行任何操作，返回0。
-
-### SETEX
-
-`SETEX key second value`
-
-SETEX用于设置key对应的值为String类型的value，并指定此key对应的有效期，有效期的过期时间以秒（seconds）为单位。如果key对应的值已经存在，那么SETEX将覆盖旧值。
-
-这个命令是**原子操作**。常用于缓存。
-
-### SETRANGE
-
-`SETRANGE key offset value`
-
-通过SETRANGE用value重写key所存储的字符串值，从偏移量offset开始。不存在的key当作空白字符串处理。
+新建或者覆盖，只会返回ok。对应非字符串类型的key会将原本的类型更新成string。通过SETRANGE用value重写key所存储的字符串值，从偏移量offset开始。不存在的key当作空白字符串处理。
 
 ### MSET
 
