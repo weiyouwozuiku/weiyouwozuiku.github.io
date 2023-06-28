@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-06-26
+                    2023-06-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.5k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    20 分
                 </div>
                 
 
@@ -685,7 +685,7 @@
 <p>二叉树的搜索效率高，但是实际数据库并不使用二叉树，其原因在于<strong>索引不止存在内存中，还要写到硬盘上。</strong></p>
 <p>为了减少每次查询的搜索层数，最直接的方法就是让二叉树变成多叉树。这里的叉树取决于数据块的大小。层高越高时，需要查询数据时依赖的磁盘数将明显增多。为了避免查询时磁盘IO的延迟，采用多叉树。</p>
 <p>因此多叉树因为其读写上的性能优点以及适配磁盘的访问模式，广泛应用于数据库引擎中。</p>
-<h4 id="InnoDB的索引模型">InnoDB的索引模型<a class="anchor" href="#InnoDB的索引模型">¶</a></h4>
+<h3 id="InnoDB的索引模型">InnoDB的索引模型<a class="anchor" href="#InnoDB的索引模型">¶</a></h3>
 <p>在MySQL中，索引是在存储引擎层实现的，所以并没有统一的索引标准，即不同存储引擎的索引工作方式是不一样的。即使多个存储引擎支持同一类型的索引，其底层实现可能也是不一致的。下文以InnoDB存储引擎为例分析索引引擎。</p>
 <p><strong>在InnoDB中表都是根据主键顺序以索引的形式存放，这种存储方式的表称之为索引组织表</strong>。InnoDB使用了B+树索引模型，数据都在B+树上。</p>
 <p>每个索引在InnoDB中对应一个B+树。</p>
@@ -697,7 +697,7 @@
 </ul>
 <p>因此推荐使用主键进行查询。</p>
 <p>B+树在存储不足时会页分裂，在删除数据时会页合并。</p>
-<h4 id="InnoDB的索引维护">InnoDB的索引维护<a class="anchor" href="#InnoDB的索引维护">¶</a></h4>
+<h3 id="InnoDB的索引维护">InnoDB的索引维护<a class="anchor" href="#InnoDB的索引维护">¶</a></h3>
 <p>在明确了InnoDB中的索引结构后，就引入下一个问题即索引的维护。</p>
 <p>B+树维护了数据的有序性，可能出现插入一个数据前，需要在相应位置后的所有数据后移。更甚一步，当前数据页满了，需要新申请新的数据页，这个过程称之为页分裂，可能导致整体空间利用率下降。</p>
 <p>通常推荐自增主键避免这种问题，因为对于自增主键对应的数据来说，只有追加写的操作，不存在挪动记录的需要，也不会触发叶子节点的分裂。</p>
@@ -708,6 +708,41 @@
 <li>该索引必须是唯一索引</li>
 </ol>
 <p>不然最好创建一个自增主键。</p>
+<h3 id="MySQL中的索引">MySQL中的索引<a class="anchor" href="#MySQL中的索引">¶</a></h3>
+<p>MySQL中存在五种索引：</p>
+<ul>
+<li>主键索引
+<ul>
+<li><strong>ALTER</strong> <strong>TABLE</strong> <code>table_name</code> <strong>ADD</strong> <strong>PRIMARY</strong> KEY ( <code>column</code> )</li>
+</ul>
+</li>
+<li>唯一索引
+<ul>
+<li><strong>ALTER</strong> <strong>TABLE</strong> <code>table_name</code> <strong>ADD</strong> <strong>UNIQUE</strong> (<code>column</code>)</li>
+</ul>
+</li>
+<li>普通索引
+<ul>
+<li><strong>ALTER</strong> <strong>TABLE</strong> <code>table_name</code> <strong>ADD</strong> INDEX index_name ( <code>column</code> )</li>
+<li>普通索引上只有索引列和主键的信息，因此每一次获取完整数据都需要回表。</li>
+</ul>
+</li>
+<li>全文索引
+<ul>
+<li><strong>ALTER</strong> <strong>TABLE</strong> <code>table_name</code> <strong>ADD</strong> FULLTEXT ( <code>column</code> )</li>
+</ul>
+</li>
+<li>组合索引
+<ul>
+<li>ALTER TABLE <code>table_name</code> ADD INDEX index_name ( <code>column1</code>, <code>column2</code>, <code>column3</code> )</li>
+</ul>
+</li>
+</ul>
+<h4 id="覆盖索引">覆盖索引<a class="anchor" href="#覆盖索引">¶</a></h4>
+<p>如果索引覆盖了查询需求，而不需要不在索引中的数据或其余字段，就称之为覆盖索引。</p>
+<p>优点：可以减少树的搜索次数，提高查询性能。</p>
+<h4 id="最左前缀原则">最左前缀原则<a class="anchor" href="#最左前缀原则">¶</a></h4>
+<p>针对B+树这种索引结构，索引项是按照索引定义里面出现的字段顺序排序的。因此，只要满足最左前缀可以是联合索引的最左N个字段，也可以是字符串索引的最左M个字符，就可以利用索引加速查询性能。</p>
 <h2 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h2>
 <p>具体而言，<code>general_log</code> 主要有以下作用：</p>
 <ol>
@@ -1303,7 +1338,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">270.5k</span>&nbsp;字
+                class="white-color">270.8k</span>&nbsp;字
             
             
             
