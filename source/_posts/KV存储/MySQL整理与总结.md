@@ -256,7 +256,7 @@ select * from information_schema.innodb_trx where TIME_TO_SEC(timediff(now(),trx
 
 因此多叉树因为其读写上的性能优点以及适配磁盘的访问模式，广泛应用于数据库引擎中。
 
-#### InnoDB的索引模型
+### InnoDB的索引模型
 
 在MySQL中，索引是在存储引擎层实现的，所以并没有统一的索引标准，即不同存储引擎的索引工作方式是不一样的。即使多个存储引擎支持同一类型的索引，其底层实现可能也是不一致的。下文以InnoDB存储引擎为例分析索引引擎。
 
@@ -275,7 +275,7 @@ select * from information_schema.innodb_trx where TIME_TO_SEC(timediff(now(),trx
 
 B+树在存储不足时会页分裂，在删除数据时会页合并。
 
-#### InnoDB的索引维护
+### InnoDB的索引维护
 
 在明确了InnoDB中的索引结构后，就引入下一个问题即索引的维护。
 
@@ -292,7 +292,31 @@ B+树维护了数据的有序性，可能出现插入一个数据前，需要在
 
 不然最好创建一个自增主键。
 
+### MySQL中的索引
 
+MySQL中存在五种索引：
+
+- 主键索引
+  - **ALTER** **TABLE** `table_name` **ADD** **PRIMARY** KEY ( `column` ) 
+- 唯一索引
+  - **ALTER** **TABLE** `table_name` **ADD** **UNIQUE** (`column`)
+- 普通索引
+  - **ALTER** **TABLE** `table_name` **ADD** INDEX index_name ( `column` ) 
+  - 普通索引上只有索引列和主键的信息，因此每一次获取完整数据都需要回表。
+- 全文索引
+  - **ALTER** **TABLE** `table_name` **ADD** FULLTEXT ( `column` )
+- 组合索引
+  - ALTER TABLE `table_name` ADD INDEX index_name ( `column1`, `column2`, `column3` )
+
+#### 覆盖索引
+
+如果索引覆盖了查询需求，而不需要不在索引中的数据或其余字段，就称之为覆盖索引。
+
+优点：可以减少树的搜索次数，提高查询性能。
+
+#### 最左前缀原则
+
+针对B+树这种索引结构，索引项是按照索引定义里面出现的字段顺序排序的。因此，只要满足最左前缀可以是联合索引的最左N个字段，也可以是字符串索引的最左M个字符，就可以利用索引加速查询性能。
 
 ## Tip
 
