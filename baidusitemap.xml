@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://buerlog.top/2020/04/15/suan-fa/acwing-xue-xi/</loc>
+    <lastmod>2023-07-03</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2021/05/19/cheng-xu-she-ji/rust/rust-xue-xi/</loc>
+    <lastmod>2023-07-03</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2023/07/02/cheng-xu-she-ji/rust/rust-xue-xi-bi-ji/</loc>
+    <lastmod>2023-07-03</lastmod>
+  </url>
+  <url>
     <loc>http://buerlog.top/2022/03/01/kv-cun-chu/mysql-zheng-li-yu-zong-jie/</loc>
     <lastmod>2023-06-28</lastmod>
   </url>
@@ -35,10 +47,6 @@
   <url>
     <loc>http://buerlog.top/2021/03/23/suan-fa/acwing-shua-ti-ji-lu/</loc>
     <lastmod>2023-03-08</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2020/04/15/suan-fa/acwing-xue-xi/</loc>
-    <lastmod>2023-02-27</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2301-2400/</loc>
@@ -590,10 +598,6 @@
   </url>
   <url>
     <loc>http://buerlog.top/2021/10/29/cheng-xu-she-ji/quic-xie-yi-zheng-li/</loc>
-    <lastmod>2021-10-31</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2021/05/19/cheng-xu-she-ji/rust-xue-xi/</loc>
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>

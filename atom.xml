@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2023-04-03T01:37:24.000Z</updated>
+  <updated>2023-07-03T02:00:34.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Rust学习笔记</title>
+    <link href="http://buerlog.top/2023/07/02/cheng-xu-she-ji/rust/rust-xue-xi-bi-ji/"/>
+    <id>http://buerlog.top/2023/07/02/cheng-xu-she-ji/rust/rust-xue-xi-bi-ji/</id>
+    <published>2023-07-02T15:11:23.000Z</published>
+    <updated>2023-07-03T02:00:34.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;在编译时，一切无法确定大小或者大小可以改变的数据，都无法安全地放在栈上，最好放在堆上。&lt;/li&gt;
+&lt;li&gt;虽然在栈上内存分配非常高效（预留和释放只需要操作寄存器，不涉及额外计算、不涉及系统调用），但是需要考虑调用栈的大小，避免栈溢出。&lt;/li&gt;
+&lt;li&gt;栈溢出：一旦当前程序的调用栈超出了系统允许的最大栈空间，无法创建新的栈来运行下一个要执行的函数，就会发生栈溢出，这时系统会被系统</summary>
+        
+      
+    
+    
+    
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="Rust" scheme="http://buerlog.top/tags/Rust/"/>
+    
+  </entry>
   
   <entry>
     <title>《Go语言高级编程》笔记</title>
@@ -2544,10 +2572,10 @@
   
   <entry>
     <title>Rust学习</title>
-    <link href="http://buerlog.top/2021/05/19/cheng-xu-she-ji/rust-xue-xi/"/>
-    <id>http://buerlog.top/2021/05/19/cheng-xu-she-ji/rust-xue-xi/</id>
+    <link href="http://buerlog.top/2021/05/19/cheng-xu-she-ji/rust/rust-xue-xi/"/>
+    <id>http://buerlog.top/2021/05/19/cheng-xu-she-ji/rust/rust-xue-xi/</id>
     <published>2021-05-19T05:38:39.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
+    <updated>2023-07-03T02:00:34.000Z</updated>
     
     
     
@@ -2556,36 +2584,6 @@
     
     
     <category term="Rust" scheme="http://buerlog.top/tags/Rust/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CPP常用STL</title>
-    <link href="http://buerlog.top/2021/05/19/cheng-xu-she-ji/cpp/cpp-chang-yong-stl/"/>
-    <id>http://buerlog.top/2021/05/19/cheng-xu-she-ji/cpp/cpp-chang-yong-stl/</id>
-    <published>2021-05-19T02:44:34.000Z</published>
-    <updated>2022-10-30T17:27:29.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;vector&quot;&gt;vector&lt;a class=&quot;anchor&quot; href=&quot;#vector&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&quot;set&quot;&gt;set&lt;a class=&quot;anchor&quot; href=&quot;#set&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;string&quot;&gt;string&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="STL" scheme="http://buerlog.top/tags/STL/"/>
     
   </entry>
   
