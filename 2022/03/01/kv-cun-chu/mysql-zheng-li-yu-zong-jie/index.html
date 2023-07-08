@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-03
+                    2023-07-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.3k
+                    6.4k
                 </div>
                 
 
@@ -769,6 +769,7 @@
 </ul>
 <h3 id="表级锁">表级锁<a class="anchor" href="#表级锁">¶</a></h3>
 <h4 id="表锁">表锁<a class="anchor" href="#表锁">¶</a></h4>
+<p>语法：<code>lock tables ...read/write</code>。可以使用unlock tables主动释放锁，页可以在客户端断开时自动释放。lock tables语法会在限制其余线程读写时，同时限定本线程接下来的操作对象。</p>
 <h4 id="元数据锁">元数据锁<a class="anchor" href="#元数据锁">¶</a></h4>
 <h3 id="行锁">行锁<a class="anchor" href="#行锁">¶</a></h3>
 <h2 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h2>
