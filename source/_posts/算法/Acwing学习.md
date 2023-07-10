@@ -2436,6 +2436,30 @@ $$
 Dp\begin{cases} 状态表示 f(i,j) \begin{cases} 集合  \begin{cases} 所有选法 \\ 条件 \begin{cases} 只能从前j个物品中选择 \\ 总体积\le j \end{cases} \end{cases} \\ 属性: Max \ Min \ 数量\end{cases} \\ 状态计算-> 集合划分:f(i,j)=Max(f(i-1,j),f(i-1,j-v_i)+w_j) \end{cases}
 $$
 
+```cpp
+void twoDimension(int n, int m) {
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 0; j <= m; ++j) {
+            f[i][j] = f[i - 1][j];
+            if (j >= v[i]) {
+                f[i][j] = max(f[i][j], f[i - 1][j - v[i]] + w[i]);
+            }
+        }
+    }
+    printf("%d\n", f[n][m]);
+}
+
+void oneDimension(int n, int m) {
+    for (int i = 1; i <= n; ++i) {
+        for (int j = m; j >= v[i]; --j) {
+            ff[j] = max(ff[j], ff[j - v[i]] + w[i]);
+        }
+    }
+    printf("%d\n", ff[m]);
+}
+```
+
+
 
 #### 完全背包
 
