@@ -360,7 +360,7 @@ MySQL在5.6之前，如果需要多个字段比较，会在对应的索引树上
 
 #### 表锁
 
-语法：`lock tables ... read/write`。可以用unlock主动释放锁，也可以在客户端断开时自动释放。
+语法：`lock tables ...read/write`。可以使用unlock tables主动释放锁，页可以在客户端断开时自动释放。lock tables语法会在限制其余线程读写时，同时限定本线程接下来的操作对象。
 
 #### 元数据锁
 
