@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-08
+                    2023-07-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.4k
+                    6.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    22 分
+                    23 分
                 </div>
                 
 
@@ -771,6 +771,21 @@
 <h4 id="表锁">表锁<a class="anchor" href="#表锁">¶</a></h4>
 <p>语法：<code>lock tables ...read/write</code>。可以使用unlock tables主动释放锁，页可以在客户端断开时自动释放。lock tables语法会在限制其余线程读写时，同时限定本线程接下来的操作对象。</p>
 <h4 id="元数据锁">元数据锁<a class="anchor" href="#元数据锁">¶</a></h4>
+<p>无需显式使用，在访问一个表的时候会被自动加上，保证读写的正确性。</p>
+<p><strong>当对一个表做增删改查操作时加MDL读锁，当对一个表操作ddl命令时加写锁。</strong></p>
+<p>读锁之间不互斥</p>
+<p>写锁互斥</p>
+<p>事务中的MDL锁，在语句执行开始时申请，但是语句结束后并不会马上释放，而会等到整个事务提交后再释放。</p>
+<p>给小表增加字段的方式：</p>
+<ul>
+<li>在Mysql的information_schema库中的innodb_trx表中查询当前执行中的事务，kill或等事务执行完成后执行DDL</li>
+<li>针对热点表，在alter table语句中设置等待时间，期望能在等待时间中获取到MDL写锁。
+<ul>
+<li><code>ALTER TABLE tbl_name NOWAIT add column ...</code></li>
+<li><code>ALTER TABLE tbl_name WAIT N add column ...</code></li>
+</ul>
+</li>
+</ul>
 <h3 id="行锁">行锁<a class="anchor" href="#行锁">¶</a></h3>
 <h2 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h2>
 <p>具体而言，<code>general_log</code> 主要有以下作用：</p>
@@ -1367,7 +1382,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">271.9k</span>&nbsp;字
+                class="white-color">272.1k</span>&nbsp;字
             
             
             
