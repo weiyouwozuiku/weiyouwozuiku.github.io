@@ -364,6 +364,23 @@ MySQL在5.6之前，如果需要多个字段比较，会在对应的索引树上
 
 #### 元数据锁
 
+无需显式使用，在访问一个表的时候会被自动加上，保证读写的正确性。
+
+**当对一个表做增删改查操作时加MDL读锁，当对一个表操作ddl命令时加写锁。**
+
+读锁之间不互斥
+
+写锁互斥
+
+事务中的MDL锁，在语句执行开始时申请，但是语句结束后并不会马上释放，而会等到整个事务提交后再释放。
+
+给小表增加字段的方式：
+
+- 在Mysql的information_schema库中的innodb_trx表中查询当前执行中的事务，kill或等事务执行完成后执行DDL
+- 针对热点表，在alter table语句中设置等待时间，期望能在等待时间中获取到MDL写锁。
+    - `ALTER TABLE tbl_name NOWAIT add column ...`
+    - `ALTER TABLE tbl_name WAIT N add column ...`
+
 ### 行锁
 
 ## Tip
