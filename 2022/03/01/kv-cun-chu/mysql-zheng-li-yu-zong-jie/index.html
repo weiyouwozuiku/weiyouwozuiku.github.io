@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-14
+                    2023-07-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.6k
+                    6.7k
                 </div>
                 
 
@@ -760,7 +760,7 @@
 <li>锁从库，不能执行主库同步的binlog，导致主从延迟</li>
 </ul>
 <p>官方自带的逻辑备份工具是mysqldump。当mysqldump使用参数–single-transaction的时候，导数据之前就会启动一个事务，来确保拿到一致性视图。而由于MVCC的支持，这个过程中数据是可以正常更新的。</p>
-<p>针对不支持可重复读隔离级别的存储引擎，只能使用FTWRL。FTWRL在slaver上时，如果用户有超级权限readonly是无效的。</p>
+<p>针对不支持可重复读隔离级别的存储引擎，只能使用FTWRL。</p>
 <p><strong>single-transaction方法只适用于所有的表使用事务引擎的库</strong>。</p>
 <p>相较于<code>set global readonly=true</code>的优势：</p>
 <ul>
@@ -787,8 +787,13 @@
 </li>
 </ul>
 <h3 id="行锁">行锁<a class="anchor" href="#行锁">¶</a></h3>
-<p>依赖各个引擎自己的实现。对于不支持行锁的引擎只能加表锁。</p>
-<p>两阶段锁协议：<strong>在InnoDB事务中，行锁是在需要的时候才加上，需要等到事务结束才会释放</strong>。</p>
+<p>两阶段锁协议:<strong>在InnoDB事务中，行锁是在需要的时候才加上的，但并不是不需要了就立刻释放，而是要等到事务结束时才释放。</strong></p>
+<p>**如果你的事务中需要锁多个行，要把最可能造成锁冲突、最可能影响并发度的锁尽量往后放。**目的是减少事务之间的锁等待时间。</p>
+<p>发生死锁时现在有两种解决方案：</p>
+<ul>
+<li>直接进入等待，直到超时。这个超时时间可以通过参数innodb_lock_wait_timeout来设置。</li>
+<li></li>
+</ul>
 <h2 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h2>
 <p>具体而言，<code>general_log</code> 主要有以下作用：</p>
 <ol>
@@ -1384,7 +1389,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">272.1k</span>&nbsp;字
+                class="white-color">272.2k</span>&nbsp;字
             
             
             
