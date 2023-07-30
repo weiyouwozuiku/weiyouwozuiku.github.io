@@ -392,6 +392,39 @@ MySQL在5.6之前，如果需要多个字段比较，会在对应的索引树上
 - 直接进入等待，直到超时。这个超时时间可以通过参数innodb_lock_wait_timeout来设置。
 - 
 
+## MVCC
+
+MVCC模型在MySQL中的具体实现规则是由以下组成：
+
+- undo日志
+- Read View
+- 四个隐式字段
+
+### 隐式字段
+
+每行记录除了自动以的字段外，还有数据库隐式定义的字段：
+
+- DB_ROW_ID：6byte，隐含的自增ID（隐藏主键），如果数据库没有主键，InnoDB会自动以DB_ROW_ID创建一个聚簇索引。MySQL8.0版本引入
+- DB_TRX_ID：6byte，最近修改事务ID：记录这条记录最后一次修改该记录的事务ID
+- DB_ROLL_PTR：7byte，回滚指针，指向这条记录的上一个版本(存在rollback segment里)
+- DELETE_BIT：1byte，记录被更新或删除并不代表真的删除，而是删除flag变了
+
+### undo日志
+
+查询操作不记录对应的unde log。undo log分为三种：
+
+- Insert undo log：
+- Update undo log：
+- Delete undeo log： 
+
+### 当前读
+
+读取的是记录的最新版本，读取时保证其他并发事务不能修改当前记录，会对读取的记录上锁
+
+### 快照读
+
+不加锁的非阻塞锁。其前提是隔离级别不是串行级别。串行下的快照读会退化成当前读。
+
 
 
 ## Tip
