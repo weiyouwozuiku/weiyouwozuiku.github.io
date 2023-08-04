@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-30
+                    2023-08-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7k
+                    7.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    25 分
                 </div>
                 
 
@@ -812,9 +812,14 @@
 <h3 id="undo日志">undo日志<a class="anchor" href="#undo日志">¶</a></h3>
 <p>查询操作不记录对应的unde log。undo log分为三种：</p>
 <ul>
-<li>Insert undo log：</li>
-<li>Update undo log：</li>
-<li>Delete undeo log：</li>
+<li>Insert undo log：插入一条记录时，至少要把这条记录的主键值记下来，之后回滚的时候只需要把这个主键值对应的记录删掉就好了。</li>
+<li>Update undo log：修改一条记录时，至少要把修改这条记录前的旧值都记录下来，这样之后回滚时再把这条记录更新为旧值就好了。</li>
+<li>Delete undeo log： 删除一条记录时，至少要把这条记录中的内容都记下来，这样之后回滚时再把由这些内容组成的记录插入到表中就好了。
+<ul>
+<li>在事务过程中，删除操作都只是设置一下老记录的DELETED_BIT，并不真正将过时的记录删除。</li>
+<li>为了节省磁盘空间，InnoDB有专门的purge线程来清理DELETED_BIT为true的记录。为了不影响MVCC的正常工作，purge线程自己也维护了一个read view（这个read view相当于系统中最老活跃事务的read view）;如果某个记录的DELETED_BIT为true，并且DB_TRX_ID相对于purge线程的read view可见，那么这条记录一定是可以被安全清除的。</li>
+</ul>
+</li>
 </ul>
 <h3 id="当前读">当前读<a class="anchor" href="#当前读">¶</a></h3>
 <p>读取的是记录的最新版本，读取时保证其他并发事务不能修改当前记录，会对读取的记录上锁</p>
@@ -1415,7 +1420,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">272.5k</span>&nbsp;字
+                class="white-color">272.8k</span>&nbsp;字
             
             
             
