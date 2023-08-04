@@ -413,9 +413,12 @@ MVCC模型在MySQL中的具体实现规则是由以下组成：
 
 查询操作不记录对应的unde log。undo log分为三种：
 
-- Insert undo log：
-- Update undo log：
-- Delete undeo log： 
+- Insert undo log：插入一条记录时，至少要把这条记录的主键值记下来，之后回滚的时候只需要把这个主键值对应的记录删掉就好了。
+- Update undo log：修改一条记录时，至少要把修改这条记录前的旧值都记录下来，这样之后回滚时再把这条记录更新为旧值就好了。
+- Delete undeo log： 删除一条记录时，至少要把这条记录中的内容都记下来，这样之后回滚时再把由这些内容组成的记录插入到表中就好了。
+  - 在事务过程中，删除操作都只是设置一下老记录的DELETED_BIT，并不真正将过时的记录删除。
+  - 为了节省磁盘空间，InnoDB有专门的purge线程来清理DELETED_BIT为true的记录。为了不影响MVCC的正常工作，purge线程自己也维护了一个read view（这个read view相当于系统中最老活跃事务的read view）;如果某个记录的DELETED_BIT为true，并且DB_TRX_ID相对于purge线程的read view可见，那么这条记录一定是可以被安全清除的。
+
 
 ### 当前读
 
