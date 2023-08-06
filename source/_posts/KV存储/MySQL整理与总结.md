@@ -424,6 +424,16 @@ MVCC模型在MySQL中的具体实现规则是由以下组成：
 
   最终undo log会记录成一条版本线性表。链首是最新的历史记录，链尾是最早的历史记录。在事务完成之后就可能会被purge线程删除。
 
+### Read View
+
+Read View就是事务进行快照读操作的时候生产的读视图(Read View)，在该事务执行的快照读的那一刻，会生成数据库系统当前的一个快照，记录并维护系统当前活跃事务的ID(当每个事务开启时，都会被分配一个ID, 这个ID是递增的，所以最新的事务，ID值越大)。
+
+Read View遵循一个可见性算法，主要是将要被修改的数据的最新记录中的DB_TRX_ID（即当前事务ID）取出来，与系统当前其他活跃事务的ID去对比（由Read View维护），如果DB_TRX_ID跟Read View的属性做了某些比较，不符合可见性，那就通过DB_ROLL_PTR回滚指针去取出Undo Log中的DB_TRX_ID再比较，即遍历链表的DB_TRX_ID（从链首到链尾，即从最近的一次修改查起），直到找到满足特定条件的DB_TRX_ID, 那么这个DB_TRX_ID所在的旧记录就是当前事务能看见的最新老版本。
+
+正是Read View生成时机的不同，从而造成RC,RR级别下快照读的结果的不同。
+
+**在RC隔离级别下，是每个快照读都会生成并获取最新的Read View；而在RR隔离级别下，则是同一个事务中的第一个快照读才会创建Read View, 之后的快照读获取的都是同一个Read View**
+
 ### 当前读
 
 读取的是记录的最新版本，读取时保证其他并发事务不能修改当前记录，会对读取的记录上锁
@@ -432,7 +442,7 @@ MVCC模型在MySQL中的具体实现规则是由以下组成：
 
 不加锁的非阻塞锁。其前提是隔离级别不是串行级别。串行下的快照读会退化成当前读。
 
-
+![MySQL_MVCC_流程.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/KV存储/MySQL整理与总结/MySQL_MVCC_流程.png)
 
 ## Tip
 
