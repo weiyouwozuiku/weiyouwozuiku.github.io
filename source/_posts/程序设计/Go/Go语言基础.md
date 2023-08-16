@@ -40,6 +40,8 @@ defer语句表达式的值在定义时就已经确定了。
 
 ## GPM模型
 
+![Go语言基础_GPM模型.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言基础/Go语言基础_GPM模型.png)
+
 
 
 ## Tips
