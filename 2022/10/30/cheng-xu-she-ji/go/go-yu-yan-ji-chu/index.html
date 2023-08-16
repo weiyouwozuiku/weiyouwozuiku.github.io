@@ -497,7 +497,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.1k
                 </div>
                 
 
@@ -551,6 +551,11 @@
 <p>闭包捕获的变量和常量是<strong>引用传递，不是值传递</strong>。</p>
 <h2 id="GPM模型">GPM模型<a class="anchor" href="#GPM模型">¶</a></h2>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/Go/Go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/Go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80_GPM%E6%A8%A1%E5%9E%8B.png" alt="Go语言基础_GPM模型.png"></p>
+<ul>
+<li>全局队列被任意P消费，操作是互斥的</li>
+<li>P的本地队列存放不超过256个G。队满则移动本地队列中一半的G去全局队列</li>
+<li>P列表中所有</li>
+</ul>
 <h2 id="Tips">Tips<a class="anchor" href="#Tips">¶</a></h2>
 <ul>
 <li><code>go build -gcflags '-m -l'</code>：<code>-m</code>输出编译的优化细节，<code>-N</code>关闭编译器优化，<code>-l</code>禁用内联优化。</li>
