@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://buerlog.top/2022/10/30/cheng-xu-she-ji/go/go-yu-yan-ji-chu/</loc>
+    <lastmod>2023-08-16</lastmod>
+  </url>
+  <url>
     <loc>http://buerlog.top/2022/03/01/kv-cun-chu/mysql-zheng-li-yu-zong-jie/</loc>
     <lastmod>2023-08-06</lastmod>
   </url>
@@ -143,10 +147,6 @@
   <url>
     <loc>http://buerlog.top/2021/12/21/cheng-xu-she-ji/da-shu-ju/chang-yong-sql-zheng-li/</loc>
     <lastmod>2022-12-03</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2022/10/30/cheng-xu-she-ji/go/go-yu-yan-ji-chu/</loc>
-    <lastmod>2022-11-02</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2021/05/19/cheng-xu-she-ji/cpp/cpp-chang-yong-stl/</loc>
