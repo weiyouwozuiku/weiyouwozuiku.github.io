@@ -42,7 +42,9 @@ defer语句表达式的值在定义时就已经确定了。
 
 ![Go语言基础_GPM模型.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言基础/Go语言基础_GPM模型.png)
 
-
+- 全局队列被任意P消费，操作是互斥的
+- P的本地队列存放不超过256个G。队满则移动本地队列中一半的G去全局队列
+- P列表中所有
 
 ## Tips
 
