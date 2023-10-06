@@ -2433,7 +2433,7 @@ if (x > 1) res = res / x * (x - 1);
 
 01背包问题中每件物品只能选一次。只有选和不选两种情况。
 $$
-Dp\begin{cases} 状态表示 f(i,j) \begin{cases} 集合  \begin{cases} 所有选法 \\ 条件 \begin{cases} 只能从前j个物品中选择 \\ 总体积\le j \end{cases} \end{cases} \\ 属性: Max \ Min \ 数量\end{cases} \\ 状态计算-> 集合划分:f(i,j)=Max(f(i-1,j),f(i-1,j-v_i)+w_j) \end{cases}
+01背包\begin{cases} 状态表示 f(i,j) \begin{cases} 集合  \begin{cases} 所有选法 \\ 条件 \begin{cases} 只能从前j个物品中选择 \\ 总体积\le j \end{cases} \end{cases} \\ 属性: Max \ Min \ 数量\end{cases} \\ 状态计算-> 集合划分:f(i,j)=Max(f(i-1,j),f(i-1,j-v_i)+w_j) \end{cases}
 $$
 
 ```cpp
@@ -2459,15 +2459,95 @@ void oneDimension(int n, int m) {
 }
 ```
 
-
-
 #### 完全背包
 
 完全背包问题中每件物品能选无限多次。
+$$
+完全背包 \begin{cases} 状态表示f(i,j) \begin{cases} 集合:所有只从前i个物品中选，并且总体积不超过j的选法 \\ 状态:Max \end{cases} \\ 状态计算 ->集合划分:f(i,j)=max(f(i-1,j),f(i-1,j-v[i])+w[i],f(i-1,j-2*v[i])+2*w[i],...,f(i-1,j-k*v[i])+k*w[i]) (k<=m/v[i]) \\ \Leftrightarrow max(f(i-1,j-k*v[i])+k*w[i])(0<=k<=m/v[i]) \\ \Leftrightarrow max(f(i-1,j),f(i,j-v[i])+w)\end{cases}
+$$
+```cpp
+void twoDimension(int n, int m) {
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 0; j <= m; ++j) {
+            for (int k = 0; k * v[i] <= j; ++k) {
+                ff[i][j] = max(ff[i][j], ff[i - 1][j - k * v[i]] + w[i] * k);
+            }
+        }
+    }
+    printf("%d", ff[n][m]);
+}
+
+void oneDimension(int n, int m) {
+    for (int i = 1; i <= n; ++i) {
+        for (int j = v[i]; j <= m; ++j) {
+            f[j] = max(f[j], f[j - v[i]] + w[i]);
+        }
+    }
+    printf("%d", f[m]);
+}
+```
 
 #### 多重背包
 
 多重背包问题中每件物件能被选择的次数被限制。
+$$
+完全背包 \begin{cases} 状态表示f(i,j) \begin{cases} 集合:所有只从前i个物品中选，并且总体积不超过j的选法 \\ 状态:Max \end{cases} \\ 状态计算 ->集合划分:f(i,j)=max(f(i-1,j),f(i-1,j-v[i])+w[i],f(i-1,j-2*v[i])+2*w[i],...,f(i-1,j-k*v[i])+k*w[i]) (k<=m/v[i]) \\ \Leftrightarrow max(f(i-1,j-k*v[i])+k*w[i])(0<=k<=m/v[i])
+\end{cases}
+$$
+可以观察出：
+
+多重背包相较于完全背包的不同在于：
+$$
+完全背包：max(f(i-1,j-v[i])+w[i]+f(i-1,j-2*v[i])+2*w[i]+...+f(i-1,k*v[i])+k*w[i]) \Leftrightarrow f(i,j-v)
+$$
+但是多重背包因为数量不是无限，因此在原本的展开式中$f(i,j-v)$会比预期多一项$f(i-1,j-(k+1)*v[i])+(k+1)*w[i]$
+
+所以时间时间复杂度为$N*S*V$,可以通过打包多重背包，将其中的$S$优化为$logS$。
+
+```cpp
+# n*s*v
+void twoDimension(int n, int m) {
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 0; j <= m; ++j) {
+            for (int k = 0; k <= s[i] && k * v[i] <= j; ++k) {
+                ff[i][j] = max(ff[i][j], ff[i - 1][j - k * v[i]] + k * w[i]);
+            }
+        }
+    }
+    printf("%d", ff[n][m]);
+}
+# n*logs*v
+// 这里的数量取决于物品的种数*log(s)
+const int N = 25000;
+int main() {
+    int n, m;
+    scanf("%d%d", &n, &m);
+    int a, b, s, cnt = 0;
+    for (int i = 1; i <= n; ++i) {
+        scanf("%d%d%d", &a, &b, &s);
+        //二进制化将原本的背包数量转成不同类型的物品
+        for (int k = 1; k <= s; k *= 2) {
+            cnt+=1;
+            v[cnt] = a * k, w[cnt] = b * k;
+            s -= k;
+        }
+        if (s > 0) {
+            cnt += 1;
+            v[cnt] = s * a, w[cnt] = s * b;
+        }
+    }
+    n = cnt;
+    for(int i=1;i<=n;++i){
+        for(int j=m;j>=v[i];--j){
+            f[j]=max(f[j],f[j-v[i]]+w[i]);
+        }
+    }
+    printf("%d",f[m]);
+    return 0;
+}
+```
+
+
 
 #### 分组背包
 
