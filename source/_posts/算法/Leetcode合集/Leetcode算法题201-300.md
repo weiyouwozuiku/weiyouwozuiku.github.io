@@ -233,3 +233,25 @@ public:
 ## 281-290
 ## 291-300
 
+### [300.最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/)
+
+```cpp
+class Solution {
+public:
+    int lengthOfLIS(vector<int> &nums) {
+        const int N = nums.size();
+        if (!N) return 0;
+        vector<int> f(N + 1, 0);
+        for (int i = 0; i < N; ++i) {
+            f[i] = 1;
+            for (int j = 0; j < i; ++j) {
+                if(nums[i]>nums[j]) f[i]=max(f[i],f[j]+1);
+            }
+        }
+        return *max_element(f.begin(),f.end());
+    }
+};
+```
+
+
+
