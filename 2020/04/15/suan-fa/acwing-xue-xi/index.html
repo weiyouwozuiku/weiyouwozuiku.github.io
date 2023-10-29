@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-10-07
+                    2023-10-29
                 </div>
                 
 
@@ -2598,8 +2598,10 @@ std<span class="token double-colon punctuation">::</span>unordered_map<span clas
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
         f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>针对两个数组或者字符串的题目，<img src="https://math.now.sh?inline=f%28i%2Cj%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">可以表示成第一个的第i位和第二个的第j位的状态。</p>
 <h3 id="区间DP">区间DP<a class="anchor" href="#区间DP">¶</a></h3>
-<h3 id="计数类DP">计数类DP<a class="anchor" href="#计数类DP">¶</a></h3>
+<p>区间dp的问题需要注意循环的方式，最外层是区间长度，其次是起始位置，最后是区间切分表达式的位置。</p>
+<p style="filter: opacity(95%);transform:scale(0.85);text-align:center;"><img src="https://math.now.sh?from=%E5%8C%BA%E9%97%B4dp%5Cbegin%7Bcases%7D%20%E7%8A%B6%E6%80%81%E8%A1%A8%E7%A4%BA%3Af%28i%2Cj%29%20%5Cbegin%7Bcases%7D%20%E9%9B%86%E5%90%88%EF%BC%9A%E6%89%80%E6%9C%89%E5%B0%86%E7%AC%ACi%E5%A0%86%E7%9F%B3%E5%AD%90%E5%88%B0%E7%AC%ACj%E5%A0%86%E7%9F%B3%E5%AD%90%E5%90%88%E5%B9%B6%E6%88%90%E4%B8%80%E5%A0%86%E7%9F%B3%E5%AD%90%E7%9A%84%E5%90%88%E5%B9%B6%E6%96%B9%E5%BC%8F%20%5C%5C%20Min%20%5Cend%7Bcases%7D%20%5C%5C%20f(i%2Cj)%3Dmin(f(i%2Ck)%2Bf(k%2B1%2Cj)-s%5Br%5D-s%5Bl-1%5D%20(i%3C%3Dk%3Cj)%20%5Cend%7Bcases%7D%0A"></p><h3 id="计数类DP">计数类DP<a class="anchor" href="#计数类DP">¶</a></h3>
 <h3 id="数位统计DP">数位统计DP<a class="anchor" href="#数位统计DP">¶</a></h3>
 <h3 id="状态压缩DP">状态压缩DP<a class="anchor" href="#状态压缩DP">¶</a></h3>
 <h3 id="树状DP">树状DP<a class="anchor" href="#树状DP">¶</a></h3>
@@ -3298,7 +3300,7 @@ map<span class="token operator">/</span>multimap
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">274.1k</span>&nbsp;字
+                class="white-color">274.3k</span>&nbsp;字
             
             
             
