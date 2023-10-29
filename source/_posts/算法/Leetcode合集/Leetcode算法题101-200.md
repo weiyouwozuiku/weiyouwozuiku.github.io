@@ -335,6 +335,27 @@ public:
 
 
 ## 161-170
+
+[167.两数之和 II - 输入有序数组](https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/)
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int> &numbers, int target) {
+        int l = 0, r = numbers.size() - 1, tmp = 0;
+        while (l < r) {
+            tmp = numbers[l] + numbers[r];
+            if (tmp == target) return {l + 1, r + 1};
+            if (tmp < target) l += 1;
+            if (tmp > target) r -= 1;
+        }
+        return {-1, -1};
+    }
+};
+```
+
+
+
 ## 171-180
 
 #### [172. 阶乘后的零](https://leetcode-cn.com/problems/factorial-trailing-zeroes/)

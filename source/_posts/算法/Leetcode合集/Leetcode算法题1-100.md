@@ -695,6 +695,25 @@ public:
         return res;
     }
 };
+// 双指针
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int l=0,r=height.size()-1,res=0,pre_max=0,suf_max=0;
+        while(l<=r){
+            pre_max=max(pre_max,height[l]);
+            suf_max=max(suf_max,height[r]);
+            if(pre_max<suf_max){
+                res+=pre_max-height[l];
+                l+=1;
+            }else{
+                res+=suf_max-height[r];
+                r-=1;
+            }
+        }
+        return res;
+    }
+};
 ```
 
 
