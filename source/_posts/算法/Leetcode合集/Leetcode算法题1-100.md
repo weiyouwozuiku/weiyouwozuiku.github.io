@@ -669,6 +669,34 @@ public:
 };
 ```
 
+[34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+```cpp
+// 本题需要注意二分条件的选择，起点>=，终点<=以及查询到之后left需要保存下来，以免之后二分修改。
+// 避免mid越界，可以l+(r-l)/2
+class Solution {
+public:
+    vector<int> searchRange(vector<int> &nums, int target) {
+        int len = nums.size(), l = 0, r = nums.size() - 1, mid = 0;
+        if (len == 0) return {-1, -1};
+        while (l < r) {
+            mid = l + r >> 1;
+            if (nums[mid] >= target) r = mid;
+            else l = mid + 1;
+        }
+        if (nums[r] != target) return {-1, -1};
+        int left = l;
+        r = nums.size() - 1;
+        while (l < r) {
+            mid = l + r + 1 >> 1;
+            if (nums[mid] <= target) l = mid;
+            else r = mid - 1;
+        }
+        return {left, r};
+    }
+};
+```
+
 
 
 ## 41-50

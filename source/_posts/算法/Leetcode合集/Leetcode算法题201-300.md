@@ -230,6 +230,45 @@ public:
 ## 251-260
 ## 261-270
 ## 271-280
+
+[274. H 指数](https://leetcode.cn/problems/h-index/)
+
+```cpp
+class Solution {
+public:
+    int hIndex(vector<int> &citations) {
+        int len = citations.size(), res = 0;
+        sort(citations.begin(), citations.end());
+        for (int i = 0; i < citations.size(); ++i)
+            if (len - i <= citations[i]) {
+                res = len - i;
+                break;
+            }
+        return res;
+    }
+};
+```
+
+[275. H 指数 II](https://leetcode.cn/problems/h-index-ii/)
+
+```cpp
+class Solution {
+public:
+    int hIndex(vector<int> &citations) {
+        int l = 0, r = citations.size() - 1, mid = 0;
+        while (l < r) {
+            mid = l + r >> 1;
+            if (citations[mid] >= citations.size() - mid) r = mid;
+            else l = mid + 1;
+        }
+        if (citations[l] >= citations.size() - l) return citations.size() - l;
+        else return 0;
+    }
+};
+```
+
+
+
 ## 281-290
 ## 291-300
 
