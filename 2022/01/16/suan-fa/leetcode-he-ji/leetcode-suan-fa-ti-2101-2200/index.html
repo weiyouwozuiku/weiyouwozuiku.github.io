@@ -494,14 +494,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-31
+                    2023-12-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    18
+                    106
                 </div>
                 
 
@@ -544,6 +544,27 @@
 <h2 id="2151-2160">2151-2160<a class="anchor" href="#2151-2160">¶</a></h2>
 <h2 id="2161-2170">2161-2170<a class="anchor" href="#2161-2170">¶</a></h2>
 <h2 id="2171-2180">2171-2180<a class="anchor" href="#2171-2180">¶</a></h2>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-time-to-complete-trips/">2187. 完成旅途的最少时间</a></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ll</span> <span class="token expression"><span class="token keyword">long</span> <span class="token keyword">long</span></span></span>
+
+    ll <span class="token function">check</span><span class="token punctuation">(</span><span class="token keyword">const</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>time<span class="token punctuation">,</span> ll x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ll sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> it<span class="token operator">:</span> time<span class="token punctuation">)</span> sum <span class="token operator">+=</span> x <span class="token operator">/</span> it<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token function">minimumTime</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>time<span class="token punctuation">,</span> <span class="token keyword">int</span> totalTrips<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ll l <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token punctuation">(</span>ll<span class="token punctuation">)</span> totalTrips <span class="token operator">*</span> <span class="token operator">*</span><span class="token function">max_element</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> time<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mid <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>l <span class="token operator">&lt;</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            mid <span class="token operator">=</span> l <span class="token operator">+</span> r <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">check</span><span class="token punctuation">(</span>time<span class="token punctuation">,</span> mid<span class="token punctuation">)</span> <span class="token operator">&gt;=</span> totalTrips<span class="token punctuation">)</span> r <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+            <span class="token keyword">else</span> l <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> l<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2181-2189">2181-2189<a class="anchor" href="#2181-2189">¶</a></h2>
 
                 
@@ -1116,7 +1137,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">274.3k</span>&nbsp;字
+                class="white-color">274.8k</span>&nbsp;字
             
             
             
