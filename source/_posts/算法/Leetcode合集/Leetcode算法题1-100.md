@@ -1076,6 +1076,62 @@ public:
 
 ## 71-80
 
+[71. 简化路径](https://leetcode.cn/problems/simplify-path/)
+
+```cpp
+class Solution {
+public:
+    string simplifyPath(string path) {
+        string res, name;
+        // 改成同一个格式，便于处理
+        if (path.back() != '/')path += '/';
+        for (auto it: path) {
+            if (it != '/') name += it;
+            else {
+                if (name == "..") {
+                    while (res.size() && res.back() != '/') res.pop_back();
+                    if (res.size()) res.pop_back();
+                } else if (name != "." && name != "")
+                    res += '/' + name;
+                name.clear();
+            }
+        }
+        if (res.empty()) res = "/";
+        return res;
+    }
+};
+```
+
+[72. 编辑距离](https://leetcode.cn/problems/edit-distance/)
+
+```cpp
+class Solution {
+    // 本题dp,分为几种情况：
+    // 采用f(i,j)表示分别表示:i word1的字符串索引位置，j word2的字符串索引位置
+    // 1. f(i-1,j):word1添加i位置的字符等于word2 word2删除j位置的字符等于word2
+    // 2. f(i,j-1):word2添加j位置的字符等于word1 word1删除j位置的字符等于word2
+    // 3. f(i-1,j-1): word1中[0,i-1]和word2[0,j-1]相同 word1中的i位置和word2中的j位置不同则+1，否则不加
+public:
+    int minDistance(string word1, string word2) {
+        word1 = ' ' + word1, word2 = ' ' + word2;
+        int n = word1.size(), m = word2.size();
+        vector <vector<int>> f(n + 1, vector<int>(m + 1));
+        for (int i = 0; i <= n; ++i) f[i][0] = i;
+        for (int i = 0; i <= m; ++i) f[0][i] = i;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= m; ++j) {
+                f[i][j] = min(f[i - 1][j], f[i][j - 1]) + 1;
+                int t = word1[i] != word2[j];
+                f[i][j] = min(f[i][j], f[i - 1][j - 1] + t);
+            }
+        }
+        return f[n][m];
+    }
+};
+```
+
+
+
 ## 81-90
 
 #### [82. 删除排序链表中的重复元素 II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)
