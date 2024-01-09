@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-06
+                    2024-01-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.7k
+                    8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    27 分
+                    28 分
                 </div>
                 
 
@@ -750,13 +750,14 @@
 <h4 id="索引维护">索引维护<a class="anchor" href="#索引维护">¶</a></h4>
 <p>重建普通索引是合理的：索引可能因为删除或者页分裂等原因，导致数据页有空洞，重建索引的过程会创建一个新的索引，这样提高页面的利用率。</p>
 <p>但是重建主键索引是不合理的。因为无论删除主键或者更新主键，都会将整个表进行重建。因此可以直接<code> alter table T engine=InnoDB</code>。</p>
+<p>mysql的删除并不是直接删除，而是标记为可以复用。因此删除数据后索引大小不变。</p>
 <h2 id="锁">锁<a class="anchor" href="#锁">¶</a></h2>
 <h3 id="全局锁">全局锁<a class="anchor" href="#全局锁">¶</a></h3>
 <p>对整个数据库实例加锁。<code> Flush tables with read lock</code>将这个库处于只读状态。</p>
 <p>典型使用场景：做全库逻辑备份。</p>
 <p>缺点：</p>
 <ul>
-<li>锁主库，会导致备份期间不能执行除了查询之外的逻辑</li>
+<li>锁主库，会导致备份期间不能执行除了查询之外的逻辑，业务停摆</li>
 <li>锁从库，不能执行主库同步的binlog，导致主从延迟</li>
 </ul>
 <p>官方自带的逻辑备份工具是mysqldump。当mysqldump使用参数–single-transaction的时候，导数据之前就会启动一个事务，来确保拿到一致性视图。而由于MVCC的支持，这个过程中数据是可以正常更新的。</p>
@@ -792,7 +793,19 @@
 <p>发生死锁时现在有两种解决方案：</p>
 <ul>
 <li>直接进入等待，直到超时。这个超时时间可以通过参数innodb_lock_wait_timeout来设置。</li>
-<li></li>
+<li>发起死锁检测，发现死锁后主动回滚某一个事务。innodb_deadlock_detect on表示开启死锁检测</li>
+</ul>
+<p>解决热点数据行更新导致的性能问题的方式：</p>
+<ul>
+<li>如果能确保整个业务一定不会死锁，临时将死锁检测关闭。但是关闭死锁检测可能导致大量的超时对业务有损</li>
+<li>控制并发数量：在服务端或者中间件中增加并发控制，减少需要检测死锁的线程数量</li>
+<li>数据分段：通过将一种数据拆分成多种数据，减少冲突概率和需要死锁检测的时间，但是需要额外的业务逻辑</li>
+</ul>
+<p><strong>innodb行级锁是通过锁索引记录实现的，如果更新的列没建索引是会锁住整个表的</strong>。</p>
+<h3 id="事务启动的时机">事务启动的时机<a class="anchor" href="#事务启动的时机">¶</a></h3>
+<ul>
+<li><code>begin/start transaction</code>一致性视图是在执行第一个快照读语句时创建</li>
+<li><code>start transaction with consistent snapshot</code>即时创建</li>
 </ul>
 <h2 id="MVCC">MVCC<a class="anchor" href="#MVCC">¶</a></h2>
 <p>MVCC模型在MySQL中的具体实现规则是由以下组成：</p>
@@ -1433,7 +1446,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">275.2k</span>&nbsp;字
+                class="white-color">275.5k</span>&nbsp;字
             
             
             
