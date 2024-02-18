@@ -493,7 +493,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.8k
                 </div>
                 
 
@@ -642,11 +642,18 @@ whyour/qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span><
 <ol>
 <li>
 <p>首先确认下openwrt的接口，我这边有两个接口，一个是lan口，还有一个wan口，为什么是两个呢，因为wan和wan6其实是同一个接口，只不过为了方便配置，分成了两个逻辑接口，也正因为这样分了，才更有利于ipv4和ipv6分开配置。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/%E8%BD%AF%E8%B7%AF%E7%94%B1%E8%AF%9E%E7%94%9F%E8%AE%B0/op_%E6%8E%A5%E5%8F%A3.jpg" alt="op_接口.jpg"></p>
 </li>
 <li>
 <p>选择WAN6接口，协议设置为dhcpv6客户端，这里配置这个客户端就是为了使(wan wan6) 口能够自动获取到一级路由分配的ipv6地址，从而是ipv6的流量可以流向(wan wan6)口。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/%E8%BD%AF%E8%B7%AF%E7%94%B1%E8%AF%9E%E7%94%9F%E8%AE%B0/op_wan6.jpg" alt="op_wan6.jpg"></p>
 </li>
-<li></li>
+<li>
+<p>点开wan口，协议配置成静态地址，填写你wan口需要配置的ipv4信息，为什么要配置静态的？因为如果不配置静态，下面图中的dhcp的ipv6设置不出现，当然如果ssh连接后命令下配置，这边就不需要配成静态的，但是我觉得做路由器配置能在图形化上配置就应该在图形化上配置，这样可以规避一些配错修正问题。</p>
+</li>
+<li>
+<p>下面ipv6设置全部选择中继模式，wan口的中继模式配置的意思是可以让这个wan口继承一级路由的ipv6地址分配功能，从来进一步往lan口分发这种能力。</p>
+</li>
 </ol>
 <h2 id="Tailscale">Tailscale<a class="anchor" href="#Tailscale">¶</a></h2>
 <h3 id="qnap安装tailscale">qnap安装tailscale<a class="anchor" href="#qnap安装tailscale">¶</a></h3>
@@ -1326,7 +1333,7 @@ whyour/qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">276.5k</span>&nbsp;字
+                class="white-color">276.7k</span>&nbsp;字
             
             
             
