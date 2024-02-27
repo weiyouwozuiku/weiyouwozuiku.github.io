@@ -486,21 +486,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-02-19
+                    2024-02-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    9 分
                 </div>
                 
 
@@ -780,6 +780,16 @@ whyour/qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span><
 <p><img src="https://tailscale.com/kb/1103/exit-nodes/exit-node-admin-toggle.png" alt=""></p>
 </li>
 </ol>
+<h2 id="小米BE6500-ssh开通">小米BE6500 ssh开通<a class="anchor" href="#小米BE6500-ssh开通">¶</a></h2>
+<p>老规矩，先登录系统，Chrome 浏览器上面的地址栏可以看到 Stok 变量：</p>
+<p>然后打开 cmd，依次输入以下代码，小米 Be6500 解锁 SSH 命令：（<code>&lt;STOK&gt;</code> 整体替换为你浏览器地址栏看到的数值）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-X</span> POST http://192.168.31.1/cgi-bin/luci/<span class="token punctuation">;</span><span class="token assign-left variable">stok</span><span class="token operator">=</span><span class="token operator">&lt;</span>STOK<span class="token operator">&gt;</span>/api/misystem/arn_switch <span class="token parameter variable">-d</span> <span class="token string">"open=1&amp;model=1&amp;level=%0Anvram%20set%20ssh_en%3D1%0A"</span>
+<span class="token function">curl</span> <span class="token parameter variable">-X</span> POST http://192.168.31.1/cgi-bin/luci/<span class="token punctuation">;</span><span class="token assign-left variable">stok</span><span class="token operator">=</span><span class="token operator">&lt;</span>STOK<span class="token operator">&gt;</span>/api/misystem/arn_switch <span class="token parameter variable">-d</span> <span class="token string">"open=1&amp;model=1&amp;level=%0Anvram%20commit%0A"</span>
+<span class="token function">curl</span> <span class="token parameter variable">-X</span> POST http://192.168.31.1/cgi-bin/luci/<span class="token punctuation">;</span><span class="token assign-left variable">stok</span><span class="token operator">=</span><span class="token operator">&lt;</span>STOK<span class="token operator">&gt;</span>/api/misystem/arn_switch <span class="token parameter variable">-d</span> <span class="token string">"open=1&amp;model=1&amp;level=%0Ased%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%22debug%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%0A"</span>
+<span class="token function">curl</span> <span class="token parameter variable">-X</span> POST http://192.168.31.1/cgi-bin/luci/<span class="token punctuation">;</span><span class="token assign-left variable">stok</span><span class="token operator">=</span><span class="token operator">&lt;</span>STOK<span class="token operator">&gt;</span>/api/misystem/arn_switch <span class="token parameter variable">-d</span> <span class="token string">"open=1&amp;model=1&amp;level=%0A%2Fetc%2Finit.d%2Fdropbear%20start%0A"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>ssh 即可打开用户名root。由于路由使用的是rsa加密算法。高版本ssh可能无法直接访问，显示错误<code>Unable to negotiate with 192.168.31.1 port 22: no matching host key type found. Their offer: ssh-rsa</code></p>
+<p>此时需要制定加密类型<code>ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa  root@192.168.31.1</code></p>
+<p>ssh 密码在 https://miwifi.dev/ssh 输入路由器的SN可以得到SSH密码，SN可以看路由器屁股，也可以进小米路由器后台看。</p>
 <h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
 <hr class="footnotes-sep">
 <section class="footnotes">
@@ -1349,7 +1359,7 @@ whyour/qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">276.9k</span>&nbsp;字
+                class="white-color">277.4k</span>&nbsp;字
             
             
             
