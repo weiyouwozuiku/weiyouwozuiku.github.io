@@ -182,6 +182,8 @@ SQL 标准的事务隔离级别包括：
 
 Oracle默认隔离级别是`读提交`。因此将Oracle迁移至MySQL时为了保证隔离级别的一致，也要改成读提交。
 
+MySQL的默认隔离级别是可重复读。
+
 `show variables like 'transaction_isolation’ `查看当前隔离级别。
 
 ### 事务隔离实现
@@ -405,7 +407,7 @@ mysql的删除并不是直接删除，而是标记为可以复用。因此删除
 ### 事务启动的时机
 
 - `begin/start transaction`一致性视图是在执行第一个快照读语句时创建
-- `start transaction with consistent snapshot`即时创建
+- `start transaction with consistent snapshot`即时创建一个维持整个事务的一致性快照。在RC下，等效于普通的`start transaction`
 
 ## MVCC
 
@@ -441,7 +443,7 @@ MVCC模型在MySQL中的具体实现规则是由以下组成：
 
 ### Read View
 
-Read View就是事务进行快照读操作的时候生产的读视图(Read View)，在该事务执行的快照读的那一刻，会生成数据库系统当前的一个快照，记录并维护系统当前活跃事务的ID(当每个事务开启时，都会被分配一个ID, 这个ID是递增的，所以最新的事务，ID值越大)。
+Read View就是事务进行快照读操作的时候生产的读视图(Read View)，在该事务执行的快照读的那一刻，会生成数据库系统当前的一个快照，记录并维护系统当前活跃事务的ID(当每个事务开启时，都会被分配一个ID, 这个ID是严格递增的，所以最新的事务，ID值越大)。
 
 Read View遵循一个可见性算法，主要是将要被修改的数据的最新记录中的DB_TRX_ID（即当前事务ID）取出来，与系统当前其他活跃事务的ID去对比（由Read View维护），如果DB_TRX_ID跟Read View的属性做了某些比较，不符合可见性，那就通过DB_ROLL_PTR回滚指针去取出Undo Log中的DB_TRX_ID再比较，即遍历链表的DB_TRX_ID（从链首到链尾，即从最近的一次修改查起），直到找到满足特定条件的DB_TRX_ID, 那么这个DB_TRX_ID所在的旧记录就是当前事务能看见的最新老版本。
 
@@ -449,9 +451,22 @@ Read View遵循一个可见性算法，主要是将要被修改的数据的最�
 
 **在RC隔离级别下，是每个快照读都会生成并获取最新的Read View；而在RR隔离级别下，则是同一个事务中的第一个快照读才会创建Read View, 之后的快照读获取的都是同一个Read View**
 
+RR下，一个事务只能读到启动前提交的数据以及自身修改的数据。
+
+对于一个事务来说：
+
+1. 版本未提交，不可见
+2. 版本已提交，但是在一致性视图创建后提交，不可见
+3. 版本已提交，在一致性视图创建前提交，可见
+
 ### 当前读
 
-读取的是记录的最新版本，读取时保证其他并发事务不能修改当前记录，会对读取的记录上锁
+读取的是记录的最新版本，读取时保证其他并发事务不能修改当前记录，会对读取的记录上锁。在update的时候会通过当前读更新数据，此外select预计加锁也是当前读。形如：
+
+```sql
+select k from t where id=1 lock in share mode;读锁（S锁，共享锁）
+select k from t where id=1 for update;写锁（X锁，排他锁）
+```
 
 ### 快照读
 
