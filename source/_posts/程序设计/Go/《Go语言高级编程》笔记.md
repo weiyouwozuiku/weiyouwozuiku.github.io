@@ -2,7 +2,7 @@
 title: 《Go语言高级编程》笔记
 author: 不二
 img: >-
-  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/
+  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/程序设计/《Go语言高级编程》笔记.png
 mathjax: true
 date: 2023-04-02 16:23:39
 tags: Go
