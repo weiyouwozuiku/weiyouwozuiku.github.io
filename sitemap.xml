@@ -56,6 +56,33 @@
   </url>
   
   <url>
+    <loc>http://buerlog.top/2023/04/02/cheng-xu-she-ji/go/go-yu-yan-gao-ji-bian-cheng-bi-ji/</loc>
+    
+    <lastmod>2024-03-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2501-2600/</loc>
+    
+    <lastmod>2024-03-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2401-2500/</loc>
+    
+    <lastmod>2024-03-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/2024/03/03/si-wei-jin-hua/jin-zi-ta-yuan-li-zong-jie/</loc>
     
     <lastmod>2024-03-03</lastmod>
@@ -245,15 +272,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2023/04/02/cheng-xu-she-ji/go/go-yu-yan-gao-ji-bian-cheng-bi-ji/</loc>
-    
-    <lastmod>2023-04-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/2023/01/23/cheng-xu-she-ji/go/go-web-xue-xi/</loc>
     
     <lastmod>2023-02-20</lastmod>
@@ -302,24 +320,6 @@
     <loc>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1701-1800/</loc>
     
     <lastmod>2023-02-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2401-2500/</loc>
-    
-    <lastmod>2023-01-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2501-2600/</loc>
-    
-    <lastmod>2023-01-31</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -398,7 +398,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2022/01/21/cheng-xu-she-ji/da-shu-ju/presto-shi-zhan-yu-yan-lian/</loc>
+    <loc>http://buerlog.top/2021/09/24/cheng-xu-she-ji/da-shu-ju/scala-xue-xi-bi-ji/</loc>
     
     <lastmod>2022-12-03</lastmod>
     
@@ -407,7 +407,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2021/09/24/cheng-xu-she-ji/da-shu-ju/scala-xue-xi-bi-ji/</loc>
+    <loc>http://buerlog.top/2022/01/21/cheng-xu-she-ji/da-shu-ju/presto-shi-zhan-yu-yan-lian/</loc>
     
     <lastmod>2022-12-03</lastmod>
     
@@ -524,7 +524,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2019/07/13/cheng-xu-she-ji/python/python-han-shu/</loc>
+    <loc>http://buerlog.top/2019/07/16/cheng-xu-she-ji/python/python-han-shu-shi-bian-cheng/</loc>
     
     <lastmod>2022-10-30</lastmod>
     
@@ -533,7 +533,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2019/07/16/cheng-xu-she-ji/python/python-han-shu-shi-bian-cheng/</loc>
+    <loc>http://buerlog.top/2019/07/13/cheng-xu-she-ji/python/python-han-shu/</loc>
     
     <lastmod>2022-10-30</lastmod>
     
@@ -1037,7 +1037,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/what-every-programmer-should-know-about-memory-yue-du-zong-jie/</loc>
+    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/</loc>
     
     <lastmod>2022-01-23</lastmod>
     
@@ -1046,7 +1046,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/</loc>
+    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/what-every-programmer-should-know-about-memory-yue-du-zong-jie/</loc>
     
     <lastmod>2022-01-23</lastmod>
     
@@ -1082,7 +1082,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2019/07/13/yun-ji-suan/qos-zhi-shi/</loc>
+    <loc>http://buerlog.top/2019/07/12/yun-ji-suan/yun-ren-wu-diao-du-suan-fa/</loc>
     
     <lastmod>2022-01-14</lastmod>
     
@@ -1091,7 +1091,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2019/07/12/yun-ji-suan/yun-ren-wu-diao-du-suan-fa/</loc>
+    <loc>http://buerlog.top/2019/07/13/yun-ji-suan/qos-zhi-shi/</loc>
     
     <lastmod>2022-01-14</lastmod>
     
@@ -1118,7 +1118,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2019/07/10/qian-ru-shi/shu-mei-pai-an-zhuang-opencv/</loc>
+    <loc>http://buerlog.top/2019/12/01/qian-ru-shi/sg90-duo-ji-kong-zhi/</loc>
     
     <lastmod>2022-01-14</lastmod>
     
@@ -1127,7 +1127,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2019/12/01/qian-ru-shi/sg90-duo-ji-kong-zhi/</loc>
+    <loc>http://buerlog.top/2019/07/10/qian-ru-shi/shu-mei-pai-an-zhuang-opencv/</loc>
     
     <lastmod>2022-01-14</lastmod>
     
@@ -1217,7 +1217,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2020/02/15/jing-yan-zong-jie/v2ray/</loc>
+    <loc>http://buerlog.top/2019/12/12/jing-yan-zong-jie/manjaro-an-zhuang-ji-qi-pei-zhi/</loc>
     
     <lastmod>2022-01-14</lastmod>
     
@@ -1226,7 +1226,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2019/12/12/jing-yan-zong-jie/manjaro-an-zhuang-ji-qi-pei-zhi/</loc>
+    <loc>http://buerlog.top/2020/02/15/jing-yan-zong-jie/v2ray/</loc>
     
     <lastmod>2022-01-14</lastmod>
     
@@ -1352,6 +1352,15 @@
   </url>
   
   <url>
+    <loc>http://buerlog.top/2021/04/06/fen-bu-shi/fen-bu-shi-xi-tong-6-824/</loc>
+    
+    <lastmod>2021-10-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/2021/09/30/fen-bu-shi/fen-bu-shi-yi-zhi-xing-suan-fa-xue-xi-zong-jie/</loc>
     
     <lastmod>2021-10-31</lastmod>
@@ -1362,15 +1371,6 @@
   
   <url>
     <loc>http://buerlog.top/2021/08/05/fen-bu-shi/fen-bu-shi-xi-tong-gai-nian/</loc>
-    
-    <lastmod>2021-10-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2021/04/06/fen-bu-shi/fen-bu-shi-xi-tong-6-824/</loc>
     
     <lastmod>2021-10-31</lastmod>
     
@@ -1415,33 +1415,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/2021/07/07/jing-yan-zong-jie/home-assistant/</loc>
-    
-    <lastmod>2021-10-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2020/11/21/jing-yan-zong-jie/windows10-chang-yong-ruan-jian-ji-lu/</loc>
-    
-    <lastmod>2021-10-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/</loc>
-    
-    <lastmod>2021-10-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/2021/04/09/ji-suan-ji-ji-chu/csapp-15-213/</loc>
     
     <lastmod>2021-10-31</lastmod>
@@ -1470,6 +1443,33 @@
   
   <url>
     <loc>http://buerlog.top/2021/01/05/ji-suan-ji-ji-chu/ji-suan-ji-wang-luo/</loc>
+    
+    <lastmod>2021-10-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2021/07/07/jing-yan-zong-jie/home-assistant/</loc>
+    
+    <lastmod>2021-10-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2020/11/21/jing-yan-zong-jie/windows10-chang-yong-ruan-jian-ji-lu/</loc>
+    
+    <lastmod>2021-10-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/</loc>
     
     <lastmod>2021-10-31</lastmod>
     
@@ -1578,14 +1578,14 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/QoS/</loc>
+    <loc>http://buerlog.top/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</loc>
+    <loc>http://buerlog.top/tags/QoS/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1718,13 +1718,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2024-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/tags/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -1732,7 +1725,7 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/Linux/</loc>
+    <loc>http://buerlog.top/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1740,6 +1733,13 @@
   
   <url>
     <loc>http://buerlog.top/tags/Nginx/</loc>
+    <lastmod>2024-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/tags/Linux/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1907,13 +1907,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2024-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/tags/%E6%A0%91/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -1921,7 +1914,35 @@
   </url>
   
   <url>
+    <loc>http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2024-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/tags/%E5%93%88%E5%B8%8C/</loc>
+    <lastmod>2024-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/tags/%E5%86%85%E5%AD%98/</loc>
+    <lastmod>2024-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2024-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/tags/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1942,14 +1963,14 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/Clash/</loc>
+    <loc>http://buerlog.top/tags/Git/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/Git/</loc>
+    <loc>http://buerlog.top/tags/Clash/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1984,27 +2005,6 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/V2ray/</loc>
-    <lastmod>2024-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/tags/IOS/</loc>
-    <lastmod>2024-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/tags/Windows/</loc>
-    <lastmod>2024-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://buerlog.top/tags/%E8%A3%85%E6%9C%BA/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -2026,6 +2026,27 @@
   </url>
   
   <url>
+    <loc>http://buerlog.top/tags/V2ray/</loc>
+    <lastmod>2024-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/tags/IOS/</loc>
+    <lastmod>2024-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://buerlog.top/tags/Windows/</loc>
+    <lastmod>2024-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://buerlog.top/tags/%E5%81%A5%E8%BA%AB/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -2040,14 +2061,14 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/%E8%BD%AF%E4%BB%B6/</loc>
+    <loc>http://buerlog.top/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</loc>
+    <loc>http://buerlog.top/tags/%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2062,27 +2083,6 @@
   
   <url>
     <loc>http://buerlog.top/tags/%E6%95%88%E5%BA%94/</loc>
-    <lastmod>2024-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/tags/%E5%86%85%E5%AD%98/</loc>
-    <lastmod>2024-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2024-03-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://buerlog.top/tags/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2145,14 +2145,14 @@
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/Presto/</loc>
+    <loc>http://buerlog.top/tags/Scala/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://buerlog.top/tags/Scala/</loc>
+    <loc>http://buerlog.top/tags/Presto/</loc>
     <lastmod>2024-03-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

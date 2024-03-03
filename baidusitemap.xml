@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://buerlog.top/2023/04/02/cheng-xu-she-ji/go/go-yu-yan-gao-ji-bian-cheng-bi-ji/</loc>
+    <lastmod>2024-03-03</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2501-2600/</loc>
+    <lastmod>2024-03-03</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2401-2500/</loc>
+    <lastmod>2024-03-03</lastmod>
+  </url>
+  <url>
     <loc>http://buerlog.top/2024/03/03/si-wei-jin-hua/jin-zi-ta-yuan-li-zong-jie/</loc>
     <lastmod>2024-03-03</lastmod>
   </url>
@@ -85,10 +97,6 @@
     <lastmod>2023-04-11</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2023/04/02/cheng-xu-she-ji/go/go-yu-yan-gao-ji-bian-cheng-bi-ji/</loc>
-    <lastmod>2023-04-03</lastmod>
-  </url>
-  <url>
     <loc>http://buerlog.top/2023/01/23/cheng-xu-she-ji/go/go-web-xue-xi/</loc>
     <lastmod>2023-02-20</lastmod>
   </url>
@@ -111,14 +119,6 @@
   <url>
     <loc>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1701-1800/</loc>
     <lastmod>2023-02-09</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2401-2500/</loc>
-    <lastmod>2023-01-31</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2501-2600/</loc>
-    <lastmod>2023-01-31</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1801-1900/</loc>
@@ -153,11 +153,11 @@
     <lastmod>2022-12-03</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2022/01/21/cheng-xu-she-ji/da-shu-ju/presto-shi-zhan-yu-yan-lian/</loc>
+    <loc>http://buerlog.top/2021/09/24/cheng-xu-she-ji/da-shu-ju/scala-xue-xi-bi-ji/</loc>
     <lastmod>2022-12-03</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2021/09/24/cheng-xu-she-ji/da-shu-ju/scala-xue-xi-bi-ji/</loc>
+    <loc>http://buerlog.top/2022/01/21/cheng-xu-she-ji/da-shu-ju/presto-shi-zhan-yu-yan-lian/</loc>
     <lastmod>2022-12-03</lastmod>
   </url>
   <url>
@@ -209,11 +209,11 @@
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/07/13/cheng-xu-she-ji/python/python-han-shu/</loc>
+    <loc>http://buerlog.top/2019/07/16/cheng-xu-she-ji/python/python-han-shu-shi-bian-cheng/</loc>
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/07/16/cheng-xu-she-ji/python/python-han-shu-shi-bian-cheng/</loc>
+    <loc>http://buerlog.top/2019/07/13/cheng-xu-she-ji/python/python-han-shu/</loc>
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
@@ -437,11 +437,11 @@
     <lastmod>2022-01-23</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/what-every-programmer-should-know-about-memory-yue-du-zong-jie/</loc>
+    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/</loc>
     <lastmod>2022-01-23</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/</loc>
+    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/what-every-programmer-should-know-about-memory-yue-du-zong-jie/</loc>
     <lastmod>2022-01-23</lastmod>
   </url>
   <url>
@@ -457,11 +457,11 @@
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/07/13/yun-ji-suan/qos-zhi-shi/</loc>
+    <loc>http://buerlog.top/2019/07/12/yun-ji-suan/yun-ren-wu-diao-du-suan-fa/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/07/12/yun-ji-suan/yun-ren-wu-diao-du-suan-fa/</loc>
+    <loc>http://buerlog.top/2019/07/13/yun-ji-suan/qos-zhi-shi/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
@@ -473,11 +473,11 @@
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/07/10/qian-ru-shi/shu-mei-pai-an-zhuang-opencv/</loc>
+    <loc>http://buerlog.top/2019/12/01/qian-ru-shi/sg90-duo-ji-kong-zhi/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/12/01/qian-ru-shi/sg90-duo-ji-kong-zhi/</loc>
+    <loc>http://buerlog.top/2019/07/10/qian-ru-shi/shu-mei-pai-an-zhuang-opencv/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
@@ -517,11 +517,11 @@
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2020/02/15/jing-yan-zong-jie/v2ray/</loc>
+    <loc>http://buerlog.top/2019/12/12/jing-yan-zong-jie/manjaro-an-zhuang-ji-qi-pei-zhi/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/12/12/jing-yan-zong-jie/manjaro-an-zhuang-ji-qi-pei-zhi/</loc>
+    <loc>http://buerlog.top/2020/02/15/jing-yan-zong-jie/v2ray/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
@@ -577,15 +577,15 @@
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>
+    <loc>http://buerlog.top/2021/04/06/fen-bu-shi/fen-bu-shi-xi-tong-6-824/</loc>
+    <lastmod>2021-10-31</lastmod>
+  </url>
+  <url>
     <loc>http://buerlog.top/2021/09/30/fen-bu-shi/fen-bu-shi-yi-zhi-xing-suan-fa-xue-xi-zong-jie/</loc>
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2021/08/05/fen-bu-shi/fen-bu-shi-xi-tong-gai-nian/</loc>
-    <lastmod>2021-10-31</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2021/04/06/fen-bu-shi/fen-bu-shi-xi-tong-6-824/</loc>
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>
@@ -605,18 +605,6 @@
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2021/07/07/jing-yan-zong-jie/home-assistant/</loc>
-    <lastmod>2021-10-31</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2020/11/21/jing-yan-zong-jie/windows10-chang-yong-ruan-jian-ji-lu/</loc>
-    <lastmod>2021-10-31</lastmod>
-  </url>
-  <url>
-    <loc>http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/</loc>
-    <lastmod>2021-10-31</lastmod>
-  </url>
-  <url>
     <loc>http://buerlog.top/2021/04/09/ji-suan-ji-ji-chu/csapp-15-213/</loc>
     <lastmod>2021-10-31</lastmod>
   </url>
@@ -630,6 +618,18 @@
   </url>
   <url>
     <loc>http://buerlog.top/2021/01/05/ji-suan-ji-ji-chu/ji-suan-ji-wang-luo/</loc>
+    <lastmod>2021-10-31</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2021/07/07/jing-yan-zong-jie/home-assistant/</loc>
+    <lastmod>2021-10-31</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2020/11/21/jing-yan-zong-jie/windows10-chang-yong-ruan-jian-ji-lu/</loc>
+    <lastmod>2021-10-31</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/</loc>
     <lastmod>2021-10-31</lastmod>
   </url>
 </urlset> 
