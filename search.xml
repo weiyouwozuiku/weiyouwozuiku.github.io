@@ -5,10 +5,10 @@
     
     <entry>
       <title>《金字塔原理》总结</title>
-      <link href="/2024/03/03/si-wei-jin-hua/jin-zi-ta-yuan-li-zong-jie/"/>
-      <url>/2024/03/03/si-wei-jin-hua/jin-zi-ta-yuan-li-zong-jie/</url>
+      <link href="/2024/03/16/si-wei-jin-hua/jin-zi-ta-yuan-li-zong-jie/"/>
+      <url>/2024/03/16/si-wei-jin-hua/jin-zi-ta-yuan-li-zong-jie/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="表达的逻辑">表达的逻辑<a class="anchor" href="#表达的逻辑">¶</a></h2><p>表达次序需要按照读者理解的次序：</p><ul><li>先了解主要的、抽象的思想；然后是次要的，为主要思想提供支撑的思想</li></ul><p>疑问-回答式</p><h2 id="为什么要用金字塔结构">为什么要用金字塔结构<a class="anchor" href="#为什么要用金字塔结构">¶</a></h2><p>背景：一次记忆不超过7个思想、概念或项目。找出逻辑。</p><p>因此需要采用金字塔结构。</p><p>找出逻辑关系，抽象概括。</p><p>自上而下，结论先行。</p><h2 id="自上而下结论先行">自上而下结论先行<a class="anchor" href="#自上而下结论先行">¶</a></h2><h2 id="金字塔内部的结构">金字塔内部的结构<a class="anchor" href="#金字塔内部的结构">¶</a></h2><h2 id="金字塔原理的横向关系">金字塔原理的横向关系<a class="anchor" href="#金字塔原理的横向关系">¶</a></h2><h2 id="梳理观点的流程">梳理观点的流程<a class="anchor" href="#梳理观点的流程">¶</a></h2><h2 id="自上而下构建金字塔">自上而下构建金字塔<a class="anchor" href="#自上而下构建金字塔">¶</a></h2><h2 id="金字塔结构应用实例">金字塔结构应用实例<a class="anchor" href="#金字塔结构应用实例">¶</a></h2><h2 id="自上而下法怎么用">自上而下法怎么用<a class="anchor" href="#自上而下法怎么用">¶</a></h2><h2 id="初学者要注意什么">初学者要注意什么<a class="anchor" href="#初学者要注意什么">¶</a></h2>]]></content>
       
       
       <categories>
@@ -3087,9 +3087,9 @@
       
         <tags>
             
-            <tag> Esp32 </tag>
-            
             <tag> 树莓派 </tag>
+            
+            <tag> Esp32 </tag>
             
         </tags>
       
@@ -3426,11 +3426,11 @@
       
         <tags>
             
-            <tag> 树莓派 </tag>
-            
             <tag> Python </tag>
             
             <tag> C </tag>
+            
+            <tag> 树莓派 </tag>
             
             <tag> Arduino </tag>
             

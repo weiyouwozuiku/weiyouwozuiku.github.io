@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://buerlog.top/2024/03/03/si-wei-jin-hua/jin-zi-ta-yuan-li-zong-jie/</loc>
-    <lastmod>2024-03-03</lastmod>
+    <loc>http://buerlog.top/2024/03/16/si-wei-jin-hua/jin-zi-ta-yuan-li-zong-jie/</loc>
+    <lastmod>2024-03-17</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2023/04/02/cheng-xu-she-ji/go/go-yu-yan-gao-ji-bian-cheng-bi-ji/</loc>
@@ -189,15 +189,15 @@
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2021/05/09/cheng-xu-she-ji/java/shen-ru-fen-xi-java-web-ji-zhu-nei-mu-bi-ji/</loc>
-    <lastmod>2022-10-30</lastmod>
-  </url>
-  <url>
     <loc>http://buerlog.top/2020/08/13/cheng-xu-she-ji/java/spring-shi-zhan-xue-xi/</loc>
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2021/09/22/cheng-xu-she-ji/python/django-xue-xi-bi-ji/</loc>
+    <lastmod>2022-10-30</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2021/05/09/cheng-xu-she-ji/java/shen-ru-fen-xi-java-web-ji-zhu-nei-mu-bi-ji/</loc>
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
@@ -437,11 +437,11 @@
     <lastmod>2022-01-23</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/</loc>
+    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/what-every-programmer-should-know-about-memory-yue-du-zong-jie/</loc>
     <lastmod>2022-01-23</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/what-every-programmer-should-know-about-memory-yue-du-zong-jie/</loc>
+    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/</loc>
     <lastmod>2022-01-23</lastmod>
   </url>
   <url>
@@ -473,11 +473,11 @@
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/07/10/qian-ru-shi/shu-mei-pai-an-zhuang-opencv/</loc>
+    <loc>http://buerlog.top/2019/12/01/qian-ru-shi/sg90-duo-ji-kong-zhi/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/12/01/qian-ru-shi/sg90-duo-ji-kong-zhi/</loc>
+    <loc>http://buerlog.top/2019/07/10/qian-ru-shi/shu-mei-pai-an-zhuang-opencv/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
@@ -493,11 +493,11 @@
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2020/05/14/suan-fa/yi-xie-suan-fa/</loc>
+    <loc>http://buerlog.top/2019/09/23/suan-fa/gui-yi-hua-suan-fa/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/09/23/suan-fa/gui-yi-hua-suan-fa/</loc>
+    <loc>http://buerlog.top/2020/05/14/suan-fa/yi-xie-suan-fa/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
@@ -509,15 +509,15 @@
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/12/12/jing-yan-zong-jie/manjaro-an-zhuang-ji-qi-pei-zhi/</loc>
-    <lastmod>2022-01-14</lastmod>
-  </url>
-  <url>
     <loc>http://buerlog.top/2019/07/12/jing-yan-zong-jie/markdown-liu-cheng-tu/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2019/08/02/jing-yan-zong-jie/tmux/</loc>
+    <lastmod>2022-01-14</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2019/12/12/jing-yan-zong-jie/manjaro-an-zhuang-ji-qi-pei-zhi/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
