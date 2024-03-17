@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-02-27
+                    2024-03-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8.2k
+                    8.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    28 分
+                    30 分
                 </div>
                 
 
@@ -611,6 +611,11 @@
 <p>因此，不使用两阶段提交，数据库的状态就可能和用它日志恢复恢复出来的库的状态不一致。</p>
 <p>除了数据恢复的场景，在扩容的时候，需要一些备库来增加系统的读能力的时候。现在主流的做法是全量备份加上应用binlog实现。</p>
 <p>redo log和binlog都能表示事务的提交状态，而两阶段保持逻辑上的一致。</p>
+<h3 id="change-buffer">change buffer<a class="anchor" href="#change-buffer">¶</a></h3>
+<p>change buffer是一种可持久化的数据，其在内存中有拷贝，也会被写入磁盘。</p>
+<p>change buffer使用的是buffer pool中的内存。可以通过<code>innodb_change_max_size</code>来动态设置。其数值表示的是百分比。</p>
+<p>changge buffer的使用场景为写多读少的情况，因为读的时候会出发merge的操作，增加了维护的代价。</p>
+<p>与redo log的区别在于：redo log<strong>主要节省的是随机写磁盘的IO消耗（转为顺序写），而change buffer节省的是随机读磁盘的IO消耗。</strong></p>
 <h2 id="事务">事务<a class="anchor" href="#事务">¶</a></h2>
 <p><strong>事务的支持在引擎层实现</strong>。</p>
 <p>ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致性、隔离性、持久性）。</p>
@@ -752,6 +757,15 @@
 <p>重建普通索引是合理的：索引可能因为删除或者页分裂等原因，导致数据页有空洞，重建索引的过程会创建一个新的索引，这样提高页面的利用率。</p>
 <p>但是重建主键索引是不合理的。因为无论删除主键或者更新主键，都会将整个表进行重建。因此可以直接<code> alter table T engine=InnoDB</code>。</p>
 <p>mysql的删除并不是直接删除，而是标记为可以复用。因此删除数据后索引大小不变。</p>
+<h4 id="唯一索引与普通索引的选择">唯一索引与普通索引的选择<a class="anchor" href="#唯一索引与普通索引的选择">¶</a></h4>
+<h5 id="读取过程">读取过程<a class="anchor" href="#读取过程">¶</a></h5>
+<p>理论上唯一索引在查找的时候只查找一个，普通索引需要查找多个。但是由于InnoDB的数据按照<code>数据页</code>为单位读写，每页大小默认16KB。绝大多数情况下读取其余条也都是在内存中，可以忽略不计。</p>
+<h5 id="更新过程">更新过程<a class="anchor" href="#更新过程">¶</a></h5>
+<p>因为唯一索引的存在，所需要先判断操作是否违反唯一性约束因此需要读入内存，也就无法使用change bufer。</p>
+<p>如果更新的数据在内存中，唯一索引和普通索引的更新区别微乎其微。</p>
+<p>如果更新的数据不在内存中，唯一索引的数据需要将数据页读入内存中，进行操作。而普通索引直接写changer buffer即可。<strong>普通索引比唯一索引减少了从磁盘读取数据到内存的随机IO访问时间</strong>。</p>
+<h5 id="结论">结论<a class="anchor" href="#结论">¶</a></h5>
+<p>没事别用唯一索引。如果写完就读 ，关闭change buffer；否则开着。</p>
 <h2 id="锁">锁<a class="anchor" href="#锁">¶</a></h2>
 <h3 id="全局锁">全局锁<a class="anchor" href="#全局锁">¶</a></h3>
 <p>对整个数据库实例加锁。<code> Flush tables with read lock</code>将这个库处于只读状态。</p>
@@ -1456,7 +1470,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">277.6k</span>&nbsp;字
+                class="white-color">278k</span>&nbsp;字
             
             
             
