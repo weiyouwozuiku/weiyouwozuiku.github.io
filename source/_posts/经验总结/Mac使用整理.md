@@ -82,6 +82,8 @@ categories: 经验总结
 - Reeder
 - HazeOver
 - json crack
+- itsycal (brew install itsycal) mac日历小工具
+- AlDente 充放电管理，需要先安装licence
 
 ## 终端
 
