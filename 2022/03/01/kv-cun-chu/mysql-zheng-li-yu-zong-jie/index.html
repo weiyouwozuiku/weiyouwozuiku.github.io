@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-03-17
+                    2024-03-21
                 </div>
                 
 
@@ -888,6 +888,7 @@
 <li>清理方便：当需要清理回滚段时，如果有多个回滚段，可以通过删除不再需要的回滚段文件来实现清理。相比只有一个回滚段的情况，清理起来更加方便，不会影响其他正在活动的回滚操作。</li>
 </ol>
 <p>需要注意的是，设置 <code>innodb_undo_tablespaces</code> 的值需要权衡存储空间和性能。每个回滚段都需要占用一定的磁盘空间和内存，因此设置过大的值可能会导致额外的资源消耗。应根据实际情况和系统需求来进行适当的设置。</p>
+<p>系统表空间是存放系统信息的，对应的磁盘文件是<code>ibdata1</code>，数据表空间是一个个表数据文件，对应磁盘文件是<code>表名.ibd</code>。</p>
 <h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
 <ol>
 <li>掘金，<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903945920315405">MySQL-长事务详解</a>，2019</li>
@@ -1470,7 +1471,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">278k</span>&nbsp;字
+                class="white-color">278.1k</span>&nbsp;字
             
             
             
