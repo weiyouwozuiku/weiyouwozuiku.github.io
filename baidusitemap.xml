@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://buerlog.top/2021/01/05/ji-suan-ji-ji-chu/ji-suan-ji-wang-luo/</loc>
+    <lastmod>2024-04-20</lastmod>
+  </url>
+  <url>
     <loc>http://buerlog.top/2022/03/01/kv-cun-chu/mysql-zheng-li-yu-zong-jie/</loc>
     <lastmod>2024-03-20</lastmod>
   </url>
@@ -117,11 +121,11 @@
     <lastmod>2023-02-09</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1601-1700/</loc>
+    <loc>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1701-1800/</loc>
     <lastmod>2023-02-09</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1701-1800/</loc>
+    <loc>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1601-1700/</loc>
     <lastmod>2023-02-09</lastmod>
   </url>
   <url>
@@ -205,11 +209,11 @@
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2021/03/21/cheng-xu-she-ji/python/python-yu-shu-ju-ku/</loc>
+    <loc>http://buerlog.top/2019/07/17/cheng-xu-she-ji/python/python-oop/</loc>
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/07/17/cheng-xu-she-ji/python/python-oop/</loc>
+    <loc>http://buerlog.top/2021/03/21/cheng-xu-she-ji/python/python-yu-shu-ju-ku/</loc>
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
@@ -225,11 +229,11 @@
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/07/15/cheng-xu-she-ji/python/python-gao-ji-te-xing/</loc>
+    <loc>http://buerlog.top/2019/07/17/cheng-xu-she-ji/python/python-mo-kuai/</loc>
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/07/17/cheng-xu-she-ji/python/python-mo-kuai/</loc>
+    <loc>http://buerlog.top/2019/07/15/cheng-xu-she-ji/python/python-gao-ji-te-xing/</loc>
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
@@ -441,19 +445,19 @@
     <lastmod>2022-01-23</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/</loc>
-    <lastmod>2022-01-23</lastmod>
-  </url>
-  <url>
     <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/what-every-programmer-should-know-about-memory-yue-du-zong-jie/</loc>
     <lastmod>2022-01-23</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2019/07/12/yun-ji-suan/cloudsim-neng-hao-ji-suan-mo-xing/</loc>
-    <lastmod>2022-01-14</lastmod>
+    <loc>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/</loc>
+    <lastmod>2022-01-23</lastmod>
   </url>
   <url>
     <loc>http://buerlog.top/2019/07/08/yun-ji-suan/cloudsim-xue-xi/</loc>
+    <lastmod>2022-01-14</lastmod>
+  </url>
+  <url>
+    <loc>http://buerlog.top/2019/07/12/yun-ji-suan/cloudsim-neng-hao-ji-suan-mo-xing/</loc>
     <lastmod>2022-01-14</lastmod>
   </url>
   <url>
@@ -577,11 +581,11 @@
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2021/09/30/fen-bu-shi/fen-bu-shi-yi-zhi-xing-suan-fa-xue-xi-zong-jie/</loc>
+    <loc>http://buerlog.top/2021/10/30/fen-bu-shi/mapreduce-lun-wen-zheng-li/</loc>
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2021/10/30/fen-bu-shi/mapreduce-lun-wen-zheng-li/</loc>
+    <loc>http://buerlog.top/2021/09/30/fen-bu-shi/fen-bu-shi-yi-zhi-xing-suan-fa-xue-xi-zong-jie/</loc>
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>
@@ -625,15 +629,11 @@
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2021/01/05/ji-suan-ji-ji-chu/zu-cheng-yuan-li/</loc>
-    <lastmod>2021-10-31</lastmod>
-  </url>
-  <url>
     <loc>http://buerlog.top/2021/01/05/ji-suan-ji-ji-chu/shu-ju-ku-zhi-shi/</loc>
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>
-    <loc>http://buerlog.top/2021/01/05/ji-suan-ji-ji-chu/ji-suan-ji-wang-luo/</loc>
+    <loc>http://buerlog.top/2021/01/05/ji-suan-ji-ji-chu/zu-cheng-yuan-li/</loc>
     <lastmod>2021-10-31</lastmod>
   </url>
 </urlset> 
