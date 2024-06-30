@@ -84,6 +84,7 @@ categories: 经验总结
 - json crack
 - itsycal (brew install itsycal) mac日历小工具
 - AlDente 充放电管理，需要先安装licence
+- LocalSend 跨端文件同步
 
 ## 终端
 
@@ -119,6 +120,7 @@ categories: 经验总结
 - zoxide
 - privoxy
 - [delta](https://github.com/dandavison/delta)
+- Yazi(https://yazi-rs.github.io/docs/quick-start)
 
 ## zsh配置
 
@@ -680,6 +682,27 @@ Instant: checked
 此时只需要清空IDE中的缓存即可。
 
 在Clion中就是`文件->清除缓存`。
+
+## yazi
+
+### install 
+
+`brew install yazi ffmpegthumbnailer unar jq poppler fd ripgrep fzf zoxide font-symbols-only-nerd-font`
+
+Zsh 配置,满足在退出时更改当前工作目录
+
+```zsh
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+```
+
+
 
 ## 参考资料
 
