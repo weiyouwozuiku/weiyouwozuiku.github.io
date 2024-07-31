@@ -121,6 +121,7 @@ categories: 经验总结
 - privoxy
 - [delta](https://github.com/dandavison/delta)
 - Yazi(https://yazi-rs.github.io/docs/quick-start)
+- Posting(终端postman)
 
 ## zsh配置
 
