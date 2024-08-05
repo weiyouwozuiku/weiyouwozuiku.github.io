@@ -15,7 +15,6 @@ categories: 经验总结
 
 ## 可视化
 
-- Cloud Battery
 - Charles
 - Viusal Studio Code
 - QQ音乐
@@ -700,6 +699,36 @@ function yy() {
 		cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+```
+
+## 中英文输入法切换
+
+在设置中的键盘里面选择fn切换输入法,关闭capsLock切换输入法.这样多台mac之间通用控制都可以切换输入法.
+
+下面是karabiner对应的配置文件:
+
+```shell
+{
+    "description": "Use left shift to Change to/from English input. （Need to enable MacOS built in Option: Use fn Key to switch to and from ABC.）",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "left_shift"
+            },
+            "to": [
+                {
+                    "key_code": "left_shift"
+                }
+            ],
+            "to_if_alone": [
+                {
+                    "key_code": "fn"
+                }
+            ],
+            "type": "basic"
+        }
+    ]
 }
 ```
 
