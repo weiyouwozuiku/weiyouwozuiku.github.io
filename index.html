@@ -906,6 +906,64 @@ SQL题：MySQL
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2024/09/08/kv-cun-chu/redis-bi-ji/">
+                        <div class="card-image">
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/KV存储/Redis学习笔记.png" class="responsive-img" alt="Redis笔记">
+                            
+                            <span class="card-title">Redis笔记</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                常见应用¶
+分布式锁¶
+set key value ex 秒数 nx
+客户端加锁失败¶
+三种方式:
+
+直接抛出异常,通知用户稍后重试
+sleep一会重试
+将请求转移到延时队列,一会儿再重试
+
+超时问题¶
+不要用于较长时间的任务.
+set指令
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-08
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/KV%E5%AD%98%E5%82%A8/" class="post-category">
+                                    KV存储
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Redis/">
+                            <span class="chip bg-color">Redis</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2021/11/06/jing-yan-zong-jie/mac-shi-yong-zheng-li/">
                         <div class="card-image">
                             
@@ -1644,61 +1702,6 @@ MSL：Maximum Segment Lifet
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1-100/">
-                        <div class="card-image">
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/算法/Leetcode算法题1-100.jpeg" class="responsive-img" alt="Leetcode算法题1-100">
-                            
-                            <span class="card-title">Leetcode算法题1-100</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1-10¶
-1. 两数之和¶
-class Solution {
-public:
-    vector&lt;int&gt; twoSum(vector&lt;int&gt; &amp;nums, int target) {
-        
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Cpp/">
-                            <span class="chip bg-color">Cpp</span>
-                        </a>
-                        
-                        <a href="/tags/Leetcode/">
-                            <span class="chip bg-color">Leetcode</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1800,7 +1803,7 @@ public:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">278.5k</span>&nbsp;字
+                class="white-color">279.1k</span>&nbsp;字
             
             
             

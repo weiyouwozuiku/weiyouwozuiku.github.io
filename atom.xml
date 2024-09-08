@@ -6,7 +6,7 @@
   <link href="http://buerlog.top/atom.xml" rel="self"/>
   
   <link href="http://buerlog.top/"/>
-  <updated>2024-03-20T16:08:33.000Z</updated>
+  <updated>2024-09-08T15:35:35.000Z</updated>
   <id>http://buerlog.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redis笔记</title>
+    <link href="http://buerlog.top/2024/09/08/kv-cun-chu/redis-bi-ji/"/>
+    <id>http://buerlog.top/2024/09/08/kv-cun-chu/redis-bi-ji/</id>
+    <published>2024-09-08T11:08:18.000Z</published>
+    <updated>2024-09-08T15:35:35.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;常见应用&quot;&gt;常见应用&lt;a class=&quot;anchor&quot; href=&quot;#常见应用&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;分布式锁&quot;&gt;分布式锁&lt;a class=&quot;anchor&quot; href=&quot;#分布式锁&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;set key value ex 秒数 nx&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&quot;客户端加锁失败&quot;&gt;客户端加锁失败&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    
+    
+    <category term="Redis" scheme="http://buerlog.top/tags/Redis/"/>
+    
+  </entry>
   
   <entry>
     <title>有趣Docker</title>
@@ -2047,7 +2075,7 @@
     <link href="http://buerlog.top/2021/11/06/jing-yan-zong-jie/mac-shi-yong-zheng-li/"/>
     <id>http://buerlog.top/2021/11/06/jing-yan-zong-jie/mac-shi-yong-zheng-li/</id>
     <published>2021-11-06T07:04:13.000Z</published>
-    <updated>2024-08-05T15:31:27.000Z</updated>
+    <updated>2024-09-08T15:35:35.000Z</updated>
     
     
       
@@ -2602,38 +2630,6 @@
     
     
     <category term="HomeAssistant" scheme="http://buerlog.top/tags/HomeAssistant/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java日志</title>
-    <link href="http://buerlog.top/2021/06/10/cheng-xu-she-ji/java/java-ri-zhi/"/>
-    <id>http://buerlog.top/2021/06/10/cheng-xu-she-ji/java/java-ri-zhi/</id>
-    <published>2021-06-10T08:24:16.000Z</published>
-    <updated>2022-10-30T17:27:29.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;日志&quot;&gt;日志&lt;a class=&quot;anchor&quot; href=&quot;#日志&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;slf4j是日志的规范/接口&lt;/li&gt;
-&lt;li&gt;日志实现工具：log4j/logback/common-logging&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;logback&quot;&gt;logback&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Java" scheme="http://buerlog.top/tags/Java/"/>
-    
-    <category term="日志" scheme="http://buerlog.top/tags/%E6%97%A5%E5%BF%97/"/>
     
   </entry>
   
