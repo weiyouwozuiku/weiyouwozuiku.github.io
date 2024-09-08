@@ -710,7 +710,7 @@ function yy() {
 
 ```shell
 {
-    "description": "Use left shift to Change to/from English input. （Need to enable MacOS built in Option: Use fn Key to switch to and from ABC.）",
+    "description": "Us shift to Change to/from English input. （Need to enable MacOS built in Option: Use fn Key to switch to and from ABC.）",
     "manipulators": [
         {
             "from": {
@@ -719,6 +719,22 @@ function yy() {
             "to": [
                 {
                     "key_code": "left_shift"
+                }
+            ],
+            "to_if_alone": [
+                {
+                    "key_code": "fn"
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "key_code": "right_shift"
+            },
+            "to": [
+                {
+                    "key_code": "right_shift"
                 }
             ],
             "to_if_alone": [
