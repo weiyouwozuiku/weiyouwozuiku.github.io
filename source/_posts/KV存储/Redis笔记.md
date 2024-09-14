@@ -54,7 +54,7 @@ if redis.call("get",KEYS[1])==ARGV[1] then
 
 使用zset实现,消息体序列化为value,score设置为到期处理时间,多线程轮训zset获取到期任务处理.通过`zrangebyscore(,0,time.time().start=0,num=1)`.每次获取一个进行处理,多线程同时竞争通过`zrem`成功作为抢到的唯一属性.**处理逻辑需要异常捕获,避免执行问题导致循环退出**.
 
-优化:多个线程获取到同一个任务浪费cpu,可以将`zrangebyscore`和`zrem`放在lua中进行缘之花操作.
+优化:多个线程获取到同一个任务浪费cpu,可以将`zrangebyscore`和`zrem`放在lua中进行原子操作.
 
 ## 位图
 
@@ -65,6 +65,39 @@ if redis.call("get",KEYS[1])==ARGV[1] then
 `bitpos查找指定单位内出现的第一个0或1`
 
 这两个命令的start/end是字节索引,**必须是8的倍数**.
+
+多位操作使用`bitfield`,形如:
+
+```redis
+bitfield w get u4 1 # 从第2位开始取4个位,第一位不当作符号位
+bitfield w get i3 2 # 从第3位开始取3个位,第一位当作符号位
+```
+
+有符号数最多获取64位,无符号最多63位(受限于redis协议汇中integer是有符号数).
+
+`bitfield`使用`incrby` 时,默认溢出策略是折返,可以使用`overflow`设置策略,**但仅对之后的第一条指令生效**.
+
+溢出策略:
+
+- warp:折返
+- fail:失败报错不执行
+- sat:饱和截断
+
+## HyperLogLog
+
+提供类似set的能力,使用场景是统计大量数据下set中元素的个数.标准误差在0.81%.
+
+`pfadd`/`pfcount`/`pfmerge`
+
+占用一定12k的存储空间
+
+但计数较小时采用稀疏矩阵存储,超过阈值才会一次性转换为稠密矩阵.
+
+## 布隆过滤器
+
+通过插件实现在redis.需要使用特定版本的redis.
+
+`bf.add`和`bf.exists`.  
 
 ## Tips
 
