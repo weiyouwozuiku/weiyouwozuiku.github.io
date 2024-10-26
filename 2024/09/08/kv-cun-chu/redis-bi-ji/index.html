@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-09-08
+                    2024-10-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    619
+                    862
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -559,12 +559,31 @@
 <p>使用sleep处理队列为空的情况,会导致队列出现延迟.推荐使用阻塞读<code>blpop/brpop</code>.没有数据时会立即休眠,数据到达时会理解醒来.需要注意长期阻塞,redis客户端的连接就成空闲链接,当服务器断开连接减少闲置资源占用时会<strong>导致<code>blpop/brpop</code>抛出异常</strong>,需要捕获异常及其重试.</p>
 <h2 id="延时队列">延时队列<a class="anchor" href="#延时队列">¶</a></h2>
 <p>使用zset实现,消息体序列化为value,score设置为到期处理时间,多线程轮训zset获取到期任务处理.通过<code>zrangebyscore(,0,time.time().start=0,num=1)</code>.每次获取一个进行处理,多线程同时竞争通过<code>zrem</code>成功作为抢到的唯一属性.<strong>处理逻辑需要异常捕获,避免执行问题导致循环退出</strong>.</p>
-<p>优化:多个线程获取到同一个任务浪费cpu,可以将<code>zrangebyscore</code>和<code>zrem</code>放在lua中进行缘之花操作.</p>
+<p>优化:多个线程获取到同一个任务浪费cpu,可以将<code>zrangebyscore</code>和<code>zrem</code>放在lua中进行原子操作.</p>
 <h2 id="位图">位图<a class="anchor" href="#位图">¶</a></h2>
 <p>就是利用字符串实现,通过<code>get</code>/<code>set</code>/<code>getbit</code>/<code>setbit</code>实现.</p>
 <p><code>bitcount</code>统计指定位置范围内1的个数</p>
 <p><code>bitpos查找指定单位内出现的第一个0或1</code></p>
 <p>这两个命令的start/end是字节索引,<strong>必须是8的倍数</strong>.</p>
+<p>多位操作使用<code>bitfield</code>,形如:</p>
+<pre class="line-numbers language-Redis" data-language="Redis"><code class="language-Redis">bitfield w get u4 1 # 从第2位开始取4个位,第一位不当作符号位
+bitfield w get i3 2 # 从第3位开始取3个位,第一位当作符号位<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>有符号数最多获取64位,无符号最多63位(受限于redis协议汇中integer是有符号数).</p>
+<p><code>bitfield</code>使用<code>incrby</code> 时,默认溢出策略是折返,可以使用<code>overflow</code>设置策略,<strong>但仅对之后的第一条指令生效</strong>.</p>
+<p>溢出策略:</p>
+<ul>
+<li>warp:折返</li>
+<li>fail:失败报错不执行</li>
+<li>sat:饱和截断</li>
+</ul>
+<h2 id="HyperLogLog">HyperLogLog<a class="anchor" href="#HyperLogLog">¶</a></h2>
+<p>提供类似set的能力,使用场景是统计大量数据下set中元素的个数.标准误差在0.81%.</p>
+<p><code>pfadd</code>/<code>pfcount</code>/<code>pfmerge</code></p>
+<p>占用一定12k的存储空间</p>
+<p>但计数较小时采用稀疏矩阵存储,超过阈值才会一次性转换为稠密矩阵.</p>
+<h2 id="布隆过滤器">布隆过滤器<a class="anchor" href="#布隆过滤器">¶</a></h2>
+<p>通过插件实现在redis.需要使用特定版本的redis.</p>
+<p><code>bf.add</code>和<code>bf.exists</code>.</p>
 <h2 id="Tips">Tips<a class="anchor" href="#Tips">¶</a></h2>
 <p>Redis所有的数据结构都可以设置过期时间.到时Redis会自动删除对应对象.如果一个字符串设置了过期时间,调用set修改时,过期时间会消失.</p>
 
@@ -1132,7 +1151,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">279.1k</span>&nbsp;字
+                class="white-color">279.4k</span>&nbsp;字
             
             
             
