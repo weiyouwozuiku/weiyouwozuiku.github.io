@@ -7,3 +7,7 @@ public/
 .deploy*/
 package-lock.json
 .vscode/
+
+# obsidian config
+**/.obsidian/**
+
