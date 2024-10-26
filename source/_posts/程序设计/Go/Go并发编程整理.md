@@ -763,7 +763,7 @@ channel的应用场景大致分为：
 
 ## 参考文献
 
-1. 极客时间，[Go并发变成实战课](https://time.geekbang.org/column/intro/100061801)
+1. 极客时间，[Go并发编程实战课](https://time.geekbang.org/column/intro/100061801)
 
 2. [Go源码](https://go.dev/src/)
 

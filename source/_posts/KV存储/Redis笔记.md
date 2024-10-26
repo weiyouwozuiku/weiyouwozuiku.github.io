@@ -68,7 +68,7 @@ if redis.call("get",KEYS[1])==ARGV[1] then
 
 多位操作使用`bitfield`,形如:
 
-```redis
+```Redis
 bitfield w get u4 1 # 从第2位开始取4个位,第一位不当作符号位
 bitfield w get i3 2 # 从第3位开始取3个位,第一位当作符号位
 ```
