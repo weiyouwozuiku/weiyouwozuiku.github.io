@@ -40,12 +40,18 @@ defer语句表达式的值在定义时就已经确定了。
 # 调度机制
 ## 协程和线程区别
 - 内存消耗
-	- goroutine创建时栈内存为2kb,按需扩容.
-- 创建销毁的空间代价
-- 切换时间代价
-
+	- goroutine创建时栈内存为2KB,按需扩容.linux操作系统一般分配1MB,不可扩容.
+- 创建销毁:
+	- 线程依据线程的实现方式,涉及用户态或内核态.goroutine都是在用户态.
+- 切换
+	- goroutine使用的寄存器比线程多.切换耗时goroutine小的多.
+## 为什么要有P
+早期GO语言中没有P,M从一个全局队列中获取G,锁代价大.所以拆分P,每个P维护一个处于Runable状态的G队列.
 ## GPM模型
-
+含义:
+- G:Goroutine.
+- P:虚拟的Processor.
+- M:内核线程.
 ![Go语言基础_GPM模型.png](https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/程序设计/Go/Go语言基础/Go语言基础_GPM模型.png)
 
 - 全局队列被任意P消费，操作是互斥的
