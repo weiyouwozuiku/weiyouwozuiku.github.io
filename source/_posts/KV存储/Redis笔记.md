@@ -1,14 +1,27 @@
 ---
 title: Redis笔记
 author: 不二
-img: >-
-  https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/KV存储/Redis学习笔记.png
+img: https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/PageImg/KV存储/Redis学习笔记.png
 mathjax: true
 date: 2024-09-08 19:08:18
-tags: Redis
+tags:
+  - Redis
 categories: KV存储
-
 ---
+
+ Redis基础数据类型
+ > [!PDF|red] [[Redis深度历险：核心原理与应用实践.pdf#page=13&selection=91,12,115,0&color=red|Redis深度历险：核心原理与应用实践, p.13]]
+> > string (字符串)、list (列表)、set (集合)、hash (哈希) 和 zset (有序集合)
+> 
+> 字符串最大512M
+## 常见命令
+### string
+
+set\get\ setnx \setex
+自增范围是有符号long 的最值.超过报错.
+
+### list
+**是链表不是数组**.
 
 ## 常见应用
 
