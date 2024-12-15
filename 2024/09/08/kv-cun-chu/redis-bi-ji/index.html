@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-10-26
+                    2024-12-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    862
+                    971
                 </div>
                 
 
@@ -532,7 +532,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="常见应用">常见应用<a class="anchor" href="#常见应用">¶</a></h2>
+                <p>Redis基础数据类型</p>
+<blockquote>
+<p>[!PDF|red] [[Redis深度历险：核心原理与应用实践.pdf#page=13&amp;selection=91,12,115,0&amp;color=red|Redis深度历险：核心原理与应用实践, p.13]]</p>
+<blockquote>
+<p>string (字符串)、list (列表)、set (集合)、hash (哈希) 和 zset (有序集合)</p>
+</blockquote>
+<p>字符串最大512M</p>
+</blockquote>
+<h2 id="常见命令">常见命令<a class="anchor" href="#常见命令">¶</a></h2>
+<h3 id="string">string<a class="anchor" href="#string">¶</a></h3>
+<p>set\get\ setnx \setex
+自增范围是有符号long 的最值.超过报错.</p>
+<h3 id="list">list<a class="anchor" href="#list">¶</a></h3>
+<p><strong>是链表不是数组</strong>.</p>
+<h2 id="常见应用">常见应用<a class="anchor" href="#常见应用">¶</a></h2>
 <h3 id="分布式锁">分布式锁<a class="anchor" href="#分布式锁">¶</a></h3>
 <p><code>set key value ex 秒数 nx</code></p>
 <h4 id="客户端加锁失败">客户端加锁失败<a class="anchor" href="#客户端加锁失败">¶</a></h4>
@@ -1151,7 +1165,7 @@ bitfield w get i3 2 # 从第3位开始取3个位,第一位当作符号位<span a
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">279.5k</span>&nbsp;字
+                class="white-color">279.6k</span>&nbsp;字
             
             
             
