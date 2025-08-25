@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-09-08
+                    2025-08-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    18 分
                 </div>
                 
 
@@ -1141,6 +1141,318 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">]</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="vscode下cpp配置">vscode下cpp配置<a class="anchor" href="#vscode下cpp配置">¶</a></h2>
+<h3 id="settings-json配置">settings.json配置<a class="anchor" href="#settings-json配置">¶</a></h3>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
+
+<span class="token property">"files.autoSave"</span><span class="token operator">:</span> <span class="token string">"onFocusChange"</span><span class="token punctuation">,</span>
+
+<span class="token property">"editor.fontSize"</span><span class="token operator">:</span> <span class="token number">14</span><span class="token punctuation">,</span>
+
+<span class="token property">"python.defaultInterpreterPath"</span><span class="token operator">:</span> <span class="token string">"/opt/homebrew/bin/python3"</span><span class="token punctuation">,</span>
+
+<span class="token property">"leetcode.endpoint"</span><span class="token operator">:</span> <span class="token string">"leetcode-cn"</span><span class="token punctuation">,</span>
+
+<span class="token property">"[sql]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"adpyke.vscode-sql-formatter"</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"editor.unicodeHighlight.allowedCharacters"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"�"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"window.zoomLevel"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+
+<span class="token property">"editor.fontFamily"</span><span class="token operator">:</span> <span class="token string">"Hack Nerd Font"</span><span class="token punctuation">,</span>
+
+<span class="token property">"gitlens.advanced.messages"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"suppressGitVersionWarning"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"go.toolsManagement.autoUpdate"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"redhat.telemetry.enabled"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"editor.inlineSuggest.enabled"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"go.alternateTools"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"experimentalWorkspaceModule "</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"gopls"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"experimentalWorkspaceModule"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"files.watcherExclude"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"**/.bloop"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"**/.metals"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"**/.ammonite"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"vs-kubernetes"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"vscode-kubernetes.kubectl-path.mac"</span><span class="token operator">:</span> <span class="token string">"/Users/didi/.vs-kubernetes/tools/kubectl/kubectl"</span><span class="token punctuation">,</span>
+
+<span class="token property">"vscode-kubernetes.minikube-path.mac"</span><span class="token operator">:</span> <span class="token string">"/Users/didi/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"</span><span class="token punctuation">,</span>
+
+<span class="token property">"vscode-kubernetes.helm-path.mac"</span><span class="token operator">:</span> <span class="token string">"/Users/didi/.vs-kubernetes/tools/helm/darwin-arm64/helm"</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"go.testFlags"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+
+<span class="token string">"-v"</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+<span class="token property">"code-runner.executorMap"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"javascript"</span><span class="token operator">:</span> <span class="token string">"node"</span><span class="token punctuation">,</span>
+
+<span class="token property">"java"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; javac $fileName &amp;&amp; java $fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"c"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; gcc $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"cpp"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; g++ -std=c++23 $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"objective-c"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; gcc -framework Cocoa $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"php"</span><span class="token operator">:</span> <span class="token string">"php"</span><span class="token punctuation">,</span>
+
+<span class="token property">"python"</span><span class="token operator">:</span> <span class="token string">"python3.10"</span><span class="token punctuation">,</span>
+
+<span class="token property">"perl"</span><span class="token operator">:</span> <span class="token string">"perl"</span><span class="token punctuation">,</span>
+
+<span class="token property">"perl6"</span><span class="token operator">:</span> <span class="token string">"perl6"</span><span class="token punctuation">,</span>
+
+<span class="token property">"ruby"</span><span class="token operator">:</span> <span class="token string">"ruby"</span><span class="token punctuation">,</span>
+
+<span class="token property">"go"</span><span class="token operator">:</span> <span class="token string">"go run"</span><span class="token punctuation">,</span>
+
+<span class="token property">"lua"</span><span class="token operator">:</span> <span class="token string">"lua"</span><span class="token punctuation">,</span>
+
+<span class="token property">"groovy"</span><span class="token operator">:</span> <span class="token string">"groovy"</span><span class="token punctuation">,</span>
+
+<span class="token property">"powershell"</span><span class="token operator">:</span> <span class="token string">"powershell -ExecutionPolicy ByPass -File"</span><span class="token punctuation">,</span>
+
+<span class="token property">"bat"</span><span class="token operator">:</span> <span class="token string">"cmd /c"</span><span class="token punctuation">,</span>
+
+<span class="token property">"shellscript"</span><span class="token operator">:</span> <span class="token string">"bash"</span><span class="token punctuation">,</span>
+
+<span class="token property">"fsharp"</span><span class="token operator">:</span> <span class="token string">"fsi"</span><span class="token punctuation">,</span>
+
+<span class="token property">"csharp"</span><span class="token operator">:</span> <span class="token string">"scriptcs"</span><span class="token punctuation">,</span>
+
+<span class="token property">"vbscript"</span><span class="token operator">:</span> <span class="token string">"cscript //Nologo"</span><span class="token punctuation">,</span>
+
+<span class="token property">"typescript"</span><span class="token operator">:</span> <span class="token string">"ts-node"</span><span class="token punctuation">,</span>
+
+<span class="token property">"coffeescript"</span><span class="token operator">:</span> <span class="token string">"coffee"</span><span class="token punctuation">,</span>
+
+<span class="token property">"scala"</span><span class="token operator">:</span> <span class="token string">"scala"</span><span class="token punctuation">,</span>
+
+<span class="token property">"swift"</span><span class="token operator">:</span> <span class="token string">"swift"</span><span class="token punctuation">,</span>
+
+<span class="token property">"julia"</span><span class="token operator">:</span> <span class="token string">"julia"</span><span class="token punctuation">,</span>
+
+<span class="token property">"crystal"</span><span class="token operator">:</span> <span class="token string">"crystal"</span><span class="token punctuation">,</span>
+
+<span class="token property">"ocaml"</span><span class="token operator">:</span> <span class="token string">"ocaml"</span><span class="token punctuation">,</span>
+
+<span class="token property">"r"</span><span class="token operator">:</span> <span class="token string">"Rscript"</span><span class="token punctuation">,</span>
+
+<span class="token property">"applescript"</span><span class="token operator">:</span> <span class="token string">"osascript"</span><span class="token punctuation">,</span>
+
+<span class="token property">"clojure"</span><span class="token operator">:</span> <span class="token string">"lein exec"</span><span class="token punctuation">,</span>
+
+<span class="token property">"haxe"</span><span class="token operator">:</span> <span class="token string">"haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"rust"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; rustc $fileName &amp;&amp; $dir$fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"racket"</span><span class="token operator">:</span> <span class="token string">"racket"</span><span class="token punctuation">,</span>
+
+<span class="token property">"scheme"</span><span class="token operator">:</span> <span class="token string">"csi -script"</span><span class="token punctuation">,</span>
+
+<span class="token property">"ahk"</span><span class="token operator">:</span> <span class="token string">"autohotkey"</span><span class="token punctuation">,</span>
+
+<span class="token property">"autoit"</span><span class="token operator">:</span> <span class="token string">"autoit3"</span><span class="token punctuation">,</span>
+
+<span class="token property">"dart"</span><span class="token operator">:</span> <span class="token string">"dart"</span><span class="token punctuation">,</span>
+
+<span class="token property">"pascal"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; fpc $fileName &amp;&amp; $dir$fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"d"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; dmd $fileName &amp;&amp; $dir$fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"haskell"</span><span class="token operator">:</span> <span class="token string">"runhaskell"</span><span class="token punctuation">,</span>
+
+<span class="token property">"nim"</span><span class="token operator">:</span> <span class="token string">"nim compile --verbosity:0 --hints:off --run"</span><span class="token punctuation">,</span>
+
+<span class="token property">"lisp"</span><span class="token operator">:</span> <span class="token string">"sbcl --script"</span><span class="token punctuation">,</span>
+
+<span class="token property">"kit"</span><span class="token operator">:</span> <span class="token string">"kitc --run"</span><span class="token punctuation">,</span>
+
+<span class="token property">"v"</span><span class="token operator">:</span> <span class="token string">"v run"</span><span class="token punctuation">,</span>
+
+<span class="token property">"sass"</span><span class="token operator">:</span> <span class="token string">"sass --style expanded"</span><span class="token punctuation">,</span>
+
+<span class="token property">"scss"</span><span class="token operator">:</span> <span class="token string">"scss --style expanded"</span><span class="token punctuation">,</span>
+
+<span class="token property">"less"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; lessc $fileName $fileNameWithoutExt.css"</span><span class="token punctuation">,</span>
+
+<span class="token property">"FortranFreeForm"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; gfortran $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"fortran-modern"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; gfortran $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"fortran_fixed-form"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; gfortran $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"fortran"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; gfortran $fileName -o $fileNameWithoutExt &amp;&amp; $dir$fileNameWithoutExt"</span><span class="token punctuation">,</span>
+
+<span class="token property">"sml"</span><span class="token operator">:</span> <span class="token string">"cd $dir &amp;&amp; sml $fileName"</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"github.copilot.enable"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"*"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+<span class="token property">"plaintext"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"markdown"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+<span class="token property">"scminput"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+<span class="token property">"yaml"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+<span class="token property">"cpp"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"git.autofetch"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"git.ignoreLegacyWarning"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"workbench.editor.wrapTabs"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"leetcode.defaultLanguage"</span><span class="token operator">:</span> <span class="token string">"cpp"</span><span class="token punctuation">,</span>
+
+<span class="token property">"leetcode.filePath"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"default"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"folder"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+
+<span class="token property">"filename"</span><span class="token operator">:</span> <span class="token string">"${id}.${kebab-case-name}.${ext}"</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"leetcode.hint.commandShortcut"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+<span class="token property">"[python]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"editor.formatOnType"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"editor.unicodeHighlight.invisibleCharacters"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+<span class="token property">"editor.unicodeHighlight.ambiguousCharacters"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+<span class="token property">"[vue]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"octref.vetur"</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"editor.unicodeHighlight.nonBasicASCII"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+<span class="token property">"vscode-system-monitor.configuration.monitor.cpu.enabled"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"vscode-system-monitor.configuration.monitor.network.enabled"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"vscode-system-monitor.configuration.monitor.memory.enabled"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"[html]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"esbenp.prettier-vscode"</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"lldb.suppressUpdateNotifications"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"leetcode.workspaceFolder"</span><span class="token operator">:</span> <span class="token string">"/Users/robertwang/Lab/leetcode_test"</span><span class="token punctuation">,</span>
+
+<span class="token property">"leetcode.hint.configWebviewMarkdown"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+<span class="token property">"leetcode.hint.commentDescription"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+<span class="token property">"C_Cpp.inlayHints.autoDeclarationTypes.enabled"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"C_Cpp.inlayHints.autoDeclarationTypes.showOnLeft"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"[cpp]"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"editor.defaultFormatter"</span><span class="token operator">:</span> <span class="token string">"llvm-vs-code-extensions.vscode-clangd"</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"C_Cpp.default.cppStandard"</span><span class="token operator">:</span> <span class="token string">"c++23"</span><span class="token punctuation">,</span>
+
+<span class="token property">"C_Cpp.codeAnalysis.clangTidy.args"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+
+<span class="token string">"-std=c++23"</span>
+
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+<span class="token property">"C_Cpp.codeAnalysis.clangTidy.enabled"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"codeium.enableConfig"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+
+<span class="token property">"*"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+<span class="token property">"cpp"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token property">"leetcode.nodePath"</span><span class="token operator">:</span> <span class="token string">"/opt/homebrew/bin/node"</span><span class="token punctuation">,</span>
+
+<span class="token property">"docker.extension.enableComposeLanguageServer"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+
+<span class="token property">"workbench.colorTheme"</span><span class="token operator">:</span> <span class="token string">"Everforest Dark"</span><span class="token punctuation">,</span>
+
+<span class="token property">"clangd.arguments"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+
+<span class="token string">"--log=verbose"</span><span class="token punctuation">,</span> <span class="token comment">// 启用详细日志（可选，用于调试）</span>
+
+<span class="token string">"--background-index"</span> <span class="token comment">// 后台索引，不影响配置读取</span>
+
+<span class="token comment">// 避免添加与全局配置冲突的参数（如 -std=c++14）</span>
+
+<span class="token punctuation">]</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>mac下clangd 只认 ~/Library/Preferences/clangd/config.yaml.因此全局还需要</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 终端执行，创建配置文件（若已存在则直接编辑）</span>
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> ~/Library/Preferences/clangd
+<span class="token function">touch</span> ~/Library/Preferences/clangd/config.yaml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">CompileFlags</span><span class="token punctuation">:</span> 
+	<span class="token key atrule">Add</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">-</span>std=c++23<span class="token punctuation">]</span> <span class="token comment"># 启用 C++20 标准（包含 contains 方法） </span>
+	<span class="token key atrule">Remove</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">-</span>std=c++*<span class="token punctuation">]</span> <span class="token comment"># 移除低版本标准（如 C++14），避免冲突</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="参考资料">参考资料<a class="anchor" href="#参考资料">¶</a></h2>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://keelii.com/2018/08/12/fuzzy-finder-full-guide/">Fuzzy finder(fzf+vim) 使用全指南</a>,2018</li>
@@ -1704,7 +2016,7 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2024</span>
+                <span id="year">2018-2025</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1713,7 +2025,7 @@ Instant: checked<span aria-hidden="true" class="line-numbers-rows"><span></span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">279.6k</span>&nbsp;字
+                class="white-color">281.5k</span>&nbsp;字
             
             
             
