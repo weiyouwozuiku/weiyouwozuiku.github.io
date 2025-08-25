@@ -749,7 +749,327 @@ function yy() {
 ```
 
 
+## vscode下cpp配置
+### settings.json配置
 
+```json
+{
+
+"files.autoSave": "onFocusChange",
+
+"editor.fontSize": 14,
+
+"python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+
+"leetcode.endpoint": "leetcode-cn",
+
+"[sql]": {
+
+"editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+
+},
+
+"editor.unicodeHighlight.allowedCharacters": {
+
+"�": true
+
+},
+
+"window.zoomLevel": 1,
+
+"editor.fontFamily": "Hack Nerd Font",
+
+"gitlens.advanced.messages": {
+
+"suppressGitVersionWarning": true
+
+},
+
+"go.toolsManagement.autoUpdate": true,
+
+"redhat.telemetry.enabled": true,
+
+"editor.inlineSuggest.enabled": true,
+
+"go.alternateTools": {
+
+},
+
+"experimentalWorkspaceModule ": true,
+
+"gopls": {
+
+"experimentalWorkspaceModule": true
+
+},
+
+"files.watcherExclude": {
+
+"**/.bloop": true,
+
+"**/.metals": true,
+
+"**/.ammonite": true
+
+},
+
+"vs-kubernetes": {
+
+"vscode-kubernetes.kubectl-path.mac": "/Users/didi/.vs-kubernetes/tools/kubectl/kubectl",
+
+"vscode-kubernetes.minikube-path.mac": "/Users/didi/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
+
+"vscode-kubernetes.helm-path.mac": "/Users/didi/.vs-kubernetes/tools/helm/darwin-arm64/helm"
+
+},
+
+"go.testFlags": [
+
+"-v"
+
+],
+
+"code-runner.executorMap": {
+
+"javascript": "node",
+
+"java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+
+"c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+
+"cpp": "cd $dir && g++ -std=c++23 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+
+"objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+
+"php": "php",
+
+"python": "python3.10",
+
+"perl": "perl",
+
+"perl6": "perl6",
+
+"ruby": "ruby",
+
+"go": "go run",
+
+"lua": "lua",
+
+"groovy": "groovy",
+
+"powershell": "powershell -ExecutionPolicy ByPass -File",
+
+"bat": "cmd /c",
+
+"shellscript": "bash",
+
+"fsharp": "fsi",
+
+"csharp": "scriptcs",
+
+"vbscript": "cscript //Nologo",
+
+"typescript": "ts-node",
+
+"coffeescript": "coffee",
+
+"scala": "scala",
+
+"swift": "swift",
+
+"julia": "julia",
+
+"crystal": "crystal",
+
+"ocaml": "ocaml",
+
+"r": "Rscript",
+
+"applescript": "osascript",
+
+"clojure": "lein exec",
+
+"haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+
+"rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+
+"racket": "racket",
+
+"scheme": "csi -script",
+
+"ahk": "autohotkey",
+
+"autoit": "autoit3",
+
+"dart": "dart",
+
+"pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+
+"d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+
+"haskell": "runhaskell",
+
+"nim": "nim compile --verbosity:0 --hints:off --run",
+
+"lisp": "sbcl --script",
+
+"kit": "kitc --run",
+
+"v": "v run",
+
+"sass": "sass --style expanded",
+
+"scss": "scss --style expanded",
+
+"less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+
+"FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+
+"fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+
+"fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+
+"fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+
+"sml": "cd $dir && sml $fileName"
+
+},
+
+"github.copilot.enable": {
+
+"*": false,
+
+"plaintext": true,
+
+"markdown": false,
+
+"scminput": false,
+
+"yaml": false,
+
+"cpp": false
+
+},
+
+"git.autofetch": true,
+
+"git.ignoreLegacyWarning": true,
+
+"workbench.editor.wrapTabs": true,
+
+"leetcode.defaultLanguage": "cpp",
+
+"leetcode.filePath": {
+
+"default": {
+
+"folder": "",
+
+"filename": "${id}.${kebab-case-name}.${ext}"
+
+}
+
+},
+
+"leetcode.hint.commandShortcut": false,
+
+"[python]": {
+
+"editor.formatOnType": true
+
+},
+
+"editor.unicodeHighlight.invisibleCharacters": false,
+
+"editor.unicodeHighlight.ambiguousCharacters": false,
+
+"[vue]": {
+
+"editor.defaultFormatter": "octref.vetur"
+
+},
+
+"editor.unicodeHighlight.nonBasicASCII": false,
+
+"vscode-system-monitor.configuration.monitor.cpu.enabled": true,
+
+"vscode-system-monitor.configuration.monitor.network.enabled": true,
+
+"vscode-system-monitor.configuration.monitor.memory.enabled": true,
+
+"[html]": {
+
+"editor.defaultFormatter": "esbenp.prettier-vscode"
+
+},
+
+"lldb.suppressUpdateNotifications": true,
+
+"leetcode.workspaceFolder": "/Users/robertwang/Lab/leetcode_test",
+
+"leetcode.hint.configWebviewMarkdown": false,
+
+"leetcode.hint.commentDescription": false,
+
+"C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
+
+"C_Cpp.inlayHints.autoDeclarationTypes.showOnLeft": true,
+
+"[cpp]": {
+
+"editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+
+},
+
+"C_Cpp.default.cppStandard": "c++23",
+
+"C_Cpp.codeAnalysis.clangTidy.args": [
+
+"-std=c++23"
+
+],
+
+"C_Cpp.codeAnalysis.clangTidy.enabled": true,
+
+"codeium.enableConfig": {
+
+"*": true,
+
+"cpp": false
+
+},
+
+"leetcode.nodePath": "/opt/homebrew/bin/node",
+
+"docker.extension.enableComposeLanguageServer": false,
+
+"workbench.colorTheme": "Everforest Dark",
+
+"clangd.arguments": [
+
+"--log=verbose", // 启用详细日志（可选，用于调试）
+
+"--background-index" // 后台索引，不影响配置读取
+
+// 避免添加与全局配置冲突的参数（如 -std=c++14）
+
+]
+
+}
+```
+
+mac下clangd 只认 ~/Library/Preferences/clangd/config.yaml.因此全局还需要
+```bash
+# 终端执行，创建配置文件（若已存在则直接编辑）
+mkdir -p ~/Library/Preferences/clangd
+touch ~/Library/Preferences/clangd/config.yaml
+```
+
+```yaml
+CompileFlags: 
+	Add: [-std=c++23] # 启用 C++20 标准（包含 contains 方法） 
+	Remove: [-std=c++*] # 移除低版本标准（如 C++14），避免冲突
+```
 ## 参考资料
 
 1. [Fuzzy finder(fzf+vim) 使用全指南](https://keelii.com/2018/08/12/fuzzy-finder-full-guide/),2018
