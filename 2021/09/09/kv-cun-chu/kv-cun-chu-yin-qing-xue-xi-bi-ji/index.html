@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -575,11 +575,7 @@
 <p>Search: <img src="https://math.now.sh?inline=O%28logn%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"> time complexity on average.</p>
 <p>Insertion: <img src="https://math.now.sh?inline=O%28logn%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"> time complexity on average.</p>
 <p>常见的链表结构如下：</p>
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> Node <span class="token keyword">struct</span> <span class="token punctuation">{</span>
-  data <span class="token builtin">int</span>
-  next <span class="token operator">*</span>Node
-<span class="token punctuation">}</span>
-NodeA<span class="token punctuation">.</span>next<span class="token operator">=</span>NodeB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Node <span class="keyword">struct</span> {</span><br><span class="line">  data <span class="type">int</span></span><br><span class="line">  next *Node</span><br><span class="line">}</span><br><span class="line">NodeA.next=NodeB</span><br></pre></td></tr></tbody></table></figure>
 <p>有序单链表的查找需要进行遍历。如下图。</p>
 <pre class="mermaid">graph LR
     A(2)--&gt;B(4)--&gt;C(9)--&gt;D(11)--&gt;E(26)</pre>
@@ -595,15 +591,7 @@ NodeA<span class="token punctuation">.</span>next<span class="token operator">=<
 <p>每层最多遍历节点个数为3个。</p>
 <p>因此，整体的时间复杂度为<img src="https://math.now.sh?inline=O%28logn%29" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;">。</p>
 <h3 id="实现">实现<a class="anchor" href="#实现">¶</a></h3>
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> Node <span class="token keyword">struct</span><span class="token punctuation">{</span>
-  data <span class="token builtin">int</span>
-  next <span class="token operator">*</span>Node
-<span class="token punctuation">}</span>
-
-<span class="token keyword">type</span> Element <span class="token keyword">struct</span><span class="token punctuation">{</span>
-  data KV <span class="token comment">// 真正的数据</span>
-  levels <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">*</span>Element <span class="token comment">// 存放节点</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Node <span class="keyword">struct</span>{</span><br><span class="line">  data <span class="type">int</span></span><br><span class="line">  next *Node</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Element <span class="keyword">struct</span>{</span><br><span class="line">  data KV <span class="comment">// 真正的数据</span></span><br><span class="line">  levels []*Element <span class="comment">// 存放节点</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="BoltDB">BoltDB<a class="anchor" href="#BoltDB">¶</a></h2>
 <h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
 <ol>
@@ -1165,7 +1153,7 @@ NodeA<span class="token punctuation">.</span>next<span class="token operator">=<
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1174,7 +1162,7 @@ NodeA<span class="token punctuation">.</span>next<span class="token operator">=<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

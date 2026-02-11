@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -497,7 +497,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    379
+                    377
                 </div>
                 
 
@@ -538,30 +538,12 @@
 <li>安装mysql-connect的包</li>
 </ul>
 <p>代码如下：</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import mysql.connector
-
-config={'host':'','port':3306,'user':"",'password':'','database':''}
-try:
-    con=mysql.connector.connect(**config)
-	cursor=con.cursor()
-	cursor.execute(sql)或cursor.executemany()反复执行一条sql语句
-	cursor.fetchone()或cursor.fetchall()
-except Exception as e:
-    print(e)
-finally:
-    if "con" in dir():
-        con.close()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mysql.connector</span><br><span class="line"></span><br><span class="line">config={<span class="string">'host'</span>:<span class="string">''</span>,<span class="string">'port'</span>:<span class="number">3306</span>,<span class="string">'user'</span>:<span class="string">""</span>,<span class="string">'password'</span>:<span class="string">''</span>,<span class="string">'database'</span>:<span class="string">''</span>}</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    con=mysql.connector.connect(**config)</span><br><span class="line">	cursor=con.cursor()</span><br><span class="line">	cursor.execute(sql)或cursor.executemany()反复执行一条sql语句</span><br><span class="line">	cursor.fetchone()或cursor.fetchall()</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="keyword">if</span> <span class="string">"con"</span> <span class="keyword">in</span> <span class="built_in">dir</span>():</span><br><span class="line">        con.close()</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="事务控制">事务控制<a class="anchor" href="#事务控制">¶</a></h3>
 <p><code>Connector</code>提供了简单的事务控制函数</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">con.start_transaction([事务隔离级别])
-#事务的提交需要手动提交，不会自动触发
-con.commit()
-con.rollback()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">con.start_transaction([事务隔离级别])</span><br><span class="line"><span class="comment">#事务的提交需要手动提交，不会自动触发</span></span><br><span class="line">con.commit()</span><br><span class="line">con.rollback()</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="数据库连接池">数据库连接池<a class="anchor" href="#数据库连接池">¶</a></h3>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">import mysql.connector.pooling
-config={....}
-pool=mysql.connector.pooling.MySQLConnetcionPool(**config,pool_size=10)
-con=pool.get_connection()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mysql.connector.pooling</span><br><span class="line">config={....}</span><br><span class="line">pool=mysql.connector.pooling.MySQLConnetcionPool(**config,pool_size=<span class="number">10</span>)</span><br><span class="line">con=pool.get_connection()</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="性能优化">性能优化<a class="anchor" href="#性能优化">¶</a></h3>
 <p>当大量数据需要插入时，可以使用<code>executemany()</code>方法。其效果可以有效的优化自己每次使用<code>execute()</code>方法所带来的性能损耗，尤其是当数据库中有10万条以上的数据后。</p>
 <h2 id="Tip">Tip<a class="anchor" href="#Tip">¶</a></h2>
@@ -571,8 +553,7 @@ con=pool.get_connection()<span aria-hidden="true" class="line-numbers-rows"><spa
 <p>SQL预编译机制：数据库提前将SQL语句编译成二进制，避免了词法分析，这样反复执行同一条SQL效率提升。</p>
 <p>SQL语句编译的过程中，关键字已经被解析过了，所以向编译后的SQL语句传入参数，都被当作字符串处理，数据库不会解析其中注入的SQL语句。</p>
 <p>使用方式如下：</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">sql="select * from user where username=%s and password=%s"
-cursor.execute(sql,(username,password))#此时两个数作为参数传入已经编译好了的sql语句中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sql=<span class="string">"select * from user where username=%s and password=%s"</span></span><br><span class="line">cursor.execute(sql,(username,password))<span class="comment">#此时两个数作为参数传入已经编译好了的sql语句中</span></span><br></pre></td></tr></tbody></table></figure>
 
                 
             </div>
@@ -1127,7 +1108,7 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1136,7 +1117,7 @@ cursor.execute(sql,(username,password))#此时两个数作为参数传入已经�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

@@ -1,2639 +1,1666 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>不二博客</title>
-  
-  <subtitle>过去可知却不可控，未来可控却不可知</subtitle>
-  <link href="http://buerlog.top/atom.xml" rel="self"/>
-  
-  <link href="http://buerlog.top/"/>
-  <updated>2025-08-25T17:33:56.000Z</updated>
-  <id>http://buerlog.top/</id>
-  
   <author>
     <name>不二</name>
-    
   </author>
-  
   <generator uri="https://hexo.io/">Hexo</generator>
-  
+  <id>http://buerlog.top/</id>
+  <link href="http://buerlog.top/" rel="alternate"/>
+  <link href="http://buerlog.top/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, 不二</rights>
+  <subtitle>过去可知却不可控，未来可控却不可知</subtitle>
+  <title>不二博客</title>
+  <updated>2025-08-25T17:33:56.000Z</updated>
   <entry>
-    <title>后端工程师的高阶面经</title>
-    <link href="http://buerlog.top/2025/08/05/jing-yan-zong-jie/hou-duan-gong-cheng-shi-de-gao-jie-mian-jing/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <category term="面试" scheme="http://buerlog.top/tags/%E9%9D%A2%E8%AF%95/"/>
     <id>http://buerlog.top/2025/08/05/jing-yan-zong-jie/hou-duan-gong-cheng-shi-de-gao-jie-mian-jing/</id>
+    <link href="http://buerlog.top/2025/08/05/jing-yan-zong-jie/hou-duan-gong-cheng-shi-de-gao-jie-mian-jing/"/>
     <published>2025-08-05T13:04:03.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="服务注册与发现">服务注册与发现<a class="anchor" href="#服务注册与发现">¶</a></h2>
+<h3 id="基础准备">基础准备<a class="anchor"]]>
+    </summary>
+    <title>后端工程师的高阶面经</title>
     <updated>2025-08-25T17:33:56.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;服务注册与发现&quot;&gt;服务注册与发现&lt;a class=&quot;anchor&quot; href=&quot;#服务注册与发现&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;基础准备&quot;&gt;基础准备&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="面试" scheme="http://buerlog.top/tags/%E9%9D%A2%E8%AF%95/"/>
-    
   </entry>
-  
   <entry>
-    <title>限流算法</title>
-    <link href="http://buerlog.top/2025/01/14/cheng-xu-she-ji/xian-liu-suan-fa/"/>
-    <id>http://buerlog.top/2025/01/14/cheng-xu-she-ji/xian-liu-suan-fa/</id>
-    <published>2025-01-14T03:29:17.000Z</published>
-    <updated>2025-08-25T17:33:56.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Intro&quot;&gt;Intro&lt;a class=&quot;anchor&quot; href=&quot;#Intro&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;代币桶算法
-&lt;ul&gt;
-&lt;li&gt;优势:</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
     <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
     <category term="Nginx" scheme="http://buerlog.top/tags/Nginx/"/>
-    
+    <id>http://buerlog.top/2025/01/14/cheng-xu-she-ji/xian-liu-suan-fa/</id>
+    <link href="http://buerlog.top/2025/01/14/cheng-xu-she-ji/xian-liu-suan-fa/"/>
+    <published>2025-01-14T03:29:17.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="Intro">Intro<a class="anchor" href="#Intro">¶</a></h2>
+<ul>
+<li>代币桶算法
+<ul>
+<li>优势:]]>
+    </summary>
+    <title>限流算法</title>
+    <updated>2025-08-25T17:33:56.000Z</updated>
   </entry>
-  
   <entry>
-    <title>Redis笔记</title>
-    <link href="http://buerlog.top/2024/09/08/kv-cun-chu/redis-bi-ji/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <category term="Redis" scheme="http://buerlog.top/tags/Redis/"/>
     <id>http://buerlog.top/2024/09/08/kv-cun-chu/redis-bi-ji/</id>
+    <link href="http://buerlog.top/2024/09/08/kv-cun-chu/redis-bi-ji/"/>
     <published>2024-09-08T11:08:18.000Z</published>
-    <updated>2024-12-15T04:03:01.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Redis基础数据类型&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!PDF|red] [[Redis深度历险：核心原理与应用实践.pdf#page=13&amp;amp;selection=91,12,115,0&amp;amp;color=red|Redis深度历险：核心原理与应用实践, p.13]]&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;string (字符串)、list (列表)、set</summary>
-        
-      
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
-    <category term="Redis" scheme="http://buerlog.top/tags/Redis/"/>
-    
+    <summary>
+      <![CDATA[<p>Redis基础数据类型</p>
+<blockquote>
+<p>[!PDF|red] [[Redis深度历险：核心原理与应用实践.pdf#page=13&amp;selection=91,12,115,0&amp;color=red|Redis深度历险：核心原理与应用实践, p.13]]</p>
+<blockquote>
+<p>string (字符串)、list (列表)、set]]>
+    </summary>
+    <title>Redis笔记</title>
+    <updated>2026-02-11T16:19:00.000Z</updated>
   </entry>
-  
   <entry>
-    <title>有趣Docker</title>
-    <link href="http://buerlog.top/2024/03/20/jing-yan-zong-jie/you-qu-docker/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <category term="Docker" scheme="http://buerlog.top/tags/Docker/"/>
     <id>http://buerlog.top/2024/03/20/jing-yan-zong-jie/you-qu-docker/</id>
+    <link href="http://buerlog.top/2024/03/20/jing-yan-zong-jie/you-qu-docker/"/>
     <published>2024-03-20T03:05:13.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="内网导航面板">内网导航面板<a class="anchor" href="#内网导航面板">¶</a></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span]]>
+    </summary>
+    <title>有趣Docker</title>
     <updated>2024-03-20T16:08:33.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;内网导航面板&quot;&gt;内网导航面板&lt;a class=&quot;anchor&quot; href=&quot;#内网导航面板&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;pre class=&quot;line-numbers language-compose&quot; data-language=&quot;compose&quot;&gt;&lt;code class=&quot;language-compose&quot;&gt;docker run -d --restart=always -p</summary>
-        
-      
-    
-    
-    
-    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="Docker" scheme="http://buerlog.top/tags/Docker/"/>
-    
   </entry>
-  
   <entry>
-    <title>《金字塔原理》总结</title>
-    <link href="http://buerlog.top/2024/03/16/si-wei-jin-hua/jin-zi-ta-yuan-li-zong-jie/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="思维进化" scheme="http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/"/>
+    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
     <id>http://buerlog.top/2024/03/16/si-wei-jin-hua/jin-zi-ta-yuan-li-zong-jie/</id>
+    <link href="http://buerlog.top/2024/03/16/si-wei-jin-hua/jin-zi-ta-yuan-li-zong-jie/"/>
     <published>2024-03-16T06:14:24.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="表达的逻辑">表达的逻辑<a class="anchor" href="#表达的逻辑">¶</a></h2>
+<p>表达次序需要按照读者理解的次序：</p>
+<ul>
+<li>先了解主要的、抽象的思想；然后是次要的，为主要思想提供支撑的思想</li>
+</ul>
+<p>疑问-回答式</p>
+<h2 id="为什么要用金字塔结构">为什么要用金字塔结构<a]]>
+    </summary>
+    <title>《金字塔原理》总结</title>
     <updated>2025-08-25T17:33:56.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;表达的逻辑&quot;&gt;表达的逻辑&lt;a class=&quot;anchor&quot; href=&quot;#表达的逻辑&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;表达次序需要按照读者理解的次序：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;先了解主要的、抽象的思想；然后是次要的，为主要思想提供支撑的思想&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;疑问-回答式&lt;/p&gt;
-&lt;h2 id=&quot;为什么要用金字塔结构&quot;&gt;为什么要用金字塔结构&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="思维进化" scheme="http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/"/>
-    
-    
-    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
-    
   </entry>
-  
   <entry>
-    <title>Rust学习笔记</title>
-    <link href="http://buerlog.top/2023/07/02/cheng-xu-she-ji/rust/rust-xue-xi-bi-ji/"/>
-    <id>http://buerlog.top/2023/07/02/cheng-xu-she-ji/rust/rust-xue-xi-bi-ji/</id>
-    <published>2023-07-02T15:11:23.000Z</published>
-    <updated>2023-07-10T16:43:04.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;在编译时，一切无法确定大小或者大小可以改变的数据，都无法安全地放在栈上，最好放在堆上。&lt;/li&gt;
-&lt;li&gt;虽然在栈上内存分配非常高效（预留和释放只需要操作寄存器，不涉及额外计算、不涉及系统调用），但是需要考虑调用栈的大小，避免栈溢出。&lt;/li&gt;
-&lt;li&gt;栈溢出：一旦当前程序的调用栈超出了系统允许的最大栈空间，无法创建新的栈来运行下一个要执行的函数，就会发生栈溢出，这时系统会被系统</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
     <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
     <category term="Rust" scheme="http://buerlog.top/tags/Rust/"/>
-    
+    <id>http://buerlog.top/2023/07/02/cheng-xu-she-ji/rust/rust-xue-xi-bi-ji/</id>
+    <link href="http://buerlog.top/2023/07/02/cheng-xu-she-ji/rust/rust-xue-xi-bi-ji/"/>
+    <published>2023-07-02T15:11:23.000Z</published>
+    <summary>
+      <![CDATA[<ul>
+<li>在编译时，一切无法确定大小或者大小可以改变的数据，都无法安全地放在栈上，最好放在堆上。</li>
+<li>虽然在栈上内存分配非常高效（预留和释放只需要操作寄存器，不涉及额外计算、不涉及系统调用），但是需要考虑调用栈的大小，避免栈溢出。</li>
+<li>栈溢出：一旦当前程序的调用栈超出了系统允许的最大栈空间，无法创建新的栈来运行下一个要执行的函数，就会发生栈溢出，这时系统会被系统]]>
+    </summary>
+    <title>Rust学习笔记</title>
+    <updated>2023-07-10T16:43:04.000Z</updated>
   </entry>
-  
   <entry>
-    <title>《Go语言高级编程》笔记</title>
-    <link href="http://buerlog.top/2023/04/02/cheng-xu-she-ji/go/go-yu-yan-gao-ji-bian-cheng-bi-ji/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
     <id>http://buerlog.top/2023/04/02/cheng-xu-she-ji/go/go-yu-yan-gao-ji-bian-cheng-bi-ji/</id>
+    <link href="http://buerlog.top/2023/04/02/cheng-xu-she-ji/go/go-yu-yan-gao-ji-bian-cheng-bi-ji/"/>
     <published>2023-04-02T08:23:39.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="Go和Web">Go和Web<a class="anchor"]]>
+    </summary>
+    <title>《Go语言高级编程》笔记</title>
     <updated>2024-03-03T15:38:11.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Go和Web&quot;&gt;Go和Web&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
-    
   </entry>
-  
   <entry>
-    <title>Leetcode算法题2501-2600</title>
-    <link href="http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2501-2600/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
     <id>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2501-2600/</id>
+    <link href="http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2501-2600/"/>
     <published>2023-01-30T16:59:01.000Z</published>
+    <title>Leetcode算法题2501-2600</title>
     <updated>2024-03-03T15:38:11.000Z</updated>
-    
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
   </entry>
-  
   <entry>
-    <title>Leetcode算法题2401-2500</title>
-    <link href="http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2401-2500/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
     <id>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2401-2500/</id>
+    <link href="http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2401-2500/"/>
     <published>2023-01-30T16:58:55.000Z</published>
+    <title>Leetcode算法题2401-2500</title>
     <updated>2024-03-03T15:38:11.000Z</updated>
-    
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
   </entry>
-  
   <entry>
-    <title>Leetcode算法题2301-2400</title>
-    <link href="http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2301-2400/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
     <id>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2301-2400/</id>
+    <link href="http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2301-2400/"/>
     <published>2023-01-30T16:58:49.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="2301-2310">2301-2310<a class="anchor" href="#2301-2310">¶</a></h2>
+<h2 id="2311-2320">2311-2320<a class="anchor" href="#2311-2320">¶</a></h2>
+<h3 id="2315-统计星号"><a]]>
+    </summary>
+    <title>Leetcode算法题2301-2400</title>
     <updated>2024-03-03T15:28:50.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;2301-2310&quot;&gt;2301-2310&lt;a class=&quot;anchor&quot; href=&quot;#2301-2310&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;2311-2320&quot;&gt;2311-2320&lt;a class=&quot;anchor&quot; href=&quot;#2311-2320&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;2315-统计星号&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
   </entry>
-  
   <entry>
-    <title>Leetcode算法题2201-2300</title>
-    <link href="http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2201-2300/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
     <id>http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2201-2300/</id>
+    <link href="http://buerlog.top/2023/01/31/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2201-2300/"/>
     <published>2023-01-30T16:58:39.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="2221-2230">2221-2230<a class="anchor" href="#2221-2230">¶</a></h2>
+<p><a href="https://leetcode.cn/problems/maximum-candies-allocated-to-k-children/">2226. 每个小孩最多能分到多少糖果</a></p>
+<figure]]>
+    </summary>
+    <title>Leetcode算法题2201-2300</title>
     <updated>2024-03-03T15:28:50.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;2221-2230&quot;&gt;2221-2230&lt;a class=&quot;anchor&quot; href=&quot;#2221-2230&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://leetcode.cn/problems/maximum-candies-allocated-to-k-children/&quot;&gt;2226. 每个小孩最多能分到多少糖果&lt;/a&gt;&lt;/p&gt;
-&lt;pre</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
   </entry>
-  
   <entry>
-    <title>Go-Web学习</title>
-    <link href="http://buerlog.top/2023/01/23/cheng-xu-she-ji/go/go-web-xue-xi/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
     <id>http://buerlog.top/2023/01/23/cheng-xu-she-ji/go/go-web-xue-xi/</id>
+    <link href="http://buerlog.top/2023/01/23/cheng-xu-she-ji/go/go-web-xue-xi/"/>
     <published>2023-01-23T10:40:46.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="Web概览">Web概览<a class="anchor" href="#Web概览">¶</a></h2>
+<h3 id="Beego">Beego<a class="anchor" href="#Beego">¶</a></h3>
+<h4 id="controller抽象">controller抽象<a class="anchor"]]>
+    </summary>
+    <title>Go-Web学习</title>
     <updated>2023-02-20T01:42:07.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Web概览&quot;&gt;Web概览&lt;a class=&quot;anchor&quot; href=&quot;#Web概览&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;Beego&quot;&gt;Beego&lt;a class=&quot;anchor&quot; href=&quot;#Beego&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;h4 id=&quot;controller抽象&quot;&gt;controller抽象&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
-    
   </entry>
-  
   <entry>
-    <title>算法小Tip</title>
-    <link href="http://buerlog.top/2023/01/07/suan-fa/suan-fa-xiao-tip/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
     <id>http://buerlog.top/2023/01/07/suan-fa/suan-fa-xiao-tip/</id>
+    <link href="http://buerlog.top/2023/01/07/suan-fa/suan-fa-xiao-tip/"/>
     <published>2023-01-07T07:39:40.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="c-的io">c++的io<a class="anchor" href="#c-的io">¶</a></h2>
+<h3 id="cin和scanf速度">cin和scanf速度<a class="anchor"]]>
+    </summary>
+    <title>算法小Tip</title>
     <updated>2023-01-07T12:32:21.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;c-的io&quot;&gt;c++的io&lt;a class=&quot;anchor&quot; href=&quot;#c-的io&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;cin和scanf速度&quot;&gt;cin和scanf速度&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
   </entry>
-  
   <entry>
-    <title>Go语言基础</title>
-    <link href="http://buerlog.top/2022/10/30/cheng-xu-she-ji/go/go-yu-yan-ji-chu/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
     <id>http://buerlog.top/2022/10/30/cheng-xu-she-ji/go/go-yu-yan-ji-chu/</id>
+    <link href="http://buerlog.top/2022/10/30/cheng-xu-she-ji/go/go-yu-yan-ji-chu/"/>
     <published>2022-10-30T15:46:18.000Z</published>
-    <updated>2024-10-28T16:12:11.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;逃逸分析&quot;&gt;逃逸分析&lt;a class=&quot;anchor&quot; href=&quot;#逃逸分析&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Go编译器会根据变量是否被外部引用决定是否逃逸，而不能像Cpp那样使用&lt;code&gt;new&lt;/code&gt;明确指定在堆上创建。其原则是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;如果变量在函数外部没有引用，则&lt;strong&gt;优先放在栈上&lt;/strong&gt;-&amp;gt;</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
-    
+    <summary>
+      <![CDATA[<h2 id="逃逸分析">逃逸分析<a class="anchor" href="#逃逸分析">¶</a></h2>
+<p>Go编译器会根据变量是否被外部引用决定是否逃逸，而不能像Cpp那样使用<code>new</code>明确指定在堆上创建。其原则是：</p>
+<ul>
+<li>如果变量在函数外部没有引用，则<strong>优先放在栈上</strong>-&gt;]]>
+    </summary>
+    <title>Go语言基础</title>
+    <updated>2026-02-11T16:19:00.000Z</updated>
   </entry>
-  
   <entry>
-    <title>Spark学习笔记</title>
-    <link href="http://buerlog.top/2022/09/11/cheng-xu-she-ji/da-shu-ju/spark-xue-xi-bi-ji/"/>
-    <id>http://buerlog.top/2022/09/11/cheng-xu-she-ji/da-shu-ju/spark-xue-xi-bi-ji/</id>
-    <published>2022-09-11T15:04:09.000Z</published>
-    <updated>2022-12-24T05:01:11.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;简述&quot;&gt;简述&lt;a class=&quot;anchor&quot; href=&quot;#简述&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Spark提供了一种称为RDD（resilient distributed dataset，弹性分布式数据集）的简单逻辑数据结，是Spark最基本的抽象。DataFrame和DataSet都是基于RDD构建的。RDD操作分为转化操作和行为操作。&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
     <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
     <category term="Spark" scheme="http://buerlog.top/tags/Spark/"/>
-    
+    <id>http://buerlog.top/2022/09/11/cheng-xu-she-ji/da-shu-ju/spark-xue-xi-bi-ji/</id>
+    <link href="http://buerlog.top/2022/09/11/cheng-xu-she-ji/da-shu-ju/spark-xue-xi-bi-ji/"/>
+    <published>2022-09-11T15:04:09.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="简述">简述<a class="anchor" href="#简述">¶</a></h2>
+<p>Spark提供了一种称为RDD（resilient distributed dataset，弹性分布式数据集）的简单逻辑数据结，是Spark最基本的抽象。DataFrame和DataSet都是基于RDD构建的。RDD操作分为转化操作和行为操作。</p>
+<p><img]]>
+    </summary>
+    <title>Spark学习笔记</title>
+    <updated>2022-12-24T05:01:11.000Z</updated>
   </entry>
-  
   <entry>
-    <title>软路由诞生记</title>
-    <link href="http://buerlog.top/2022/06/19/jing-yan-zong-jie/ruan-lu-you-dan-sheng-ji/"/>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
     <id>http://buerlog.top/2022/06/19/jing-yan-zong-jie/ruan-lu-you-dan-sheng-ji/</id>
+    <link href="http://buerlog.top/2022/06/19/jing-yan-zong-jie/ruan-lu-you-dan-sheng-ji/"/>
     <published>2022-06-19T07:48:41.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="摘要">摘要<a class="anchor" href="#摘要">¶</a></h2>
+<h2 id="网络拓扑">网络拓扑<a class="anchor" href="#网络拓扑">¶</a></h2>
+<h2 id="硬件">硬件<a class="anchor"]]>
+    </summary>
+    <title>软路由诞生记</title>
     <updated>2024-02-27T01:43:30.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;a class=&quot;anchor&quot; href=&quot;#摘要&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;网络拓扑&quot;&gt;网络拓扑&lt;a class=&quot;anchor&quot; href=&quot;#网络拓扑&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;硬件&quot;&gt;硬件&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
   </entry>
-  
   <entry>
-    <title>开源代码阅读指北</title>
-    <link href="http://buerlog.top/2022/05/23/jing-yan-zong-jie/kai-yuan-dai-ma-yue-du-zhi-bei/"/>
-    <id>http://buerlog.top/2022/05/23/jing-yan-zong-jie/kai-yuan-dai-ma-yue-du-zhi-bei/</id>
-    <published>2022-05-23T02:28:16.000Z</published>
-    <updated>2022-05-23T16:44:31.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;需求&quot;&gt;需求&lt;a class=&quot;anchor&quot; href=&quot;#需求&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;源码源码算是打工人对于技术最后的追求或者是内卷的手段的必备技能。因此，阅读开源项目也算成为了打工人的必备技能。那么这篇文章也就应运而生了。本文目的有二：一是整理学到的方法论，集百家之长，指导自己的学习；二是作为整理后的产物，输出保证学习的效果。&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
     <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
     <category term="源码阅读" scheme="http://buerlog.top/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/"/>
-    
+    <id>http://buerlog.top/2022/05/23/jing-yan-zong-jie/kai-yuan-dai-ma-yue-du-zhi-bei/</id>
+    <link href="http://buerlog.top/2022/05/23/jing-yan-zong-jie/kai-yuan-dai-ma-yue-du-zhi-bei/"/>
+    <published>2022-05-23T02:28:16.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="需求">需求<a class="anchor" href="#需求">¶</a></h2>
+<p>源码源码算是打工人对于技术最后的追求或者是内卷的手段的必备技能。因此，阅读开源项目也算成为了打工人的必备技能。那么这篇文章也就应运而生了。本文目的有二：一是整理学到的方法论，集百家之长，指导自己的学习；二是作为整理后的产物，输出保证学习的效果。</p>
+<h2]]>
+    </summary>
+    <title>开源代码阅读指北</title>
+    <updated>2022-05-23T16:44:31.000Z</updated>
   </entry>
-  
   <entry>
-    <title>BurpSuite使用笔记</title>
-    <link href="http://buerlog.top/2022/05/18/jing-yan-zong-jie/burpsuite-shi-yong-bi-ji/"/>
-    <id>http://buerlog.top/2022/05/18/jing-yan-zong-jie/burpsuite-shi-yong-bi-ji/</id>
-    <published>2022-05-18T14:32:54.000Z</published>
-    <updated>2022-05-18T15:06:35.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;安装&lt;a class=&quot;anchor&quot; href=&quot;#安装&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;从&lt;a</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
     <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
     <category term="BurpSuite" scheme="http://buerlog.top/tags/BurpSuite/"/>
-    
+    <id>http://buerlog.top/2022/05/18/jing-yan-zong-jie/burpsuite-shi-yong-bi-ji/</id>
+    <link href="http://buerlog.top/2022/05/18/jing-yan-zong-jie/burpsuite-shi-yong-bi-ji/"/>
+    <published>2022-05-18T14:32:54.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="安装">安装<a class="anchor" href="#安装">¶</a></h2>
+<ol>
+<li>
+<p>从<a]]>
+    </summary>
+    <title>BurpSuite使用笔记</title>
+    <updated>2022-05-18T15:06:35.000Z</updated>
   </entry>
-  
   <entry>
-    <title>分布式链路追踪笔记</title>
-    <link href="http://buerlog.top/2022/05/15/cheng-xu-she-ji/fen-bu-shi-lian-lu-zhui-zong-bi-ji/"/>
-    <id>http://buerlog.top/2022/05/15/cheng-xu-she-ji/fen-bu-shi-lian-lu-zhui-zong-bi-ji/</id>
-    <published>2022-05-15T13:57:07.000Z</published>
-    <updated>2022-05-15T14:40:45.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;参考文献&quot;&gt;参考文献&lt;a class=&quot;anchor&quot; href=&quot;#参考文献&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;字节技术团队，&lt;a</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
     <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
     <category term="分布式" scheme="http://buerlog.top/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
     <category term="链路追踪" scheme="http://buerlog.top/tags/%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Promethues与Grafana使用笔记</title>
-    <link href="http://buerlog.top/2022/05/05/cheng-xu-she-ji/promethues-yu-grafana-shi-yong-bi-ji/"/>
-    <id>http://buerlog.top/2022/05/05/cheng-xu-she-ji/promethues-yu-grafana-shi-yong-bi-ji/</id>
-    <published>2022-05-05T10:28:03.000Z</published>
-    <updated>2022-05-07T15:18:57.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;需求背景&quot;&gt;需求背景&lt;a class=&quot;anchor&quot; href=&quot;#需求背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;为了避免因为服务器资源或者温度导致的服务不可访问等问题的出现，需要监测各台服务器在一定时间间隔内的运行状态，这样即使出现了问题，也能更好的定位问题发生的原因，进而避免机器本身访问不可达。&lt;/p&gt;
-&lt;h2 id=&quot;整体思路&quot;&gt;整体思路&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Promethues" scheme="http://buerlog.top/tags/Promethues/"/>
-    
-    <category term="Grafana" scheme="http://buerlog.top/tags/Grafana/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Clash使用教程</title>
-    <link href="http://buerlog.top/2022/04/24/jing-yan-zong-jie/clash-shi-yong-jiao-cheng/"/>
-    <id>http://buerlog.top/2022/04/24/jing-yan-zong-jie/clash-shi-yong-jiao-cheng/</id>
-    <published>2022-04-23T17:06:00.000Z</published>
-    <updated>2022-04-23T17:38:29.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;安装&lt;a class=&quot;anchor&quot; href=&quot;#安装&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;下载&quot;&gt;下载&lt;a class=&quot;anchor&quot; href=&quot;#下载&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;下载&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="Clash" scheme="http://buerlog.top/tags/Clash/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基金学习笔记</title>
-    <link href="http://buerlog.top/2022/04/18/si-wei-jin-hua/ji-jin-xue-xi-bi-ji/"/>
-    <id>http://buerlog.top/2022/04/18/si-wei-jin-hua/ji-jin-xue-xi-bi-ji/</id>
-    <published>2022-04-18T14:58:12.000Z</published>
-    <updated>2022-04-19T01:05:12.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;什么是基金&quot;&gt;什么是基金&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="思维进化" scheme="http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/"/>
-    
-    
-    <category term="基金" scheme="http://buerlog.top/tags/%E5%9F%BA%E9%87%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>序列化与反序列化</title>
-    <link href="http://buerlog.top/2022/04/15/cheng-xu-she-ji/xu-lie-hua-yu-fan-xu-lie-hua/"/>
-    <id>http://buerlog.top/2022/04/15/cheng-xu-she-ji/xu-lie-hua-yu-fan-xu-lie-hua/</id>
-    <published>2022-04-15T03:17:58.000Z</published>
-    <updated>2022-06-05T10:09:28.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="序列化" scheme="http://buerlog.top/tags/%E5%BA%8F%E5%88%97%E5%8C%96/"/>
-    
-    <category term="反序列化" scheme="http://buerlog.top/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dlv使用笔记</title>
-    <link href="http://buerlog.top/2022/04/05/cheng-xu-she-ji/go/dlv-shi-yong-bi-ji/"/>
-    <id>http://buerlog.top/2022/04/05/cheng-xu-she-ji/go/dlv-shi-yong-bi-ji/</id>
-    <published>2022-04-05T08:56:17.000Z</published>
-    <updated>2022-10-30T17:27:29.000Z</updated>
-    
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TiDB及其TiKV学习记录</title>
-    <link href="http://buerlog.top/2022/04/02/kv-cun-chu/tidb-ji-qi-tikv-xue-xi-ji-lu/"/>
-    <id>http://buerlog.top/2022/04/02/kv-cun-chu/tidb-ji-qi-tikv-xue-xi-ji-lu/</id>
-    <published>2022-04-01T16:40:15.000Z</published>
-    <updated>2022-04-02T16:33:30.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;总体概览&quot;&gt;总体概览&lt;a class=&quot;anchor&quot; href=&quot;#总体概览&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;整个TiDB体系有三个部分组成：PD Cluster、Storage Cluster、TiDB Server。&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
-    <category term="TiKV" scheme="http://buerlog.top/tags/TiKV/"/>
-    
-    <category term="TiDB" scheme="http://buerlog.top/tags/TiDB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博文收获总结</title>
-    <link href="http://buerlog.top/2022/03/27/si-wei-jin-hua/bo-wen-shou-huo-zong-jie/"/>
-    <id>http://buerlog.top/2022/03/27/si-wei-jin-hua/bo-wen-shou-huo-zong-jie/</id>
-    <published>2022-03-26T17:30:12.000Z</published>
-    <updated>2022-03-27T03:41:30.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="思维进化" scheme="http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/"/>
-    
-    
-    <category term="博文" scheme="http://buerlog.top/tags/%E5%8D%9A%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Elasticsearch核心技术整理</title>
-    <link href="http://buerlog.top/2022/03/18/fen-bu-shi/elasticsearch-he-xin-ji-zhu-zheng-li/"/>
-    <id>http://buerlog.top/2022/03/18/fen-bu-shi/elasticsearch-he-xin-ji-zhu-zheng-li/</id>
-    <published>2022-03-18T13:09:34.000Z</published>
-    <updated>2025-08-25T17:33:56.000Z</updated>
-    
-    
-    
-    
-    <category term="分布式" scheme="http://buerlog.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-    
-    <category term="Elasticsearch" scheme="http://buerlog.top/tags/Elasticsearch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于Go实现分布式对象存储</title>
-    <link href="http://buerlog.top/2022/03/18/kv-cun-chu/ji-yu-go-shi-xian-fen-bu-shi-dui-xiang-cun-chu/"/>
-    <id>http://buerlog.top/2022/03/18/kv-cun-chu/ji-yu-go-shi-xian-fen-bu-shi-dui-xiang-cun-chu/</id>
-    <published>2022-03-18T12:13:39.000Z</published>
-    <updated>2022-03-20T10:46:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
-    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
-    
-    <category term="分布式系统" scheme="http://buerlog.top/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>效应整理</title>
-    <link href="http://buerlog.top/2022/03/14/jing-yan-zong-jie/xiao-ying-zheng-li/"/>
-    <id>http://buerlog.top/2022/03/14/jing-yan-zong-jie/xiao-ying-zheng-li/</id>
-    <published>2022-03-14T01:24:38.000Z</published>
-    <updated>2022-03-14T01:56:46.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;本文归纳整理学习生活过程中遇到的效应或问题，以便查阅。&lt;/p&gt;
-&lt;h2 id=&quot;惊群效应-1&quot;&gt;惊群效应&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="效应" scheme="http://buerlog.top/tags/%E6%95%88%E5%BA%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>咖啡学习笔记</title>
-    <link href="http://buerlog.top/2022/03/14/jing-yan-zong-jie/ka-pei-xue-xi-bi-ji/"/>
-    <id>http://buerlog.top/2022/03/14/jing-yan-zong-jie/ka-pei-xue-xi-bi-ji/</id>
-    <published>2022-03-13T17:05:45.000Z</published>
-    <updated>2022-03-14T01:56:46.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;认识咖啡&quot;&gt;认识咖啡&lt;a class=&quot;anchor&quot; href=&quot;#认识咖啡&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;阿拉卡比与罗布斯塔&quot;&gt;阿拉卡比与罗布斯塔&lt;a class=&quot;anchor&quot; href=&quot;#阿拉卡比与罗布斯塔&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;我们通常所说的咖啡树主要就是阿拉比卡（Coffea arabica）和卡内佛拉咖啡树属（Coffea</summary>
-        
-      
-    
-    
-    
-    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="咖啡" scheme="http://buerlog.top/tags/%E5%92%96%E5%95%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go并发编程整理</title>
-    <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/go/go-bing-fa-bian-cheng-zheng-li/"/>
-    <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/go/go-bing-fa-bian-cheng-zheng-li/</id>
-    <published>2022-03-12T14:51:56.000Z</published>
-    <updated>2024-10-26T13:04:32.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Context&quot;&gt;Context&lt;a class=&quot;anchor&quot; href=&quot;#Context&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;在Go1.7版本引入官方库，可以在API边界之间以及过程之间传递截止时间、取消时间或其他与请求相关的数据。&lt;/p&gt;
-&lt;pre class=&quot;mermaid&quot;&gt;graph</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>消息队列学习</title>
-    <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/xiao-xi-dui-lie-xue-xi/"/>
-    <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/xiao-xi-dui-lie-xue-xi/</id>
-    <published>2022-03-12T14:07:51.000Z</published>
-    <updated>2022-06-09T01:30:23.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;pre class=&quot;mermaid&quot;&gt;flowchart</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="消息队列" scheme="http://buerlog.top/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis学习</title>
-    <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/redis-xue-xi/"/>
-    <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/redis-xue-xi/</id>
-    <published>2022-03-12T14:07:36.000Z</published>
-    <updated>2023-06-13T00:09:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;常用命令和数据类型&quot;&gt;常用命令和数据类型&lt;a class=&quot;anchor&quot; href=&quot;#常用命令和数据类型&quot;&gt;¶&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id=&quot;String&quot;&gt;String&lt;a class=&quot;anchor&quot; href=&quot;#String&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;SET&quot;&gt;SET&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Redis" scheme="http://buerlog.top/tags/Redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《MySQL是怎样运行的》整理</title>
-    <link href="http://buerlog.top/2022/03/07/kv-cun-chu/mysql-shi-zen-yang-yun-xing-de-zheng-li/"/>
-    <id>http://buerlog.top/2022/03/07/kv-cun-chu/mysql-shi-zen-yang-yun-xing-de-zheng-li/</id>
-    <published>2022-03-07T09:09:33.000Z</published>
-    <updated>2022-03-07T09:19:05.000Z</updated>
-    
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
-    <category term="数据库" scheme="http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="MySQL" scheme="http://buerlog.top/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《MySQL技术内幕：InnoDB存储引擎》整理</title>
-    <link href="http://buerlog.top/2022/03/07/kv-cun-chu/mysql-ji-zhu-nei-mu-innodb-cun-chu-yin-qing-zheng-li/"/>
-    <id>http://buerlog.top/2022/03/07/kv-cun-chu/mysql-ji-zhu-nei-mu-innodb-cun-chu-yin-qing-zheng-li/</id>
-    <published>2022-03-07T09:09:02.000Z</published>
-    <updated>2022-03-07T09:19:05.000Z</updated>
-    
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
-    <category term="数据库" scheme="http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="MySQL" scheme="http://buerlog.top/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CMU-15445</title>
-    <link href="http://buerlog.top/2022/03/04/kv-cun-chu/cmu-15445/"/>
-    <id>http://buerlog.top/2022/03/04/kv-cun-chu/cmu-15445/</id>
-    <published>2022-03-04T15:41:03.000Z</published>
-    <updated>2022-03-20T17:18:59.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
-    <category term="数据库" scheme="http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《流畅的Python》整理</title>
-    <link href="http://buerlog.top/2022/03/04/cheng-xu-she-ji/python/liu-chang-de-python-zheng-li/"/>
-    <id>http://buerlog.top/2022/03/04/cheng-xu-she-ji/python/liu-chang-de-python-zheng-li/</id>
-    <published>2022-03-04T12:36:11.000Z</published>
-    <updated>2022-10-30T17:27:29.000Z</updated>
-    
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Python" scheme="http://buerlog.top/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytest教程</title>
-    <link href="http://buerlog.top/2022/03/04/ce-shi/pytest-jiao-cheng/"/>
-    <id>http://buerlog.top/2022/03/04/ce-shi/pytest-jiao-cheng/</id>
-    <published>2022-03-04T10:48:02.000Z</published>
-    <updated>2022-03-08T15:44:29.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="测试" scheme="http://buerlog.top/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-    <category term="Python" scheme="http://buerlog.top/tags/Python/"/>
-    
-    <category term="测试开发" scheme="http://buerlog.top/tags/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode多线程题</title>
-    <link href="http://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcode-duo-xian-cheng-ti/"/>
-    <id>http://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcode-duo-xian-cheng-ti/</id>
-    <published>2022-03-04T04:32:15.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetcodeShell题</title>
-    <link href="http://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcodeshell-ti/"/>
-    <id>http://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcodeshell-ti/</id>
-    <published>2022-03-04T04:31:13.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-    <category term="Shell" scheme="http://buerlog.top/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL整理与总结</title>
-    <link href="http://buerlog.top/2022/03/01/kv-cun-chu/mysql-zheng-li-yu-zong-jie/"/>
-    <id>http://buerlog.top/2022/03/01/kv-cun-chu/mysql-zheng-li-yu-zong-jie/</id>
-    <published>2022-03-01T13:06:10.000Z</published>
-    <updated>2024-03-20T16:09:19.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;MySQL基础架构&quot;&gt;MySQL基础架构&lt;a class=&quot;anchor&quot; href=&quot;#MySQL基础架构&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
-    <category term="MySQL" scheme="http://buerlog.top/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>生日碰撞和哈希函数</title>
-    <link href="http://buerlog.top/2022/02/16/suan-fa/sheng-ri-peng-zhuang-he-ha-xi-han-shu/"/>
-    <id>http://buerlog.top/2022/02/16/suan-fa/sheng-ri-peng-zhuang-he-ha-xi-han-shu/</id>
-    <published>2022-02-16T09:15:56.000Z</published>
-    <updated>2022-02-17T01:30:29.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;所谓哈希（hash），就是将不同的输入映射成独一无二的、固定长度的值（又称&quot;哈希值&quot;）。它是最常见的软件运算之一。&lt;/p&gt;
-&lt;p&gt;如果不同的输入得到了同一个哈希值，就发生了&quot;哈希碰撞&quot;（collision）。&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="哈希" scheme="http://buerlog.top/tags/%E5%93%88%E5%B8%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LRU、LFU和TinyLFU算法</title>
-    <link href="http://buerlog.top/2022/02/03/suan-fa/lru-lfu-he-tinylfu-suan-fa/"/>
-    <id>http://buerlog.top/2022/02/03/suan-fa/lru-lfu-he-tinylfu-suan-fa/</id>
-    <published>2022-02-03T15:08:47.000Z</published>
-    <updated>2022-02-03T15:25:55.000Z</updated>
-    
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="LRU" scheme="http://buerlog.top/tags/LRU/"/>
-    
-    <category term="LFU" scheme="http://buerlog.top/tags/LFU/"/>
-    
-    <category term="TinyLFU" scheme="http://buerlog.top/tags/TinyLFU/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据压缩算法</title>
-    <link href="http://buerlog.top/2022/02/02/suan-fa/shu-ju-ya-suo-suan-fa/"/>
-    <id>http://buerlog.top/2022/02/02/suan-fa/shu-ju-ya-suo-suan-fa/</id>
-    <published>2022-02-01T17:02:52.000Z</published>
-    <updated>2022-02-01T17:13:32.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;压缩算法分类&quot;&gt;压缩算法分类&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="数据压缩" scheme="http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>A+B</title>
-    <link href="http://buerlog.top/2022/01/28/suan-fa/a-b/"/>
-    <id>http://buerlog.top/2022/01/28/suan-fa/a-b/</id>
-    <published>2022-01-28T08:54:44.000Z</published>
-    <updated>2022-01-28T09:21:04.000Z</updated>
-    
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据处理方案</title>
-    <link href="http://buerlog.top/2022/01/24/suan-fa/da-shu-ju-chu-li-fang-an/"/>
-    <id>http://buerlog.top/2022/01/24/suan-fa/da-shu-ju-chu-li-fang-an/</id>
-    <published>2022-01-24T09:25:55.000Z</published>
-    <updated>2022-02-03T15:25:55.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;所谓的海量数据是指海量数据的存储、处理和操作。正是因为数据量太大，所以导致要么无法在短时间迅速完成，要么无法一次性载入内存。&lt;/p&gt;
-&lt;p&gt;数据去重（data</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="去重" scheme="http://buerlog.top/tags/%E5%8E%BB%E9%87%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树算法整理</title>
-    <link href="http://buerlog.top/2022/01/23/suan-fa/shu-suan-fa-zheng-li/"/>
-    <id>http://buerlog.top/2022/01/23/suan-fa/shu-suan-fa-zheng-li/</id>
-    <published>2022-01-23T08:04:00.000Z</published>
-    <updated>2022-01-23T14:19:25.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;二叉树&quot;&gt;二叉树&lt;a class=&quot;anchor&quot; href=&quot;#二叉树&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;平衡二叉树&quot;&gt;平衡二叉树&lt;a class=&quot;anchor&quot; href=&quot;#平衡二叉树&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;红黑树&quot;&gt;红黑树&lt;a class=&quot;anchor&quot; href=&quot;#红黑树&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;B树&quot;&gt;B树&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="树" scheme="http://buerlog.top/tags/%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《A Primer on Memory Consistency and Cache Coherence》阅读总结</title>
-    <link href="http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/"/>
-    <id>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/</id>
-    <published>2022-01-23T04:07:30.000Z</published>
-    <updated>2022-01-23T04:49:43.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;参考文献&quot;&gt;参考文献&lt;a class=&quot;anchor&quot; href=&quot;#参考文献&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;[A Primer on Memory Consistency and Cache</summary>
-        
-      
-    
-    
-    
-    <category term="计算机基础" scheme="http://buerlog.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
-    
-    
-    <category term="Paper" scheme="http://buerlog.top/tags/Paper/"/>
-    
-    <category term="内存" scheme="http://buerlog.top/tags/%E5%86%85%E5%AD%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《What Every Programmer Should Know About Memory》阅读总结</title>
-    <link href="http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/what-every-programmer-should-know-about-memory-yue-du-zong-jie/"/>
-    <id>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/what-every-programmer-should-know-about-memory-yue-du-zong-jie/</id>
-    <published>2022-01-23T04:07:09.000Z</published>
-    <updated>2022-01-23T04:49:43.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;参考文献&quot;&gt;参考文献&lt;a class=&quot;anchor&quot; href=&quot;#参考文献&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;[What Every Programmer Should Know About</summary>
-        
-      
-    
-    
-    
-    <category term="计算机基础" scheme="http://buerlog.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
-    
-    
-    <category term="Paper" scheme="http://buerlog.top/tags/Paper/"/>
-    
-    <category term="内存" scheme="http://buerlog.top/tags/%E5%86%85%E5%AD%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Presto实战与演练</title>
-    <link href="http://buerlog.top/2022/01/21/cheng-xu-she-ji/da-shu-ju/presto-shi-zhan-yu-yan-lian/"/>
-    <id>http://buerlog.top/2022/01/21/cheng-xu-she-ji/da-shu-ju/presto-shi-zhan-yu-yan-lian/</id>
-    <published>2022-01-21T13:26:54.000Z</published>
-    <updated>2022-12-03T16:37:37.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Presto" scheme="http://buerlog.top/tags/Presto/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题2101-2189</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2101-2200/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2101-2200/</id>
-    <published>2022-01-16T15:46:34.000Z</published>
-    <updated>2024-03-03T15:28:50.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;2101-2110&quot;&gt;2101-2110&lt;a class=&quot;anchor&quot; href=&quot;#2101-2110&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;2111-2120&quot;&gt;2111-2120&lt;a class=&quot;anchor&quot; href=&quot;#2111-2120&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;2121-2130&quot;&gt;2121-2130&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题2001-2100</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2001-2100/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2001-2100/</id>
-    <published>2022-01-16T15:46:18.000Z</published>
-    <updated>2022-03-28T15:48:29.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;2001-2010&quot;&gt;2001-2010&lt;a class=&quot;anchor&quot; href=&quot;#2001-2010&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;2011-2020&quot;&gt;2011-2020&lt;a class=&quot;anchor&quot; href=&quot;#2011-2020&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;2021-2030&quot;&gt;2021-2030&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题1901-2000</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1901-2000/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1901-2000/</id>
-    <published>2022-01-16T15:44:38.000Z</published>
-    <updated>2023-02-12T08:52:02.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1901-1910&quot;&gt;1901-1910&lt;a class=&quot;anchor&quot; href=&quot;#1901-1910&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1911-1920&quot;&gt;1911-1920&lt;a class=&quot;anchor&quot; href=&quot;#1911-1920&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1921-1930&quot;&gt;1921-1930&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题1801-1900</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1801-1900/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1801-1900/</id>
-    <published>2022-01-16T15:44:29.000Z</published>
-    <updated>2023-01-30T11:21:10.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1801-1810&quot;&gt;1801-1810&lt;a class=&quot;anchor&quot; href=&quot;#1801-1810&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1811-1820&quot;&gt;1811-1820&lt;a class=&quot;anchor&quot; href=&quot;#1811-1820&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1821-1830&quot;&gt;1821-1830&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题1701-1800</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1701-1800/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1701-1800/</id>
-    <published>2022-01-16T15:44:20.000Z</published>
-    <updated>2023-02-09T01:42:28.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1701-1710&quot;&gt;1701-1710&lt;a class=&quot;anchor&quot; href=&quot;#1701-1710&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1711-1720&quot;&gt;1711-1720&lt;a class=&quot;anchor&quot; href=&quot;#1711-1720&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1721-1730&quot;&gt;1721-1730&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题1601-1700</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1601-1700/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1601-1700/</id>
-    <published>2022-01-16T15:44:13.000Z</published>
-    <updated>2023-02-09T01:42:28.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1601-1610&quot;&gt;1601-1610&lt;a class=&quot;anchor&quot; href=&quot;#1601-1610&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;1604-警告一小时内使用相同员工工卡大于等于3次的人&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题1501-1600</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1501-1600/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1501-1600/</id>
-    <published>2022-01-16T15:44:06.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1501-1510&quot;&gt;1501-1510&lt;a class=&quot;anchor&quot; href=&quot;#1501-1510&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1511-1520&quot;&gt;1511-1520&lt;a class=&quot;anchor&quot; href=&quot;#1511-1520&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1521-1530&quot;&gt;1521-1530&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题1401-1500</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1401-1500/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1401-1500/</id>
-    <published>2022-01-16T15:43:57.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1401-1410&quot;&gt;1401-1410&lt;a class=&quot;anchor&quot; href=&quot;#1401-1410&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1411-1420&quot;&gt;1411-1420&lt;a class=&quot;anchor&quot; href=&quot;#1411-1420&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1421-1430&quot;&gt;1421-1430&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题1301-1400</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1301-1400/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1301-1400/</id>
-    <published>2022-01-16T15:43:50.000Z</published>
-    <updated>2023-02-09T01:42:28.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1301-1310&quot;&gt;1301-1310&lt;a class=&quot;anchor&quot; href=&quot;#1301-1310&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1311-1320&quot;&gt;1311-1320&lt;a class=&quot;anchor&quot; href=&quot;#1311-1320&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h4 id=&quot;1314-矩阵区域和&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题1201-1300</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1201-1300/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1201-1300/</id>
-    <published>2022-01-16T15:43:43.000Z</published>
-    <updated>2023-12-10T17:06:32.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1201-1210&quot;&gt;1201-1210&lt;a class=&quot;anchor&quot; href=&quot;#1201-1210&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1211-1220&quot;&gt;1211-1220&lt;a class=&quot;anchor&quot; href=&quot;#1211-1220&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1221-1230&quot;&gt;1221-1230&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题1101-1200</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1101-1200/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1101-1200/</id>
-    <published>2022-01-16T15:43:36.000Z</published>
-    <updated>2023-10-08T02:06:17.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1101-1110&quot;&gt;1101-1110&lt;a class=&quot;anchor&quot; href=&quot;#1101-1110&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1111-1120&quot;&gt;1111-1120&lt;a class=&quot;anchor&quot; href=&quot;#1111-1120&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;1143-最长公共子序列&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题1001-1100</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1001-1100/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1001-1100/</id>
-    <published>2022-01-16T15:43:29.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1001-1010&quot;&gt;1001-1010&lt;a class=&quot;anchor&quot; href=&quot;#1001-1010&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1011-1020&quot;&gt;1011-1020&lt;a class=&quot;anchor&quot; href=&quot;#1011-1020&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;1021-1030&quot;&gt;1021-1030&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题《程序员面试金典(第六版)》</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-cheng-xu-yuan-mian-shi-jin-dian-di-liu-ban/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-cheng-xu-yuan-mian-shi-jin-dian-di-liu-ban/</id>
-    <published>2022-01-16T09:48:14.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;面试题-05-01-插入&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/insert-into-bits-lcci/&quot;&gt;面试题 05.01. 插入&lt;/a&gt;&lt;a class=&quot;anchor&quot; href=&quot;#面试题-05-01-插入&quot;&gt;¶&lt;/a&gt;&lt;/h4&gt;
-&lt;pre class=&quot;line-numbers language-cpp&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetcodeSQL题1378-2175</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcodesql-ti-1378-2175/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcodesql-ti-1378-2175/</id>
-    <published>2022-01-16T09:44:04.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="SQL" scheme="http://buerlog.top/tags/SQL/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetcodeSQL题175-1369</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcodesql-ti-175-1369/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcodesql-ti-175-1369/</id>
-    <published>2022-01-16T09:43:43.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="SQL" scheme="http://buerlog.top/tags/SQL/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题901-1000</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-901-1000/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-901-1000/</id>
-    <published>2022-01-16T09:42:38.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;901-910&quot;&gt;901-910&lt;a class=&quot;anchor&quot; href=&quot;#901-910&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;911-920&quot;&gt;911-920&lt;a class=&quot;anchor&quot; href=&quot;#911-920&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;921-930&quot;&gt;921-930&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题801-900</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-801-900/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-801-900/</id>
-    <published>2022-01-16T09:42:30.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;801-810&quot;&gt;801-810&lt;a class=&quot;anchor&quot; href=&quot;#801-810&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;811-820&quot;&gt;811-820&lt;a class=&quot;anchor&quot; href=&quot;#811-820&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;821-830&quot;&gt;821-830&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题701-800</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-701-800/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-701-800/</id>
-    <published>2022-01-16T09:42:15.000Z</published>
-    <updated>2023-01-01T08:22:04.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;701-710&quot;&gt;701-710&lt;a class=&quot;anchor&quot; href=&quot;#701-710&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h4 id=&quot;704-二分查找&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/binary-search/&quot;&gt;704. 二分查找&lt;/a&gt;&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题601-700</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-601-700/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-601-700/</id>
-    <published>2022-01-16T09:42:05.000Z</published>
-    <updated>2022-03-26T18:16:45.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;601-610&quot;&gt;601-610&lt;a class=&quot;anchor&quot; href=&quot;#601-610&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;611-620&quot;&gt;611-620&lt;a class=&quot;anchor&quot; href=&quot;#611-620&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;621-630&quot;&gt;621-630&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题501-600</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-501-600/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-501-600/</id>
-    <published>2022-01-16T09:41:55.000Z</published>
-    <updated>2022-03-04T04:43:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;501-510&quot;&gt;501-510&lt;a class=&quot;anchor&quot; href=&quot;#501-510&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h4 id=&quot;503-下一个更大元素-II&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/next-greater-element-ii/&quot;&gt;503. 下一个更大元素 II&lt;/a&gt;&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题401-500</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-401-500/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-401-500/</id>
-    <published>2022-01-16T09:40:46.000Z</published>
-    <updated>2022-04-02T16:33:30.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;401-410&quot;&gt;401-410&lt;a class=&quot;anchor&quot; href=&quot;#401-410&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;411-420&quot;&gt;411-420&lt;a class=&quot;anchor&quot; href=&quot;#411-420&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h4 id=&quot;415-字符串相加&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题301-400</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-301-400/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-301-400/</id>
-    <published>2022-01-16T09:40:32.000Z</published>
-    <updated>2023-02-20T01:42:07.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;301-310&quot;&gt;301-310&lt;a class=&quot;anchor&quot; href=&quot;#301-310&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h4 id=&quot;303-区域和检索-数组不可变&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/range-sum-query-immutable/&quot;&gt;303. 区域和检索 - 数组不可变&lt;/a&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题201-300</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-201-300/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-201-300/</id>
-    <published>2022-01-16T09:40:18.000Z</published>
-    <updated>2023-12-10T17:06:32.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;201-210&quot;&gt;201-210&lt;a class=&quot;anchor&quot; href=&quot;#201-210&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;204-计数质数&quot;&gt;&lt;a href=&quot;https://leetcode.cn/problems/count-primes/&quot;&gt;204. 计数质数&lt;/a&gt;&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题101-200</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-101-200/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-101-200/</id>
-    <published>2022-01-16T09:40:08.000Z</published>
-    <updated>2023-10-29T03:40:17.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;101-110&quot;&gt;101-110&lt;a class=&quot;anchor&quot; href=&quot;#101-110&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://leetcode.cn/problems/binary-tree-level-order-traversal/description/&quot;&gt;102.二叉树的层序遍历&lt;/a&gt;&lt;/p&gt;
-&lt;pre</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode算法题1-100</title>
-    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1-100/"/>
-    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1-100/</id>
-    <published>2022-01-16T09:40:00.000Z</published>
-    <updated>2024-01-01T08:04:24.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-10&quot;&gt;1-10&lt;a class=&quot;anchor&quot; href=&quot;#1-10&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h4 id=&quot;1-两数之和&quot;&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/two-sum/&quot;&gt;1. 两数之和&lt;/a&gt;&lt;a class=&quot;anchor&quot; href=&quot;#1-两数之和&quot;&gt;¶&lt;/a&gt;&lt;/h4&gt;
-&lt;pre</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
-    
-    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HQL</title>
-    <link href="http://buerlog.top/2022/01/14/cheng-xu-she-ji/da-shu-ju/hql-xue-xi/"/>
-    <id>http://buerlog.top/2022/01/14/cheng-xu-she-ji/da-shu-ju/hql-xue-xi/</id>
-    <published>2022-01-14T02:51:41.000Z</published>
-    <updated>2022-12-03T16:37:37.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;HQL（Hibernate Query Language）是面向对象的查询语言。，它与SQL查询语言类似。 在 Hibernate 提供的各种检索方式中, HQL 是使用最广的一种检索方式.</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="HQL" scheme="http://buerlog.top/tags/HQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>求二进制中1的个数</title>
-    <link href="http://buerlog.top/2021/12/27/suan-fa/qiu-er-jin-zhi-zhong-1-de-ge-shu/"/>
-    <id>http://buerlog.top/2021/12/27/suan-fa/qiu-er-jin-zhi-zhong-1-de-ge-shu/</id>
-    <published>2021-12-27T08:12:07.000Z</published>
-    <updated>2022-01-08T09:37:15.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;问题描述&quot;&gt;问题描述&lt;a class=&quot;anchor&quot; href=&quot;#问题描述&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;任意给定一个32位无符号整数n，求n的二进制表示中1的个数。&lt;/p&gt;
-&lt;h2 id=&quot;普通法&quot;&gt;普通法&lt;a class=&quot;anchor&quot; href=&quot;#普通法&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;原理：移位+计数&lt;/p&gt;
-&lt;pre class=&quot;line-numbers</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用SQL整理</title>
-    <link href="http://buerlog.top/2021/12/21/cheng-xu-she-ji/da-shu-ju/chang-yong-sql-zheng-li/"/>
-    <id>http://buerlog.top/2021/12/21/cheng-xu-she-ji/da-shu-ju/chang-yong-sql-zheng-li/</id>
-    <published>2021-12-21T13:04:24.000Z</published>
-    <updated>2022-12-03T16:37:37.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;窗口函数&quot;&gt;窗口函数&lt;a class=&quot;anchor&quot; href=&quot;#窗口函数&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;什么是窗口函数&quot;&gt;什么是窗口函数&lt;a class=&quot;anchor&quot; href=&quot;#什么是窗口函数&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;窗口函数，也叫OLAP函数（Online Anallytical</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="SQL" scheme="http://buerlog.top/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据存储与检索</title>
-    <link href="http://buerlog.top/2021/11/13/kv-cun-chu/shu-ju-cun-chu-yu-jian-suo/"/>
-    <id>http://buerlog.top/2021/11/13/kv-cun-chu/shu-ju-cun-chu-yu-jian-suo/</id>
-    <published>2021-11-13T08:25:33.000Z</published>
-    <updated>2021-11-14T12:43:16.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;现在主流的数据存储与检索引擎可以大致分为两种:OLTP和OLAP.&lt;/p&gt;
-&lt;p&gt;OLTP指的是online transaction processing.&lt;/p&gt;
-&lt;p&gt;OLAP指的是online analysis</summary>
-        
-      
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>LSM Tree整理与总结</title>
-    <link href="http://buerlog.top/2021/11/13/kv-cun-chu/lsm-tree-zheng-li-yu-zong-jie/"/>
-    <id>http://buerlog.top/2021/11/13/kv-cun-chu/lsm-tree-zheng-li-yu-zong-jie/</id>
-    <published>2021-11-13T06:56:18.000Z</published>
-    <updated>2021-11-14T10:14:43.000Z</updated>
-    
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mac使用整理</title>
-    <link href="http://buerlog.top/2021/11/06/jing-yan-zong-jie/mac-shi-yong-zheng-li/"/>
-    <id>http://buerlog.top/2021/11/06/jing-yan-zong-jie/mac-shi-yong-zheng-li/</id>
-    <published>2021-11-06T07:04:13.000Z</published>
-    <updated>2025-08-25T17:33:56.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;摘要&quot;&gt;摘要&lt;a class=&quot;anchor&quot; href=&quot;#摘要&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;本文旨在记录和汇总自己在工作以及学习过程中所使用的软件及其所遇问题的解决方案,以便日后所需.&lt;/p&gt;
-&lt;h2 id=&quot;可视化&quot;&gt;可视化&lt;a class=&quot;anchor&quot; href=&quot;#可视化&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Charles&lt;/li&gt;
-&lt;li&gt;Viusal</summary>
-        
-      
-    
-    
-    
-    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="Mac" scheme="http://buerlog.top/tags/Mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>云原生学习整理</title>
-    <link href="http://buerlog.top/2021/11/02/yun-ji-suan/yun-yuan-sheng-xue-xi-zheng-li/"/>
-    <id>http://buerlog.top/2021/11/02/yun-ji-suan/yun-yuan-sheng-xue-xi-zheng-li/</id>
-    <published>2021-11-01T16:04:01.000Z</published>
-    <updated>2021-11-28T16:46:52.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;什么是云原生&quot;&gt;什么是云原生&lt;a class=&quot;anchor&quot; href=&quot;#什么是云原生&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;应用容器化封装&lt;/li&gt;
-&lt;li&gt;服务网格&lt;/li&gt;
-&lt;li&gt;不可变基础架构&lt;/li&gt;
-&lt;li&gt;声明式API&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;云原生意义&quot;&gt;云原生意义&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="云计算" scheme="http://buerlog.top/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
-    
-    
-    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
-    
-    <category term="Docker" scheme="http://buerlog.top/tags/Docker/"/>
-    
-    <category term="云原生" scheme="http://buerlog.top/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/"/>
-    
-    <category term="K8s" scheme="http://buerlog.top/tags/K8s/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MapReduce论文整理</title>
-    <link href="http://buerlog.top/2021/10/30/fen-bu-shi/mapreduce-lun-wen-zheng-li/"/>
-    <id>http://buerlog.top/2021/10/30/fen-bu-shi/mapreduce-lun-wen-zheng-li/</id>
-    <published>2021-10-30T13:04:03.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
-    
-    
-    
-    
-    <category term="分布式" scheme="http://buerlog.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-    
-    <category term="论文" scheme="http://buerlog.top/tags/%E8%AE%BA%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>QUIC协议整理</title>
-    <link href="http://buerlog.top/2021/10/29/cheng-xu-she-ji/quic-xie-yi-zheng-li/"/>
-    <id>http://buerlog.top/2021/10/29/cheng-xu-she-ji/quic-xie-yi-zheng-li/</id>
-    <published>2021-10-29T12:41:38.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;简介&lt;a class=&quot;anchor&quot; href=&quot;#简介&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;众所周知，QUIC（Quick UDP Internet Connection）是谷歌制定的一种互联网传输层协议，它基于UDP传输层协议，同时兼具TCP、TLS、HTTP/2等协议的可靠性与安全性，可以有效减少连接与传输延迟，更好地应对当前传输层与应用层的挑战。&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="QUIC" scheme="http://buerlog.top/tags/QUIC/"/>
-    
-    <category term="计算机网络" scheme="http://buerlog.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RPC理解回顾</title>
-    <link href="http://buerlog.top/2021/10/26/cheng-xu-she-ji/rpc-li-jie-hui-gu/"/>
-    <id>http://buerlog.top/2021/10/26/cheng-xu-she-ji/rpc-li-jie-hui-gu/</id>
-    <published>2021-10-26T02:52:52.000Z</published>
+    <id>http://buerlog.top/2022/05/15/cheng-xu-she-ji/fen-bu-shi-lian-lu-zhui-zong-bi-ji/</id>
+    <link href="http://buerlog.top/2022/05/15/cheng-xu-she-ji/fen-bu-shi-lian-lu-zhui-zong-bi-ji/"/>
+    <published>2022-05-15T13:57:07.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
+<ol>
+<li>字节技术团队，<a]]>
+    </summary>
+    <title>分布式链路追踪笔记</title>
     <updated>2022-05-15T14:40:45.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
     <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Python" scheme="http://buerlog.top/tags/Python/"/>
-    
-    <category term="分布式" scheme="http://buerlog.top/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-    <category term="gRPC" scheme="http://buerlog.top/tags/gRPC/"/>
-    
-    <category term="Thrift" scheme="http://buerlog.top/tags/Thrift/"/>
-    
+    <category term="Promethues" scheme="http://buerlog.top/tags/Promethues/"/>
+    <category term="Grafana" scheme="http://buerlog.top/tags/Grafana/"/>
+    <id>http://buerlog.top/2022/05/05/cheng-xu-she-ji/promethues-yu-grafana-shi-yong-bi-ji/</id>
+    <link href="http://buerlog.top/2022/05/05/cheng-xu-she-ji/promethues-yu-grafana-shi-yong-bi-ji/"/>
+    <published>2022-05-05T10:28:03.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="需求背景">需求背景<a class="anchor" href="#需求背景">¶</a></h2>
+<p>为了避免因为服务器资源或者温度导致的服务不可访问等问题的出现，需要监测各台服务器在一定时间间隔内的运行状态，这样即使出现了问题，也能更好的定位问题发生的原因，进而避免机器本身访问不可达。</p>
+<h2 id="整体思路">整体思路<a class="anchor"]]>
+    </summary>
+    <title>Promethues与Grafana使用笔记</title>
+    <updated>2022-05-07T15:18:57.000Z</updated>
   </entry>
-  
   <entry>
-    <title>技术面试整理</title>
-    <link href="http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/"/>
-    <id>http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/</id>
-    <published>2021-10-23T03:31:01.000Z</published>
-    <updated>2025-08-25T17:33:56.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
     <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="面试" scheme="http://buerlog.top/tags/%E9%9D%A2%E8%AF%95/"/>
-    
+    <category term="Clash" scheme="http://buerlog.top/tags/Clash/"/>
+    <id>http://buerlog.top/2022/04/24/jing-yan-zong-jie/clash-shi-yong-jiao-cheng/</id>
+    <link href="http://buerlog.top/2022/04/24/jing-yan-zong-jie/clash-shi-yong-jiao-cheng/"/>
+    <published>2022-04-23T17:06:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="安装">安装<a class="anchor" href="#安装">¶</a></h2>
+<h3 id="下载">下载<a class="anchor" href="#下载">¶</a></h3>
+<p>下载<a]]>
+    </summary>
+    <title>Clash使用教程</title>
+    <updated>2022-04-23T17:38:29.000Z</updated>
   </entry>
-  
   <entry>
-    <title>LevelDB源码分析</title>
-    <link href="http://buerlog.top/2021/10/19/kv-cun-chu/leveldb-yuan-ma-fen-xi/"/>
-    <id>http://buerlog.top/2021/10/19/kv-cun-chu/leveldb-yuan-ma-fen-xi/</id>
-    <published>2021-10-19T15:38:27.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
-    
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
-    <category term="LevelDB" scheme="http://buerlog.top/tags/LevelDB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《软技能》总结</title>
-    <link href="http://buerlog.top/2021/10/19/si-wei-jin-hua/ruan-ji-neng-zong-jie/"/>
-    <id>http://buerlog.top/2021/10/19/si-wei-jin-hua/ruan-ji-neng-zong-jie/</id>
-    <published>2021-10-18T16:04:30.000Z</published>
-    <updated>2023-01-15T16:20:08.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;自学&quot;&gt;自学&lt;a class=&quot;anchor&quot; href=&quot;#自学&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;理解不是0或1的，而是复杂有多层次，不同的人看完一本书，他们的理解范围和深度都是不同的。可能“自以为理解了，其实是错的”，或者“本身有10层，只理解了5层”；比如在第1，2，3，4次看到FreeMonad，和之后也许会有的第5，6，7，8次，如果别人提到，我都可以说“哦，</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
     <category term="思维进化" scheme="http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/"/>
-    
-    
-    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
-    
+    <category term="基金" scheme="http://buerlog.top/tags/%E5%9F%BA%E9%87%91/"/>
+    <id>http://buerlog.top/2022/04/18/si-wei-jin-hua/ji-jin-xue-xi-bi-ji/</id>
+    <link href="http://buerlog.top/2022/04/18/si-wei-jin-hua/ji-jin-xue-xi-bi-ji/"/>
+    <published>2022-04-18T14:58:12.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="什么是基金">什么是基金<a class="anchor"]]>
+    </summary>
+    <title>基金学习笔记</title>
+    <updated>2022-04-19T01:05:12.000Z</updated>
   </entry>
-  
   <entry>
-    <title>布隆过滤器学习</title>
-    <link href="http://buerlog.top/2021/10/04/cheng-xu-she-ji/bu-long-guo-lu-qi-xue-xi/"/>
-    <id>http://buerlog.top/2021/10/04/cheng-xu-she-ji/bu-long-guo-lu-qi-xue-xi/</id>
-    <published>2021-10-04T13:56:00.000Z</published>
-    <updated>2021-11-04T16:48:37.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;平时查询一个value是否存在，通常会创建一个hashmap进行存储所有元素。它的好处是快速准确，缺点是浪费空间。因此，引入布隆过滤器。&lt;/p&gt;
-&lt;p&gt;布隆过滤器（Bloom</summary>
-        
-      
-    
-    
-    
-    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="布隆过滤器" scheme="http://buerlog.top/tags/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>硬盘IO总结</title>
-    <link href="http://buerlog.top/2021/10/03/kv-cun-chu/ying-pan-io-zong-jie/"/>
-    <id>http://buerlog.top/2021/10/03/kv-cun-chu/ying-pan-io-zong-jie/</id>
-    <published>2021-10-03T03:09:54.000Z</published>
-    <updated>2022-02-03T16:45:47.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot; href=&quot;#背景&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;随着计算机硬件在过去10年中遵循摩尔定律的发展，通用计算机的CPU主频早已超过了4GHz，内存已早已进入了DDR4的时代。但是传统机械磁盘的读写性能并没有明显提升，而SSD的价格又过高。因此，探究传统机械硬盘的物理结构与性能优化方式具有重大学术与工程意义。&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
-    <category term="硬盘IO" scheme="http://buerlog.top/tags/%E7%A1%AC%E7%9B%98IO/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>分布式一致性算法学习总结</title>
-    <link href="http://buerlog.top/2021/09/30/fen-bu-shi/fen-bu-shi-yi-zhi-xing-suan-fa-xue-xi-zong-jie/"/>
-    <id>http://buerlog.top/2021/09/30/fen-bu-shi/fen-bu-shi-yi-zhi-xing-suan-fa-xue-xi-zong-jie/</id>
-    <published>2021-09-30T12:23:22.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;算法基础&quot;&gt;算法基础&lt;a class=&quot;anchor&quot; href=&quot;#算法基础&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;CAP定理&quot;&gt;CAP定理&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="分布式" scheme="http://buerlog.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-    
-    <category term="Raft" scheme="http://buerlog.top/tags/Raft/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scala学习笔记</title>
-    <link href="http://buerlog.top/2021/09/24/cheng-xu-she-ji/da-shu-ju/scala-xue-xi-bi-ji/"/>
-    <id>http://buerlog.top/2021/09/24/cheng-xu-she-ji/da-shu-ju/scala-xue-xi-bi-ji/</id>
-    <published>2021-09-24T15:48:32.000Z</published>
-    <updated>2022-12-03T16:37:37.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
     <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Scala" scheme="http://buerlog.top/tags/Scala/"/>
-    
+    <category term="序列化" scheme="http://buerlog.top/tags/%E5%BA%8F%E5%88%97%E5%8C%96/"/>
+    <category term="反序列化" scheme="http://buerlog.top/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
+    <id>http://buerlog.top/2022/04/15/cheng-xu-she-ji/xu-lie-hua-yu-fan-xu-lie-hua/</id>
+    <link href="http://buerlog.top/2022/04/15/cheng-xu-she-ji/xu-lie-hua-yu-fan-xu-lie-hua/"/>
+    <published>2022-04-15T03:17:58.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="摘要">摘要<a class="anchor"]]>
+    </summary>
+    <title>序列化与反序列化</title>
+    <updated>2022-06-05T10:09:28.000Z</updated>
   </entry>
-  
   <entry>
-    <title>Django学习笔记</title>
-    <link href="http://buerlog.top/2021/09/22/cheng-xu-she-ji/python/django-xue-xi-bi-ji/"/>
-    <id>http://buerlog.top/2021/09/22/cheng-xu-she-ji/python/django-xue-xi-bi-ji/</id>
-    <published>2021-09-22T07:23:38.000Z</published>
-    <updated>2022-10-30T17:27:29.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;a class=&quot;anchor&quot; href=&quot;#前言&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Django是一个开放源代码的Web应用框架。&lt;/p&gt;
-&lt;p&gt;检测是否安装Django模块：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
     <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="Python" scheme="http://buerlog.top/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>健身理论整理</title>
-    <link href="http://buerlog.top/2021/09/20/jing-yan-zong-jie/jian-shen-li-lun-zheng-li/"/>
-    <id>http://buerlog.top/2021/09/20/jing-yan-zong-jie/jian-shen-li-lun-zheng-li/</id>
-    <published>2021-09-20T04:11:36.000Z</published>
-    <updated>2022-03-13T17:25:40.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;身体系统的结构和功能&quot;&gt;身体系统的结构和功能&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="健身" scheme="http://buerlog.top/tags/%E5%81%A5%E8%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《认知天性》读后感</title>
-    <link href="http://buerlog.top/2021/09/10/si-wei-jin-hua/ren-zhi-tian-xing-du-hou-gan/"/>
-    <id>http://buerlog.top/2021/09/10/si-wei-jin-hua/ren-zhi-tian-xing-du-hou-gan/</id>
-    <published>2021-09-10T02:26:58.000Z</published>
-    <updated>2021-12-29T15:56:45.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;首先，要想学以致用，就必须记忆。只有这样，已经学会的内容才不会在将来被需要的时候消失。&lt;/p&gt;
-&lt;p&gt;其次，我们需要坚持不懈的学习与记忆，终身不懈。&lt;/p&gt;
-&lt;p&gt;学习是耗费心血的，这样效果才能持久。&lt;/p&gt;
-&lt;p&gt;与反复阅读的复习方式相比，回想事实、概念或事件会更加有效。————即检索式学习&lt;/p&gt;
-&lt;p&gt;在初次阅读后，隔一段时间再阅读是有意义的。但是连续多次阅读只是空耗时间，好处少的可以</summary>
-        
-      
-    
-    
-    
-    <category term="思维进化" scheme="http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/"/>
-    
-    
-    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>KV存储引擎学习笔记</title>
-    <link href="http://buerlog.top/2021/09/09/kv-cun-chu/kv-cun-chu-yin-qing-xue-xi-bi-ji/"/>
-    <id>http://buerlog.top/2021/09/09/kv-cun-chu/kv-cun-chu-yin-qing-xue-xi-bi-ji/</id>
-    <published>2021-09-09T02:35:08.000Z</published>
-    <updated>2022-01-03T03:28:01.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;SkipList&quot;&gt;SkipList&lt;a class=&quot;anchor&quot; href=&quot;#SkipList&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;背景&quot;&gt;背景&lt;a class=&quot;anchor&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
-    
-    
     <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
-    
+    <id>http://buerlog.top/2022/04/05/cheng-xu-she-ji/go/dlv-shi-yong-bi-ji/</id>
+    <link href="http://buerlog.top/2022/04/05/cheng-xu-she-ji/go/dlv-shi-yong-bi-ji/"/>
+    <published>2022-04-05T08:56:17.000Z</published>
+    <title>dlv使用笔记</title>
+    <updated>2022-10-30T17:27:29.000Z</updated>
   </entry>
-  
   <entry>
-    <title>黑客与画家</title>
-    <link href="http://buerlog.top/2021/08/28/si-wei-jin-hua/hei-ke-yu-hua-jia/"/>
-    <id>http://buerlog.top/2021/08/28/si-wei-jin-hua/hei-ke-yu-hua-jia/</id>
-    <published>2021-08-28T10:06:00.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Hacker-ethic&quot;&gt;Hacker ethic&lt;a class=&quot;anchor&quot; href=&quot;#Hacker-ethic&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;使用计算机以及所有有助于了解这个世界本质的事物都不应该受到任何限制。任何事情都应该亲手尝试。（Access to computers and anything that might teach you</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <category term="TiKV" scheme="http://buerlog.top/tags/TiKV/"/>
+    <category term="TiDB" scheme="http://buerlog.top/tags/TiDB/"/>
+    <id>http://buerlog.top/2022/04/02/kv-cun-chu/tidb-ji-qi-tikv-xue-xi-ji-lu/</id>
+    <link href="http://buerlog.top/2022/04/02/kv-cun-chu/tidb-ji-qi-tikv-xue-xi-ji-lu/"/>
+    <published>2022-04-01T16:40:15.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="总体概览">总体概览<a class="anchor" href="#总体概览">¶</a></h2>
+<p>整个TiDB体系有三个部分组成：PD Cluster、Storage Cluster、TiDB Server。</p>
+<p><img]]>
+    </summary>
+    <title>TiDB及其TiKV学习记录</title>
+    <updated>2022-04-02T16:33:30.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
     <category term="思维进化" scheme="http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/"/>
-    
-    
-    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
-    
+    <category term="博文" scheme="http://buerlog.top/tags/%E5%8D%9A%E6%96%87/"/>
+    <id>http://buerlog.top/2022/03/27/si-wei-jin-hua/bo-wen-shou-huo-zong-jie/</id>
+    <link href="http://buerlog.top/2022/03/27/si-wei-jin-hua/bo-wen-shou-huo-zong-jie/"/>
+    <published>2022-03-26T17:30:12.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor"]]>
+    </summary>
+    <title>博文收获总结</title>
+    <updated>2022-03-27T03:41:30.000Z</updated>
   </entry>
-  
   <entry>
-    <title>计算机安全</title>
-    <link href="http://buerlog.top/2021/08/07/cybersecurity/ji-suan-ji-an-quan/"/>
-    <id>http://buerlog.top/2021/08/07/cybersecurity/ji-suan-ji-an-quan/</id>
-    <published>2021-08-07T04:10:58.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;哈希洪水攻击&quot;&gt;哈希洪水攻击&lt;a class=&quot;anchor&quot; href=&quot;#哈希洪水攻击&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;哈希洪水攻击（Hash-Flooding Attack）&lt;strong&gt;是一种&lt;/strong&gt;拒绝服务攻击（Denial of</summary>
-        
-      
-    
-    
-    
-    <category term="Cybersecurity" scheme="http://buerlog.top/categories/Cybersecurity/"/>
-    
-    
-    <category term="网络安全" scheme="http://buerlog.top/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>分布式系统概念</title>
-    <link href="http://buerlog.top/2021/08/05/fen-bu-shi/fen-bu-shi-xi-tong-gai-nian/"/>
-    <id>http://buerlog.top/2021/08/05/fen-bu-shi/fen-bu-shi-xi-tong-gai-nian/</id>
-    <published>2021-08-04T16:59:38.000Z</published>
-    <updated>2021-10-31T03:04:36.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;&quot;&gt;&lt;a class=&quot;anchor&quot; href=&quot;#&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;Basic&quot;&gt;Basic&lt;a class=&quot;anchor&quot; href=&quot;#Basic&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;Up-and-down-the-level-of-abstraction&quot;&gt;Up and down the level of abstraction&lt;a</summary>
-        
-      
-    
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
     <category term="分布式" scheme="http://buerlog.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
-    
-    
-    <category term="分布式系统" scheme="http://buerlog.top/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
-    
+    <category term="Elasticsearch" scheme="http://buerlog.top/tags/Elasticsearch/"/>
+    <id>http://buerlog.top/2022/03/18/fen-bu-shi/elasticsearch-he-xin-ji-zhu-zheng-li/</id>
+    <link href="http://buerlog.top/2022/03/18/fen-bu-shi/elasticsearch-he-xin-ji-zhu-zheng-li/"/>
+    <published>2022-03-18T13:09:34.000Z</published>
+    <title>Elasticsearch核心技术整理</title>
+    <updated>2025-08-25T17:33:56.000Z</updated>
   </entry>
-  
   <entry>
-    <title>《数据密集型应用系统设计》学习</title>
-    <link href="http://buerlog.top/2021/08/05/cheng-xu-she-ji/shu-ju-mi-ji-xing-ying-yong-xi-tong-she-ji-xue-xi/"/>
-    <id>http://buerlog.top/2021/08/05/cheng-xu-she-ji/shu-ju-mi-ji-xing-ying-yong-xi-tong-she-ji-xue-xi/</id>
-    <published>2021-08-04T16:14:53.000Z</published>
-    <updated>2021-12-04T17:13:35.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;数据系统基础&quot;&gt;数据系统基础&lt;a class=&quot;anchor&quot; href=&quot;#数据系统基础&quot;&gt;¶&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;第1章-可靠、可扩展与可维护的应用系统&quot;&gt;第1章 可靠、可扩展与可维护的应用系统&lt;a class=&quot;anchor&quot; href=&quot;#第1章-可靠、可扩展与可维护的应用系统&quot;&gt;¶&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&quot;第2章-数据模型与查询语言&quot;&gt;第2章</summary>
-        
-      
-    
-    
-    
-    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
     <category term="分布式系统" scheme="http://buerlog.top/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
-    
+    <id>http://buerlog.top/2022/03/18/kv-cun-chu/ji-yu-go-shi-xian-fen-bu-shi-dui-xiang-cun-chu/</id>
+    <link href="http://buerlog.top/2022/03/18/kv-cun-chu/ji-yu-go-shi-xian-fen-bu-shi-dui-xiang-cun-chu/"/>
+    <published>2022-03-18T12:13:39.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor"]]>
+    </summary>
+    <title>基于Go实现分布式对象存储</title>
+    <updated>2022-03-20T10:46:00.000Z</updated>
   </entry>
-  
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <category term="效应" scheme="http://buerlog.top/tags/%E6%95%88%E5%BA%94/"/>
+    <id>http://buerlog.top/2022/03/14/jing-yan-zong-jie/xiao-ying-zheng-li/</id>
+    <link href="http://buerlog.top/2022/03/14/jing-yan-zong-jie/xiao-ying-zheng-li/"/>
+    <published>2022-03-14T01:24:38.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor" href="#背景">¶</a></h2>
+<p>本文归纳整理学习生活过程中遇到的效应或问题，以便查阅。</p>
+<h2 id="惊群效应-1">惊群效应<a]]>
+    </summary>
+    <title>效应整理</title>
+    <updated>2022-03-14T01:56:46.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <category term="咖啡" scheme="http://buerlog.top/tags/%E5%92%96%E5%95%A1/"/>
+    <id>http://buerlog.top/2022/03/14/jing-yan-zong-jie/ka-pei-xue-xi-bi-ji/</id>
+    <link href="http://buerlog.top/2022/03/14/jing-yan-zong-jie/ka-pei-xue-xi-bi-ji/"/>
+    <published>2022-03-13T17:05:45.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="认识咖啡">认识咖啡<a class="anchor" href="#认识咖啡">¶</a></h2>
+<h3 id="阿拉卡比与罗布斯塔">阿拉卡比与罗布斯塔<a class="anchor" href="#阿拉卡比与罗布斯塔">¶</a></h3>
+<p>我们通常所说的咖啡树主要就是阿拉比卡（Coffea arabica）和卡内佛拉咖啡树属（Coffea]]>
+    </summary>
+    <title>咖啡学习笔记</title>
+    <updated>2022-03-14T01:56:46.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
+    <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/go/go-bing-fa-bian-cheng-zheng-li/</id>
+    <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/go/go-bing-fa-bian-cheng-zheng-li/"/>
+    <published>2022-03-12T14:51:56.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="Context">Context<a class="anchor" href="#Context">¶</a></h2>
+<p>在Go1.7版本引入官方库，可以在API边界之间以及过程之间传递截止时间、取消时间或其他与请求相关的数据。</p>
+<pre class="mermaid">graph]]>
+    </summary>
+    <title>Go并发编程整理</title>
+    <updated>2024-10-26T13:04:32.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="消息队列" scheme="http://buerlog.top/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/xiao-xi-dui-lie-xue-xi/</id>
+    <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/xiao-xi-dui-lie-xue-xi/"/>
+    <published>2022-03-12T14:07:51.000Z</published>
+    <summary>
+      <![CDATA[<pre class="mermaid">flowchart]]>
+    </summary>
+    <title>消息队列学习</title>
+    <updated>2022-06-09T01:30:23.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="Redis" scheme="http://buerlog.top/tags/Redis/"/>
+    <id>http://buerlog.top/2022/03/12/cheng-xu-she-ji/redis-xue-xi/</id>
+    <link href="http://buerlog.top/2022/03/12/cheng-xu-she-ji/redis-xue-xi/"/>
+    <published>2022-03-12T14:07:36.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="常用命令和数据类型">常用命令和数据类型<a class="anchor" href="#常用命令和数据类型">¶</a></h1>
+<h2 id="String">String<a class="anchor" href="#String">¶</a></h2>
+<h3 id="SET">SET<a class="anchor"]]>
+    </summary>
+    <title>Redis学习</title>
+    <updated>2023-06-13T00:09:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <category term="数据库" scheme="http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="MySQL" scheme="http://buerlog.top/tags/MySQL/"/>
+    <id>http://buerlog.top/2022/03/07/kv-cun-chu/mysql-shi-zen-yang-yun-xing-de-zheng-li/</id>
+    <link href="http://buerlog.top/2022/03/07/kv-cun-chu/mysql-shi-zen-yang-yun-xing-de-zheng-li/"/>
+    <published>2022-03-07T09:09:33.000Z</published>
+    <title>《MySQL是怎样运行的》整理</title>
+    <updated>2022-03-07T09:19:05.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <category term="数据库" scheme="http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="MySQL" scheme="http://buerlog.top/tags/MySQL/"/>
+    <id>http://buerlog.top/2022/03/07/kv-cun-chu/mysql-ji-zhu-nei-mu-innodb-cun-chu-yin-qing-zheng-li/</id>
+    <link href="http://buerlog.top/2022/03/07/kv-cun-chu/mysql-ji-zhu-nei-mu-innodb-cun-chu-yin-qing-zheng-li/"/>
+    <published>2022-03-07T09:09:02.000Z</published>
+    <title>《MySQL技术内幕：InnoDB存储引擎》整理</title>
+    <updated>2022-03-07T09:19:05.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <category term="数据库" scheme="http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>http://buerlog.top/2022/03/04/kv-cun-chu/cmu-15445/</id>
+    <link href="http://buerlog.top/2022/03/04/kv-cun-chu/cmu-15445/"/>
+    <published>2022-03-04T15:41:03.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor"]]>
+    </summary>
+    <title>CMU-15445</title>
+    <updated>2022-03-20T17:18:59.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="Python" scheme="http://buerlog.top/tags/Python/"/>
+    <id>http://buerlog.top/2022/03/04/cheng-xu-she-ji/python/liu-chang-de-python-zheng-li/</id>
+    <link href="http://buerlog.top/2022/03/04/cheng-xu-she-ji/python/liu-chang-de-python-zheng-li/"/>
+    <published>2022-03-04T12:36:11.000Z</published>
+    <title>《流畅的Python》整理</title>
+    <updated>2022-10-30T17:27:29.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="测试" scheme="http://buerlog.top/categories/%E6%B5%8B%E8%AF%95/"/>
+    <category term="Python" scheme="http://buerlog.top/tags/Python/"/>
+    <category term="测试开发" scheme="http://buerlog.top/tags/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/"/>
+    <id>http://buerlog.top/2022/03/04/ce-shi/pytest-jiao-cheng/</id>
+    <link href="http://buerlog.top/2022/03/04/ce-shi/pytest-jiao-cheng/"/>
+    <published>2022-03-04T10:48:02.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor"]]>
+    </summary>
+    <title>pytest教程</title>
+    <updated>2022-03-08T15:44:29.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcode-duo-xian-cheng-ti/</id>
+    <link href="http://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcode-duo-xian-cheng-ti/"/>
+    <published>2022-03-04T04:32:15.000Z</published>
+    <title>Leetcode多线程题</title>
+    <updated>2022-03-04T04:43:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <category term="Shell" scheme="http://buerlog.top/tags/Shell/"/>
+    <id>http://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcodeshell-ti/</id>
+    <link href="http://buerlog.top/2022/03/04/suan-fa/leetcode-he-ji/leetcodeshell-ti/"/>
+    <published>2022-03-04T04:31:13.000Z</published>
+    <title>LeetcodeShell题</title>
+    <updated>2022-03-04T04:43:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <category term="MySQL" scheme="http://buerlog.top/tags/MySQL/"/>
+    <id>http://buerlog.top/2022/03/01/kv-cun-chu/mysql-zheng-li-yu-zong-jie/</id>
+    <link href="http://buerlog.top/2022/03/01/kv-cun-chu/mysql-zheng-li-yu-zong-jie/"/>
+    <published>2022-03-01T13:06:10.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="MySQL基础架构">MySQL基础架构<a class="anchor" href="#MySQL基础架构">¶</a></h2>
+<p><img]]>
+    </summary>
+    <title>MySQL整理与总结</title>
+    <updated>2024-03-20T16:09:19.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="哈希" scheme="http://buerlog.top/tags/%E5%93%88%E5%B8%8C/"/>
+    <id>http://buerlog.top/2022/02/16/suan-fa/sheng-ri-peng-zhuang-he-ha-xi-han-shu/</id>
+    <link href="http://buerlog.top/2022/02/16/suan-fa/sheng-ri-peng-zhuang-he-ha-xi-han-shu/"/>
+    <published>2022-02-16T09:15:56.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor" href="#背景">¶</a></h2>
+<p>所谓哈希（hash），就是将不同的输入映射成独一无二的、固定长度的值（又称"哈希值"）。它是最常见的软件运算之一。</p>
+<p>如果不同的输入得到了同一个哈希值，就发生了"哈希碰撞"（collision）。</p>
+<p><img]]>
+    </summary>
+    <title>生日碰撞和哈希函数</title>
+    <updated>2022-02-17T01:30:29.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="LRU" scheme="http://buerlog.top/tags/LRU/"/>
+    <category term="LFU" scheme="http://buerlog.top/tags/LFU/"/>
+    <category term="TinyLFU" scheme="http://buerlog.top/tags/TinyLFU/"/>
+    <id>http://buerlog.top/2022/02/03/suan-fa/lru-lfu-he-tinylfu-suan-fa/</id>
+    <link href="http://buerlog.top/2022/02/03/suan-fa/lru-lfu-he-tinylfu-suan-fa/"/>
+    <published>2022-02-03T15:08:47.000Z</published>
+    <title>LRU、LFU和TinyLFU算法</title>
+    <updated>2022-02-03T15:25:55.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="数据压缩" scheme="http://buerlog.top/tags/%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9/"/>
+    <id>http://buerlog.top/2022/02/02/suan-fa/shu-ju-ya-suo-suan-fa/</id>
+    <link href="http://buerlog.top/2022/02/02/suan-fa/shu-ju-ya-suo-suan-fa/"/>
+    <published>2022-02-01T17:02:52.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="压缩算法分类">压缩算法分类<a class="anchor"]]>
+    </summary>
+    <title>数据压缩算法</title>
+    <updated>2022-02-01T17:13:32.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <id>http://buerlog.top/2022/01/28/suan-fa/a-b/</id>
+    <link href="http://buerlog.top/2022/01/28/suan-fa/a-b/"/>
+    <published>2022-01-28T08:54:44.000Z</published>
+    <title>A+B</title>
+    <updated>2022-01-28T09:21:04.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="去重" scheme="http://buerlog.top/tags/%E5%8E%BB%E9%87%8D/"/>
+    <id>http://buerlog.top/2022/01/24/suan-fa/da-shu-ju-chu-li-fang-an/</id>
+    <link href="http://buerlog.top/2022/01/24/suan-fa/da-shu-ju-chu-li-fang-an/"/>
+    <published>2022-01-24T09:25:55.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor" href="#背景">¶</a></h2>
+<p>所谓的海量数据是指海量数据的存储、处理和操作。正是因为数据量太大，所以导致要么无法在短时间迅速完成，要么无法一次性载入内存。</p>
+<p>数据去重（data]]>
+    </summary>
+    <title>大数据处理方案</title>
+    <updated>2022-02-03T15:25:55.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="树" scheme="http://buerlog.top/tags/%E6%A0%91/"/>
+    <id>http://buerlog.top/2022/01/23/suan-fa/shu-suan-fa-zheng-li/</id>
+    <link href="http://buerlog.top/2022/01/23/suan-fa/shu-suan-fa-zheng-li/"/>
+    <published>2022-01-23T08:04:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="二叉树">二叉树<a class="anchor" href="#二叉树">¶</a></h2>
+<h2 id="平衡二叉树">平衡二叉树<a class="anchor" href="#平衡二叉树">¶</a></h2>
+<h2 id="红黑树">红黑树<a class="anchor" href="#红黑树">¶</a></h2>
+<h2 id="B树">B树<a]]>
+    </summary>
+    <title>树算法整理</title>
+    <updated>2022-01-23T14:19:25.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="计算机基础" scheme="http://buerlog.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    <category term="Paper" scheme="http://buerlog.top/tags/Paper/"/>
+    <category term="内存" scheme="http://buerlog.top/tags/%E5%86%85%E5%AD%98/"/>
+    <id>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/</id>
+    <link href="http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/a-primer-on-memory-consistency-and-cache-coherence-yue-du-zong-jie/"/>
+    <published>2022-01-23T04:07:30.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
+<ol>
+<li>[A Primer on Memory Consistency and Cache]]>
+    </summary>
+    <title>《A Primer on Memory Consistency and Cache Coherence》阅读总结</title>
+    <updated>2022-01-23T04:49:43.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="计算机基础" scheme="http://buerlog.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    <category term="Paper" scheme="http://buerlog.top/tags/Paper/"/>
+    <category term="内存" scheme="http://buerlog.top/tags/%E5%86%85%E5%AD%98/"/>
+    <id>http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/what-every-programmer-should-know-about-memory-yue-du-zong-jie/</id>
+    <link href="http://buerlog.top/2022/01/23/ji-suan-ji-ji-chu/what-every-programmer-should-know-about-memory-yue-du-zong-jie/"/>
+    <published>2022-01-23T04:07:09.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
+<ol>
+<li>[What Every Programmer Should Know About]]>
+    </summary>
+    <title>《What Every Programmer Should Know About Memory》阅读总结</title>
+    <updated>2022-01-23T04:49:43.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="Presto" scheme="http://buerlog.top/tags/Presto/"/>
+    <id>http://buerlog.top/2022/01/21/cheng-xu-she-ji/da-shu-ju/presto-shi-zhan-yu-yan-lian/</id>
+    <link href="http://buerlog.top/2022/01/21/cheng-xu-she-ji/da-shu-ju/presto-shi-zhan-yu-yan-lian/"/>
+    <published>2022-01-21T13:26:54.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor"]]>
+    </summary>
+    <title>Presto实战与演练</title>
+    <updated>2022-12-03T16:37:37.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2101-2200/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2101-2200/"/>
+    <published>2022-01-16T15:46:34.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="2101-2110">2101-2110<a class="anchor" href="#2101-2110">¶</a></h2>
+<h2 id="2111-2120">2111-2120<a class="anchor" href="#2111-2120">¶</a></h2>
+<h2 id="2121-2130">2121-2130<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题2101-2189</title>
+    <updated>2024-03-03T15:28:50.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2001-2100/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-2001-2100/"/>
+    <published>2022-01-16T15:46:18.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="2001-2010">2001-2010<a class="anchor" href="#2001-2010">¶</a></h2>
+<h2 id="2011-2020">2011-2020<a class="anchor" href="#2011-2020">¶</a></h2>
+<h2 id="2021-2030">2021-2030<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题2001-2100</title>
+    <updated>2022-03-28T15:48:29.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1901-2000/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1901-2000/"/>
+    <published>2022-01-16T15:44:38.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1901-1910">1901-1910<a class="anchor" href="#1901-1910">¶</a></h2>
+<h2 id="1911-1920">1911-1920<a class="anchor" href="#1911-1920">¶</a></h2>
+<h2 id="1921-1930">1921-1930<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题1901-2000</title>
+    <updated>2023-02-12T08:52:02.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1801-1900/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1801-1900/"/>
+    <published>2022-01-16T15:44:29.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1801-1810">1801-1810<a class="anchor" href="#1801-1810">¶</a></h2>
+<h2 id="1811-1820">1811-1820<a class="anchor" href="#1811-1820">¶</a></h2>
+<h2 id="1821-1830">1821-1830<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题1801-1900</title>
+    <updated>2023-01-30T11:21:10.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1701-1800/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1701-1800/"/>
+    <published>2022-01-16T15:44:20.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1701-1710">1701-1710<a class="anchor" href="#1701-1710">¶</a></h2>
+<h2 id="1711-1720">1711-1720<a class="anchor" href="#1711-1720">¶</a></h2>
+<h2 id="1721-1730">1721-1730<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题1701-1800</title>
+    <updated>2023-02-09T01:42:28.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1601-1700/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1601-1700/"/>
+    <published>2022-01-16T15:44:13.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1601-1610">1601-1610<a class="anchor" href="#1601-1610">¶</a></h2>
+<h3 id="1604-警告一小时内使用相同员工工卡大于等于3次的人"><a]]>
+    </summary>
+    <title>Leetcode算法题1601-1700</title>
+    <updated>2023-02-09T01:42:28.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1501-1600/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1501-1600/"/>
+    <published>2022-01-16T15:44:06.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1501-1510">1501-1510<a class="anchor" href="#1501-1510">¶</a></h2>
+<h2 id="1511-1520">1511-1520<a class="anchor" href="#1511-1520">¶</a></h2>
+<h2 id="1521-1530">1521-1530<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题1501-1600</title>
+    <updated>2022-03-04T04:43:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1401-1500/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1401-1500/"/>
+    <published>2022-01-16T15:43:57.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1401-1410">1401-1410<a class="anchor" href="#1401-1410">¶</a></h2>
+<h2 id="1411-1420">1411-1420<a class="anchor" href="#1411-1420">¶</a></h2>
+<h2 id="1421-1430">1421-1430<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题1401-1500</title>
+    <updated>2022-03-04T04:43:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1301-1400/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1301-1400/"/>
+    <published>2022-01-16T15:43:50.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1301-1310">1301-1310<a class="anchor" href="#1301-1310">¶</a></h2>
+<h2 id="1311-1320">1311-1320<a class="anchor" href="#1311-1320">¶</a></h2>
+<h4 id="1314-矩阵区域和"><a]]>
+    </summary>
+    <title>Leetcode算法题1301-1400</title>
+    <updated>2023-02-09T01:42:28.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1201-1300/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1201-1300/"/>
+    <published>2022-01-16T15:43:43.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1201-1210">1201-1210<a class="anchor" href="#1201-1210">¶</a></h2>
+<h2 id="1211-1220">1211-1220<a class="anchor" href="#1211-1220">¶</a></h2>
+<h2 id="1221-1230">1221-1230<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题1201-1300</title>
+    <updated>2023-12-10T17:06:32.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1101-1200/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1101-1200/"/>
+    <published>2022-01-16T15:43:36.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1101-1110">1101-1110<a class="anchor" href="#1101-1110">¶</a></h2>
+<h2 id="1111-1120">1111-1120<a class="anchor" href="#1111-1120">¶</a></h2>
+<h3 id="1143-最长公共子序列"><a]]>
+    </summary>
+    <title>Leetcode算法题1101-1200</title>
+    <updated>2023-10-08T02:06:17.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1001-1100/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1001-1100/"/>
+    <published>2022-01-16T15:43:29.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1001-1010">1001-1010<a class="anchor" href="#1001-1010">¶</a></h2>
+<h2 id="1011-1020">1011-1020<a class="anchor" href="#1011-1020">¶</a></h2>
+<h2 id="1021-1030">1021-1030<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题1001-1100</title>
+    <updated>2022-03-04T04:43:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-cheng-xu-yuan-mian-shi-jin-dian-di-liu-ban/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-cheng-xu-yuan-mian-shi-jin-dian-di-liu-ban/"/>
+    <published>2022-01-16T09:48:14.000Z</published>
+    <summary>
+      <![CDATA[<h4 id="面试题-05-01-插入"><a href="https://leetcode-cn.com/problems/insert-into-bits-lcci/">面试题 05.01. 插入</a><a class="anchor" href="#面试题-05-01-插入">¶</a></h4>
+<figure class="highlight]]>
+    </summary>
+    <title>Leetcode算法题《程序员面试金典(第六版)》</title>
+    <updated>2022-03-04T04:43:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="SQL" scheme="http://buerlog.top/tags/SQL/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcodesql-ti-1378-2175/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcodesql-ti-1378-2175/"/>
+    <published>2022-01-16T09:44:04.000Z</published>
+    <title>LeetcodeSQL题1378-2175</title>
+    <updated>2022-03-04T04:43:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="SQL" scheme="http://buerlog.top/tags/SQL/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcodesql-ti-175-1369/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcodesql-ti-175-1369/"/>
+    <published>2022-01-16T09:43:43.000Z</published>
+    <title>LeetcodeSQL题175-1369</title>
+    <updated>2022-03-04T04:43:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-901-1000/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-901-1000/"/>
+    <published>2022-01-16T09:42:38.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="901-910">901-910<a class="anchor" href="#901-910">¶</a></h2>
+<h2 id="911-920">911-920<a class="anchor" href="#911-920">¶</a></h2>
+<h2 id="921-930">921-930<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题901-1000</title>
+    <updated>2022-03-04T04:43:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-801-900/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-801-900/"/>
+    <published>2022-01-16T09:42:30.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="801-810">801-810<a class="anchor" href="#801-810">¶</a></h2>
+<h2 id="811-820">811-820<a class="anchor" href="#811-820">¶</a></h2>
+<h2 id="821-830">821-830<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题801-900</title>
+    <updated>2022-03-04T04:43:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-701-800/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-701-800/"/>
+    <published>2022-01-16T09:42:15.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="701-710">701-710<a class="anchor" href="#701-710">¶</a></h2>
+<h4 id="704-二分查找"><a href="https://leetcode-cn.com/problems/binary-search/">704. 二分查找</a><a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题701-800</title>
+    <updated>2023-01-01T08:22:04.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-601-700/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-601-700/"/>
+    <published>2022-01-16T09:42:05.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="601-610">601-610<a class="anchor" href="#601-610">¶</a></h2>
+<h2 id="611-620">611-620<a class="anchor" href="#611-620">¶</a></h2>
+<h2 id="621-630">621-630<a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题601-700</title>
+    <updated>2022-03-26T18:16:45.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-501-600/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-501-600/"/>
+    <published>2022-01-16T09:41:55.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="501-510">501-510<a class="anchor" href="#501-510">¶</a></h2>
+<h4 id="503-下一个更大元素-II"><a href="https://leetcode-cn.com/problems/next-greater-element-ii/">503. 下一个更大元素 II</a><a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题501-600</title>
+    <updated>2022-03-04T04:43:09.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-401-500/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-401-500/"/>
+    <published>2022-01-16T09:40:46.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="401-410">401-410<a class="anchor" href="#401-410">¶</a></h2>
+<h2 id="411-420">411-420<a class="anchor" href="#411-420">¶</a></h2>
+<h4 id="415-字符串相加"><a]]>
+    </summary>
+    <title>Leetcode算法题401-500</title>
+    <updated>2022-04-02T16:33:30.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-301-400/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-301-400/"/>
+    <published>2022-01-16T09:40:32.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="301-310">301-310<a class="anchor" href="#301-310">¶</a></h2>
+<h4 id="303-区域和检索-数组不可变"><a href="https://leetcode-cn.com/problems/range-sum-query-immutable/">303. 区域和检索 - 数组不可变</a><a]]>
+    </summary>
+    <title>Leetcode算法题301-400</title>
+    <updated>2023-02-20T01:42:07.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-201-300/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-201-300/"/>
+    <published>2022-01-16T09:40:18.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="201-210">201-210<a class="anchor" href="#201-210">¶</a></h2>
+<h3 id="204-计数质数"><a href="https://leetcode.cn/problems/count-primes/">204. 计数质数</a><a class="anchor"]]>
+    </summary>
+    <title>Leetcode算法题201-300</title>
+    <updated>2023-12-10T17:06:32.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-101-200/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-101-200/"/>
+    <published>2022-01-16T09:40:08.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="101-110">101-110<a class="anchor" href="#101-110">¶</a></h2>
+<p><a href="https://leetcode.cn/problems/binary-tree-level-order-traversal/description/">102.二叉树的层序遍历</a></p>
+<figure]]>
+    </summary>
+    <title>Leetcode算法题101-200</title>
+    <updated>2023-10-29T03:40:17.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Cpp" scheme="http://buerlog.top/tags/Cpp/"/>
+    <category term="Leetcode" scheme="http://buerlog.top/tags/Leetcode/"/>
+    <id>http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1-100/</id>
+    <link href="http://buerlog.top/2022/01/16/suan-fa/leetcode-he-ji/leetcode-suan-fa-ti-1-100/"/>
+    <published>2022-01-16T09:40:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1-10">1-10<a class="anchor" href="#1-10">¶</a></h2>
+<h4 id="1-两数之和"><a href="https://leetcode-cn.com/problems/two-sum/">1. 两数之和</a><a class="anchor" href="#1-两数之和">¶</a></h4>
+<figure]]>
+    </summary>
+    <title>Leetcode算法题1-100</title>
+    <updated>2024-01-01T08:04:24.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="HQL" scheme="http://buerlog.top/tags/HQL/"/>
+    <id>http://buerlog.top/2022/01/14/cheng-xu-she-ji/da-shu-ju/hql-xue-xi/</id>
+    <link href="http://buerlog.top/2022/01/14/cheng-xu-she-ji/da-shu-ju/hql-xue-xi/"/>
+    <published>2022-01-14T02:51:41.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor" href="#背景">¶</a></h2>
+<p>HQL（Hibernate Query Language）是面向对象的查询语言。，它与SQL查询语言类似。 在 Hibernate 提供的各种检索方式中, HQL 是使用最广的一种检索方式.]]>
+    </summary>
+    <title>HQL</title>
+    <updated>2022-12-03T16:37:37.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="算法" scheme="http://buerlog.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
+    <id>http://buerlog.top/2021/12/27/suan-fa/qiu-er-jin-zhi-zhong-1-de-ge-shu/</id>
+    <link href="http://buerlog.top/2021/12/27/suan-fa/qiu-er-jin-zhi-zhong-1-de-ge-shu/"/>
+    <published>2021-12-27T08:12:07.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="问题描述">问题描述<a class="anchor" href="#问题描述">¶</a></h2>
+<p>任意给定一个32位无符号整数n，求n的二进制表示中1的个数。</p>
+<h2 id="普通法">普通法<a class="anchor" href="#普通法">¶</a></h2>
+<p>原理：移位+计数</p>
+<figure class="highlight]]>
+    </summary>
+    <title>求二进制中1的个数</title>
+    <updated>2022-01-08T09:37:15.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="SQL" scheme="http://buerlog.top/tags/SQL/"/>
+    <id>http://buerlog.top/2021/12/21/cheng-xu-she-ji/da-shu-ju/chang-yong-sql-zheng-li/</id>
+    <link href="http://buerlog.top/2021/12/21/cheng-xu-she-ji/da-shu-ju/chang-yong-sql-zheng-li/"/>
+    <published>2021-12-21T13:04:24.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="窗口函数">窗口函数<a class="anchor" href="#窗口函数">¶</a></h2>
+<h3 id="什么是窗口函数">什么是窗口函数<a class="anchor" href="#什么是窗口函数">¶</a></h3>
+<p>窗口函数，也叫OLAP函数（Online Anallytical]]>
+    </summary>
+    <title>常用SQL整理</title>
+    <updated>2022-12-03T16:37:37.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <id>http://buerlog.top/2021/11/13/kv-cun-chu/shu-ju-cun-chu-yu-jian-suo/</id>
+    <link href="http://buerlog.top/2021/11/13/kv-cun-chu/shu-ju-cun-chu-yu-jian-suo/"/>
+    <published>2021-11-13T08:25:33.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor" href="#背景">¶</a></h2>
+<p>现在主流的数据存储与检索引擎可以大致分为两种:OLTP和OLAP.</p>
+<p>OLTP指的是online transaction processing.</p>
+<p>OLAP指的是online analysis]]>
+    </summary>
+    <title>数据存储与检索</title>
+    <updated>2021-11-14T12:43:16.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <id>http://buerlog.top/2021/11/13/kv-cun-chu/lsm-tree-zheng-li-yu-zong-jie/</id>
+    <link href="http://buerlog.top/2021/11/13/kv-cun-chu/lsm-tree-zheng-li-yu-zong-jie/"/>
+    <published>2021-11-13T06:56:18.000Z</published>
+    <title>LSM Tree整理与总结</title>
+    <updated>2021-11-14T10:14:43.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <category term="Mac" scheme="http://buerlog.top/tags/Mac/"/>
+    <id>http://buerlog.top/2021/11/06/jing-yan-zong-jie/mac-shi-yong-zheng-li/</id>
+    <link href="http://buerlog.top/2021/11/06/jing-yan-zong-jie/mac-shi-yong-zheng-li/"/>
+    <published>2021-11-06T07:04:13.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="摘要">摘要<a class="anchor" href="#摘要">¶</a></h2>
+<p>本文旨在记录和汇总自己在工作以及学习过程中所使用的软件及其所遇问题的解决方案,以便日后所需.</p>
+<h2 id="可视化">可视化<a class="anchor" href="#可视化">¶</a></h2>
+<ul>
+<li>Charles</li>
+<li>Viusal]]>
+    </summary>
+    <title>Mac使用整理</title>
+    <updated>2025-08-25T17:33:56.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="云计算" scheme="http://buerlog.top/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
+    <category term="Docker" scheme="http://buerlog.top/tags/Docker/"/>
+    <category term="云原生" scheme="http://buerlog.top/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/"/>
+    <category term="K8s" scheme="http://buerlog.top/tags/K8s/"/>
+    <id>http://buerlog.top/2021/11/02/yun-ji-suan/yun-yuan-sheng-xue-xi-zheng-li/</id>
+    <link href="http://buerlog.top/2021/11/02/yun-ji-suan/yun-yuan-sheng-xue-xi-zheng-li/"/>
+    <published>2021-11-01T16:04:01.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="什么是云原生">什么是云原生<a class="anchor" href="#什么是云原生">¶</a></h2>
+<ul>
+<li>应用容器化封装</li>
+<li>服务网格</li>
+<li>不可变基础架构</li>
+<li>声明式API</li>
+</ul>
+<h3 id="云原生意义">云原生意义<a class="anchor"]]>
+    </summary>
+    <title>云原生学习整理</title>
+    <updated>2021-11-28T16:46:52.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="分布式" scheme="http://buerlog.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    <category term="论文" scheme="http://buerlog.top/tags/%E8%AE%BA%E6%96%87/"/>
+    <id>http://buerlog.top/2021/10/30/fen-bu-shi/mapreduce-lun-wen-zheng-li/</id>
+    <link href="http://buerlog.top/2021/10/30/fen-bu-shi/mapreduce-lun-wen-zheng-li/"/>
+    <published>2021-10-30T13:04:03.000Z</published>
+    <title>MapReduce论文整理</title>
+    <updated>2021-10-31T03:04:36.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="QUIC" scheme="http://buerlog.top/tags/QUIC/"/>
+    <category term="计算机网络" scheme="http://buerlog.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <id>http://buerlog.top/2021/10/29/cheng-xu-she-ji/quic-xie-yi-zheng-li/</id>
+    <link href="http://buerlog.top/2021/10/29/cheng-xu-she-ji/quic-xie-yi-zheng-li/"/>
+    <published>2021-10-29T12:41:38.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="简介">简介<a class="anchor" href="#简介">¶</a></h2>
+<p>众所周知，QUIC（Quick UDP Internet Connection）是谷歌制定的一种互联网传输层协议，它基于UDP传输层协议，同时兼具TCP、TLS、HTTP/2等协议的可靠性与安全性，可以有效减少连接与传输延迟，更好地应对当前传输层与应用层的挑战。</p>
+<h2]]>
+    </summary>
+    <title>QUIC协议整理</title>
+    <updated>2021-10-31T03:04:36.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="Python" scheme="http://buerlog.top/tags/Python/"/>
+    <category term="分布式" scheme="http://buerlog.top/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    <category term="gRPC" scheme="http://buerlog.top/tags/gRPC/"/>
+    <category term="Thrift" scheme="http://buerlog.top/tags/Thrift/"/>
+    <id>http://buerlog.top/2021/10/26/cheng-xu-she-ji/rpc-li-jie-hui-gu/</id>
+    <link href="http://buerlog.top/2021/10/26/cheng-xu-she-ji/rpc-li-jie-hui-gu/"/>
+    <published>2021-10-26T02:52:52.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor"]]>
+    </summary>
+    <title>RPC理解回顾</title>
+    <updated>2022-05-15T14:40:45.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <category term="面试" scheme="http://buerlog.top/tags/%E9%9D%A2%E8%AF%95/"/>
+    <id>http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/</id>
+    <link href="http://buerlog.top/2021/10/23/jing-yan-zong-jie/ji-zhu-mian-shi-zheng-li/"/>
+    <published>2021-10-23T03:31:01.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor"]]>
+    </summary>
+    <title>技术面试整理</title>
+    <updated>2025-08-25T17:33:56.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <category term="LevelDB" scheme="http://buerlog.top/tags/LevelDB/"/>
+    <id>http://buerlog.top/2021/10/19/kv-cun-chu/leveldb-yuan-ma-fen-xi/</id>
+    <link href="http://buerlog.top/2021/10/19/kv-cun-chu/leveldb-yuan-ma-fen-xi/"/>
+    <published>2021-10-19T15:38:27.000Z</published>
+    <title>LevelDB源码分析</title>
+    <updated>2021-10-31T03:04:36.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="思维进化" scheme="http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/"/>
+    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
+    <id>http://buerlog.top/2021/10/19/si-wei-jin-hua/ruan-ji-neng-zong-jie/</id>
+    <link href="http://buerlog.top/2021/10/19/si-wei-jin-hua/ruan-ji-neng-zong-jie/"/>
+    <published>2021-10-18T16:04:30.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="自学">自学<a class="anchor" href="#自学">¶</a></h2>
+<p>理解不是0或1的，而是复杂有多层次，不同的人看完一本书，他们的理解范围和深度都是不同的。可能“自以为理解了，其实是错的”，或者“本身有10层，只理解了5层”；比如在第1，2，3，4次看到FreeMonad，和之后也许会有的第5，6，7，8次，如果别人提到，我都可以说“哦，]]>
+    </summary>
+    <title>《软技能》总结</title>
+    <updated>2023-01-15T16:20:08.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <category term="布隆过滤器" scheme="http://buerlog.top/tags/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/"/>
+    <id>http://buerlog.top/2021/10/04/cheng-xu-she-ji/bu-long-guo-lu-qi-xue-xi/</id>
+    <link href="http://buerlog.top/2021/10/04/cheng-xu-she-ji/bu-long-guo-lu-qi-xue-xi/"/>
+    <published>2021-10-04T13:56:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor" href="#背景">¶</a></h2>
+<p>平时查询一个value是否存在，通常会创建一个hashmap进行存储所有元素。它的好处是快速准确，缺点是浪费空间。因此，引入布隆过滤器。</p>
+<p>布隆过滤器（Bloom]]>
+    </summary>
+    <title>布隆过滤器学习</title>
+    <updated>2021-11-04T16:48:37.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <category term="硬盘IO" scheme="http://buerlog.top/tags/%E7%A1%AC%E7%9B%98IO/"/>
+    <id>http://buerlog.top/2021/10/03/kv-cun-chu/ying-pan-io-zong-jie/</id>
+    <link href="http://buerlog.top/2021/10/03/kv-cun-chu/ying-pan-io-zong-jie/"/>
+    <published>2021-10-03T03:09:54.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="背景">背景<a class="anchor" href="#背景">¶</a></h2>
+<p>随着计算机硬件在过去10年中遵循摩尔定律的发展，通用计算机的CPU主频早已超过了4GHz，内存已早已进入了DDR4的时代。但是传统机械磁盘的读写性能并没有明显提升，而SSD的价格又过高。因此，探究传统机械硬盘的物理结构与性能优化方式具有重大学术与工程意义。</p>
+<h2]]>
+    </summary>
+    <title>硬盘IO总结</title>
+    <updated>2022-02-03T16:45:47.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="分布式" scheme="http://buerlog.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    <category term="Raft" scheme="http://buerlog.top/tags/Raft/"/>
+    <id>http://buerlog.top/2021/09/30/fen-bu-shi/fen-bu-shi-yi-zhi-xing-suan-fa-xue-xi-zong-jie/</id>
+    <link href="http://buerlog.top/2021/09/30/fen-bu-shi/fen-bu-shi-yi-zhi-xing-suan-fa-xue-xi-zong-jie/"/>
+    <published>2021-09-30T12:23:22.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="算法基础">算法基础<a class="anchor" href="#算法基础">¶</a></h2>
+<h3 id="CAP定理">CAP定理<a class="anchor"]]>
+    </summary>
+    <title>分布式一致性算法学习总结</title>
+    <updated>2021-10-31T03:04:36.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="Scala" scheme="http://buerlog.top/tags/Scala/"/>
+    <id>http://buerlog.top/2021/09/24/cheng-xu-she-ji/da-shu-ju/scala-xue-xi-bi-ji/</id>
+    <link href="http://buerlog.top/2021/09/24/cheng-xu-she-ji/da-shu-ju/scala-xue-xi-bi-ji/"/>
+    <published>2021-09-24T15:48:32.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="前言">前言<a class="anchor"]]>
+    </summary>
+    <title>Scala学习笔记</title>
+    <updated>2022-12-03T16:37:37.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="Python" scheme="http://buerlog.top/tags/Python/"/>
+    <id>http://buerlog.top/2021/09/22/cheng-xu-she-ji/python/django-xue-xi-bi-ji/</id>
+    <link href="http://buerlog.top/2021/09/22/cheng-xu-she-ji/python/django-xue-xi-bi-ji/"/>
+    <published>2021-09-22T07:23:38.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="前言">前言<a class="anchor" href="#前言">¶</a></h2>
+<p>Django是一个开放源代码的Web应用框架。</p>
+<p>检测是否安装Django模块：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span]]>
+    </summary>
+    <title>Django学习笔记</title>
+    <updated>2022-10-30T17:27:29.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="经验总结" scheme="http://buerlog.top/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+    <category term="健身" scheme="http://buerlog.top/tags/%E5%81%A5%E8%BA%AB/"/>
+    <id>http://buerlog.top/2021/09/20/jing-yan-zong-jie/jian-shen-li-lun-zheng-li/</id>
+    <link href="http://buerlog.top/2021/09/20/jing-yan-zong-jie/jian-shen-li-lun-zheng-li/"/>
+    <published>2021-09-20T04:11:36.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="身体系统的结构和功能">身体系统的结构和功能<a class="anchor"]]>
+    </summary>
+    <title>健身理论整理</title>
+    <updated>2022-03-13T17:25:40.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="思维进化" scheme="http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/"/>
+    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
+    <id>http://buerlog.top/2021/09/10/si-wei-jin-hua/ren-zhi-tian-xing-du-hou-gan/</id>
+    <link href="http://buerlog.top/2021/09/10/si-wei-jin-hua/ren-zhi-tian-xing-du-hou-gan/"/>
+    <published>2021-09-10T02:26:58.000Z</published>
+    <summary>
+      <![CDATA[<p>首先，要想学以致用，就必须记忆。只有这样，已经学会的内容才不会在将来被需要的时候消失。</p>
+<p>其次，我们需要坚持不懈的学习与记忆，终身不懈。</p>
+<p>学习是耗费心血的，这样效果才能持久。</p>
+<p>与反复阅读的复习方式相比，回想事实、概念或事件会更加有效。————即检索式学习</p>
+<p>在初次阅读后，隔一段时间再阅读是有意义的。但是连续多次阅读只是空耗时间，好处少的可以]]>
+    </summary>
+    <title>《认知天性》读后感</title>
+    <updated>2021-12-29T15:56:45.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="KV存储" scheme="http://buerlog.top/categories/KV%E5%AD%98%E5%82%A8/"/>
+    <category term="Go" scheme="http://buerlog.top/tags/Go/"/>
+    <id>http://buerlog.top/2021/09/09/kv-cun-chu/kv-cun-chu-yin-qing-xue-xi-bi-ji/</id>
+    <link href="http://buerlog.top/2021/09/09/kv-cun-chu/kv-cun-chu-yin-qing-xue-xi-bi-ji/"/>
+    <published>2021-09-09T02:35:08.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="SkipList">SkipList<a class="anchor" href="#SkipList">¶</a></h2>
+<h3 id="背景">背景<a class="anchor"]]>
+    </summary>
+    <title>KV存储引擎学习笔记</title>
+    <updated>2022-01-03T03:28:01.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="思维进化" scheme="http://buerlog.top/categories/%E6%80%9D%E7%BB%B4%E8%BF%9B%E5%8C%96/"/>
+    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
+    <id>http://buerlog.top/2021/08/28/si-wei-jin-hua/hei-ke-yu-hua-jia/</id>
+    <link href="http://buerlog.top/2021/08/28/si-wei-jin-hua/hei-ke-yu-hua-jia/"/>
+    <published>2021-08-28T10:06:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="Hacker-ethic">Hacker ethic<a class="anchor" href="#Hacker-ethic">¶</a></h2>
+<ol>
+<li>使用计算机以及所有有助于了解这个世界本质的事物都不应该受到任何限制。任何事情都应该亲手尝试。（Access to computers and anything that might teach you]]>
+    </summary>
+    <title>黑客与画家</title>
+    <updated>2021-10-31T03:04:36.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="Cybersecurity" scheme="http://buerlog.top/categories/Cybersecurity/"/>
+    <category term="网络安全" scheme="http://buerlog.top/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    <id>http://buerlog.top/2021/08/07/cybersecurity/ji-suan-ji-an-quan/</id>
+    <link href="http://buerlog.top/2021/08/07/cybersecurity/ji-suan-ji-an-quan/"/>
+    <published>2021-08-07T04:10:58.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="哈希洪水攻击">哈希洪水攻击<a class="anchor" href="#哈希洪水攻击">¶</a></h2>
+<p><strong>哈希洪水攻击（Hash-Flooding Attack）<strong>是一种</strong>拒绝服务攻击（Denial of]]>
+    </summary>
+    <title>计算机安全</title>
+    <updated>2021-10-31T03:04:36.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="分布式" scheme="http://buerlog.top/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    <category term="分布式系统" scheme="http://buerlog.top/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/"/>
+    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
+    <id>http://buerlog.top/2021/08/05/fen-bu-shi/fen-bu-shi-xi-tong-gai-nian/</id>
+    <link href="http://buerlog.top/2021/08/05/fen-bu-shi/fen-bu-shi-xi-tong-gai-nian/"/>
+    <published>2021-08-04T16:59:38.000Z</published>
+    <summary>
+      <![CDATA[<h2 id=""><a class="anchor" href="#">¶</a></h2>
+<h3 id="Basic">Basic<a class="anchor" href="#Basic">¶</a></h3>
+<h3 id="Up-and-down-the-level-of-abstraction">Up and down the level of abstraction<a]]>
+    </summary>
+    <title>分布式系统概念</title>
+    <updated>2021-10-31T03:04:36.000Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>不二</name>
+    </author>
+    <category term="程序设计" scheme="http://buerlog.top/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    <category term="分布式系统" scheme="http://buerlog.top/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/"/>
+    <category term="Book" scheme="http://buerlog.top/tags/Book/"/>
+    <id>http://buerlog.top/2021/08/05/cheng-xu-she-ji/shu-ju-mi-ji-xing-ying-yong-xi-tong-she-ji-xue-xi/</id>
+    <link href="http://buerlog.top/2021/08/05/cheng-xu-she-ji/shu-ju-mi-ji-xing-ying-yong-xi-tong-she-ji-xue-xi/"/>
+    <published>2021-08-04T16:14:53.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="数据系统基础">数据系统基础<a class="anchor" href="#数据系统基础">¶</a></h2>
+<h3 id="第1章-可靠、可扩展与可维护的应用系统">第1章 可靠、可扩展与可维护的应用系统<a class="anchor" href="#第1章-可靠、可扩展与可维护的应用系统">¶</a></h3>
+<h3 id="第2章-数据模型与查询语言">第2章]]>
+    </summary>
+    <title>《数据密集型应用系统设计》学习</title>
+    <updated>2021-12-04T17:13:35.000Z</updated>
+  </entry>
 </feed>

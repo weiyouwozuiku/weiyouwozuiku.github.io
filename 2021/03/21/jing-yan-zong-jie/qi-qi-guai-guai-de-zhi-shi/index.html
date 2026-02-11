@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -540,25 +540,16 @@
 <h3 id="限制用户SSH登陆">限制用户SSH登陆<a class="anchor" href="#限制用户SSH登陆">¶</a></h3>
 <p>只允许指定用户通过指定ip进行登陆（白名单）。</p>
 <p>修改<code>/etc/ssh/sshd_config</code>文件中设置<code>AllowUsers</code>选项。<strong>配置完成需要重启 SSHD 服务。</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">AllowUsers root@<span class="token operator">&lt;</span>指定ip<span class="token operator">&gt;</span> king<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AllowUsers root@&lt;指定ip&gt; king</span><br></pre></td></tr></tbody></table></figure>
 <p>只拒绝指定用户进行登陆（黑名单）。</p>
 <p>修改<code>/etc/ssh/sshd_config</code>文件中设置<code>DenyUsers</code>选项。<strong>配置完成需要重启 SSHD 服务。</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">DenyUsers    root aliyun    <span class="token comment">#Linux系统账户        </span>
-<span class="token comment"># 拒绝 root aliyun 帐户通过 SSH 登录系统</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DenyUsers    root aliyun    #Linux系统账户        </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">拒绝 root aliyun 帐户通过 SSH 登录系统</span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="重启SSH服务">重启SSH服务<a class="anchor" href="#重启SSH服务">¶</a></h3>
 <p><code>sudo service sshd restart</code></p>
 <h2 id="VSCODE">VSCODE<a class="anchor" href="#VSCODE">¶</a></h2>
 <h3 id="堡垒机跳转">堡垒机跳转<a class="anchor" href="#堡垒机跳转">¶</a></h3>
 <p>当我们使用堡垒机连接服务器的时候，需要在vscode的ssh配置环境中加上如下格式的字段以保证能跳转到相应服务器上。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Host centos7
-  HostName <span class="token punctuation">{</span>服务器ip<span class="token punctuation">}</span>
-  User <span class="token punctuation">{</span>登陆用户名<span class="token punctuation">}</span>
-  ForwardAgent <span class="token function">yes</span>
-  ProxyCommand <span class="token function">ssh</span> <span class="token parameter variable">-W</span> <span class="token punctuation">{</span>服务器的内网地址<span class="token punctuation">}</span>:%p <span class="token punctuation">{</span>堡垒机ip<span class="token punctuation">}</span> 
-Host centos8
-  HostName <span class="token punctuation">{</span>堡垒机ip<span class="token punctuation">}</span>
-  User <span class="token punctuation">{</span>登陆用户名<span class="token punctuation">}</span>
-  ForwardAgent <span class="token function">yes</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host centos7</span><br><span class="line">  HostName {服务器ip}</span><br><span class="line">  User {登陆用户名}</span><br><span class="line">  ForwardAgent yes</span><br><span class="line">  ProxyCommand ssh -W {服务器的内网地址}:%p {堡垒机ip} </span><br><span class="line">Host centos8</span><br><span class="line">  HostName {堡垒机ip}</span><br><span class="line">  User {登陆用户名}</span><br><span class="line">  ForwardAgent yes</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="多行文件显示">多行文件显示<a class="anchor" href="#多行文件显示">¶</a></h3>
 <p>vscode默认文件是一行显示，左右滑动。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86/%E6%96%87%E4%BB%B6%E5%8D%95%E8%A1%8C.png" alt="文件单行.png"></p>
@@ -575,23 +566,22 @@ Host centos8
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E7%9F%A5%E8%AF%86/vscode%E5%AD%97%E4%BD%93%E4%BF%AE%E6%94%B9.png" alt="vscode字体修改.png"></p>
 <h2 id="获取B站支链">获取B站支链<a class="anchor" href="#获取B站支链">¶</a></h2>
 <p>在终端输入下面的代码就可以获取到B站直链。等开源研究下实现。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">str<span class="token operator">=</span><span class="token string">"https://video-direct-link.vercel.app/bili.mp4?aid="</span><span class="token operator">+</span>aid<span class="token operator">+</span><span class="token string">"&amp;bvid="</span><span class="token operator">+</span>bvid<span class="token operator">+</span><span class="token string">"&amp;cid="</span><span class="token operator">+</span>cid<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">"https://video-direct-link.vercel.app/bili.mp4?aid="</span>+aid+<span class="string">"&amp;bvid="</span>+bvid+<span class="string">"&amp;cid="</span>+cid</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="gh-md-toc">gh-md-toc<a class="anchor" href="#gh-md-toc">¶</a></h2>
 <p>这是一个生成README文件目录的工具，https://github.com/ekalinin/github-markdown-toc。</p>
 <p>在想要增加目录的地方加上如下标志符</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;!--ts--&gt;
-&lt;!--te--&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--ts--&gt;</span><br><span class="line">&lt;!--te--&gt;</span><br></pre></td></tr></tbody></table></figure>
 <p>使用命令<code>gh-md-toc --insert &lt;文件名&gt;</code>即可。</p>
 <h2 id="Git乱码">Git乱码<a class="anchor" href="#Git乱码">¶</a></h2>
 <p>避免中文乱码：</p>
 <p>在默认设置下，中文文件名在工作区状态输出，中文名不能正确显示，而是显示为八进制的字符编码。</p>
 <p>将git配置文件 <code>core.quotepath</code>项设置为<code>false</code>。<code>quotepath</code>表示引用路径，加上<code>--global</code>表示全局配置。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> core.quotepath <span class="token boolean">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.quotepath false</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="查找相应文件数量">查找相应文件数量<a class="anchor" href="#查找相应文件数量">¶</a></h2>
 <p>获取当前文件夹及其子文件夹中md文件的数量。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span> <span class="token parameter variable">-lR</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">".md"</span> <span class="token operator">|</span> <span class="token function">wc</span> <span class="token parameter variable">-l</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lR | grep ".md" | wc -l</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="统计相应文件中代码行数之和">统计相应文件中代码行数之和<a class="anchor" href="#统计相应文件中代码行数之和">¶</a></h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> ./* <span class="token parameter variable">-name</span> <span class="token string">"*.md"</span> <span class="token operator">|</span><span class="token function">xargs</span> <span class="token function">cat</span><span class="token operator">|</span><span class="token function">grep</span> <span class="token parameter variable">-v</span> ^$<span class="token operator">|</span><span class="token function">wc</span> <span class="token parameter variable">-l</span> <span class="token comment">#这里过滤掉了空行</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./* -name "*.md" |xargs cat|grep -v ^$|wc -l #这里过滤掉了空行</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="RSS">RSS<a class="anchor" href="#RSS">¶</a></h2>
 <h3 id="RSSHub">RSSHub<a class="anchor" href="#RSSHub">¶</a></h3>
 <p>RSSHub可以理解为爬取或者拉取rss服务的后端程序。</p>
@@ -599,46 +589,12 @@ Host centos8
 <h3 id="Miniflux">Miniflux<a class="anchor" href="#Miniflux">¶</a></h3>
 <p>Miniflux偏向于一个前端程序，渲染RSSHub的数据，并且其本身还配置了一个数据库存储拉取的rss数据。</p>
 <p>使用docker安装只需要一行命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 先新增一個 Miniflux 的目錄</span>
-$ <span class="token function">mkdir</span> ~/miniflux <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> ~/miniflux
-<span class="token comment"># 新建一個設定檔</span>
-$ <span class="token function">nano</span> docker-compose.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-docker" data-language="docker"><code class="language-docker">version: "3"
-
-services:
-
-   miniflux:
-     image: miniflux/miniflux:latest
-     container_name: miniflux
-     restart: unless-stopped
-     ports:
-       - "8888:8080"
-     depends_on:
-       - db
-     environment:
-       - DATABASE_URL=postgres://miniflux:somepass888@db/miniflux?sslmode=disable
-       - POLLING_FREQUENCY=15
-       - RUN_MIGRATIONS=1
-
-   db:
-     image: postgres:latest
-     container_name: postgres
-     restart: unless-stopped
-     environment:
-       - POSTGRES_USER=miniflux
-       - POSTGRES_PASSWORD=somepass888
-     volumes:
-       - miniflux-db:/var/lib/postgresql/data
-
-volumes:
-  miniflux-db:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> up <span class="token parameter variable">-d</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">先新增一個 Miniflux 的目錄</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> ~/miniflux &amp;&amp; <span class="built_in">cd</span> ~/miniflux</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新建一個設定檔</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nano docker-compose.yml</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight dockerfile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">"3"</span></span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line"></span><br><span class="line">   miniflux:</span><br><span class="line">     image: miniflux/miniflux:latest</span><br><span class="line">     container_name: miniflux</span><br><span class="line">     restart: unless-stopped</span><br><span class="line">     ports:</span><br><span class="line">       - <span class="string">"8888:8080"</span></span><br><span class="line">     depends_on:</span><br><span class="line">       - db</span><br><span class="line">     environment:</span><br><span class="line">       - DATABASE_URL=postgres://miniflux:somepass888@db/miniflux?sslmode=disable</span><br><span class="line">       - POLLING_FREQUENCY=<span class="number">15</span></span><br><span class="line">       - RUN_MIGRATIONS=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">   db:</span><br><span class="line">     image: postgres:latest</span><br><span class="line">     container_name: postgres</span><br><span class="line">     restart: unless-stopped</span><br><span class="line">     environment:</span><br><span class="line">       - POSTGRES_USER=miniflux</span><br><span class="line">       - POSTGRES_PASSWORD=somepass888</span><br><span class="line">     volumes:</span><br><span class="line">       - miniflux-db:/var/lib/postgresql/data</span><br><span class="line"></span><br><span class="line">volumes:</span><br><span class="line">  miniflux-db:</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></tbody></table></figure>
 <p>上面的命令就可以拉取运行镜像。</p>
 <p>设置配置：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下面這條指令在日後 Miniflux 大版本升級時候有可能也會用到</span>
-$ <span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span> miniflux /usr/bin/miniflux <span class="token parameter variable">-migrate</span>
-<span class="token comment"># 下面這條在新增管理員帳號跟密碼，等下要登入 Miniflux 管理後台用的</span>
-$ <span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span> miniflux /usr/bin/miniflux -create-admin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下面這條指令在日後 Miniflux 大版本升級時候有可能也會用到</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker-compose <span class="built_in">exec</span> miniflux /usr/bin/miniflux -migrate</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下面這條在新增管理員帳號跟密碼，等下要登入 Miniflux 管理後台用的</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker-compose <span class="built_in">exec</span> miniflux /usr/bin/miniflux -create-admin</span></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="Chrome">Chrome<a class="anchor" href="#Chrome">¶</a></h2>
 <p>当打开过多网页没有时间查看的时候，可以使用快捷键<code> CTRL+shift+ D</code>, 所有当前窗口中的tab都会被保存至书签。</p>
 <h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
@@ -1199,7 +1155,7 @@ $ <span class="token function">docker-compose</span> <span class="token builtin 
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1208,7 +1164,7 @@ $ <span class="token function">docker-compose</span> <span class="token builtin 
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

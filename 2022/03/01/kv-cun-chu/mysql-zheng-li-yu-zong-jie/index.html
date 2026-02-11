@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -551,7 +551,7 @@
 <p>但是不推荐使用缓存。因为<strong>通常情况下MySQL的缓存利大于弊。</strong></p>
 <p>查询缓存的失效非常频繁。只要对一个表的更新，这个表上的所有查询缓存就会被清空。对于更新压力较大的数据库来说，查询缓存的命中率很低。<strong>除非你的业务是一个静态表，很长时间才更新一次。</strong></p>
 <p>通过设置参数<code>query_cache_type</code>为<code>DEMAND</code>，这样默认的SQL语句都不使用查询缓存。需要是显式指定。例如：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> SQL_cache <span class="token operator">*</span> <span class="token keyword">from</span> T <span class="token keyword">where</span> ID<span class="token operator">=</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SQL_cache <span class="operator">*</span> <span class="keyword">from</span> T <span class="keyword">where</span> ID<span class="operator">=</span>...;</span><br></pre></td></tr></tbody></table></figure>
 <p>MySQL8.0之后没有查询缓存这个功能了。</p>
 <h3 id="分析器">分析器<a class="anchor" href="#分析器">¶</a></h3>
 <p>分析器进行sql的词法分析，知道你要做什么。</p>
@@ -666,7 +666,7 @@
 <p><strong>建议使用set autocommit=1来启动事务。</strong></p>
 <p><strong>针对在乎频繁使用事务的业务，推荐使用commit work and chain语法</strong>。在 autocommit 为 1 的情况下，用 begin 显式启动的事务，如果执行 commit 则提交事务。如果执行 commit work and chain，则是提交事务并自动启动下一个事务，这样也省去了再次执行 begin 语句的开销。同时带来的好处是从程序开发的角度明确地知道每个语句是否处于事务中。</p>
 <p>你可以在 information_schema 库的 innodb_trx 这个表中查询长事务，比如下面这个语句，用于查找持续时间超过 60s 的事务。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> information_schema<span class="token punctuation">.</span>innodb_trx <span class="token keyword">where</span> TIME_TO_SEC<span class="token punctuation">(</span>timediff<span class="token punctuation">(</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>trx_started<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&gt;</span><span class="token number">60</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> information_schema.innodb_trx <span class="keyword">where</span> TIME_TO_SEC(timediff(now(),trx_started))<span class="operator">&gt;</span><span class="number">60</span></span><br></pre></td></tr></tbody></table></figure>
 <h3 id="如何避免长事务">如何避免长事务<a class="anchor" href="#如何避免长事务">¶</a></h3>
 <p>从应用开发来看：</p>
 <ol>
@@ -870,8 +870,7 @@
 </ol>
 <h3 id="当前读">当前读<a class="anchor" href="#当前读">¶</a></h3>
 <p>读取的是记录的最新版本，读取时保证其他并发事务不能修改当前记录，会对读取的记录上锁。在update的时候会通过当前读更新数据，此外select预计加锁也是当前读。形如：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> k <span class="token keyword">from</span> t <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">lock</span> <span class="token operator">in</span> <span class="token keyword">share</span> <span class="token keyword">mode</span><span class="token punctuation">;</span>读锁（S锁，共享锁）
-<span class="token keyword">select</span> k <span class="token keyword">from</span> t <span class="token keyword">where</span> id<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">for</span> <span class="token keyword">update</span><span class="token punctuation">;</span>写锁（X锁，排他锁）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> k <span class="keyword">from</span> t <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span> lock <span class="keyword">in</span> share mode;读锁（S锁，共享锁）</span><br><span class="line"><span class="keyword">select</span> k <span class="keyword">from</span> t <span class="keyword">where</span> id<span class="operator">=</span><span class="number">1</span> <span class="keyword">for</span> <span class="keyword">update</span>;写锁（X锁，排他锁）</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="快照读">快照读<a class="anchor" href="#快照读">¶</a></h3>
 <p>不加锁的非阻塞锁。其前提是隔离级别不是串行级别。串行下的快照读会退化成当前读。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@src/source/_posts/KV%E5%AD%98%E5%82%A8/MySQL%E6%95%B4%E7%90%86%E4%B8%8E%E6%80%BB%E7%BB%93/MySQL_MVCC_%E6%B5%81%E7%A8%8B.png" alt="MySQL_MVCC_流程.png"></p>
@@ -1462,7 +1461,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1471,7 +1470,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

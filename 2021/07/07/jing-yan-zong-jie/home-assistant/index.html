@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -545,28 +545,11 @@
 </li>
 <li>
 <p>安装容器</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">--init</span> <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
-  <span class="token parameter variable">--name</span> homeassistant <span class="token punctuation">\</span>
-  <span class="token parameter variable">--privileged</span> <span class="token punctuation">\</span>
-  <span class="token parameter variable">--restart</span><span class="token operator">=</span>unless-stopped <span class="token punctuation">\</span>
-  <span class="token parameter variable">-v</span> /etc/localtime:/etc/localtime:ro <span class="token punctuation">\</span>
-  <span class="token parameter variable">-v</span> /PATH_TO_YOUR_CONFIG:/config <span class="token punctuation">\</span>
-  <span class="token parameter variable">--network</span><span class="token operator">=</span>host <span class="token punctuation">\</span>
-  ghcr.io/home-assistant/raspberrypi3-homeassistant:stable<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run --init -d \</span><br><span class="line">  --name homeassistant \</span><br><span class="line">  --privileged \</span><br><span class="line">  --restart=unless-stopped \</span><br><span class="line">  -v /etc/localtime:/etc/localtime:ro \</span><br><span class="line">  -v /PATH_TO_YOUR_CONFIG:/config \</span><br><span class="line">  --network=host \</span><br><span class="line">  ghcr.io/home-assistant/raspberrypi3-homeassistant:stable</span><br></pre></td></tr></tbody></table></figure>
 <p>更新容器</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># if this returns "Image is up to date" then you can stop here</span>
-<span class="token function">docker</span> pull ghcr.io/home-assistant/raspberrypi3-homeassistant<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># stop the running container</span>
-<span class="token function">docker</span> stop homeassistant<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># finally, start a new one</span>
-<span class="token function">docker</span> run <span class="token parameter variable">--init</span> <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
-  <span class="token parameter variable">--name</span> homeassistant <span class="token punctuation">\</span>
-  <span class="token parameter variable">--restart</span><span class="token operator">=</span>unless-stopped <span class="token punctuation">\</span>
-  <span class="token parameter variable">--privileged</span> <span class="token punctuation">\</span>
-  <span class="token parameter variable">-v</span> /PATH_TO_YOUR_CONFIG:/config <span class="token punctuation">\</span>
-  <span class="token parameter variable">-v</span> /etc/localtime:/etc/localtime:ro <span class="token punctuation">\</span>
-  <span class="token parameter variable">--network</span><span class="token operator">=</span>host <span class="token punctuation">\</span>
-  ghcr.io/home-assistant/raspberrypi3-homeassistant:stable<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">if</span> this returns <span class="string">"Image is up to date"</span> <span class="keyword">then</span> you can stop here</span></span><br><span class="line">docker pull ghcr.io/home-assistant/raspberrypi3-homeassistant</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">stop the running container</span></span><br><span class="line">docker stop homeassistant</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">finally, start a new one</span></span><br><span class="line">docker run --init -d \</span><br><span class="line">  --name homeassistant \</span><br><span class="line">  --restart=unless-stopped \</span><br><span class="line">  --privileged \</span><br><span class="line">  -v /PATH_TO_YOUR_CONFIG:/config \</span><br><span class="line">  -v /etc/localtime:/etc/localtime:ro \</span><br><span class="line">  --network=host \</span><br><span class="line">  ghcr.io/home-assistant/raspberrypi3-homeassistant:stable</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li>
 <p>此时本机上已经安装好了装有Home Assistant的容器，并且已经运行。访问该设备的<code>IP:8123</code>即可访问。</p>
@@ -1143,7 +1126,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1152,7 +1135,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

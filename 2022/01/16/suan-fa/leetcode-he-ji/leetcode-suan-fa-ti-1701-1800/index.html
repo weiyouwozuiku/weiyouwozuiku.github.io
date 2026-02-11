@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -547,29 +547,7 @@
 <h2 id="1781-1790">1781-1790<a class="anchor" href="#1781-1790">¶</a></h2>
 <h2 id="1791-1800">1791-1800<a class="anchor" href="#1791-1800">¶</a></h2>
 <h3 id="1797-设计一个验证系统"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/design-authentication-manager/description/">1797.设计一个验证系统</a><a class="anchor" href="#1797-设计一个验证系统">¶</a></h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">AuthenticationManager</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> timeToLive<span class="token punctuation">;</span>
-    unordered_map<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> map<span class="token punctuation">;</span>
-
-    <span class="token function">AuthenticationManager</span><span class="token punctuation">(</span><span class="token keyword">int</span> timeToLive<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">timeToLive</span><span class="token punctuation">(</span>timeToLive<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-
-    <span class="token keyword">void</span> <span class="token function">generate</span><span class="token punctuation">(</span>string tokenId<span class="token punctuation">,</span> <span class="token keyword">int</span> currentTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        map<span class="token punctuation">[</span>tokenId<span class="token punctuation">]</span> <span class="token operator">=</span> currentTime<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">void</span> <span class="token function">renew</span><span class="token punctuation">(</span>string tokenId<span class="token punctuation">,</span> <span class="token keyword">int</span> currentTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>tokenId<span class="token punctuation">)</span> <span class="token operator">!=</span> map<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> currentTime <span class="token operator">&lt;</span> map<span class="token punctuation">[</span>tokenId<span class="token punctuation">]</span> <span class="token operator">+</span> timeToLive<span class="token punctuation">)</span> map<span class="token punctuation">[</span>tokenId<span class="token punctuation">]</span> <span class="token operator">=</span> currentTime<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">int</span> <span class="token function">countUnexpiredTokens</span><span class="token punctuation">(</span><span class="token keyword">int</span> currentTime<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token operator">&amp;</span><span class="token punctuation">[</span>token<span class="token punctuation">,</span> time<span class="token punctuation">]</span><span class="token operator">:</span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>time <span class="token operator">+</span> timeToLive <span class="token operator">&gt;</span> currentTime<span class="token punctuation">)</span> cnt <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> cnt<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AuthenticationManager</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> timeToLive;</span><br><span class="line">    unordered_map&lt;string, <span class="type">int</span>&gt; map;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">AuthenticationManager</span>(<span class="type">int</span> timeToLive) : <span class="built_in">timeToLive</span>(timeToLive) {}</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">generate</span><span class="params">(string tokenId, <span class="type">int</span> currentTime)</span> </span>{</span><br><span class="line">        map[tokenId] = currentTime;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">renew</span><span class="params">(string tokenId, <span class="type">int</span> currentTime)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (map.<span class="built_in">find</span>(tokenId) != map.<span class="built_in">end</span>() &amp;&amp; currentTime &lt; map[tokenId] + timeToLive) map[tokenId] = currentTime;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countUnexpiredTokens</span><span class="params">(<span class="type">int</span> currentTime)</span> </span>{</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;[token, time]: map) {</span><br><span class="line">            <span class="keyword">if</span> (time + timeToLive &gt; currentTime) cnt += <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 
                 
             </div>
@@ -1136,7 +1114,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1145,7 +1123,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

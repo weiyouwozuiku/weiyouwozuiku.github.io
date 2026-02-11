@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -540,23 +540,7 @@
 <h2 id="2011-2020">2011-2020<a class="anchor" href="#2011-2020">¶</a></h2>
 <h2 id="2021-2030">2021-2030<a class="anchor" href="#2021-2030">¶</a></h2>
 <h4 id="2028-找出缺失的观测数据"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-missing-observations/">2028. 找出缺失的观测数据</a><a class="anchor" href="#2028-找出缺失的观测数据">¶</a></h4>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">missingRolls</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>rolls<span class="token punctuation">,</span> <span class="token keyword">int</span> mean<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> m <span class="token operator">=</span> rolls<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> cnt <span class="token operator">=</span> m <span class="token operator">+</span> n<span class="token punctuation">,</span> sum <span class="token operator">=</span> cnt <span class="token operator">*</span> mean<span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> item<span class="token operator">:</span> rolls<span class="token punctuation">)</span> sum <span class="token operator">-=</span> item<span class="token punctuation">;</span>
-        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> ans<span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>sum <span class="token operator">&gt;</span> n <span class="token operator">*</span> <span class="token number">6</span> <span class="token operator">||</span> sum <span class="token operator">&lt;</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            <span class="token keyword">int</span> rem <span class="token operator">=</span> sum <span class="token operator">%</span> n<span class="token punctuation">,</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-            ans<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> sum <span class="token operator">/</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span>rem<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token operator">++</span>ans<span class="token punctuation">[</span>idx<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">missingRolls</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;rolls, <span class="type">int</span> mean, <span class="type">int</span> n)</span> </span>{</span><br><span class="line">        <span class="type">int</span> m = rolls.<span class="built_in">size</span>(), cnt = m + n, sum = cnt * mean;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> item: rolls) sum -= item;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">if</span> (sum &gt; n * <span class="number">6</span> || sum &lt; n) {</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="type">int</span> rem = sum % n, idx = <span class="number">0</span>;</span><br><span class="line">            ans.<span class="built_in">resize</span>(n, sum / n);</span><br><span class="line">            <span class="keyword">while</span> (rem--) ++ans[idx++];</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="2031-2040">2031-2040<a class="anchor" href="#2031-2040">¶</a></h2>
 <h2 id="2041-2050">2041-2050<a class="anchor" href="#2041-2050">¶</a></h2>
 <h2 id="2051-2060">2051-2060<a class="anchor" href="#2051-2060">¶</a></h2>
@@ -1130,7 +1114,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1139,7 +1123,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

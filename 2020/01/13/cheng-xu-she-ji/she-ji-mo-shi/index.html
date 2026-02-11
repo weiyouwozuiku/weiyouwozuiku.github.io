@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -696,64 +696,7 @@
 <li>子类的构造函数中给接口类型的变量new一个具体实现类的实体，并通过这个实体定义一个方法不实现，只做调用相应实现类的方法。</li>
 <li>生成超类的对接口类型变量成员的setter。从而支持在运行时对变化方法的修改。</li>
 </ol>
-<pre class="line-numbers language-none"><code class="language-none">// 策略接口声明了某个算法各个不同版本间所共有的操作。上下文会使用该接口来
-// 调用有具体策略定义的算法。
-interface Strategy is
-    method execute(a, b)
-
-// 具体策略会在遵循策略基础接口的情况下实现算法。该接口实现了它们在上下文
-// 中的互换性。
-class ConcreteStrategyAdd implements Strategy is
-    method execute(a, b) is
-        return a + b
-
-class ConcreteStrategySubtract implements Strategy is
-    method execute(a, b) is
-        return a - b
-
-class ConcreteStrategyMultiply implements Strategy is
-    method execute(a, b) is
-        return a * b
-
-// 上下文定义了客户端关注的接口。
-class Context is
-    // 上下文会维护指向某个策略对象的引用。上下文不知晓策略的具体类。上下
-    // 文必须通过策略接口来与所有策略进行交互。
-    private strategy: Strategy
-
-    // 上下文通常会通过构造函数来接收策略对象，同时还提供设置器以便在运行
-    // 时切换策略。
-    method setStrategy(Strategy strategy) is
-        this.strategy = strategy
-
-    // 上下文会将一些工作委派给策略对象，而不是自行实现不同版本的算法。
-    method executeStrategy(int a, int b) is
-        return strategy.execute(a, b)
-
-
-// 客户端代码会选择具体策略并将其传递给上下文。客户端必须知晓策略之间的差
-// 异，才能做出正确的选择。
-class ExampleApplication is
-    method main() is
-
-        创建上下文对象。
-
-        读取第一个数。
-        读取最后一个数。
-        从用户输入中读取期望进行的行为。
-
-        if (action == addition) then
-            context.setStrategy(new ConcreteStrategyAdd())
-
-        if (action == subtraction) then
-            context.setStrategy(new ConcreteStrategySubtract())
-
-        if (action == multiplication) then
-            context.setStrategy(new ConcreteStrategyMultiply())
-
-        result = context.executeStrategy(First number, Second number)
-
-        打印结果。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">// 策略接口声明了某个算法各个不同版本间所共有的操作。上下文会使用该接口来</span><br><span class="line">// 调用有具体策略定义的算法。</span><br><span class="line">interface Strategy is</span><br><span class="line">    method execute(a, b)</span><br><span class="line"></span><br><span class="line">// 具体策略会在遵循策略基础接口的情况下实现算法。该接口实现了它们在上下文</span><br><span class="line">// 中的互换性。</span><br><span class="line">class ConcreteStrategyAdd implements Strategy is</span><br><span class="line">    method execute(a, b) is</span><br><span class="line">        return a + b</span><br><span class="line"></span><br><span class="line">class ConcreteStrategySubtract implements Strategy is</span><br><span class="line">    method execute(a, b) is</span><br><span class="line">        return a - b</span><br><span class="line"></span><br><span class="line">class ConcreteStrategyMultiply implements Strategy is</span><br><span class="line">    method execute(a, b) is</span><br><span class="line">        return a * b</span><br><span class="line"></span><br><span class="line">// 上下文定义了客户端关注的接口。</span><br><span class="line">class Context is</span><br><span class="line">    // 上下文会维护指向某个策略对象的引用。上下文不知晓策略的具体类。上下</span><br><span class="line">    // 文必须通过策略接口来与所有策略进行交互。</span><br><span class="line">    private strategy: Strategy</span><br><span class="line"></span><br><span class="line">    // 上下文通常会通过构造函数来接收策略对象，同时还提供设置器以便在运行</span><br><span class="line">    // 时切换策略。</span><br><span class="line">    method setStrategy(Strategy strategy) is</span><br><span class="line">        this.strategy = strategy</span><br><span class="line"></span><br><span class="line">    // 上下文会将一些工作委派给策略对象，而不是自行实现不同版本的算法。</span><br><span class="line">    method executeStrategy(int a, int b) is</span><br><span class="line">        return strategy.execute(a, b)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 客户端代码会选择具体策略并将其传递给上下文。客户端必须知晓策略之间的差</span><br><span class="line">// 异，才能做出正确的选择。</span><br><span class="line">class ExampleApplication is</span><br><span class="line">    method main() is</span><br><span class="line"></span><br><span class="line">        创建上下文对象。</span><br><span class="line"></span><br><span class="line">        读取第一个数。</span><br><span class="line">        读取最后一个数。</span><br><span class="line">        从用户输入中读取期望进行的行为。</span><br><span class="line"></span><br><span class="line">        if (action == addition) then</span><br><span class="line">            context.setStrategy(new ConcreteStrategyAdd())</span><br><span class="line"></span><br><span class="line">        if (action == subtraction) then</span><br><span class="line">            context.setStrategy(new ConcreteStrategySubtract())</span><br><span class="line"></span><br><span class="line">        if (action == multiplication) then</span><br><span class="line">            context.setStrategy(new ConcreteStrategyMultiply())</span><br><span class="line"></span><br><span class="line">        result = context.executeStrategy(First number, Second number)</span><br><span class="line"></span><br><span class="line">        打印结果。</span><br></pre></td></tr></tbody></table></figure>
 <h4 id="优缺点">优缺点<a class="anchor" href="#优缺点">¶</a></h4>
 <h5 id="优点-2">优点<a class="anchor" href="#优点-2">¶</a></h5>
 <ul>
@@ -1455,7 +1398,7 @@ class ExampleApplication is
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1464,7 +1407,7 @@ class ExampleApplication is
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

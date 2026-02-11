@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -497,7 +497,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    227
+                    219
                 </div>
                 
 
@@ -537,41 +537,13 @@
 <p>下载<a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash/releases/tag/premium">clash</a>的二进制文件到<code>~/clash</code>这个也可以放在/usr/local/bin中，赋予运行权限。</p>
 <p>在<code>~/.config/clash</code>中执行<code>git clone https://github.com/Dreamacro/clash-dashboard.git &amp;&amp; cd clash-dashboard &amp;&amp; git checkout -b gh-pages origin/gh-pages</code>，这个是clash的页面。</p>
 <h3 id="开机自启">开机自启<a class="anchor" href="#开机自启">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/systemd/system/clash.service
-
-<span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
-<span class="token assign-left variable">Description</span><span class="token operator">=</span>clash daemon
-
-<span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
-<span class="token assign-left variable">Type</span><span class="token operator">=</span>simple
-<span class="token assign-left variable">User</span><span class="token operator">=</span>root
-<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>clash <span class="token parameter variable">-d</span> /home/pi/.config/clash
-<span class="token assign-left variable">Restart</span><span class="token operator">=</span>on-failure
-
-<span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
-<span class="token assign-left variable">WantedBy</span><span class="token operator">=</span>multi-user.target
-
-<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> clash.service  <span class="token comment">#设置开机自启动</span>
-<span class="token function">sudo</span> systemctl start clash.service  <span class="token comment">#手动启动</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/systemd/system/clash.service</span><br><span class="line"></span><br><span class="line">[Unit]</span><br><span class="line">Description=clash daemon</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">ExecStart=clash -d /home/pi/.config/clash</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br><span class="line">sudo systemctl enable clash.service  #设置开机自启动</span><br><span class="line">sudo systemctl start clash.service  #手动启动</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="自动更新">自动更新<a class="anchor" href="#自动更新">¶</a></h2>
 <h3 id="更新脚本及其配置">更新脚本及其配置<a class="anchor" href="#更新脚本及其配置">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-
-<span class="token comment"># 设置clash路径</span>
-<span class="token assign-left variable">clash_path</span><span class="token operator">=</span><span class="token string">"/home/pi/.config/clash"</span>
-
-<span class="token comment"># 停止clash</span>
-<span class="token function">sudo</span> systemctl stop clash.service
-
-<span class="token function">wget</span> <span class="token parameter variable">-O</span> <span class="token variable">$clash_path</span>/config.yaml <span class="token operator">&lt;</span>订阅地址<span class="token operator">&gt;</span>
-<span class="token function">wget</span> <span class="token parameter variable">-O</span> <span class="token variable">$clash_path</span>/Country.mmdb https://www.sub-speeder.com/client-download/Country.mmdb
-<span class="token function">sed</span> <span class="token parameter variable">-i</span> <span class="token string">"s/# external-ui: folder/external-ui: \/home\/pi\/.config\/clash\/clash-dashboard/;s/secret: ''/secret: '登录秘钥'/g"</span> <span class="token variable">$clash_path</span>/config.yaml
-
-<span class="token comment"># 重启clash</span>
-<span class="token function">sudo</span> systemctl restart clash.service<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置clash路径</span></span><br><span class="line">clash_path="/home/pi/.config/clash"</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止clash</span></span><br><span class="line">sudo systemctl stop clash.service</span><br><span class="line"></span><br><span class="line">wget -O $clash_path/config.yaml &lt;订阅地址&gt;</span><br><span class="line">wget -O $clash_path/Country.mmdb https://www.sub-speeder.com/client-download/Country.mmdb</span><br><span class="line">sed -i "s/# external-ui: folder/external-ui: \/home\/pi\/.config\/clash\/clash-dashboard/;s/secret: ''/secret: '登录秘钥'/g" $clash_path/config.yaml</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启clash</span></span><br><span class="line">sudo systemctl restart clash.service</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="crontab执行">crontab执行<a class="anchor" href="#crontab执行">¶</a></h3>
 <p><code>crontab -e</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">0</span> */8 * * * /home/pi/.config/clash/update.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 */8 * * * /home/pi/.config/clash/update.sh</span><br></pre></td></tr></tbody></table></figure>
 
                 
             </div>
@@ -1130,7 +1102,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1139,7 +1111,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

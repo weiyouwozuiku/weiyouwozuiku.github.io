@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -546,14 +546,10 @@
 <li>具有强大、易用的并发模型</li>
 </ul>
 <h2 id="安装">安装<a class="anchor" href="#安装">¶</a></h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">brew <span class="token function">install</span> coursier/formulas/coursier <span class="token operator">&amp;&amp;</span> cs setup<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install coursier/formulas/coursier &amp;&amp; cs setup</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="探索Scala">探索Scala<a class="anchor" href="#探索Scala">¶</a></h2>
 <p>Scala不要求以<code>;</code>结尾。</p>
-<pre class="line-numbers language-Scala" data-language="Scala"><code class="language-Scala">object HelloWorld{
-  def main(args: Array[String]){
-    println("Hello World...")
-  }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">HelloWorld</span></span>{</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]){</span><br><span class="line">    println(<span class="string">"Hello World..."</span>)</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>上面的HelloWorld代码与Java最大的不同在于：Scala版的HelloWorld程序不通过static关键字把main方法标记成静态方法，而是使用object关键字创建了单件。</p>
 <p><code>&lt;10&gt;.asInstanceOf[Double]</code>：Int类型的10转换成Double类型</p>
 <p><code>10.isInstanceOf[Int]</code>：返回10是否为Int类型</p>
@@ -632,10 +628,7 @@
 </tbody>
 </table>
 <h3 id="函数定义">函数定义<a class="anchor" href="#函数定义">¶</a></h3>
-<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">def</span> 函数名<span class="token punctuation">(</span>参数名<span class="token operator">:</span> 类型<span class="token punctuation">,</span> 参数名<span class="token operator">:</span> 类型<span class="token operator">=</span>默认值<span class="token punctuation">)</span><span class="token operator">:</span> 返回类型<span class="token operator">=</span><span class="token punctuation">{</span>
-    <span class="token comment">// todo</span>
-    <span class="token comment">// 方法体内的最后一行为返回值，不需要return</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">函数名</span></span>(参数名: 类型, 参数名: 类型=默认值): 返回类型={</span><br><span class="line">    <span class="comment">// todo</span></span><br><span class="line">    <span class="comment">// 方法体内的最后一行为返回值，不需要return</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>上面的形式中方法体如果可以一行表示，可以在<code>=</code>后直接书写，而不加<code>{}</code>。对于没有入参的的函数，调用时可以不给<code>()</code>。使用默认参数也是有入参的，不能直接使用函数名调用。</p>
 <p>可变参数：<code>args:String*</code>，使用时<code>for(a&lt;-args){}</code>类似auto或者range</p>
 <h3 id="循环">循环<a class="anchor" href="#循环">¶</a></h3>
@@ -648,20 +641,9 @@
 <li>while</li>
 <li>for</li>
 </ul>
-<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token keyword">&lt;-</span> <span class="token number">1</span> to <span class="token number">10</span> <span class="token keyword">if</span> i<span class="token operator">%</span><span class="token number">2</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment">// todo</span>
-<span class="token punctuation">}</span>
-arr<span class="token punctuation">.</span>foreach<span class="token punctuation">(</span>item<span class="token keyword">=&gt;</span>println<span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i &lt;- <span class="number">1</span> to <span class="number">10</span> <span class="keyword">if</span> i%<span class="number">2</span>==<span class="number">0</span>){</span><br><span class="line">    <span class="comment">// todo</span></span><br><span class="line">}</span><br><span class="line">arr.foreach(item=&gt;println(item))</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="Class">Class<a class="anchor" href="#Class">¶</a></h3>
-<pre class="line-numbers language-scala" data-language="scala"><code class="language-scala"><span class="token keyword">class</span> 类名<span class="token punctuation">{</span>
-    <span class="token comment">//属性</span>
-    <span class="token keyword">var</span> 
-    <span class="token keyword">val</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">def</span> main<span class="token punctuation">(</span>args<span class="token operator">:</span>Array<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span>Uint<span class="token punctuation">{</span>
-    <span class="token keyword">val</span> a<span class="token operator">=</span><span class="token keyword">new</span> 类名
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight scala"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">类名</span></span>{</span><br><span class="line">    <span class="comment">//属性</span></span><br><span class="line">    <span class="keyword">var</span> </span><br><span class="line">    <span class="keyword">val</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args:<span class="type">Array</span>[<span class="type">String</span>]):<span class="type">Uint</span>{</span><br><span class="line">    <span class="keyword">val</span> a=<span class="keyword">new</span> 类名</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>对于没有需要明确初始化值的变量，可以直接使用 <code>—</code>，其本身只表示是一个占位符。使用占位符必须给明类型。String类型占位符对应的是null。</p>
 <p>针对class中没有修饰的val，scala会自动生成对应的get方法。</p>
 <p>针对class中没有修饰的var，scala会自动生成对应的get/set方法。</p>
@@ -1237,7 +1219,7 @@ arr<span class="token punctuation">.</span>foreach<span class="token punctuation
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1246,7 +1228,7 @@ arr<span class="token punctuation">.</span>foreach<span class="token punctuation
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

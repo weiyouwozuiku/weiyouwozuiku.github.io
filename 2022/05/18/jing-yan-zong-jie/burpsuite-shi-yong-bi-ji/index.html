@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -497,7 +497,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    184
+                    185
                 </div>
                 
 
@@ -545,21 +545,18 @@
 </li>
 <li>
 <p>编辑<code>vmoptions.txt</code>，追加写</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json">-Dfile.encoding=utf<span class="token number">-8</span>
--noverify
--javaagent<span class="token operator">:</span>burp-loader-x-Ai.jar
- -Xmx2048m<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-Dfile.encoding=utf<span class="number">-8</span></span><br><span class="line">-noverify</span><br><span class="line">-javaagent<span class="punctuation">:</span>burp-loader-x-Ai.jar</span><br><span class="line"> -Xmx2048m</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li>
 <p>带着启动器启动BurpSuite。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> --add-opens<span class="token operator">=</span>java.desktop/javax.swing<span class="token operator">=</span>ALL-UNNAMED --add-opens<span class="token operator">=</span>java.base/java.lang<span class="token operator">=</span>ALL-UNNAMED <span class="token parameter variable">-Dfile.encoding</span><span class="token operator">=</span>utf-8 <span class="token parameter variable">-noverify</span> -javaagent:/Applications/Burp<span class="token punctuation">\</span> Suite<span class="token punctuation">\</span> Professional.app/Contents/Resources/app/burp-loader-x-Ai.jar <span class="token parameter variable">-Xmx2048m</span> <span class="token parameter variable">-jar</span> /Applications/Burp<span class="token punctuation">\</span> Suite<span class="token punctuation">\</span> Professional.app/Contents/Resources/app/burpsuite_pro.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED -Dfile.encoding=utf-8 -noverify -javaagent:/Applications/Burp\ Suite\ Professional.app/Contents/Resources/app/burp-loader-x-Ai.jar -Xmx2048m -jar /Applications/Burp\ Suite\ Professional.app/Contents/Resources/app/burpsuite_pro.jar</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li>
 <p>选择手动注册。</p>
 </li>
 <li>
 <p>通过注册器获取注册码。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">-jar</span> /Applications/Burp<span class="token punctuation">\</span> Suite<span class="token punctuation">\</span> Professional.app/Contents/Resources/app/burp-keygen-scz.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar /Applications/Burp\ Suite\ Professional.app/Contents/Resources/app/burp-keygen-scz.jar</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ol>
 <h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
@@ -1124,7 +1121,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1133,7 +1130,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

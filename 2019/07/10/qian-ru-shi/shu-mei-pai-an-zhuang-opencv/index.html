@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -501,7 +501,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    294
+                    291
                 </div>
                 
 
@@ -538,40 +538,30 @@
             <div id="articleContent">
                 <h2 id="树莓派安装OpenCV">树莓派安装OpenCV<a class="anchor" href="#树莓派安装OpenCV">¶</a></h2>
 <h3 id="系统更新">系统更新<a class="anchor" href="#系统更新">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update
-<span class="token function">sudo</span> <span class="token function">apt</span> upgrade
-<span class="token function">sudo</span> rpi-update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br><span class="line">sudo rpi-update</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="安装一些OpenCV相关工具">安装一些OpenCV相关工具<a class="anchor" href="#安装一些OpenCV相关工具">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token function">git</span> cmake build-essential pkg-config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git cmake build-essential pkg-config</span><br></pre></td></tr></tbody></table></figure>
 <span id="more"></span>
 <h3 id="安装四个常用的图像工具包">安装四个常用的图像工具包<a class="anchor" href="#安装四个常用的图像工具包">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="安装视频IO包">安装视频IO包<a class="anchor" href="#安装视频IO包">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> libavcodec-dev libavformat-dev libswscale-dev libv4l-dev  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev  </span><br></pre></td></tr></tbody></table></figure>
 <h3 id="安装gtk2-0">安装gtk2.0<a class="anchor" href="#安装gtk2-0">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> libgtk2.0-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libgtk2.0-dev</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="安装优化函数包">安装优化函数包<a class="anchor" href="#安装优化函数包">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> libatlas-base-dev gfortran<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libatlas-base-dev gfortran</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="安装Python开发包">安装Python开发包<a class="anchor" href="#安装Python开发包">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> python-dev python3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python-dev python3-dev</span><br></pre></td></tr></tbody></table></figure>
 <p><em>这一步在新版的树莓派上不需要</em></p>
 <h3 id="下载OpenCV源码">下载OpenCV源码<a class="anchor" href="#下载OpenCV源码">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> opencv-3.4.6.zip https://github.com/opencv/opencv/archive/3.4.6.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O opencv-3.4.6.zip https://github.com/opencv/opencv/archive/3.4.6.zip</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="下载OpenCV-contrib包">下载OpenCV_contrib包<a class="anchor" href="#下载OpenCV-contrib包">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> <span class="token parameter variable">-O</span> opencv_contrib.3.4.6.tar.gz https://github.com/opencv/opencv_contrib/archive/3.4.6.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O opencv_contrib.3.4.6.tar.gz https://github.com/opencv/opencv_contrib/archive/3.4.6.tar.gz</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="编译">编译<a class="anchor" href="#编译">¶</a></h3>
 <p>将上面下载的两个OpenCV文件压缩包进行解压，并在OpenCV的主文件夹中新建一个release文件夹。进入release文件夹中，执行一下命令。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> cmake <span class="token parameter variable">-D</span> <span class="token assign-left variable">CMAKE_BUILD_TYPE</span><span class="token operator">=</span>RELEASE <span class="token punctuation">\</span>
-	<span class="token parameter variable">-D</span> <span class="token assign-left variable">CMAKE_INSTALL_PREFIX</span><span class="token operator">=</span>/usr/local <span class="token punctuation">\</span>
-	<span class="token parameter variable">-D</span> OPENCV_EXTRA+MODULES_PATH<span class="token operator">=~</span>/opencv_contrib-3.4.6/modules <span class="token punctuation">\</span>
-	<span class="token parameter variable">-D</span> <span class="token assign-left variable">INSTALL_PYTHON_EXAMPLES</span><span class="token operator">=</span>ON <span class="token punctuation">\</span>
-	<span class="token parameter variable">-D</span> <span class="token assign-left variable">BUILD_EXAMPLES</span><span class="token operator">=</span>ON <span class="token punctuation">..</span>
-<span class="token function">screen</span> <span class="token parameter variable">-S</span> opencv
-<span class="token function">sudo</span> <span class="token function">make</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \</span><br><span class="line">	-D CMAKE_INSTALL_PREFIX=/usr/local \</span><br><span class="line">	-D OPENCV_EXTRA+MODULES_PATH=~/opencv_contrib-3.4.6/modules \</span><br><span class="line">	-D INSTALL_PYTHON_EXAMPLES=ON \</span><br><span class="line">	-D BUILD_EXAMPLES=ON ..</span><br><span class="line">screen -S opencv</span><br><span class="line">sudo make</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="安装OpenCV">安装OpenCV<a class="anchor" href="#安装OpenCV">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span>
-// 更新动态链接库
-<span class="token function">sudo</span> ldconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br><span class="line">// 更新动态链接库</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="树莓派连接隐藏网络">树莓派连接隐藏网络<a class="anchor" href="#树莓派连接隐藏网络">¶</a></h3>
 <p>修改/etc/wpa_supplicant/wpa_supplicant.conf，在相应的wifi设置中添加上scan_ssid=1即可。</p>
 
@@ -1132,7 +1122,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1141,7 +1131,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

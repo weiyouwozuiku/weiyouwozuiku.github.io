@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -542,23 +542,19 @@
             <div id="articleContent">
                 <h2 id="安装python3-9和pip">安装python3.9和pip<a class="anchor" href="#安装python3-9和pip">¶</a></h2>
 <h3 id="下载python源码包">下载python源码包<a class="anchor" href="#下载python源码包">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tar.xz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tar.xz</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="安装所需依赖关系">安装所需依赖关系<a class="anchor" href="#安装所需依赖关系">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token parameter variable">-y</span> groupinstall <span class="token string">"Development tools"</span>
-<span class="token function">sudo</span> yum <span class="token parameter variable">-y</span> <span class="token function">install</span> zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y groupinstall "Development tools"</span><br><span class="line">sudo yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="解压进入相应目录">解压进入相应目录<a class="anchor" href="#解压进入相应目录">¶</a></h3>
 <p>直接使用zsh的extract。</p>
 <h3 id="编译安装">编译安装<a class="anchor" href="#编译安装">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./configure <span class="token parameter variable">--prefix</span><span class="token operator">=</span>/usr/local/python3  
-<span class="token function">make</span>  
-<span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/python3  </span><br><span class="line">make  </span><br><span class="line">sudo make install</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="创建相应软连接命令">创建相应软连接命令<a class="anchor" href="#创建相应软连接命令">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">ln</span> <span class="token parameter variable">-s</span> /usr/local/python3/bin/python3 /usr/bin/python3
-<span class="token function">sudo</span> <span class="token function">ln</span> <span class="token parameter variable">-s</span> /usr/local/python3/bin/pip3 /usr/bin/pip3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/local/python3/bin/python3 /usr/bin/python3</span><br><span class="line">sudo ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="升级相应的pip版本">升级相应的pip版本<a class="anchor" href="#升级相应的pip版本">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pip3 <span class="token function">install</span> <span class="token parameter variable">--upgrade</span> pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install --upgrade pip</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="安装python依赖包">安装python依赖包<a class="anchor" href="#安装python依赖包">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pip3 <span class="token function">install</span> <span class="token parameter variable">-r</span> requestment.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install -r requestment.txt</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="python2与python3共存">python2与python3共存<a class="anchor" href="#python2与python3共存">¶</a></h3>
 <p>将 <code>/usr/bin/yum</code>和 <code>/usr/libexec/urlgrabber-ext-down</code>文件的最首句最后的python改成python2。</p>
 <h3 id="可能出现的问题">可能出现的问题<a class="anchor" href="#可能出现的问题">¶</a></h3>
@@ -569,91 +565,34 @@
 <hr>
 <h2 id="安装mysql5-7">安装mysql5.7<a class="anchor" href="#安装mysql5-7">¶</a></h2>
 <h3 id="安装YUM-Repo">安装YUM Repo<a class="anchor" href="#安装YUM-Repo">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
-<span class="token function">rpm</span> <span class="token parameter variable">-ivh</span> mysql57-community-release-el7-9.noarch.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</span><br><span class="line">rpm -ivh mysql57-community-release-el7-9.noarch.rpm</span><br></pre></td></tr></tbody></table></figure>
 <p>执行完成后会在 <code>/etc/yum.repos.d/</code>目录下生成两个repo文件 <code>mysql-community.repo</code> <code>mysql-community-source.repo</code>。</p>
 <h3 id="安装Mysql">安装Mysql<a class="anchor" href="#安装Mysql">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> mysql-server
-<span class="token function">sudo</span> systemctl start mysqld <span class="token comment">#启动MySQL</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install mysql-server</span><br><span class="line">sudo systemctl start mysqld #启动MySQL</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="配置Mysql">配置Mysql<a class="anchor" href="#配置Mysql">¶</a></h3>
 <p>获取初始密码</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">grep</span> <span class="token string">'temporary password'</span> /var/log/mysqld.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep 'temporary password' /var/log/mysqld.log</span><br></pre></td></tr></tbody></table></figure>
 <p>若是获取不到则删除原本的安装过的mysql残留数据。然后在启动mysql。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> <span class="token parameter variable">-rf</span> /var/lib/mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /var/lib/mysql</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="登录">登录<a class="anchor" href="#登录">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysql <span class="token parameter variable">-u</span> root <span class="token parameter variable">-p</span> <span class="token parameter variable">-P</span> <span class="token number">3500</span> <span class="token comment">#这里之前设置了mysql的端口开放在3500端口</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p -P 3500 #这里之前设置了mysql的端口开放在3500端口</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="修改密码">修改密码<a class="anchor" href="#修改密码">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">set</span> <span class="token assign-left variable">password</span><span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">"yourpassword"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-flush privileges<span class="token punctuation">;</span> <span class="token comment">#刷新设置好的设置</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set password=password("yourpassword");</span><br><span class="line">flush privileges; #刷新设置好的设置</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="Mysql状态设置">Mysql状态设置<a class="anchor" href="#Mysql状态设置">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl stop mysqld <span class="token comment">#关闭MySQL</span>
-systemctl restart mysqld <span class="token comment">#重启MySQL</span>
-systemctl status mysqld <span class="token comment">#查看MySQL运行状态</span>
-systemctl <span class="token builtin class-name">enable</span> mysqld <span class="token comment">#设置开机启动</span>
-systemctl disable mysqld <span class="token comment">#关闭开机启动</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop mysqld #关闭MySQL</span><br><span class="line">systemctl restart mysqld #重启MySQL</span><br><span class="line">systemctl status mysqld #查看MySQL运行状态</span><br><span class="line">systemctl enable mysqld #设置开机启动</span><br><span class="line">systemctl disable mysqld #关闭开机启动</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="Mysql开启远程控制">Mysql开启远程控制<a class="anchor" href="#Mysql开启远程控制">¶</a></h3>
 <p>首先创建一个远程访问用的用户身份。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">grant all privileges on 数据库名.表名 to 创建的用户名<span class="token punctuation">(</span>root<span class="token punctuation">)</span>@<span class="token string">"%"</span> identified by <span class="token string">"密码"</span><span class="token punctuation">;</span> <span class="token comment"># 数据库名.表名 如果写成*.*代表授权所有的数据库 </span>
-
-flush privileges<span class="token punctuation">;</span> <span class="token comment">#刷新刚才的内容</span>
-
-<span class="token comment">#如：</span>
-grant all privileges on *.* to root@<span class="token string">"113.64.243.1"</span> identified by <span class="token string">"123456789"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on 数据库名.表名 to 创建的用户名(root)@"%" identified by "密码"; # 数据库名.表名 如果写成*.*代表授权所有的数据库 </span><br><span class="line"></span><br><span class="line">flush privileges; #刷新刚才的内容</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">如：</span></span><br><span class="line">grant all privileges on *.* to root@"113.64.243.1" identified by "123456789";</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="Mysql配置修改">Mysql配置修改<a class="anchor" href="#Mysql配置修改">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/my.cnf
-<span class="token comment">#添加</span>
-<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
-<span class="token assign-left variable">character_set_server</span><span class="token operator">=</span>utf8
-<span class="token assign-left variable">init_connect</span><span class="token operator">=</span><span class="token string">'SET NAMES utf8'</span>
-<span class="token assign-left variable">port</span><span class="token operator">=</span><span class="token number">3500</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.cnf</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">添加</span></span><br><span class="line">[mysqld]</span><br><span class="line">character_set_server=utf8</span><br><span class="line">init_connect='SET NAMES utf8'</span><br><span class="line">port=3500</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="配置终端">配置终端<a class="anchor" href="#配置终端">¶</a></h2>
 <h3 id="powerlevel9k-不推荐">powerlevel9k(不推荐)<a class="anchor" href="#powerlevel9k-不推荐">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token function">zsh</span> <span class="token function">git</span>
-<span class="token function">sh</span> <span class="token parameter variable">-c</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="token variable">)</span></span>"</span>
-<span class="token function">git</span> clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install zsh git</span><br><span class="line">sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span><br><span class="line">git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k</span><br></pre></td></tr></tbody></table></figure>
 <p>修改.zshrc文件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">TERM</span></span><span class="token operator">=</span><span class="token string">"screen-256color"</span>
-<span class="token assign-left variable">POWERLEVEL9K_MODE</span><span class="token operator">=</span><span class="token string">'nerdfont-complete'</span>
-<span class="token assign-left variable">ZSH_THEME</span><span class="token operator">=</span><span class="token string">"powerlevel9k/powerlevel9k"</span>
-<span class="token comment">#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context disk_usage dir vcs)</span>
-<span class="token comment">#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)</span>
-<span class="token assign-left variable">POWERLEVEL9K_LEFT_PROMPT_ELEMENTS</span><span class="token operator">=</span><span class="token punctuation">(</span>context os_icon disk_usage dir_writable <span class="token function">dir</span> vcs<span class="token punctuation">)</span>
-<span class="token assign-left variable">POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS</span><span class="token operator">=</span><span class="token punctuation">(</span>ip status root_indicator background_jobs load battery <span class="token function">history</span> <span class="token function">date</span> <span class="token function">time</span><span class="token punctuation">)</span>
-<span class="token assign-left variable">POWERLEVEL9K_PROMPT_ON_NEWLINE</span><span class="token operator">=</span>true
-<span class="token assign-left variable">POWERLEVEL9K_RPROMPT_ON_NEWLINE</span><span class="token operator">=</span>true
-<span class="token assign-left variable">POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX</span><span class="token operator">=</span><span class="token string">"↱"</span>
-<span class="token assign-left variable">POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX</span><span class="token operator">=</span><span class="token string">"↳ "</span>
-<span class="token assign-left variable">plugins</span><span class="token operator">=</span><span class="token punctuation">(</span>
-  <span class="token function">git</span>
-  catimg
-  encode64
-  z
-  zsh-autosuggestions
-  <span class="token function">history</span>
-  extract
-<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">export TERM="screen-256color"</span><br><span class="line">POWERLEVEL9K_MODE='nerdfont-complete'</span><br><span class="line">ZSH_THEME="powerlevel9k/powerlevel9k"</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context disk_usage <span class="built_in">dir</span> vcs)</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs <span class="built_in">history</span> <span class="keyword">time</span>)</span></span><br><span class="line">POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context os_icon disk_usage dir_writable dir vcs)</span><br><span class="line">POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(ip status root_indicator background_jobs load battery history date time)</span><br><span class="line">POWERLEVEL9K_PROMPT_ON_NEWLINE=true</span><br><span class="line">POWERLEVEL9K_RPROMPT_ON_NEWLINE=true</span><br><span class="line">POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"</span><br><span class="line">POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "</span><br><span class="line">plugins=(</span><br><span class="line">  git</span><br><span class="line">  catimg</span><br><span class="line">  encode64</span><br><span class="line">  z</span><br><span class="line">  zsh-autosuggestions</span><br><span class="line">  history</span><br><span class="line">  extract</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="powerlevel10k">powerlevel10k<a class="anchor" href="#powerlevel10k">¶</a></h3>
 <p>因为powerlevel10k需要zsh5.1以上的版本，而yum源中自带的zsh只有5.0.2。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># yum info zsh</span>
-Loaded plugins: fastestmirror
-Determining fastest mirrors
-Installed Packages
-Name        <span class="token builtin class-name">:</span> <span class="token function">zsh</span>
-Arch        <span class="token builtin class-name">:</span> x86_64
-Version     <span class="token builtin class-name">:</span> <span class="token number">5.0</span>.2
-Release     <span class="token builtin class-name">:</span> <span class="token number">34</span>.el7_8.2
-Size        <span class="token builtin class-name">:</span> <span class="token number">5.6</span> M
-Repo        <span class="token builtin class-name">:</span> installed
-From repo   <span class="token builtin class-name">:</span> base
-Summary     <span class="token builtin class-name">:</span> Powerful interactive shell
-URL         <span class="token builtin class-name">:</span> http://zsh.sourceforge.net/
-License     <span class="token builtin class-name">:</span> MIT
-Description <span class="token builtin class-name">:</span> The <span class="token function">zsh</span> shell is a <span class="token builtin class-name">command</span> interpreter usable as an interactive login
-            <span class="token builtin class-name">:</span> shell and as a shell script <span class="token builtin class-name">command</span> processor.  Zsh resembles the ksh
-            <span class="token builtin class-name">:</span> shell <span class="token punctuation">(</span>the Korn shell<span class="token punctuation">)</span>, but includes many enhancements.  Zsh supports
-            <span class="token builtin class-name">:</span> <span class="token builtin class-name">command</span> line editing, built-in spelling correction, programmable
-            <span class="token builtin class-name">:</span> <span class="token builtin class-name">command</span> completion, shell functions <span class="token punctuation">(</span>with autoloading<span class="token punctuation">)</span>, a <span class="token function">history</span>
-            <span class="token builtin class-name">:</span> mechanism, and more.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yum info zsh</span></span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Determining fastest mirrors</span><br><span class="line">Installed Packages</span><br><span class="line">Name        : zsh</span><br><span class="line">Arch        : x86_64</span><br><span class="line">Version     : 5.0.2</span><br><span class="line">Release     : 34.el7_8.2</span><br><span class="line">Size        : 5.6 M</span><br><span class="line">Repo        : installed</span><br><span class="line">From repo   : base</span><br><span class="line">Summary     : Powerful interactive shell</span><br><span class="line">URL         : http://zsh.sourceforge.net/</span><br><span class="line">License     : MIT</span><br><span class="line">Description : The zsh shell is a command interpreter usable as an interactive login</span><br><span class="line">            : shell and as a shell script command processor.  Zsh resembles the ksh</span><br><span class="line">            : shell (the Korn shell), but includes many enhancements.  Zsh supports</span><br><span class="line">            : command line editing, built-in spelling correction, programmable</span><br><span class="line">            : command completion, shell functions (with autoloading), a history</span><br><span class="line">            : mechanism, and more.</span><br></pre></td></tr></tbody></table></figure>
 <p>所以只能通过编译源码的方式安装zsh。</p>
 <ol>
 <li>
@@ -661,16 +600,11 @@ Description <span class="token builtin class-name">:</span> The <span class="tok
 </li>
 <li>
 <p>安装编译依赖</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum <span class="token parameter variable">-y</span> <span class="token function">install</span> gcc perl-ExtUtils-MakeMaker ncurses-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc perl-ExtUtils-MakeMaker ncurses-devel</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li>
 <p>编译安装</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> xvf zsh-5.8.tar.xz
-<span class="token builtin class-name">cd</span> zsh-5.8
-./configure
-<span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
-<span class="token comment"># 将zsh加入/etc/shells</span>
-<span class="token function">vim</span> /etc/shells <span class="token comment"># 添加：/usr/local/bin/zsh</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar xvf zsh-5.8.tar.xz</span><br><span class="line">cd zsh-5.8</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将zsh加入/etc/shells</span></span><br><span class="line">vim /etc/shells # 添加：/usr/local/bin/zsh</span><br></pre></td></tr></tbody></table></figure>
 <p>注意将zsh添加到shells中时，要填写正确的zsh路径，因为我在执行./configure的时候没有指定安装的位置，所以默认是/usr/local/bin/zsh，不确定的话，执行 <strong>whereis zsh</strong> 命令查看具体的路径。</p>
 </li>
 <li>
@@ -686,34 +620,20 @@ Description <span class="token builtin class-name">:</span> The <span class="tok
 <p>该配置文件需要tmux2.3以上。</p>
 <p>CentOS7上安装较新版本的Tmux可以使用 <code>sh -c "$(curl -fsSL https://gitee.com/lxyoucan/tools/raw/master/centos7/tmux/tmuxinstall.sh)"</code></p>
 <p>设置配置文件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">cd</span>
-$ <span class="token function">git</span> clone https://github.com/gpakosz/.tmux.git
-$ <span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token parameter variable">-f</span> .tmux/.tmux.conf
-$ <span class="token function">cp</span> .tmux/.tmux.conf.local <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/gpakosz/.tmux.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ln</span> -s -f .tmux/.tmux.conf</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cp</span> .tmux/.tmux.conf.local .</span></span><br></pre></td></tr></tbody></table></figure>
 <h2 id="安装VIM8">安装VIM8<a class="anchor" href="#安装VIM8">¶</a></h2>
 <p>直接使用一键化脚本即可。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/chxuan/vimplus.git ~/.vimplus
-<span class="token builtin class-name">cd</span> ~/.vimplus
-./install.sh //不加sudo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/chxuan/vimplus.git ~/.vimplus</span><br><span class="line">cd ~/.vimplus</span><br><span class="line">./install.sh //不加sudo</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="代理">代理<a class="anchor" href="#代理">¶</a></h2>
 <p>由于国内的特殊网络环境，云服务器在访问github时会出现无法访问的情况。此时需要设置代理才能clone远程仓库。这里推荐使用<a target="_blank" rel="noopener" href="https://github.com/v2rayA/v2rayA">v2rayA</a>。</p>
 <h2 id="限制SSH连接">限制SSH连接<a class="anchor" href="#限制SSH连接">¶</a></h2>
 <p>实现ssh服务中的root只能通过指定ip的服务器进行登陆</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 修改/etc/ssh/sshd_config</span>
-<span class="token comment"># 这里实现了允许root和king通过ssh登陆，其中root需要通过指定IP来访问</span>
-AllowUsers king root@ip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改/etc/ssh/sshd_config</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这里实现了允许root和king通过ssh登陆，其中root需要通过指定IP来访问</span></span><br><span class="line">AllowUsers king root@ip</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="RAR解压">RAR解压<a class="anchor" href="#RAR解压">¶</a></h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载解压程序</span>
-<span class="token function">wget</span> http://www.rarlab.com/rar/rarlinux-x64-5.3.0.tar.gz
-<span class="token comment"># 解压</span>
-<span class="token function">tar</span> <span class="token parameter variable">-xf</span> rarlinux-x64-5.3.0.tar.gz
-<span class="token comment"># 编译</span>
-<span class="token builtin class-name">cd</span> <span class="token function">rar</span> <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">make</span>
-<span class="token comment"># 解压文件</span>
-<span class="token function">rar</span> x <span class="token operator">&lt;</span>rar文件名<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载解压程序</span></span><br><span class="line">wget http://www.rarlab.com/rar/rarlinux-x64-5.3.0.tar.gz</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解压</span></span><br><span class="line">tar -xf rarlinux-x64-5.3.0.tar.gz</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译</span></span><br><span class="line">cd rar &amp;&amp; sudo make</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解压文件</span></span><br><span class="line">rar x &lt;rar文件名&gt;</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="更新Host">更新Host<a class="anchor" href="#更新Host">¶</a></h2>
 <p>因为某些网络原因,Github的解析十分不稳定,需要定时更新Host,可以创建crontab定时任务</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> /etc/hosts.bak <span class="token operator">&gt;</span> /etc/hosts <span class="token operator">&amp;&amp;</span> <span class="token function">curl</span> https://gitee.com/ineo6/hosts/raw/master/hosts <span class="token operator">&gt;&gt;</span> /etc/hosts<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/hosts.bak &gt; /etc/hosts &amp;&amp; curl https://gitee.com/ineo6/hosts/raw/master/hosts &gt;&gt; /etc/hosts</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="psmisc">psmisc<a class="anchor" href="#psmisc">¶</a></h2>
 <p>安装之后可以通过pstree -halps 进程号，查到docker在宿主机中的进程。</p>
 
@@ -1290,7 +1210,7 @@ AllowUsers king root@ip<span aria-hidden="true" class="line-numbers-rows"><span>
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1299,7 +1219,7 @@ AllowUsers king root@ip<span aria-hidden="true" class="line-numbers-rows"><span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

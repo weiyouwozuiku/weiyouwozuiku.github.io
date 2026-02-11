@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -554,10 +554,7 @@
 <p><img src="https://math.now.sh?inline=p%28n%2Cd%29%5Capprox%201-e%5E%7B%5Cfrac%7B-n(n-1)%7D%7B2d%7D%7D" style="filter: opacity(95%);transform:scale(0.85);text-align:center;display:inline-block;margin: 0;"></p>
 <p>这也就是哈希碰撞概率公式。</p>
 <p>代码化如下：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> calculate <span class="token operator">=</span> <span class="token punctuation">(</span>d<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> exponent <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">-</span>n <span class="token operator">*</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> d<span class="token punctuation">)</span>
-  <span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">-</span> Math<span class="token punctuation">.</span>E <span class="token operator">*</span><span class="token operator">*</span> exponent<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> calculate = (d, n) =&gt; {</span><br><span class="line">  <span class="type">const</span> exponent = (-n * (n - <span class="number">1</span>)) / (<span class="number">2</span> * d)</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span> - Math.E ** exponent;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>这种利用哈希空间不足够大，而制造碰撞的攻击方法，就被称为生日攻击（birthday attack）。</p>
 <h2 id="参考文献">参考文献<a class="anchor" href="#参考文献">¶</a></h2>
 <ol>
@@ -1125,7 +1122,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1134,7 +1131,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

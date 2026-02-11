@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -577,50 +577,83 @@
 <p>使用<code>len()</code>函数计算字符数。例如:<code>len('haha')</code></p>
 </li>
 <li>
-<pre><code class="language-python">#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-<pre class="line-numbers language-none"><code class="language-none">
-- 格式化字符，与c一致，用%实现。
-
-  | 占位符 |   提换内容   |
-  | :----: | :----------: |
-  |   %d   |     整数     |
-  |   %f   |    浮点数    |
-  |   %s   |    字符串    |
-  |   %x   | 十六进制整数 |
-  |   %%   |      %       |
-
-- `format()`函数同样可以格式化。例如'Hello, {0}, 成绩提升了 {1:.1f}%'.format('小明', 17.125)
-
-- |                             list                             |                   tuple（*推荐*）                    |
-  | :----------------------------------------------------------: | :--------------------------------------------------: |
-  | 有序集合，可以随时增删元素，元素之间的类型可以不同，使用内存小 | 一旦初始化不能修改，但可以存放list元素，固定的是指向 |
-  |                             [ ]                              |                         ( )                          |
-  |                       追加元素append()                       |                          无                          |
-  |           将元素插入到指定的位置insert(位置，元素)           |                          无                          |
-  | 删除末尾元素直接pop()，指定位置pop(位置)，用sort()函数进行排序 |                          无                          |
-
-  **可以使用负数直接访问容器中倒数的元素。**
-
-  **`len()`获取元素个数**。
-
-  **tuple只存放一个元素需在那一个元素之后加上一个逗号，消除歧义。**
-
-- 条件判断
-
-  ```python
-  if &lt;条件判断1&gt;:
-      &lt;执行1&gt;
-  elif &lt;条件判断2&gt;:
-      &lt;执行2&gt;
-  elif &lt;条件判断3&gt;:
-      &lt;执行3&gt;
-  else:
-      &lt;执行4&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-**注意if和else后面的冒号，还可以使用elif进行判断。**
-
-</code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li>
+<p>格式化字符，与c一致，用%实现。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">占位符</th>
+<th style="text-align:center">提换内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">%d</td>
+<td style="text-align:center">整数</td>
+</tr>
+<tr>
+<td style="text-align:center">%f</td>
+<td style="text-align:center">浮点数</td>
+</tr>
+<tr>
+<td style="text-align:center">%s</td>
+<td style="text-align:center">字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">%x</td>
+<td style="text-align:center">十六进制整数</td>
+</tr>
+<tr>
+<td style="text-align:center">%%</td>
+<td style="text-align:center">%</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><code>format()</code>函数同样可以格式化。例如’Hello, {0}, 成绩提升了 {1:.1f}%'.format(‘小明’, 17.125)</p>
+</li>
+<li>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">list</th>
+<th style="text-align:center">tuple（<em>推荐</em>）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">有序集合，可以随时增删元素，元素之间的类型可以不同，使用内存小</td>
+<td style="text-align:center">一旦初始化不能修改，但可以存放list元素，固定的是指向</td>
+</tr>
+<tr>
+<td style="text-align:center">[ ]</td>
+<td style="text-align:center">( )</td>
+</tr>
+<tr>
+<td style="text-align:center">追加元素append()</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">将元素插入到指定的位置insert(位置，元素)</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">删除末尾元素直接pop()，指定位置pop(位置)，用sort()函数进行排序</td>
+<td style="text-align:center">无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>可以使用负数直接访问容器中倒数的元素。</strong></p>
+<p><strong><code>len()</code>获取元素个数</strong>。</p>
+<p><strong>tuple只存放一个元素需在那一个元素之后加上一个逗号，消除歧义。</strong></p>
+</li>
+<li>
+<p>条件判断</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> &lt;条件判断<span class="number">1</span>&gt;:</span><br><span class="line">    &lt;执行<span class="number">1</span>&gt;</span><br><span class="line"><span class="keyword">elif</span> &lt;条件判断<span class="number">2</span>&gt;:</span><br><span class="line">    &lt;执行<span class="number">2</span>&gt;</span><br><span class="line"><span class="keyword">elif</span> &lt;条件判断<span class="number">3</span>&gt;:</span><br><span class="line">    &lt;执行<span class="number">3</span>&gt;</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    &lt;执行<span class="number">4</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>注意if和else后面的冒号，还可以使用elif进行判断。</strong></p>
 </li>
 <li>
 <p>循环有两种方式：<code>for...in</code>循环，类似java中的foreach，注意最后有一个冒号。或者使用while循环</p>
@@ -922,11 +955,9 @@
                         
                             树莓派安装OpenCV¶
 系统更新¶
-sudo apt update
-sudo apt upgrade
-sudo rpi-update
+123sudo apt updatesudo apt upgradesudo rpi-update
 安装一些OpenCV相关工具¶
-sudo apt install git cmake build-ess
+1sudo apt install git cmake build-e
                         
                     </div>
                     <div class="publish-info">
@@ -1232,7 +1263,7 @@ sudo apt install git cmake build-ess
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1241,7 +1272,7 @@ sudo apt install git cmake build-ess
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

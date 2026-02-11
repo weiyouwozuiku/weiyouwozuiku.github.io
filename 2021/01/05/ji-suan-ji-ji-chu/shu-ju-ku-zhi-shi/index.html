@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -649,9 +649,7 @@
 <p>插入空行会导致执行错误。</p>
 <p>使用<code>AS</code>为列设置别名，格式如下：<code>SELECT &lt;列名&gt; AS &lt;别名&gt;...</code>。<strong>别名可以使用中文，但是要用双引号包裹。</strong></p>
 <p>可以在<code>SELECT</code>语句中书写常量，如下所示。这些常量会显示在每条查询出的结果的前面。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token string">'商品'</span> <span class="token keyword">AS</span> string<span class="token punctuation">,</span> <span class="token number">38</span> <span class="token keyword">AS</span> number<span class="token punctuation">,</span> <span class="token string">'2009-02-24'</span> <span class="token keyword">AS</span> <span class="token keyword">date</span><span class="token punctuation">,</span>
-product_id<span class="token punctuation">,</span> product_name
-<span class="token keyword">FROM</span> Product<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="string">'商品'</span> <span class="keyword">AS</span> string, <span class="number">38</span> <span class="keyword">AS</span> number, <span class="string">'2009-02-24'</span> <span class="keyword">AS</span> <span class="type">date</span>,</span><br><span class="line">product_id, product_name</span><br><span class="line"><span class="keyword">FROM</span> Product;</span><br></pre></td></tr></tbody></table></figure>
 <p>在<code>SELECT</code>语句中删除重复行时，使用关键词<code>DISTINCT</code>。DISTINCT 关键字只能用在第一个列名之前。<code>SELECT DISTINCT &lt;列名&gt; FROM &lt;表名&gt;</code>。<code>NULL</code>也会被合并。</p>
 <p><code>SELECT</code>语句通过<code>WHERE</code>子句指定查询条件。WHERE子句要紧跟在FROM子句之后。</p>
 <p>单行注释<code>--</code>，<strong>Mysql需要在<code>--</code>之后加上一个半角空格</strong>。多行注释使用<code>/* */</code>。</p>
@@ -705,7 +703,7 @@ product_id<span class="token punctuation">,</span> product_name
 <p>去掉重复值的聚合函数，格式形如<code>SELECT COUNT (DISTINCT product_type) FROM Product</code>。</p>
 <p>DISTINCT关键字必须写在括号中。写在外面会优先执行聚合函数，然后才是DISTINCT。</p>
 <p>使用GROUP BY子句进行汇总：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">&gt;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>；<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>列名<span class="number">1</span><span class="operator">&gt;</span>,<span class="operator">&lt;</span>列名<span class="number">2</span><span class="operator">&gt;</span>,<span class="operator">&lt;</span>列名<span class="number">3</span><span class="operator">&gt;</span>,...<span class="keyword">FROM</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>列名<span class="number">1</span><span class="operator">&gt;</span>,<span class="operator">&lt;</span>列名<span class="number">2</span><span class="operator">&gt;</span>,<span class="operator">&lt;</span>列名<span class="number">3</span><span class="operator">&gt;</span>,...；</span><br></pre></td></tr></tbody></table></figure>
 <p>在GROUP BY子句中指定的列称为聚合键或分组列。</p>
 <p>GROUP BY子句必须写在FROM子句之后。如果有WHERE子句，需要卸载WHERE子句之后。</p>
 <p>聚合键中包含NULL时，在结果中会以“不确定”行（空行）的形式表现出来。</p>
@@ -722,17 +720,12 @@ product_id<span class="token punctuation">,</span> product_name
 <p>使用COUNT函数等对表中数据进行汇总操作时，为其指定条件的不是WHERE子句，而是HAVING子句。</p>
 <p>HAVING子句要写在GROUP BY子句之后。</p>
 <p><strong>WHERE子句用来指定数据行的条件， HAVING子句用来指定分组的条件。</strong></p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……
-<span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">&gt;</span>
-<span class="token keyword">GROUP</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……
-<span class="token keyword">HAVING</span> <span class="token operator">&lt;</span>分组结果对应的条件<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>列名<span class="number">1</span><span class="operator">&gt;</span>, <span class="operator">&lt;</span>列名<span class="number">2</span><span class="operator">&gt;</span>, <span class="operator">&lt;</span>列名<span class="number">3</span><span class="operator">&gt;</span>, ……</span><br><span class="line"><span class="keyword">FROM</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>列名<span class="number">1</span><span class="operator">&gt;</span>, <span class="operator">&lt;</span>列名<span class="number">2</span><span class="operator">&gt;</span>, <span class="operator">&lt;</span>列名<span class="number">3</span><span class="operator">&gt;</span>, ……</span><br><span class="line"><span class="keyword">HAVING</span> <span class="operator">&lt;</span>分组结果对应的条件<span class="operator">&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <p>HAVING 子句中能够使用的 3 种要素:<strong>常数、聚合函数、GROUP BY子句中指定的列名</strong>。</p>
 <p>在 WHERE 子句和 HAVING 子句中都可以使用的条件，最好写在 WHERE 子句中。WHERE在排序之前就删去了部分数据，且便于建立索引，执行速度也会更快。</p>
 <p>若查询没有指定顺序，则返回的结果往往是随机的。</p>
 <p>OREDER BY：</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">&lt;</span>列名<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>列名<span class="token number">3</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……
-<span class="token keyword">FROM</span> <span class="token operator">&lt;</span>表名<span class="token operator">&gt;</span>
-<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> <span class="token operator">&lt;</span>排序基准列<span class="token number">1</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>排序基准列<span class="token number">2</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> ……<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">&lt;</span>列名<span class="number">1</span><span class="operator">&gt;</span>, <span class="operator">&lt;</span>列名<span class="number">2</span><span class="operator">&gt;</span>, <span class="operator">&lt;</span>列名<span class="number">3</span><span class="operator">&gt;</span>, ……</span><br><span class="line"><span class="keyword">FROM</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="operator">&lt;</span>排序基准列<span class="number">1</span><span class="operator">&gt;</span>, <span class="operator">&lt;</span>排序基准列<span class="number">2</span><span class="operator">&gt;</span>, ……</span><br></pre></td></tr></tbody></table></figure>
 <p>不论何种情况， ORDER BY 子句都需要写在 SELECT 语句的末尾。这是因为对数据行进行排序的操作必须在结果即将返回时执行。</p>
 <p>OREDER BY默认是升序，也可以显式声明<code>ASC</code>，使用关键词<code>DESC</code>降序。</p>
 <p><code>OREDER BY</code>指定多个排序键时，优先使用左侧的键，相同情况下在参考右侧的键。</p>
@@ -1466,7 +1459,7 @@ product_id<span class="token punctuation">,</span> product_name
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1475,7 +1468,7 @@ product_id<span class="token punctuation">,</span> product_name
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

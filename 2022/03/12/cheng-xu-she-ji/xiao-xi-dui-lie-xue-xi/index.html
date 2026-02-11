@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -718,23 +718,7 @@
 <ul>
 <li>
 <p>生产阶段：代码调用发消息函数，MQ的客户端会把消息发送到Broker。Broker收到消息之后会给客服端返回一个确认相应，表示消息收到，这可以保证消息在生产阶段不会丢失。长时间没有响应会自动重试，再不行程序自行处理。因此，只需要<strong>正确处理返回值或异常，就可以保证这个阶段的信息不会丢失</strong>。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 同步发送</span>
-<span class="token keyword">try</span> <span class="token punctuation">{</span>
-    <span class="token class-name">RecordMetadata</span> metadata <span class="token operator">=</span> producer<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>record<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" 消息发送成功。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" 消息发送失败！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// 异步发送,需要注意异步发送要在回调中检查发送结果</span>
-producer<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>record<span class="token punctuation">,</span> <span class="token punctuation">(</span>metadata<span class="token punctuation">,</span> exception<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>metadata <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" 消息发送成功。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" 消息发送失败！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>exception<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 同步发送</span></span><br><span class="line"><span class="keyword">try</span> {</span><br><span class="line">    <span class="type">RecordMetadata</span> <span class="variable">metadata</span> <span class="operator">=</span> producer.send(record).get();</span><br><span class="line">    System.out.println(<span class="string">" 消息发送成功。"</span>);</span><br><span class="line">} <span class="keyword">catch</span> (Throwable e) {</span><br><span class="line">    System.out.println(<span class="string">" 消息发送失败！"</span>);</span><br><span class="line">    System.out.println(e);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 异步发送,需要注意异步发送要在回调中检查发送结果</span></span><br><span class="line">producer.send(record, (metadata, exception) -&gt; {</span><br><span class="line">    <span class="keyword">if</span> (metadata != <span class="literal">null</span>) {</span><br><span class="line">        System.out.println(<span class="string">" 消息发送成功。"</span>);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        System.out.println(<span class="string">" 消息发送失败！"</span>);</span><br><span class="line">        System.out.println(exception);</span><br><span class="line">    }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li>
 <p>存储阶段：消息在Broker存储，在集群上这个阶段会复制到其他副本上。<strong>需要配置Broker参数避免宕机造成的丢消息</strong>。</p>
@@ -745,16 +729,7 @@ producer<span class="token punctuation">.</span><span class="token function">sen
 </li>
 <li>
 <p>消费阶段：Consumer从Broker上拉取消息，发送到Consumer。消费阶段采用和生产阶段类似的确认机制来保证消息的可靠传递，客户端从 Broker 拉取消息后，执行用户的消费业务逻辑，成功后，才会给 Broker 发送消费确认响应。如果 Broker 没有收到消费确认响应，下次拉消息的时候还会返回同一条消息，确保消息不会在网络传输过程中丢失，也不会因为客户端在执行消费逻辑中出错导致丢失。<strong>不要在收到消息后就立即发送消费确认，而是应该在执行完所有消费业务逻辑之后，再发送消费确认</strong>。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 消费RabbitMQ消息</span>
-<span class="token keyword">def</span> <span class="token function">callback</span><span class="token punctuation">(</span>ch<span class="token punctuation">,</span> method<span class="token punctuation">,</span> properties<span class="token punctuation">,</span> body<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">" [x] 收到消息 %r"</span> <span class="token operator">%</span> body<span class="token punctuation">)</span>
-    <span class="token comment"># 在这儿处理收到的消息</span>
-    database<span class="token punctuation">.</span>save<span class="token punctuation">(</span>body<span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">" [x] 消费完成 "</span><span class="token punctuation">)</span>
-    <span class="token comment"># 完成消费业务逻辑后发送消费确认响应</span>
-    ch<span class="token punctuation">.</span>basic_ack<span class="token punctuation">(</span>delivery_tag <span class="token operator">=</span> method<span class="token punctuation">.</span>delivery_tag<span class="token punctuation">)</span>
- 
-channel<span class="token punctuation">.</span>basic_consume<span class="token punctuation">(</span>queue<span class="token operator">=</span><span class="token string">'hello'</span><span class="token punctuation">,</span> on_message_callback<span class="token operator">=</span>callback<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 消费RabbitMQ消息</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">callback</span>(<span class="params">ch, method, properties, body</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">" [x] 收到消息 %r"</span> % body)</span><br><span class="line">    <span class="comment"># 在这儿处理收到的消息</span></span><br><span class="line">    database.save(body)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">" [x] 消费完成 "</span>)</span><br><span class="line">    <span class="comment"># 完成消费业务逻辑后发送消费确认响应</span></span><br><span class="line">    ch.basic_ack(delivery_tag = method.delivery_tag)</span><br><span class="line"> </span><br><span class="line">channel.basic_consume(queue=<span class="string">'hello'</span>, on_message_callback=callback)</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
 <p><strong>注意如果确认信息在网络传输过程中丢失，则会进行重传，需要做好消息的幂等性处理</strong>。</p>
@@ -1433,7 +1408,7 @@ Consumer--&gt;d[...]</pre>
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1442,7 +1417,7 @@ Consumer--&gt;d[...]</pre>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

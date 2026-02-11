@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -545,9 +545,7 @@
 </li>
 <li>
 <p>函数定义</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> 函数名（参数列表）：
-	函数逻辑
-	<span class="token keyword">return</span> 返回值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">函数名</span>（参数列表）：</span><br><span class="line">	函数逻辑</span><br><span class="line">	<span class="keyword">return</span> 返回值</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li>
 <p>没有返回值的函数，其实也会返回结果，是None。返回return None可以简写为return。</p>
@@ -560,8 +558,7 @@
 </li>
 <li>
 <p>定义函数时可以进行数据类型检查，使用<code>isinstance()</code>实现。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>需校验参数<span class="token punctuation">,</span><span class="token punctuation">(</span>数据类型集合或单一数据类型<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">raise</span> TypeError<span class="token punctuation">(</span><span class="token string">'bad operand type'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(需校验参数,(数据类型集合或单一数据类型)):</span><br><span class="line">    <span class="keyword">raise</span> TypeError(<span class="string">'bad operand type'</span>)</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li>
 <p>函数return多个值，本质上是返回了一个tuple</p>
@@ -583,17 +580,12 @@
 </li>
 <li>
 <p>命名关键字参数，可以限制关键字参数中只接收需要的关键字参数。</p>
-<pre class="line-numbers language-Python" data-language="Python"><code class="language-Python">def 函数名(参数1,参数2,*,参数三,参数四)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">函数名</span>(<span class="params">参数<span class="number">1</span>,参数<span class="number">2</span>,*,参数三,参数四</span>)</span><br></pre></td></tr></tbody></table></figure>
 <p>上面那个例子的参数三、参数四就是命名关键字，传入时必须要传入参数名。可以有缺省值。</p>
 </li>
 <li>
 <p>通过尾递归来优化递归造成的栈溢出。尾递归是指，在函数返回的时候，调用自身本身，并且，<code>return</code>语句不能包含表达式。这样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。重点是把每一步计算的值传递到函数中去。如下所示：</p>
-  <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">fact</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-      <span class="token keyword">return</span> fact_iter<span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
-  <span class="token keyword">def</span> <span class="token function">fact_iter</span><span class="token punctuation">(</span>num<span class="token punctuation">,</span> product<span class="token punctuation">)</span><span class="token punctuation">:</span>
-      <span class="token keyword">if</span> num <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-          <span class="token keyword">return</span> product
-      <span class="token keyword">return</span> fact_iter<span class="token punctuation">(</span>num <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> num <span class="token operator">*</span> product<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fact</span>(<span class="params">n</span>):</span><br><span class="line">      <span class="keyword">return</span> fact_iter(n, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">fact_iter</span>(<span class="params">num, product</span>):</span><br><span class="line">      <span class="keyword">if</span> num == <span class="number">1</span>:</span><br><span class="line">          <span class="keyword">return</span> product</span><br><span class="line">      <span class="keyword">return</span> fact_iter(num - <span class="number">1</span>, num * product)</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ul>
 
@@ -1150,7 +1142,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1159,7 +1151,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

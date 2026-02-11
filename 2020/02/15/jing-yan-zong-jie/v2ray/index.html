@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -550,7 +550,7 @@
 <ol>
 <li>
 <p>获取安装脚本</p>
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -L-s https://install.direct/go.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L-s https://install.direct/go.sh</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li>
 <p>由于该脚本默认执行时，需要访问国外的服务器下载<code>v2ray-linux-64.zip</code>文件，可以提前下载下来，地址<code>https://github.com/v2ray/v2ray-core/releases/download/${NEW_VER}/v2ray-linux-${VDIS}.zip</code>。</p>
@@ -575,12 +575,11 @@
 </li>
 <li>
 <p>可以将以上命令写入<code>.zshrc</code>文件中</p>
- <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">setproxy</span><span class="token operator">=</span><span class="token string">'export http_proxy="socks5://127.0.0.1:1088"'</span>
-<span class="token builtin class-name">alias</span> <span class="token assign-left variable">ipaddr</span><span class="token operator">=</span><span class="token string">'curl www.cip.cc'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+ <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias setproxy='export http_proxy="socks5://127.0.0.1:1088"'</span><br><span class="line">alias ipaddr='curl www.cip.cc'</span><br></pre></td></tr></tbody></table></figure>
 </li>
 </ol>
 <h3 id="Linux桌面环境">Linux桌面环境<a class="anchor" href="#Linux桌面环境">¶</a></h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> pacman <span class="token parameter variable">-S</span> qv2ray v2ray v2ray-geoip v2ray-domain-list-community<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qv2ray v2ray v2ray-geoip v2ray-domain-list-community</span><br></pre></td></tr></tbody></table></figure>
 <p>使用qv2ray即可。</p>
 <h3 id="Windows">Windows<a class="anchor" href="#Windows">¶</a></h3>
 <p>去<code>https://github.com/2dust/v2rayN/releases</code>上下载最新的v2rayN程序。</p>
@@ -1159,7 +1158,7 @@ https://github.com/mzz2017/V2RayA。 这个项目的GUI是由网页提供的。�
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1168,7 +1167,7 @@ https://github.com/mzz2017/V2RayA。 这个项目的GUI是由网页提供的。�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

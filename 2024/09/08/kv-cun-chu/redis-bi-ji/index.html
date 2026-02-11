@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -490,21 +490,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-12-15
+                    2026-02-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    971
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    10 分
                 </div>
                 
 
@@ -538,14 +538,25 @@
 <blockquote>
 <p>string (字符串)、list (列表)、set (集合)、hash (哈希) 和 zset (有序集合)</p>
 </blockquote>
-<p>字符串最大512M</p>
+<p>字符串最大512M.字符串长度小于1M时,扩容加倍现有空间.超过1M,扩容时一次只多扩1M.</p>
 </blockquote>
 <h2 id="常见命令">常见命令<a class="anchor" href="#常见命令">¶</a></h2>
 <h3 id="string">string<a class="anchor" href="#string">¶</a></h3>
-<p>set\get\ setnx \setex
-自增范围是有符号long 的最值.超过报错.</p>
+<p>set\get\ setnx \setex exists del
+自增范围是有符号long 的最值.</p>
 <h3 id="list">list<a class="anchor" href="#list">¶</a></h3>
-<p><strong>是链表不是数组</strong>.</p>
+<p><strong>是链表不是数组</strong>.插入删除快,索引定位慢.
+当列表弹出了最后一个元素之后,队列内容为空,但是依然存在.
+异侧收发-&gt;队列,同侧收发-&gt;栈
+ltrim实现定长链表列元素较少时结构为<code>ziplist</code>,当数据量大时:<code>quicklist</code>.</p>
+<h3 id="hash">hash<a class="anchor" href="#hash">¶</a></h3>
+<p>渐进式rehash: 保留两个hash结构,同时查询两个结构,并循序渐进将旧hash迁移到新hash</p>
+<h3 id="set">set<a class="anchor" href="#set">¶</a></h3>
+<p>sadd\smembers\sismember\scard\spop</p>
+<h3 id="zset">zset<a class="anchor" href="#zset">¶</a></h3>
+<p>set+map value唯一,value对应的score排序
+zadd\zrange(按 score 排序列出，参数区间为排名范围)\zrerange(按 score 逆序列出，参数区间为排名范围)\zcard(相当于 count())\zscore(获取指定 value 的 score)\zrank(排名)\zrangebyscore(根据分值区间遍历 zset)\zrem
+内部通过<strong>跳表</strong>实现.</p>
 <h2 id="常见应用">常见应用<a class="anchor" href="#常见应用">¶</a></h2>
 <h3 id="分布式锁">分布式锁<a class="anchor" href="#分布式锁">¶</a></h3>
 <p><code>set key value ex 秒数 nx</code></p>
@@ -559,12 +570,7 @@
 <h4 id="超时问题">超时问题<a class="anchor" href="#超时问题">¶</a></h4>
 <p>不要用于较长时间的任务.</p>
 <p>set指令的时候value设置为一个随机值.释放锁的时候判断随机数是否一致,再删除key.为了保证这个一个原子操作,需要变成lua脚本:</p>
-<pre class="line-numbers language-lua" data-language="lua"><code class="language-lua"><span class="token operator">#</span> delifequals
-<span class="token keyword">if</span> redis<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">"get"</span><span class="token punctuation">,</span>KEYS<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">==</span>ARGV<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">then</span>
-    	<span class="token keyword">return</span> redis<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">"del"</span><span class="token punctuation">,</span>KEYS<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token keyword">else</span>
-    	<span class="token keyword">return</span> <span class="token number">0</span>
-    <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># delifequals</span><br><span class="line"><span class="keyword">if</span> redis.call(<span class="string">"get"</span>,KEYS[<span class="number">1</span>])==ARGV[<span class="number">1</span>] <span class="keyword">then</span></span><br><span class="line">    	<span class="keyword">return</span> redis.call(<span class="string">"del"</span>,KEYS[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    	<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="可重入">可重入<a class="anchor" href="#可重入">¶</a></h4>
 <p>对客户端的set进行重写,使用线程的Threadlocal变量存储当前持有锁的计数.</p>
 <p>如果没有当前锁的计数则赋值1.锁未释放再次加锁,计数+1.lock操作相反.但是更精确需要考虑内存锁计数的过期时间.不推荐使用.</p>
@@ -580,8 +586,7 @@
 <p><code>bitpos查找指定单位内出现的第一个0或1</code></p>
 <p>这两个命令的start/end是字节索引,<strong>必须是8的倍数</strong>.</p>
 <p>多位操作使用<code>bitfield</code>,形如:</p>
-<pre class="line-numbers language-Redis" data-language="Redis"><code class="language-Redis">bitfield w get u4 1 # 从第2位开始取4个位,第一位不当作符号位
-bitfield w get i3 2 # 从第3位开始取3个位,第一位当作符号位<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bitfield w get u4 1 # 从第2位开始取4个位,第一位不当作符号位</span><br><span class="line">bitfield w get i3 2 # 从第3位开始取3个位,第一位当作符号位</span><br></pre></td></tr></tbody></table></figure>
 <p>有符号数最多获取64位,无符号最多63位(受限于redis协议汇中integer是有符号数).</p>
 <p><code>bitfield</code>使用<code>incrby</code> 时,默认溢出策略是折返,可以使用<code>overflow</code>设置策略,<strong>但仅对之后的第一条指令生效</strong>.</p>
 <p>溢出策略:</p>
@@ -597,7 +602,115 @@ bitfield w get i3 2 # 从第3位开始取3个位,第一位当作符号位<span a
 <p>但计数较小时采用稀疏矩阵存储,超过阈值才会一次性转换为稠密矩阵.</p>
 <h2 id="布隆过滤器">布隆过滤器<a class="anchor" href="#布隆过滤器">¶</a></h2>
 <p>通过插件实现在redis.需要使用特定版本的redis.</p>
-<p><code>bf.add</code>和<code>bf.exists</code>.</p>
+<p><code>bf.add</code>和<code>bf.exists</code>,<code>bf.madd</code>,<code>bf.mexiets</code>.</p>
+<p>通过bf.reserve显式创建,三个参数:key,error_rate,initial_size.当实际数量超出数值时,误判率上升.默认error_rate:0.01,initial_size:100.</p>
+<p>位数组相对越长,错误率越低.
+位数组相对越长,hash函数需要的最佳数量也越多.</p>
+<h2 id="简单限流">简单限流<a class="anchor" href="#简单限流">¶</a></h2>
+<ol>
+<li><strong>记录行为（<strong><strong>ZADD</strong></strong>）：</strong> 首先，将当前行为的时间戳作为 <code>score</code> 和 <code>value</code> 加入到 ZSET 中。</li>
+</ol>
+<p>◦ <code>pipe.zadd(key, now_ts, now_ts)</code>。</p>
+<ol start="2">
+<li><strong>清理过期元素（<strong><strong>ZREMRANGEBYSCORE</strong></strong>）：</strong> 移除时间窗口之外的旧行为记录。</li>
+</ol>
+<p>◦ <code>pipe.zremrangebyscore(key, 0, now_ts - period * 1000)</code>。</p>
+<ol start="3">
+<li><strong>统计当前数量（<strong><strong>ZCARD</strong></strong>）：</strong> 获取当前时间窗口内（包括刚刚添加的元素）的行为数量。</li>
+</ol>
+<p>◦ <code>Response&lt;Long&gt; count = pipe.zcard(key)</code>。</p>
+<ol start="4">
+<li><strong>设置过期时间（<strong><strong>EXPIRE</strong></strong>）：</strong> 更新 ZSET 的过期时间，避免冷用户持续占用内存。</li>
+</ol>
+<p>◦ <code>pipe.expire(key, period + 1)</code>。</p>
+<ol start="5">
+<li><strong>执行并检查：</strong> 批量执行以上所有命令，然后将统计到的 <code>current_count</code> 与限制值 <code>max_count</code> 进行比较。</li>
+</ol>
+<p>◦ <code>return count.get() &lt;= maxCount</code>。这里通过pipeline来保证了操作的原子性和io操作,牺牲了精确性.
+有两个副作用:</p>
+<ul>
+<li>占用空间大:该方案需要记录时间窗口内所有的行为记录。如果限流的次数（<code>max_count</code>）和时间窗口（<code>period</code>）都很长，ZSET 可能会变得非常庞大，消耗大量存储空</li>
+<li>如果统计数量（<code>current_count</code>）超过限制（<code>max_count</code>），虽然返回“不能执行”，但由于 <code>ZADD</code> 已经先被执行了，这个被拒绝的请求仍然占据了 ZSET 的容量，从而导致在时间窗口内，<strong>实际被允许执行的操作次数可能小于设定的</strong> <strong>max_count</strong></li>
+</ul>
+<h2 id="漏斗限流">漏斗限流<a class="anchor" href="#漏斗限流">¶</a></h2>
+<p>内存实现的 <code>Funnel</code> 类，其核心在于状态变量和 <code>make_space</code> 方法。</p>
+<p>状态变量 (Funnel Class Attributes)</p>
+<p>每个限流对象（例如针对某个用户或某个行为）都对应一个 <code>Funnel</code> 实例，维护以下四个状态变量：</p>
+<p>• <code>capacity</code>：<strong>漏斗的固定容量</strong>。</p>
+<p>• <code>leakingRate</code>：<strong>漏嘴的流水速率</strong>（配额/秒），用于计算单位时间流出的量。</p>
+<p>• <code>left_quota</code>：<strong>漏斗当前剩余的空间</strong>（初始值等于 <code>capacity</code>）。</p>
+<p>• <code>leakingTs</code>：<strong>上一次漏水（即状态更新）的时间戳</strong>。</p>
+<p>核心方法：<code>make_space()</code>（腾出空间）</p>
+<p><code>make_space()</code> 方法是漏斗算法的核心，它在每次尝试处理新请求（灌水）之前被调用，以确保漏斗的状态是最新的：</p>
+<ol>
+<li>
+<p><strong>计算时间差：</strong> 获取当前时间 <code>now_ts</code>，并计算自上次漏水时间 <code>leaking_ts</code> 以来过去的时间 <code>delta_ts</code>。</p>
+</li>
+<li>
+<p><strong>计算腾出配额：</strong> 根据时间差和流失速率计算出可以腾出的空间：<code>delta_quota = delta_ts * leaking_rate</code>。</p>
+</li>
+<li>
+<p><strong>更新剩余空间：</strong> 将计算出的 <code>delta_quota</code> 加到 <code>left_quota</code> 上，并更新 <code>leaking_ts</code> 为当前时间。</p>
+</li>
+<li>
+<p><strong>容量限制：</strong> 如果更新后的 <code>left_quota</code> 超过了 <code>capacity</code>，则必须将其限制为 <code>capacity</code>，因为漏斗不能装超过其容量的水。</p>
+</li>
+<li>
+<p><strong>最小单位限制：</strong> 如果计算出的 <code>delta_quota</code> 小于 1（即腾出的空间太小），则不进行状态更新，避免不必要的浮点运算。</p>
+</li>
+</ol>
+<p>核心方法：<code>watering(quota)</code>（灌水，即处理请求）</p>
+<p><code>watering(quota)</code> 方法用于处理实际的请求配额（通常为 1）：</p>
+<ol>
+<li>
+<p><strong>先腾空间：</strong> 首先调用 <code>make_space()</code> 来更新漏斗的最新状态。</p>
+</li>
+<li>
+<p><strong>判断是否足够：</strong> 检查当前的 <code>left_quota</code> 是否大于或等于请求所需的 <code>quota</code>。</p>
+</li>
+<li>
+<p><strong>允许/拒绝：</strong> 如果空间足够，则减少 <code>left_quota</code> 并返回 <code>True</code>（允许执行）；如果空间不足，则返回 <code>False</code>（拒绝执行）。</p>
+</li>
+</ol>
+<p>在单机实现中，所有的漏斗对象（<code>Funnel</code> 实例）都存储在一个内存字典或哈希表（<code>funnels</code>）中，通过 <code>(user_id, action_key)</code> 组成的键来获取或创建相应的漏斗实例。</p>
+<h3 id="分布式漏斗算法的挑战与-Redis-Cell-解决方案">分布式漏斗算法的挑战与 Redis-Cell 解决方案<a class="anchor" href="#分布式漏斗算法的挑战与-Redis-Cell-解决方案">¶</a></h3>
+<p>虽然单机漏斗算法逻辑清晰且高效，但在分布式环境下，若要使用 Redis 的基本数据结构（如 Hash）实现漏斗限流，会面临原子性问题：</p>
+<ol>
+<li>
+<p><strong>非原子操作序列：</strong> 必须先从 Redis Hash 中取出漏斗状态（容量、剩余配额、上次时间戳），然后在客户端内存中执行 <code>make_space</code> 和 <code>watering</code> 的计算逻辑，最后再将新的状态写回 Redis。</p>
+</li>
+<li>
+<p><strong>并发问题：</strong> 在高并发环境中，多个客户端同时执行这个“取值-计算-回填”的三步操作，可能导致竞态条件，数据不一致。</p>
+</li>
+<li>
+<p><strong>加锁的代价：</strong> 解决原子性问题通常需要引入分布式锁，但这会使代码复杂度升高，并因加锁和重试机制导致性能显著下降。</p>
+</li>
+</ol>
+<p>Redis-Cell 模块提供的原子化解决方案</p>
+<p>为了解决上述问题，Redis 4.0 引入了 <strong>Redis-Cell 模块</strong>，该模块实现了<strong>原子化的漏斗限流指令</strong>，从而避免了客户端加锁和非原子操作序列。</p>
+<p>该模块提供的指令是 <code>cl.throttle</code>，它将漏斗算法的计算逻辑全部迁移到了 Redis 服务器端，保证了操作的原子性。</p>
+<p><strong>cl.throttle</strong> <strong>指令格式：</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cl.throttle key capacity max_rate period</span><br></pre></td></tr></tbody></table></figure>
+<p>该指令允许用户设置漏斗容量 (<code>capacity</code>)，以及在指定时间 (<code>period</code>) 内最多允许通过的次数 (<code>max_rate</code>)，用两个参数来表达漏水速率，比使用单个浮点数更直观。</p>
+<p><strong>cl.throttle</strong> <strong>返回值：</strong> 该指令执行后会原子性地更新漏斗状态，并返回一个包含 5 个整数的数组，这些信息对客户端处理限流结果至关重要：</p>
+<ol>
+<li>
+<p><strong>(integer) 0 或 1：</strong> <strong>限流结果</strong>。0 表示允许该请求通过，1 表示请求被拒绝。</p>
+</li>
+<li>
+<p><strong>(integer) 漏斗容量：</strong> 当前漏斗的最大容量 (<code>capacity</code>)。</p>
+</li>
+<li>
+<p><strong>(integer) 漏斗剩余空间：</strong> 当前漏斗中剩余的配额 (<code>left_quota</code>)。</p>
+</li>
+<li>
+<p><strong>(integer) 重试时间（Retry After）：</strong> 如果请求被拒绝，客户端需要等待多长时间（单位：秒）后可以重试。</p>
+</li>
+<li>
+<p><strong>(integer) 完全清空时间：</strong> 漏斗完全清空（剩余空间达到容量）所需的时间（单位：秒）。</p>
+</li>
+</ol>
+<p>通过利用 <code>cl.throttle</code> 返回的第四个值（重试时间），客户端可以精确地进行 <code>sleep</code> 或安排异步任务重试，极大地简化了分布式限流的逻辑和复杂性。</p>
 <h2 id="Tips">Tips<a class="anchor" href="#Tips">¶</a></h2>
 <p>Redis所有的数据结构都可以设置过期时间.到时Redis会自动删除对应对象.如果一个字符串设置了过期时间,调用set修改时,过期时间会消失.</p>
 
@@ -1154,7 +1267,7 @@ bitfield w get i3 2 # 从第3位开始取3个位,第一位当作符号位<span a
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1163,7 +1276,7 @@ bitfield w get i3 2 # 从第3位开始取3个位,第一位当作符号位<span a
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             

@@ -40,7 +40,7 @@
 
     <script src="https://cdn.jsdelivr.net/gh/weiyouwozuiku/weiyouwozuiku.github.io@master/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 8.1.1">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="不二博客" type="application/atom+xml">
 </head>
@@ -565,14 +565,7 @@
 <li>cpu列表</li>
 <li>虚拟机调度策略（主机上的）</li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">Host</span><span class="token punctuation">(</span>
-    hostId<span class="token punctuation">,</span>
-    <span class="token keyword">new</span> <span class="token class-name">RamProvisionerSimple</span><span class="token punctuation">(</span>ram<span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token keyword">new</span> <span class="token class-name">BwProvisionerSimple</span><span class="token punctuation">(</span>bw<span class="token punctuation">)</span><span class="token punctuation">,</span>
-    storage<span class="token punctuation">,</span>
-    peList<span class="token punctuation">,</span>
-    <span class="token keyword">new</span> <span class="token class-name">VmSchedulerTimeShared</span><span class="token punctuation">(</span>peList<span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Host</span>(</span><br><span class="line">    hostId,</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">RamProvisionerSimple</span>(ram),</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">BwProvisionerSimple</span>(bw),</span><br><span class="line">    storage,</span><br><span class="line">    peList,</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">VmSchedulerTimeShared</span>(peList)</span><br><span class="line">);</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h2 id="数据中心的创建">数据中心的创建<a class="anchor" href="#数据中心的创建">¶</a></h2>
 <p>首先创建数据中心特性：需要的参数 @parameter :</p>
@@ -586,9 +579,7 @@
 <li>外存的使用费用</li>
 <li>带宽的使用费用</li>
 </ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">DatacenterCharacteristics</span><span class="token punctuation">(</span>
-         arch<span class="token punctuation">,</span> os<span class="token punctuation">,</span> vmm<span class="token punctuation">,</span> hostList<span class="token punctuation">,</span> time_zone<span class="token punctuation">,</span> cost<span class="token punctuation">,</span> costPerMem<span class="token punctuation">,</span>costPerStorage<span class="token punctuation">,</span> costPerBw
-         <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">DatacenterCharacteristics</span>(</span><br><span class="line">         arch, os, vmm, hostList, time_zone, cost, costPerMem,costPerStorage, costPerBw</span><br><span class="line">         );</span><br></pre></td></tr></tbody></table></figure>
 <p>创建数据中心：</p>
 <ol>
 <li>数据中心的名字</li>
@@ -596,7 +587,7 @@
 <li>虚拟机的创建策略</li>
 <li>存储设备列表</li>
 </ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">Datacenter</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> characteristics<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">VmAllocationPolicySimple</span><span class="token punctuation">(</span>hostList<span class="token punctuation">)</span><span class="token punctuation">,</span> storageList<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Datacenter</span>(name, characteristics, <span class="keyword">new</span> <span class="title class_">VmAllocationPolicySimple</span>(hostList), storageList, <span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h2 id="虚拟机的创建">虚拟机的创建<a class="anchor" href="#虚拟机的创建">¶</a></h2>
 <p>需要的参数 @parameter:</p>
@@ -611,7 +602,7 @@
 <li>虚拟机监视器类型</li>
 <li>应用调度策略（虚拟机上的）</li>
 </ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">Vm</span><span class="token punctuation">(</span>vmid<span class="token punctuation">,</span> brokerId<span class="token punctuation">,</span> mips<span class="token punctuation">,</span> pesNumber<span class="token punctuation">,</span> ram<span class="token punctuation">,</span> bw<span class="token punctuation">,</span> size<span class="token punctuation">,</span> vmm<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">CloudletSchedulerTimeShared</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Vm</span>(vmid, brokerId, mips, pesNumber, ram, bw, size, vmm, <span class="keyword">new</span> <span class="title class_">CloudletSchedulerTimeShared</span>());</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h2 id="应用的创建">应用的创建<a class="anchor" href="#应用的创建">¶</a></h2>
 <p>需要的参数 @parameter ：</p>
@@ -625,7 +616,7 @@
 <li>ram的使用模型/策略</li>
 <li>网络带宽的使用模型/策略</li>
 </ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">Cloudlet</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> length<span class="token punctuation">,</span> pesNumber<span class="token punctuation">,</span> fileSize<span class="token punctuation">,</span> outputSize<span class="token punctuation">,</span> utilizationModel<span class="token punctuation">,</span> utilizationModel<span class="token punctuation">,</span> utilizationModel<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Cloudlet</span>(id, length, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel);</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h2 id="用户的创建">用户的创建<a class="anchor" href="#用户的创建">¶</a></h2>
 <p>一般情况下，Broker的创建需要自定义以适应不同的用户策略.</p>
@@ -639,54 +630,7 @@
 <li>提交虚拟机列表和云任务列表;</li>
 <li>重启Cloudsim仿真;</li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// A thread that will create a new broker at 200 clock time</span>
-			<span class="token class-name">Runnable</span> monitor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Runnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                 <span class="token comment">//TODO 仿真暂停的代码</span>
-        <span class="token comment">//动态创建数据中心代理代码</span>
-        <span class="token comment">//以下代码为一个样例</span>
-        <span class="token comment">//仿真暂停到第200个时钟时间</span>
-				<span class="token annotation punctuation">@Override</span>
-				<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-					<span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">printLine</span><span class="token punctuation">(</span><span class="token class-name">CloudSim</span><span class="token punctuation">.</span><span class="token function">clock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token comment">//在CLoudsim中的clock到200时暂停Cloudsim</span>
-					<span class="token class-name">CloudSim</span><span class="token punctuation">.</span><span class="token function">pauseSimulation</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-					<span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">printLine</span><span class="token punctuation">(</span><span class="token class-name">CloudSim</span><span class="token punctuation">.</span><span class="token function">clock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-					<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-						<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">CloudSim</span><span class="token punctuation">.</span><span class="token function">isPaused</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-							<span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">printLine</span><span class="token punctuation">(</span><span class="token class-name">CloudSim</span><span class="token punctuation">.</span><span class="token function">clock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-							<span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">printLine</span><span class="token punctuation">(</span><span class="token string">"Cloudsim暂停中"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-							<span class="token keyword">break</span><span class="token punctuation">;</span>
-						<span class="token punctuation">}</span>
-						<span class="token keyword">try</span> <span class="token punctuation">{</span>
-							<span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">printLine</span><span class="token punctuation">(</span><span class="token string">"线程睡眠100ms"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-							<span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">printLine</span><span class="token punctuation">(</span><span class="token class-name">CloudSim</span><span class="token punctuation">.</span><span class="token function">clock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-							<span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-						<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-							e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-						<span class="token punctuation">}</span>
-					<span class="token punctuation">}</span>
-
-					<span class="token class-name">Log</span><span class="token punctuation">.</span><span class="token function">printLine</span><span class="token punctuation">(</span><span class="token string">"\n\n\n"</span> <span class="token operator">+</span> <span class="token class-name">CloudSim</span><span class="token punctuation">.</span><span class="token function">clock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">": The simulation is paused for 5 sec \n\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token comment">//主程序暂停运行5秒</span>
-					<span class="token keyword">try</span> <span class="token punctuation">{</span>
-						<span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-					<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-						e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-					<span class="token punctuation">}</span>
-
-					<span class="token class-name">DatacenterBroker</span> broker <span class="token operator">=</span> <span class="token function">createBroker</span><span class="token punctuation">(</span><span class="token string">"Broker_1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-					<span class="token keyword">int</span> brokerId <span class="token operator">=</span> broker<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-					<span class="token comment">//Create VMs and Cloudlets and send them to broker</span>
-					vmlist <span class="token operator">=</span> <span class="token function">createVM</span><span class="token punctuation">(</span>brokerId<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//creating 5 vms</span>
-					cloudletList <span class="token operator">=</span> <span class="token function">createCloudlet</span><span class="token punctuation">(</span>brokerId<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// creating 10 cloudlets</span>
-
-					broker<span class="token punctuation">.</span><span class="token function">submitVmList</span><span class="token punctuation">(</span>vmlist<span class="token punctuation">)</span><span class="token punctuation">;</span>
-					broker<span class="token punctuation">.</span><span class="token function">submitCloudletList</span><span class="token punctuation">(</span>cloudletList<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-					<span class="token class-name">CloudSim</span><span class="token punctuation">.</span><span class="token function">resumeSimulation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-				<span class="token punctuation">}</span>
-			<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A thread that will create a new broker at 200 clock time</span></span><br><span class="line">			<span class="type">Runnable</span> <span class="variable">monitor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Runnable</span>() {</span><br><span class="line">                 <span class="comment">//TODO 仿真暂停的代码</span></span><br><span class="line">        <span class="comment">//动态创建数据中心代理代码</span></span><br><span class="line">        <span class="comment">//以下代码为一个样例</span></span><br><span class="line">        <span class="comment">//仿真暂停到第200个时钟时间</span></span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> {</span><br><span class="line">					Log.printLine(CloudSim.clock());</span><br><span class="line">                    <span class="comment">//在CLoudsim中的clock到200时暂停Cloudsim</span></span><br><span class="line">					CloudSim.pauseSimulation(<span class="number">200</span>);</span><br><span class="line">					Log.printLine(CloudSim.clock());</span><br><span class="line">					<span class="keyword">while</span> (<span class="literal">true</span>) {</span><br><span class="line">						<span class="keyword">if</span> (CloudSim.isPaused()) {</span><br><span class="line">							Log.printLine(CloudSim.clock());</span><br><span class="line">							Log.printLine(<span class="string">"Cloudsim暂停中"</span>);</span><br><span class="line">							<span class="keyword">break</span>;</span><br><span class="line">						}</span><br><span class="line">						<span class="keyword">try</span> {</span><br><span class="line">							Log.printLine(<span class="string">"线程睡眠100ms"</span>);</span><br><span class="line">							Log.printLine(CloudSim.clock());</span><br><span class="line">							Thread.sleep(<span class="number">100</span>);</span><br><span class="line">						} <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">							e.printStackTrace();</span><br><span class="line">						}</span><br><span class="line">					}</span><br><span class="line"></span><br><span class="line">					Log.printLine(<span class="string">"\n\n\n"</span> + CloudSim.clock() + <span class="string">": The simulation is paused for 5 sec \n\n"</span>);</span><br><span class="line">                    <span class="comment">//主程序暂停运行5秒</span></span><br><span class="line">					<span class="keyword">try</span> {</span><br><span class="line">						Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">					} <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">						e.printStackTrace();</span><br><span class="line">					}</span><br><span class="line"></span><br><span class="line">					<span class="type">DatacenterBroker</span> <span class="variable">broker</span> <span class="operator">=</span> createBroker(<span class="string">"Broker_1"</span>);</span><br><span class="line">					<span class="type">int</span> <span class="variable">brokerId</span> <span class="operator">=</span> broker.getId();</span><br><span class="line"></span><br><span class="line">					<span class="comment">//Create VMs and Cloudlets and send them to broker</span></span><br><span class="line">					vmlist = createVM(brokerId, <span class="number">5</span>, <span class="number">100</span>); <span class="comment">//creating 5 vms</span></span><br><span class="line">					cloudletList = createCloudlet(brokerId, <span class="number">10</span>, <span class="number">100</span>); <span class="comment">// creating 10 cloudlets</span></span><br><span class="line"></span><br><span class="line">					broker.submitVmList(vmlist);</span><br><span class="line">					broker.submitCloudletList(cloudletList);</span><br><span class="line"></span><br><span class="line">					CloudSim.resumeSimulation();</span><br><span class="line">				}</span><br><span class="line">			};</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="改写仿真事件">改写仿真事件<a class="anchor" href="#改写仿真事件">¶</a></h2>
 <h4 id="processEvent">processEvent<a class="anchor" href="#processEvent">¶</a></h4>
 <ul>
@@ -708,18 +652,7 @@
 <li>边带宽等信息</li>
 </ul>
 <p>调用<code>org.cloudbus.cloudsim.NetworkTopology</code>构建网络拓扑图,然后把Cloudsim实体与拓扑图的节点进行映射.生成延迟矩阵(利用FloydWarshall计算的最短路径之后得出的)和带宽矩阵.</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//Sixth step: configure network</span>
-			<span class="token comment">//load the network topology file</span>
-			<span class="token class-name">NetworkTopology</span><span class="token punctuation">.</span><span class="token function">buildNetworkTopology</span><span class="token punctuation">(</span><span class="token string">"modules/cloudsim-examples/src/main/java/org/cloudbus/cloudsim/examples/network/topology.brite"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-			<span class="token comment">//maps CloudSim entities to BRITE entities</span>
-			<span class="token comment">//PowerDatacenter will correspond to BRITE node 0</span>
-			<span class="token keyword">int</span> briteNode<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-			<span class="token class-name">NetworkTopology</span><span class="token punctuation">.</span><span class="token function">mapNode</span><span class="token punctuation">(</span>datacenter0<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>briteNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-			<span class="token comment">//Broker will correspond to BRITE node 3</span>
-			briteNode<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
-			<span class="token class-name">NetworkTopology</span><span class="token punctuation">.</span><span class="token function">mapNode</span><span class="token punctuation">(</span>broker<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>briteNode<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Sixth step: configure network</span></span><br><span class="line">			<span class="comment">//load the network topology file</span></span><br><span class="line">			NetworkTopology.buildNetworkTopology(<span class="string">"modules/cloudsim-examples/src/main/java/org/cloudbus/cloudsim/examples/network/topology.brite"</span>);</span><br><span class="line"></span><br><span class="line">			<span class="comment">//maps CloudSim entities to BRITE entities</span></span><br><span class="line">			<span class="comment">//PowerDatacenter will correspond to BRITE node 0</span></span><br><span class="line">			<span class="type">int</span> briteNode=<span class="number">0</span>;</span><br><span class="line">			NetworkTopology.mapNode(datacenter0.getId(),briteNode);</span><br><span class="line"></span><br><span class="line">			<span class="comment">//Broker will correspond to BRITE node 3</span></span><br><span class="line">			briteNode=<span class="number">3</span>;</span><br><span class="line">			NetworkTopology.mapNode(broker.getId(),briteNode);</span><br></pre></td></tr></tbody></table></figure>
 <p>在brite文件中,程序寻找标记<code>Nodes</code>和<code>Edges</code>.从其下一行开始执行.</p>
 <p>Node的格式(列)为:NodeID,xpos,ypos,indegree,outdegree,ASid(AS应用服务器,如果分层,节点属于的ASid),type(router/AS)</p>
 <p>Edge的格式(列)为:边序号,始节点序号,终节点序号,边长度,边时延,边带宽.</p>
@@ -1280,7 +1213,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2018-2025</span>
+                <span id="year">2018-2026</span>
             
             <span id="year">2018</span>
             <a href="/about" target="_blank">不二</a>
@@ -1289,7 +1222,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">281.5k</span>&nbsp;字
+                class="white-color">284.3k</span>&nbsp;字
             
             
             
