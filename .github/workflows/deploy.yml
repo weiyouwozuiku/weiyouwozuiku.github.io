@@ -12,7 +12,7 @@ env:
   GIT_EMAIL: 19681022+weiyouwozuiku@users.noreply.github.com 
   DEPLOY_REPO: weiyouwozuiku/weiyouwozuiku.github.io
   DEPLOY_BRANCH: master
-  NODE_VERSION: 17
+  NODE_VERSION: 25
 
 jobs:
   Hexo-Generate-And-Deploy:
